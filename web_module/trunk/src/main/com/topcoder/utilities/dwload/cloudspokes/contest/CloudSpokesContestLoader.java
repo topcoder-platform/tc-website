@@ -257,7 +257,7 @@ public class CloudSpokesContestLoader extends TCLoad {
      *
      * @since 1.1
      */
-    private static final String CS_PRIZE_ID_COLUMN_HEADER = "id";
+    private static final String CS_PRIZE_ID_COLUMN_HEADER = "Id";
 	
 	
 
@@ -1609,10 +1609,7 @@ public class CloudSpokesContestLoader extends TCLoad {
      * @since 1.1
      */
     private String parseProjectInfoValue(Row row, String name) { 
-        if (!columnIndexByName.containsKey(name) ||
-            row.getCell(columnIndexByName.get(name)) == null) {
-            return null;
-        }
+
         String value = getStringCellValue(row.getCell(columnIndexByName.get(name)));
         if (isStringNullEmpty(value)) {
             value = null;
@@ -1755,11 +1752,6 @@ public class CloudSpokesContestLoader extends TCLoad {
         if (challengeSFDCId == null) {
             errors.append("; CS prize is not specified");
         }
-        
-        if (challengeSFDCId != null && challengeSFDCId.equals("a0BU0000004fcbfMAA")) {
-            challengeSFDCId = "a0GU0000004xbItMAI";
-        }
-        
         // Project info.
         Map<Long, String> projectInfoValues = getProjectInfoValues(
                 row, compName, csProjectId, community, reviewEndDate);
@@ -1958,9 +1950,8 @@ public class CloudSpokesContestLoader extends TCLoad {
         if (outcomeInfoJson != null) {
             // Insert reviewers.
             Map<String, Long> reviewerResourceIdByCSUserId =
-                    insertReviewers(projectId, outcomeInfoJson, startDate, createUserId, modifyUserId, createDate);
-System.out.println("---------------------------"+reviewerResourceIdByCSUserId.size());
-System.out.println("---------------------------"+reviewerResourceIdByCSUserId.get(String.valueOf(defaultUserId)));
+                    insertReviewers(projectId, outcomeInfoJson, startDate, createUserId, modifyUserId, createDate, reviewPhaseId);
+
             // Insert prizes.
             Map<Integer, Long> prizeMap = insertPrizes(projectId, challengeCode,
                     createUserId, modifyUserId, createDate);
@@ -2040,10 +2031,12 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 int place = outcomeJson.getInt("place");
                 long submissionId = insertSubmission(uploadId, score, place,
                         prizeMap.get(place), createUserId, modifyUserId, createDate);
-                // Insert project result.
-                insertProjectResult(projectId, resourceId, score, place, createDate);
-                // Insert winner / runner up.
+				// Insert winner / runner up.
                 long tcUserId = searchCSUserTCId(csUserId);
+				
+                // Insert project result.
+                insertProjectResult(projectId, tcUserId, score, place, createDate);
+                
                 if (place == 1) {
                     // Winner External Reference ID.
                     insertProjectInfo(projectId, 23L, "" + tcUserId,
@@ -2124,7 +2117,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
         Map<String, Long> registrantResourceIdByCSUserId = new HashMap<String, Long>();
         for (Map.Entry<String, Long> kvp : registrantTCUserIdByCSUserId.entrySet()) {
             registrantResourceIdByCSUserId.put(kvp.getKey(), insertResource(projectId,
-                    SUBMITTER_RESOURCE_ROLE_ID, kvp.getValue(), startDate, createUserId, modifyUserId, createDate));
+                    SUBMITTER_RESOURCE_ROLE_ID, kvp.getValue(), startDate, createUserId, modifyUserId, createDate, 0));
         }
         return registrantResourceIdByCSUserId;
     }
@@ -2147,7 +2140,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
      * @since 1.1
      */
     private Map<String, Long> insertReviewers(long projectId, JSONObject outcomeInfoJson, Timestamp startDate,
-            long createUserId, long modifyUserId, Timestamp createDate) throws Exception {
+            long createUserId, long modifyUserId, Timestamp createDate, long reviewPhaseId) throws Exception {
         // Extract reviewer records from JSON.
         
         JSONArray outcomesArray = outcomeInfoJson.getJSONArray(CS_API_RESPONSE_ROOT_FIELD);
@@ -2184,13 +2177,13 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
         Map<String, Long> resourceIdByCSUserId = new HashMap<String, Long>();
         for (Map.Entry<String, Long> kvp : reviewerTCUserIdByCSUserId.entrySet()) {
             resourceIdByCSUserId.put(kvp.getKey(), insertResource(projectId, REVIEWER_RESOURCE_ROLE_ID,
-                    kvp.getValue(), startDate, createUserId, modifyUserId, createDate));
+                    kvp.getValue(), startDate, createUserId, modifyUserId, createDate, reviewPhaseId));
         }
 		
 		if (reviewerTCUserIdByCSUserId.size() ==0) 
 		{   System.out.println("---insert default resource-----------");
 			resourceIdByCSUserId.put(String.valueOf(defaultUserId), insertResource(projectId, REVIEWER_RESOURCE_ROLE_ID,
-                    defaultUserId, startDate, createUserId, modifyUserId, createDate));
+                    defaultUserId, startDate, createUserId, modifyUserId, createDate, reviewPhaseId));
 		}	
         return resourceIdByCSUserId;
     }
@@ -2275,7 +2268,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
         // Insert managers.
         if (managerUserId != null) {
             insertResource(projectId, MANAGER_RESOURCE_ROLE_ID, managerUserId, startDate,
-                    createUserId, modifyUserId, createDate);
+                    createUserId, modifyUserId, createDate, 0);
             assignedUserIds.add(managerUserId);
         }
 
@@ -2283,7 +2276,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
         for (Long userId : observerUserIds) {
             if (userId != null && !assignedUserIds.contains(userId)) {
                 insertResource(projectId, OBSERVER_RESOURCE_ROLE_ID, userId, startDate,
-                        createUserId, modifyUserId, createDate);
+                        createUserId, modifyUserId, createDate, 0);
                 assignedUserIds.add(userId);
             }
         }
@@ -2972,7 +2965,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
      * @since 1.1
      */
     private long insertResource(long projectId, long roleId, long userId, Timestamp startDate,
-            long createUserId, long modifyUserId, Timestamp createDate) throws IDGenerationException, SQLException {
+            long createUserId, long modifyUserId, Timestamp createDate, long phaseTypeId) throws IDGenerationException, SQLException {
         // Generate ID (primary key).
         long resourceId;
         try {
@@ -2987,14 +2980,19 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
         try {
             if (insertResourceStmt == null) {
                 insertResourceStmt = conn.prepareStatement(
-                    "INSERT INTO resource (resource_id,resource_role_id,project_id,"
+                    "INSERT INTO resource (resource_id,resource_role_id,project_id, project_phase_id, "
                     + "create_user,modify_user,create_date,modify_date) "
-                    + "VALUES (?,?,?,?,?,?,current);");
+                    + "VALUES (?,?,?,?,?,?,?,current);");
             }
             int index = 1;
             insertResourceStmt.setLong(index++, resourceId);
             insertResourceStmt.setLong(index++, roleId);
             insertResourceStmt.setLong(index++, projectId);
+			if (phaseTypeId == 0) {
+				insertResourceStmt.setNull(index++, Types.INTEGER);
+			} else {
+				insertResourceStmt.setLong(index++, phaseTypeId);
+			}
             insertResourceStmt.setLong(index++, createUserId);
             insertResourceStmt.setLong(index++, modifyUserId);
             insertResourceStmt.setTimestamp(index++, createDate);
@@ -3273,7 +3271,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertProjectPlatformStmt = conn.prepareStatement(
                     "INSERT INTO project_platform (project_id,create_user,"
                     + "modify_user,create_date,modify_date,project_platform_id)"
-                    + "VALUES (?,?,?,?,?,current);");
+                    + "VALUES (?,?,?,?,current,?);");
             }
         } catch (SQLException e) {
             LOG.error("Error preparing statement for populating project_platform table.", e);
@@ -3605,15 +3603,6 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
             boolean empty = true;
             while (cellIterator.hasNext()) {
                 Cell cell = cellIterator.next();
-                Date dateValue = null;
-                try {
-                    dateValue = cell.getDateCellValue();
-                } catch (Exception e) {
-                }
-                cell.setCellType(Cell.CELL_TYPE_STRING);
-                if (dateValue != null) {
-                    cell.setCellValue(simpleFormat.format(dateValue));
-                }
                 cell.setCellType(Cell.CELL_TYPE_STRING);
                 String value = getStringCellValue(cell);
                 if (!isStringNullEmpty(value)) {
