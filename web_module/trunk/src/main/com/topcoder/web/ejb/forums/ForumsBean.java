@@ -2159,7 +2159,7 @@ public class ForumsBean extends BaseEJB {
                 close(checkProjectInfoExist);
                 close(updateProjectInfo);
                 close(insertProjectInfo);
-                close(insertProjectInfo);
+                //close(insertProjectInfo);
                 close(rs2);
                 close(checkCompVerJiveCategoryExist);
                 close(updateCompVerJiveCategory);
