@@ -1,0 +1,92 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+        "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="userDTO.firstName">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Please fill your first name</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="maxLength">64</param>
+            <param name="trim">true</param>
+            <message>the max length of the first name is ${maxLength}</message>
+        </field-validator>
+    </field>
+    <field name="userDTO.lastName">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Please fill your last name</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="maxLength">64</param>
+            <param name="trim">true</param>
+            <message>the max length of the last name is ${maxLength}</message>
+        </field-validator>
+    </field>
+	<field name="userDTO.homeCountryCode">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Please choose your home country</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="maxLength">3</param>
+            <param name="minLength">3</param>
+            <param name="trim">true</param>
+            <message>Your home country is invalid</message>
+        </field-validator>
+    </field>
+    
+    <field name="userDTO.email">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Please fill your valid email</message>
+        </field-validator>
+        <field-validator type="email">
+            <message>Please fill your valid email</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="maxLength">100</param>
+            <param name="trim">true</param>
+            <message>the max length of the email is ${maxLength}</message>
+        </field-validator>
+    </field>
+
+    <field name="userDTO.password">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Please fill your password</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="maxLength">30</param>
+            <param name="minLength">7</param>
+            <param name="trim">true</param>
+            <message>password must be between ${minLength} and ${maxLength} characters long.</message>
+        </field-validator>
+    </field>
+
+
+    <field name="userDTO.confirmPassword">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Please confirm your password</message>
+        </field-validator>
+        <field-validator type="fieldexpression">
+            <param name="expression">
+            <![CDATA[userDTO.password eq userDTO.confirmPassword]]>
+            </param>
+            <message>Password do not match</message>
+        </field-validator>
+    </field>
+    <field name="userDTO.captchaWord">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Verification code is missing</message>
+        </field-validator>
+        <field-validator type="fieldexpression">
+            <param name="expression">
+            <![CDATA[userDTO.captchaWord eq sessionData.captchaWord]]>
+            </param>
+            <message>Your verification code is incorrect</message>
+        </field-validator>
+    </field>
+</validators>

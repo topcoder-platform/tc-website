@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.objectFactory" value="spring" />
+    
+     <package name="default" namespace="/" extends="struts-default">
+     	<interceptors>
+     		<interceptor name="authenticationInterceptor" class="authenticationInterceptor" />
+     		
+     		<interceptor-stack name="baseStack">
+     			<interceptor-ref name="defaultStack" />
+     			<interceptor-ref name="authenticationInterceptor" />
+     		</interceptor-stack>
+     	</interceptors>
+     	
+     	<global-results>
+     		<result name="index" type="chain">
+     			<param name="actionName">showRegister</param>
+     			<param name="namespace">/</param>
+     		</result>
+     		<result name="input" type="chain">
+     			<param name="actionName">showRegister</param>
+     			<param name="namespace">/</param>
+     		</result>
+     		<result name="error">/error.jsp</result>
+     	</global-results>
+     	
+     	<global-exception-mappings>
+            <exception-mapping result="error" exception="java.lang.Exception" />
+        </global-exception-mappings>
+        
+        <action name="showRegister" class="registerAction">
+        	<result>/index.jsp</result>
+        </action>
+        
+        <action name="activate" class="activateAction">
+            <result>/activate-success.jsp</result>
+        </action>
+        
+        <action name="callback" class="callbackAction">
+            <result name="register" type="redirectAction">
+                <param name="actionName">showRegister</param>
+                <param name="namespace">/</param>
+            </result>
+			<result name="register" type="httpheader">
+				<param name="status">301</param>
+				<param name="headers.Location">${regUrl}</param>
+			</result>
+            <result name="login" type="chain" >
+                <param name="actionName">login</param>
+                <param name="namespace">/</param>
+            </result>
+            <result name="callbackfail">/callback-fail.jsp</result>
+        </action>
+
+        <action name="login" class="loginAction">
+            <interceptor-ref name="chain" />
+            <result name="success" type="redirect">${nextPage}</result>
+            <result name="loginfail">/login-fail.jsp</result>
+        </action>
+
+        <action name="logout" class="logoutAction">
+        	<result type="chain">
+        		<param name="actionName">showRegister</param>
+        		<param name="namespace">/</param>
+        	</result>
+        </action>
+        
+        <action name="getCaptchaCode" class="getCaptchaCodeAction">
+        	<result>/captcha.jsp</result>
+        </action>
+        
+        <action name="myAccount">
+        	<interceptor-ref name="baseStack" />
+        	<result>/my_account.html</result>
+        </action>
+        
+
+     </package>
+     
+     <package name="regAjax" namespace="/ajax" extends="json-default">
+     	<action name="findUser" class="forgotPasswordAction" method="ajaxFindUser">
+        	<result type="json">
+        		<param name="includeProperties">
+        			msg,emailStatus,reSendBtnDelay
+        		</param>
+        	</result>
+        </action>
+        
+        <action name="forgotPassword" class="forgotPasswordAction">
+        	<result type="json">
+        		<param name="includeProperties">
+        			msg, expireTime
+        		</param>
+        	</result>
+        </action>
+        
+        <action name="login" class="loginAction">
+            <result name="success" type="json">
+                <param name="includeProperties">message, nextPage</param>
+            </result>
+            <result name="loginfail" type="json">
+                <param name="includeProperties">message, nextPage</param>
+            </result>
+        </action>
+        
+        <action name="register" class="registerAction">
+            <result type="json">
+                <param name="includeProperties">messages.*</param>
+            </result>
+        </action>
+
+        <action name="resetPassword" class="resetPasswordAction">
+            <result type="json">
+                <param name="includeProperties">msg</param>
+            </result>
+        </action>
+     </package>
+
+</struts>

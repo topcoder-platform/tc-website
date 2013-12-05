@@ -54,6 +54,39 @@
         <pathelement location="${openid4java.dir}/socialauth-2.0-beta3.jar"/>
         <pathelement location="${openid4java.dir}/json-20080701.jar"/>
     </path>
+    <path id="spring.3.1.2.path">
+        <pathelement location="${jars.dir}/spring/3.1.2/org.springframework.aop-3.1.2.RELEASE.jar" />
+        <pathelement location="${jars.dir}/spring/3.1.2/org.springframework.asm-3.1.2.RELEASE.jar" />
+        <pathelement location="${jars.dir}/spring/3.1.2/org.springframework.aspects-3.1.2.RELEASE.jar"/>
+        <pathelement location="${jars.dir}/spring/3.1.2/org.springframework.beans-3.1.2.RELEASE.jar" />
+        <pathelement location="${jars.dir}/spring/3.1.2/org.springframework.context-3.1.2.RELEASE.jar" />
+        <pathelement location="${jars.dir}/spring/3.1.2/org.springframework.context.support-3.1.2.RELEASE.jar" />
+        <pathelement location="${jars.dir}/spring/3.1.2/org.springframework.core-3.1.2.RELEASE.jar" />
+        <pathelement location="${jars.dir}/spring/3.1.2/org.springframework.expression-3.1.2.RELEASE.jar" />
+        <pathelement location="${jars.dir}/spring/3.1.2/org.springframework.instrument-3.1.2.RELEASE.jar" />
+        <pathelement location="${jars.dir}/spring/3.1.2/org.springframework.instrument.tomcat-3.1.2.RELEASE.jar" />
+        <pathelement location="${jars.dir}/spring/3.1.2/org.springframework.jdbc-3.1.2.RELEASE.jar" />
+        <pathelement location="${jars.dir}/spring/3.1.2/org.springframework.orm-3.1.2.RELEASE.jar" />
+        <pathelement location="${jars.dir}/spring/3.1.2/org.springframework.transaction-3.1.2.RELEASE.jar" />
+        <pathelement location="${jars.dir}/spring/3.1.2/org.springframework.web-3.1.2.RELEASE.jar" />
+        <pathelement location="${jars.dir}/spring/3.1.2/org.springframework.web.servlet-3.1.2.RELEASE.jar" />
+        <pathelement location="${jars.dir}/spring/3.1.2/org.springframework.web.struts-3.1.2.RELEASE.jar" />
+    </path>
+    <path id="struts.2.3.15.1.path">                        
+        <pathelement location="${jars.dir}/struts/2.3.15.1/commons-beanutils-1.8.0.jar" />
+        <pathelement location="${jars.dir}/struts/2.3.15.1/commons-lang-2.4.jar" />
+        <pathelement location="${jars.dir}/struts/2.3.15.1/commons-lang3-3.1.jar" />
+        <pathelement location="${jars.dir}/struts/2.3.15.1/ezmorph-1.0.6.jar" />
+        <pathelement location="${jars.dir}/struts/2.3.15.1/commons-fileupload-1.3.jar" />
+        <pathelement location="${jars.dir}/struts/2.3.15.1/commons-io-2.0.1.jar" />
+        <pathelement location="${jars.dir}/struts/2.3.15.1/commons-logging-1.1.3.jar" />
+        <pathelement location="${jars.dir}/struts/2.3.15.1/freemarker-2.3.19.jar" />
+        <pathelement location="${jars.dir}/struts/2.3.15.1/ognl-3.0.6.jar" />
+        <pathelement location="${jars.dir}/struts/2.3.15.1/struts2-core-2.3.15.1.jar" />
+        <pathelement location="${jars.dir}/struts/2.3.15.1/struts2-spring-plugin-2.3.15.1.jar" />
+        <pathelement location="${jars.dir}/struts/2.3.15.1/xwork-core-2.3.15.1.jar" />
+        <pathelement location="${jars.dir}/struts/2.3.15.1/struts2-json-plugin-2.3.15.1.jar" />
+    </path>
 
     <path id="class.path">
         <pathelement location="${classes}"/>
@@ -87,7 +120,7 @@
         <pathelement location="${jive.dir}/xwork.jar"/>
         <pathelement location="${jive.dir}/htmlparser.jar"/>
 
-        <pathelement location="${jars.dir}/spring.jar"/>
+
 
         <pathelement location="${jars.dir}/rome-1.0.jar"/>
         <pathelement location="${jars.dir}/jdom-1.1.3.jar"/>
@@ -96,7 +129,7 @@
 
         <pathelement location="${struts.dir}/commons-beanutils.jar"/>
         <pathelement location="${struts.dir}/commons-collections.jar"/>
-        <pathelement location="${struts.dir}/struts.jar"/>
+
 
         <pathelement location="${jars.dir}/super-csv-2.1.0.jar"/>
 
@@ -108,6 +141,7 @@
         <pathelement location="${poi.dir}/stax-api-1.0.1.jar"/>
         <pathelement location="${poi.dir}/xmlbeans-2.3.0.jar"/>
         
+        <pathelement location="${jars.dir}/cxf/jsr311-api-1.1.1.jar"/>
         <pathelement location="${jars.dir}/cxf/cxf-2.6.10.jar"/>
 
         <!-- TCS Components -->
@@ -214,6 +248,10 @@
         <pathelement location="${jars.dir}/tc.jar"/>
         <!--OpenID-->
     	<path refid="openid4java.path" />
+        <path refid="struts.2.3.15.1.path" />
+        <path refid="spring.3.1.2.path" />
+        <pathelement location="${jars.dir}/spring.jar"/>
+        <pathelement location="${struts.dir}/struts.jar"/>
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>
@@ -250,6 +288,7 @@
             <include name="com/atlassian/**"/>
             <include name="com/topcoder/apps/review/**"/>
             <include name="com/topcoder/util/idgenerator/bean/**"/>
+            <include name="com/topcoder/reg/**"/>
 
             <exclude name="com/topcoder/web/csf/**"/>
             <exclude name="com/topcoder/web/wiki/**"/>
@@ -592,6 +631,7 @@
         <antcall target="deploy-corp"/>
         <antcall target="deploy-privatelabel"/>
         <antcall target="deploy-reg"/>
+    	<antcall target="deploy-reg2"/>
         <antcall target="deploy-ep"/>
 
         <antcall target="deploy-security"/>
@@ -607,6 +647,7 @@
         <antcall target="expand-corp"/>
         <antcall target="expand-privatelabel"/>
         <antcall target="expand-reg"/>
+        <antcall target="expand-reg2"/>
         <antcall target="expand-ep"/>
 
         <antcall target="move-libs"/>
@@ -1110,6 +1151,96 @@
         <delete dir="${jboss_deploy}/reg.war/META-INF"/>
     </target>
 
+    <target name="compile-reg2" depends="compile">
+        <javac srcdir="${java}" destdir="${classes}" classpathref="class.path" deprecation="${deprecation}" debug="${debug}" source="1.5" target="1.5">
+            <include name="com/topcoder/reg/**/*.java" />
+        </javac>
+    </target>
+    <target name="war-reg2" depends="compile-reg2">
+        <war warfile="${war.dir}/reg2.war" webxml="${resources}/reg2/web.xml">
+            <classes dir="${classes}">
+                <include name="com/topcoder/reg/**/*.class" />
+            </classes>
+            <fileset dir="${java}/com/topcoder/reg/view">
+            	<include name="**/*"/>
+            </fileset>
+            <webinf dir="${resources}/reg2">
+                <include name="jboss-web.xml" />
+            </webinf>
+            <lib dir="${jars.dir}">
+                <include name="jstl.jar" />
+                <include name="standard.jar" />
+				<include name="netscape_ldap_sdk.jar" />
+            </lib>
+            <lib dir="${jars.dir}/struts/2.3.15.1">
+                <include name="commons-beanutils-1.8.0.jar" />
+                <include name="commons-lang-2.4.jar" />
+                <include name="commons-lang3-3.1.jar" />
+                <include name="ezmorph-1.0.6.jar" />
+                <include name="commons-fileupload-1.3.jar" />
+                <include name="commons-io-2.0.1.jar" />
+                <include name="commons-logging-1.1.3.jar" />
+                <include name="freemarker-2.3.19.jar" />
+                <include name="ognl-3.0.6.jar" />
+                <include name="struts2-core-2.3.15.1.jar" />
+                <include name="struts2-spring-plugin-2.3.15.1.jar" />
+                <include name="xwork-core-2.3.15.1.jar" />
+                <include name="struts2-json-plugin-2.3.15.1.jar" />
+            </lib>
+            <lib dir="${jars.dir}/spring/3.1.2">
+                <include name="org.springframework.aop-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.asm-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.aspects-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.beans-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.context-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.context.support-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.core-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.expression-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.instrument-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.instrument.tomcat-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.jdbc-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.orm-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.transaction-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.web-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.web.servlet-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.web.struts-3.1.2.RELEASE.jar" />
+            </lib>
+            <lib dir="${jars.dir}/aop">
+                <include name="aopalliance.jar" />                
+            </lib>
+            <lib dir="${jars.dir}/asm">
+                <include name="asm-3.3.jar" />                
+                <include name="asm-commons-3.3.jar" />
+                <include name="asm-tree-3.3.jar" />
+            </lib>
+            <lib dir="${jars.dir}/aspectj">
+                <include name="aspectjrt.jar" />
+                <include name="aspectjweaver.jar" />
+            </lib>
+            <lib dir="${external.jars.dir}">
+                <include name="configuration_api-2.0.0.jar" />
+            </lib>
+            <webinf dir="${resources}/reg2">
+                <include name="applicationContext.xml" />
+            </webinf>
+            <classes dir="${resources}/reg2">
+                <include name="RegConfigProperties.properties" />
+                <include name="struts.xml" />
+            </classes>
+            <classes dir="${resources}/reg2/email_templates"/>
+            <classes dir="${resources}/reg2/validators">
+            	<exclude name="com/topcoder/web/**"/>
+            </classes>
+        </war>
+    </target>
+    <target name="deploy-reg2" depends="war-reg2,move-libs">
+        <antcall target="expand-reg2" />
+    </target>
+    <target name="expand-reg2">
+        <delete dir="${jboss_deploy}/reg2.war" />
+        <unwar src="${war.dir}/reg2.war" dest="${jboss_deploy}/reg2.war/" overwrite="yes" />
+        <delete dir="${jboss_deploy}/reg2.war/META-INF" />
+    </target>
     <target name="compile-ep" depends="compile">
         <javac
                 srcdir="${java}"

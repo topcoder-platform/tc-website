@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:jee="http://www.springframework.org/schema/jee"
+     xmlns:context="http://www.springframework.org/schema/context"
+     xmlns:tx="http://www.springframework.org/schema/tx"
+     xsi:schemaLocation="
+     http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/jee 
+     http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+     <context:property-placeholder location="classpath:RegConfigProperties.properties" />
+     
+     <context:component-scan base-package="com.topcoder.reg" />
+     <context:annotation-config />
+     
+     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+            <value>java:DS</value>
+        </property>
+     </bean>
+	    
+	 <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	    <property name="dataSource" ref="dataSource"/>
+	 </bean>
+	 
+	 <tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg name="dataSource" ref="dataSource" type="javax.sql.DataSource" />
+	</bean>
+
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+    </bean>
+	
+	<bean id="captchaGenerator" class="com.topcoder.reg.CaptchaGenerator" init-method="checkInit">
+		<property name="randomStringImageConfigFile" value="${random_string_image_config}" />
+		<property name="captchaLifeSpan" value="120000" />
+		<property name="deprecatedCaptchaCheckValve" value="5" />
+	</bean>
+	
+	<bean id="regEmailSetting" class="com.topcoder.reg.EmailSetting">
+		<property name="emailBodyTemplateFile" value="${activation_email_body_template_file}" />
+        <property name="emailFromAddress" value="${activation_email_from_address}" />
+        <property name="emailSubject" value="${activation_email_subject}" />
+        <property name="senderName" value="${forgot_password_email_sender_name}" />
+	</bean>
+	
+	<bean id="forgotPasswordEmailSetting" class="com.topcoder.reg.EmailSetting">
+		<property name="emailBodyTemplateFile" value="${forgot_password_email_body_template_file}" />
+        <property name="emailFromAddress" value="${forgot_password_email_from_address}" />
+        <property name="emailSubject" value="${forgot_password_email_subject}" />
+        <property name="senderName" value="${forgot_password_email_sender_name}" />
+	</bean>
+	
+     <bean id="authenticationInterceptor" class="com.topcoder.reg.actions.interceptors.AuthenticationInterceptor">
+     	<property name="userHandleSessionKey" value="user_handle_session_key" />
+     </bean>
+     
+    <bean id="baseImpl" class="com.topcoder.reg.services.impl.BaseImpl" abstract="true">
+    	<property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+    
+    <bean id="passwordResetTokenService" class="com.topcoder.reg.services.impl.PasswordResetTokenServiceImpl" parent="baseImpl">
+    </bean>
+    
+    <bean id="userService" class="com.topcoder.reg.services.impl.UserServiceImpl" parent="baseImpl"></bean>
+     
+    <bean id="socialService" class="com.topcoder.reg.services.impl.SocialAccountServiceImpl" parent="baseImpl">
+       <property name="restTemplate" ref="restTemplate"></property>
+    </bean>
+
+     <bean id="baseAction" class="com.topcoder.reg.actions.BaseAction" 
+     	abstract="true" init-method="checkConfiguration">
+     	<property name="userService" ref="userService" />
+        <property name="socialService" ref="socialService" />
+     	<property name="userSessionKey" value="user_session_key" />
+     	<property name="userHandleSessionKey" value="user_handle_session_key" />
+     	<property name="authenticationSessionKey" value="authentication_session_key" />
+     	<property name="captchaWordSessionKey" value="capword" />
+     	<property name="dumpUserId" value="132456" />
+     	<property name="regSource" value="reg2" />
+     </bean>
+     
+
+     <bean id="callbackAction" class="com.topcoder.reg.actions.CallbackAction" 
+        parent="baseAction" scope="prototype">
+     </bean>
+
+     <bean id="loginAction" class="com.topcoder.reg.actions.LoginAction" 
+     	parent="baseAction" scope="prototype">
+     </bean>
+     
+     <bean id="logoutAction" class="com.topcoder.reg.actions.LogoutAction" 
+     	parent="baseAction" scope="prototype">
+     </bean>
+     
+     <bean id="getCaptchaCodeAction" class="com.topcoder.reg.actions.GetCaptchaCodeAction"
+        parent="baseAction" init-method="checkConfiguration" scope="prototype">
+        <property name="captchaGenerator" ref="captchaGenerator"></property>
+     </bean>
+     
+     <bean id="registerAction" class="com.topcoder.reg.actions.RegisterAction" 
+     	parent="baseAction" scope="prototype" init-method="checkConfiguration">
+     	<property name="setting" ref="regEmailSetting" />
+     </bean>
+     
+     <bean id="forgotPasswordAction" class="com.topcoder.reg.actions.ForgotPasswordAction"
+     	parent="baseAction" scope="prototype" init-method="checkConfiguration">
+     		<property name="passwordResetTokenService" ref="passwordResetTokenService" />
+     		<property name="emailSetting" ref="forgotPasswordEmailSetting" />
+     </bean>
+     
+     <bean id="resetPasswordAction" class="com.topcoder.reg.actions.ResetPasswordAction"
+     	parent="baseAction" scope="prototype" init-method="checkConfiguration">
+     	<property name="passwordResetTokenService" ref="passwordResetTokenService" />
+     </bean>
+     
+     <bean id="activateAction" class="com.topcoder.reg.actions.ActivateAction" parent="baseAction" scope="prototype">
+     </bean>
+</beans>
