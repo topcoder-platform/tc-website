@@ -671,7 +671,8 @@
                 <include name="problem.xsd"/>
                 <include name="ProblemParser.properties"/>
                 <include name="Resume.properties"/>
-                <include name="Registration.properties"/>
+                <!-- Comment out due to production deployment issue -->
+                <!-- include name="Registration.properties"/ -->
                 <include name="EP.properties"/>
                 <include name="TC.properties"/>
                 <include name="PactsInternalServlet.properties"/>
