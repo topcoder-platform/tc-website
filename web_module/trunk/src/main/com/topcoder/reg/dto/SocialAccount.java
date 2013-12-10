@@ -7,11 +7,18 @@ package com.topcoder.reg.dto;
  * <p>
  * The social account data bean.
  * </p>
- * 
+ *
+ * <p>
+ *     Version 1.1 (BUGR-10169) changes:
+ *     <ul>
+ *         <li>Add {@link #enterpriseLogin} place holder for enterprise login</li>
+ *     </ul>
+ * </p>
+ *
  * <strong>Thread Safety:</strong> This class is mutable and not thread-safe.
  * 
  * @author ecnu_haozi
- * @version 1.0
+ * @version 1.1
  * @since 1.0 (Release Assembly - TopCoder Website Social Login)
  */
 public class SocialAccount {
@@ -46,6 +53,12 @@ public class SocialAccount {
      * The provider id to indicate such as Google, FaceBook, Twitter etc..
      */
     private int providerId;
+
+    /**
+     * The enterprise login status
+     * @since 1.1
+     */
+    private boolean enterpriseLogin = false;
 
     /**
      * <p>
@@ -184,4 +197,25 @@ public class SocialAccount {
     public void setEmailVerified(boolean emailVerified) {
         this.emailVerified = emailVerified;
     }
+
+    /**
+     * Getter of <code>enterpriseLogin</code>
+     *
+     * @return whether it is enterprise
+     * @since 1.1
+     */
+    public boolean isEnterpriseLogin() {
+        return enterpriseLogin;
+    }
+
+    /**
+     * Setter of <code>enterpriseLogin</code>
+     *
+     * @param enterprise
+     * @since 1.1
+     */
+    public void setEnterpriseLogin(boolean enterprise) {
+        this.enterpriseLogin = enterprise;
+    }
+
 }

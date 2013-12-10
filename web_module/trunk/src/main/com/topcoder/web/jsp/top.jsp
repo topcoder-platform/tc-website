@@ -55,16 +55,39 @@
 
 <div id="globalPopup" class="popUp"><div id="globalPopupText"></div></div>
 
-<% if ( sessionInfo.isAnonymous() ) { %>
-    <script id="auth0" src="https://sdk.auth0.com/auth0.js#client=<%=Constants.CLIENT_ID_AUTH0%>&amp;state=http://<%=ApplicationServer.SERVER_NAME%><%= request.getAttribute("javax.servlet.forward.request_uri")%>&amp;redirect_uri=https://<%=ApplicationServer.SERVER_NAME%><%=Constants.REDIRECT_URL_AUTH0%>"></script>
-
-    <script>
-      $(function () {
-            $('.social-login').click( function () {
-                  window.Auth0.signIn({ onestep: true, title: "TopCoder/CloudSpokes", icon: 'http://www.topcoder.com/i/24x24_brackets.png', showIcon: true});
+<% if ( sessionInfo.isAnonymous() ) { %>    
+        <script src="//d19p4zemcycm7a.cloudfront.net/w2/auth0-widget-2.3.6.min.js"></script>
+        <script>
+            var widget = new Auth0Widget({
+                domain: '<%=Constants.DOMAIN_AUTH0%>',
+                clientID: '<%=Constants.CLIENT_ID_AUTH0%>',
+                callbackURL: 'https://<%=ApplicationServer.SERVER_NAME%><%=Constants.REDIRECT_URL_AUTH0%>'
             });
-        });
-    </script>
+
+            function showAuth0Widget(){
+                widget.signin({
+                    state: 'https://<%=ApplicationServer.SERVER_NAME%><%= request.getAttribute("javax.servlet.forward.request_uri")%>',
+                    icon: 'http://www.topcoder.com/i/24x24_brackets.png', 
+                    showIcon: true}).on('signin_ready', function() {
+                    $('.a0-email input').each(function() {
+                        $(this)
+                        .clone()
+                        .attr('type','text')
+                        .attr('placeholder', 'Username')
+                        .attr('title', 'Username')
+                        .insertAfter($(this)).prev().remove();
+                    });
+                });  
+            }            
+            
+            $(function () {
+                $('.social-login').click(function () {
+                    showAuth0Widget();
+                });
+            });
+            
+        </script>    
+    
 <% } %>
 
 <% if ( !sessionInfo.isAnonymous() ) { %>
