@@ -14,8 +14,8 @@
 		<header id="header"> 
       		<nav class="top">
 	            <a href="#" class="logo"></a>
-	            <script id="auth0" src="https://sdk.auth0.com/auth0.js#client=<%=Constants.CLIENT_ID_AUTH0%>&amp;state=https://<%=Constants.TC_SERVER_NAME%>/tc&amp;redirect_uri=https://<%=ApplicationServer.SERVER_NAME%><%=Constants.REDIRECT_URL_AUTH0%>"></script>
-	          	<a class="redBtn" href="javascript:window.Auth0.signIn({ onestep: true,signupLink: 'https://<%=ApplicationServer.SERVER_NAME%>/reg2/showRegister.action',title: 'TopCoder/CloudSpokes', icon: 'https://www.topcoder.com/i/24x24_brackets.png', showIcon: true});">
+                <%-- showAuthWidget function is defined in top.jsp --%>
+	          	<a class="redBtn" href="javascript:showAuthWidget();">
 					<span class="buttonMask"><span class="text">SOCIAL LOGIN</span></span>
 				</a>
 	            <ul>

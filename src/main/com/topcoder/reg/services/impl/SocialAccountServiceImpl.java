@@ -26,12 +26,20 @@ import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This class provides an implementation for {@link SocialAccountService}.
+ *
+ * <p>
+ *     Version 1.1 (BUGR-10169) changes:
+ *     <ul>
+ *         <li>Change on {@link #getProviderId(String)} add {@link #ENTERPRISE_LDAP_ID}</li>
+ *         <li>Change on {@link #getSocialAccount(String)} to get enterprise login name and id</li>
+ *     </ul>
+ * </p>
  * <p>
  * <strong>Thread Safety:</strong> This class is mutable and not thread-safe.
  * </p>
  * 
  * @author ecnu_haozi
- * @version 1.0
+ * @version 1.1
  * @since 1.0 (Release Assembly - TopCoder Website Social Login)
  */
 public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountService {
@@ -67,6 +75,12 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
      * The salesforce id.
      */
     private static final int SALESFORCE_PROVIDER_ID = 5;
+
+    /**
+     * The LDAP id
+     * @since 1.1
+     */
+    private static final int ENTERPRISE_LDAP_ID = 50;
 
     /**
      * Find the user id according to the social account email information.
@@ -220,10 +234,11 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
             jsonString =
                 restTemplate.getForObject("https://" + Constants.DOMAIN_AUTH0 + "/userinfo?access_token="
                     + accessToken, String.class);
-        } catch (RestClientException e) { System.out.println("----------------"+e);
+        } catch (RestClientException e) { 
+	        System.out.println("----------------"+e);
             throw new SocialAccountException("Fail to obtain current social account info from Auth0.", e);
         }
-System.out.println("---------jsonString-------"+jsonString);
+        System.out.println("---------jsonString-------"+jsonString);
         JSONObject rootNode = getJsonNode(jsonString);
 
         social.setProviderId(getProviderId(rootNode.getString("user_id")));
@@ -237,6 +252,10 @@ System.out.println("---------jsonString-------"+jsonString);
             social.setName(rootNode.getString("nickname"));
             break;
         //You can add unique user name for other social provider if needed here.
+        case ENTERPRISE_LDAP_ID:
+            social.setName(rootNode.getString("nickname"));
+            social.setEnterpriseLogin(true);
+            break;
         default:
             social.setName("");
         }
@@ -350,6 +369,9 @@ System.out.println("---------jsonString-------"+jsonString);
         }
         if (userId.startsWith("salesforce")) {
             return SALESFORCE_PROVIDER_ID;
+        }
+        if (userId.startsWith("ad")) {
+            return ENTERPRISE_LDAP_ID;
         }
         throw new SocialAccountException("The provider id is unknown.");
     }

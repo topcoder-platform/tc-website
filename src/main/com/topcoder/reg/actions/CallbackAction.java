@@ -27,12 +27,19 @@ import com.topcoder.shared.util.logging.Logger;
  * value which is the redirect page. If the social account binds to some TC account, then login it automatically;
  * else guide the user to registration page.
  * </p>
- * 
+ *
+ * <p>
+ *     Version 1.1 (BUGR-10169) changes:
+ *     <ul>
+ *         <li>Change on {@link #execute()} to support enterprise ldap login </li>
+ *     </ul>
+ * </p>
+ *
  * <strong>Thread Safety:</strong> Technically speaking, this class is mutable and not thread-safe. But Struts only
  * uses this class in thread-safe manner.
  * 
  * @author ecnu_haozi
- * @version 1.0
+ * @version 1.1
  * @since 1.0 (Release Assembly - TopCoder Website Social Login)
  */
 public class CallbackAction extends BaseAction {
@@ -58,6 +65,11 @@ public class CallbackAction extends BaseAction {
      */
     private static final String LOGIN = "login";
 
+    /**
+     * The struts result page for success enterprise login.
+     * @since 1.1
+     */
+    private static final String ENTERPRISE_SUCCESS_LOGIN = "enterprise_login";
     /**
      * The struts result page to go if abnormal situation happens.
      */
@@ -117,12 +129,27 @@ public class CallbackAction extends BaseAction {
         try {
             // retrieve social data according to the code value.
             social = socialService.getSocialAccount(code);
-            Long userIdBoundWithSocialAccount = socialService.findUserBySocialAccount(social);
+
             SessionSocialAccount socialAccountInSession = new SessionSocialAccount(social, false);
-            
             
             HttpSession session = req.getSession();
             session.setAttribute(RegistrationHelper.SOCIAL_ACCOUNT_SESSION_KEY, socialAccountInSession);
+
+            // If this is login from Auth0 LDAP integration
+            if (social.isEnterpriseLogin()){
+                UserDTO user = userService.getUserByHandle(social.getName());
+                handle = user.getHandle();
+                user.setPassword(userService.getPasswordByUserId(user.getUserId()));
+                password = user.getPassword();
+
+                // store the page to redirect after login successfully into session.
+                session.setAttribute(RegistrationHelper.NEXT_PAGE_SESSION_KEY, state);
+                //LoggingWrapperUtility.logExit(logger, signature, new String[] {LOGIN});
+
+                return LOGIN;
+            }            
+            
+            Long userIdBoundWithSocialAccount = socialService.findUserBySocialAccount(social);
 
             // If the social account binds to a TC account.
             if (userIdBoundWithSocialAccount != null) {
@@ -135,8 +162,10 @@ public class CallbackAction extends BaseAction {
                 // store the page to redirect after login successfully into session.
                 session.setAttribute(RegistrationHelper.NEXT_PAGE_SESSION_KEY, state);
                 //LoggingWrapperUtility.logExit(logger, signature, new String[] {LOGIN});
+
                 return LOGIN;
             }
+
         } catch (PersistenceException e) {
             //LoggingWrapperUtility.logException(logger, signature, e);
 			logger.error(signature+e);
