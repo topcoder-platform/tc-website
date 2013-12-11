@@ -45,8 +45,15 @@ import com.topcoder.web.common.dao.*;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.6 (Release Assembly - Porting CS Mashathon pages to TopCoder website) Change notes:
+ *   <ol>
+ *      <li>Added {@link #getUserApiSpinDAO()} method.</li>
+ *   </ol>
+ * </p>
+ *
  * @author pulky, TCSDEVELOPER, isv, Standlove, TCSASSEMBLER
- * @version 1.5
+ * @version 1.6
  */
 public class DAOFactoryQueryTool implements DAOFactory {
 
@@ -350,6 +357,16 @@ public class DAOFactoryQueryTool implements DAOFactory {
      * @since 1.5
      */
     public UserSocialLoginDAO getUserSocialLoginDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    /**
+     * Gets the instance of {@link UserApiSpinDAO}.
+     *
+     * @return nothing, will throw exception.
+     * @since 1.6
+     */
+    public UserApiSpinDAO getUserApiSpinDAO() {
         throw new RuntimeException("Not supported");
     }
 

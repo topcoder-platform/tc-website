@@ -49,8 +49,15 @@ import com.topcoder.web.common.dao.*;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.6 (Release Assembly - Porting CS Mashathon pages to TopCoder website) Change notes:
+ *   <ol>
+ *      <li>Added {@link #getUserApiSpinDAO()} method.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, TCSDEVELOPER, isv, Standlove, TCSASSEMBLER
- * @version 1.5
+ * @version 1.6
  */
 public class DAOFactoryHibernate implements DAOFactory {
     /**
@@ -364,5 +371,15 @@ public class DAOFactoryHibernate implements DAOFactory {
      */
     public UserSocialLoginDAO getUserSocialLoginDAO() {
         return new UserSocialLoginDAOHibernate();
+    }
+
+    /**
+     * Gets the instance of {@link UserApiSpinDAO}.
+     *
+     * @return the dao.
+     * @since 1.6
+     */
+    public UserApiSpinDAO getUserApiSpinDAO() {
+        return new UserApiSpinDAOHibernate();
     }
 }
