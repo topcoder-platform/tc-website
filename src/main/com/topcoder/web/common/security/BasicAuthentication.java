@@ -279,6 +279,9 @@ public class BasicAuthentication implements WebAuthentication {
             }
         } else {
             u = getUserFromPersistor();
+            if (u == null) {
+                u = guest;
+            }
         }
 
         if (!u.isAnonymous() && !readOnly) {
