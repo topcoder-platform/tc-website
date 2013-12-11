@@ -43,8 +43,15 @@ package com.topcoder.web.common.dao;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.6 (Release Assembly - Porting CS Mashathon pages to TopCoder website) Change notes:
+ *   <ol>
+ *      <li>Added {@link #getUserApiSpinDAO()} method.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, TCSDEVELOPER, VolodymyrK, isv, Standlove, TCSASSEMBLER
- * @version 1.5
+ * @version 1.6
  */
 public interface DAOFactory {
     /**
@@ -220,4 +227,12 @@ public interface DAOFactory {
      * @since 1.5
      */
     UserSocialLoginDAO getUserSocialLoginDAO();
+
+    /**
+     * Gets the instance of {@link UserApiSpinDAO}.
+     *
+     * @return the dao.
+     * @since 1.6
+     */
+    UserApiSpinDAO getUserApiSpinDAO();
 }
