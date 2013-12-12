@@ -394,7 +394,7 @@ if (roundId == 15828) {
 </ul>
 * Only competitors with a positive score can be awarded with a money prize or a t-shirt. In the event of a tie for a t-shirt, the t-shirts will be awarded to randomly selected competitors out of all tied ones. In the event of a tie for a money prize, it will be equally distributed to all tied competitors.
 <br/><br/>
-** Spectator is defined as a person who spent at least 3 hours in the Arena during the competition’s coding phase. (Please note that spectator is still allowed to be a competitor as well.)
+** Spectator is defined as a person who spent at least 3 hours in the Arena during the competition's coding phase. (Please note that spectator is still allowed to be a competitor as well.)
 <br/><br/>
 <% } %>
         <B>Single Round Match Description</B>

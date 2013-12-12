@@ -114,6 +114,7 @@ according to the following rules:
         Any and all applicable taxes on a prize are the sole responsibility of the prize winner
     </li>
 </ul>
+
 <b>About the Competition</b>
 <br>
 <ul>
@@ -288,6 +289,35 @@ TopCoder, Inc., 95 Glastonbury Blvd, Glastonbury, CT 06033.<br/><br/>
 No purchase necessary to enter or win.
 <br/><br/>
 
+<%
+// SRM 600
+if (roundId == 15712) {
+%>
+<b>Prizes</b>
+<ul>
+<li>60 t-shirts to the best performers in Division 1 *</li>
+<li>60 t-shirts to randomly selected competitors in Division 1 that did not make it into the Top-60 *</li>
+<li>20 t-shirts to the best performers in Division 2 *</li>
+<li>20 t-shirts to randomly selected competitors in Division 2 that did not make it into the Top-20 *</li>
+</ul>
+* Only competitors with a positive score can be awarded with a t-shirt. In the event of a tie for a t-shirt, the t-shirts will be awarded to randomly selected competitors out of all tied ones.
+<br/><br/>
+<% } %>
+<%
+// SRM 600.5
+if (roundId == 15828) {
+%>
+<b>Prizes</b>
+<ul>
+<li>The 1st place winner will receive $600 *</li>
+<li>The best 40 performers will win t-shirts *</li>
+<li>10 randomly selected spectators will win t-shirts **</li>
+</ul>
+* Only competitors with a positive score can be awarded with a money prize or a t-shirt. In the event of a tie for a t-shirt, the t-shirts will be awarded to randomly selected competitors out of all tied ones. In the event of a tie for a money prize, it will be equally distributed to all tied competitors.
+<br/>
+** Spectator is defined as a person who spent at least 3 hours in the Arena during the competition's coding phase. (Please note that spectator is still allowed to be a competitor as well.)
+<br/><br/>
+<% } %>
 
 <b>Rooms</b><br>
 Each competition room will have a maximum of 20 coders. There will be 2 divisions. Division I is 1200 rating and up,
