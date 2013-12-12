@@ -100,6 +100,7 @@
         <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=15712">SRM 600</A></strong><br />
          brought to you by <A href="http://community.topcoder.com/tco13/overview/overview-sponsor/two-sigma/">Two Sigma</A><br />
+         160 t-shirts in prizes<br />
          12:00
         </div>
       </td>
@@ -107,6 +108,13 @@
 
    <tr>
       <td class="value">15
+        <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=15828">SRM 600.5</A></strong><br />
+         Special Round Match<br />
+         40 t-shirts and $600 in prizes<br />
+         10 t-shirts to spectators<br />
+         12:00
+        </div>
       </td>
       <td class="value">16
       </td>

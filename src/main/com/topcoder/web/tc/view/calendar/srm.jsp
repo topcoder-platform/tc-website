@@ -368,6 +368,20 @@
 <% } else { %>
 <TR>
     <TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
+<%
+// SRM 600
+if (roundId == 15712) {
+%>
+<b>Prizes</b>
+<ul>
+<li>60 t-shirts to the best performers in Division 1 *</li>
+<li>60 t-shirts to randomly selected competitors in Division 1 that did not make it into the Top-60 *</li>
+<li>20 t-shirts to the best performers in Division 2 *</li>
+<li>20 t-shirts to randomly selected competitors in Division 2 that did not make it into the Top-20 *</li>
+</ul>
+* Only competitors with a positive score can be awarded with a t-shirt. In the event of a tie for a t-shirt, the t-shirts will be awarded to randomly selected competitors out of all tied ones.
+<br/><br/>
+<% } %>
         <B>Single Round Match Description</B>
         <UL>
             <LI>Maximum of 20 coders per room</LI>
