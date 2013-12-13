@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2011-2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.memberphoto.servlet;
 
@@ -39,9 +39,6 @@ import com.topcoder.util.file.Template;
 import com.topcoder.util.file.TemplateDataFormatException;
 import com.topcoder.util.file.TemplateFormatException;
 import com.topcoder.util.file.templatesource.TemplateSourceException;
-import com.topcoder.util.log.Level;
-import com.topcoder.util.log.Log;
-import com.topcoder.util.log.LogManager;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.memberphoto.entities.Image;
@@ -333,19 +330,6 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
 
     /**
      * <p>
-     * This is a logger which will be used to perform logging operations.
-     * </p>
-     * <p>
-     * It's created upon initialization with the class name of this class as the logger name.
-     * </p>
-     * <p>
-     * After injection, it must be non-null, non-empty string.
-     * </p>
-     */
-    private Log log;
-
-    /**
-     * <p>
      * Represents the flag that controls if the email notification is sent or not.
      * </p>
      * <p>
@@ -410,8 +394,6 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
      * </p>
      */
     public MemberPhotoRemovalServlet() throws MemberPhotoRemovalException {
-        this.log = LogManager.getLog();
-	
         emf =  Persistence.createEntityManagerFactory("memberPhotoManager");
 
         try {
@@ -460,7 +442,7 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
         throws MemberPhotoRemovalException, IOException {
-        logMsg(MessageFormat.format("{0} : Entering " + "MemberPhotoRemovalServlet#doPost"
+        Helper.logDebugMsg(MessageFormat.format("{0} : Entering " + "MemberPhotoRemovalServlet#doPost"
             + "(HttpServletRequest, HttpServletResponse)" + " - request {1}, response {2},", new Date(),
             request, response));
         try {
@@ -497,7 +479,7 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
                 try {
                     // remove image from database
                     entityManager.getTransaction().begin();
-                    logMsg(MessageFormat.format("{0} : Removing image with id {1} for user with id {2}", new Date(), 
+                    Helper.logDebugMsg(MessageFormat.format("{0} : Removing image with id {1} for user with id {2}", new Date(), 
                     	image.getId(), memberId));
                     memberPhotoManager.removeMemberPhoto(memberId, String.valueOf(memberId));                    
                     entityManager.getTransaction().commit();
@@ -520,7 +502,7 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
 					// 2. remove the image from the database
 					// 2. copy the image from step 1 to
 					// photoImageRemovedDirectory                   
-					logMsg(MessageFormat.format("{0} : Moving to directory : {1}", new Date(), serverPathPrefix +
+					Helper.logDebugMsg(MessageFormat.format("{0} : Moving to directory : {1}", new Date(), serverPathPrefix +
 						photoImageRemovedDirectory));
 					
 					move(serverPathPrefix + photoImageSubmittedDirectory + image.getFileName(),
@@ -623,14 +605,14 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
                 throw new MemberPhotoRemovalException("Error occurs about Exception."  +e, e);
             }
         } catch (IllegalArgumentException e) {
-            throw logMsg("any arg is null", e);
+            throw Helper.logError("any arg is null", e);
         } catch (IllegalStateException e) {
-            throw logMsg("the instance variables are not injected correctly", e);
+            throw Helper.logError("the instance variables are not injected correctly", e);
         } catch (MemberPhotoRemovalException e) {
-            throw logMsg("unexpected error occurs. details:" + e, e);
+            throw Helper.logError("unexpected error occurs. details:" + e, e);
         } finally {
             //Helper.endCommunication(request);
-            logMsg(MessageFormat.format("{0} : Exiting " + "MemberPhotoRemovalServlet#doPost"
+            Helper.logDebugMsg(MessageFormat.format("{0} : Exiting " + "MemberPhotoRemovalServlet#doPost"
                 + "(HttpServletRequest, HttpServletResponse)", new Date()));
         }
 
@@ -879,34 +861,6 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
                 os.close();
             }
         }
-    }
-
-    /**
-     * Logs the INFO message.
-     * @param message
-     *            the message to log.
-     */
-    private void logMsg(String message) {
-        if (log != null) {
-            log.log(Level.INFO, message);
-        }
-    }
-
-    /**
-     * Logs the ERROR message.
-     * @param <T>
-     *            the error type.
-     * @param message
-     *            the message to log.
-     * @param e
-     *            the error
-     * @return the passed in exception.
-     */
-    private <T extends Throwable> T logMsg(String message, T e) {
-        if (log != null) {
-            log.log(Level.ERROR, e, message);
-        }
-        return e;
     }
 
     /**

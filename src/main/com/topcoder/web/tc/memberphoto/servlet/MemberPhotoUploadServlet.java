@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2011-2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.memberphoto.servlet;
 
@@ -32,9 +32,6 @@ import com.topcoder.servlet.request.MemoryFileUpload;
 import com.topcoder.servlet.request.PersistenceException;
 import com.topcoder.servlet.request.RequestParsingException;
 import com.topcoder.servlet.request.UploadedFile;
-import com.topcoder.util.log.Level;
-import com.topcoder.util.log.Log;
-import com.topcoder.util.log.LogManager;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.Path;
@@ -455,18 +452,6 @@ public class MemberPhotoUploadServlet extends HttpServlet {
      * </p>
      */
     private String submittedActionParameterName;
-    /**
-     * <p>
-     * This is a logger which will be used to perform logging operations.
-     * </p>
-     * <p>
-     * It's created upon initialization with the class name of this class as the logger name.
-     * </p>
-     * <p>
-     * After injection, it must be non-null, non-empty string.
-     * </p>
-     */
-    private Log log;
     
     /**
      * The path of server folder, used as prefix of photo stored folder. 
@@ -493,8 +478,6 @@ public class MemberPhotoUploadServlet extends HttpServlet {
      * </p>
      */
     public MemberPhotoUploadServlet() {
-        this.log = LogManager.getLog();
-        
         // configure the EntityManager:
         emf = Persistence.createEntityManagerFactory("memberPhotoManager");
     }
@@ -525,7 +508,7 @@ public class MemberPhotoUploadServlet extends HttpServlet {
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException,
         MemberPhotoUploadException {
-        logMsg(MessageFormat.format("{0} : Entering " + "MemberPhotoManagerImpl#doPost"
+        Helper.logDebugMsg(MessageFormat.format("{0} : Entering " + "MemberPhotoManagerImpl#doPost"
             + "(HttpServletRequest, HttpServletResponse)" + " - request {1}, response {2},", new Date(),
             request, response));
         try {
@@ -609,7 +592,7 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                     BufferedImage originalImage = ImageIO.read(uploadedFile.getInputStream());                   
 
                     // Save image to preview folder
-                    logMsg(MessageFormat.format("{0} : Saving to directory : {1}", new Date(), serverPathPrefix + photoImagePreviewDirectory));
+                    Helper.logDebugMsg(MessageFormat.format("{0} : Saving to directory : {1}", new Date(), serverPathPrefix + photoImagePreviewDirectory));
                     upLoadPicture(user.getHandle(), originalImage, serverPathPrefix + photoImagePreviewDirectory);                 
  
                     // get Path information
@@ -692,7 +675,7 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                     try {
                         // save image in database
                         entityManager.getTransaction().begin();
-                        logMsg(MessageFormat.format("{0} : Uploading image for user with id {1}", new Date(), memberId));
+                        Helper.logDebugMsg(MessageFormat.format("{0} : Uploading image for user with id {1}", new Date(), memberId));
                         memberPhotoManager.saveMemberPhoto(memberId, user.getHandle() + imagepostfix, String.valueOf(memberId));                        
                         entityManager.getTransaction().commit();
                     } catch (Exception eEmf){     
@@ -708,7 +691,7 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                     }
                         
                     // move image from preview to submitted directory
-                    logMsg(MessageFormat.format("{0} : Saving to directory : {1}", new Date(), serverPathPrefix +
+                    Helper.logDebugMsg(MessageFormat.format("{0} : Saving to directory : {1}", new Date(), serverPathPrefix +
                     	photoImageSubmittedDirectory));
                     upLoadPicture(user.getHandle(), resizedImage, serverPathPrefix + photoImageSubmittedDirectory);
                     
@@ -739,14 +722,14 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                 throw new MemberPhotoUploadException("Error occurs Exception ."  +e, e);
             }
         } catch (IllegalArgumentException e) {
-            throw logMsg("any arg is null", e);
+            throw Helper.logError("any arg is null", e);
         } catch (IllegalStateException e) {
-            throw logMsg("the instance variables are not injected correctly", e);
+            throw Helper.logError("the instance variables are not injected correctly", e);
         }  catch (MemberPhotoUploadException e) {
-            throw logMsg("unexpected error occurs. details:" + e, e);
+            throw Helper.logError("unexpected error occurs. details:" + e, e);
         } finally {
             //Helper.endCommunication(request);
-            logMsg(MessageFormat.format("{0} : Exiting " + "MemberPhotoManagerImpl#doPost"
+            Helper.logDebugMsg(MessageFormat.format("{0} : Exiting " + "MemberPhotoManagerImpl#doPost"
                 + "(HttpServletRequest, HttpServletResponse)", new Date()));
         }
     }
@@ -1086,34 +1069,6 @@ public class MemberPhotoUploadServlet extends HttpServlet {
         if (param <= 0) {
             throw new IllegalArgumentException("The parameter '" + paramName + "' should be positive.");
         }
-    }
-
-    /**
-     * Logs the INFO message.
-     * @param message
-     *            the message to log.
-     */
-    private void logMsg(String message) {
-        if (log != null) {
-            log.log(Level.INFO, message);
-        }
-    }
-
-    /**
-     * Logs the ERROR message.
-     * @param <T>
-     *            the error type.
-     * @param message
-     *            the message to log.
-     * @param e
-     *            the error
-     * @return the passed in exception.
-     */
-    private <T extends Throwable> T logMsg(String message, T e) {
-        if (log != null) {
-            log.log(Level.ERROR, e, message);
-        }
-        return e;
     }
 
     /**
