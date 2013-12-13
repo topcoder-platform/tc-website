@@ -12,6 +12,8 @@
   - * Renamed FAQ link to Help link.
   - * Updated URLs for Help and News links.
   - Version 1.3 (TopCoder Studio Member Profiles Assembly) change notes: linked to Studio's member profile.
+  - Version 1.4 (TCCC-5829  https://apps.topcoder.com/bugs/browse/TCCC-5829)
+  - * Add v2 Auth0 login widget.
 --%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
@@ -34,10 +36,35 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                 <div class="userPanelC">
                     <c:choose>
                         <c:when test="${sessionInfo.anonymous}">
-                            <%--This script should be put above ../top.jsp to override the latter's auth0.js.--%>
-                            <script id="auth0" src="https://sdk.auth0.com/auth0.js#client=<%=Constants.CLIENT_ID_AUTH0%>&amp;state=https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/&amp;redirect_uri=https://<%=Constants.REG_SERVER_NAME%><%=Constants.REDIRECT_URL_AUTH0%>"></script>
+                            <script src="https://d19p4zemcycm7a.cloudfront.net/w2/auth0-widget-2.3.6.min.js"></script>
+                            <script type="text/javascript">
+                            var widget = new Auth0Widget({ 
+                                domain: '<%=Constants.DOMAIN_AUTH0%>',
+                                clientID: '<%=Constants.CLIENT_ID_AUTH0%>',
+                                callbackURL: 'https://<%=Constants.REG_SERVER_NAME%><%=Constants.REDIRECT_URL_AUTH0%>'});
 
-                            Hello, <strong>Guest</strong> | <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Login">login</a> | <a class="redBtn" href="javascript:window.Auth0.signIn({ onestep: true,signupLink: '<%=Constants.REG_SERVER_NAME%>/reg2/showRegister.action',title: 'TopCoder/CloudSpokes', icon: 'http://www.topcoder.com/i/24x24_brackets.png', showIcon: true});">Social login</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a> | <a href="http://community.topcoder.com/studio/members/">Members</a> | <a href="http://community.topcoder.com/studio/help/">Studio Help</a> | <a href="http://www.topcoder.com/">About TopCoder</a>
+                            function showAuth0Widget(){
+                            widget.signin({ 
+								state: 'https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/', 
+								icon: 'http://www.topcoder.com/i/24x24_brackets.png', 
+								showIcon: true}).on('signin_ready', function() {
+									$('.a0-email input').each(function() { 
+												$(this) 
+												.clone() .attr('type','text') 
+												.attr('placeholder', 'Username') 
+												.attr('title', 'Username') 
+												.insertAfter($(this)).prev().remove(); });
+                            }); 
+                            }
+
+                            $(function () {
+                            $('.social-login').click(function () { 
+								showAuth0Widget(); });
+                            });
+
+                            </script>
+
+                            Hello, <strong>Guest</strong> | <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Login">login</a> |<a class="redBtn social-login" href="javascript:;">Social login</a> |<a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a> | <a href="http://community.topcoder.com/studio/members/">Members</a> | <a href="http://community.topcoder.com/studio/help/">Studio Help</a> | <a href="http://www.topcoder.com/">About TopCoder</a>
                         </c:when>
                         <c:otherwise>
                             Hello, <studio:handle coderId="${sessionInfo.userId}" styleClass="userLink" /> | <a href="http://community.topcoder.com/studio/help/">Studio Help</a> | <a href="/?module=MyStudioHome">My Studio</a> | <a href="https://community.topcoder.com/studio/members/">Members</a> | <a href="http://www.topcoder.com/">About TopCoder</a> | <a href="/?module=Logout">Log out</a>
