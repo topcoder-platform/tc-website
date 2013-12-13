@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2011-2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.memberphoto.servlet;
 
@@ -13,9 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.topcoder.util.log.Level;
-import com.topcoder.util.log.Log;
-import com.topcoder.util.log.LogManager;
 import com.topcoder.web.memberphoto.entities.MemberImage;
 import com.topcoder.web.memberphoto.manager.MemberPhotoManagementException;
 import com.topcoder.web.memberphoto.manager.MemberPhotoManager;
@@ -248,19 +245,6 @@ public class MemberPhotoListServlet extends HttpServlet {
 
     /**
      * <p>
-     * This is a logger which will be used to perform logging operations.
-     * </p>
-     * <p>
-     * It's created upon initialization with the class name of this class as the logger name.
-     * </p>
-     * <p>
-     * After injection, it must be non-null.
-     * </p>
-     */
-    private Log log;
-
-    /**
-     * <p>
      * Empty constructor.
      * </p>
      */
@@ -268,13 +252,9 @@ public class MemberPhotoListServlet extends HttpServlet {
     }
 
     /**
-     * <p>
-     * The method to init logger.
-     * </p>
      */
     @PostConstruct
     public void init() {
-        this.log = LogManager.getLog();
     }
 
     /**
@@ -293,7 +273,7 @@ public class MemberPhotoListServlet extends HttpServlet {
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException,
         MemberPhotoListingException {
-        logMsg(MessageFormat.format("{0} : Entering " + "MemberPhotoListServlet#doPost"
+        Helper.logDebugMsg(MessageFormat.format("{0} : Entering " + "MemberPhotoListServlet#doPost"
             + "(HttpServletRequest, HttpServletResponse)" + " - request {1}, response {2},", new Date(),
             request, response));
         try {
@@ -349,15 +329,15 @@ public class MemberPhotoListServlet extends HttpServlet {
                     "MemberPhotoManagementException occurs when get photo list.", e);
             }
         } catch (IllegalArgumentException e) {
-            throw logMsg("any arg is null", e);
+            throw Helper.logError("any arg is null", e);
         } catch (IllegalStateException e) {
-            throw logMsg("the instance variables are not injected correctly", e);
+            throw Helper.logError("the instance variables are not injected correctly", e);
         } catch (IOException e) {
-            throw logMsg("i/o error occurs", e);
+            throw Helper.logError("i/o error occurs", e);
         } catch (MemberPhotoListingException e) {
-            throw logMsg("unexpected error occurs. details:" + e.getMessage(), e);
+            throw Helper.logError("unexpected error occurs. details:" + e.getMessage(), e);
         } finally {
-            logMsg(MessageFormat.format("{0} : Exiting " + "MemberPhotoListServlet#doPost"
+            Helper.logDebugMsg(MessageFormat.format("{0} : Exiting " + "MemberPhotoListServlet#doPost"
                 + "(HttpServletRequest, HttpServletResponse)", new Date()));
         }
 
@@ -523,34 +503,6 @@ public class MemberPhotoListServlet extends HttpServlet {
         if (param == null) {
             throw new IllegalStateException("The parameter '" + paramName + "' should not be null.");
         }
-    }
-
-    /**
-     * Logs the INFO message.
-     * @param message
-     *            the message to log.
-     */
-    private void logMsg(String message) {
-        if (log != null) {
-            log.log(Level.INFO, message);
-        }
-    }
-
-    /**
-     * Logs the ERROR message.
-     * @param <T>
-     *            the error type.
-     * @param message
-     *            the message to log.
-     * @param e
-     *            the error
-     * @return the passed in exception.
-     */
-    private <T extends Throwable> T logMsg(String message, T e) {
-        if (log != null) {
-            log.log(Level.ERROR, e, message);
-        }
-        return e;
     }
 
     /**
