@@ -766,6 +766,9 @@ public class Constants implements WebConstants {
      *  @since 1.11
      */
     public static String REG_SERVER_NAME;
+	
+	public static String DOMAIN_AUTH0;
+	
     
     static {
         initialize();
