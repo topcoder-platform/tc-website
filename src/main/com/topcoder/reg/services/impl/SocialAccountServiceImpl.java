@@ -3,6 +3,18 @@
  */
 package com.topcoder.reg.services.impl;
 
+import com.topcoder.json.object.JSONArray;
+import com.topcoder.json.object.JSONObject;
+import com.topcoder.json.object.io.JSONDecodingException;
+import com.topcoder.json.object.io.StandardJSONDecoder;
+import com.topcoder.reg.Constants;
+import com.topcoder.reg.dto.SocialAccount;
+import com.topcoder.reg.services.PersistenceException;
+import com.topcoder.reg.services.SocialAccountException;
+import com.topcoder.reg.services.SocialAccountService;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.logging.Logger;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.transaction.annotation.Propagation;
@@ -11,18 +23,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-
-import com.topcoder.commons.utils.LoggingWrapperUtility;
-import com.topcoder.json.object.JSONObject;
-import com.topcoder.json.object.io.JSONDecodingException;
-import com.topcoder.json.object.io.StandardJSONDecoder;
-import com.topcoder.reg.dto.SocialAccount;
-import com.topcoder.reg.services.PersistenceException;
-import com.topcoder.reg.services.SocialAccountException;
-import com.topcoder.reg.services.SocialAccountService;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.reg.Constants;
-import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This class provides an implementation for {@link SocialAccountService}.
@@ -112,8 +112,23 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
      * Persist the social account, which also include the mapping with TC account by the field user_id.
      */
     private static final String SQL_INSERT_SOCIAL_ACCOUNT =
-        "INSERT INTO user_social_login(user_id, social_login_provider_id, social_user_name, social_email, "
-            + "social_email_verified) VALUES (?, ?, ?, ?, ?)";
+        "INSERT INTO user_social_login(social_user_id, user_id, social_login_provider_id, social_user_name, social_email, "
+            + "social_email_verified) VALUES (?, ?, ?, ?, ?, ?)";
+
+    /**
+     * Find the user id according to the social user id..
+     */
+    private static final String SQL_GET_ID_BY_SOCIAL_USER_ID_AND_PROVIDER_ID =
+            "SELECT user_id FROM user_social_login WHERE social_user_id = ? AND social_login_provider_id = ? ";
+
+    /**
+     * Check if mapped social account exists by social user id.
+     */
+    private static final String SQL_COUNT_SOCIAL_USER_ID_AND_PROVIDER_ID =
+            "SELECT COUNT(*) FROM user_social_login WHERE social_user_id = ? AND social_login_provider_id = ? ";
+
+    private static final String SQL_UPDATE_SOCIAL_USER_ID =
+            "UPDATE user_social_login set social_user_id = ? WHERE user_id = ? ";
 
     /**
      * This field is used to send HTTP requests. It's injected by Spring.
@@ -139,19 +154,32 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
         logger.info(signature);
 
         try {
-            Long userId;
-            if (!social.getEmail().equals("")) {
-                userId =
-                    queryUserId(SQL_COUNT_SOCIAL_ACCOUNT_EMAIL, SQL_GET_ID_BY_SOCIAL_ACCOUNT_EMAIL,
-                        social.getProviderId(), social.getEmail(), social.isEmailVerified());
-            } else if (!social.getName().equals("")) {
-                userId =
-                    queryUserId(SQL_COUNT_SOCIAL_ACCOUNT_NAME, SQL_GET_ID_BY_SOCIAL_ACCOUNT_NAME,
-                        social.getProviderId(), social.getName());
-            } else {
-                throw new SocialAccountException(
-                    "The social account should have at least one valid email or one valid username.");
+            Long userId = null;
+            if (StringUtils.isNotEmpty(social.getSocialUserId())) {
+                userId = queryUserId(SQL_COUNT_SOCIAL_USER_ID_AND_PROVIDER_ID,
+                        SQL_GET_ID_BY_SOCIAL_USER_ID_AND_PROVIDER_ID,
+                        social.getSocialUserId(), social.getProviderId());
             }
+
+            if (userId == null) {
+                if (!social.getEmail().equals("")) {
+                    userId =
+                            queryUserId(SQL_COUNT_SOCIAL_ACCOUNT_EMAIL, SQL_GET_ID_BY_SOCIAL_ACCOUNT_EMAIL,
+                                    social.getProviderId(), social.getEmail(), social.isEmailVerified());
+                } else if (!social.getName().equals("")) {
+                    userId =
+                            queryUserId(SQL_COUNT_SOCIAL_ACCOUNT_NAME, SQL_GET_ID_BY_SOCIAL_ACCOUNT_NAME,
+                                    social.getProviderId(), social.getName());
+                } else {
+                    throw new SocialAccountException(
+                            "The social account should have at least one valid email or one valid username.");
+                }
+
+                if (userId != null) {
+                    setSocialUserIdForUser(userId, social);
+                }
+            }
+
             //LoggingWrapperUtility.logExit(logger, signature, new Object[] {userId});
             return userId;
         } catch (DataAccessException e) {
@@ -203,8 +231,22 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
         logger.info(signature);
 
         try {
-            jdbcTemplate.update(SQL_INSERT_SOCIAL_ACCOUNT, userId, socialAccount.getProviderId(),
+            jdbcTemplate.update(SQL_INSERT_SOCIAL_ACCOUNT, socialAccount.getSocialUserId(), userId, socialAccount.getProviderId(),
                 socialAccount.getName(), socialAccount.getEmail(), socialAccount.isEmailVerified());
+            //LoggingWrapperUtility.logExit(logger, signature, null);
+        } catch (DataAccessException e) {
+            // the exception is logged by caller.
+            throw new PersistenceException("Error while insert social account", e);
+        }
+    }
+
+    @Transactional(rollbackFor = PersistenceException.class, propagation = Propagation.REQUIRED)
+    public void setSocialUserIdForUser(long userId, SocialAccount socialAccount) throws PersistenceException {
+        final String signature = CLASS_NAME + "#setSocialUserIdForUser(long userId, SocialAccount socialAccount)";
+        logger.info(signature);
+
+        try {
+            jdbcTemplate.update(SQL_UPDATE_SOCIAL_USER_ID, socialAccount.getSocialUserId(), userId);
             //LoggingWrapperUtility.logExit(logger, signature, null);
         } catch (DataAccessException e) {
             // the exception is logged by caller.
@@ -235,11 +277,17 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
                 restTemplate.getForObject("https://" + Constants.DOMAIN_AUTH0 + "/userinfo?access_token="
                     + accessToken, String.class);
         } catch (RestClientException e) { 
-	        System.out.println("----------------"+e);
             throw new SocialAccountException("Fail to obtain current social account info from Auth0.", e);
         }
-        System.out.println("---------jsonString-------"+jsonString);
         JSONObject rootNode = getJsonNode(jsonString);
+
+        JSONArray identities = rootNode.getArray("identities");
+        if (identities.getSize() > 0) {
+            JSONObject identity = identities.getJSONObject(0);
+            if (identity.isKeyDefined("user_id")) {
+                social.setSocialUserId(identity.getObject("user_id").toString());
+            }
+        }
 
         social.setProviderId(getProviderId(rootNode.getString("user_id")));
 
@@ -272,7 +320,7 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
         if (rootNode.isKeyDefined("email_verified") && rootNode.isAvailableAsBoolean("email_verified")) {
             social.setEmailVerified(rootNode.getBoolean("email_verified"));
         } else {
-            social.setEmailVerified(true);
+            social.setEmailVerified(false);
         }
 
         // family_name can be absent in Github case.

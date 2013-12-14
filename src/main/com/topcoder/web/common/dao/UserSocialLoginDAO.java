@@ -36,4 +36,5 @@ public interface UserSocialLoginDAO extends GenericDAO<UserSocialLogin, UserSoci
     List<UserSocialLogin> findByUserId(long userId);
     UserSocialLogin findByProviderIdAndName(long providerId, String name);
     UserSocialLogin findByProviderIdAndVerifiedEmail(long providerId, String email);
+    UserSocialLogin findByProviderIdAndSocialUserId(long providerId, String socialUserId);
 }

@@ -60,4 +60,13 @@ public class UserSocialLoginDAOHibernate extends GenericBase<UserSocialLogin, Us
         List ret = c.list();
         return ret.isEmpty() ? null : (UserSocialLogin) ret.get(0);
     }
+
+    public UserSocialLogin findByProviderIdAndSocialUserId(long providerId, String socialUserId) {
+        Criteria c = getSession().createCriteria(UserSocialLogin.class)
+                .add(Restrictions.eq("socialUserId", socialUserId))
+                .add(Restrictions.eq("id.socialLoginProviderId", providerId));
+        List ret = c.list();
+        return ret.isEmpty() ? null : (UserSocialLogin) ret.get(0);
+
+    }
 }

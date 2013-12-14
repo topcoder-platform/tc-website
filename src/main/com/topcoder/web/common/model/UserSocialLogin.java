@@ -46,6 +46,8 @@ public class UserSocialLogin extends Base {
      */
     private boolean socialEmailVerified;
 
+    private String socialUserId;
+
     /**
      * Get the id.
      *
@@ -116,6 +118,14 @@ public class UserSocialLogin extends Base {
      */
     public void setSocialEmailVerified(boolean socialEmailVerified) {
         this.socialEmailVerified = socialEmailVerified;
+    }
+
+    public String getSocialUserId() {
+        return socialUserId;
+    }
+
+    public void setSocialUserId(String socialUserId) {
+        this.socialUserId = socialUserId;
     }
 
     /**
