@@ -23,6 +23,7 @@
   language="java"
   import="com.topcoder.shared.util.ApplicationServer,
           com.topcoder.web.common.BaseServlet,
+          com.topcoder.web.common.StringUtils,
           com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.web.common.SessionInfo"%>
 <%@ page import="java.text.DecimalFormat"%>
@@ -30,6 +31,12 @@
 <%
     SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
     String level1 = request.getParameter("level1")==null?"competition":request.getParameter("level1");
+    
+    String nextpage = (String) request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
+    if (nextpage == null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
+    if (nextpage == null) nextpage = request.getHeader("Referer");
+    if (nextpage == null) nextpage = "http://" + request.getServerName();
+    
 %>
 
 <script type="text/javascript" src="/js/popup.js"></script>
@@ -66,7 +73,7 @@
 
             function showAuth0Widget(){
                 widget.signin({
-                    state: 'https://<%=ApplicationServer.SERVER_NAME%><%= request.getAttribute("javax.servlet.forward.request_uri")%>',
+                    state: '<%= StringUtils.htmlEncode(nextpage) %>',
                     icon: 'http://www.topcoder.com/i/24x24_brackets.png', 
                     showIcon: true}).on('signin_ready', function() {
                     $('.a0-email input').each(function() {
