@@ -53,6 +53,7 @@
     <script type="text/javascript" src="/js/jquery.form.js"></script>
     <script type="text/javascript" src="/js/jquery.Jcrop.js"></script>
     <script type="text/javascript" src="/js/photo.js"></script>
+    <script type="text/javascript" src="/js/tcscript.js"></script>
     
     <script src="https://sdk.auth0.com/auth0.js#client=<%=Constants.CLIENT_ID_AUTH0%>&amp;state=https://<%=ApplicationServer.SERVER_NAME%>/tc&amp;redirect_uri=https://<%=ApplicationServer.SERVER_NAME%><%=Constants.BIND_CALLBACK_URL_AUTH0%>"></script>
     
@@ -67,11 +68,24 @@
                     showIcon: true
                 });
             });
+            
+            $('#removeSocialLink').click(function(e) {
+                e.preventDefault();
+                closeModal();
+                adjustAndShow('#removeSocialConfirmModal');
+            });
+            
+            $('.confirmRemoveBtn').click(function() {
+                closeModal();
+                adjustAndShow('#preloaderModal');
+                window.location = $('#removeSocialLink').attr('href');
+            });
         });
     </script>    
     
     <link type="text/css" href="/css/jquery.Jcrop.css" rel="stylesheet"/>
     <link type="text/css" href="/css/photo.css" rel="stylesheet"/>
+    <link type="text/css" href="/css/style.css" rel="stylesheet"/>
 
     <script type="text/javascript">
         var previewPath = <%= request.getParameter("previewPath") == null ? null : "\'"  + URLEncoder.encode(request.getParameter("previewPath"), "UTF-8").replaceAll("%2F", "/") + "\'" %>;
@@ -255,7 +269,7 @@
                             <p>
                                 <c:choose>
                                     <c:when test="${hasSocialAccount}">
-                                        <a href="/tc?module=RemoveSocialLogin">Remove Social Login</a>
+                                        <a href="/tc?module=RemoveSocialLogin" id="removeSocialLink">Remove Social Login</a>
                                     </c:when>
                                     <c:otherwise>
                                         <a href="javascript:;" id="addSocialLink">Add Social Login</a>
@@ -401,6 +415,65 @@
         </div>
     </div>
 </c:if>
+
+<!-- AJAX preloading indicator -->
+<div id="modal-background"></div>
+<div id="new-modal-window">
+    <!-- ajax preloader modal -->
+    <div class="outLay" id="preloaderModal" style="display: none;">
+        <div class="modalHeaderSmall">
+            <div class="modalHeaderSmallRight">
+                <div class="modalHeaderSmallCenter"></div>
+            </div>
+        </div>
+        <div class="modalBody">
+            <span id="preloaderAnimation">
+            <img alt="Loading" src="/i/modal/preloader-loading.gif">
+            </span>
+            <div class="preloaderTips">Loading...</div>
+        </div>
+        <div class="modalFooter">
+            <div class="modalFooterRight">
+                <div class="modalFooterCenter">
+                    <div class="&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end ajax preloader modal -->
+
+    <div id="removeSocialConfirmModal" class="outLay" style="display: none;">
+        <div class="modalHeader">
+            <div class="modalHeaderRight">
+                <div class="modalHeaderCenter">
+                    <h2>Remove Social Login</h2>
+                    <a href="javascript:;" class="closeModal" title="Close">Close</a>
+                </div>
+            </div>
+        </div>
+        <!-- end .modalHeader -->
+
+        <div class="modalBody">
+            <ul class="modalContent">
+                <li>In order to remove your social login, please confirm on this action.</li>
+                <li>Are you sure to remove it?</li>
+            </ul>
+            <div class="modalCommandBox">
+                <a href="javascript:;" class="newButton1 defaultBtn confirmRemoveBtn" style="text-decoration: none;"><span class="btnR"><span
+                        class="btnC">Yes</span></span></a>
+            </div>
+        </div>
+        <!-- end .modalBody -->
+
+        <div class="modalFooter">
+            <div class="modalFooterRight">
+                <div class="modalFooterCenter"></div>
+            </div>
+        </div>
+        <!-- end .modalFooter -->
+    </div>
+    <!-- end #errorModal -->
+</div>
 
 </body>
 

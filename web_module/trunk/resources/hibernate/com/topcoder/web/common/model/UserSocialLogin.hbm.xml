@@ -14,5 +14,6 @@
         <property name="socialUserName" column="social_user_name" access="field"/>
         <property name="socialEmail" column="social_email" access="field"/>
         <property name="socialEmailVerified" column="social_email_verified" access="field"/>
+        <property name="socialUserId" column="social_user_id" access="field"/>
     </class>
 </hibernate-mapping>

@@ -14,11 +14,18 @@ package com.topcoder.reg.dto;
  *         <li>Add {@link #enterpriseLogin} place holder for enterprise login</li>
  *     </ul>
  * </p>
+ * 
+ * <p>
+ *     Version 1.2 (BUGR-10213) changes:
+ *     <ul>
+ *         <li>Add {@link #socialUserId} variable.</li>
+ *     </ul>
+ * </p>
  *
  * <strong>Thread Safety:</strong> This class is mutable and not thread-safe.
  * 
- * @author ecnu_haozi
- * @version 1.1
+ * @author ecnu_haozi, tangzx
+ * @version 1.2
  * @since 1.0 (Release Assembly - TopCoder Website Social Login)
  */
 public class SocialAccount {
@@ -59,6 +66,12 @@ public class SocialAccount {
      * @since 1.1
      */
     private boolean enterpriseLogin = false;
+
+    /**
+	 * the user id from social provider.
+	 * @since 1.2
+	 */
+    private String socialUserId;
 
     /**
      * <p>
@@ -218,4 +231,23 @@ public class SocialAccount {
         this.enterpriseLogin = enterprise;
     }
 
+    /**
+     * Getter of <code>socialUserId</code>
+     *
+     * @return social user id
+     * @since 1.2
+     */	
+    public String getSocialUserId() {
+        return socialUserId;
+    }
+
+    /**
+     * Setter of <code>socialUserId</code>
+     *
+     * @param socialUserId social user id
+     * @since 1.2
+     */
+    public void setSocialUserId(String socialUserId) {
+        this.socialUserId = socialUserId;
+    }
 }

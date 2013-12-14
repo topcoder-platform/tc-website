@@ -3,6 +3,7 @@
  */
 package com.topcoder.web.tc.controller.request.myhome;
 
+import com.topcoder.json.object.JSONArray;
 import com.topcoder.json.object.JSONObject;
 import com.topcoder.json.object.io.JSONDecodingException;
 import com.topcoder.json.object.io.StandardJSONDecoder;
@@ -138,20 +139,36 @@ public class AddSocialLogin extends ShortHibernateProcessor {
             }
 
             socialLogin.setSocialEmail((String) getFieldValue(rootNode, "email", ""));
-            socialLogin.setSocialEmailVerified((Boolean) getFieldValue(rootNode, "email_verified", true));
+            socialLogin.setSocialEmailVerified((Boolean) getFieldValue(rootNode, "email_verified", false));
+
+            JSONArray identities = rootNode.getArray("identities");
+            if (identities.getSize() > 0) {
+                JSONObject identity = identities.getJSONObject(0);
+
+                if (identity.isKeyDefined("user_id")) {
+                    socialLogin.setSocialUserId(identity.getObject("user_id").toString());
+                }
+            }
 
             // we should check whether this social login is associated with someone else.
-            // but we can't make sure user name is unique across identity providers for now,
+            // but we can't make sure user name is unique across identity providers for now.
             boolean alreadyAssociated = false;
-            if (socialLogin.getId().getSocialLoginProviderId() == TWITTER_PROVIDER_ID) {
-                if (StringUtils.isNotEmpty(socialLogin.getSocialUserName())) {
-                    alreadyAssociated =
-                        userSocialLoginDAO.findByProviderIdAndName(TWITTER_PROVIDER_ID, socialLogin.getSocialUserName()) != null;
-                }
-            } else {
-                if (StringUtils.isNotEmpty(socialLogin.getSocialEmail())) {
-                    alreadyAssociated =
-                        userSocialLoginDAO.findByProviderIdAndVerifiedEmail(socialLogin.getId().getSocialLoginProviderId(), socialLogin.getSocialEmail()) != null;
+            if (StringUtils.isNotEmpty(socialLogin.getSocialUserId())) {
+                alreadyAssociated = userSocialLoginDAO.findByProviderIdAndSocialUserId(
+                        socialLogin.getId().getSocialLoginProviderId(), socialLogin.getSocialUserId()) != null;
+            }
+            // if can't find by social user id, still check by username/email.
+            if (!alreadyAssociated) {
+                if (socialLogin.getId().getSocialLoginProviderId() == TWITTER_PROVIDER_ID) {
+                    if (StringUtils.isNotEmpty(socialLogin.getSocialUserName())) {
+                        alreadyAssociated =
+                            userSocialLoginDAO.findByProviderIdAndName(TWITTER_PROVIDER_ID, socialLogin.getSocialUserName()) != null;
+                    }
+                } else {
+                    if (StringUtils.isNotEmpty(socialLogin.getSocialEmail())) {
+                        alreadyAssociated =
+                            userSocialLoginDAO.findByProviderIdAndVerifiedEmail(socialLogin.getId().getSocialLoginProviderId(), socialLogin.getSocialEmail()) != null;
+                    }
                 }
             }
             if (alreadyAssociated) {
