@@ -397,6 +397,24 @@ if (roundId == 15828) {
 ** Spectator is defined as a person who spent at least 3 hours in the Arena during the competition's coding phase. (Please note that spectator is still allowed to be a competitor as well.)
 <br/><br/>
 <% } %>
+<%
+// SRM 600.5
+if (roundId == 15828) {
+%>
+        <B>Single Round Match Description</B>
+        <UL>
+            <LI>Maximum of 20 coders per room</LI>
+            <LI>All members will compete in the same division</LI>
+            <LI>Ratings will not be adjusted post-match</LI>
+            <LI>Members will be emailed prior to the match with date and time (opt-in)</LI>
+        </UL>
+        The match will feature a mixed programming language format. For each individual problem, the coder will have the
+        option of using either Java, C++, Python, Microsoft&#174; Visual C#&#174; .NET or Microsoft&#174; Visual Basic&#174;
+        .NET to
+        code the solution. Syntactical knowledge of all four languages will be helpful during the challenge phase of
+        each
+        round of competition.<BR/><BR/>
+<% } else { %>
         <B>Single Round Match Description</B>
         <UL>
             <LI>Maximum of 20 coders per room</LI>
@@ -404,7 +422,7 @@ if (roundId == 15828) {
             <LI>Members will be emailed prior to the match with date and time (opt-in)</LI>
         </UL>
         The match will feature a mixed programming language format. For each individual problem, the coder will have the
-        option of using either Java, C++, Microsoft&#174; Visual C#&#174; .NET or Microsoft&#174; Visual Basic&#174;
+        option of using either Java, C++, Python, Microsoft&#174; Visual C#&#174; .NET or Microsoft&#174; Visual Basic&#174;
         .NET to
         code the solution. Syntactical knowledge of all four languages will be helpful during the challenge phase of
         each
@@ -417,6 +435,7 @@ if (roundId == 15828) {
             <LI>Room assignments place members of like divisions together</LI>
             <LI>Rating changes go into effect in next participated match</LI>
         </UL>
+<% } %>
         <B>Eligibility:</B><BR/><BR/>
         Anyone who is at least 13 years of age may compete in any Single Round Match.<BR/><BR/>
         <A CLASS="bodyText" HREF="/tc?module=MatchRules&amp;rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for
