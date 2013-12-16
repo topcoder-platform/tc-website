@@ -226,9 +226,11 @@ One very simple implementation of a priority queue is just an array that searche
 <br><br>
 A special type of binary tree called a heap is typically used for priority queues.  In a heap, the root node is always less than (or greater than, depending on how your value of "priority" is implemented) either of its children.  Furthermore, this tree is a "complete tree" from the left.  A very simple definition of a complete tree is one where no branch is n + 1 levels deep until all other branches are n levels deep.  Furthermore, it is always the leftmost node(s) that are filled first.
 <br><br>
-To extract a value from a heap, the root node (with the lowest cost or highest priority) is pulled.  The deepest, rightmost leaf then becomes the new root node.  If the new root node is larger than its left child, then the root is swapped with its left child, in order to maintain the property that the root is always less than its children.  This continues as far as necessary down the left branch.  Adding a value to the heap is the reverse.  The new value is added as the next leaf, and swapped upward as many times as necessary to maintain the heap property.
+To extract a value from a heap, the root node (with the lowest cost or highest priority) is pulled.  The deepest, rightmost leaf then becomes the new root node.
+If the new root node is larger than at at least one of its children, then the root is swapped with its smallest child, in order to maintain the property that the root is always less than its children.
+This continues downward as far as necessary.  Adding a value to the heap is the reverse.  The new value is added as the next leaf, and swapped upward as many times as necessary to maintain the heap property.
 <br><br>
-A convenient property of trees that are complete from the left is that they can be stored very efficiently in a flat array.  In general, element 0 of the array is the root, and elements k + 1 and k + 2 are the children of element k.  The effect here is that adding the next leaf simply means appending to the array.
+A convenient property of trees that are complete from the left is that they can be stored very efficiently in a flat array.  In general, element 0 of the array is the root, and elements 2k + 1 and 2k + 2 are the children of element k.  The effect here is that adding the next leaf simply means appending to the array.
 <br><br>
 <span class="bodySubtitle">Hash Tables</span><br>
 Hash tables are a unique data structure, and are typically used to implement a "dictionary" interface, whereby a set of keys each has an associated value.  The key is used as an index to locate the associated values.  This is not unlike a classical dictionary, where someone can find a definition (value) of a given word (key).
