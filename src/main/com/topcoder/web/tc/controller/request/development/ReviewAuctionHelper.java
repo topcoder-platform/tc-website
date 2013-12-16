@@ -62,6 +62,11 @@ class ReviewAuctionHelper {
     static final long SPEC_REVIEW_AUCTION_CATEGORY_ID = 2;
 
     /**
+     * <p>A <code>long</code> providing the ID for review auction category for iterative reviews.</p>
+     */
+    static final long ITERATIVE_REVIEW_AUCTION_CATEGORY_ID = 3;
+
+    /**
      * <p>A <code>long</code> providing the ID for <code>Pending</code> review application status.</p>
      */
     static final long PENDING_APPLICATION_ROLE_STATUS_ID = 1;

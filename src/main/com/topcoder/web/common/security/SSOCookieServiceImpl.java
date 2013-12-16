@@ -48,12 +48,12 @@ public class SSOCookieServiceImpl implements SSOCookieService {
      * @param rememberMe a flag to indicate if the user select rememberMe checkbox while logging in.
      * @throws Exception if any error occurs.
      */
-    public void setSSOCookie(HttpServletResponse response, long userId, boolean rememberMe) throws Exception{
+    public void setSSOCookie(HttpServletResponse response, long userId, boolean rememberMe) throws Exception {
         String userIdentity = userId + "|" + hashForUser(userId);
         if (rememberMe) {
             //This is a persistent cookie which will persist unless the user log out or change password.
             response.addCookie( createCookie(ApplicationServer.SSO_COOKIE_KEY, userIdentity, Integer.MAX_VALUE));
-        }else{
+        } else {
             //This is a session cookie which will invalidate when the user exit the browser.
             response.addCookie( createCookie(ApplicationServer.SSO_COOKIE_KEY, userIdentity, null));
         }
@@ -164,7 +164,7 @@ public class SSOCookieServiceImpl implements SSOCookieService {
      */
     private Cookie createCookie(String name, String value, Integer maxAge) {
         Cookie cookie = new Cookie(name, value);
-        if(maxAge != null) {
+        if (maxAge != null) {
             cookie.setMaxAge(maxAge);
         }
         cookie.setDomain(ApplicationServer.SSO_DOMAIN);
@@ -191,7 +191,7 @@ public class SSOCookieServiceImpl implements SSOCookieService {
      *
      * @param uid the user id
      * @return the hash
-     * @throws Exception if there is a problem getting data from the data base or if the MD5 algorithm doesn't exist
+     * @throws Exception if there is a problem getting data from the data base or if the SHA-256 algorithm doesn't exist
      */
     private String hashForUser(long uid) throws Exception {
         //log.debug("hash for user: " + uid);

@@ -42,6 +42,8 @@
 <c:set var="PRIMARY_FLAG" value="<%=Constants.PRIMARY_FLAG%>" scope="request"/>
 <c:set var="REVIEWER_TYPE_ID" value="<%=Constants.REVIEWER_TYPE_ID%>" scope="request"/>
 <c:set var="DATE_FORMAT" value="MM.dd.yyyy HH:mm z"/>
+<c:set var="CONTEST_REVIEW_AUCTION_CATEGORY_ID" value="1"/>
+<c:set var="SPEC_REVIEW_AUCTION_CATEGORY_ID" value="2"/>
 
 <jsp:include page="reviewCommonVariables.jsp"/>
 <% boolean hasSpecificationSubmission = (Boolean) request.getAttribute("hasSpecificationSubmission"); %>
@@ -53,6 +55,7 @@
 <% boolean hasAggregation = (Boolean) request.getAttribute("hasAggregation"); %>
 <% boolean hasFinalFixes = (Boolean) request.getAttribute("hasFinalFixes"); %>
 <% boolean hasFinalReview = (Boolean) request.getAttribute("hasFinalReview"); %>
+<% boolean hasIterativeReview = (Boolean) request.getAttribute("hasIterativeReview"); %>
 
 <% boolean specReviewExtensionNeeded = (Boolean) request.getAttribute("specReviewExtensionNeeded"); %>
 <% boolean screeningExtensionNeeded = (Boolean) request.getAttribute("screeningExtensionNeeded"); %>
@@ -193,8 +196,7 @@
                         </c:if>
                         <c:if test="${hasReview}">
                             <tr>
-                                <td class="projectCells">Review
-				<c:if test="${reviewExtensionNeeded}">*</c:if></td>
+                                <td class="projectCells">Review <c:if test="${reviewExtensionNeeded}">*</c:if></td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['review_start']}"
                                         pattern="${DATE_FORMAT}"/>
@@ -262,6 +264,20 @@
                                 <td class="projectCells" align="center">${projectDetailRow.map['final_review_duration']}</td>
                             </tr>
                         </c:if>
+                        <c:if test="${hasIterativeReview}">
+                            <tr>
+                                <td class="projectCells">Iterative Review</td>
+                                <td class="projectCells" align="center">
+                                    <fmt:formatDate value="${projectDetailRow.map['iterative_review_start']}"
+                                        pattern="${DATE_FORMAT}"/>
+                                </td>
+                                <td class="projectCells" align="center">
+                                    <fmt:formatDate value="${projectDetailRow.map['iterative_review_end']}"
+                                        pattern="${DATE_FORMAT}"/>
+                                </td>
+                                <td class="projectCells" align="center">${projectDetailRow.map['iterative_review_duration']}</td>
+                            </tr>
+                        </c:if>
                     </table>
 
                     <br/>
@@ -301,7 +317,7 @@
                                 <p align="left">
                                     Select the review roles you would like to apply for and click the button.
                                     The system will assign members that best meet the review requirements for this contest.
-                                    <c:if test="${not isSpecificationReview}">
+                                    <c:if test="${auctionCategoryId == CONTEST_REVIEW_AUCTION_CATEGORY_ID}">
                                         Although you will be assigned to at most one review position, applying for multiple
                                         roles increases your chances of being selected.
                                     </c:if>
@@ -337,7 +353,7 @@
                                 </td>
                                 <td class="projectCells" align="center">
                                     $<fmt:formatNumber value="${reviewApplicationRolePayments[reviewerRole.id]}" pattern="#,###.00"/>
-                                    <c:if test="${!isSpecificationReview}">*</c:if>
+                                    <c:if test="${auctionCategoryId != SPEC_REVIEW_AUCTION_CATEGORY_ID}">*</c:if>
                                 </td>
                                 <td class="projectCells" align="right">
                                     <c:set var="isSelected" value="false"/>
@@ -385,12 +401,11 @@
                         </tbody>
                     </table>
                     </form>
-                        <c:if test="${!isSpecificationReview}">
+                        <c:if test="${auctionCategoryId != SPEC_REVIEW_AUCTION_CATEGORY_ID}">
                             <table cellspacing="0" cellpadding="0" width="540" class="bodyText">
                                 <tr>
                                     <td class="bodyText">
-                                        <p align="left">* This number assumes that all submissions pass screening, the
-                                            actual payment may differ.
+                                        <p align="left">* Depends on the number of submissions, the actual payment may differ.
                                         </p>
                                     </td>
                                 </tr>
