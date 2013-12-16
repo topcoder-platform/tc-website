@@ -73,22 +73,36 @@ public class ViewReviewAuctions extends ReviewAuctionDetails {
             // **** Process contest review auctions ****
             
             // Get the list of open contest review auctions for selected project category
-            List<ReviewAuction> reviewAuctions 
+            List<ReviewAuction> contestReviewAuctions 
                 = retrieveReviewAuctions(reviewAuctionManager, ReviewAuctionHelper.CONTEST_REVIEW_AUCTION_CATEGORY_ID,
-                                         projectCategoryId, "reviewAuctions", 
-                                         "review_auction_projects", "reviewAuctionProjectsMap");
-
-            Map<Long, ResultSetContainer.ResultSetRow> reviewAuctionProjectsMap 
-                = (Map<Long, ResultSetContainer.ResultSetRow>) getRequest().getAttribute("reviewAuctionProjectsMap");
-            
+                                         projectCategoryId, "contestReviewAuctions", 
+                                         "review_auction_projects", "contestReviewAuctionProjectsMap");
+           
             // Calculate the reviewer payments for contest review auctions as maximum payment for one of the reviewer 
             // roles
-            Map<Long, Float> prices = new HashMap<Long, Float>();
-            for (ReviewAuction reviewAuction : reviewAuctions) {
+            Map<Long, Float> contestReviewPrices = new HashMap<Long, Float>();
+            for (ReviewAuction reviewAuction : contestReviewAuctions) {
                 Map<Long, Float> auctionRolePayments = ReviewAuctionHelper.calculateReviewPayments(reviewAuction);
-                prices.put(reviewAuction.getId(), getMaximumPayment(auctionRolePayments));
+                contestReviewPrices.put(reviewAuction.getId(), getMaximumPayment(auctionRolePayments));
             }
-            getRequest().setAttribute("prices", prices);
+            getRequest().setAttribute("contestReviewPrices", contestReviewPrices);
+
+            // **** Process iterative review auctions ****
+            
+            // Get the list of open iterative review auctions for selected project category
+            List<ReviewAuction> iterativeReviewAuctions 
+                = retrieveReviewAuctions(reviewAuctionManager, ReviewAuctionHelper.ITERATIVE_REVIEW_AUCTION_CATEGORY_ID,
+                                         projectCategoryId, "iterativeReviewAuctions", 
+                                         "iterative_review_auction_projects", "iterativeReviewAuctionProjectsMap");
+           
+            // Calculate the reviewer payments for iterative review auctions as maximum payment for one of the reviewer 
+            // roles
+            Map<Long, Float> iterativeReviewPrices = new HashMap<Long, Float>();
+            for (ReviewAuction reviewAuction : iterativeReviewAuctions) {
+                Map<Long, Float> auctionRolePayments = ReviewAuctionHelper.calculateReviewPayments(reviewAuction);
+                iterativeReviewPrices.put(reviewAuction.getId(), getMaximumPayment(auctionRolePayments));
+            }
+            getRequest().setAttribute("iterativeReviewPrices", iterativeReviewPrices);
 
             // **** Process specification review auctions ****
             

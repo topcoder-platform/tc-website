@@ -84,14 +84,16 @@ public class ReviewAuctionDetails extends Base {
             }
 
             // Get review details for project associated with the requested auction
-            boolean isSpecificationReview = reviewAuction.getAuctionType().getAuctionCategory().getId()
-                    == ReviewAuctionHelper.SPEC_REVIEW_AUCTION_CATEGORY_ID; 
-            if (isSpecificationReview) {
+            long auctionCategoryId = reviewAuction.getAuctionType().getAuctionCategory().getId();
+
+            if (auctionCategoryId == ReviewAuctionHelper.CONTEST_REVIEW_AUCTION_CATEGORY_ID) {
+                retrieveContestReviewProjectDetail(projectId, projectTypeId);
+            } else if (auctionCategoryId == ReviewAuctionHelper.ITERATIVE_REVIEW_AUCTION_CATEGORY_ID) {
+                retrieveIterativeReviewProjectDetail(projectId);
+            } else if (auctionCategoryId == ReviewAuctionHelper.SPEC_REVIEW_AUCTION_CATEGORY_ID) {
                 retrieveSpecReviewProjectDetail(projectId);
-            } else {
-                retrieveReviewProjectDetail(projectId, projectTypeId);
             }
-            getRequest().setAttribute("isSpecificationReview", isSpecificationReview);
+            getRequest().setAttribute("auctionCategoryId", auctionCategoryId);
             
             // Get the list of reviewers already registered to auction
             ReviewApplicationManager reviewApplicationManager = ReviewAuctionHelper.createReviewApplicationManager();
@@ -134,13 +136,13 @@ public class ReviewAuctionDetails extends Base {
     }
 
     /**
-     * <p>Looks up for the details of requested review project, binds it to request.</p>
+     * <p>Looks up for the details of requested project for contest review, binds it to request.</p>
      *
      * @param projectId     project id to look for.
      * @param projectTypeId identifier of the type of project
      * @throws TCWebException if an unexpected error occurs.
      */
-    private void retrieveReviewProjectDetail(long projectId, long projectTypeId)
+    private void retrieveContestReviewProjectDetail(long projectId, long projectTypeId)
         throws TCWebException {
         try {
             Request r = new Request();
@@ -178,7 +180,39 @@ public class ReviewAuctionDetails extends Base {
     }
 
     /**
-     * <p>Looks up for the details of requested spec review project, binds it to request.</p>
+     * <p>Looks up for the details of requested project for iterative review, binds it to request.</p>
+     *
+     * @param projectId     project id to look for.
+     * @param projectTypeId identifier of the type of project
+     * @throws TCWebException if an unexpected error occurs.
+     */
+    private void retrieveIterativeReviewProjectDetail(long projectId)
+        throws TCWebException {
+        try {
+            Request r = new Request();
+            r.setContentHandle("iterative_review_project_detail");
+            r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
+
+            Map results = getDataAccess().getData(r);
+            ResultSetContainer detail = (ResultSetContainer) results.get("iterative_review_project_detail");
+
+            getRequest().setAttribute("projectDetail", detail);
+            getRequest().setAttribute("specReviewExtensionNeeded", false);
+            getRequest().setAttribute("screeningExtensionNeeded", false);
+            getRequest().setAttribute("reviewExtensionNeeded", false);
+
+            // Check if each relevant phase exists, and insert that information into the request.
+            checkAllPhaseExistence(detail);
+
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+    }
+
+    /**
+     * <p>Looks up for the details of requested project for spec review, binds it to request.</p>
      *
      * @param projectId project id to look for.
      * @throws TCWebException if an unexpected error occurs
@@ -232,6 +266,7 @@ public class ReviewAuctionDetails extends Base {
         getRequest().setAttribute("hasAggregationReview", checkPhaseExistence(detail, "agg_review_start"));
         getRequest().setAttribute("hasFinalFixes", checkPhaseExistence(detail, "final_fix_start"));
         getRequest().setAttribute("hasFinalReview", checkPhaseExistence(detail, "final_review_start"));
+        getRequest().setAttribute("hasIterativeReview", checkPhaseExistence(detail, "iterative_review_start"));
     }
 
     /**

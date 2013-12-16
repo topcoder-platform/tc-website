@@ -85,8 +85,8 @@
                    available, select the review roles you would like to apply for and click "Apply Now".</p>
 
                 <br/>
-                    <%-- CONTEST REVIEW AUCTIONS --%>
-                    <c:if test="${not empty reviewAuctions}">
+                    <%-- CONTEST REVIEW AND ITERATIVE REVIEW AUCTIONS --%>
+                    <c:if test="${not empty contestReviewAuctions or not empty iterativeReviewAuctions}">
                         <div align="right" style="padding-top: 10px">
                             <b>Review opportunities via RSS -</b>
                             <a href="/tc?module=BasicRSS&c=rss_Open_Review_Positions&dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
@@ -119,8 +119,8 @@
                                 <td class="tableHeader">Details</td>
                             </tr>
 
-                            <c:forEach items="${reviewAuctions}" var="auction">
-                                <c:set var="resultRow" value="${reviewAuctionProjectsMap[auction.projectId]}" 
+                            <c:forEach items="${contestReviewAuctions}" var="auction">
+                                <c:set var="resultRow" value="${contestReviewAuctionProjectsMap[auction.projectId]}" 
                                        scope="page"/>
                                 <tr>
                                     <c:if test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
@@ -138,7 +138,50 @@
                                         </a>
                                     </td>
                                     <td class="statDk" align="right">
-                                        $ <fmt:formatNumber value="${prices[auction.id]}" pattern="#,###.00"/>
+                                        $ <fmt:formatNumber value="${contestReviewPrices[auction.id]}" pattern="#,###.00"/>
+                                    </td>
+                                    <td class="statDk" align="center">
+                                        ${resultRow.map["submission_count"]}
+                                    </td>
+                                    <td class="statDk" align="center" nowrap="nowrap">
+                                        <fmt:formatDate value="${resultRow.map['review_start']}"
+                                                        pattern="MM.dd.yyyy HH:mm z"/>
+                                    </td>
+                                    <td class="statDk" align="center">
+                                        <c:set var="openPositionsCount" value="0"/>
+                                        <c:forEach items="${auction.openPositions}" var="o">
+                                            <c:set var="openPositionsCount" value="${openPositionsCount + o}"/>
+                                        </c:forEach>
+                                        ${openPositionsCount}
+                                    </td>
+                                    <td class="statDk" align="left" nowrap="nowrap">
+                                        <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewAuctionDetails&amp;${REVIEW_AUCTION_ID}=${auction.id}">
+                                            details
+                                        </a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+
+                            <c:forEach items="${iterativeReviewAuctions}" var="auction">
+                                <c:set var="resultRow" value="${iterativeReviewAuctionProjectsMap[auction.projectId]}" 
+                                       scope="page"/>
+                                <tr>
+                                    <c:if test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
+                                            projectType == DESIGN_PROJECT_TYPE}">
+                                    <td class="statDk" align="center">
+                                            <tc_tags:languageIcon catalogName="${resultRow.map['catalog']}"
+                                                                  aolBrand="false" paypalBrand="false"/>
+                                    </td>
+                                    </c:if>
+
+                                    <td class="statDk">
+                                        <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}">
+                                                ${resultRow.map["component_name"]}
+                                                ${resultRow.map["version"]}
+                                        </a>
+                                    </td>
+                                    <td class="statDk" align="right">
+                                        $ <fmt:formatNumber value="${iterativeReviewPrices[auction.id]}" pattern="#,###.00"/>
                                     </td>
                                     <td class="statDk" align="center">
                                         ${resultRow.map["submission_count"]}
@@ -227,7 +270,7 @@
                     </c:if>
 
                     <c:choose>
-                        <c:when test="${fn:length(reviewAuctions) + fn:length(specReviewAuctions) == 0}">
+                        <c:when test="${fn:length(specReviewAuctions) + fn:length(iterativeReviewAuctions) + fn:length(contestReviewAuctions) == 0}">
                             <br/>
                             <p align="center">Sorry, there are currently no review positions available.</p>
                             <br/>
