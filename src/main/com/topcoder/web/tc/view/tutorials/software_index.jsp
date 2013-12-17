@@ -77,6 +77,14 @@
                </td><td class="bodyText" nowrap=nowrap><a href="/wiki/display/tc/Module+Assembly+Competition+Tutorial"><strong>Module Assembly Competition Tutorial</strong></a></td>
             </tr>
             <tr valign="top"><td class="bodyText">
+               <tc-webtag:handle coderId="23043934"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/wiki/display/tc/UI+Prototype+Competitions"><strong>UI Prototype Competition Tutorial</strong></a></td>
+            </tr>
+            <tr valign="top"><td class="bodyText">
+               <tc-webtag:handle coderId="23043934"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/wiki/display/tc/RIA+Build+Competitions"><strong>RIA Build Competition Tutorial</strong></a></td>
+            </tr>
+            <tr valign="top"><td class="bodyText">
                <tc-webtag:handle coderId="119676" context="design"/>
                </td><td class="bodyText" nowrap=nowrap><strong>The Design Process:</strong><br>
                &#160;-&#160;<a href="/tc?module=Static&d1=features&d2=040405"><strong>Section 1: some advice</strong></a><br>
