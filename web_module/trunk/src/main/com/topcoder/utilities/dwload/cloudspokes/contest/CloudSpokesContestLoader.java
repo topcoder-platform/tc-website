@@ -484,6 +484,13 @@ public class CloudSpokesContestLoader extends TCLoad {
      * @since 1.1
      */
     private static final long COMPLETED_PROJECT_STATUS_ID = 7L;
+	
+	 /**
+     * "Draft" project status ID.
+     *
+     * @since 1.1
+     */
+    private static final long DRAFT_PROJECT_STATUS_ID = 2L;
 
     /**
      * Name of warnings filename configuration parameter.
@@ -1497,7 +1504,9 @@ public class CloudSpokesContestLoader extends TCLoad {
         String value = getStringCellValue(row.getCell(columnIndexByName.get(STATUS_COLUMN_HEADER)));
         if ("Winner Selected".equalsIgnoreCase(value)) {
             return COMPLETED_PROJECT_STATUS_ID;
-        } else if ("Failed".equalsIgnoreCase(value)) {
+        } else if ("Draft".equalsIgnoreCase(value)) {
+			return DRAFT_PROJECT_STATUS_ID;
+		} else if ("Failed".equalsIgnoreCase(value)) {
             String submissions = getStringCellValue(row.getCell(columnIndexByName.get(SUBMISSIONS_COLUMN_HEADER)));
             if (!isStringNullEmpty(submissions)) {
                 if (submissions.trim().equals("0")) {
@@ -1512,7 +1521,7 @@ public class CloudSpokesContestLoader extends TCLoad {
             }
         } else {
             errors.append("; skipped, because the value of the '"
-                    + STATUS_COLUMN_HEADER + "' cell is not supported");
+                    + STATUS_COLUMN_HEADER + "' cell is not supported "+value);
             return null;
         }
     }
@@ -2028,7 +2037,11 @@ public class CloudSpokesContestLoader extends TCLoad {
                 long uploadId = insertUpload(projectId, resourceId,
                         reviewPhaseId, createUserId, modifyUserId, createDate);
                 // Insert submission.
-                int place = outcomeJson.getInt("place");
+				
+				int place = 0;
+				if (outcomeJson.has("place")) {
+                   place = outcomeJson.getInt("place");
+				 }
                 long submissionId = insertSubmission(uploadId, score, place,
                         prizeMap.get(place), createUserId, modifyUserId, createDate);
 				// Insert winner / runner up.
@@ -2223,7 +2236,7 @@ public class CloudSpokesContestLoader extends TCLoad {
                     ? httpConn.getInputStream() : httpConn.getErrorStream();
             responseString = IOUtils.toString(responseStream, DEFAULT_ENCODING);
             if (responseCode != HttpURLConnection.HTTP_OK) {
-                Exception e = new Exception("Error response from CS API call.");
+                Exception e = new Exception("Error response from CS API call." + responseCode);
                 LOG.error(e.getMessage(), e);
                 throw e;
             }
@@ -2415,7 +2428,11 @@ public class CloudSpokesContestLoader extends TCLoad {
             insertProjectResultStmt.setLong(index++, userId);
             insertProjectResultStmt.setDouble(index++, score);
             insertProjectResultStmt.setDouble(index++, score);
-            insertProjectResultStmt.setInt(index++, place);
+			if (place == 0) {
+				insertProjectResultStmt.setNull(index++, Types.INTEGER);
+			} else {
+				insertProjectResultStmt.setInt(index++, place);
+			}
             insertProjectResultStmt.setTimestamp(index++, createDate);
             //insertProjectResultStmt.setTimestamp(index++, createDate);
             insertProjectResultStmt.executeUpdate();
@@ -3078,7 +3095,7 @@ public class CloudSpokesContestLoader extends TCLoad {
             //insertProjectInfoStmt.setTimestamp(index++, createDate);
             insertProjectInfoStmt.executeUpdate();
         } catch (SQLException e) {
-            LOG.error("Error inserting record to project_info table.", e);
+            LOG.error("Error inserting record to project_info table." + projectInfoTypeId,  e);
             throw e;
         }
     }

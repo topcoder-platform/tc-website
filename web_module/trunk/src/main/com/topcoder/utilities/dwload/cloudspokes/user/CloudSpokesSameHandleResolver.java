@@ -1418,6 +1418,7 @@ public class CloudSpokesSameHandleResolver {
                 } catch (SQLException ex) {
                     LOG.error("Error during rolling back the changes.", ex);
                 }
+				LOG.error("DB operation failed."+e);
                 printImportError("DB operation failed.", curUserIndex);
                 return false;
             }
