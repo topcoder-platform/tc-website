@@ -11,6 +11,10 @@
  * (Review Application Integration assembly)
  * Add "CloudSpokes" node for CloudSpokes contests
  * (Release Assembly - TopCoder and CloudSpokes Platform Integration Phase 1)
+ * - Add CloudSpokes contest
+ *
+ * (Release Assembly - TC Community Site and Online Review Update for F2F and Code contest types v1.0)
+ * - Add First2Finish and Code contest types
 --%>
 <%@ page language="java"%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
@@ -119,6 +123,24 @@
                     nav.search("m_assembly_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=125", "Past Contests", "assembly_past"));
                     nav.search("m_assembly_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewAuctions&amp;pt=14", "Review Opportunities", "assembly_review"));
                     nav.search("m_assembly_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&amp;pt=14", "Meet the Review Board", "assembly_review_board"));
+
+                nav.search("competition_dev").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_first2finish_competitions')", "First2Finish", "m_first2finish_competitions"));
+                    nav.search("m_first2finish_competitions").addChild(new NavNode("http://www.cloudspokes.com/how-it-works-members", "Overview", "first2finish_overview"));
+                    nav.search("m_first2finish_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.FIRST2FINISH_PROJECT_TYPE, "Active Contests", "first2finish_compete"));
+                    nav.search("m_first2finish_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt="  + WebConstants.FIRST2FINISH_PROJECT_TYPE, "Contest Status", "first2finish_contest_status"));
+                    nav.search("m_first2finish_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt="  + WebConstants.FIRST2FINISH_PROJECT_TYPE, "Past Contests", "first2finish_past"));
+                    nav.search("m_first2finish_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewAuctions&amp;pt="  + WebConstants.FIRST2FINISH_PROJECT_TYPE, "Review Opportunities", "first2finish_review"));
+                    nav.search("m_first2finish_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&amp;pt="  + WebConstants.FIRST2FINISH_PROJECT_TYPE, "Meet the Review Board", "first2finish_review_board"));
+               
+                nav.search("competition_dev").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_code_competitions')", "Code", "m_code_competitions"));
+                    nav.search("m_code_competitions").addChild(new NavNode("http://www.cloudspokes.com/how-it-works-members", "Overview", "code_overview"));
+                    nav.search("m_code_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.CODE_PROJECT_TYPE, "Active Contests", "code_compete"));
+                    nav.search("m_code_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt="  + WebConstants.CODE_PROJECT_TYPE, "Contest Status", "code_contest_status"));
+                    nav.search("m_code_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt="  + WebConstants.CODE_PROJECT_TYPE, "Past Contests", "code_past"));
+                    nav.search("m_code_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewAuctions&amp;pt="  + WebConstants.CODE_PROJECT_TYPE, "Review Opportunities", "code_review"));
+                    nav.search("m_code_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&amp;pt="  + WebConstants.CODE_PROJECT_TYPE, "Meet the Review Board", "code_review_board"));
+
+
                 nav.search("competition_dev").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_test_suites_competitions')", "Test Suites", "m_test_suites_competitions"));
                     nav.search("m_test_suites_competitions").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Test+Scenarios+and+Scripts", "Overview", "test_suites_overview"));
                     nav.search("m_test_suites_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_test_suites_support')", "Track Information", "m_test_suites_support"));

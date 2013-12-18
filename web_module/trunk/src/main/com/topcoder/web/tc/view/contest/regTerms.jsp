@@ -1,6 +1,6 @@
 <%--
   - Author: pulky, FireIce, lmmortal, TCSASSEMBLER
-  - Version: 1.9
+  - Version: 2.0
   - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows the registration terms for a specific project.
@@ -31,6 +31,9 @@
   -
   - Version 1.9 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
   - Added support for new Bug Hunt competitions
+  -
+  - Version 2.0 (Release Assembly - TC Community Site and Online Review Update for F2F and Code contest types)
+  - Added support for new contest types: First2Finish and Code
 --%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -71,6 +74,8 @@
 <c:set value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" var="CONTENT_CREATION_PROJECT_TYPE"/>
 <c:set value="<%=Constants.REPORTING_PROJECT_TYPE%>" var="REPORTING_PROJECT_TYPE"/>
 <c:set value="<%=Constants.BUG_HUNT_PROJECT_TYPE%>" var="BUG_HUNT_PROJECT_TYPE"/>
+<c:set value="<%=Constants.FIRST2FINISH_PROJECT_TYPE%>" var="FIRST2FINISH_PROJECT_TYPE"/>
+<c:set value="<%=Constants.CODE_PROJECT_TYPE%>" var="CODE_PROJECT_TYPE"/>
 <c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="TERMS_OF_USE_ID"/>
 <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=Constants.PROJECT_ID%>" var="PROJECT_ID"/>
@@ -185,6 +190,16 @@ function goBack() {
                         <jsp:param name="node" value="bug_hunt_compete"/>
                     </jsp:include>
                 </c:when>
+                <c:when test="${pt == FIRST2FINISH_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="first2finish_compete"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == CODE_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="code_compete"/>
+                    </jsp:include>
+                </c:when>
             </c:choose>
         </td>
 <%-- Left Column Ends --%>
@@ -274,6 +289,18 @@ function goBack() {
                 <c:when test="${pt == BUG_HUNT_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="bug_hunt"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == FIRST2FINISH_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="first2finish"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == CODE_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="code"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>

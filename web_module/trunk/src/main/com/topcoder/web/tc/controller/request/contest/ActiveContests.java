@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.contest;
 
@@ -52,10 +52,15 @@ import java.util.Map;
   *     <li>Updated {@link #DEFAULT_PROJECT_TYPES} constant to support Bug Hunt project type.</li>
   *   </ol>
  *
+ *   Version 1.7 (Release Assembly - TC Community Site and Online Review Update for F2F and Code contest types v1.0)
+ *   <ol>
+ *       <li>Updated {@link #DEFAULT_PROJECT_TYPES} constant to support First2Finish and Code project type.</li>
+ *   </ol>
+ *
  * </p>
  *
  * @author dok, pulky, Blues, FireIce, lmmortal, TCSASSEMBLER
- * @version 1.6
+ * @version 1.7
  */
 public class ActiveContests extends ActiveContestsBase {
 
@@ -68,7 +73,8 @@ public class ActiveContests extends ActiveContestsBase {
         Constants.SPECIFICATION_PROJECT_TYPE, Constants.CONCEPTUALIZATION_PROJECT_TYPE,
         Constants.UI_PROTOTYPE_PROJECT_TYPE, Constants.RIA_BUILD_PROJECT_TYPE,
         Constants.RIA_COMPONENT_PROJECT_TYPE, Constants.COPILOT_POSTING_PROJECT_TYPE,
-        Constants.CONTENT_CREATION_PROJECT_TYPE, Constants.REPORTING_PROJECT_TYPE, Constants.BUG_HUNT_PROJECT_TYPE};
+        Constants.CONTENT_CREATION_PROJECT_TYPE, Constants.REPORTING_PROJECT_TYPE, Constants.BUG_HUNT_PROJECT_TYPE,
+        Constants.FIRST2FINISH_PROJECT_TYPE, Constants.CODE_PROJECT_TYPE};
 
     public static final String DEFAULT_NAMESPACE = "com.topcoder.web.tc.controller.request.contest.ActiveContests";
 

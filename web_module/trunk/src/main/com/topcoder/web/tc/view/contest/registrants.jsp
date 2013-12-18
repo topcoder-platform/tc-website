@@ -22,6 +22,9 @@
   -
   - Version 1.6 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
   - Added support for new Bug Hunt.
+  -
+  - Version 1.7 (Release Assembly - TC Community Site and Online Review Update for F2F and Code contest types v1.0)
+  - -
 --%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -71,6 +74,8 @@
 <c:set value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" var="CONTENT_CREATION_PROJECT_TYPE"/>
 <c:set value="<%=Constants.REPORTING_PROJECT_TYPE%>" var="REPORTING_PROJECT_TYPE"/>
 <c:set value="<%=Constants.BUG_HUNT_PROJECT_TYPE%>" var="BUG_HUNT_PROJECT_TYPE"/>
+<c:set value="<%=Constants.FIRST2FINISH_PROJECT_TYPE%>" var="FIRST2FINISH_PROJECT_TYPE"/>
+<c:set value="<%=Constants.CODE_PROJECT_TYPE%>" var="CODE_PROJECT_TYPE"/>
 
 <body>
 
@@ -157,6 +162,16 @@
                 <c:when test="${pt == BUG_HUNT_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
                         <jsp:param name="node" value="bug_hunt_compete"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == FIRST2FINISH_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="first2finish_compete"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == CODE_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="code_compete"/>
                     </jsp:include>
                 </c:when>
             </c:choose>
@@ -262,7 +277,18 @@
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>
-
+                <c:when test="${pt == FIRST2FINISH_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="first2finish"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == CODE_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="code"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>
             </c:choose>
 
 
@@ -319,6 +345,12 @@
                 </c:when>
                 <c:when test="${pt == BUG_HUNT_PROJECT_TYPE}">
                       Bug Hunt
+                </c:when>
+                <c:when test="${pt == FIRST2FINISH_PROJECT_TYPE}">
+                      First2Finish
+                </c:when>
+                <c:when test="${pt == CODE_PROJECT_TYPE}">
+                      Code
                 </c:when>
             </c:choose>
                  Contest Details</td></tr>
@@ -404,6 +436,12 @@
                 </c:when>
                 <c:when test="${pt == BUG_HUNT_PROJECT_TYPE}">
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Bug_Hunt'/>
+                </c:when>
+                <c:when test="${pt == FIRST2FINISH_PROJECT_TYPE}">
+                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='First2Finish'/>
+                </c:when>
+                <c:when test="${pt == CODE_PROJECT_TYPE}">
+                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Code'/>
                 </c:when>
                 <c:otherwise>
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' />

@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, snow01, FireIce, lmmortal, isv
-  - Version: 1.5
+  - Author: pulky, snow01, FireIce, lmmortal, isv, TCSASSEMBLER
+  - Version: 1.6
   - Since: Specification Review Integration 1.0
   - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
@@ -21,6 +21,9 @@
   -
   - Version 1.5 (Review Application Integration assembly) change notes:
   -  Updated the logic to use review auctions.
+  -
+  - Version 1.6 (Release Assembly - TC Community Site and Online Review Update for F2F and Code contest types)
+  - Add new contest types: First2Finish and Code
 --%>
 
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -40,6 +43,8 @@
 <c:set var="CONTENT_CREATION_PROJECT_TYPE" value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="REPORTING_PROJECT_TYPE" value="<%=Constants.REPORTING_PROJECT_TYPE%>" scope="request"/>
 <c:set var="BUG_HUNT_PROJECT_TYPE" value="<%=Constants.BUG_HUNT_PROJECT_TYPE%>" scope="request"/>
+<c:set var="FIRST2FINISH_PROJECT_TYPE" value="<%=Constants.FIRST2FINISH_PROJECT_TYPE%>" scope="request"/>
+<c:set var="CODE_PROJECT_TYPE" value="<%=Constants.CODE_PROJECT_TYPE%>" scope="request"/>
 <c:set var="CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE"
     value="<%=Constants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="SPECIFICATION_SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE%>"
@@ -225,6 +230,18 @@
         <c:set var="projectTypeTitle" value="Bug Hunt" scope="request"/>
         <c:set var="eligibleReviewBoardName" value="TopCoder Bug Hunt Review Board" scope="request"/>
         <c:set var="handleContext" value="bug_hunt" scope="request"/>
+    </c:when>
+    <c:when test="${projectType == FIRST2FINISH_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="First2Finish" scope="request"/>
+        <c:set var="projectTypeTitle" value="First2Finish" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder First2Finish Review Board" scope="request"/>
+        <c:set var="handleContext" value="first2finish" scope="request"/>
+    </c:when>
+    <c:when test="${projectType == CODE_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Code" scope="request"/>
+        <c:set var="projectTypeTitle" value="Code" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Code Review Board" scope="request"/>
+        <c:set var="handleContext" value="code" scope="request"/>
     </c:when>
     <c:when test="${projectType == DESIGN_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Component" scope="request"/>

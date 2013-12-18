@@ -1,6 +1,6 @@
 <%--
   - Author: pulky, snow01, FireIce, lmmortal, TCSASSEMBLER
-  - Version: 1.6
+  - Version: 1.7
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
@@ -27,6 +27,9 @@
   -
   - Version 1.6 (Release Assembly - TopCoder BugHunt Competition Integration) Change Notes:
   - added support for handling new Bug Hunt competitions.
+  -
+  - Version 1.7 (Release Assembly - TC Community Site and Online Review Update for F2F and Code contest types)
+  - Added support for new contest types First2Finish and Code
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -46,6 +49,8 @@
 <c:set var="CONTENT_CREATION_PROJECT_TYPE" value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" />
 <c:set var="REPORTING_PROJECT_TYPE" value="<%=Constants.REPORTING_PROJECT_TYPE%>" />
 <c:set var="BUG_HUNT_PROJECT_TYPE" value="<%=Constants.BUG_HUNT_PROJECT_TYPE%>" />
+<c:set var="FIRST2FINISH_PROJECT_TYPE" value="<%=Constants.FIRST2FINISH_PROJECT_TYPE%>" />
+<c:set var="CODE_PROJECT_TYPE" value="<%=Constants.CODE_PROJECT_TYPE%>" />
 
 <c:set var="projectType" value="${param[PROJECT_TYPE_ID]}"/>
 
@@ -79,6 +84,12 @@
     </c:when>
     <c:when test="${projectType == BUG_HUNT_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Bug Hunt"/>
+    </c:when>
+    <c:when test="${projectType == FIRST2FINISH_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="First2Finish"/>
+    </c:when>
+    <c:when test="${projectType == CODE_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Code"/>
     </c:when>
 </c:choose>
 
@@ -143,6 +154,16 @@
                     <jsp:param name="level1" value="bug_hunt"/>
                 </jsp:include>
             </c:when>
+            <c:when test="${projectType == FIRST2FINISH_PROJECT_TYPE}">
+                <jsp:include page="/top.jsp" >
+                    <jsp:param name="level1" value="first2finish"/>
+                </jsp:include>
+            </c:when>
+            <c:when test="${projectType == CODE_PROJECT_TYPE}">
+                <jsp:include page="/top.jsp" >
+                    <jsp:param name="level1" value="code"/>
+                </jsp:include>
+            </c:when>
         </c:choose>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr valign="top">
@@ -197,6 +218,16 @@
                         <c:when test="${projectType == BUG_HUNT_PROJECT_TYPE}">
                             <jsp:include page="/includes/global_left.jsp">
                                 <jsp:param name="node" value="bug_hunt_review_board"/>
+                            </jsp:include>
+                        </c:when>
+                        <c:when test="${projectType == FIRST2FINISH_PROJECT_TYPE}">
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="first2finish_review_board"/>
+                            </jsp:include>
+                        </c:when>
+                        <c:when test="${projectType == CODE_PROJECT_TYPE}">
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="code_review_board"/>
                             </jsp:include>
                         </c:when>
                     </c:choose>
@@ -262,6 +293,18 @@
                             <jsp:include page="/page_title.jsp">
                                 <jsp:param name="image" value="bug_hunt"/>
                                 <jsp:param name="title" value="Meet the Bug Hunt Review Board"/>
+                            </jsp:include>
+                        </c:when>
+                        <c:when test="${projectType == FIRST2FINISH_PROJECT_TYPE}">
+                            <jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="first2finish"/>
+                                <jsp:param name="title" value="Meet the First2Finish Review Board"/>
+                            </jsp:include>
+                        </c:when>
+                        <c:when test="${projectType == CODE_PROJECT_TYPE}">
+                            <jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="code"/>
+                                <jsp:param name="title" value="Meet the Code Review Board"/>
                             </jsp:include>
                         </c:when>
                     </c:choose>
@@ -423,6 +466,18 @@
                             <jsp:include page="/public_right.jsp">
                                 <jsp:param name="level1" value="review_board"/>
                                 <jsp:param name="level2" value="bug_hunt"/>
+                            </jsp:include>
+                        </c:when>
+                        <c:when test="${projectType == FIRST2FINISH_PROJECT_TYPE}">
+                            <jsp:include page="/public_right.jsp">
+                                <jsp:param name="level1" value="review_board"/>
+                                <jsp:param name="level2" value="first2finish"/>
+                            </jsp:include>
+                        </c:when>
+                        <c:when test="${projectType == CODE_PROJECT_TYPE}">
+                            <jsp:include page="/public_right.jsp">
+                                <jsp:param name="level1" value="review_board"/>
+                                <jsp:param name="level2" value="code"/>
                             </jsp:include>
                         </c:when>
                     </c:choose>

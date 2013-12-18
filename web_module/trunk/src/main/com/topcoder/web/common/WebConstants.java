@@ -114,6 +114,13 @@ package com.topcoder.web.common;
  *     <li>Added constants {@link #VERIFY_PAGE}, {@link #UNVERIFY_PAGE}, {@link #SECOND_EMAIL_ADDRESS_ON_EDIT}</li>
  *   </ol>
  * </p>
+ * <p>
+ *   Version 1.7.0 (Release Assembly - TC Community Site and Online Review Update for F2F and Code contest types v1.0)
+ *   <ul>
+ *       <li>Added property {@link #FIRST2FINISH_PROJECT_TYPE}</li>
+ *       <li>Added property {@link #CODE_PROJECT_TYPE}</li>
+ *   </ul>
+ * </p>
  * 
  * <p>
  *  Version 1.6.10 (BUGR-9941)
@@ -440,7 +447,7 @@ public interface WebConstants {
     public static final long APPLICATION_CATALOG = 9926572;
 
     public static final long TCS_FORUMS_ROOT_CATEGORY_ID = 22;
-	
+
 	public static final long DIRECT_PROJECT_FORUMS_ROOT_CATEGORY_ID = 2478;
 
     public static final String CANDIDATE_IDS = "cids";
@@ -760,6 +767,24 @@ public interface WebConstants {
      * @since 1.6.7
      */
     public static final int BUG_HUNT_PROJECT_TYPE = 9;
+
+    /**
+     * <p>
+     * An <code>int</code> representing the First2Finish project type id.
+     * </p>
+     *
+     * @since 1.7.0
+     */
+    public static final int FIRST2FINISH_PROJECT_TYPE = 38;
+
+    /**
+     * <p>
+     * An <code>int</code> representing the Code project type id.
+     * </p>
+     *
+     * @since 1.7.0
+     */
+    public static final int CODE_PROJECT_TYPE = 39;
 
     /**
      * <p>An <code>long</code> representing content creation specification project category id.</p>

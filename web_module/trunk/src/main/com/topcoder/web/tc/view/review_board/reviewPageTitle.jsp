@@ -1,8 +1,8 @@
 <%--
   - Author: pulky, snow01, FireIce, lmmortal, TCSASSEMBLER
-  - Version: 1.3
+  - Version: 1.4
   - Since: Specification Review Integration 1.0
-  - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
   -
   - Description: This is a simple include page that that helps avoiding duplicated code in review board pages.
   - It will resolve included page title to the project type.
@@ -15,6 +15,9 @@
   -
   - Version 1.3 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
   - Added support for new Bug Hunt competitions.
+  -
+  - Version 1.4 (Release Assembly - TC Community Site and Online Review Update for F2F and Code contest types)
+  - Added support for new contest types First2Finish and Code
 --%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -101,6 +104,18 @@
         projectType == BUG_HUNT_SPECIFICATION_PROJECT_TYPE}">
         <jsp:include page="/page_title.jsp">
             <jsp:param name="image" value="bug_hunt"/>
+            <jsp:param name="title" value="Review Opportunities"/>
+        </jsp:include>
+    </c:when>
+    <c:when test="${projectType == FIRST2FINISH_PROJECT_TYPE}">
+        <jsp:include page="/page_title.jsp">
+            <jsp:param name="image" value="first2finish"/>
+            <jsp:param name="title" value="Review Opportunities"/>
+        </jsp:include>
+    </c:when>
+    <c:when test="${projectType == CODE_PROJECT_TYPE}">
+        <jsp:include page="/page_title.jsp">
+            <jsp:param name="image" value="code"/>
             <jsp:param name="title" value="Review Opportunities"/>
         </jsp:include>
     </c:when>

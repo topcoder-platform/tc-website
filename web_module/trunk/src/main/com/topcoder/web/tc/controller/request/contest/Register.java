@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.contest;
 
@@ -106,8 +106,15 @@ import com.topcoder.web.tc.controller.request.development.Base;
   *   </ol>
   * </p>
  *
+ * <p>
+ *    Version 1.9 (Release Assembly - TC Community Site and Online Review Update for F2F and Code contest types)
+ *    <ul>
+ *        <li>Updated {@link #register()} method to support First2Finish and Code contest types</li>
+ *    </ul>
+ * </p>
+ *
  * @author dok, pulky, FireIce, lmmortal, TCSASSEMBLER
- * @version 1.8
+ * @version 1.9
  */
 public class Register extends ViewRegistration {
 
@@ -279,6 +286,10 @@ public class Register extends ViewRegistration {
                 project += " Reporting Project";
             } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.BUG_HUNT_PROJECT_TYPE))) {
                 project += " Bug Hunt Project";
+            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.FIRST2FINISH_PROJECT_TYPE))) {
+                project += " First2Finish Project";
+            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.CODE_PROJECT_TYPE))) {
+                project += " Code Project";
             }
 
             long activeForumCategoryId = componentManager.getActiveForumCategory() != null ? componentManager.getActiveForumCategory().getId() : 0;

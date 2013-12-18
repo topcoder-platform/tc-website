@@ -80,7 +80,7 @@ import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationS
  *   <ol>
  *     <li>Added a new field regServices to check the user is registered for a project.</li>
  *     <li>Modified {@link #developmentProcessing()} to add tabIndex to the request parameter.</li>
- *     <li>Modified {@link #getProjectOverview()} to add submissionPhaseOpen to the request parameter.</li>
+ *     <li>Modified {@link #getProjectOverview(String)} ()} to add submissionPhaseOpen to the request parameter.</li>
  *   </ol>
  * </p>
  * 
@@ -98,9 +98,17 @@ import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationS
  *         https://apps.topcoder.com/bugs/browse/BUGR-8819.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ *   Version 2.0 (Release Assembly - TC Community Site and Online Review Update for F2F and Code contest types)
+ *   <ul>
+ *       <li>Updated {@link #getProjectOverview(String)} to add Project Platforms information</li>
+ *       <li>Updated {@link #getLeftNav(int, int)} to support First2Finish and Code contest types</li>
+ *   </ul>
+ * </p>
  * 
  * @author dok, pulky, romanoTC, Blues, duxiaoyang, notpad, TCSASSEBMLER
- * @version 1.9
+ * @version 2.0
  */
 public class ProjectDetail extends Base {
 
@@ -257,6 +265,7 @@ public class ProjectDetail extends Base {
             getRequest().setAttribute("projectTypeId", projectTypeId);
             getRequest().setAttribute("projectDetail", details);
             getRequest().setAttribute("technologies", resultMap.get("project_technologies"));
+            getRequest().setAttribute("platforms", resultMap.get("project_platforms"));
             getRequest().setAttribute("requirements", resultMap.get("project_requirements"));
             getRequest().setAttribute("supportingDocs", docs);
 
@@ -456,6 +465,10 @@ public class ProjectDetail extends Base {
             return isPasProject ? "content_creation_past" : "content_creation_compete";
         case 36:
             return isPasProject ? "reporting_past" : "reporting_compete";
+        case 38:
+            return isPasProject ? "first2finish_past" : "first2finish_compete";
+        case 39:
+            return isPasProject ? "code_past" : "code_compete";
         default:
             return "competition_home";
         }
