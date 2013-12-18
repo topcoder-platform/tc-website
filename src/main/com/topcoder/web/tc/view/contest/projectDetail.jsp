@@ -1,6 +1,6 @@
 <%--
   - Author: duxiaoyang, TCSASSEBMLER
-  - Version: 1.2
+  - Version: 1.3
   -
   - Fix the bugs from
   -  http://apps.topcoder.com/wiki/display/docs/Release+Assembly+-+TopCoder+Software+Contest+Detail+Page+Bug+Fix+Release
@@ -9,7 +9,11 @@
   - Version 1.2 (Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) Change notes:
   - Add the new-modal-window to fix the bug: https://apps.topcoder.com/bugs/browse/BUGR-8819
   -
-  - Copyright (C) 2012-2013 TopCoder Inc., All Rights Reserved.
+  - Version 1.3 (Release Assembly - TC Community Site and Online Review Update for F2F and Code contest types)
+  - - Add Contest Platforms to the contest details page.
+  - - Display multiple prizes for the Code contest types
+  -
+  - Copyright (C) 2012 - 2013 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows project details information.
 --%>
@@ -53,6 +57,7 @@
 <%
    ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail");
    ResultSetContainer technologies = (ResultSetContainer) request.getAttribute("technologies");
+   ResultSetContainer platforms = (ResultSetContainer) request.getAttribute("platforms");
    ResultSetContainer reviewers = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("reviewers_for_project");
    ResultSetContainer projectInfo = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("project_info");
    ResultSetContainer submissions = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("submissions");
@@ -127,40 +132,68 @@
                             <!-- prizeSection -->
                             <div class="prizeSection">
                                 <div class="inner">
-                                    <div class="prizeInfor">
-                                        <ul>
-                                            <li class="firstPlace">
-                                                <span>1st Place</span>
-                                                <strong>$<rsc:item set="<%=projectDetail%>" name="total_payment" format="#,##0"/></strong>
-                                            </li>
-                                            <li class="secondPlace">
-                                                <span>2nd Place</span>
-                                                <strong>$<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="#,##0"/></strong>
-                                            </li>
-                                            <li>
-                                                <span>Reliability Bonus</span>
-                                                <c:choose>
-                                                    <c:when test="${maxReliabilityBonus > 0}">
-                                                        <strong>$<fmt:formatNumber type="number" pattern="#,##0" value="${maxReliabilityBonus}"/></strong>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <strong>N/A</strong>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </li>
-                                            <li class="drPoints">
-                                                <span>DR Points</span>
-                                                <c:choose>
-                                                    <c:when test="${hasDR}">
-                                                        <strong class="point"><rsc:item set="<%=projectDetail%>" name="dr_points" format="#,##0"/></strong>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <strong class="point">N/A</strong>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    <c:if test="${projectCategory != 'Code'}">
+                                        <div class="prizeInfor">
+                                            <ul>
+                                                <li class="firstPlace">
+                                                    <span>1st Place</span>
+                                                    <strong>$<rsc:item set="<%=projectDetail%>" name="total_payment" format="#,##0"/></strong>
+                                                </li>
+                                                <li class="secondPlace">
+                                                    <span>2nd Place</span>
+                                                    <strong>$<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="#,##0"/></strong>
+                                                </li>
+                                                <li>
+                                                    <span>Reliability Bonus</span>
+                                                    <c:choose>
+                                                        <c:when test="${maxReliabilityBonus > 0}">
+                                                            <strong>$<fmt:formatNumber type="number" pattern="#,##0" value="${maxReliabilityBonus}"/></strong>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <strong style="color:#666667">N/A</strong>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </li>
+                                                <li class="drPoints">
+                                                    <span>DR Points</span>
+                                                    <c:choose>
+                                                        <c:when test="${hasDR}">
+                                                            <strong class="point"><rsc:item set="<%=projectDetail%>" name="dr_points" format="#,##0"/></strong>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <strong class="point">N/A</strong>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${projectCategory == 'Code'}">
+                                        <div class="prizeInfor">
+                                            <ul>
+                                                <li class="multiPrize <% if(projectDetail.getDoubleItem(0, "total_payment") <= 0) { %> inactive <% } %>">
+                                                    <span>1st Place</span>
+                                                    <strong>$<rsc:item set="<%=projectDetail%>" name="total_payment" format="#,##0"/></strong>
+                                                </li>
+                                                <li class="multiPrize <% if(projectDetail.getDoubleItem(0, "second_place_payment") <= 0) { %> inactive <% } %>">
+                                                    <span>2nd Place</span>
+                                                    <strong>$<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="#,##0"/></strong>
+                                                </li>
+                                                <li class="multiPrize <% if(projectDetail.getDoubleItem(0, "third_place_payment") <= 0) { %> inactive <% } %>">
+                                                    <span>3rd Place</span>
+                                                    <strong>$<rsc:item set="<%=projectDetail%>" name="third_place_payment" format="#,##0"/></strong>
+                                                </li>
+                                                <li class="multiPrize <% if(projectDetail.getDoubleItem(0, "fourth_place_payment") <= 0) { %> inactive <% } %>">
+                                                    <span>4th Place</span>
+                                                    <strong>$<rsc:item set="<%=projectDetail%>" name="fourth_place_payment" format="#,##0"/></strong>
+                                                </li>
+                                                <li class="multiPrize lastPrize <% if(projectDetail.getDoubleItem(0, "fifth_place_payment") <= 0) { %> inactive <% } %>">
+                                                    <span>5th Place</span>
+                                                    <strong>$<rsc:item set="<%=projectDetail%>" name="fifth_place_payment" format="#,##0"/></strong>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </c:if>
                                     <c:if test="${hasCheckpoint}">
                                     <div class="checkpointsInfor">
                                         <h3>Checkpoints</h3>
@@ -309,6 +342,26 @@
                                         <!-- End .technologies -->
                                     </c:if>
                                     <c:if test="${not isCopilotPosting}">
+                                        <!-- Technologies -->
+                                        <div class="technologies">
+                                            <h3>Platforms</h3>
+                                            <div class="containerInner">
+                                                <c:choose>
+                                                    <c:when test="${empty platforms}">
+                                                        <strong>N/A</strong>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <ul>
+                                                            <rsc:iterator list="<%=platforms%>" id="item">
+                                                                <li class="first"><rsc:item row="<%=item%>" name="platform_name"/></li>
+                                                            </rsc:iterator>
+                                                        </ul>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                        <!-- End .technologies -->
                                         <!-- Technologies -->
                                         <div class="technologies">
                                             <h3>Technologies</h3>
@@ -739,7 +792,9 @@
                                             <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">Contest Forum</a>
                                         </li>
                                         <% } %>
+                                        <% if (projectDetail.getItem(0, "screening_scorecard_id").getResultData() != null) { %>
                                         <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="screening_scorecard_id"/>">Screening Scorecard</a></li>
+                                        <% } %>
                                         <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="review_scorecard_id"/>">Review Scorecard</a></li>
                                     </ul>
                                     <div class="corner tl"></div>

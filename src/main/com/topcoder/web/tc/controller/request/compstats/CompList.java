@@ -56,8 +56,14 @@ import com.topcoder.web.tc.Constants;
   *     <li>Updated {@link #businessProcessing()} method to display Bug Hunt contests.</li>
   *   </ol>
   * </p>
+ * <p>
+ *     Version 1.7 (Release Assembly - TC Community Site and Online Review Update for F2F and Code contest types v1.0)
+ *     <ul>
+ *         <li>Updated {@link #businessProcessing()} method to display First2Finish and Code contests</li>
+ *     </ul>
+ * </p>
  * @author cucu, pulky, Blues, FireIce, lmmortal, TCSASSEMBLER
- * @version 1.6
+ * @version 1.7
  */
 public class CompList extends Base {
 
@@ -94,6 +100,8 @@ public class CompList extends Base {
                   || Constants.COPILOT_POSTING_PROJECT_TYPE == projectTypeId
                   || Constants.CONTENT_CREATION_PROJECT_TYPE == projectTypeId
                   || Constants.BUG_HUNT_PROJECT_TYPE == projectTypeId
+                  || Constants.FIRST2FINISH_PROJECT_TYPE == projectTypeId
+                  || Constants.CODE_PROJECT_TYPE == projectTypeId
                   || Constants.REPORTING_PROJECT_TYPE == projectTypeId)) {
                 throw new TCWebException("Invalid project_type_id (" + projectTypeId + ") parameter");
             }

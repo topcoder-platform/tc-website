@@ -101,8 +101,15 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *         https://apps.topcoder.com/bugs/browse/BUGR-8819.</li>
  *   </ol>
  * </p>
- * @author dok, pulky, Blues, FireIce, lmmortal, xjtufreeman
- * @version 1.9
+ *
+ * <p>
+ *     Version 2.0 (Release Assembly - TC Community Site and Online Review Update for F2F and Code contest types v1.0)
+ *     <ul>
+ *         <li>Updated {@link #validation()} to support First2Finish and Code contest types</li>
+ *     </ul>
+ * </p>
+ * @author dok, pulky, Blues, FireIce, lmmortal, xjtufreeman, TCSASSEMBLER
+ * @version 2.0
  */
 public class ViewRegistration extends Base {
 
@@ -216,6 +223,8 @@ public class ViewRegistration extends Base {
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.COPILOT_POSTING_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.CONTENT_CREATION_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.BUG_HUNT_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.FIRST2FINISH_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.CODE_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.REPORTING_PROJECT_TYPE))) {
             throw new NavigationException("Invalid project specified (wrong category)");
         }

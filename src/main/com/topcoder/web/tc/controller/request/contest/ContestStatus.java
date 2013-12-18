@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.contest;
 
@@ -42,10 +42,16 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *   <ol>
  *     <li>Updated {@link #DEFAULT_PROJECT_TYPES} constant to support Bug Hunt contest type.</li>
  *   </ol>
+ *
+ *   Version 1.6 (Release Assembly - TC Community Site and Online Review Update for F2F and Code contest types v1.0)
+ *   <ol>
+ *       <li>Updated {@link #DEFAULT_PROJECT_TYPES} constant to support First2Finish and Code contest type.</li>
+ *       <li>Updated {@link #developmentProcessing()} constant to support First2Finish and Code contest type.</li>
+ *   </ol>
  * </p>
  *
  * @author dok, pulky, FireIce, lmmortal, TCSASSEMBLER
- * @version 1.5
+ * @version 1.6
  */
 public class ContestStatus extends Base {
 
@@ -59,7 +65,8 @@ public class ContestStatus extends Base {
         Constants.TEST_SUITES_PROJECT_TYPE, Constants.TEST_SCENARIOS_PROJECT_TYPE, Constants.SPECIFICATION_PROJECT_TYPE,
         Constants.CONCEPTUALIZATION_PROJECT_TYPE, Constants.UI_PROTOTYPE_PROJECT_TYPE,
         Constants.RIA_BUILD_PROJECT_TYPE, Constants.RIA_COMPONENT_PROJECT_TYPE, Constants.CONTENT_CREATION_PROJECT_TYPE,
-        Constants.REPORTING_PROJECT_TYPE, Constants.BUG_HUNT_PROJECT_TYPE};
+        Constants.REPORTING_PROJECT_TYPE, Constants.BUG_HUNT_PROJECT_TYPE,
+        Constants.FIRST2FINISH_PROJECT_TYPE, Constants.CODE_PROJECT_TYPE};
 
     public static final String DEFAULT_NAMESPACE = "com.topcoder.web.tc.controller.request.contest.ContestStatus";
 
@@ -76,7 +83,9 @@ public class ContestStatus extends Base {
                     commandName = "architecture_project_status";
                 } else if (Constants.DEVELOPMENT_PROJECT_TYPE==projectTypeId) {
                     commandName = "development_project_status";
-                } else if (Constants.BUG_HUNT_PROJECT_TYPE == projectTypeId) {
+                } else if (Constants.BUG_HUNT_PROJECT_TYPE == projectTypeId
+                        || Constants.FIRST2FINISH_PROJECT_TYPE == projectTypeId
+                        || Constants.CODE_PROJECT_TYPE == projectTypeId) {
                     commandName = "bug_hunt_project_status";
                 }
 

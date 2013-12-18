@@ -19,6 +19,8 @@
 <c:set value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" var="CONTENT_CREATION_PROJECT_TYPE"/>
 <c:set value="<%=Constants.REPORTING_PROJECT_TYPE%>" var="REPORTING_PROJECT_TYPE"/>
 <c:set value="<%=Constants.BUG_HUNT_PROJECT_TYPE%>" var="BUG_HUNT_PROJECT_TYPE"/>
+<c:set value="<%=Constants.FIRST2FINISH_PROJECT_TYPE%>" var="FIRST2FINISH_PROJECT_TYPE"/>
+<c:set value="<%=Constants.CODE_PROJECT_TYPE%>" var="CODE_PROJECT_TYPE"/>
 <c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="TERMS_OF_USE_ID"/>
 <c:set value="<%=Constants.PROJECT_ID%>" var="PROJECT_ID"/>
 <c:set var="NON_ELEC_AGREEABLE_TERMS_TYPE_ID" value="<%=Constants.NON_ELEC_AGREEABLE_TERMS_TYPE_ID%>"/>

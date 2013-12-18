@@ -1,8 +1,8 @@
 <%--
   - Author: pulky, snow01, FireIce, lmmortal, TCSASSEMBLER
-  - Version: 1.3
+  - Version: 1.4
   - Since: Specification Review Integration 1.0
-  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
   -
   - Description: This is a simple include page that that helps avoiding duplicated code in review board pages.
   - It will resolve included global left navigation bar according to the project type.
@@ -15,6 +15,9 @@
   -
   - Version 1.3 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
   - Added support for new Bug Hunt competitions.
+  -
+  - Version 1.4 (Release Assembly - TC Community Site and Online Review Update for F2F and Code contest types)
+  - Added support the new contest types First2Finish and Code.
 --%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -91,6 +94,16 @@
             projectType == BUG_HUNT_SPECIFICATION_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="bug_hunt_review"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${projectType == FIRST2FINISH_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="first2finish_review"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${projectType == CODE_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="code_review"/>
             </jsp:include>
         </c:when>
         <c:when test="${projectType == DESIGN_PROJECT_TYPE ||

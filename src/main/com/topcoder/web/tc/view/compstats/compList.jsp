@@ -22,6 +22,9 @@
   -
   - Version 1.6 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
   - Added support for new Bug Hunt type.
+  -
+  - Version 1.7 (Release Assembly - TC Community Site and Online Review Update for F2F and Code contest types)
+  - Added support for First2Finish and Code contest types
 --%>
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
@@ -53,6 +56,8 @@
 <c:set value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" var="CONTENT_CREATION_TYPE_ID"/>
 <c:set value="<%=Constants.REPORTING_PROJECT_TYPE%>" var="REPORTING_TYPE_ID"/>
 <c:set value="<%=Constants.BUG_HUNT_PROJECT_TYPE%>" var="BUG_HUNT_TYPE_ID"/>
+<c:set value="<%=Constants.FIRST2FINISH_PROJECT_TYPE%>" var="FIRST2FINISH_TYPE_ID"/>
+<c:set value="<%=Constants.CODE_PROJECT_TYPE%>" var="CODE_TYPE_ID"/>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
@@ -176,6 +181,16 @@
                     <jsp:param name="node" value="bug_hunt_past"/>
                 </jsp:include>
             </c:when>
+            <c:when test="${pt == FIRST2FINISH_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="first2finish_past"/>
+                </jsp:include>
+            </c:when>
+            <c:when test="${pt == CODE_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="code_past"/>
+                </jsp:include>
+            </c:when>
         </c:choose>
         </td>
 <!-- Left Column Ends -->
@@ -289,6 +304,20 @@
         </jsp:include>
         <span class="bodySubtitle">Application Statistics &gt; Bug Hunt Contests</span><br>
     </c:when>
+    <c:when test="${pt == FIRST2FINISH_TYPE_ID}">
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="statistics_w"/>
+            <jsp:param name="title" value="First2Finish List"/>
+        </jsp:include>
+        <span class="bodySubtitle">Application Statistics &gt; First2Finish Contests</span><br>
+    </c:when>
+    <c:when test="${pt == CODE_TYPE_ID}">
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="statistics_w"/>
+            <jsp:param name="title" value="Code List"/>
+        </jsp:include>
+        <span class="bodySubtitle">Application Statistics &gt; Code Contests</span><br>
+    </c:when>
 </c:choose>
 
 <form name="compListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
@@ -369,6 +398,14 @@
                     <td class="tableTitle" colspan="9">
                     Bug Hunt
                 </c:when>
+                <c:when test="${pt == FIRST2FINISH_TYPE_ID}">
+                <td class="tableTitle" colspan="8">
+                    First2Finish
+                </c:when>
+                <c:when test="${pt == CODE_TYPE_ID}">
+                <td class="tableTitle" colspan="9">
+                    Code
+                </c:when>
             </c:choose>
 
             Contest Details
@@ -385,7 +422,9 @@
                <TD CLASS="tableHeader" align="center"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true" excludeParams="sr" />" class="statLink">Complete Date</a></td>
                <TD CLASS="tableHeader" align="right"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true" excludeParams="sr" />" class="statLink">Registrants</a></td>
                <TD CLASS="tableHeader" align="right"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true" excludeParams="sr" />" class="statLink">Submissions</a></td>
-               <TD CLASS="tableHeader" align="center"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />" class="statLink">Passed<br>Screening</a></td>
+                <c:if test="${pt != FIRST2FINISH_TYPE_ID && pt != CODE_TYPE_ID}">
+                    <TD CLASS="tableHeader" align="center"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />" class="statLink">Passed<br>Screening</a></td>
+                </c:if>
                <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />" class="statLink">Winner</a></td>
                <TD CLASS="tableHeader" align="right"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="11" includeParams="true" excludeParams="sr" />" class="statLink">Score</a></td>
                <TD CLASS="tableHeader">&#160;</td>
@@ -401,7 +440,9 @@
             <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="complete_date" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="unknown*"/></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 30px;"><rsc:item name="num_registrations" row="<%=resultRow%>" ifNull="*" /></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 35px;"><rsc:item name="num_submissions" row="<%=resultRow%>" ifNull="*"/></TD>
-            <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 30px;"><rsc:item name="num_valid_submissions" row="<%=resultRow%>" ifNull="*" /></TD>
+            <c:if test="${pt != FIRST2FINISH_TYPE_ID && pt != CODE_TYPE_ID}">
+                <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 30px;"><rsc:item name="num_valid_submissions" row="<%=resultRow%>" ifNull="*" /></TD>
+            </c:if>
             <td class="<%=even?"statLt":"statDk"%>" align="left">
                <% if (resultRow.getStringItem("winner_id") != null) { %>
                <tc-webtag:handle coderId='<%= resultRow.getLongItem("winner_id") %>' context='<%=resultRow.getStringItem("phase_desc")%>'/>
