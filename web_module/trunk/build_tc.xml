@@ -769,6 +769,11 @@
                 <include name="paypal.xml"/>
             </fileset>
         </copy>
+        <copy todir="${jboss_conf}/com/topcoder/web/tc/controller/request/docusign">
+            <fileset dir="${resources}/com/topcoder/web/tc/controller/request/docusign">
+                <include name="docusign.xml"/>
+            </fileset>
+        </copy>
         <copy todir="${jboss_conf}/com/topcoder/web/tc/controller/request/portal">
             <fileset dir="${resources}/com/topcoder/web/tc/controller/request/portal">
                 <include name="DeveloperPortal.xml"/>
