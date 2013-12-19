@@ -16,6 +16,40 @@
   - 4) Added a link to topcoder community in the home page.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccess" %>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessInt" %>
+<%@ page import="com.topcoder.shared.dataAccess.Request" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.shared.security.SimpleResource" %>
+<%@ page import="com.topcoder.shared.security.SimpleUser" %>
+<%@ page import="com.topcoder.shared.util.DBMS" %>
+<%@ page import="com.topcoder.web.common.BaseServlet" %>
+<%@ page import="com.topcoder.web.common.PermissionException" %>
+<%@ page import="com.topcoder.web.common.SessionInfo" %>
+<%@ page import="com.topcoder.web.common.model.Question" %>
+<%@ page import="com.topcoder.web.common.voting.*" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.tc.model.Survey" %>
+<%@ page import="javax.servlet.ServletRequest" %>
+<%@ page import="java.sql.Timestamp" %>
+<%@ page import="java.util.*" %>
+<%@ page import="com.topcoder.web.common.TCRequest" %>
+<%@ page import="com.topcoder.web.common.TCResponse"%>
+<%@ page import="com.topcoder.web.common.HttpObjectFactory" %>
+<%@  page
+  language="java"
+  import="com.topcoder.shared.util.ApplicationServer,
+          com.topcoder.web.common.BaseServlet,
+          com.topcoder.web.common.StringUtils,
+          com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.common.SessionInfo"%>
+<%@ page import="com.topcoder.web.common.security.WebAuthentication"%>
+<%@ page import="com.topcoder.web.common.security.SessionPersistor"%>
+<%@ page import="com.topcoder.web.common.security.BasicAuthentication"%>
+
+
+<%@ page import="java.text.DecimalFormat"%>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -47,8 +81,43 @@
 
 
 
-		<% String qdl = request.getParameter("SID") ;  %>
-		<% String tcid = request.getParameter("tcid") ;  %>
+		<% String qdl = request.getParameter("SID") ; 
+			String tcid = request.getParameter("tcid") ; 
+		
+	
+			
+			TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+            WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()), tcRequest, tcResponse); 
+			
+            // if user not logged in
+            if(authentication.getActiveUser().isAnonymous()) {
+				response.sendRedirect("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Login"); 
+				return;
+			}
+			 
+			long uid = authentication.getActiveUser().getId();
+			 
+			 
+			 Request r = new Request();
+				r.setContentHandle("first_reg");
+				r.setProperty("uid", String.valueOf(uid));
+				
+				String year = "";
+				String month = "";
+				String day = "";
+				
+				DataAccessInt dataAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+				Map map = dataAccess.getData(r);
+				ResultSetContainer rsc = (ResultSetContainer) map.get("first_reg");
+
+				if (rsc != null && !rsc.isEmpty()) {
+					year = rsc.getRow(0).getStringItem("reg_year");
+					month = rsc.getRow(0).getStringItem("reg_month");
+					day = rsc.getRow(0).getStringItem("reg_day");
+				} 
+		
+		%>
 			<div id="landingPage">
 		<div id="header">
 			
@@ -62,8 +131,8 @@
 			<div class="wrapperTop">
 				
 					<div class="content">
-		
-							<iframe src="https://harvard.qualtrics.com/SE/?SID=<%=qdl%>&tcid=<%=tcid%>" height="700px" width="1000px"></iframe>
+					
+							<iframe src="https://harvard.qualtrics.com/SE/?SID=<%=qdl%>&tcid=<%=uid%>&join-month=<%=month%>&join-year=<%=year%>&join-day=<%=day%>" height="700px" width="1000px"></iframe>
 				
 						</div><!-- end .content --> 
 				</div></div>
