@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request;
 
@@ -79,8 +79,15 @@ import com.topcoder.web.common.WebConstants;
  *   </ol>
  * </p>
  *
- * @author pulky, snow01, FireIce, lmmortal, isv
- * @version 1.7
+ * <p>
+ * Version 1.8 (Release Assembly - TC Community Site and Online Review Update for F2F and Code contest types v1.0)
+ * <ul>
+ *     <li>Updated {@link #isReviewBoardTypeSupported(String)} to support First2Finish and Code contest type</li>
+ * </ul>
+ * </p>
+ *
+ * @author pulky, snow01, FireIce, lmmortal, isv, TCSASSEMBLER
+ * @version 1.8
  */
 public final class ReviewBoardHelper {
 
@@ -109,6 +116,8 @@ public final class ReviewBoardHelper {
                 || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_PROJECT_TYPE))
                 || reviewBoardType.equals(String.valueOf(WebConstants.CONTENT_CREATION_PROJECT_TYPE))
                 || reviewBoardType.equals(String.valueOf(WebConstants.BUG_HUNT_PROJECT_TYPE))
+                || reviewBoardType.equals(String.valueOf(WebConstants.FIRST2FINISH_PROJECT_TYPE))
+                || reviewBoardType.equals(String.valueOf(WebConstants.CODE_PROJECT_TYPE))
                 || reviewBoardType.equals(String.valueOf(WebConstants.REPORTING_PROJECT_TYPE));
         return supported;
     }
