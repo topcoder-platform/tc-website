@@ -4,6 +4,7 @@ import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
@@ -19,6 +20,9 @@ public class LightAuthentication extends BasicAuthentication {
 
     private static Logger log = Logger.getLogger(LightAuthentication.class);
 
+    private final User guest = SimpleUser.createGuest();
+
+    private User currentUser = SimpleUser.createGuest();
 
     /**
      * Construct an authentication instance backed by the given persistor
@@ -45,9 +49,9 @@ public class LightAuthentication extends BasicAuthentication {
      * @throws LoginException
      */
     public void login(User u, boolean rememberUser) throws LoginException {
-        log.info("attempting login as " + u.getUserName() + " path: " + defaultCookiePath.getName() + " remember " + rememberUser);
+        log.info("attempting login as " + u.getId() + " path: " + defaultCookiePath.getName() + " remember " + rememberUser);
         try {
-            setLoginCookies(u.getId(), rememberUser);
+            currentUser = u;
             log.info("login succeeded");
 
         } catch (Exception e) {
@@ -59,6 +63,47 @@ public class LightAuthentication extends BasicAuthentication {
 
     public void login(User u, boolean rememberUser, String dataSource) throws LoginException {
         throw new RuntimeException("Not implemented");
+    }
+
+    /**
+     * Get the user currently logged user.
+     */
+    public User getActiveUser() {
+        if (currentUser != null && currentUser.getId() != guest.getId()) {
+            return currentUser;
+        } else {
+            return super.getActiveUser();
+        }
+    }
+
+    /**
+     * Get the user currently logged user.
+     */
+    public User getUser() {
+        if (currentUser != null && currentUser.getId() != guest.getId()) {
+            return currentUser;
+        } else {
+            return super.getUser();
+        }
+    }
+
+    /**
+     * Returns true if the user is not guest/anonymous.
+     */
+    public boolean isKnownUser() {
+        if (currentUser != null && currentUser.getId() != guest.getId()) {
+            return true;
+        } else {
+            return super.isKnownUser();
+        }
+    }
+
+    /**
+     * Logs user out.
+     */
+    public void logout() {
+        super.logout();
+        currentUser = guest;
     }
 
 

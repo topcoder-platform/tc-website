@@ -29,7 +29,6 @@ import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.Constants;
-import com.topcoder.web.common.security.LightAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 
@@ -57,38 +56,52 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     }
 
     public boolean login(HttpServletRequest request, HttpServletResponse response,
-                         String userName, String password, boolean cookie) throws AuthenticatorException {
-        log.debug("XXX login called " + userName);
+                         String fullUserName, String password, boolean cookie) throws AuthenticatorException {
+        log.debug("XXX login called " + fullUserName);
         long start = System.currentTimeMillis();
 
         try {
+
+            // Check if the user is trying to impersonate someone, and if yes, get the impersonated username
+            String userName = fullUserName;
+            if (fullUserName != null) {
+                int slashPos = fullUserName.indexOf("/");
+                if (slashPos >= 0) {
+                    userName = fullUserName.substring(slashPos + 1);
+                }
+            }
 
             Principal user = getUser(userName);
             WebAuthentication authentication = getAuth(request, response);
 
             if (user != null) {
                 try {
-                    TCSubject sub = authenticate(userName, password);
+                    TCSubject sub = authenticate(fullUserName, password);
+
                     if (sub != null) {
-                        log.info("login(request, response, username, password, cookie) took " + (System.currentTimeMillis() - start) + " ms");
+                        com.atlassian.user.User cUser = checkAndAddUser(userName);
+                        checkAndAddEmail(cUser, sub.getUserId());
+                        checkAndAddAdmin(userName, cUser);
+                        authentication.login(new SimpleUser(sub.getUserId(), fullUserName, password), cookie);
+
+                        log.info("login(request, response, username, password, cookie) succeeded, took " + (System.currentTimeMillis() - start) + " ms");
                         return true;
                     } else {
-                        log.info("login(request, response, username, password, cookie) took " + (System.currentTimeMillis() - start) + " ms");
+                        log.info("login(request, response, username, password, cookie) failed, took " + (System.currentTimeMillis() - start) + " ms");
                         return false;
                     }
                 } catch (Exception e) {
                     if (log.isDebugEnabled()) {
                         e.printStackTrace();
                     }
-                    log.info("login(request, response, username, password, cookie) took " + (System.currentTimeMillis() - start) + " ms");
+                    log.info("login(request, response, username, password, cookie) threw exception, took " + (System.currentTimeMillis() - start) + " ms");
                     return false;
                 }
 
             }
 
-
             authentication.logout();
-            log.info("login(request, response, username, password, cookie) took " + (System.currentTimeMillis() - start) + " ms");
+            log.info("login(request, response, username, password, cookie) logged out, took " + (System.currentTimeMillis() - start) + " ms");
             return false;
         } catch (Exception e) {
             throw new AuthenticatorException(e.getMessage());
@@ -287,9 +300,9 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     }
 
     private WebAuthentication getAuth(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        TCRequest tcRequest = HttpObjectFactory.createSimpleRequest(request);
+        TCRequest tcRequest = HttpObjectFactory.createRequest(request);
         TCResponse tcResponse = response == null ? null : HttpObjectFactory.createResponse(response);
-        return new LightAuthentication(new SessionPersistor(request.getSession()),
+        return new BasicAuthentication(new SessionPersistor(request.getSession()),
                 tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
     }
 
