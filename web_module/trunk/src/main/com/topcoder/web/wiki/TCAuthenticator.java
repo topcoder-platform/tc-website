@@ -10,15 +10,14 @@ import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrLocal;
-import com.topcoder.security.login.LoginLocal;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
@@ -56,56 +55,63 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     }
 
     public boolean login(HttpServletRequest request, HttpServletResponse response,
-                         String fullUserName, String password, boolean cookie) throws AuthenticatorException {
-        log.debug("XXX login called " + fullUserName);
+                         String fullUsername, String password, boolean rememberMe) throws AuthenticatorException {
+        log.debug("XXX login called " + fullUsername);
         long start = System.currentTimeMillis();
 
+        // Check if the user is trying to impersonate someone, and if yes, get the impersonated username
+        String userName = fullUsername;
+        if (fullUsername != null) {
+            int slashPos = fullUsername.indexOf("/");
+            if (slashPos >= 0) {
+                userName = fullUsername.substring(slashPos + 1);
+            }
+        }
+
         try {
-
-            // Check if the user is trying to impersonate someone, and if yes, get the impersonated username
-            String userName = fullUserName;
-            if (fullUserName != null) {
-                int slashPos = fullUserName.indexOf("/");
-                if (slashPos >= 0) {
-                    userName = fullUserName.substring(slashPos + 1);
-                }
-            }
-
-            Principal user = getUser(userName);
             WebAuthentication authentication = getAuth(request, response);
+            authentication.login(new SimpleUser(0, fullUsername, password), rememberMe);
+            com.atlassian.user.User cUser = checkAndAddUser(userName);
+            checkAndAddEmail(cUser, getUserId(userName));
+            checkAndAddAdmin(userName, cUser);
 
-            if (user != null) {
-                try {
-                    TCSubject sub = authenticate(fullUserName, password);
-
-                    if (sub != null) {
-                        com.atlassian.user.User cUser = checkAndAddUser(userName);
-                        checkAndAddEmail(cUser, sub.getUserId());
-                        checkAndAddAdmin(userName, cUser);
-                        authentication.login(new SimpleUser(sub.getUserId(), fullUserName, password), cookie);
-
-                        log.info("login(request, response, username, password, cookie) succeeded, took " + (System.currentTimeMillis() - start) + " ms");
-                        return true;
-                    } else {
-                        log.info("login(request, response, username, password, cookie) failed, took " + (System.currentTimeMillis() - start) + " ms");
-                        return false;
-                    }
-                } catch (Exception e) {
-                    if (log.isDebugEnabled()) {
-                        e.printStackTrace();
-                    }
-                    log.info("login(request, response, username, password, cookie) threw exception, took " + (System.currentTimeMillis() - start) + " ms");
-                    return false;
-                }
-
+            log.info("login(request, response, username, password, rememberMe) succeeded, took " + (System.currentTimeMillis() - start) + " ms");
+            return true;
+        } catch (LoginException e) {
+            if (log.isDebugEnabled()) {
+                e.printStackTrace();
             }
 
-            authentication.logout();
-            log.info("login(request, response, username, password, cookie) logged out, took " + (System.currentTimeMillis() - start) + " ms");
+            log.info("login(request, response, username, password, rememberMe) failed, took " + (System.currentTimeMillis() - start) + " ms");
             return false;
         } catch (Exception e) {
+            if (log.isDebugEnabled()) {
+                e.printStackTrace();
+            }
+
+            log.info("login(request, response, username, password, rememberMe) threw exception, took " + (System.currentTimeMillis() - start) + " ms");
             throw new AuthenticatorException(e.getMessage());
         }
+
+    }
+
+    private static long getUserId(String username) throws Exception {
+        if (username == null) {
+            return SimpleUser.createGuest().getId();
+        } else {
+            DataAccess da = new CachedDataAccess(MaxAge.HALF_HOUR, DBMS.OLTP_DATASOURCE_NAME);
+
+            Request dataRequest = new Request();
+            dataRequest.setProperty(DataAccessConstants.COMMAND, "user_id_using_handle");
+            dataRequest.setProperty("ha", username);
+            ResultSetContainer rsc = da.getData(dataRequest).get("user_id");
+            if (rsc.isEmpty()) {
+                return SimpleUser.createGuest().getId();
+            } else {
+                return rsc.getLongItem(0, "user_id");
+            }
+        }
+
 
     }
 
@@ -122,28 +128,6 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         return found;
     }
 
-    private TCSubject authenticate(final String userName, final String password) {
-
-        TCSubject ret = null;
-        try {
-            LoginLocal login = (LoginLocal) Constants.createLocalEJB(LoginLocal.class);
-            ret = login.login(userName, password);
-            if (log.isDebugEnabled()) {
-                log.debug("correct user name and password");
-            }
-        } catch (GeneralSecurityException e) {
-            return ret;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        return ret;
-    }
-
-    protected boolean authenticate(final Principal principal, final String password) {
-        log.debug("XXX authenticate called");
-        return authenticate(principal.getName(), password) == null;
-    }
-
     public void setUserAccessor(UserAccessor userAccessor) {
         log.debug("XXX setUserAccessor called");
         super.setUserAccessor(userAccessor);
@@ -152,35 +136,6 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
     public UserAccessor getUserAccessor() {
         log.debug("XXX getUserAccessor called");
         return super.getUserAccessor();
-    }
-
-    protected Principal getUser(String userName) {
-        long start = System.currentTimeMillis();
-        if (log.isDebugEnabled()) {
-            log.debug("XXX getUser called ");
-        }
-
-        try {
-            PrincipalMgrLocal pmr = (PrincipalMgrLocal) Constants.createLocalEJB(PrincipalMgrLocal.class);
-            UserPrincipal p = pmr.getUser(userName);
-            if (p.getId() == guest.getId()) {
-                //log.info("getUser(userName) took " + (System.currentTimeMillis() - start) + " ms");
-                return null;
-            } else {
-                DefaultUser du = new DefaultUser(p.getName());
-                du.setName(p.getName());
-                du.setFullName(du.getName());
-                //log.info("getUser(userName) took " + (System.currentTimeMillis() - start) + " ms");
-                return du;
-            }
-        } catch (NoSuchUserException e) {
-            log.debug("no such user");
-            return null;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-
     }
 
     private boolean isAdmin(final String userName) throws Exception {
@@ -269,10 +224,11 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         if (user==null) {
             try {
                 WebAuthentication authentication = getAuth(request, response);
-                if (!authentication.getActiveUser().isAnonymous()) {
-                    com.atlassian.user.User u = checkAndAddUser(authentication.getActiveUser().getUserName());
-                    checkAndAddEmail(u, authentication.getActiveUser().getId());
-                    checkAndAddAdmin(authentication.getActiveUser().getUserName(), u);
+                User activeUser = authentication.getActiveUser();
+                if (!activeUser.isAnonymous()) {
+                    com.atlassian.user.User u = checkAndAddUser(activeUser.getUserName());
+                    checkAndAddEmail(u, activeUser.getId());
+                    checkAndAddAdmin(activeUser.getUserName(), u);
                     setPrincipalInRequest(u, request);
                     user = u;
                 }

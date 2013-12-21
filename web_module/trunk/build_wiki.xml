@@ -50,7 +50,7 @@
         <fileset dir="${confluence.jars}">
             <include name="*.jar"/>
         </fileset>
-        <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+        <pathelement location="${jars.dir}/tcs/base_exception/2.0.0/base_exception.jar"/>
 
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
