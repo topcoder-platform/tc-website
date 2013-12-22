@@ -41,7 +41,7 @@
     Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Contests page</a> or subscribe to the RSS feed
     <a href="/tc?module=BasicRSS&amp;c=rss_Pipeline&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
 </div>
-<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=nov_13" class="prevNext">&lt; prev</a> <!-- | <a href="/tc?module=Static&amp;d1=calendar&amp;d2=jan_14" class="prevNext">next &gt;</a> --> </strong>
+<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=nov_13" class="prevNext">&lt; prev</a> | <a href="/tc?module=Static&amp;d1=calendar&amp;d2=jan_14" class="prevNext">next &gt;</a> </strong>
 <jsp:include page="dropdown.jsp" >
 <jsp:param name="currMonth" value="dec_13"/>
 </jsp:include>

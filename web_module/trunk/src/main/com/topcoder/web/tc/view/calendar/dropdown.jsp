@@ -5,13 +5,15 @@
 
   
    <option value="thisMonth">-------- 2013 --------</option>
-   <option value="jun_13"<% if (currMonth.equals("jun_13")) { %> selected<% } %>>June</option>
-   <option value="jul_13"<% if (currMonth.equals("jul_13")) { %> selected<% } %>>July</option>
-   <option value="aug_13"<% if (currMonth.equals("aug_13")) { %> selected<% } %>>August</option>
-   <option value="sep_13"<% if (currMonth.equals("sep_13")) { %> selected<% } %>>September</option>
-   <option value="oct_13"<% if (currMonth.equals("oct_13")) { %> selected<% } %>>October</option>
-   <option value="nov_13"<% if (currMonth.equals("nov_13")) { %> selected<% } %>>November</option>
    <option value="dec_13"<% if (currMonth.equals("dec_13")) { %> selected<% } %>>December</option>
+   <option value="thisMonth">-------- 2014 --------</option>
+   <option value="jan_14"<% if (currMonth.equals("jan_14")) { %> selected<% } %>>January</option>
+   <option value="feb_14"<% if (currMonth.equals("feb_14")) { %> selected<% } %>>February</option>
+   <option value="mar_14"<% if (currMonth.equals("mar_14")) { %> selected<% } %>>March</option>
+   <option value="apr_14"<% if (currMonth.equals("apr_14")) { %> selected<% } %>>April</option>
+   <option value="may_14"<% if (currMonth.equals("may_14")) { %> selected<% } %>>May</option>
+   <option value="jun_14"<% if (currMonth.equals("jun_14")) { %> selected<% } %>>June</option>
+
 
   
 </select></form>
