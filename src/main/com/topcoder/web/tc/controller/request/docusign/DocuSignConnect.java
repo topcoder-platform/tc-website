@@ -64,7 +64,6 @@ public class DocuSignConnect extends ShortHibernateProcessor {
             securityKey = (String) configManager.getProperty(DEFAULT_DOCUSIGN_NAMESPACE, "docusign_security_key");
         }
 
-        System.out.println("DocuSignConnect securityKey " + securityKey);
         if (securityKey == null || !securityKey.equals(StringUtils.checkNull(getRequest().getParameter("docusign_security_key")))) {
             return;
         }
@@ -116,8 +115,9 @@ public class DocuSignConnect extends ShortHibernateProcessor {
         }
 
         UserTermsOfUseDao userTermsOfUseDao = getUserTermsOfUseDao();
-        userTermsOfUseDao.createUserTermsOfUse(userId, 21113);
-        
+        if (!userTermsOfUseDao.hasTermsOfUse(userId, 21113)) {
+            userTermsOfUseDao.createUserTermsOfUse(userId, 21113);
+        }
     }
 
     private UserTermsOfUseDao getUserTermsOfUseDao() throws Exception {
