@@ -255,6 +255,14 @@ public class HomeHelper {
                     ret.put(Home.TEST_SCENARIOS, summary);
                     break;
                 }
+                case Constants.FIRST2FINISH_PROJECT_TYPE: {
+                    ret.put(Home.FIRST2FINISH, summary);
+                    break;
+                }
+                case Constants.CODE_PROJECT_TYPE: {
+                    ret.put(Home.CODE, summary);
+                    break;
+                }
                 case Constants.REPORTING_PROJECT_TYPE: {
                 	ret.put(Home.REPORTING, summary);
                 }
