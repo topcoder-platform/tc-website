@@ -48,6 +48,8 @@
 <c:set var="reporting" value="<%=Home.REPORTING%>"/>
 <c:set var="bughunt" value="<%=Home.BUG_HUNT%>"/>
 <c:set var="cloudspokes" value="<%=Home.CLOUDSPOKES%>"/>
+<c:set var="first2finish" value="<%=Home.FIRST2FINISH%>"/>
+<c:set var="code" value="<%=Home.CODE%>"/>
 
 <div>
     <img src="/i/interface/rightNavTop.png" alt="" style="display: block;"/>
@@ -106,6 +108,26 @@
                                 <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[assembly].prizeTotal}" pattern="$###,###"/></div>
                                 <a href="/tc?module=ActiveContests&pt=14" class="gMetal">Assembly</a>
                                 (${activeContestsSummary[assembly].contestCount})
+                            </td>
+                        </tr>
+                    </c:if>
+                    <c:if test="${activeContestsSummary[first2finish].contestCount>0}">
+
+                        <tr>
+                            <td class="value">
+                                <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[first2finish].prizeTotal}" pattern="$###,###"/></div>
+                                <a href="/tc?module=ActiveContests&pt=38" class="gMetal">First2Finish</a>
+                                (${activeContestsSummary[first2finish].contestCount})
+                            </td>
+                        </tr>
+                    </c:if>
+                    <c:if test="${activeContestsSummary[code].contestCount>0}">
+
+                        <tr>
+                            <td class="value">
+                                <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[code].prizeTotal}" pattern="$###,###"/></div>
+                                <a href="/tc?module=ActiveContests&pt=39" class="gMetal">Code</a>
+                                (${activeContestsSummary[code].contestCount})
                             </td>
                         </tr>
                     </c:if>
