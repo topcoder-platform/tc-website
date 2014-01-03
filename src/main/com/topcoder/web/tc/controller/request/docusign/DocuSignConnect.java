@@ -81,7 +81,7 @@ public class DocuSignConnect extends ShortHibernateProcessor {
                 templateName = value.trim();
             }
         }
-        if (templateName == null || !templateName.equals("Appirio Mutual NDA")) {
+        if (templateName == null || (!templateName.equals("Appirio Mutual NDA") && !templateName.equals("TopCoder Member NDA"))) {
             return;
         }
 
@@ -92,7 +92,7 @@ public class DocuSignConnect extends ShortHibernateProcessor {
             NamedNodeMap atts = node.getAttributes();
             Node att = atts.getNamedItem("name");
             String nodeValue = att.getNodeValue();
-            if (nodeValue.equals("UserName")) {
+            if (nodeValue.equals("UserName") || nodeValue.equals("TopCoder Handle")) {
                 NodeList childrenNodes = node.getChildNodes();
                 handleName = childrenNodes.item(0).getFirstChild().getNodeValue();
             }
