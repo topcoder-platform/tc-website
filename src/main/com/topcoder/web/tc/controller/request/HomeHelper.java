@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001-2012 TopCoder Inc.  All Rights Reserved.
+ * Copyright (c) 2001-2014 TopCoder Inc.  All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request;
 
@@ -115,116 +115,6 @@ public class HomeHelper {
             ret.put(Home.DR, summary);
         }
 
-        //this is a special case because we need to query based on the contest indicator flag because
-        //some architecture projects in OR are contests and some are not
-        ResultSetContainer arch = dataMap.get("architecture_active_contests_summary");
-        if (!arch.isEmpty()) {
-            ResultSetContainer.ResultSetRow row = arch.get(0);
-            summary = new ActiveContestsSummary();
-            summary.setContestCount(row.getIntItem("total_contests"));
-            summary.setName(row.getStringItem("category_name"));
-            if (row.getItem("total_prizes").getResultData()!=null) {
-                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
-            }
-            ret.put(Home.ARCHITECTURE, summary);
-        }
-
-        ResultSetContainer concept = dataMap.get("conceptualization_active_contests_summary");
-        if (!concept.isEmpty()) {
-            ResultSetContainer.ResultSetRow row = concept.get(0);
-            summary = new ActiveContestsSummary();
-            summary.setContestCount(row.getIntItem("total_contests"));
-            summary.setName(row.getStringItem("category_name"));
-            if (row.getItem("total_prizes").getResultData()!=null) {
-                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
-            }
-            ret.put(Home.CONCEPTUALIZATION, summary);
-        }
-
-        ResultSetContainer spec = dataMap.get("specification_active_contests_summary");
-        if (!spec.isEmpty()) {
-            ResultSetContainer.ResultSetRow row = spec.get(0);
-            summary = new ActiveContestsSummary();
-            summary.setContestCount(row.getIntItem("total_contests"));
-            summary.setName(row.getStringItem("category_name"));
-            if (row.getItem("total_prizes").getResultData()!=null) {
-                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
-            }
-            ret.put(Home.SPECIFICATION, summary);
-        }
-
-        ResultSetContainer uiprototype = dataMap.get("ui_prototype_active_contests_summary");
-        if (!uiprototype.isEmpty()) {
-            ResultSetContainer.ResultSetRow row = uiprototype.get(0);
-            summary = new ActiveContestsSummary();
-            summary.setContestCount(row.getIntItem("total_contests"));
-            summary.setName(row.getStringItem("category_name"));
-            if (row.getItem("total_prizes").getResultData()!=null) {
-                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
-            }
-            ret.put(Home.UI_PROTOTYPE, summary);
-        }
-
-        ResultSetContainer riabuild = dataMap.get("ria_build_active_contests_summary");
-        if (!riabuild.isEmpty()) {
-            ResultSetContainer.ResultSetRow row = riabuild.get(0);
-            summary = new ActiveContestsSummary();
-            summary.setContestCount(row.getIntItem("total_contests"));
-            summary.setName(row.getStringItem("category_name"));
-            if (row.getItem("total_prizes").getResultData()!=null) {
-                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
-            }
-            ret.put(Home.RIA_BUILD, summary);
-        }
-
-        ResultSetContainer riacomponent = dataMap.get("ria_component_active_contests_summary");
-        if (!riacomponent.isEmpty()) {
-            ResultSetContainer.ResultSetRow row = riacomponent.get(0);
-            summary = new ActiveContestsSummary();
-            summary.setContestCount(row.getIntItem("total_contests"));
-            summary.setName(row.getStringItem("category_name"));
-            if (row.getItem("total_prizes").getResultData()!=null) {
-                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
-            }
-            ret.put(Home.RIA_COMPONENT, summary);
-        }
-
-        ResultSetContainer copilotposting = dataMap.get("copilot_posting_active_contests_summary");
-        if (!copilotposting.isEmpty()) {
-            ResultSetContainer.ResultSetRow row = copilotposting.get(0);
-            summary = new ActiveContestsSummary();
-            summary.setContestCount(row.getIntItem("total_contests"));
-            summary.setName(row.getStringItem("category_name"));
-            if (row.getItem("total_prizes").getResultData()!=null) {
-                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
-            }
-            ret.put(Home.COPILOT_POSTING, summary);
-        }
-
-        ResultSetContainer contentcreation = dataMap.get("content_creation_active_contests_summary");
-        if (!contentcreation.isEmpty()) {
-            ResultSetContainer.ResultSetRow row = contentcreation.get(0);
-            summary = new ActiveContestsSummary();
-            summary.setContestCount(row.getIntItem("total_contests"));
-            summary.setName(row.getStringItem("category_name"));
-            if (row.getItem("total_prizes").getResultData()!=null) {
-                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
-            }
-            ret.put(Home.CONTENT_CREATION, summary);
-        }
-
-        ResultSetContainer bugHunt = dataMap.get("bug_hunt_active_contests_summary");
-        if (!bugHunt.isEmpty()) {
-            ResultSetContainer.ResultSetRow row = bugHunt.get(0);
-            summary = new ActiveContestsSummary();
-            summary.setContestCount(row.getIntItem("total_contests"));
-            summary.setName(row.getStringItem("category_name"));
-            if (row.getItem("total_prizes").getResultData() != null) {
-                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
-            }
-            ret.put(Home.BUG_HUNT, summary);
-        }
-
         for (ResultSetContainer.ResultSetRow row : dataMap.get("homepage_active_contest_summary")) {
             summary = new ActiveContestsSummary();
             summary.setContestCount(row.getIntItem("total_contests"));
@@ -265,6 +155,42 @@ public class HomeHelper {
                 }
                 case Constants.REPORTING_PROJECT_TYPE: {
                 	ret.put(Home.REPORTING, summary);
+                }
+                case Constants.ARCHITECTURE_PROJECT_TYPE: {
+                    ret.put(Home.ARCHITECTURE, summary);
+                    break;
+                }
+                case Constants.CONCEPTUALIZATION_PROJECT_TYPE: {
+                    ret.put(Home.CONCEPTUALIZATION, summary);
+                    break;
+                }
+                case Constants.SPECIFICATION_PROJECT_TYPE: {
+                    ret.put(Home.SPECIFICATION, summary);
+                    break;
+                }
+                case Constants.UI_PROTOTYPE_PROJECT_TYPE: {
+                    ret.put(Home.UI_PROTOTYPE, summary);
+                    break;
+                }
+                case Constants.RIA_BUILD_PROJECT_TYPE: {
+                    ret.put(Home.RIA_BUILD, summary);
+                    break;
+                }
+                case Constants.RIA_COMPONENT_PROJECT_TYPE: {
+                    ret.put(Home.RIA_COMPONENT, summary);
+                    break;
+                }
+                case Constants.COPILOT_POSTING_PROJECT_TYPE: {
+                    ret.put(Home.COPILOT_POSTING, summary);
+                    break;
+                }
+                case Constants.CONTENT_CREATION_PROJECT_TYPE: {
+                    ret.put(Home.CONTENT_CREATION, summary);
+                    break;
+                }
+                case Constants.BUG_HUNT_PROJECT_TYPE: {
+                    ret.put(Home.BUG_HUNT, summary);
+                    break;
                 }
             }
 
