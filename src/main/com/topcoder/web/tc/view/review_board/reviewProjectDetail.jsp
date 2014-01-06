@@ -441,7 +441,7 @@
                                             not rated
                                         </c:if>
                                         <c:if test="${not empty reviewerRatings[reviewApplicant.userId]}">
-                                            <c:out value="${reviewerRatings[reviewApplicant.userId]}"/>
+                                            <fmt:formatNumber value="${reviewerRatings[reviewApplicant.userId]}" pattern="0.00"/>
                                         </c:if>
                                     </td>
                                     <td class="projectCells" align="center">
