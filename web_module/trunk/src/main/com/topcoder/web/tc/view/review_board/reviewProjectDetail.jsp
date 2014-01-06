@@ -418,11 +418,12 @@
                     <table class="formFrame" cellspacing="0" width="540">
                         <tbody>
                         <tr>
-                            <td class="tableTitle" colspan="4">Review Applications</td>
+                            <td class="tableTitle" colspan="5">Review Applications</td>
                         </tr>
                         <tr>
                             <td class="tableHeader">Handle</td>
                             <td class="tableHeader" align="center">Role</td>
+                            <td class="tableHeader" align="center">Reviewer Rating</td>
                             <td class="tableHeader" align="center">Status</td>
                             <td class="tableHeader" align="center">Application Date</td>
                         </tr>
@@ -434,6 +435,14 @@
                                     </td>
                                     <td class="projectCells" align="center">
                                         <c:out value="${reviewApplicationRoles[reviewApplicant.applicationRoleId].name}"/>
+                                    </td>
+                                    <td class="projectCells" align="center">
+                                        <c:if test="${empty reviewerRatings[reviewApplicant.userId]}">
+                                            not rated
+                                        </c:if>
+                                        <c:if test="${not empty reviewerRatings[reviewApplicant.userId]}">
+                                            <c:out value="${reviewerRatings[reviewApplicant.userId]}"/>
+                                        </c:if>
                                     </td>
                                     <td class="projectCells" align="center">
                                         <c:out value="${reviewApplicant.status.name}"/>

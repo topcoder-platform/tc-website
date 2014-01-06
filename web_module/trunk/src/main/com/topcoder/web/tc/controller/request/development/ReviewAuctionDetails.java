@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2013 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2012-2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -107,6 +107,8 @@ public class ReviewAuctionDetails extends Base {
                 }
             });
             getRequest().setAttribute("reviewApplications", reviewApplications);
+
+            retrieveReviewerRatings(reviewAuctionId);
             
             // Build the map for review application roles for the auction for faster lookup by JSP
             Map<Long, ReviewApplicationRole> roles = new HashMap<Long, ReviewApplicationRole>();
@@ -115,12 +117,12 @@ public class ReviewAuctionDetails extends Base {
                 roles.put(role.getId(), role);
             }
             getRequest().setAttribute("reviewApplicationRoles", roles);
-            
+
             // Get the payments for each review application role for review auction
             Map<Long, Float> reviewApplicationRolePayments = ReviewAuctionHelper.calculateReviewPayments(reviewAuction);
             getRequest().setAttribute("reviewApplicationRolePayments", reviewApplicationRolePayments);
             
-            // Get the list of pending review applications for requested auction fr current user
+            // Get the list of pending review applications for requested auction for current user
             List<ReviewApplication> pendingReviewApplications =
                 ReviewAuctionHelper.getPendingReviewApplications(getUser().getId(), reviewAuctionId);
             getRequest().setAttribute("currentPendingReviewApplications", pendingReviewApplications);
@@ -128,6 +130,37 @@ public class ReviewAuctionDetails extends Base {
             // Forward to view
             setNextPage(Constants.UNIFIED_REVIEW_PROJECT_DETAIL_PAGE);
             setIsNextPageInContext(true);
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+    }
+
+    /**
+     * <p>Looks up for reviewer ratings for an auction, binds it to request.</p>
+     *
+     * @param reviewAuctionId identifier of the review auction
+     * @throws TCWebException if an unexpected error occurs.
+     */
+    private void retrieveReviewerRatings(long reviewAuctionId) throws TCWebException {
+        try {
+            Request r = new Request();
+            r.setContentHandle("reviewer_ratings_for_auction");
+            r.setProperty(Constants.REVIEW_AUCTION_ID, String.valueOf(reviewAuctionId));
+
+            Map results = getDataAccess().getData(r);
+            ResultSetContainer rsc = (ResultSetContainer) results.get("reviewer_ratings_for_auction");
+
+            // Build the map for reviewer ratings for lookup by JSP
+            Map<Long, Double> reviewerRatings = new HashMap<Long, Double>();
+            for (int i = 0; i < rsc.size(); i++) {
+                // The result set can contain many records for the same user_id, but they are sorted by the review_date,
+                // so in the end the latest reviewer rating will be stored for each user.
+                reviewerRatings.put(rsc.getLongItem(i, "user_id"), rsc.getDoubleItem(i, "rating"));
+            }
+
+            getRequest().setAttribute("reviewerRatings", reviewerRatings);
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
