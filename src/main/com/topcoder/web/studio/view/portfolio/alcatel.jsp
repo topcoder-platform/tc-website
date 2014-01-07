@@ -67,18 +67,18 @@
                     
                     <h1>Alcatel-Lucent</h1>
                         
-                        <p>1 Contest Highlighted</p>
-                        <p>1 Web Design Contest</p>
+                        <p>1 Challenge Highlighted</p>
+                        <p>1 Web Design Challenge</p>
                         
                         <p>Re-skined "LBS Demo" and substantially improved the look & feel. Provided better user-interface of how to use the Open API Service "Location" and "Subscriber" REST APIs to the developers.</p>
                         <div class="clear"></div>
                         
                         <div id="thumbs">
                             <ul>
-                                <li><a href="/i/portfolio/projects/alcatel/webdesign/1.png" class="thickbox" title="Location-Based Services (LBS) Demo Re-Skin Contest"><img src="/i/portfolio/projects/alcatel/thumbs/1.png" width="150" height="150" /></a><br />
+                                <li><a href="/i/portfolio/projects/alcatel/webdesign/1.png" class="thickbox" title="Location-Based Services (LBS) Demo Re-Skin Challenge"><img src="/i/portfolio/projects/alcatel/thumbs/1.png" width="150" height="150" /></a><br />
                                 <div align="center">Web Design</div></li>
                                 
-                                <li><a href="/i/portfolio/projects/alcatel/webdesign/2.png" class="thickbox" title="Location-Based Services (LBS) Demo Re-Skin Contest"><img src="/i/portfolio/projects/alcatel/thumbs/2.png" width="150" height="150" /></a><br />
+                                <li><a href="/i/portfolio/projects/alcatel/webdesign/2.png" class="thickbox" title="Location-Based Services (LBS) Demo Re-Skin Challenge"><img src="/i/portfolio/projects/alcatel/thumbs/2.png" width="150" height="150" /></a><br />
                                 <div align="center">Web Design</div></li>
                                 
                             </ul>
@@ -89,8 +89,8 @@
                                 <div class="data">
                                         <table border="0" cellpadding="0" cellspacing="1">
                                             <tr>
-                                                <th>Contest Type</th>
-                                                <th>Contest Name</th>
+                                                <th>Challenge Type</th>
+                                                <th>Challenge Name</th>
                                                 <th>Duration</th>
                                                 <th>Subs</th>
                                                 <th>Client Selection</th>
@@ -98,11 +98,11 @@
                                             
                                             <tr>
                                                 <td>Web Design</td>
-                                                <td><a href="http://studio.topcoder.com/?module=ViewContestResults&ct=30022585" title="Location-Based Services (LBS) Demo Re-Skin Contest" target="_blank">Location-Based Services (LBS) Demo Re-Skin Contest</a></td>
+                                                <td><a href="http://studio.topcoder.com/?module=ViewContestResults&ct=30022585" title="Location-Based Services (LBS) Demo Re-Skin Challenge" target="_blank">Location-Based Services (LBS) Demo Re-Skin Challenge</a></td>
                                                 <td>7 Days</td>
                                                 <td align="center">28</td>
                                                 <td>
-                                                <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=109210" title="Location-Based Services (LBS) Demo Re-Skin Contest, 1" target="_blank">1</a>, <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=109209" title="Location-Based Services (LBS) Demo Re-Skin Contest, 2" target="_blank">2</a>
+                                                <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=109210" title="Location-Based Services (LBS) Demo Re-Skin Challenge, 1" target="_blank">1</a>, <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=109209" title="Location-Based Services (LBS) Demo Re-Skin Challenge, 2" target="_blank">2</a>
                                                 </td>
                                             </tr>
                                         </table>

@@ -68,17 +68,17 @@
                     
                     <h1>Blackbird</h1>
                         
-                        <p>4 Contests Highlighted</p>
-                        <p>1 Logo Contest, 1 Flash Contest, 1 Storyboard Contest, 1 Print Advertising Contest</p>
+                        <p>4 Challenges Highlighted</p>
+                        <p>1 Logo Challenge, 1 Flash Challenge, 1 Storyboard Challenge, 1 Print Advertising Challenge</p>
                         <div class="clear"></div>
                         
                         <div id="thumbs">
                             <ul>
                                 <li><a href="/i/portfolio/projects/blackbird/logo/1.png" class="thickbox" rel="thumbs" title="Blackbird Logo &amp; Splash Screen"><img src="/i/portfolio/projects/blackbird/thumbs/1.png" width="150" height="150" /></a><br />
-                                <div align="center">Logo Contest</div></li>
+                                <div align="center">Logo Challenge</div></li>
                                 
-                                <li><a href="/i/portfolio/projects/blackbird/flash/blackbird_splash.html" title="Blackbird Splash Screen Animation Contest" target="_blank"><img src="/i/portfolio/projects/blackbird/thumbs/3.png" width="150" height="150" /></a><br />
-                                <div align="center">Flash Contest</div></li>
+                                <li><a href="/i/portfolio/projects/blackbird/flash/blackbird_splash.html" title="Blackbird Splash Screen Animation Challenge" target="_blank"><img src="/i/portfolio/projects/blackbird/thumbs/3.png" width="150" height="150" /></a><br />
+                                <div align="center">Flash Challenge</div></li>
                                 
                                 
                             </ul>
@@ -89,14 +89,14 @@
                                 <div class="data">
                                         <table border="0" cellpadding="0" cellspacing="1">
                                             <tr>
-                                                <th>Contest Type</th>
-                                                <th>Contest Name</th>
+                                                <th>Challenge Type</th>
+                                                <th>Challenge Name</th>
                                                 <th>Duration</th>
                                                 <th>Subs</th>
                                                 <th>Client Selection</th>
                                             </tr>
                                             <tr>
-                                                <td>Logo Contest</td>
+                                                <td>Logo Challenge</td>
                                                 <td><a href="/i/portfolio/projects/blackbird/logo/1.png" class="thickbox" title="Blackbird Logo &amp; Splash Screen">Blackbird Logo &amp; Splash Screen</a></td>
                                                 <td>7 Days</td>
                                                 <td align="center">163</td>
@@ -113,24 +113,24 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Flash Contest</td>
-                                                <td><a href="/i/portfolio/projects/blackbird/flash/blackbird_splash.html" title="Blackbird Splash Screen Animation Contest" target="_blank">Blackbird Splash Screen Animation Contest</a></td>
+                                                <td>Flash Challenge</td>
+                                                <td><a href="/i/portfolio/projects/blackbird/flash/blackbird_splash.html" title="Blackbird Splash Screen Animation Challenge" target="_blank">Blackbird Splash Screen Animation Challenge</a></td>
                                                 <td>11 Days</td>
                                                 <td align="center">16</td>
                                                 <td>
-                                                <a href="/i/portfolio/projects/blackbird/flash/blackbird_splash.html" title="Blackbird Splash Screen Animation Contest" target="_blank">1</a>
+                                                <a href="/i/portfolio/projects/blackbird/flash/blackbird_splash.html" title="Blackbird Splash Screen Animation Challenge" target="_blank">1</a>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Storyboard Contest</td>
+                                                <td>Storyboard Challenge</td>
                                                 <td>Blackbird .NET Application Storyboard Design</td>
                                                 <td>14 Days</td>
                                                 <td align="center">5</td>
                                                 <td></td>
                                             </tr>
                                             <tr>
-                                                <td>Print Contest</td>
-                                                <td>Blackbird Display Board Design Contest</td>
+                                                <td>Print Challenge</td>
+                                                <td>Blackbird Display Board Design Challenge</td>
                                                 <td>7 Days</td>
                                                 <td align="center">12</td>
                                                 <td>&nbsp;</td>

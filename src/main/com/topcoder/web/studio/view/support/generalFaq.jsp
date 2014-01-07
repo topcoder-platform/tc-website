@@ -65,7 +65,7 @@
                         
         
                         <h3>What software should I use?</h3>
-                        Each contest will list file formats that will be accepted both for submissions and final deliverables from the winner(s). Some contests will limit the types of files that will be accepted based on the client's preferences. The most common file types accepted as final deliverables are EPS and AI files from Adobe Illustrator and PSD files from Adobe Photoshop. Open source programs such as Gimp and Inkscape are often acceptable substitutes and many contests accept files from these programs.<br /><br />
+                        Each challenge will list file formats that will be accepted both for submissions and final deliverables from the winner(s). Some challenges will limit the types of files that will be accepted based on the client's preferences. The most common file types accepted as final deliverables are EPS and AI files from Adobe Illustrator and PSD files from Adobe Photoshop. Open source programs such as Gimp and Inkscape are often acceptable substitutes and many challenges accept files from these programs.<br /><br />
                         
                         <h3>What are vector graphics?</h3>
                         Vector graphics are images created using points, lines, curves and polygons rather than pixels (raster
@@ -92,7 +92,7 @@
         
                         .ICO files are Windows based icon image files. These files can hold multiple sizes of icons at varying
                         color depths. Standard sizes for most Windows applications are 64x64, 32x32 and 16x16. Icon files should
-                        be created at maximum color depth, optimized for Windows XP unless otherwise specified in the contest
+                        be created at maximum color depth, optimized for Windows XP unless otherwise specified in the challenge
                         details.
                         <br /><br />
         

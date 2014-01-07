@@ -101,7 +101,7 @@
                 </div>
 
                 <div class="breadcrumb">
-                    <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a>
+                    <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Challenges</a>
                     &gt; ${contest.name}
                 </div>
 

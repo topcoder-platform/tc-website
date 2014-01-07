@@ -68,17 +68,17 @@
                     
                     <h1>Truveo Summer Games Widget</h1>
                         
-                        <p>3 Contests beginning in June 2008 and ending in July 2008</p>
-                        <p>1 Storyboard Contest, 1 Flash Contest, 1 yourminis Widget Build</p>
+                        <p>3 Challenges beginning in June 2008 and ending in July 2008</p>
+                        <p>1 Storyboard Challenge, 1 Flash Challenge, 1 yourminis Widget Build</p>
                         <div class="clear"></div>
                         
                         <div id="thumbs">
                             <ul>
                                 <li><a href="/i/portfolio/projects/truveo-summer/storyboards/1.png" class="thickbox" rel="thumbs" title="Video Flash Widget Storyboard"><img src="/i/portfolio/projects/truveo-summer/thumbs/1.png" width="150" height="150" /></a><br />
-                                <div align="center">Storyboard Contest</div></li>
+                                <div align="center">Storyboard Challenge</div></li>
                                 
                                 <li><a href="/i/portfolio/projects/truveo-summer/flash/1/SummerGameVideoWidget.html" title="Summer Games Widget Flash Conversion" target="_blank"><img src="/i/portfolio/projects/truveo-summer/thumbs/2.png" width="150" height="150" /></a><br />
-                                <div align="center">Flash Contest</div></li>
+                                <div align="center">Flash Challenge</div></li>
                             </ul>
                         </div>
                         
@@ -87,14 +87,14 @@
                                 <div class="data">
                                         <table border="0" cellpadding="0" cellspacing="1">
                                             <tr>
-                                                <th>Contest Type</th>
-                                                <th>Contest Name</th>
+                                                <th>Challenge Type</th>
+                                                <th>Challenge Name</th>
                                                 <th>Duration</th>
                                                 <th>Subs</th>
                                                 <th>Client Selection</th>
                                             </tr>
                                             <tr>
-                                                <td>Storyboard Contest</td>
+                                                <td>Storyboard Challenge</td>
                                                 <td><a href="/i/portfolio/projects/truveo-summer/storyboards/1.png" class="thickbox" title="Video Flash Widget Storyboard">Video Flash Widget Storyboard</a></td>
                                                 <td>6 Days</td>
                                                 <td align="center">14</td>
@@ -106,7 +106,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Flash Contest</td>
+                                                <td>Flash Challenge</td>
                                                 <td><a href="/i/portfolio/projects/truveo-summer/flash/1/SummerGameVideoWidget.html" title="Summer Games Widget Flash Conversion" target="_blank">Summer Games Widget Flash Conversion</a></td>
                                                 <td>5 Days</td>
                                                 <td align="center">10</td>
@@ -115,7 +115,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>yourminis Widget Contest</td>
+                                                <td>yourminis Widget Challenge</td>
                                                 <td>Video Flash Widget Storyboard</td>
                                                 <td>5 Days</td>
                                                 <td align="center">2</td>

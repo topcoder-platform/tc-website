@@ -68,14 +68,14 @@
                     
                     <h1>Kids Savings Account</h1>
                         
-                        <p>2 Contests beginning in May 2008 and ending in June 2008</p>
-                        <p>1 Storyboard Contest, 1 Prototype Contest</p>
+                        <p>2 Challenges beginning in May 2008 and ending in June 2008</p>
+                        <p>1 Storyboard Challenge, 1 Prototype Challenge</p>
                         <div class="clear"></div>
                         
                         <div id="thumbs">
                             <ul>
                                 <li><a href="/i/portfolio/projects/kidsavings/i/0.png" class="thickbox" rel="thumbs" title="Kids Savings Account"><img src="/i/portfolio/projects/kidsavings/thumbs/1.png" width="150" height="150" /></a><br />
-                                <div align="center">Storyboard Contest</div></li>
+                                <div align="center">Storyboard Challenge</div></li>
                             </ul>
                             
                         </div>
@@ -85,14 +85,14 @@
                                 <div class="data">
                                         <table border="0" cellpadding="0" cellspacing="1">
                                             <tr>
-                                                <th>Contest Type</th>
-                                                <th>Contest Name</th>
+                                                <th>Challenge Type</th>
+                                                <th>Challenge Name</th>
                                                 <th>Duration</th>
                                                 <th>Subs</th>
                                                 <th>Client Selection</th>
                                             </tr>
                                             <tr>
-                                                <td>Storyboard Contest</td>
+                                                <td>Storyboard Challenge</td>
                                                 <td><a href="/i/portfolio/projects/kidsavings/i/1.png" class="thickbox" title="Kids Savings Account">Kids Savings Account Storyboard</a></td>
                                                 <td>5 Days</td>
                                                 <td align="center">11</td>
@@ -108,7 +108,7 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td>Prototype Contest</td>
+                                                <td>Prototype Challenge</td>
                                                 <td>Kids Savings Account Prototype</td>
                                                 <td>5 Days</td>
                                                 <td align="center">3</td>

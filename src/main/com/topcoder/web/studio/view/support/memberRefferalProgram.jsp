@@ -8,7 +8,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="Overview of the Member Referral Program and how to start competing in graphic and web design competitions at TopCoder Studio" />
-    <meta name="keywords" content="topcoder, studio, graphic competitions, graphic design contests, graphic design, web design, logo, contests, compete, prizes, cash, clients" />
+    <meta name="keywords" content="topcoder, studio, graphic competitions, graphic design challenges, graphic design, web design, logo, challenges, compete, prizes, cash, clients" />
     <title>TopCoder Studio | Member Referral Program</title>
 
      <jsp:include page="../style.jsp">

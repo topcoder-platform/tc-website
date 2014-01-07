@@ -80,7 +80,7 @@
 <div id="wrapper_submission">
 
 <div class="breadcrumb" style="margin-bottom: 10px;">
-            <a href="/?module=ViewActiveContests">Active Contests</a>
+            <a href="/?module=ViewActiveContests">Active Challenges</a>
             &gt; ${contest.projectName}
 </div>
 
@@ -135,7 +135,7 @@
     <c:choose>
         <c:when test="${not isFinalFixUpload}">
     <div class="upload-content-description">
-        <p>Please follow the instructions on the Contest Details page regarding what your
+        <p>Please follow the instructions on the Challenge Details page regarding what your
             submission, source and preview files should contain. <br>
             Do not name any of your files "declaration.txt" as this is added by our system. <br/>
             Please be sure to double-check that you have submitted the correct files and that your
@@ -159,7 +159,7 @@
 
             <div class="fill-part upload-file-item">
                 <input type="file" class="upload-file fileField" name="<%=Constants.SUBMISSION%>">
-                <span class="fill-note">All submission files (visible to contest holder)</span>
+                <span class="fill-note">All submission files (visible to challenge holder)</span>
             </div>
             <!--End .fill-part-->
 
@@ -181,7 +181,7 @@
 
             <div class="fill-part upload-file-item">
                 <input type="file" class="upload-file fileField" name="<%=Constants.SUBMISSION_SOURCE%>">
-                <span class="fill-note">All source files (not visible to contest holder)</span>
+                <span class="fill-note">All source files (not visible to challenge holder)</span>
             </div>
             <!--End .fill-part-->
 
@@ -329,7 +329,6 @@
                             </div>
                             <div class="clear"></div>
                             <p class="normaltext">Check to see if your font is on the <a href="http://community.topcoder.com/studio/the-process/font-policy/" target="_blank">Studio Standard Fonts list</a>. If it is, leave the URL field blank.</p>
-                            <p>If you only used fonts that came with the client files, choose "I did not introduce any new fonts" from the dropdown box.</p>
                             <p>If your font is not on the list, you must provide the URL to the font page (not file) from one of the approved font websites in the dropdown box.</p>
                             <h5>Please list ALL fonts you have used in your design below.</h5>
                             <!--End .caption-->
@@ -342,8 +341,14 @@
                             
                             <c:forEach items="${fonts_data}" var="font" varStatus="i">
                                 <div class="add-font-item external-content-item">
+                                    <div class="text-input">
+                                        <div class="right-side">
+                                            <input type="text" name="<%= Constants.FONT_NAME %>" title="Font's Name"
+                                                   value="<c:out value="${font[0]}" escapeXml="true"/>">
+                                        </div>
+                                    </div>
                                     <select name="font">
-                                        <option value="">Choose from this menu</option>
+                                        <option value="">Standard List or Source of Font</option>
                                         <option value="Studio Standard Fonts list" <c:if test="${font[1] eq 'Studio Standard Fonts list'}">selected="selected"</c:if>>Studio Standard Fonts list</option>
                                         <option value="Fonts.com" <c:if test="${font[1] eq 'Fonts.com'}">selected="selected"</c:if>>Fonts.com</option>
                                         <option value="MyFonts" <c:if test="${font[1] eq 'MyFonts'}">selected="selected"</c:if>>MyFonts</option>
@@ -353,16 +358,7 @@
                                         <option value="Font Squirrel" <c:if test="${font[1] eq 'Font Squirrel'}">selected="selected"</c:if>>Font Squirrel</option>
                                         <option value="Linotype" <c:if test="${font[1] eq 'Linotype'}">selected="selected"</c:if>>Linotype</option>
                                         <option value="Typography.com" <c:if test="${font[1] eq 'Typography.com'}">selected="selected"</c:if>>Typography.com</option>
-                                        <option value="No New Fonts"  <c:if test="${font[1] eq 'No New Fonts'}">selected="selected"</c:if>>I did not introduce any new fonts</option>
                                     </select>
-
-                                    <div class="text-input">
-                                        <div class="right-side">
-                                            <input type="text" name="<%= Constants.FONT_NAME %>" title="Font's Name"
-                                                   value="<c:out value="${font[0]}" escapeXml="true"/>">
-                                        </div>
-                                    </div>
-
                                     <div class="text-input">
                                         <div class="right-side">
                                             <input type="text" name="<%= Constants.FONT_URL %>"
@@ -411,7 +407,7 @@
 
                                 <c:if test="${!contest.allowStockArt}">
                                     <div class="satip-error" style="width:300px;">
-                                        <span class="rightSide"><span class="text"><span class="icon"></span>Stock art is not allowed in this contest.</span></span>
+                                        <span class="rightSide"><span class="text"><span class="icon"></span>Stock art is not allowed in this challenge.</span></span>
                                     </div>
                                     <%--<span style="float:right;">
                                         Stock art is not allowed in this contest.
@@ -518,7 +514,7 @@
                         <img alt="loading" src="i/loading-complete-icon.gif"
                              class="upload-image-sign upload-completed hide">
                         <span class="state">Uploading....</span>
-                        <span class="note">Please donï¿½t close the browser until the file is uploaded</span>
+                        <span class="note">Please don’t close the browser until the file is uploaded</span>
                     </div>
                     <div class="progress-bar">
                         <span class="left-corner"></span>
@@ -556,14 +552,14 @@
             <c:when test="${not empty contest.maxSubmissions}">
                 <p>Up to ${contest.maxSubmissions} submission<c:if
                     test="${contest.maxSubmissions>1}">s</c:if>
-                    will count for this contest. They will be indicated by
+                    will count for this challenge. They will be indicated by
                     <nobr>this icon <img src="/i/v6/start-icon.png" alt="Selection"/></nobr>
                     .
                     Those submissions that do not have the icon will <strong>NOT</strong> count and
                     they will neither be screened nor reviewed.
                     If you make more than ${contest.maxSubmissions} submission<c:if
                         test="${contest.maxSubmissions>1}">s</c:if>
-                    for this contest, you can rearrange the order of your submissions until the end of the Submission
+                    for this challenge, you can rearrange the order of your submissions until the end of the Submission
                     Phase. Note that checkpoint submissions can't be rearranged after checkpoint deadline. All submissions that are not eligible (anything over the submission limit) 
 					remaining after the submission phase has ended will be deleted by the system.
                 </p>
@@ -571,7 +567,7 @@
             <c:otherwise>
                 <nobr>This icon <img src="/i/v6/start-icon.png" alt="Selection"/></nobr>
                 indicates preferred submissions
-                that will count for this contest.
+                that will count for this challenge.
             </c:otherwise>
         </c:choose>
     </div>

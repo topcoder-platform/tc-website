@@ -68,9 +68,9 @@
 <p>
     <strong>2011 Wireframe Studio Cup Tournament</strong>
 </p>
-During the months of April, May and June in 2011, a single member was designated the "Wireframe SC Tournament Winner" from each month based on how many points they accumulated during wireframe contests. The winner from each month won an all-expenses paid trip to TCO11!
+During the months of April, May and June in 2011, a single member was designated the "Wireframe SC Tournament Winner" from each month based on how many points they accumulated during wireframe challenges. The winner from each month won an all-expenses paid trip to TCO11!
 <br /><br />
-Winners were chosen based on the highest points earned from wireframe contests only. Points from other contest types did not count toward the tally.
+Winners were chosen based on the highest points earned from wireframe challenges only. Points from other challenge types did not count toward the tally.
 <br /><br />
 
                         <br clear="all"/>

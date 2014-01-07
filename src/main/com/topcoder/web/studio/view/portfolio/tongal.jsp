@@ -68,20 +68,20 @@
                     
                     <h1>Tongal</h1>
                         
-                        <p>9 Contests Highlighted</p>
-                        <p>2 Logo Contests, 4 Storyboard Contest, 2 Prototype Contests, 1 Icon Contest</p>
+                        <p>9 Challenges Highlighted</p>
+                        <p>2 Logo Challenges, 4 Storyboard Challenges, 2 Prototype Challenges, 1 Icon Challenge</p>
                         <div class="clear"></div>
                         
                         <div id="thumbs">
                             <ul>
                                 <li><a href="/i/portfolio/projects/tongal/thumbs/1.png" class="thickbox" rel="thumbs" title="Logo Design for Entertainment Startup Company"><img src="/i/portfolio/projects/tongal/previews/logo.png" width="150" height="150" /></a>
-                                <div align="center">Logo Contest</div></li>
+                                <div align="center">Logo Challenge</div></li>
                                 <li><a href="/i/portfolio/projects/tongal/thumbs/2.png" class="thickbox" rel="thumbs" title="Tongal Application Storyboard"><img src="/i/portfolio/projects/tongal/previews/storyboard.png" width="150" height="150" /></a>
-                                <div align="center">Storyboard Contest</div></li>
+                                <div align="center">Storyboard Challenge</div></li>
                                 <li><a href="/i/portfolio/projects/tongal/thumbs/3.png" class="thickbox" rel="thumbs" title="Tongal Application Icons"><img src="/i/portfolio/projects/tongal/previews/icons.png" width="150" height="150" /></a>
-                                <div align="center">Icon Contest</div></li>
+                                <div align="center">Icon Challenge</div></li>
                                 <li><a href="/i/portfolio/projects/tongal/prototype/index.html" target="_blank"><img src="/i/portfolio/projects/tongal/previews/prototype.png" width="150" height="150" /></a>
-                                <div align="center">Prototype Contest</div></li>
+                                <div align="center">Prototype Challenge</div></li>
                             </ul>
                         </div>
                         <div class="clear"></div>
@@ -90,14 +90,14 @@
                                     
                                     <table border="0" cellpadding="0" cellspacing="1">
                                         <tr>
-                                            <th>Contest Type</th>
-                                            <th>Contest Name</th>
+                                            <th>Challenge Type</th>
+                                            <th>Challenge Name</th>
                                             <th>Duration</th>
                                             <th>Subs</th>
                                             <th>Client Selection</th>
                                         </tr>
                                         <tr>
-                                            <td>Logo Contest</td>
+                                            <td>Logo Challenge</td>
                                             <td><a href="/i/portfolio/projects/tongal/logo/i/1.png" class="thickbox" title="Logo Design for Entertainment Startup Company">Logo Design for Entertainment Startup Company, Tongal</a></td>
                                             <td>5 Days</td>
                                             <td align="center">48</td>
@@ -107,17 +107,17 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Logo Revision Contest</td>
-                                            <td><a href="/i/portfolio/projects/tongal/logo2/i/1.png" class="thickbox" title="Tongal Logo Revision Contest">Tongal Logo Revision Contest</a></td>
+                                            <td>Logo Revision Challenge</td>
+                                            <td><a href="/i/portfolio/projects/tongal/logo2/i/1.png" class="thickbox" title="Tongal Logo Revision Challenge">Tongal Logo Revision Challenge</a></td>
                                             <td>6 Days</td>
                                             <td align="center">6</td>
                                             <td>
-                                            <a href="/i/portfolio/projects/tongal/logo2/i/1.png" class="thickbox" rel="rev" title="Tongal Logo Revision Contest">1</a>
-                                            <a href="/i/portfolio/projects/tongal/logo2/i/2.png" class="thickbox" rel="rev" title="Tongal Logo Revision Contest">2</a>
+                                            <a href="/i/portfolio/projects/tongal/logo2/i/1.png" class="thickbox" rel="rev" title="Tongal Logo Revision Challenge">1</a>
+                                            <a href="/i/portfolio/projects/tongal/logo2/i/2.png" class="thickbox" rel="rev" title="Tongal Logo Revision Challenge">2</a>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Storyboard Contest</td>
+                                            <td>Storyboard Challenge</td>
                                             <td><a href="/i/portfolio/projects/tongal/storyboards/i/1.png" class="thickbox" title="Tongal Landing Pages Storyboard">Tongal Landing Pages Storyboard</a></td>
                                             <td>5 Days</td>
                                             <td align="center">12</td>
@@ -127,7 +127,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Storyboard Contest</td>
+                                            <td>Storyboard Challenge</td>
                                             <td><a href="/i/portfolio/projects/tongal/storyboards2/i/1.png" class="thickbox" title="Tongal Landing Pages Storyboard - Round 2">Tongal Landing Pages Storyboard - Round 2</a></td>
                                             <td>4 Days</td>
                                             <td align="center">6</td>
@@ -137,7 +137,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Prototype Contest</td>
+                                            <td>Prototype Challenge</td>
                                             <td><a href="/i/portfolio/projects/tongal/prototype1/index.html" target="_blank">Tongal Landing Pages Prototype</a></td>
                                             <td>4 Days</td>
                                             <td align="center">7</td>
@@ -146,7 +146,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Storyboard Contest</td>
+                                            <td>Storyboard Challenge</td>
                                             <td><a href="/i/portfolio/projects/tongal/storyboards3/i/1.png" class="thickbox" title="Tongal Application Storyboard">Tongal Application Storyboard</a></td>
                                             <td>6 Days</td>
                                             <td align="center">1</td>
@@ -161,7 +161,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Prototype Contest</td>
+                                            <td>Prototype Challenge</td>
                                             <td><a href="/i/portfolio/projects/tongal/prototype/index.html" target="_blank">Tongal Application Prototype</a></td>
                                             <td>7 Days</td>
                                             <td align="center">2</td>
@@ -170,7 +170,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Icon Contest</td>
+                                            <td>Icon Challenge</td>
                                             <td><a href="/i/portfolio/projects/tongal/icons/i/1.png" class="thickbox" title="Tongal Application Icons">Tongal Application Icons</a></td>
                                             <td>4 Days</td>
                                             <td align="center">3</td>
@@ -180,7 +180,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Storyboard Contest</td>
+                                            <td>Storyboard Challenge</td>
                                             <td><a href="/i/portfolio/projects/tongal/storyboards4/1.png" class="thickbox"title="Tongal Prize and Relationship Tree Storyboard">Tongal Prize and Relationship Tree Storyboard</a></td>
                                             <td>4 Days</td>
                                             <td align="center">4</td>

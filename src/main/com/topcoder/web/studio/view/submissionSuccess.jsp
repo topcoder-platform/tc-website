@@ -126,7 +126,7 @@
 -->
 
         <div class="breadcrumb">
-            <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a>
+            <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Challenges</a>
             &gt; ${contest.projectName}
         </div>
 
@@ -158,17 +158,17 @@
                              <c:choose>
                                  <c:when test="${not empty contest.maxSubmissions}">
                                      Up to ${contest.maxSubmissions} submission<c:if test="${contest.maxSubmissions>1}">s</c:if>
-                                     will count for this contest.  They will be indicated by
+                                     will count for this challenge.  They will be indicated by
                                      <nobr>this icon <img src="/i/v2/selection.png" alt="Selection" /></nobr>.  Those submissions that do not have the icon will <b>NOT</b> count and
                                      they will neither be screened nor reviewed.
                                      If you make more than ${contest.maxSubmissions} submission<c:if test="${contest.maxSubmissions>1}">s</c:if>
-                                     for this contest, you can rearrange the order of your submissions until the end of the Submission Phase. 
+                                     for this challenge, you can rearrange the order of your submissions until the end of the Submission Phase. 
                                      Note that checkpoint submissions can't be rearranged after checkpoint deadline. All submissions that are not eligible (anything over the submission limit)
 									 remaining after the submission phase has ended will be deleted by the system.
                                  </c:when>
                              <c:otherwise>
                                  <nobr>This icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates preferred submissions that will count for
-                             this contest.
+                             this challenge.
                              </c:otherwise>
                              </c:choose>
 
@@ -218,7 +218,7 @@
 
             </form>
             <br /><br />
-            <strong>NOTE:</strong> <nobr>this icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates submissions that you have selected to be considered for this contest
+            <strong>NOTE:</strong> <nobr>this icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates submissions that you have selected to be considered for this challenge
         </div>
 
 

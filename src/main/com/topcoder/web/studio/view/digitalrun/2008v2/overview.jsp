@@ -69,7 +69,7 @@
     <strong>Overview</strong>
 </p>
 
-Each contest posted in TopCoder Studio will carry a total point value. Placement points will be awarded based on the number of submissions that pass screening and receive a cash award, as follows:
+Each challenge posted in TopCoder Studio will carry a total point value. Placement points will be awarded based on the number of submissions that pass screening and receive a cash award, as follows:
 <br /><br />
 <a class="bcLink" name="point_table"></a>
 <div align="center">

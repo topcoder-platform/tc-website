@@ -59,7 +59,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>TopCoder Studio : Past Contests</title>
+    <title>TopCoder Studio : Past Challenges</title>
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
@@ -134,7 +134,7 @@
         <div id="content-new" class="pastContests">
             <div class="contentMask">
                 <div class="title">
-                    <h1>Past Contests</h1>
+                    <h1>Past Challenges</h1>
                     <p class="help">
                         Need help? Learn how to <a href="http://community.topcoder.com/studio/what-is-studio/">get started</a>.
                     </p>
@@ -186,17 +186,17 @@
                     <ul class="tabs">
                         <li>
                             <a href="${sessionInfo.servletPath}?module=ViewActiveContests">
-                                <span class="tabMask"><span class="text">Active Contests</span></span>
+                                <span class="tabMask"><span class="text">Active Challenges</span></span>
                             </a>
                         </li>
                         <li  class="active">
                             <a href="${sessionInfo.servletPath}?module=ViewPastContests">
-                                <span class="tabMask"><span class="text">Past Contests</span></span>
+                                <span class="tabMask"><span class="text">Past Challenges</span></span>
                             </a>
                         </li>
                         <li>
                             <a href="${sessionInfo.servletPath}?module=ViewActiveBugRaces">
-                                <span class="tabMask"><span class="text">Active Bug Race Competitions</span></span>
+                                <span class="tabMask"><span class="text">Active Race Competitions</span></span>
                             </a>
                         </li>
                         <li>
@@ -212,7 +212,7 @@
                         <div class="filterHeader">
                             <h5><a href="javascript:;">Filter</a></h5>
                             <div class="right">
-                                <label>Contest Title</label>
+                                <label>Challenge Title</label>
                                 <div class="search">
                                     <input type="text" name="title" <c:if test="${title ne '%'}">value="${title}"</c:if>/>
                                     <a href="javascript:;"></a>
@@ -224,7 +224,7 @@
                         </form>
                         <div class="filterContent">
                             <ul class="left">
-                                <li class="label"><strong>Contest types:</strong></li>
+                                <li class="label"><strong>Challenge types:</strong></li>
                                 <li class="selectAll">
                                     <input type="checkbox" />
                                     <label><strong>All</strong></label>
@@ -459,7 +459,7 @@
                             <tr class="light">
                                 <td class="valueC" colspan="11">
                                     <div align="center" style="margin: 40px 0px 40px 0px;">
-                                        There are currently no past contests matching the criteria, change the filter and search again.
+                                        There are currently no past challenges matching the criteria, change the filter and search again.
                                     </div>
                                 </td>
                             </tr>
@@ -510,7 +510,7 @@
                                 </td>
                                 <td> 
                                     <a class="typeIcon tooltip type<rsc:item name="type_id" row="<%=resultRow%>"/>" href="javascript:;">
-                                        <span class="tipT">Contest Type</span>
+                                        <span class="tipT">Challenge Type</span>
                                         <span class="tipC"><rsc:item name="type_name" row="<%=resultRow%>"/></span>
                                     </a>
                                 </td>

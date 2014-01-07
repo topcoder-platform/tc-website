@@ -68,14 +68,14 @@
                     
                     <h1>RadioTagr iPhone Application</h1>
                         
-                        <p>1 Contest Highlighted</p>
+                        <p>1 Challenge Highlighted</p>
                         <p>2 Future Contests Planned</p>
                         <div class="clear"></div>
                         
                         <div id="thumbs">
                             <ul>
                                 <li><a href="/i/portfolio/projects/radiotagr/storyboards/1.jpg" class="thickbox" rel="thumbs" title="RadioTAGr iPhone Application Storyboards!"><img src="/i/portfolio/projects/radiotagr/thumbs/1.png" width="150" height="150" /></a><br />
-                                <div align="center">Storyboard Contest</div></li>
+                                <div align="center">Storyboard Challenge</div></li>
                                 
                             </ul>
                         </div>
@@ -85,14 +85,14 @@
                                 <div class="data">
                                         <table border="0" cellpadding="0" cellspacing="1">
                                             <tr>
-                                                <th>Contest Type</th>
-                                                <th>Contest Name</th>
+                                                <th>Challenge Type</th>
+                                                <th>Challenge Name</th>
                                                 <th>Duration</th>
                                                 <th>Subs</th>
                                                 <th>Client Selection</th>
                                             </tr>
                                             <tr>
-                                                <td>Storyboard Contest</td>
+                                                <td>Storyboard Challenge</td>
                                                 <td><a href="/i/portfolio/projects/radiotagr/storyboards/1.jpg" class="thickbox" title="RadioTAGr iPhone Application Storyboards!">RadioTAGr iPhone Application Storyboards!</a></td>
                                                 <td>3 Days</td>
                                                 <td align="center">8</td>

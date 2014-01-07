@@ -67,14 +67,14 @@
                     
                     <h1>Cathedral Partners</h1>
                         
-                        <p>2 Contests in October 2008</p>
-                        <p>2 Prototype Contests</p>
+                        <p>2 Challenges in October 2008</p>
+                        <p>2 Prototype Challenges</p>
                         <div class="clear"></div>
                         
                         <div id="thumbs">
                             <ul>
                                 <li><a href="/i/portfolio/projects/cathpartners/homepage.html" target="_blank" rel="thumbs" title="Cathedral Partners"><img src="/i/portfolio/projects/cathpartners/thumbs/1.png" width="150" height="150" /></a><br />
-                              <div align="center">Prototype Contest</div></li>
+                              <div align="center">Prototype Challenge</div></li>
                             </ul>
                             
                         </div>
@@ -84,14 +84,14 @@
                                 <div class="data">
                                         <table border="0" cellpadding="0" cellspacing="1">
                                             <tr>
-                                                <th>Contest Type</th>
-                                                <th>Contest Name</th>
+                                                <th>Challenge Type</th>
+                                                <th>Challenge Name</th>
                                                 <th>Duration</th>
                                                 <th>Subs</th>
                                                 <th>Client Selection</th>
                                             </tr>
                                             <tr>
-                                                <td>Prototype Contest</td>
+                                                <td>Prototype Challenge</td>
                                                 <td>Cathedral Partners Prototype</td>
                                                 <td>2 Days</td>
                                                 <td align="center">1</td>
@@ -99,7 +99,7 @@
                                                 1                                            </tr>
                                             
                                             <tr>
-                                                <td>Prototype Contest</td>
+                                                <td>Prototype Challenge</td>
                                                 <td><a href="/i/portfolio/projects/cathpartners/homepage.html" target="_blank" title="Cathedral Partners">Cathedral Partners Prototype Phase 2</a></td>
                                                 <td>2 Days</td>
                                                 <td align="center">3</td>

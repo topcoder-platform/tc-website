@@ -62,7 +62,7 @@ request.setAttribute("clientPrize", new Long(Prize.CHECKPOINT_PRIZE_TYPE_ID));
     <c:out value="${contest.projectName}"/>
 </h2>
 <ul class="linkNavi2">
-    <li class="first"><label>CONTEST TYPE:</label><a href="javascript:" class="studioContestType${contest.category.id}">
+    <li class="first"><label>CHALLENGE TYPE:</label><a href="javascript:" class="studioContestType${contest.category.id}">
         <c:out value="${contest.category.name}"/></a>
     </li>
 </ul>
@@ -75,13 +75,13 @@ request.setAttribute("clientPrize", new Long(Prize.CHECKPOINT_PRIZE_TYPE_ID));
         <c:choose>
             <c:when test="${not isStarted}">
                 <%-- REGISTRATION FOR CONTEST IS NOT OPEN --%>
-                <a href="javascript:" class="stepFirstDeac">REGISTER FOR<br/>THIS CONTEST</a>
+                <a href="javascript:" class="stepFirstDeac">REGISTER FOR<br/>THIS CHALLENGE</a>
                 <a href="javascript:" class="stepSecondDeac">SUBMIT YOUR<br/> ENTRIES</a>
                 <a href="javascript:" class="stepThreeDeac"><span class="right">VIEW YOUR<br/> SUBMISSIONS</span></a>
             </c:when>
             <c:when test="${registered}">
                 <%-- REGISTERED --%>
-                <a href="javascript:" class="stepFirstDeac">REGISTER FOR<br/>THIS CONTEST</a>
+                <a href="javascript:" class="stepFirstDeac">REGISTER FOR<br/>THIS CHALLENGE</a>
                 <a href="${servletPath}?module=ViewSubmission&amp;${CONTEST_ID}=${contest.id}" class="stepSecond">
                     SUBMIT YOUR<br/> ENTRIES</a>
                 <a href="${servletPath}?module=ViewSubmission&amp;${CONTEST_ID}=${contest.id}" class="stepThree">
@@ -90,7 +90,7 @@ request.setAttribute("clientPrize", new Long(Prize.CHECKPOINT_PRIZE_TYPE_ID));
             <c:otherwise>
                 <%-- UNREGISTERED --%>
                 <a href="${servletPath}?module=ViewRegistration&amp;${CONTEST_ID}=${contest.id}" class="stepFirst">
-                    REGISTER FOR<br/>THIS CONTEST</a>
+                    REGISTER FOR<br/>THIS CHALLENGE</a>
                 <a href="javascript:" class="stepSecondDeac">SUBMIT YOUR<br/> ENTRIES</a>
                 <a href="javascript:" class="stepThreeDeac"><span class="right">VIEW YOUR<br/> SUBMISSIONS</span></a>
             </c:otherwise>
@@ -280,11 +280,11 @@ request.setAttribute("clientPrize", new Long(Prize.CHECKPOINT_PRIZE_TYPE_ID));
                 <c:set var="nextDeadlineTime" value="${finalReviewTime}" scope="request"/>
             </c:when>
             <c:when test="${isFinished}">
-                <c:set var="nextDeadlineText" value="Contest has ended"/>
+                <c:set var="nextDeadlineText" value="Challenge has ended"/>
                 <c:set var="nextDeadlineTime" value="${contest.endTime}" scope="request"/>
             </c:when>
             <c:when test="${not isStarted}">
-                <c:set var="nextDeadlineText" value="Contest has not started yet"/>
+                <c:set var="nextDeadlineText" value="Challenge has not started yet"/>
                 <c:set var="nextDeadlineTime" value="${contest.startTime}" scope="request"/>
             </c:when>
             <c:when test="${isRunning and isMultiRound and not isCheckpointRoundPassed}">

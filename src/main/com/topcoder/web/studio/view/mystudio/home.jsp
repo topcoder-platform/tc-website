@@ -87,7 +87,7 @@
                             </p>
                             <p>
                                 <strong>RSS Feeds</strong><br/>
-                                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicRSS&c=rss_active_contests&dsid=33">Studio Active Contests</a><br/>
+                                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicRSS&c=rss_active_contests&dsid=33">Studio Active Challenges</a><br/>
                                 <!--
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicRSS&c=rss_review_opportunities&dsid=33">Upcoming Contests in Spec Review</a><br/>
                                 -->

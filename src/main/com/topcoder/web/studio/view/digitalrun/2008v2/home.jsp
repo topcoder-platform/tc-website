@@ -67,7 +67,7 @@
             </jsp:include>
 
             <p>
-                <a href="http://community.topcoder.com/tco14/win-tco-trips/"><img src="i/tournament/tco14/wireframe_banner.png" align="right" border="0"></a>Now is your chance to be the driving force in the growth of TopCoder Studio and reap the benefits in the form of monthly cash awards in the Studio Cup, a division of <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=digital_run&d2=description">TopCoder's Digital Run (DR)</a>. The Studio Cup is tied directly to Studio's revenue, so the more you compete, the more contests we run and the more cash we pay out at the end of each month. 
+                <a href="http://community.topcoder.com/tco14/win-tco-trips/"><img src="i/tournament/tco14/wireframe_banner.png" align="right" border="0"></a>Now is your chance to be the driving force in the growth of TopCoder Studio and reap the benefits in the form of monthly cash awards in the Studio Cup, a division of <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=digital_run&d2=description">TopCoder's Digital Run (DR)</a>. The Studio Cup is tied directly to Studio's revenue, so the more you compete, the more challenges we run and the more cash we pay out at the end of each month. 
             </p>
             
             <p>
@@ -75,11 +75,11 @@
             </p>
 
             <p>
-                Studio has a guaranteed payment pool of $5,000 paid out to the Studio Cup leaders each month. This pool will grow throughout the month with each contest launched and completed - so the more contests run, the more money will be paid out in the Studio Cup. 
+                Studio has a guaranteed payment pool of $5,000 paid out to the Studio Cup leaders each month. This pool will grow throughout the month with each challenges launched and completed - so the more challenges run, the more money will be paid out in the Studio Cup. 
             </p>
             
             <p>
-                The Studio Cup's pool (and all TopCoder DR tracks) are funded with a percentage of revenue that is generated from the contests that you participate in. With the Studio Cup actually tied to Studio's revenue, the more the company grows, the more you can earn in the Studio Cup.
+                The Studio Cup's pool (and all TopCoder DR tracks) are funded with a percentage of revenue that is generated from the challenges that you participate in. With the Studio Cup actually tied to Studio's revenue, the more the company grows, the more you can earn in the Studio Cup.
             </p>
             
             <p>
@@ -96,7 +96,7 @@
             </p>
             
             <p>
-                Each Studio contest posted for a competition will carry placement points. Points will be awarded to competitors based on the number of submissions that receive a cash award (up to 5 awards). The members with the highest point totals at the end of each month win big.
+                Each Studio challenge posted for a competition will carry placement points. Points will be awarded to competitors based on the number of submissions that receive a cash award (up to 5 awards). The members with the highest point totals at the end of each month win big.
             </p>
 
                         <br clear="all"/>

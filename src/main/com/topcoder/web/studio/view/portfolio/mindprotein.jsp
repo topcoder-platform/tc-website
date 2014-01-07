@@ -69,20 +69,20 @@
                     
                     <h1>MindProtein.com</h1>
                         
-                        <p>4 Contests starting in May 2008 and ending in July 2008</p>
-                        <p>1 Naming Contest, 1 Logo Contest, 1 Storyboard Contest, 1 Prototype Contest</p>
+                        <p>4 Challenges starting in May 2008 and ending in July 2008</p>
+                        <p>1 Naming Challenge, 1 Logo Challenge, 1 Storyboard Challenge, 1 Prototype Challenge</p>
                         <div class="clear"></div>
                         
                         <div id="thumbs">
                             <ul>
                                 <li><a href="/i/portfolio/projects/mindprotein/logo/1.png" class="thickbox" rel="thumbs" title="MindProtein.com"><img src="/i/portfolio/projects/mindprotein/thumbs/1.png" width="150" height="150" /></a><br />
-                                <div align="center">Logo Contest</div></li>
+                                <div align="center">Logo Challenge</div></li>
                                 
                                 <li><a href="/i/portfolio/projects/mindprotein/storyboard/1.png" class="thickbox" rel="thumbs" title="MindProtein.com"><img src="/i/portfolio/projects/mindprotein/thumbs/2.png" width="150" height="150" /></a><br />
-                                <div align="center">Storyboard Contest</div></li>
+                                <div align="center">Storyboard Challenge</div></li>
                                 
                                 <li><a href="/i/portfolio/projects/mindprotein/prototype/1/homepage.html" title="MindProtein.com"><img src="/i/portfolio/projects/mindprotein/thumbs/3.png" width="150" height="150" /></a><br />
-                                <div align="center">Prototype Contest</div></li>
+                                <div align="center">Prototype Challenge</div></li>
                             </ul>
                         </div>
                         
@@ -91,23 +91,23 @@
                                 <div class="data">
                                         <table border="0" cellpadding="0" cellspacing="1">
                                             <tr>
-                                                <th>Contest Type</th>
-                                                <th>Contest Name</th>
+                                                <th>Challenge Type</th>
+                                                <th>Challenge Name</th>
                                                 <th>Duration</th>
                                                 <th>Subs</th>
                                                 <th>Client Selection</th>
                                             </tr>
                                             <tr>
-                                                <td>Company Naming Contest</td>
-                                                <td>FBU Name Contest</td>
+                                                <td>Company Naming Challenge</td>
+                                                <td>FBU Name Challenge</td>
                                                 <td>4 Days</td>
                                                 <td align="center">28</td>
                                                 <td>&nbsp;</td>
                                             </tr>
                                             
                                             <tr>
-                                                <td>Logo Contest</td>
-                                                <td><a href="/i/portfolio/projects/mindprotein/logo/1.png" class="thickbox" title="MindProtein.com">MindProtein.com Logo Contest</a></td>
+                                                <td>Logo Challenge</td>
+                                                <td><a href="/i/portfolio/projects/mindprotein/logo/1.png" class="thickbox" title="MindProtein.com">MindProtein.com Logo Challenge</a></td>
                                                 <td>6 Days</td>
                                                 <td align="center">49</td>
                                                 <td>
@@ -122,7 +122,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Storyboard Contest</td>
+                                                <td>Storyboard Challenge</td>
                                                 <td><a href="/i/portfolio/projects/mindprotein/prototype/1/homepage.html" title="MindProtein.com">MindProtein.com Homepage</a></td>
                                                 <td>3 Days</td>
                                                 <td align="center">19</td>
@@ -132,7 +132,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Prototype Contest</td>
+                                                <td>Prototype Challenge</td>
                                                 <td><a href="/i/portfolio/projects/mindprotein/prototype/1/homepage.html" title="MindProtein.com" target="_blank">MindProtein.com Prototype</a></td>
                                                 <td>3 Days</td>
                                                 <td align="center">4</td>

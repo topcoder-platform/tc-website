@@ -112,7 +112,7 @@
                 
                 <div>
                 <p><strong>Why does the Assignment also include my future winning entries?</strong></p>
-                <p>We have set up the assignment to cover future entries for two reasons. First, having the Assignment cover future entries reduces the amount of paperwork for members and TopCoder. Second, it also relieves members from having to go through this process for each contest.
+                <p>We have set up the assignment to cover future entries for two reasons. First, having the Assignment cover future entries reduces the amount of paperwork for members and TopCoder. Second, it also relieves members from having to go through this process for each challenge.
                 </p>
                 </div>
                 
@@ -143,7 +143,7 @@
                 
                 <div>
                 <p><strong>When do I have to return the Assignment Document?</strong></p>
-                <p>You should sign and return the Assignment document immediately after registering for your first Studio contest. We must receive and process your signed Assignment Document before you will be able to upload any work to the Studio website. It can take up to one full business day to process your Assignment Document. See the processing timeline table (below) to determine when you should send your Assignment document.</p>
+                <p>You should sign and return the Assignment document immediately after registering for your first Studio challenge. We must receive and process your signed Assignment Document before you will be able to upload any work to the Studio website. It can take up to one full business day to process your Assignment Document. See the processing timeline table (below) to determine when you should send your Assignment document.</p>
                 <p>Also, you may send your Assignment to us even before your register for a competition - you may download the Assignment doc and send it using the links at the bottom of this page.
                 </div>
                                 <div align="center">
@@ -226,13 +226,13 @@
                 </div>
                 <div>
                 <p><strong>NOTE:</strong><br />
-                Dates are based on the TopCoder, Inc. yearly calendar. Please check the forums for your contest if the contest falls during US Holidays.</strong>
+                Dates are based on the TopCoder, Inc. yearly calendar. Please check the forums for your challenge if the challenge falls during US Holidays.</strong>
                 </p>
                 </div>
                 <div>
                 <p><strong>Example:</strong><br />
-                If the contest you wish to submit to ends on Tuesday at 2:00 pm ET. You will need to submit your Assignment no later than Sunday at 3:00 pm ET in order to ensure it is processed before Tuesday at 2:00 pm ET.
-                <strong>Remember: You only need to do this ONE time to participate in all Studio contests.</strong>
+                If the challenge you wish to submit to ends on Tuesday at 2:00 pm ET. You will need to submit your Assignment no later than Sunday at 3:00 pm ET in order to ensure it is processed before Tuesday at 2:00 pm ET.
+                <strong>Remember: You only need to do this ONE time to participate in all Studio challenges.</strong>
                 </p>
                 </div>
                 

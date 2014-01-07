@@ -43,7 +43,7 @@
             <div id="warpperNew">
                 <h2 class="scorecardTitle">Scorecard</h2>
                 <div class="scorecardInfo">
-                    <strong>Contest:</strong><span><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}">${contest.projectName}</a></span><br/>
+                    <strong>Challenge:</strong><span><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}">${contest.projectName}</a></span><br/>
                     <strong>Phase:</strong><span>${review.author.role.phaseType.name}</span><br/>
                     <strong>Submission Number:</strong><span>${review.submission.id}</span><br/>
                     <strong>Submitter:</strong><span><studio:handle coderId="${submitter}" /></span><br/>

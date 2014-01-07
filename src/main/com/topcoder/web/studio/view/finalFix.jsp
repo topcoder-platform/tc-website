@@ -28,7 +28,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Studio : Contest Details</title>
+    <title>TopCoder Studio : Challenge Details</title>
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio_final_fix"/>
     </jsp:include>
@@ -81,7 +81,7 @@
                         <div class="para ${COMPLETED ? 'lesspadding' : ''}">
                             <c:choose>
                                 <c:when test="${IN_REVIEW}">
-                                    <p>Your Final Fixes have been submitted and are being reviewed by the contest
+                                    <p>Your Final Fixes have been submitted and are being reviewed by the challenge
                                         holder. You will receive an email once your fixes are rejected or accepted.</p>
                                 </c:when>
                                 <c:when test="${COMPLETED}">
@@ -90,7 +90,7 @@
                                 <c:when test="${IN_PROGRESS}">
                                     <c:choose>
                                         <c:when test="${FinalFixRoundNo eq 1}">
-                                            <p>Here are the Final Fixes from from the contest holder.
+                                            <p>Here are the Final Fixes from from the challenge holder.
                                                 <a href="http://community.topcoder.com/studio/the-process/final-fixes/">
                                                     Learn more about the Final Fixes here</a>.
                                             </p>
@@ -110,12 +110,12 @@
                             <c:choose>
                                 <c:when test="${IN_PROGRESS}">
                                     <p>You must complete these fixes by the deadline shown on the right. Please keep all
-                                        communications (questions, clarifications, etc.) with the contest forum. If you
+                                        communications (questions, clarifications, etc.) with the challenge forum. If you
                                         need technical help, please email
                                         <a href="mailto:support@topcoder.com">support@topcoder.com</a>.</p>
                                 </c:when>
                                 <c:when test="${IN_REVIEW}">
-                                    <p>Please keep all communications (question, clarifications, etc.) with the contest
+                                    <p>Please keep all communications (question, clarifications, etc.) with the challenge
                                         forum. If you need technical help, please email 
                                         <a href="mailto:support@topcoder.com">support@topcoder.com</a>.</p>
                                 </c:when>

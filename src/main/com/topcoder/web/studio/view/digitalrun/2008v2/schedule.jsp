@@ -92,7 +92,7 @@ Period 1: October 24, 2011 - December 31, 2011<br />
 Period 2: January 1, 2012 - March 31, 2012<br />
 Period 3: April 1, 2012 - June 30, 2012
 <br /><br />
-During each of these Periods, a single winner will be chosen based on how many points they accumulated during wireframe contests. One winner from each Period will win an all-expenses paid trip to TCO12! <a href="http://community.topcoder.com/tco12/win-tco-trips/" target="_blank">See here for more details</a>.
+During each of these Periods, a single winner will be chosen based on how many points they accumulated during wireframe challenges. One winner from each Period will win an all-expenses paid trip to TCO12! <a href="http://community.topcoder.com/tco12/win-tco-trips/" target="_blank">See here for more details</a>.
 <br /><br />
 
 

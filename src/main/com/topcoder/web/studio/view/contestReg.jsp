@@ -112,11 +112,11 @@
                                         <studio:forumLink forumID="${contest.info[4].value}" />
                                     </div>
                                     <div class="breadcrumb">
-                                        <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> 
+                                        <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Challenges</a> 
                                         &gt; ${contest.projectName}
                                     </div>
                                     <br />
-                                    <h1>Contest Registration</h1>
+                                    <h1>Challenge Registration</h1>
 
                                     <div align="center">
                                         <form name="terms" method="POST" action="${sessionInfo.servletPath}?${CONTEST_ID}=${contest.id}&<%=Constants.PRE_PENDING_TERMS%>=${prePendingTerms}">

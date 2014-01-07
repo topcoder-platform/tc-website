@@ -115,17 +115,17 @@
                     <ul class="tabs">
                         <li>
                             <a href="${sessionInfo.servletPath}?module=ViewActiveContests">
-                                <span class="tabMask"><span class="text">Active Contests</span></span>
+                                <span class="tabMask"><span class="text">Active Challenges</span></span>
                             </a>
                         </li>
                         <li>
                             <a href="${sessionInfo.servletPath}?module=ViewPastContests">
-                                <span class="tabMask"><span class="text">Past Contests</span></span>
+                                <span class="tabMask"><span class="text">Past Challenges</span></span>
                             </a>
                         </li>
                         <li>
                             <a href="${sessionInfo.servletPath}?module=ViewActiveBugRaces">
-                                <span class="tabMask"><span class="text">Active Bug Race Competitions</span></span>
+                                <span class="tabMask"><span class="text">Active Race Competitions</span></span>
                             </a>
                         </li>
                         <li class="active">
@@ -159,7 +159,7 @@
                                     }
                                 %>
                                 <th class="first <%=((Boolean) sortDirection.get(Integer.valueOf(reviews.getColumnIndex("name")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("" + reviews.getColumnIndex("name")) ? "hover" : ""%>">
-                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewReviewOpportunities&sc=<%=reviews.getColumnIndex("name")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Contest Name</span></a>
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewReviewOpportunities&sc=<%=reviews.getColumnIndex("name")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Challenge Name</span></a>
                                 </th>
                                 <th class="<%=((Boolean) sortDirection.get(Integer.valueOf(reviews.getColumnIndex("review_type")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("") || sortColumn.equals("" + reviews.getColumnIndex("review_type")) ? "hover" : ""%>">
                                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewReviewOpportunities&sc=<%=reviews.getColumnIndex("review_type")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Type</span></a>

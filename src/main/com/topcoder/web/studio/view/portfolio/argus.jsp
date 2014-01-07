@@ -67,20 +67,20 @@
                     
                     <h1>Argus</h1>
                         
-                        <p>7 Contests Highlighted</p>
-                        <p>1 Storyboard Contest, 4 Flash Animation Contests, 2 Prototype Contests</p>
+                        <p>7 Challenges Highlighted</p>
+                        <p>1 Storyboard Challenge, 4 Flash Animation Challenges, 2 Prototype Challenges</p>
                         <div class="clear"></div>
                         
                         <div id="thumbs">
                             <ul>
                                 <li><a href="/i/portfolio/projects/argus/thumbs/1.png" class="thickbox" rel="thumbs" title="Argus User Interface Storyboard Design"><img src="/i/portfolio/projects/argus/previews/storyboard.png" width="150" height="150" /></a><br />
-                                <div align="center">Storyboard Contest</div></li>
+                                <div align="center">Storyboard Challenge</div></li>
                                 <li><a href="/i/portfolio/projects/argus/flash2/1/map.html" title="Argus VP Chart Interaction/Animation Phase II"><img src="/i/portfolio/projects/argus/previews/flash.png" width="150" height="150" /></a>
-                                <div align="center">Flash Contest</div></li>
-                                <li><a href="/i/portfolio/projects/argus/prototype/customer/index.html" title="Argus VP Prototype Contest Phase 2"><img src="/i/portfolio/projects/argus/previews/prototype.png" width="150" height="150" /></a>
-                                <div align="center">Prototype Contest</div></li>
+                                <div align="center">Flash Challenge</div></li>
+                                <li><a href="/i/portfolio/projects/argus/prototype/customer/index.html" title="Argus VP Prototype Challenge Phase 2"><img src="/i/portfolio/projects/argus/previews/prototype.png" width="150" height="150" /></a>
+                                <div align="center">Prototype Challenge</div></li>
                                 <li><a href="/i/portfolio/projects/argus/flash3/1/s.html" title="Argus VP Chart Interaction/Animation Phase III"><img src="/i/portfolio/projects/argus/previews/flash2.png" width="150" height="150" /></a>
-                                <div align="center">Flash Contest</div></li>
+                                <div align="center">Flash Challenge</div></li>
                             </ul>
                         </div>
                         
@@ -89,14 +89,14 @@
                                 <div class="data">
                                         <table border="0" cellpadding="0" cellspacing="1">
                                             <tr>
-                                                <th>Contest Type</th>
-                                                <th>Contest Name</th>
+                                                <th>Challenge Type</th>
+                                                <th>Challenge Name</th>
                                                 <th>Duration</th>
                                                 <th>Subs</th>
                                                 <th>Client Selection</th>
                                             </tr>
                                             <tr>
-                                                <td>Storyboard Contest</td>
+                                                <td>Storyboard Challenge</td>
                                                 <td><a href="/i/portfolio/projects/argus/storyboards/1.png" class="thickbox" title="Argus User Interface Storyboard Design">Argus User Interface Storyboard Design</a></td>
                                                 <td>5 Days</td>
                                                 <td align="center">10</td>
@@ -109,45 +109,45 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Flash Contest:</td>
-                                                <td><a href="/i/portfolio/projects/argus/flash1/1/chart02.html" title="Argus VP Chart Interaction/Animation Contest" target="_blank">Argus VP Chart Interaction/Animation Contest</a></td>
+                                                <td>Flash Challenge:</td>
+                                                <td><a href="/i/portfolio/projects/argus/flash1/1/chart02.html" title="Argus VP Chart Interaction/Animation Challenge" target="_blank">Argus VP Chart Interaction/Animation Challenge</a></td>
                                                 <td>3 Days</td>
                                                 <td align="center">9</td>
                                                 <td>
-                                                <a href="/i/portfolio/projects/argus/flash1/1/chart02.html" title="Argus VP Chart Interaction/Animation Contest" target="_blank">1</a>
-                                                <a href="/i/portfolio/projects/argus/flash1/2/submission1.html" title="Argus VP Chart Interaction/Animation Contest" target="_blank">2</a>
+                                                <a href="/i/portfolio/projects/argus/flash1/1/chart02.html" title="Argus VP Chart Interaction/Animation Challenge" target="_blank">1</a>
+                                                <a href="/i/portfolio/projects/argus/flash1/2/submission1.html" title="Argus VP Chart Interaction/Animation Challenge" target="_blank">2</a>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Prototype Contest:</td>
-                                                <td><a href="/i/portfolio/projects/argus/prototype/login.html" title="Argus VP Prototype Contest Phase I" target="_blank">Argus VP Prototype Contest Phase I</a></td>
+                                                <td>Prototype Challenge:</td>
+                                                <td><a href="/i/portfolio/projects/argus/prototype/login.html" title="Argus VP Prototype Challenge Phase I" target="_blank">Argus VP Prototype Challenge Phase I</a></td>
                                                 <td>7 Days</td>
                                                 <td align="center">3</td>
                                                 <td>
-                                                <a href="/i/portfolio/projects/argus/prototype/login.html" title="Argus VP Prototype Contest Phase I" target="_blank">1</a>
+                                                <a href="/i/portfolio/projects/argus/prototype/login.html" title="Argus VP Prototype Challenge Phase I" target="_blank">1</a>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Flash Contest:</td>
-                                                <td><a href="/i/portfolio/projects/argus/flash1b/1/submission1.html" title="Argus VP Map Interaction/Animation Contest">Argus VP Map Interaction/Animation Contest</a></td>
+                                                <td>Flash Challenge:</td>
+                                                <td><a href="/i/portfolio/projects/argus/flash1b/1/submission1.html" title="Argus VP Map Interaction/Animation Challenge">Argus VP Map Interaction/Animation Challenge</a></td>
                                                 <td>7 Days</td>
                                                 <td align="center">6</td>
                                                 <td>
-                                                <a href="/i/portfolio/projects/argus/flash1b/1/submission1.html" title="Argus VP Map Interaction/Animation Contest" target="_blank">1</a>
-                                                <a href="/i/portfolio/projects/argus/flash1b/2/chart02.html" title="Argus VP Map Interaction/Animation Contest" target="_blank">2</a>
+                                                <a href="/i/portfolio/projects/argus/flash1b/1/submission1.html" title="Argus VP Map Interaction/Animation Challenge" target="_blank">1</a>
+                                                <a href="/i/portfolio/projects/argus/flash1b/2/chart02.html" title="Argus VP Map Interaction/Animation Challenge" target="_blank">2</a>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Prototype Contest 2:</td>
-                                                <td><a href="/i/portfolio/projects/argus/prototype/customer/index.html" title="Argus VP Prototype Contest Phase 2" target="_blank">Argus VP Prototype Contest Phase II</a></td>
+                                                <td>Prototype Challenge 2:</td>
+                                                <td><a href="/i/portfolio/projects/argus/prototype/customer/index.html" title="Argus VP Prototype Challenge Phase 2" target="_blank">Argus VP Prototype Challenge Phase II</a></td>
                                                 <td>7 Days</td>
                                                 <td align="center">1</td>
                                                 <td>
-                                                <a href="/i/portfolio/projects/argus/prototype/customer/index.html" title="Argus VP Prototype Contest Phase 2" target="_blank">1</a>
+                                                <a href="/i/portfolio/projects/argus/prototype/customer/index.html" title="Argus VP Prototype Challenge Phase 2" target="_blank">1</a>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Flash Contest 2:</td>
+                                                <td>Flash Challenge 2:</td>
                                                 <td><a href="/i/portfolio/projects/argus/flash2/1/map.html" title="Argus VP Chart Interaction/Animation Phase II" target="_blank">Argus VP Chart Interaction/Animation Phase II</a></td>
                                                 <td>7 Days</td>
                                                 <td align="center">3</td>
@@ -157,7 +157,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Flash Contest 3:</td>
+                                                <td>Flash Challenge 3:</td>
                                                 <td><a href="/i/portfolio/projects/argus/flash3/1/s.html" title="Argus VP Chart Interaction/Animation Phase III">Argus VP Chart Interaction/Animation Phase III</a></td>
                                                 <td>7 Days</td>
                                                 <td align="center">2</td>

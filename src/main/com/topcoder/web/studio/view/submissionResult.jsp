@@ -80,7 +80,7 @@
                 <div class="linkBox"><studio:forumLink forumID="${submission.contest.forumId}"/></div>
                 
                 <div class="breadcrumb">
-                    <a href="${sessionInfo.servletPath}?${modKey}=ViewPastContests">Past Contests</a> &gt;
+                    <a href="${sessionInfo.servletPath}?${modKey}=ViewPastContests">Past Challenges</a> &gt;
                     ${submission.contest.name}
                 </div>
 

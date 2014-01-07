@@ -116,11 +116,11 @@
                                 <div id="content"> 
                                   <div class="contentTop"> 
                                     <div class="contentMiddle"> 
-                                      <h1>This contest has been abandoned</h1>
+                                      <h1>This challenge has been abandoned</h1>
                                 
                                       <div align="center"> 
                                         <div style="width:500px; padding: 50px 0px 100px 0px;">
-                                          When a contest is abandoned, the client has made no
+                                          When a challenge is abandoned, the client has made no
                                           effort to complete their responsibility toward the
                                           competition. This includes choosing winners,
                                           communication with TopCoder Studio and other
@@ -144,7 +144,7 @@
                                           this competition. Please refer to the forums for
                                           further details.
                                           Thank you for participating in this and all Studio
-                                          contests.
+                                          challenges.
                                         </div>
                                       </div>
                                     </div>
@@ -173,7 +173,7 @@
                                             <div align="center">
                                                 <div style="width:500px; padding: 50px 0px 100px 0px;">
                                                     <div style="width:500px; padding: 50px 0px 100px 0px;">
-                                                        <b>Contest is currently in Submission phase</b>
+                                                        <b>Challenge is currently in Submission phase</b>
                                                     </div>
                                                 </div>
                                             </div>

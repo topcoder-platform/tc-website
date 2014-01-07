@@ -100,7 +100,7 @@
         <div id="content-new">
             <div class="contentMask">
                 <div class="title">
-                    <h1>Active Contests</h1>
+                    <h1>Active Challenges</h1>
                     <p class="help">
                         Need help? Learn how to
                         <a href="http://community.topcoder.com/studio/what-is-studio/">get started</a>.
@@ -111,17 +111,17 @@
                     <ul class="tabs">
                         <li class="active">
                             <a href="${sessionInfo.servletPath}?module=ViewActiveContests">
-                                <span class="tabMask"><span class="text">Active Contests</span></span>
+                                <span class="tabMask"><span class="text">Active Challenges</span></span>
                             </a>
                         </li>
                         <li>
                             <a href="${sessionInfo.servletPath}?module=ViewPastContests">
-                                <span class="tabMask"><span class="text">Past Contests</span></span>
+                                <span class="tabMask"><span class="text">Past Challenges</span></span>
                             </a>
                         </li>
                         <li>
                             <a href="${sessionInfo.servletPath}?module=ViewActiveBugRaces">
-                                <span class="tabMask"><span class="text">Active Bug Race Competitions</span></span>
+                                <span class="tabMask"><span class="text">Active Race Competitions</span></span>
                             </a>
                         </li>
                         <li>
@@ -204,7 +204,7 @@
                             <tr class="light">
                                 <td class="valueC" colspan="12">
                                     <div align="center" style="margin: 40px 0px 40px 0px;">
-                                        There are currently no active contests, but check back soon.
+                                        There are currently no active challenges, but check back soon.
                                     </div>
                                 </td>
                             </tr>
@@ -238,7 +238,7 @@
                                 </td>
                                 <td>
                                     <a class="typeIcon tooltip type<rsc:item name="type_id" row="<%=resultRow%>"/>" href="javascript:;">
-                                        <span class="tipT">Contest Type</span>
+                                        <span class="tipT">Challenge Type</span>
                                         <span class="tipC"><rsc:item name="type_name" row="<%=resultRow%>"/></span>
                                     </a>
                                 </td>

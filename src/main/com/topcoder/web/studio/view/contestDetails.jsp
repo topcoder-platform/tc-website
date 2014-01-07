@@ -67,7 +67,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Studio : Contest Details</title>
+    <title>TopCoder Studio : Challenge Details</title>
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio_contest_details"/>
     </jsp:include>
@@ -111,15 +111,15 @@
     <div class="mainColumn">
         <p class="paragraphBox">Entries must be your original work, and must not infringe on the copyright or licenses
             of others. Stock art, clip art, templates and other design elements from other sources are prohibited unless
-            specifically permitted here in the Contest Details.
+            specifically permitted here in the Challenge Details.
         </p>
 
         <%-- CONTEST SUMMARY --%>
-        <h5 class="contentTitle">Contest Summary</h5>
+        <h5 class="contentTitle">Challenge Summary</h5>
 
         <p class="paragraph">${spec.contestIntroduction}</p>
 
-        <p class="paragraph1">Please read the contest specification carefully and watch the forums for any
+        <p class="paragraph1">Please read the challenge specification carefully and watch the forums for any
                     questions or feedback concerning this contest. It is important that you monitor any updates
                     provided by the client or Studio Admins in the forums. Please post any questions you might have for
                     the client in the forums.</p>
@@ -145,7 +145,7 @@
                 <ul class="red">
                     <li>To be eligible for Round 1 prizes and design feedback, you must submit before the Checkpoint
                         deadline.</li>
-                    <li>A day or two after the Checkpoint deadline, the contest holder will announce Round 1 winners and
+                    <li>A day or two after the Checkpoint deadline, the challenge holder will announce Round 1 winners and
                         provide design feedback to those winners in the "Checkpoints" tab above.</li>
                     <li>You must submit to Round 1 to be eligible to compete in Round 2. If your submission fails
                         screening for a small mistake in Round 1, you may still be eligible to submit to Round 2.</li>
@@ -160,7 +160,7 @@
                 ${contestDescription}
             </c:if>
             <c:if test="${not canSeeCCASection}">
-                <p class="paragraph">Only registered members with a CCA on file can view the full details of this contest. <a href="http://community.topcoder.com/studio/types-of-competitions/private-competitions/">Click here to learn how to become eligible to compete in this private contest.</a></p>
+                <p class="paragraph">Only registered members with a CCA on file can view the full details of this challenge. <a href="http://community.topcoder.com/studio/types-of-competitions/private-competitions/">Click here to learn how to become eligible to compete in this private challenge.</a></p>
             </c:if>
         </c:if>
 
@@ -186,7 +186,7 @@
             </c:if>
 
             <c:if test="${not empty spec.contentRequirements}">
-                <span class="subTitle">Content:</span>
+                <span class="subTitle">Challenge:</span>
                 ${spec.contentRequirements}
             </c:if>
 
@@ -199,7 +199,7 @@
      <h5 class="contentTitle">Stock Photography</h5>
      <c:if test="${contest.allowStockArt}">
          <p class="paragraph">
-            Watermarked comp photography from istockphoto.com is allowed in this contest. You must follow these instructions or your submission will fail screening:
+            Watermarked comp photography from istockphoto.com is allowed in this challenge. You must follow these instructions or your submission will fail screening:
         <br><br>
             1) You must declare your stock photos when submitting. <a href="http://topcoder.com/home/studio/the-process/how-to-submit-to-a-contest/" target="_blank">See how here.</a><br>
             2) Only use photos, and only use them from iStockPhoto.com. Other iStockPhoto artwork (illustrations, icons, etc.) are not allowed.<br>
@@ -209,7 +209,7 @@
 
      <c:if test="${!contest.allowStockArt}">
          <p class="paragraph">
-            Stock photography is not allowed in this contest. All submitted elements must be designed solely by you.<br>
+            Stock photography is not allowed in this challenge. All submitted elements must be designed solely by you.<br>
             <a href="http://topcoder.com/home/studio/the-process/copyright-questions/">See this page for more details.</a>
          </p>
         </c:if>
@@ -241,7 +241,7 @@
         <%-- Winner Selection --%>
         <h5 class="contentTitle">Winner Selection</h5>
         <p class="paragraph">
-            Submissions are viewable to the client as they are entered into the contest. Winners are selected by the
+            Submissions are viewable to the client as they are entered into the challenge. Winners are selected by the
             client and are chosen solely at the Client's discretion.
         </p>
 
@@ -298,7 +298,7 @@
                     <c:choose>
                         <c:when test="${isClosed}">
                                 <p>
-                                    <strong>Since this contest has ended all attached files are no longer available
+                                    <strong>Since this challenge has ended all attached files are no longer available
                                         for viewing</strong>
                                 </p>
                         </c:when>
@@ -314,12 +314,12 @@
                        </c:when>
                        <c:when test="${(not contest.specSubmissionStarted) || (not isStarted)}">
                                 <p>
-                                    <strong>Files are not available until the contest launches</strong>
+                                    <strong>Files are not available until the challenge launches</strong>
                                 </p>
                         </c:when>
                        <c:otherwise>
                            <p align="center" class="bigRed">
-                               You must register for the contest<br/>to download any attached files.<br/><br/>
+                               You must register for the challenge<br/>to download any attached files.<br/><br/>
                                <a href="${servletPath}?module=ViewRegistration&amp;${CONTEST_ID}=${contest.id}"
                                   onfocus="this.blur();">
                                    <img src="/i/v2/interface/btnRegister.png" alt="Register"
@@ -344,7 +344,7 @@
                 <span class="grayRCRB"></span>
                 <ul>
 		    <b>Your Design Files:</b><br>
-                    <li>1. Look for instructions in this contest regarding what files to provide.
+                    <li>1. Look for instructions in this challenge regarding what files to provide.
                     </li>
                     <li>2. Place your submission files into a "Submission.zip" file.</li>
                     <li>3. Place all of your source files into a "Source.zip" file.</li>
@@ -357,7 +357,7 @@
 		<p><strong>Fonts:</strong><br> All fonts within your design must be declared when you submit. DO NOT <a style="white-space:nowrap;">include any font files in your submission</a><a style="white-space:nowrap;"> <br>or source files. </a><a href="http://topcoder.com/home/studio/the-process/font-policy/" style="white-space:nowrap;">Read the font policy here</a>.
                 </p>
 
-		<p><strong>Screening:</strong><br>All submissions are screened for eligibility before the contest holder picks winners. Don't let your hard work go to waste.<br> <a href="http://community.topcoder.com/studio/the-process/screening/">Learn more about how to pass screening here</a>.
+		<p><strong>Screening:</strong><br>All submissions are screened for eligibility before the challenge holder picks winners. Don't let your hard work go to waste.<br> <a href="http://community.topcoder.com/studio/the-process/screening/">Learn more about how to pass screening here</a>.
 		</p>
 
 		<p>Questions? <a href="http://studio.topcoder.com/forums?module=ThreadList&forumID=6">Ask in the Forums</a>.

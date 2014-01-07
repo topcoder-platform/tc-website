@@ -68,17 +68,17 @@
                     
                     <h1>ESPN Winning Formula Challenge</h1>
                         
-                        <p>4 Contests Highlighted</p>
-                        <p>2 Storyboard Contests, 2 Banner Ad Contests</p>
+                        <p>4 Challenges Highlighted</p>
+                        <p>2 Storyboard Challenges, 2 Banner Ad Challenges</p>
                         <div class="clear"></div>
                         
                         <div id="thumbs">
                             <ul>
                                 <li><a href="/i/portfolio/projects/espn-winning/storyboard/1.png" class="thickbox" rel="thumbs" title="ESPN Winning Formula Challenge"><img src="/i/portfolio/projects/espn-winning/thumbs/1.png" width="150" height="150" /></a><br />
-                                <div align="center">Storyboard Contest</div></li>
+                                <div align="center">Storyboard Challenge</div></li>
                                 
                                 <li><a href="/i/portfolio/projects/espn-winning/storyboard3/1.png" class="thickbox" rel="thumbs" title="ESPN Winning Formula Challenge"><img src="/i/portfolio/projects/espn-winning/thumbs/2.png" width="150" height="150" /></a><br />
-                                <div align="center">Banner Ad Contest</div></li>
+                                <div align="center">Banner Ad Challenge</div></li>
                             </ul>
                         </div>
                         
@@ -87,15 +87,15 @@
                                 <div class="data">
                                         <table border="0" cellpadding="0" cellspacing="1">
                                             <tr>
-                                                <th>Contest Type</th>
-                                                <th>Contest Name</th>
+                                                <th>Challenge Type</th>
+                                                <th>Challenge Name</th>
                                                 <th>Duration</th>
                                                 <th>Subs</th>
                                                 <th>Client Selection</th>
                                             </tr>
                                             <tr>
-                                                <td>Storyboard Contest</td>
-                                                <td><a href="/i/portfolio/projects/espn-winning/storyboard/1.png" class="thickbox" title="ESPN Winning Formula Challenge">ESPN Winning Formula Challenge - Storyboard Contest</a></td>
+                                                <td>Storyboard Challenge</td>
+                                                <td><a href="/i/portfolio/projects/espn-winning/storyboard/1.png" class="thickbox" title="ESPN Winning Formula Challenge">ESPN Winning Formula Challenge - Storyboard Challenge</a></td>
                                                 <td>3 Days</td>
                                                 <td align="center">16</td>
                                                 <td>
@@ -108,8 +108,8 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td>Storyboard Contest</td>
-                                                <td><a href="/i/portfolio/projects/espn-winning/storyboard2/1.png" class="thickbox" title="ESPN Winning Formula Challenge">ESPN Winning Formula Storyboard Contest - Round 2</a></td>
+                                                <td>Storyboard Challenge</td>
+                                                <td><a href="/i/portfolio/projects/espn-winning/storyboard2/1.png" class="thickbox" title="ESPN Winning Formula Challenge">ESPN Winning Formula Storyboard Challenge - Round 2</a></td>
                                                 <td>3 Days</td>
                                                 <td align="center">9</td>
                                                 <td>
@@ -122,7 +122,7 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td>Banner Ad Contest</td>
+                                                <td>Banner Ad Challenge</td>
                                                 <td><a href="/i/portfolio/projects/espn-winning/storyboard3/1.png" class="thickbox" title="ESPN Winning Formula Challenge">Promo Banners for ESPN Winning Formula Challenge</a></td>
                                                 <td>3 Days</td>
                                                 <td align="center">17</td>
@@ -136,7 +136,7 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td>Banner Ad Contest</td>
+                                                <td>Banner Ad Challenge</td>
                                                 <td><a href="/i/portfolio/projects/espn-winning/storyboard4/1.png" class="thickbox" title="ESPN Winning Formula Challenge">ESPN Winning Formula Challenge Banner Ads Part 2</a></td>
                                                 <td>1 Day</td>
                                                 <td align="center">13</td>
@@ -149,7 +149,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td colspan="5"><a href="http://winningformula.espn.com/" target="_blank">Winning Formula Contest Link</a></td>
+                                                <td colspan="5"><a href="http://winningformula.espn.com/" target="_blank">Winning Formula Challenge Link</a></td>
                                             </tr>
                                         </table>
                                 </div>

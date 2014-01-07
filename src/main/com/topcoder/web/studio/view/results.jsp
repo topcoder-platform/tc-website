@@ -105,7 +105,7 @@
                                     <c:if test="${not contest.viewableSubmissions}">
                                         <br/>
                                         <p align="center">
-                                            <strong>Submissions are not viewable for this contest.</strong><br/>
+                                            <strong>Submissions are not viewable for this challenge.</strong><br/>
                                             There are many reasons why the submissions may not be viewable, such as
                                             the allowance of stock art, or a client's desire to keep the work private.
                                         </p>
