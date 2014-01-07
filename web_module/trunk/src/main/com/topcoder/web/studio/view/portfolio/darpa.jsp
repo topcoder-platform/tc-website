@@ -67,8 +67,8 @@
                     
                     <h1>DARPA CS-STEM Project</h1>
                         
-                        <p>2 Contests Highlighted</p>
-                        <p>2 Application Front-End Design Contests</p>
+                        <p>2 Challenges Highlighted</p>
+                        <p>2 Application Front-End Design Challenges</p>
                         
                         <p>"Shape Plotter" is a basic program-oriented game where a shape is given as a challenge problem and the objective is to recreate the given shape by writing instructions of language.</p>
                         <p> "Turn On the Light" is a Boolean expression game. The game introduces the user the formal language, how it works and its logic. It aims to teach the basics, in order to learn mathematics, programming and any science or engineering related subject.</p>
@@ -95,8 +95,8 @@
                                 <div class="data">
                                         <table border="0" cellpadding="0" cellspacing="1">
                                             <tr>
-                                                <th>Contest Type</th>
-                                                <th>Contest Name</th>
+                                                <th>Challenge Type</th>
+                                                <th>Challenge Name</th>
                                                 <th>Duration</th>
                                                 <th>Subs</th>
                                                 <th>Client Selection</th>

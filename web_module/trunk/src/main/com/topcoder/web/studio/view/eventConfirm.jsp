@@ -70,14 +70,14 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-                <h1>Contest Registration</h1>
+                <h1>Challenge Registration</h1>
                 <br />
                 <div align="center">
-                    <h2>Are you sure you want to register for this contest?</h2>
+                    <h2>Are you sure you want to register for this challenge?</h2>
                 <div>
                 <div align="center" style="text-align:left; width:500px; font-size:12px; line-height: 18px;">
                     <br /><br />
-                    Please be aware that you are <b>NOT REGISTERED for the TCO14 tournament</b> that this contest is part of. Registering for this contest will not register you for the TCO14 tournament. If you don't register for the tournament prior to registering for this contest, you will not receive points for this contest even if you sign up for TCO14 at a later date.
+                    Please be aware that you are <b>NOT REGISTERED for the TCO14 tournament</b> that this challenge is part of. Registering for this challenge will not register you for the TCO14 tournament. If you don't register for the tournament prior to registering for this challenge, you will not receive points for this challenge even if you sign up for TCO14 at a later date.
                     <br /><br />
 
                     <form name="terms" method="POST" action="${sessionInfo.servletPath}">
@@ -90,7 +90,7 @@
                         <br /><br />
                         <a href="http://community.topcoder.com/tco14" target="_blank">Take me to register for the TCO14</a><br />
                         <br />
-                        <a href="#" onclick="document.terms.submit()">I don't want to register for TCO14. Just register for this contest.</a>
+                        <a href="#" onclick="document.terms.submit()">I don't want to register for TCO14. Just register for this challenge.</a>
 
                     </form>
                 </div>

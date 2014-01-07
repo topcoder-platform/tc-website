@@ -63,22 +63,22 @@
 
                 <h1>Competition FAQs</h1>
 
-                <h3>Why can't I download the supporting documentation in a contest?</h3>
-                There are two steps you must take before you can access all of a contest's files: 
+                <h3>Why can't I download the supporting documentation in a challenge?</h3>
+                There are two steps you must take before you can access all of a challenge's files: 
                 <ol>
                 <li><strong>You must be a registered Studio member.</strong> You can register with
                 Studio by clicking any of the <a href="https://www.topcoder.com/reg/">Register Now</a>
                 links on this site. If you already have a TopCoder handle, you must <a href="http://www.topcoder.com/reg/?nrg=false">login</a> update your profile by opting in for Studio membership.</li>
-                <li><strong>You must register for the contest you wish to enter.</strong> Each contest has its own registration. Once you've registered for a contest, the files associated with the contest will become accessible to you.</li>
+                <li><strong>You must register for the challenge you wish to enter.</strong> Each challenge has its own registration. Once you've registered for a challenge, the files associated with the challenge will become accessible to you.</li>
                 </ol>
                 
-                <h3>What if I don't understand something about the contest?</h3>
-                If you are confused about a requirement, template or any other aspect of a contest, please post your question in the forums so that everyone may benefit from the answer. The Studio Contest Administrator and your fellow Studio members will help clarify things.
+                <h3>What if I don't understand something about the challenge?</h3>
+                If you are confused about a requirement, template or any other aspect of a challenge, please post your question in the forums so that everyone may benefit from the answer. The Studio challenge Administrator and your fellow Studio members will help clarify things.
                 <br /><br />
 
                 <h3>What should I include with my submission?</h3>
                 
-                For all Studio contests, you must include both your submission file(s) and your source files. Everything is zipped up and submitted together. See <a href="/?module=Static&amp;d1=support&amp;d2=formatSubmission">formatting your submission</a> for more information.
+                For all Studio challenges, you must include both your submission file(s) and your source files. Everything is zipped up and submitted together. See <a href="/?module=Static&amp;d1=support&amp;d2=formatSubmission">formatting your submission</a> for more information.
                 <br /><br />
 
                 <h3>Why must I submit my source files with my submission?</h3>
@@ -89,20 +89,20 @@
                 No. Source files are never shown on the Studio web site, whether that submission has won a prize placement or not.  
                 <br /><br />
           
-                <h3>How many submissions can I upload to a contest?</h3>
-                You may upload as many submissions as you like, however, each contest limits how many submissions from each member will be eligible for consideration by the client. (see next question)
+                <h3>How many submissions can I upload to a challenge?</h3>
+                You may upload as many submissions as you like, however, each challenge limits how many submissions from each member will be eligible for consideration by the client. (see next question)
                 <br /><br />
                 
-                <h3>How many of my submissions will be considered for a contest?</h3>
-                Each contest will outline how many of each member's submissions will be eligible to be considered for prizes. Most contests will limit the number of submissions that will be considered from each member. However, a few contests will have no such limit. It is very important to note how many of your submissions are eligible when you enter.
+                <h3>How many of my submissions will be considered for a challenge?</h3>
+                Each challenge will outline how many of each member's submissions will be eligible to be considered for prizes. Most challenges will limit the number of submissions that will be considered from each member. However, a few challenges will have no such limit. It is very important to note how many of your submissions are eligible when you enter.
                 <br /><br />
                 
                 <h3>How many of my submissions will be screened after the submission phase is over?</h3>
-                Only the allowed number of submissions per member specified in the contest will be screened. For example, if a contest will only allow 2 submissions per member, and you upload 4 submissions, only the 2 submissions you've ranked the highest will be screened.
+                Only the allowed number of submissions per member specified in the challenge will be screened. For example, if a challenge will only allow 2 submissions per member, and you upload 4 submissions, only the 2 submissions you've ranked the highest will be screened.
                 <br /><br />
 
                 <h3>Will my lower-ranking submissions be eligible if my highest-ranking submissions fail screening?</h3>
-                No. Once the contest submission phase is over, only the number of submissions allowed for the contest will be eligible to be screened. No other submissions will take their place if they fail screening.
+                No. Once the challenge submission phase is over, only the number of submissions allowed for the challenge will be eligible to be screened. No other submissions will take their place if they fail screening.
                 <br /><br />
                 
                 <h3>When can I rank my submissions?</h3>
@@ -118,15 +118,15 @@
                 <br /><br />
                 
                 <h3>When will screening be complete?</h3>
-                The majority of contests are screened by Studio admins within 24 hours of the submission phase deadline.   
+                The majority of challenges are screened by Studio admins within 24 hours of the submission phase deadline.   
                 <br /><br />
                 
                 <h3>Can I fix my submission if it fails screening?</h3>
-                No. A failed submission cannot be revised and reconsidered for a contest. All screening decisions are final. The screening process is in place to ensure that all submissions meet the specification's minimum requirements. In order to pass screening, it is important to double-check your submissions against the required elements of the contest.
+                No. A failed submission cannot be revised and reconsidered for a challenge. All screening decisions are final. The screening process is in place to ensure that all submissions meet the specification's minimum requirements. In order to pass screening, it is important to double-check your submissions against the required elements of the challenge.
                 <br /><br />
  
                 <h3>How do I get paid if I win?</h3>
-                At the conclusion of each contest, after the submissions have been screened and the client has made winner selections, the Contest Administrator will notify winners via email with instructions on how to get paid. TopCoder begins the payment process for Studio contests one business day after the final files for the contest have been delivered by the winner(s).  
+                At the conclusion of each challenge, after the submissions have been screened and the client has made winner selections, the challenge Administrator will notify winners via email with instructions on how to get paid. TopCoder begins the payment process for Studio challenges one business day after the final files for the challenge have been delivered by the winner(s).  
                 <br /><br />
                 
                 <strong>Timing</strong><br />
@@ -224,8 +224,8 @@
                 <a href="mailto:payments@topcoder.com">payments@topcoder.com</a>.
                 <br /><br />
            
-                <h3>Will Studio contests affect my TopCoder Rating?</h3>
-                No. Studio is independent of TopCoder ratings and statistics. Winning Studio contests will not improve
+                <h3>Will Studio challenges affect my TopCoder Rating?</h3>
+                No. Studio is independent of TopCoder ratings and statistics. Winning Studio challenges will not improve
                 your TopCoder standings.
                 <br /><br />
 

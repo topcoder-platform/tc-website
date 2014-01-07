@@ -32,7 +32,7 @@
                     <div class="contentMiddle">
 
 <div class="linkBox"><a href="${sessionInfo.servletPath}?module=Static&amp;d1=oldcontests&amp;d2=archive">back to archive</a></div>
-<h1>TCO06 Logo Contest</h1>
+<h1>TCO06 Logo Challenge</h1>
 
 <div align="left" style="padding-bottom: 10px;">
 View Submissions

@@ -8,7 +8,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="Overview of how to launch a graphic or web design competition at TopCoder Studio" />
-    <meta name="keywords" content="topcoder, studio, graphic competitions, graphic design contests, graphic design, web design, logo, contests, compete, prizes, cash, clients" />
+    <meta name="keywords" content="topcoder, studio, graphic competitions, graphic design challenges, graphic design, web design, logo, challenges, compete, prizes, cash, clients" />
     <title>TopCoder Studio | Starting a Competition</title>
 
      <jsp:include page="../style.jsp">
@@ -78,15 +78,15 @@
            TopCoder Direct is the bridge between you and the TopCoder community. This service allows you to access and utilize the designers within Studio to get all of your creative work done in the most efficient and cost effective way... through competition. You can launch and monitor a project, view and choose winners for your competitions, pay for and download your finished product, all through functional widgets.
            </p>
                         
-   <h3>What kind of contests can I run on Studio through TopCoder Direct?</h3>
+   <h3>What kind of challenges can I run on Studio through TopCoder Direct?</h3>
            <p>
            <ul>
-           <li> Logo contests</li>
-           <li> Web Design and Application UI contests (static designs for look and feel)</li>
-           <li> Print design contests </li>
-           <li> Banners, icons and buttons contests</li>
-           <li> Wireframe contests</li>
-           <li> Idea Generation contests</li>
+           <li> Logo challenges</li>
+           <li> Web Design and Application UI challenges (static designs for look and feel)</li>
+           <li> Print design challenges </li>
+           <li> Banners, icons and buttons challenges</li>
+           <li> Wireframe challenges</li>
+           <li> Idea Generation challenges</li>
            </ul><br />
            Need something different or want to take your web/application designs to the coding phase? <a href="mailto:directassist@topcoder.com">Contact us</a> and we'll be happy to help!
            </p>
@@ -94,12 +94,12 @@
                         
     <h3>How much does it cost?</h3>
             <p>
-             Accessing TopCoder Direct is completely free. You only pay when you launch a contest. There are two fees associated with launching a contest: the administration fee and the prize purse amount you are willing to give the winners of your contest. The fees vary depending on what type of contest you are launching.
+             Accessing TopCoder Direct is completely free. You only pay when you launch a challenge. There are two fees associated with launching a challenge: the administration fee and the prize purse amount you are willing to give the winners of your challenge. The fees vary depending on what type of challenge you are launching.
              </p>
                         
      <h3>How do I get started?</h3>
               <p>
-               Harnessing the creativity of the Studio community is easy! Just use the "Launch a Project" widget to create your project and then start adding contests. Follow the "hints" for each section for even more help. We've provided a simple <a href="http://www.topcoder.com/wiki/display/tcstudio/Contest+Preparation+Guide">Contest Preparation Guide</a> to help you get started. Follow the "hints" within the widget for even more help.
+               Harnessing the creativity of the Studio community is easy! Just use the "Launch a Project" widget to create your project and then start adding challenges. Follow the "hints" for each section for even more help. We've provided a simple <a href="http://www.topcoder.com/wiki/display/tcstudio/Contest+Preparation+Guide">challenge Preparation Guide</a> to help you get started. Follow the "hints" within the widget for even more help.
                </p>
                         
                         <br clear="all"/>

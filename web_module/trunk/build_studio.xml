@@ -78,6 +78,9 @@
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
         <pathelement location="${jars.dir}/activation.jar"/>
+        
+		<pathelement location="${jars.dir}/jackson/1.9.7/jackson-core-asl.jar"/>
+		<pathelement location="${jars.dir}/jackson/1.9.7/jackson-mapper-asl.jar"/>
 
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
@@ -463,6 +466,9 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/wsdl4j-1.5.1.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/commons-httpclient-3.0.1.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/commons-codec-1.3.jar"/>
+        
+        <copy todir="${jboss_lib}" file="${jars.dir}/jackson/1.9.7/jackson-core-asl.jar"/>
+		<copy todir="${jboss_lib}" file="${jars.dir}/jackson/1.9.7/jackson-mapper-asl.jar"/>
 
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/hibernate3.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/antlr-2.7.6.jar"/>

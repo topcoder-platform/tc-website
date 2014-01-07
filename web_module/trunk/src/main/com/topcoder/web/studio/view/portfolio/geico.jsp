@@ -67,14 +67,14 @@
                     <!-- Begin Main Content -->
                     
                     <h1>GEICO</h1>
-                        <p>1 Contest Highlighted</p>
-                        <p>1 Storyboard/Landing Page Contest</p>
+                        <p>1 Challenge Highlighted</p>
+                        <p>1 Storyboard/Landing Page Challenge</p>
                         <div class="clear"></div>
                         
                         <div id="thumbs">
                             <ul>
-                                <li><a href="/i/portfolio/projects/geico/storyboards/1.jpg" class="thickbox" rel="thumbs" title="Geico Landing Page Contest"><img src="/i/portfolio/projects/geico/thumbs/1.png" width="150" height="150" /></a><br />
-                                <div align="center">Storyboard Contest</div></li>
+                                <li><a href="/i/portfolio/projects/geico/storyboards/1.jpg" class="thickbox" rel="thumbs" title="Geico Landing Page Challenge"><img src="/i/portfolio/projects/geico/thumbs/1.png" width="150" height="150" /></a><br />
+                                <div align="center">Storyboard Challenge</div></li>
                                 
                             </ul>
                         </div>
@@ -84,25 +84,25 @@
                                 <div class="data">
                                         <table border="0" cellpadding="0" cellspacing="1">
                                             <tr>
-                                                <th>Contest Type</th>
-                                                <th>Contest Name</th>
+                                                <th>Challenge Type</th>
+                                                <th>Challenge Name</th>
                                                 <th>Duration</th>
                                                 <th>Subs</th>
                                                 <th>Client Selection</th>
                                             </tr>
                                             <tr>
-                                                <td>Storyboard Contest</td>
-                                                <td><a href="/i/portfolio/projects/geico/storyboards/1.jpg" class="thickbox" title="Geico Landing Page Contest">Geico Landing Page Contest</a></td>
+                                                <td>Storyboard Challenge</td>
+                                                <td><a href="/i/portfolio/projects/geico/storyboards/1.jpg" class="thickbox" title="Geico Landing Page Challenge">Geico Landing Page Challenge</a></td>
                                                 <td>3 Days</td>
                                                 <td align="center">40</td>
                                                 <td>
-                                                <a href="/i/portfolio/projects/geico/storyboards/1.jpg" class="thickbox" rel="story1" title="Geico Landing Page Contest">1</a>
-                                                <a href="/i/portfolio/projects/geico/storyboards/1a.jpg" class="thickbox" rel="story1" title="Geico Landing Page Contest">2</a>
-                                                <a href="/i/portfolio/projects/geico/storyboards/2.jpg" class="thickbox" rel="story1" title="Geico Landing Page Contest">3</a>
-                                                <a href="/i/portfolio/projects/geico/storyboards/3.jpg" class="thickbox" rel="story1" title="Geico Landing Page Contest">4</a>
-                                                <a href="/i/portfolio/projects/geico/storyboards/4.jpg" class="thickbox" rel="story1" title="Geico Landing Page Contest">5</a>
-                                                <a href="/i/portfolio/projects/geico/storyboards/5.jpg" class="thickbox" rel="story1" title="Geico Landing Page Contest">6</a>
-                                                <a href="/i/portfolio/projects/geico/storyboards/6.jpg" class="thickbox" rel="story1" title="Geico Landing Page Contest">7</a>
+                                                <a href="/i/portfolio/projects/geico/storyboards/1.jpg" class="thickbox" rel="story1" title="Geico Landing Page Challenge">1</a>
+                                                <a href="/i/portfolio/projects/geico/storyboards/1a.jpg" class="thickbox" rel="story1" title="Geico Landing Page Challenge">2</a>
+                                                <a href="/i/portfolio/projects/geico/storyboards/2.jpg" class="thickbox" rel="story1" title="Geico Landing Page Challenge">3</a>
+                                                <a href="/i/portfolio/projects/geico/storyboards/3.jpg" class="thickbox" rel="story1" title="Geico Landing Page Challenge">4</a>
+                                                <a href="/i/portfolio/projects/geico/storyboards/4.jpg" class="thickbox" rel="story1" title="Geico Landing Page Challenge">5</a>
+                                                <a href="/i/portfolio/projects/geico/storyboards/5.jpg" class="thickbox" rel="story1" title="Geico Landing Page Challenge">6</a>
+                                                <a href="/i/portfolio/projects/geico/storyboards/6.jpg" class="thickbox" rel="story1" title="Geico Landing Page Challenge">7</a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -112,12 +112,12 @@
                                 </div>
                               </div>
                               <div class="hidden">
-                                  <a href="/i/portfolio/projects/geico/storyboards/1a.jpg" class="thickbox" rel="thumbs" title="Geico Landing Page Contest"></a>
-                                  <a href="/i/portfolio/projects/geico/storyboards/2.jpg" class="thickbox" rel="thumbs" title="Geico Landing Page Contest"></a>
-                                  <a href="/i/portfolio/projects/geico/storyboards/3.jpg" class="thickbox" rel="thumbs" title="Geico Landing Page Contest"></a>
-                                  <a href="/i/portfolio/projects/geico/storyboards/4.jpg" class="thickbox" rel="thumbs" title="Geico Landing Page Contest"></a>
-                                  <a href="/i/portfolio/projects/geico/storyboards/5.jpg" class="thickbox" rel="thumbs" title="Geico Landing Page Contest"></a>
-                                  <a href="/i/portfolio/projects/geico/storyboards/6.jpg" class="thickbox" rel="thumbs" title="Geico Landing Page Contest"></a></div>
+                                  <a href="/i/portfolio/projects/geico/storyboards/1a.jpg" class="thickbox" rel="thumbs" title="Geico Landing Page Challenge"></a>
+                                  <a href="/i/portfolio/projects/geico/storyboards/2.jpg" class="thickbox" rel="thumbs" title="Geico Landing Page Challenge"></a>
+                                  <a href="/i/portfolio/projects/geico/storyboards/3.jpg" class="thickbox" rel="thumbs" title="Geico Landing Page Challenge"></a>
+                                  <a href="/i/portfolio/projects/geico/storyboards/4.jpg" class="thickbox" rel="thumbs" title="Geico Landing Page Challenge"></a>
+                                  <a href="/i/portfolio/projects/geico/storyboards/5.jpg" class="thickbox" rel="thumbs" title="Geico Landing Page Challenge"></a>
+                                  <a href="/i/portfolio/projects/geico/storyboards/6.jpg" class="thickbox" rel="thumbs" title="Geico Landing Page Challenge"></a></div>
                          <div class="clear"></div>
 
             <!-- End Main Content -->

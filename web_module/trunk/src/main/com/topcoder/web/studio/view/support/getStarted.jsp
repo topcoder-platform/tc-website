@@ -19,7 +19,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="Overview of how to start competing in graphic and web design competitions at TopCoder Studio" />
-    <meta name="keywords" content="topcoder, studio, graphic competitions, graphic design contests, graphic design, web design, logo, contests, compete, prizes, cash, clients" />
+    <meta name="keywords" content="topcoder, studio, graphic competitions, graphic design challenges, graphic design, web design, logo, challenges, compete, prizes, cash, clients" />
     <title>TopCoder Studio | How it Works</title>
 
      <jsp:include page="../style.jsp">
@@ -67,7 +67,7 @@
                     <div class="contentMiddle">
                         <h2 class="how-it-works-title">Clients have multiple designs to choose from. Designers have multiple ways to win.</h2>
 
-                        <p>At TopCoder Studio our community of global designers compete in individual competitions held by contest holders, along with larger monthly and annual tournaments held by TopCoder.</p>
+                        <p>At TopCoder Studio our community of global designers compete in individual competitions held by challenge holders, along with larger monthly and annual tournaments held by TopCoder.</p>
 
                         <p>By tapping into a pool of creative people with multiple specialties, our clients benefit from
                             new approaches and innovative concepts from a global community. Our competitors are here not

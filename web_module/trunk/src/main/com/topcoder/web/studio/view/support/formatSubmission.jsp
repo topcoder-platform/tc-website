@@ -64,7 +64,7 @@
                 <h1>Formatting Your Submission</h1>
 
 
-<h2>Your entire contest submission will include three elements: </h2>
+<h2>Your entire Challenge submission will include three elements: </h2>
 
 <ol><p>    
     <li><strong>Your display submission file(s):</strong> The file(s) you include in this Zip file will be displayed on the Studio site. The client will see everything within this Zip file and will base their winner choices on what they see here.<br><br>
@@ -83,12 +83,12 @@
 </h2>
 <img src="/i/v2/sub_process1.gif" alt="Submission Zip File"/></img>
 
-<ul><p>Your submission Zip file will be created based on the information you find on the Contest Details page. <br />Here are some examples:
-            <li><strong>XYZ Logo Contest</strong><br>
+<ul><p>Your submission Zip file will be created based on the information you find on the Challenge Details page. <br />Here are some examples:
+            <li><strong>XYZ Logo Challenge</strong><br>
             One JPG or PNG file containing your logo design.<br><br>
-            <li><strong>XYZ Web Design Storyboard Contest</strong><br>
+            <li><strong>XYZ Web Design Storyboard Challenge</strong><br>
             Five (5) JPG or PNG files showing each screen of your design.<br><br>
-            <li><strong>XYZ Application Prototype Contest</strong><br>
+            <li><strong>XYZ Application Prototype Challenge</strong><br>
             Fifteen (15) HTML files showing each screen of your design, along with your CSS file, JavaScript file(s), and all image files, structured in the correct directory hierarchy in a Zip file.
 </p></ul>
 
@@ -98,16 +98,16 @@
 </h2>
 <img src="/i/v2/sub_process2.gif" alt="Source Zip File"/></img>
 
-<ul><p>Your source Zip file will be created based on the information you find on the Contest Details page. <br />Here are some examples:
-    <li><strong>XYZ Logo Contest</strong>
+<ul><p>Your source Zip file will be created based on the information you find on the Challenge Details page. <br />Here are some examples:
+    <li><strong>XYZ Logo Challenge</strong>
     <br />All vector files of the submitted logo design, created as IA files and/or EPS files. All fonts used (with the exception of Windows standard fonts) in your design must also be submitted in this zip. If you do not have permission to release the fonts, you must provide a text file including the name of the font and a link to where the font can be purchased.<br><br>
 
-    <li><strong>XYZ Web Design Storyboard Contest</strong>
+    <li><strong>XYZ Web Design Storyboard Challenge</strong>
     <br />All original source files of the submitted design. Files should be created in Adobe Photoshop, Gimp, Adobe Illustrator or Inkscape and saved as layered PSD files, AI or EPS files.<br><br>
 
         All fonts used (with the exception of Windows standard fonts) in your design must also be submitted in this zip. If you do not have permission to release the fonts, you must provide a text file including the name of the font and a link to where the font can be purchased.<br><br>
 
-    <li><strong>XYZ Application Prototype Contest </strong>
+    <li><strong>XYZ Application Prototype Challenge </strong>
     <br />Same as "submission" folder PLUS any additional files for new graphics created. New files should be created in Adobe Photoshop, Gimp, Adobe Illustrator or Inkscape and saved as layered PSD files, AI or EPS files.<br><br>
 
         All fonts used (with the exception of Windows standard fonts) in your design must also be submitted in this zip. If you do not have permission to release the fonts, you must provide a text file including the name of the font and a link to where the font can be purchased.
@@ -118,8 +118,8 @@
 </h2>
 <img src="/i/v2/sub_process3.gif" alt="Preview Image"/></img>
 <p>
-    Your preview image can be one of your JPG files from your submission files if the contest is graphical, or it can be a screenshot of one of the pages/screens your have programmed in coding contests. Also, feel free to be creative with your preview image! See this post for more information.<br><br>
-Lastly, because some internet connections are slow, and some source files are very large, we recommend uploading a "test" submission 24 hours before the contest ends. This will allow you to understand how long it will take your submission to be accepted. Once you've finalized your design, you can replace your test submission with your final one.
+    Your preview image can be one of your JPG files from your submission files if the Challenge is graphical, or it can be a screenshot of one of the pages/screens your have programmed in coding Challenges. Also, feel free to be creative with your preview image! See this post for more information.<br><br>
+Lastly, because some internet connections are slow, and some source files are very large, we recommend uploading a "test" submission 24 hours before the Challenge ends. This will allow you to understand how long it will take your submission to be accepted. Once you've finalized your design, you can replace your test submission with your final one.
 
 </p>
 

@@ -101,7 +101,7 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                                 <li <c:if test="${loop.index mod 6 eq 5}">class="last"</c:if>>
                                     <div class="regTitle">
                         <a class="typeIcon tooltip type${reg.contestTypeId}" href="javascript:;" style="margin-top: 10.5px; visibility: visible;">
-                        <span class="tipT">Contest Type</span>
+                        <span class="tipT">Challenge Type</span>
                             <span class="tipC">${reg.contestTypeName}</span>
                         </a>
                                         <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;${CONTEST_ID}=${reg.contestId}"
@@ -178,7 +178,7 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                                      id="xxx4"/>
 
                                 <div class="lockedNotice hide">
-                                    <h3>Submissions are not viewable for this contest.</h3>
+                                    <h3>Submissions are not viewable for this shallenge.</h3>
 
                                     <p>There are many reasons why the submissions may not be viewable, such as the
                                         allowance of
@@ -188,7 +188,7 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
 
                             <div class="regTitle">
                     <a id="xxx5" style="visibility: hidden;" href="javascript:;" class="typeIcon tooltip">
-                    <span class="tipT">Contest Type</span>
+                    <span class="tipT">Challenge Type</span>
                     <span class="tipC">Application Front-End Design</span>
                 </a>
                                 <a class="contestTitleLink" href="javascript:;" id="xxx3"></a></div>

@@ -67,10 +67,10 @@
                     
                     <!-- Begin Main Content -->
                     
-                    <h1>LendingTree: Banner Ad Contest</h1>
+                    <h1>LendingTree: Banner Ad Challenge</h1>
                         
-                        <p>2 Contests Highlighted</p>
-                        <p>2 Banner Ad Contests</p>
+                        <p>2 Challenges Highlighted</p>
+                        <p>2 Banner Ad Challenges</p>
                         <div class="clear"></div>
                         
                         <div id="thumbs">
@@ -88,21 +88,21 @@
                                 <div class="data">
                                         <table border="0" cellpadding="0" cellspacing="1">
                                             <tr>
-                                                <th>Contest Type</th>
-                                                <th>Contest Name</th>
+                                                <th>Challenge Type</th>
+                                                <th>Challenge Name</th>
                                                 <th>Duration</th>
                                                 <th>Subs</th>
                                                 <th>Client Selection</th>
                                             </tr>
                                             <tr>
-                                                <td>Banner Ad Contest</td>
+                                                <td>Banner Ad Challenge</td>
                                                 <td><a href="/i/portfolio/projects/ltclient/round1/index.htm" title="LendingTree Promo Banner Ads">LendingTree Promo Banner Ads</a></td>
                                                 <td>5 Days</td>
                                                 <td align="center">26</td>
                                                 <td><a href="/i/portfolio/projects/ltclient/round1/index.htm" title="LendingTree Promo Banner Ads">Link</a></td>
                                             </tr>
                                             <tr>
-                                                <td>Banner Ad Contest</td>
+                                                <td>Banner Ad Challenge</td>
                                                 <td><a href="/i/portfolio/projects/ltclient/round2/index.htm" title="LendingTree Promo Banner Ads Round 2">LendingTree Promo Banner Ads Round 2</a></td>
                                                 <td>7 Days</td>
                                                 <td align="center">93</td>

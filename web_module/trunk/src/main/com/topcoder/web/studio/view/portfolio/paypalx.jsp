@@ -67,10 +67,10 @@
                     
                     <h1>PayPal X</h1>
                         
-                        <p>2 Contests Highlighted</p>
-                        <p>1 Web Design contest, 1 Mobile UI Contest</p>
+                        <p>2 Challenges Highlighted</p>
+                        <p>1 Web Design Challenge, 1 Mobile UI Challenge</p>
                         
-                        <p>The web site minisite design gives information about the PayPal X contest including updated news, contests, submissions, and forums. The mobile UI design for iPhone and Android apps was created for the PayPal X Innovate 2010 Developer Conference.</p>
+                        <p>The web site minisite design gives information about the PayPal X Challenge including updated news, Challenges, submissions, and forums. The mobile UI design for iPhone and Android apps was created for the PayPal X Innovate 2010 Developer Conference.</p>
                         <div class="clear"></div>
                         
                         <div id="thumbs">
@@ -94,8 +94,8 @@
                                 <div class="data">
                                         <table border="0" cellpadding="0" cellspacing="1">
                                             <tr>
-                                                <th>Contest Type</th>
-                                                <th>Contest Name</th>
+                                                <th>Challenge Type</th>
+                                                <th>Challenge Name</th>
                                                 <th>Duration</th>
                                                 <th>Subs</th>
                                                 <th>Client Selection</th>

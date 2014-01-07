@@ -67,10 +67,10 @@
                     
                     <h1>Accenture</h1>
                         
-                        <p>2 Contests Highlighted</p>
-                        <p>1 Mobile UI Wireframe Contest, 1 Mobile UI Contest</p>
+                        <p>2 Challenges Highlighted</p>
+                        <p>1 Mobile UI Wireframe Challenge, 1 Mobile UI Challenge</p>
                         
-                        <p>This ultra-fast project required taking an existing Accenture iPad application and creating wireframes for an iPhone app. The Mobile UI contest used the wireframes and the existing iPad app to create the iPhone app UI. </p>
+                        <p>This ultra-fast project required taking an existing Accenture iPad application and creating wireframes for an iPhone app. The Mobile UI challenge used the wireframes and the existing iPad app to create the iPhone app UI. </p>
                         <div class="clear"></div>
                         
                         <div id="thumbs">
@@ -91,8 +91,8 @@
                                 <div class="data">
                                         <table border="0" cellpadding="0" cellspacing="1">
                                             <tr>
-                                                <th>Contest Type</th>
-                                                <th>Contest Name</th>
+                                                <th>Challenge Type</th>
+                                                <th>Challenge Name</th>
                                                 <th>Duration</th>
                                                 <th>Subs</th>
                                                 <th>Client Selection</th>

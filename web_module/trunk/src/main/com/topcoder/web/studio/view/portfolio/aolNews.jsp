@@ -67,8 +67,8 @@
                     
                     <h1>AOL News: Predict The President</h1>
                         
-                        <p>2 Contests Highlighted</p>
-                        <p>1 Flash Contest, 1 yourminis Widget Build</p>
+                        <p>2 Challenges Highlighted</p>
+                        <p>1 Flash Challenge, 1 yourminis Widget Build</p>
                         
                         <p>You control the electoral map for the 2008 elections. Click on a state to make your prediction or start with from one of the many views.</p>
                         <p>The flash uses csv and xml data and also allows the user to save their settings.</p>
@@ -77,11 +77,11 @@
                         
                         <div id="thumbs">
                             <ul>
-                                <li><a href="/i/portfolio/projects/aol-news/flash/1/AOL08PreGame.html" title="Predict The President Flash Contest" target="_blank"><img src="/i/portfolio/projects/aol-news/thumbs/1.png" width="150" height="150" /></a><br />
-                                <div align="center">Flash Contest</div></li>
+                                <li><a href="/i/portfolio/projects/aol-news/flash/1/AOL08PreGame.html" title="Predict The President Flash Challenge" target="_blank"><img src="/i/portfolio/projects/aol-news/thumbs/1.png" width="150" height="150" /></a><br />
+                                <div align="center">Flash Challenge</div></li>
                                 
                                 <li><a href="/i/portfolio/projects/aol-news/screenshot/1.png" class="thickbox" title="Predict The President yourminis Widget"><img src="/i/portfolio/projects/aol-news/thumbs/2.png" width="150" height="150" /></a><br />
-                                <div align="center">yourminis Contest</div></li>
+                                <div align="center">yourminis Challenge</div></li>
                             </ul>
                         </div>
                         
@@ -90,29 +90,29 @@
                                 <div class="data">
                                         <table border="0" cellpadding="0" cellspacing="1">
                                             <tr>
-                                                <th>Contest Type</th>
-                                                <th>Contest Name</th>
+                                                <th>Challenge Type</th>
+                                                <th>Challenge Name</th>
                                                 <th>Duration</th>
                                                 <th>Subs</th>
                                                 <th>Client Selection</th>
                                             </tr>
                                             <tr>
-                                                <td>Flash Contest</td>
-                                                <td><a href="/i/portfolio/projects/aol-news/flash/1/AOL08PreGame.html" title="Predict The President Flash Contest" target="_blank">Predict The President Flash Contest</a></td>
+                                                <td>Flash Challenge</td>
+                                                <td><a href="/i/portfolio/projects/aol-news/flash/1/AOL08PreGame.html" title="Predict The President Flash Challenge" target="_blank">Predict The President Flash Challenge</a></td>
                                                 <td>7 Days</td>
                                                 <td align="center">4</td>
                                                 <td>
-                                                <a href="/i/portfolio/projects/aol-news/flash/1/AOL08PreGame.html" title="Predict The President Flash Contest" target="_blank">Link</a>
+                                                <a href="/i/portfolio/projects/aol-news/flash/1/AOL08PreGame.html" title="Predict The President Flash Challenge" target="_blank">Link</a>
                                                 </td>
                                             </tr>
                                             
                                             <tr>
-                                                <td>yourminis Widget Contest</td>
-                                                <td><a href="http://www.yourminis.com/minis/yourminis/AOL/mini:PredictthePresident" title="Predict The President Flash Contest" target="_blank">Predict The President Widget Build</a></td>
+                                                <td>yourminis Widget Challenge</td>
+                                                <td><a href="http://www.yourminis.com/minis/yourminis/AOL/mini:PredictthePresident" title="Predict The President Flash Challenge" target="_blank">Predict The President Widget Build</a></td>
                                                 <td>7 Days</td>
                                                 <td align="center">5</td>
                                                 <td>
-                                                <a href="http://www.yourminis.com/minis/yourminis/AOL/mini:PredictthePresident" title="Predict The President Flash Contest" target="_blank">yourminis site link</a>
+                                                <a href="http://www.yourminis.com/minis/yourminis/AOL/mini:PredictthePresident" title="Predict The President Flash Challenge" target="_blank">yourminis site link</a>
 
                                                 </td>
                                             </tr>

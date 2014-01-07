@@ -176,8 +176,8 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
     </tr>
     <tr>
         <th class="b" colspan="2">&nbsp;</th>
-        <th class="c b" colspan="7">Completed Contests</th>
-        <th class="c" colspan="2" nowrap="nowrap">Current Contests</th>
+        <th class="c b" colspan="7">Completed Challenges</th>
+        <th class="c" colspan="2" nowrap="nowrap">Current Challenges</th>
     </tr>
 
     <tr valign="bottom">
@@ -301,7 +301,7 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
 <p class="small" align="left">
     * Prizes are based on current earned points and the dollar per point value for completed projects. Current and
     future projects may affect the final results.<br />
-    ** Assuming first place finish with all current contests with all competitors passing review
+    ** Assuming first place finish with all current challenges with all competitors passing review
 </p>
 
 <div class="pagingBox">

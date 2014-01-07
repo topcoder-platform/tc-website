@@ -118,11 +118,11 @@
                         <c:choose>
                             <c:when test="${not pf}">
                                 <a href="/?module=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['reference_id']}">
-                                    Contest Results
+                                    Challenge Results
                             </c:when>
                             <c:otherwise>
                                 <a href="/?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['reference_id']}">
-                                    Contest Details
+                                    Challenge Details
                                 </a>
                             </c:otherwise>
                         </c:choose>

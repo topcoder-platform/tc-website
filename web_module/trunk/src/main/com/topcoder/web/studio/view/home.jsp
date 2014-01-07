@@ -131,7 +131,7 @@
                 <div id="active_contest">
                                 <div id="active_contest_head">
                                     <span class="active_contests_head">&nbsp;</span>
-                                    <span class="active_contests_head">ACTIVE CONTESTS</span>
+                                    <span class="active_contests_head">ACTIVE CHALLENGES</span>
                                     <span class="prize_purse_head">PURSE</span>
                                     <span class="time_left_head">TIME LEFT</span>
                                 </div>
@@ -209,7 +209,7 @@
                                     </table>
                                     <div id="view_contest_button">
                                         <a href="/?module=ViewActiveContests">View All <%=activeContests.size()%>
-                                            Active Contests
+                                            Active Challenges
                                         </a>
                                     </div>
                                 </div><%-- End of #active_contest_content --%>
@@ -254,7 +254,7 @@
                                             <span class="member_content special handle">Congratulations <span class="handle-color">iamtong</span></span><br/><br/>
                                         </div>
                                         <div id="member_stats">
-                                            <span class="member_content special">won $10,525 in 15 contests</span><br/><br/>
+                                            <span class="member_content special">won $10,525 in 15 challenges</span><br/><br/>
                                             <span class="member_content special"><!--<a href="http://www.topcoder.com/news/2010/11/15/meet-the-october-coders-and-designers-of-the-month-2/">Read the interviews here.</a>--></span><br/><br/>
                                         </div>
                                     </div>

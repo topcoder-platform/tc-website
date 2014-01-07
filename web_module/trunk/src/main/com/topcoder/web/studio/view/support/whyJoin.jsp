@@ -8,7 +8,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="Overview of the benefits for designers in competing in graphic and web design competitions at TopCoder Studio" />
-    <meta name="keywords" content="topcoder, studio, graphic competitions, graphic design contests, graphic design, web design, logo, contests, compete, prizes, cash, clients" />
+    <meta name="keywords" content="topcoder, studio, graphic competitions, graphic design challenges, graphic design, web design, logo, challenges, compete, prizes, cash, clients" />
     <title>TopCoder Studio | Why join Studio?</title>
 
      <jsp:include page="../style.jsp">
@@ -71,9 +71,9 @@
                         The Studio community is still growing, which means you have a chance to get involved and make some waves while the pool is still small. You also have the chance to become a finalist in multi-round competitions, increasing your chances of winning even more. The field of competition is wide open for talented designers like you.  Our clients are waiting.  Don't let them down. 
                         </p>
                         
-                        <h3>More than Just Logo Contests</h3>
+                        <h3>More than Just Logo challenges</h3>
                         <p>
-                        Many other competition sites focus solely on graphic design, but at Studio, you can challenge your coding skills in HTML, CSS, ActionScript, Flex 3, and JavaScript contests.  Are you a multi-talented web guru?  There's a competition perfect for your skill set on Studio right now. Can't code? Don't worry - Studio runs plenty of graphic designs contests as well!
+                        Many other competition sites focus solely on graphic design, but at Studio, you can challenge your coding skills in HTML, CSS, ActionScript, Flex 3, and JavaScript challenges.  Are you a multi-talented web guru?  There's a competition perfect for your skill set on Studio right now. Can't code? Don't worry - Studio runs plenty of graphic designs challenges as well!
                         </p>
                         
                         <h3>Big Clients. REALLY Big!</h3>
@@ -87,7 +87,7 @@
                         </p>
                         
                         <p>
-                        Studio also rewards designers for competing and placing high, not just for winning. Each contest awards Studio Cup points to designers who place within the top five best submissions.  Collect enough points and you can win a piece of the guaranteed $5,000 bonus pool. Win the Studio Cup in any given month, and you'll win a paid trip to watch our annual onsite championship. 
+                        Studio also rewards designers for competing and placing high, not just for winning. Each challenge awards Studio Cup points to designers who place within the top five best submissions.  Collect enough points and you can win a piece of the guaranteed $5,000 bonus pool. Win the Studio Cup in any given month, and you'll win a paid trip to watch our annual onsite championship. 
                         </p>
                         
                         <h3>Recruit Your Friends and Earn More</h3>
@@ -100,7 +100,7 @@
                         TopCoder Studio is always working to offer our community tools for success and the chance to take full advantage of the competition model.  In the future, Studio community members will have opportunities to earn more by guiding clients through projects, display their best work to the world with profile pages, and much more.  Stick with us - we're going places!
                          </p>
                          <p>
-                        Need to see more?  <a href="http://studio.topcoder.com/?module=ViewActiveContests">Check out our active contests right now</a>. 
+                        Need to see more?  <a href="http://studio.topcoder.com/?module=ViewActiveContests">Check out our active challenges right now</a>. 
                         </p>
                         <p>
                         Ready to sign up?  <a href="http://www.topcoder.com/reg/">Then let's get started</a>! 

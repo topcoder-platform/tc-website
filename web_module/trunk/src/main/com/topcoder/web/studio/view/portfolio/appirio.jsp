@@ -66,14 +66,14 @@
                     <!-- Begin Main Content -->
                     
                     <h1>Appirio</h1>
-                        <p>1 Contest in October 2008</p>
-                        <p>1 Application Front End Design Contest</p>
+                        <p>1 Challenge in October 2008</p>
+                        <p>1 Application Front End Design Challenge</p>
                         <div class="clear"></div>
                         
                         <div id="thumbs">
                             <ul>
                                 <li><a href="/i/portfolio/projects/appirio/index.html"  target="_blank" rel="thumbs" title="Appirio Quick Project - Convert Design to HTML/CSS"><img src="/i/portfolio/projects/appirio/thumbs/1.png" width="150" height="150" /></a><br />
-                                <div align="center">Prototype Contest</div></li>
+                                <div align="center">Prototype Challenge</div></li>
                                 
                             </ul>
                         </div>
@@ -83,14 +83,14 @@
                                 <div class="data">
                                         <table border="0" cellpadding="0" cellspacing="1">
                                             <tr>
-                                                <th>Contest Type</th>
-                                                <th>Contest Name</th>
+                                                <th>Challenge Type</th>
+                                                <th>Challenge Name</th>
                                                 <th>Duration</th>
                                                 <th>Subs</th>
                                                 <th>Client Selection</th>
                                             </tr>
                                             <tr>
-                                                <td>Application Front End Design Contest</td>
+                                                <td>Application Front End Design Challenge</td>
                                                 <td><a href="/i/portfolio/projects/appirio/index.html"   target="_blank" title="Appirio Quick Project - Convert Design to HTML/CSS">Appirio Quick Project - Convert Design to HTML/CSS</a></td>
                                                 <td>2 Days</td>
                                                 <td align="center">6</td>

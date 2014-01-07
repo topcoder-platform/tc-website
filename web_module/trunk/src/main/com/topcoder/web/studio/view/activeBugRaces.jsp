@@ -37,7 +37,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>TopCoder Studio : Active Bug Race Competitions</title>
+    <title>TopCoder Studio : Active Race Competitions</title>
     
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
@@ -89,7 +89,7 @@
         <div id="content-new">
             <div class="contentMask">
                 <div class="title">
-                    <h1>Active Bug Race Competitions</h1>
+                    <h1>Active Race Competitions</h1>
                     <p class="help">
                         Need help? Learn how to <a href="http://community.topcoder.com/studio/what-is-studio/">get started</a>.
                     </p>
@@ -99,17 +99,17 @@
                     <ul class="tabs">
                         <li>
                             <a href="${sessionInfo.servletPath}?module=ViewActiveContests">
-                                <span class="tabMask"><span class="text">Active Contests</span></span>
+                                <span class="tabMask"><span class="text">Active Challenges</span></span>
                             </a>
                         </li>
                         <li>
                             <a href="${sessionInfo.servletPath}?module=ViewPastContests">
-                                <span class="tabMask"><span class="text">Past Contests</span></span>
+                                <span class="tabMask"><span class="text">Past Challenges</span></span>
                             </a>
                         </li>
                         <li class="active">
                             <a href="${sessionInfo.servletPath}?module=ViewActiveBugRaces">
-                                <span class="tabMask"><span class="text">Active Bug Race Competitions</span></span>
+                                <span class="tabMask"><span class="text">Active Race Competitions</span></span>
                             </a>
                         </li>
                         <li>
@@ -140,10 +140,10 @@
                                     }
                                 %>
                                 <th class="first <%=((Boolean) sortDirection.get(new Integer(2))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("2") ? "hover" : ""%>">
-                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveBugRaces&sc=2&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Bug Race Competitions Title</span></a>
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveBugRaces&sc=2&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Race Competitions Title</span></a>
                                 </th>
                                 <th class="<%=((Boolean) sortDirection.get(new Integer(1))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("") || sortColumn.equals("1") ? "hover" : ""%>">
-                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveBugRaces&sc=1&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Bug Race Competition #</span></a>
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveBugRaces&sc=1&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Race Competition #</span></a>
                                 </th>
                                 <th class="<%=((Boolean) sortDirection.get(new Integer(3))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("3") ? "hover" : ""%>">
                                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveBugRaces&sc=3&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Prize</span></a>
@@ -157,7 +157,7 @@
                             <tr class="light">
                                 <td class="valueC" colspan="2">
                                     <div align="center" style="margin: 40px 0px 40px 0px;">
-                                        There are currently no bug race competitions, but check back soon.
+                                        There are currently no race competitions, but check back soon.
                                     </div>
                                 </td>
                             </tr>

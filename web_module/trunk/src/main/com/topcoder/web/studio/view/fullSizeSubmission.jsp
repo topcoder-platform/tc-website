@@ -89,11 +89,11 @@
 <div class="breadcrumb" style="margin-bottom: 10px;">
     <c:choose>
         <c:when test="${empty isOver || isOver}">
-            <a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a>
+            <a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Challenges</a>
             &gt;
         </c:when>
         <c:otherwise>
-            <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a>
+            <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Challenges</a>
             &gt;
         </c:otherwise>
     </c:choose>
@@ -149,7 +149,7 @@
                             <div class="button-line">
                                 <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}"
                                    class="btn-green">
-                                    <span class="right-side"><span class="text">Contest Details</span></span>
+                                    <span class="right-side"><span class="text">Challenge Details</span></span>
                                 </a>
 
                                 <studio:forumLink forumID="${contest.forumId}" styleClass="btn-orange"

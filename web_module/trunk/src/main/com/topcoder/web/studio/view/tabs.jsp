@@ -30,12 +30,12 @@
 
 <div id="thirdNavi">
     <studio:forumLink forumID="${contest.forumId}" styleClass="contestForum"
-                      message="<span class=\"right\"><span class=\"middle\">Contest Forum &raquo;</span></span>"/>
+                      message="<span class=\"right\"><span class=\"middle\">Challenge Forum &raquo;</span></span>"/>
     <ul>
         <li>
             <a ${currentTab eq 'd' ? 'class="current"' : ''}
                     href="${servletPath}?module=ViewContestDetails&amp;${CONTEST_ID}=${contest.id}">
-                <span class="right"><span class="middle">Contest Details</span></span></a>
+                <span class="right"><span class="middle">Challenge Details</span></span></a>
         </li>
 
         <c:choose>

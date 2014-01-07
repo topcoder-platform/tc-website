@@ -32,10 +32,10 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-<h1>Old Contests</h1>
+<h1>Old Challenges</h1>
 
 <div align="center">
-In the past, TopCoder has held contests to design logos for our online programming competitions.<br />These are the winning submissions. Click the logos for more details.
+In the past, TopCoder has held challenges to design logos for our online programming competitions.<br />These are the winning submissions. Click the logos for more details.
 <br /><br />
 <table cellpadding="0" cellspacing="0">
 <tbody>
