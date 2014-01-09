@@ -108,9 +108,9 @@ public class UserServiceImpl extends BaseImpl implements UserService {
     private static final String SQL_GET_USER_BY_HANDLE = "SELECT u.user_id, u.first_name, u.last_name, u.handle, " +
             "u.status, u.reg_source AS source, c.comp_country_code AS country, " +
             "(SELECT e.address FROM user AS u JOIN email AS e ON e.user_id = u.user_id JOIN 'informixoltp':coder AS c "+
-            "ON c.coder_id = u.user_id WHERE u.handle_lower = LOWER(?) AND e.email_type_id = 1) AS email, " +
+            "ON c.coder_id = u.user_id WHERE u.handle_lower = LOWER(?) AND e.email_type_id = 1 AND e.primary_ind = 1) AS email, " +
             "(SELECT e.address FROM user AS u JOIN email AS e ON e.user_id = u.user_id JOIN 'informixoltp':coder AS c "+
-            "ON c.coder_id = u.user_id WHERE u.handle_lower = LOWER(?) AND e.email_type_id = 2) AS second_email " +
+            "ON c.coder_id = u.user_id WHERE u.handle_lower = LOWER(?) AND e.email_type_id = 2 AND e.primary_ind = 1) AS second_email " +
             "FROM user AS u JOIN 'informixoltp':coder AS c ON c.coder_id = u.user_id WHERE u.handle_lower = LOWER(?)";
 
 
@@ -125,9 +125,9 @@ public class UserServiceImpl extends BaseImpl implements UserService {
     private static final String SQL_GET_USER_BY_EMAIL = "SELECT u.user_id, u.first_name, u.last_name, u.handle, " +
             "u.status, u.reg_source AS source, c.comp_country_code AS country, " +
             "(SELECT e.address FROM user AS u JOIN email as e ON e.user_id = u.user_id JOIN 'informixoltp':coder AS c "+
-            "ON c.coder_id = u.user_id WHERE e.address=? AND e.email_type_id = 1) AS email,  " +
+            "ON c.coder_id = u.user_id WHERE e.address=? AND e.email_type_id = 1 AND e.primary_ind = 1) AS email,  " +
             "(SELECT e.address FROM user AS u JOIN email as e ON e.user_id = u.user_id JOIN 'informixoltp':coder AS c ON " +
-            "c.coder_id = u.user_id WHERE e.address=? AND e.email_type_id = 2) AS second_email " +
+            "c.coder_id = u.user_id WHERE e.address=? AND e.email_type_id = 2 AND e.primary_ind = 1) AS second_email " +
             "FROM user AS u JOIN email as e ON e.user_id = u.user_id JOIN 'informixoltp':coder AS c " +
             "ON c.coder_id = u.user_id WHERE e.address=?";
 
@@ -136,8 +136,8 @@ public class UserServiceImpl extends BaseImpl implements UserService {
      */
      private static final String SQL_GET_USER_BY_USER_ID = "SELECT u.user_id, u.first_name, u.last_name, u.handle, " +
             "u.status, u.reg_source AS source, c.comp_country_code AS country, " +
-            "(SELECT e.address FROM email AS e WHERE e.user_id = ? AND e.email_type_id = 1) AS email,  " +
-            "(SELECT e.address FROM email AS e WHERE e.user_id = ? AND e.email_type_id = 2) AS second_email " +
+            "(SELECT e.address FROM email AS e WHERE e.user_id = ? AND e.email_type_id = 1 AND e.primary_ind = 1) AS email,  " +
+            "(SELECT e.address FROM email AS e WHERE e.user_id = ? AND e.email_type_id = 2 AND e.primary_ind = 1) AS second_email " +
             "FROM user AS u JOIN 'informixoltp':coder AS c ON c.coder_id = u.user_id WHERE u.user_id = ?";
      
     /**
