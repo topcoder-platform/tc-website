@@ -270,49 +270,65 @@ public class Submit extends BaseSubmissionDataProcessor {
                 saType.setId(STOCK_ART_CONTENT_ID);
                 
                 // read fonts
-                String[] fontNames = r.getParameterValues(Constants.FONT_NAME);
                 String[] fonts = r.getParameterValues(Constants.FONT);
-                String[] fontUrls = r.getParameterValues(Constants.FONT_URL);
-                for (int i = 0; i < fontNames.length; ++i) {
-                    String name = fontNames[i];
-                    String stdFont = fonts[i];
-                    String url = fontUrls[i];
-                    if (blank(name, "Font's Name") && blank(stdFont, "") && blank(url, "Font's URL Source")) {
-                        // if both name and url are missing, just skip it
-                        continue;
-                    }
-
-                    // validate font data
-                    String error = "";
-                    if (blank(name, "Font's Name")) {
-                        error = MISSING_NAME_DOT;
-                    } else if (blank(stdFont, "")) {
-                        error = MISSING_SOURCE_DOT;
-                    } else if (!blank(stdFont, "Studio Standard Fonts list") && blank(url, "Font's URL Source")) {
-                        error = MISSING_NAME_DOT;
-                    }
-
-                    fontsData.add(new String[] {name, stdFont, url, error});
-                    if (!blank(error)) {
-                        addError(Constants.SUBMISSION_SOURCE + '.' + i, error);
-                    }
-
-                    // If stdFont is "Studio Standard Fonts List" then submitter probably did not provide a url
-                    // so we set a URL link to TopCoder Studio font policy page
-                    if (blank(url, "Font's URL Source")) {
-                        url = TC_STUDIO_FONT_POLICY_LINK;
-                    } else if (!url.startsWith("http://")) {
-                        url = "http://" + url;
-                    }
-
+                
+                boolean noNewFonts = false;
+		for(int i = 0; i<fonts.length; i++) {
+		  if(fonts[i] == "I did not introduce any new fonts") {
                     // create ExternalContent object
                     ExternalContent font = new ExternalContent();
                     font.setContentType(fontType);
                     font.setDeclaration(submissionDeclaration);
                     font.setDisplayPosition(i);
-                    addProperty(font, "Name", name + " (" + stdFont + ")");
-                    addProperty(font, "Url", url);
+                    addProperty(font,"Name","I did not introduce any new fonts");
                     externalContents.add(font);
+                    noNewFonts = true;
+		  }
+		}
+		if(!noNewFonts){
+		  String[] fontNames = r.getParameterValues(Constants.FONT_NAME);
+		  String[] fontUrls = r.getParameterValues(Constants.FONT_URL);
+		  for (int i = 0; i < fontNames.length; ++i) {
+		      String name = fontNames[i];
+		      String stdFont = fonts[i];
+		      String url = fontUrls[i];
+		      if (blank(name, "Font's Name") && blank(stdFont, "") && blank(url, "Font's URL Source")) {
+			  // if both name and url are missing, just skip it
+			  continue;
+		      }
+
+		      // validate font data
+		      String error = "";
+		      if (blank(name, "Font's Name")) {
+			  error = MISSING_NAME_DOT;
+		      } else if (blank(stdFont, "")) {
+			  error = MISSING_SOURCE_DOT;
+		      } else if (!blank(stdFont, "Studio Standard Fonts list") && blank(url, "Font's URL Source")) {
+			  error = MISSING_NAME_DOT;
+		      }
+
+		      fontsData.add(new String[] {name, stdFont, url, error});
+		      if (!blank(error)) {
+			  addError(Constants.SUBMISSION_SOURCE + '.' + i, error);
+		      }
+
+		      // If stdFont is "Studio Standard Fonts List" then submitter probably did not provide a url
+		      // so we set a URL link to TopCoder Studio font policy page
+		      if (blank(url, "Font's URL Source")) {
+			  url = TC_STUDIO_FONT_POLICY_LINK;
+		      } else if (!url.startsWith("http://")) {
+			  url = "http://" + url;
+		      }
+
+		      // create ExternalContent object
+		      ExternalContent font = new ExternalContent();
+		      font.setContentType(fontType);
+		      font.setDeclaration(submissionDeclaration);
+		      font.setDisplayPosition(i);
+		      addProperty(font, "Name", name + " (" + stdFont + ")");
+		      addProperty(font, "Url", url);
+		      externalContents.add(font);
+		  }
                 }
 
                 // read stock art
