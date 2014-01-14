@@ -20,7 +20,7 @@
         </div>
 
 		<div id="content" class="registrationSuccessful">	
-        	<p class="hightLight">Thank you, <a href="my_account.html"><strong><%=request.getAttribute("user_handle")%></strong></a>. Your registration is now completed.</p>
+        	<p class="hightLight">Thank you, <a href='http://www.topcoder.com/member-profile/<%=request.getAttribute("user_handle")%>'><strong><%=request.getAttribute("user_handle")%></strong></a>. Your registration is now completed.</p>
             
 			<p>Note: You can now post in forums and view all of the competitions. However, if you plan to compete you will need to <a href="https://www.topcoder.com/reg/">complete your full profile</a> so we can pay you if you win. Why not do that now?
 Or, choose an area to visit below.</p>
