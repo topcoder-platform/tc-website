@@ -55,18 +55,34 @@
     <script type="text/javascript" src="/js/photo.js"></script>
     <script type="text/javascript" src="/js/tcscript.js"></script>
     
-    <script src="https://sdk.auth0.com/auth0.js#client=<%=Constants.CLIENT_ID_AUTH0%>&amp;state=https://<%=ApplicationServer.SERVER_NAME%>/tc&amp;redirect_uri=https://<%=ApplicationServer.SERVER_NAME%><%=Constants.BIND_CALLBACK_URL_AUTH0%>"></script>
+    <script src="//d19p4zemcycm7a.cloudfront.net/w2/auth0-widget-2.3.6.min.js"></script>
+    
     
     <script type="text/javascript">
+        var widget = new Auth0Widget({
+            domain: '<%=Constants.DOMAIN_AUTH0%>',
+            clientID: '<%=Constants.CLIENT_ID_AUTH0%>',
+            callbackURL: 'https://<%=ApplicationServer.SERVER_NAME%><%=Constants.BIND_CALLBACK_URL_AUTH0%>'
+        });
+
+        function showAuth0Widget(){
+            widget.signin({
+                icon: 'http://www.topcoder.com/i/24x24_brackets.png', 
+                showIcon: true}).on('signin_ready', function() {
+                $('.a0-email input').each(function() {
+                    $(this)
+                    .clone()
+                    .attr('type','text')
+                    .attr('placeholder', 'Username')
+                    .attr('title', 'Username')
+                    .insertAfter($(this)).prev().remove();
+                });
+            });  
+        }    
+            
         $(function() {
             $('#addSocialLink').click(function() {
-                window.Auth0.signIn({
-                    onestep: true,
-                    signupLink: 'https://<%=ApplicationServer.SERVER_NAME%>/reg2/showRegister.action',
-                    title: 'TopCoder/CloudSpokes',
-                    icon: 'https://www.topcoder.com/i/24x24_brackets.png',
-                    showIcon: true
-                });
+                showAuth0Widget();
             });
             
             $('#removeSocialLink').click(function(e) {
