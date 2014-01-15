@@ -1,3 +1,12 @@
+<%--
+  - Author: TCSASSEMBLER, gonia_119
+  - Version: 1.1
+  - Copyright (C) - 2014 TopCoder Inc., All Rights Reserved.
+  -
+  - Version 1.1 (Module Assembly - DocuSign Integration v1.0)
+  - add affidavit history support with docusign event type.
+  - -
+--%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.member.AffidavitHistory" %>
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
@@ -192,8 +201,15 @@
         </td>
         <td class="valueC">
             <c:choose>
-                <c:when test="${notarized}">yes</c:when>
-                <c:otherwise>no</c:otherwise>                 
+                <c:when test="${has_notarized_affidavit}">
+                    <c:choose>
+                        <c:when test="${notarized}">yes</c:when>
+                        <c:otherwise>no</c:otherwise>                 
+                    </c:choose>
+                </c:when>
+                <c:otherwise>
+                    <a href="/tc?module=SignDocument&templateId=<%=Constants.AFFIDAVIT_DOCUSIGN_TEMPLATE_ID %>&tabs.affidavitId=${affidavitId}">Notarize</a>
+                </c:otherwise>
             </c:choose>
         </td>
         <td class="valueC">

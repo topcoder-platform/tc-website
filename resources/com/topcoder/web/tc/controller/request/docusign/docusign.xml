@@ -1,6 +1,156 @@
 <?xml version="1.0" ?>
 <CMConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/export/home/tcssite/jboss-3.0.4_tomcat-4.0.6/server/default/conf/CM v2 Schema.xsd" version="v2">
-    <Property name="docusign_security_key">
-        <Value>POIUYTREW</Value>
-    </Property>
+    <Config name="com.topcoder.web.tc.controller.request.docusign.SignDocument">
+        <Property name="docuSignAccountEmail">
+            <Value>test@appirio.com</Value>
+        </Property>
+        <Property name="docuSignAccountPassword">
+            <Value>password</Value>
+        </Property>
+        <Property name="docuSignIntegratorKey">
+            <Value>APPI-xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</Value>
+        </Property>
+        <Property name="docuSignServerUrl">
+            <Value>https://demo.docusign.net</Value>
+        </Property>
+        <Property name="returnUrl">
+            <Value>http://tc.cloud.topcoder.com/tc?module=ReturnSigning&amp;envelopeId=${envelopeId}</Value>
+        </Property>
+    </Config>
+    <Config name="com.topcoder.web.tc.controller.request.docusign.DocuSignCallback">
+        <Property name="connectKey">
+            <Value>XXXXXXXXXX-YYYYYYYYYY-ZZZZZZZZZZZ</Value>
+        </Property>
+        <Property name="supportingEmailAddress">
+            <Value>testEmailAddress@topcoder.com</Value>
+        </Property>
+        <Property name="fromEmailAddress">
+            <Value>do-not-reply@topcoder.com</Value>
+        </Property>
+        <Property name="emailBodyTemplate">
+            <Value>
+                An error happened when processing DocuSign callback.
+                The support team needs to look into the cause immediately. The details follow. &lt;br/&gt; &lt;br/&gt;
+                userId: ${userId} &lt;br/&gt;
+                templateId: ${templateId} &lt;br/&gt;
+                envelopeId=${envelopeId} &lt;br/&gt;
+                error: ${error}
+            </Value>
+        </Property>
+        <Property name="emailSubjectTemplate">
+            <Value>Processing DocuSign document failed</Value>
+        </Property>
+        <Property name="handlers">
+            <Property name="DOCUSIGN_TEMPLATE_ID_FOR_TAXFORM_W9">
+                <Value>handlerForTaxFormW9</Value>
+            </Property>
+            <Property name="DOCUSIGN_TEMPLATE_ID_FOR_TAXFORM_W8BEN">
+                <Value>handlerForTaxFormW8Ben</Value>
+            </Property>
+            <Property name="DOCUSIGN_TEMPLATE_ID_FOR_ASSIGNMENT">
+                <Value>handlerForAssignmentDocument</Value>
+                <Value>handlerForTermOfUseAssignmentDocument</Value>
+            </Property>
+            <Property name="DOCUSIGN_TEMPLATE_ID_FOR_NDA">
+                <Value>handlerForAppirioNDA</Value>
+            </Property>
+            <Property name="DOCUSIGN_TEMPLATE_ID_FOR_AFFIDAVIT">
+                <Value>handlerForAffidavit</Value>
+            </Property>
+        </Property>
+    </Config>
+    <Config name="com.topcoder.web.tc.controller.request.docusign.DocuSignCallback.handlers">
+        <!-- tax form w9 -->
+        <Property name="handlerForTaxFormW9">
+            <Property name="type">
+                <Value>com.topcoder.web.tc.controller.request.docusign.handlers.TaxFormHandler</Value>
+            </Property>
+            <Property name="params">
+                <Property name="param1">
+                    <Property name="type">
+                        <Value>long</Value>
+                    </Property>
+                    <Property name="value">
+                        <Value>1</Value>
+                    </Property>
+                </Property>
+            </Property>
+        </Property>
+        <!-- tax form w8ben-->
+        <Property name="handlerForTaxFormW8Ben">
+            <Property name="type">
+                <Value>com.topcoder.web.tc.controller.request.docusign.handlers.TaxFormHandler</Value>
+            </Property>
+            <Property name="params">
+                <Property name="param1">
+                    <Property name="type">
+                        <Value>long</Value>
+                    </Property>
+                    <Property name="value">
+                        <Value>2</Value>
+                    </Property>
+                </Property>
+            </Property>
+        </Property>
+        <Property name="handlerForAssignmentDocument">
+            <Property name="type">
+                <Value>com.topcoder.web.tc.controller.request.docusign.handlers.AssignmentHandler</Value>
+            </Property>
+            <Property name="params">
+                <Property name="param1">
+                    <Property name="type">
+                        <Value>long</Value>
+                    </Property>
+                    <Property name="value">
+                        <Value>2030</Value>
+                    </Property>
+                </Property>
+            </Property>
+        </Property>
+        <Property name="handlerForTermOfUseAssignmentDocument">
+            <Property name="type">
+                <Value>com.topcoder.web.tc.controller.request.docusign.handlers.TermsOfUseHandler</Value>
+            </Property>
+            <Property name="params">
+                <Property name="param1">
+                    <Property name="type">
+                        <Value>long</Value>
+                    </Property>
+                    <Property name="value">
+                        <Value>20753</Value>
+                    </Property>
+                </Property>
+            </Property>
+        </Property>
+        <Property name="handlerForAppirioNDA">
+            <Property name="type">
+                <Value>com.topcoder.web.tc.controller.request.docusign.handlers.TermsOfUseHandler</Value>
+            </Property>
+            <Property name="params">
+                <Property name="param1">
+                    <Property name="type">
+                        <Value>long</Value>
+                    </Property>
+                    <Property name="value">
+                        <Value>20713</Value>
+                    </Property>
+                </Property>
+            </Property>
+        </Property>
+        <Property name="handlerForAffidavit">
+            <Property name="type">
+                <Value>com.topcoder.web.tc.controller.request.docusign.handlers.AffidavitHandler</Value>
+            </Property>
+            <Property name="params">
+                <Property name="param1">
+                    <Property name="type">
+                        <Value>String</Value>
+                    </Property>
+                    <Property name="value">
+                        <Value>affidavitId</Value>
+                    </Property>
+                </Property>
+            </Property>
+        </Property>
+    </Config>
 </CMConfig>

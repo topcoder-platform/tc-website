@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2013 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.dao;
 
@@ -50,8 +50,14 @@ package com.topcoder.web.common.dao;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER, VolodymyrK, isv, Standlove, TCSASSEMBLER
- * @version 1.6
+ * <p>
+ * Changes in version 1.7 (Module Assembly - DocuSign Integration v1.0):
+ * <ol>
+ *      <li>Add {@link #getDocuSignEnvelopeDAO()} method to get the docusign dao instance.</li>
+ * </ol>
+ * </p>
+ * @author dok, TCSDEVELOPER, VolodymyrK, isv, Standlove, gonia_119
+ * @version 1.7
  */
 public interface DAOFactory {
     /**
@@ -235,4 +241,11 @@ public interface DAOFactory {
      * @since 1.6
      */
     UserApiSpinDAO getUserApiSpinDAO();
+
+    /**
+     * Return a new DocuSignEnvelopeDAO instance.
+     * @return a new DocuSignEnvelopeDAO instance.
+     * @since 1.7
+     */
+    DocuSignEnvelopeDAO getDocuSignEnvelopeDAO();
 }
