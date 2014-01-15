@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2013 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.dao.hibernate;
 
@@ -56,8 +56,14 @@ import com.topcoder.web.common.dao.*;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER, isv, Standlove, TCSASSEMBLER
- * @version 1.6
+ * <p>
+ * Changes in version 1.7 (Module Assembly - DocuSign Integration v1.0):
+ * <ol>
+ *      <li>Add {@link #getDocuSignEnvelopeDAO()} method to get the docusign dao instance.</li>
+ * </ol>
+ * </p>
+ * @author dok, TCSDEVELOPER, isv, Standlove, gonia_119
+ * @version 1.7
  */
 public class DAOFactoryHibernate implements DAOFactory {
     /**
@@ -381,5 +387,14 @@ public class DAOFactoryHibernate implements DAOFactory {
      */
     public UserApiSpinDAO getUserApiSpinDAO() {
         return new UserApiSpinDAOHibernate();
+    }
+
+    /**
+     * Return a new DocuSignEnvelopeDAO instance.
+     * @return a new DocuSignEnvelopeDAO instance.
+     * @since 1.7
+     */
+    public DocuSignEnvelopeDAO getDocuSignEnvelopeDAO() {
+        return new DocuSignEnvelopeDAOHibernate();
     }
 }

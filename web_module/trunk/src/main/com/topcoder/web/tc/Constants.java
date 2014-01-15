@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2013 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc;
 
@@ -220,8 +220,16 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author pulky, isv, VolodymyrK, TrePe, gevak, ecnu_haozi, tangzx
- * @version 1.9.13
+ * <p>
+ * Changes in version 1.9.14 (Module Assembly - DocuSign Integration v1.0):
+ * <ol>
+ *      <li>Add {@link #RETURN_SIGNING} field.</li>
+ *      <li>Add {@link #SIGN_DOCUMENT} field.</li>
+ *      <li>Add {@link #AFFIDAVIT_DOCUSIGN_TEMPLATE_ID} field.</li>
+ * </ol>
+ * </p>
+ * @author pulky, isv, VolodymyrK, TrePe, gevak, ecnu_haozi, tangzx, gonia_119
+ * @version 1.9.14
  */
 public class Constants implements WebConstants {
 
@@ -1602,6 +1610,24 @@ public class Constants implements WebConstants {
     public static final String FILE_NAME = "filename";
 
     /**
+     * The return signing page which the controller will show.
+     * @since 1.9.14
+     */
+    public static String RETURN_SIGNING;
+
+    /**
+     * The affidavit docusign template id.
+     * @since 1.9.14
+     */
+    public static String AFFIDAVIT_DOCUSIGN_TEMPLATE_ID;
+
+    /**
+     * The sign document jsp page which the controller will show. 
+     * @since 1.9.14
+     */
+    public static String SIGN_DOCUMENT;
+
+    /**
      * The file download terms id.
      */
     public static String FILE_DOWNLOAD_TERMS_ID;
@@ -1611,6 +1637,9 @@ public class Constants implements WebConstants {
      */
     public static String AGREE_TO_TERMS_DEFAULT_PAGE;
 
+    /**
+     * The file download path.
+     */
     public static String FILE_TO_DOWNLOAD_PATH;
 
     /**

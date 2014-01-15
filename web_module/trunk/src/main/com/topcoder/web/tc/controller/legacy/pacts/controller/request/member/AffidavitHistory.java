@@ -1,3 +1,6 @@
+/*
+* Copyright (C) - 2014 TopCoder Inc., All Rights Reserved.
+*/
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.member;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
@@ -10,15 +13,27 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
- *
- * @author  cucu
+ * <p>
+ * Changes in version 1.1 (Module Assembly - DocuSign Integration v1.0):
+ * <ol>
+ *      <li>Update {@link #businessProcessing()} method to add has_notarized_affidavit
+ *          the check if the user has any notarized affidavit.</li>
+ * </ol>
+ * </p>
+ * @author  cucu, gonia_119
+ * @version 1.1
  */
 public class AffidavitHistory extends BaseProcessor implements PactsConstants {
 
 	public static final String FULL_LIST = "full_list";
 	public static final String AFFIDAVITS = "affidavits";
 	public static final String CODER = "cr";
-	
+
+	/**
+	 * the business process.
+	 * @throws TCWebException
+	 *     if any error occur.
+	 */
     protected void businessProcessing() throws TCWebException {
         try {
         	boolean fullList = "true".equals(getRequest().getParameter(FULL_LIST));
@@ -56,6 +71,12 @@ public class AffidavitHistory extends BaseProcessor implements PactsConstants {
             getRequest().setAttribute(AFFIDAVITS, rsc);
             getRequest().setAttribute(CODER, getUser().getId() + "");
         	getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
+        	
+        	//check if the user has any notarized affidavit,
+        	//and set the result to the request attribute "has_notarized_affidavit"
+        	boolean hasNotarizedAffidavit = dib.hasNotarizedAffidavit(getUser().getId(), 0);
+            getRequest().setAttribute("has_notarized_affidavit", hasNotarizedAffidavit);
+            
             setNextPage(PactsConstants.AFFIDAVIT_HISTORY_JSP);
             setIsNextPageInContext(true);
         	

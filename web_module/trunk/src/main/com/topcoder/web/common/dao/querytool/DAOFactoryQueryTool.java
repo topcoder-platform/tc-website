@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2013 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.dao.querytool;
 
@@ -52,8 +52,14 @@ import com.topcoder.web.common.dao.*;
  *   </ol>
  * </p>
  *
- * @author pulky, TCSDEVELOPER, isv, Standlove, TCSASSEMBLER
- * @version 1.6
+ * <p>
+ * Changes in version 1.7 (Module Assembly - DocuSign Integration v1.0):
+ * <ol>
+ *      <li>Add {@link #getDocuSignEnvelopeDAO()} method with no implementation of interface.</li>
+ * </ol>
+ * </p>
+ * @author pulky, TCSDEVELOPER, isv, Standlove, gonia_119
+ * @version 1.7
  */
 public class DAOFactoryQueryTool implements DAOFactory {
 
@@ -387,6 +393,16 @@ public class DAOFactoryQueryTool implements DAOFactory {
      * @since 1.4
      */
     public EmailRequestDAO getEmailRequestDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    /**
+     * Return a new DocuSignEnvelopeDAO instance.
+     * @return nothing, will throw exception.
+     * @throws RuntimeException currently it will always throw runtime exception.
+     * @since 1.7
+     */
+    public DocuSignEnvelopeDAO getDocuSignEnvelopeDAO() {
         throw new RuntimeException("Not supported");
     }
 }
