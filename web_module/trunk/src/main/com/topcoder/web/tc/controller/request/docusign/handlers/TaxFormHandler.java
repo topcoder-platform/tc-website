@@ -12,6 +12,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.InvalidSearchInputException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TaxFormHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxFormHeaderList;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UnsupportedSearchException;
 import com.topcoder.web.tc.controller.request.docusign.HandlerPermanentErrorException;
