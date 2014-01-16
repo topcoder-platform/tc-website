@@ -127,14 +127,17 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
             if (!payment.isCharity() &&
                 payment.getPaymentType() != BasePayment.CHARITY_PAYMENT &&
                 payment.getPaymentType() != BasePayment.NEGATIVE_PAYMENT) {
+
                 // check for tax form (every payment type)
                  checkUserTaxForm(payment, dib);
 
                  // check for affirmed affidavit (alg contests, alg tournaments, marathon matrches)
-                 checkAffirmedAffidavit(payment);
+                 // As of Jan 16, 2014 we do no longer require affidavits, so this check is commented out.
+                 //checkAffirmedAffidavit(payment);
 
                  // check for affirmed IP document (component contests, studio contests)
-                 checkAffirmedIPTransferDocument(payment, dib);
+                 // As of Jan 16, 2014 we do no longer require assignments, so this check is commented out.
+                 //checkAffirmedIPTransferDocument(payment, dib);
             }
 
             nextState(payment);
