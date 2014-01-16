@@ -300,9 +300,9 @@
                             <p><a href="/tc?module=EditPaymentPreferences">Payment preferences</a></p>
                         </td>
                         <td class="value">
-                            <p><a href="/PactsMemberServlet?module=AffidavitHistory">Affidavits</a></p>
+<!--                            <p><a href="/PactsMemberServlet?module=AffidavitHistory">Affidavits</a></p> -->
                             <p><a href="/PactsMemberServlet?module=PaymentHistory">Payments</a></p>
-                            <p><a href="/PactsMemberServlet?module=AssignmentDocumentHistory">Assignment documents</a></p>
+<!--                            <p><a href="/PactsMemberServlet?module=AssignmentDocumentHistory">Assignment documents</a></p> -->
                             <p><a href="/tc?module=VisaSelection">Visa letter status</a></p>
                         </td>
                         <td class="value">
