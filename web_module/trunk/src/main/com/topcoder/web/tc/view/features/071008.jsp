@@ -92,7 +92,7 @@ Since that moment, <tc-webtag:handle coderId="22679947" context="algorithm" /> a
 Winning <a href="/stat?c=round_overview&amp;er=5&amp;rd=12179">SRM 407</a>, I managed to solve three problems very fast and make two successful challenges, and then resisted the urge to make an unsuccessful challenge for eight minutes. It was a very nice moment, too much tension together (I can bet that it was more intense than my Bachelor's graduation will be).</p>
 
 <p><strong>What is the biggest obstacle you have had to overcome?</strong><br />
-Lazyness. I am a lazy person, sometimes it is very hard for me to start something and keep doing it. Fortunately, Computer Science and Programming Contests are interesting enough to keep me motivated and practicing.</p>
+Lazyness. I am a lazy person, sometimes it is very hard for me to start something and keep doing it. Fortunately, Computer Science and Programming challenges are interesting enough to keep me motivated and practicing.</p>
 
 <p><strong>What is one thing that you have learned at TopCoder that has helped you in other areas of your life?</strong><br />
 I have learned to code faster and with less bugs, and also learned many things about the STL I did not know before, which allows me to code simpler and faster at my work. Also, I have learned some mathematic stuff I did not know before, which helps me understand many algorithms. Finally, TopCoder had help me to be more focused when doing things, because when you are in a competition you have to be really focused to obtain good results (as everything in the life).</p>
@@ -108,7 +108,7 @@ Here are some advices I would give:
 </ul></p>
 
 <p><strong>What is the biggest contributor to your progress this month?</strong><br />
-I have been organizing a local contest, and by writing and testing some problems I have improved my ability to prove solutions, find bugs, and corner cases, etc.. Also, I finished my bachelor's seminar this month, and that allowed me to study and practice more for TopCoder and the Google CodeJam. Finally, my girlfriend have been very suportive with TopCoder and Programming Contests, she is always willing to hear about why my 500 pointer failed and my failed challenges, to the point of receiving calls at 11pm to speak with her about the last SRM.</p>
+I have been organizing a local contest, and by writing and testing some problems I have improved my ability to prove solutions, find bugs, and corner cases, etc.. Also, I finished my bachelor's seminar this month, and that allowed me to study and practice more for TopCoder and the Google CodeJam. Finally, my girlfriend have been very suportive with TopCoder and Programming challenges, she is always willing to hear about why my 500 pointer failed and my failed challenges, to the point of receiving calls at 11pm to speak with her about the last SRM.</p>
 
 <p><strong>What is your most stressful TopCoder moment?</strong><br />
 When I make a failed challenge, and then my solutions get challenged or fail the system tests. At that point, I have a negative value and nothing to do to fix it (except practicing more to prevent that to happen again).</p>
@@ -210,7 +210,7 @@ I just stick to some Asia food. I would recommend spicy SiChuan food and Thai fo
     <img src="/i/m/djackmania_big.jpg" alt="djackmania, June's Studio Designer of the Month" />
 </div>
 Studio Design: <tc-webtag:handle coderId="22690288" /><br />
-Won 8 contests, for a<br />
+Won 8 challenges, for a<br />
 total of $3950! <br />
 &nbsp;
 </p>
@@ -225,7 +225,7 @@ TCO'08 finalist and got the email: <strong>Congratulations From TopCoder Studio!
 Lack in coding and scripting, maybe next time :)</p>
 
 <p><strong>What is one thing that you have learned at TopCoder that has helped you in other areas of your life?</strong><br />
-Do everything as soon as possible... If you don't you will have lost the great chance (TC version: Error - Inactive contest specified.)</p>
+Do everything as soon as possible... If you don't you will have lost the great chance (TC version: Error - Inactive challenge specified.)</p>
 
 <p><strong>What advice would you give to someone just starting out?</strong><br />
 3P+p: <strong>Practice</strong> make <strong>Perfect</strong> with <strong>Passion</strong> and don't worry you'll get <strong>paid :)</strong></p>

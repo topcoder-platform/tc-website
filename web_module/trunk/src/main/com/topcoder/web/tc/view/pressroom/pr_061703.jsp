@@ -47,12 +47,12 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 
 <div align="center">
 <p><span class="bodyTitle">TopCoder Adds Sweden To Its Developer Community</span><br />
-<span class="bodySubTitle"><em>Host of Computer Programming Contests Continues Global Expansion</em></span></p>
+<span class="bodySubTitle"><em>Host of Computer Programming challenges Continues Global Expansion</em></span></p>
 </div>
 
 <p><strong>GLASTONBURY, Conn., June 17, 2003&#151;</strong>TopCoder, Inc., the leader in on-line programming 
 competition and skills assessment, today announced it has expanded eligibility for cash prizes in its online and onsite 
-computer programming contests to include citizens of Sweden.  The addition of Sweden to the TopCoder developer community 
+computer programming challenges to include citizens of Sweden.  The addition of Sweden to the TopCoder developer community 
 demonstrates the company's continuing global expansion efforts.  Sweden is the eighth international territory to be added 
 since the company launched its competitions in February 2001.  Citizens of Australia, Canada (excluding Quebec), China, 
 India, Ireland, New Zealand, the United Kingdom and the United States are also eligible to receive cash prizes.  Citizens 

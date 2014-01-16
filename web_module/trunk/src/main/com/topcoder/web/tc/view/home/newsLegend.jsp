@@ -163,7 +163,7 @@ OR
 <%------------------ALGORITHM COMPETITION--------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>12.04.06<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=11060">Arena Skin Contest Vote</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=11060">Arena Skin Challenge Vote</A></span><br><br>
       The 5 finalists are ready, and now you pick the winner.
       </td>
    </tr>

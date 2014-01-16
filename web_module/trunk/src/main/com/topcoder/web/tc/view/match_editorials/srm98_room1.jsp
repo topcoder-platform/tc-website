@@ -195,7 +195,7 @@
 </ol>
 <B>System Test Phase</B>
 <p>
-            Who would win money in this match was still very much in question as the contest ended.
+            Who would win money in this match was still very much in question as the challenge ended.
             <B>dmwright</B> lead with 1285.84 points, but was followed very closely by <B>SnapDragon</B> with 1269.13 points
             and <B>bigg_nate</B> with 1204.10 points.  <B>malpt</B> and <B>John Dethridge</B> each also had a chance,
             with scores of 1027.47 and 1023.70 respectively.  It would come down to who had made the fewest mistakes

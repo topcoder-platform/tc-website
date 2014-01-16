@@ -56,7 +56,7 @@
 <h2>Match summary</h2> 
 
 <p> 
-TCHS SRM 57 was easier than a typical TCHS SRM, with higher than 50% success rate in all 3 problems. More than 30 coders submitted all 3 problems, and 16 coders were able to get all 3 correct. The winner was <tc-webtag:handle coderId="22664055" context="hs_algorithm"/>, who finished 3 problems within 20 minutes after the contest started.
+TCHS SRM 57 was easier than a typical TCHS SRM, with higher than 50% success rate in all 3 problems. More than 30 coders submitted all 3 problems, and 16 coders were able to get all 3 correct. The winner was <tc-webtag:handle coderId="22664055" context="hs_algorithm"/>, who finished 3 problems within 20 minutes after the challenge started.
 
 </p> 
  

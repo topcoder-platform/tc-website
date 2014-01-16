@@ -92,7 +92,7 @@ return 0;//or appropriate for method signature
 }
 </PRE>
 <P>
-You're not writing this program to pass systests, but rather to judge the power of the server running your code. As an exercise, test this program and adjust that 1000000000 figure to fit in exactly less than 8 seconds (I got around 1.085 billion without timing out). This is to illustrate a basic fact: in any contest solution you can perform up to a billion simple operations. That's the magic number; never forget it.
+You're not writing this program to pass systests, but rather to judge the power of the server running your code. As an exercise, test this program and adjust that 1000000000 figure to fit in exactly less than 8 seconds (I got around 1.085 billion without timing out). This is to illustrate a basic fact: in any challenge solution you can perform up to a billion simple operations. That's the magic number; never forget it.
 </P>
 	
 <B>Judging the cost of expensive primitives:</B>

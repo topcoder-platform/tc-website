@@ -15,7 +15,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <jsp:include page="dev_design_links.jsp"/>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" style="float: left; width: 270px; margin-right: 15px; margin-bottom: 15px;">
-    <tr><td class="title" colspan="3">Best Component Contest Winning Percentage</td></tr>
+    <tr><td class="title" colspan="3">Best Component Challenge Winning Percentage</td></tr>
     <tr><td class="headerC">Rank</td><td class="header">Coder</td><td class="headerR" nowrap="nowrap">Winning Percentage</td></tr>
     <% boolean even = false; %>
     <rsc:iterator list="<%=rsc%>" id="row">
@@ -28,9 +28,9 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> Highest percentage of wins per contest where the competitor made a submission that passed screening.
-    In order to be listed, a competitor must have at least 5 such contests.
-    This does not include contests where the competitor did not reach the minimum score.  Only contests where the competitor was rated are included.
+<strong>Record:</strong> Highest percentage of wins per challenge where the competitor made a submission that passed screening.
+    In order to be listed, a competitor must have at least 5 such challenges.
+    This does not include challenges where the competitor did not reach the minimum score.  Only challenges where the competitor was rated are included.
 </span>
 </div>
 </html>

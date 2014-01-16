@@ -215,7 +215,7 @@ int getDistance(string s) {
 </pre>
 
 Of course, brute force is not the only solution to this problem.
-Now, when the contest is over and you have a bit more time, 
+Now, when the challenge is over and you have a bit more time, 
 try to find a mathematical solution for this problem.
 <br /><br />
 

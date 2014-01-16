@@ -211,61 +211,61 @@ function goBack() {
                 <c:when test="${pt == DESIGN_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="comp_design"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="comp_development"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="assembly"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="architecture"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == COMPONENT_TESTING_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="comp_testing"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="test_suites"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="test_scenarios"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="ui_prototype"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="ria_build"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == RIA_COMPONENT_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="ria_component"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == COPILOT_POSTING_PROJECT_TYPE}">
@@ -277,31 +277,31 @@ function goBack() {
                 <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="content_creation"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == REPORTING_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="reporting"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == BUG_HUNT_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="bug_hunt"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == FIRST2FINISH_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="first2finish"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == CODE_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="code"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
             </c:choose>
@@ -442,7 +442,7 @@ function goBack() {
                                 <c:otherwise>
                                     <c:if test="${not empty notRegistered}">
                                         <span class="errorText">
-                                         Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
+                                         Please be aware that you are NOT REGISTERED for the tournament, and registering for this challenge will not register you for the tournament.  If you don't register for the tournament prior to registering for this challenge, it will not count in the tournament standings even if you sign up at a later date.
                                          </span><br /><br />
                                     </c:if>
                                     <c:set var="captchaFileName" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>

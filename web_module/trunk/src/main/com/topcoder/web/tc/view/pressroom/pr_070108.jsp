@@ -43,16 +43,16 @@
 <div align="right"><tc-webtag:forumLink forumID="522007" message="Discuss this press release" /></div>
                         
 <div align="center">
-<p><span class="bodyTitle">Dr. Dobb's Architecture &amp; Design World 2008 to Feature Software Design Contest Powered by TopCoder</span><br />
+<p><span class="bodyTitle">Dr. Dobb's Architecture &amp; Design World 2008 to Feature Software Design Challenge Powered by TopCoder</span><br />
 <span class="bodySubTitle"><em>Architects Challenged to Create and Document Comprehensive Solutions to<br />Set of System Requirements</em></span></p>
 </div>
       
 <p>
-<strong>GLASTONBURY, CT. &amp; SAN FRANCISCO, CA., July 1, 2008 &#151;</strong>TopCoder&reg;, Inc. and Think Services today announced that a live software competition will take place on-site at Dr. Dobb's Architecture &amp; Design World 2008, being held on July 21-24, 2008 at the Hyatt Regency McCormick Place in Chicago. The Software Architecture Contest will provide attendees with a real-world exercise in architectural design, facing off on an even playing field with their peers to determine who can create and document the best comprehensive software solution to address a set of system requirements.
+<strong>GLASTONBURY, CT. &amp; SAN FRANCISCO, CA., July 1, 2008 &#151;</strong>TopCoder&reg;, Inc. and Think Services today announced that a live software competition will take place on-site at Dr. Dobb's Architecture &amp; Design World 2008, being held on July 21-24, 2008 at the Hyatt Regency McCormick Place in Chicago. The Software Architecture Challenge will provide attendees with a real-world exercise in architectural design, facing off on an even playing field with their peers to determine who can create and document the best comprehensive software solution to address a set of system requirements.
 </p>
 
 <p>
-"We are happy to be partnering with TopCoder on this software architecture contest and look forward to seeing the creative solutions developed by our attendees at Architecture &amp; Design World," remarked Amber Ankerholz, Conference Manager, Dr. Dobb's Events.
+"We are happy to be partnering with TopCoder on this software architecture challenge and look forward to seeing the creative solutions developed by our attendees at Architecture &amp; Design World," remarked Amber Ankerholz, Conference Manager, Dr. Dobb's Events.
 </p>
 
 <p>
@@ -68,7 +68,7 @@ During Architecture &amp; Design World attendees will be able to browse and scor
 </p>
 
 <p>
-The contest will take place both online and onsite leading up to the conclusion of Dr. Dobb's Architecture &amp; Design World, and is open to residents of the United States (excluding Puerto Rico) and Canada (excluding the province of Quebec), with free registration as a TopCoder member required to compete in the arena. For more information, including rules and conditions, please visit the contest page at: <a href="<tc-webtag:linkTracking link='http://www.topcoder.com/dobbs' refer='pr_070108' />">www.topcoder.com/dobbs</a>
+The challenge will take place both online and onsite leading up to the conclusion of Dr. Dobb's Architecture &amp; Design World, and is open to residents of the United States (excluding Puerto Rico) and Canada (excluding the province of Quebec), with free registration as a TopCoder member required to compete in the arena. For more information, including rules and conditions, please visit the challenge page at: <a href="<tc-webtag:linkTracking link='http://www.topcoder.com/dobbs' refer='pr_070108' />">www.topcoder.com/dobbs</a>
 </p>
 
 <p>

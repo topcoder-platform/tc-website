@@ -18,7 +18,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <title>TopCoder :: Active Contests</title>
+    <title>TopCoder :: Active Challenges</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="../../script.jsp"/>
@@ -50,7 +50,7 @@
 <td width="100%" align="left" class="bodyColumn">
 <jsp:include page="/page_title.jsp">
     <jsp:param name="image" value="cloudspokes"/>
-    <jsp:param name="title" value="Active Contests"/>
+    <jsp:param name="title" value="Active Challenges"/>
 </jsp:include>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
@@ -74,11 +74,11 @@
     <thead>
         <tr>
             <th class="title" colspan="6">
-                Active CloudSpokes Contests
+                Active CloudSpokes Challenges
             </th>
         </tr>
         <tr>
-            <th class="header" width="30%"><a href="javascript:;">Contest</a></th>
+            <th class="header" width="30%"><a href="javascript:;">Challenge</a></th>
 			<td class="header" width="10%">&#160;</td>
             <th class="headerC" width="15%" style="text-align: center"><a href="javascript:;">Register by</a></th>
             <th class="headerC" width="15%" style="text-align: center"><a href="javascript:;">Submit by</a></th>

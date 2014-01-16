@@ -117,21 +117,21 @@
                                                 <img src="/i/copilots/help.png" class="help" alt=""
                                                      title="The total number of projects the copilot manages"/>
                                             </th>
-                                            <th class="border-l"># of Contests&nbsp;
+                                            <th class="border-l"># of Challenges&nbsp;
                                                 <img src="/i/copilots/help.png" class="help" alt=""
-                                                     title="The total number of contests the copilot manages"/>
+                                                     title="The total number of challenges the copilot manages"/>
                                             </th>
                                             <th class="border-l"># of Reposts&nbsp;
                                                 <img src="/i/copilots/help.png" class="help" alt=""
-                                                     title="The number of contests managed by the copilot which were reposted"/>
+                                                     title="The number of challenges managed by the copilot which were reposted"/>
                                             </th>
                                             <th class="border-l"># of Failures&nbsp;
                                                 <img src="/i/copilots/help.png" class="help" alt=""
-                                                     title="The number of contests managed by the copilot which were failed"/>
+                                                     title="The number of challenges managed by the copilot which were failed"/>
                                             </th>
-                                            <th class="border-l border-r"># of Bug Races&nbsp;
+                                            <th class="border-l border-r"># of Races&nbsp;
                                                 <img src="/i/copilots/help.png" class="help" alt=""
-                                                     title="The number of bug races the copilot manages"/>
+                                                     title="The number of races the copilot manages"/>
                                             </th>
                                         </tr>
                                     </thead>
@@ -158,7 +158,7 @@
                                                 <span class="label b">Currently Working on</span>
                                             <span class="numberof">Number of Projects:
                                                 <span class="font-color01 b">${copilotProfile.currentProjects}</span>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Number of Contests: <span
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Number of Challenges: <span
                                                         class="font-color01 b">${copilotProfile.currentContests}</span></span>
                                             </td>
                                         </tr>
@@ -193,11 +193,11 @@
                                                     <c:forEach items="${requestScope.copilotProfile.contestTypeStats}" var="entry">
                                                         <table class="ctype${entry.value.projectCategoryId}">
                                                             <tr>
-                                                                <td>Planned Number of Contests:</td>
+                                                                <td>Planned Number of Challenges:</td>
                                                                 <td class="number b">${entry.value.plannedContests == -1 ? 'n/a' : entry.value.plannedContests}</td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Actual Number of Contests:</td>
+                                                                <td>Actual Number of Challenges:</td>
                                                                 <td class="number b">${entry.value.realContests}</td>
                                                             </tr>
                                                             <tr>
@@ -218,7 +218,7 @@
                              </c:when>
                             <c:otherwise>
                                 <div class="noChartData">
-                                    The copilot does not have any contest data available
+                                    The copilot does not have any challenge data available
                             </c:otherwise>
                           </c:choose>
                         </div>
@@ -307,7 +307,7 @@
                                                                         </c:if>
                                                                         <c:if test="${entry['managementRating'] != null}">
                                                                             <dd>
-                                                                                <label title="Manages other copilots, manages contests, manages inter-contest work">Contest management</label>
+                                                                                <label title="Manages other copilots, manages challenges, manages inter-contest work">Challenge management</label>
                                                                                 <div class="ratingView">
                                                                                     <input type="hidden" name="rating" value="${entry['managementRating']}"/>
 

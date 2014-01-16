@@ -63,7 +63,7 @@
 <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
 <jsp:include page="../page_title.jsp">
     <jsp:param name="image" value="schedule"/>
-    <jsp:param name="title" value="Contest"/>
+    <jsp:param name="title" value="Challenge"/>
 </jsp:include>
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
@@ -218,7 +218,7 @@
             <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18
                 years of age, and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the
                 Quebec
-                province of Canada, or anywhere else where this contest is prohibited by applicable law.
+                province of Canada, or anywhere else where this challenge is prohibited by applicable law.
             </li>
             <li><a href="/tc?module=Static&amp;d1=help&amp;d2=ratings">Rating changes</a> go into effect in next participated
                 rated
@@ -235,7 +235,7 @@
             <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18
                 years of age, and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the
                 Quebec
-                province of Canada, or anywhere else where this contest is prohibited by applicable law.
+                province of Canada, or anywhere else where this challenge is prohibited by applicable law.
             </li>
             <li>In the event that any member who is ineligible to receive prizes places in a position in which they
                 would
@@ -300,7 +300,7 @@
             <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18
                 years of age, and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the
                 Quebec
-                province of Canada, or anywhere else where this contest is prohibited by applicable law.
+                province of Canada, or anywhere else where this challenge is prohibited by applicable law.
             </li>
             <li><a href="/tc?module=Static&amp;d1=help&amp;d2=ratings">Rating changes</a> go into effect in next participated
                 rated
@@ -317,7 +317,7 @@
             <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18
                 years of age, and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the
                 Quebec
-                province of Canada, or anywhere else where this contest is prohibited by applicable law.
+                province of Canada, or anywhere else where this challenge is prohibited by applicable law.
             </li>
             <li>In the event that any member who is ineligible to receive prizes places in a position in which they
                 would

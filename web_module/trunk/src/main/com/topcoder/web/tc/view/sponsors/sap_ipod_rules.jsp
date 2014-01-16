@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Official Contest Rules</title>
+<title>Official Challenge Rules</title>
 
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
@@ -17,7 +17,7 @@
     <tr valign="top">
         <td width="510" class="bodyText">
 
-<h2>Official Contest Rules - iPod: 60GB</h2>
+<h2>Official Challenge Rules - iPod: 60GB</h2>
 
 <p><strong>NO PURCHASE NECESSARY TO ENTER OR WIN</strong></p>
 

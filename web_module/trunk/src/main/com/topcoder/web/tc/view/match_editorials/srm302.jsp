@@ -48,7 +48,7 @@
 <span class="bigTitle">Match summary</span>
 
 <p> 
-This contest was held just one and a half day after <a href="/tc?module=Static&d1=match_editorials&d2=srm301">the previous SRM</a> &mdash; 
+This challenge was held just one and a half day after <a href="/tc?module=Static&d1=match_editorials&d2=srm301">the previous SRM</a> &mdash; 
 nevertheless the number of the participants was pretty high. 
 Russian coders put on an excellent performance, getting five of 
 the top 10 places, including first and second. 

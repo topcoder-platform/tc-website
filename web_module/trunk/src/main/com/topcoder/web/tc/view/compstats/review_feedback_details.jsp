@@ -48,9 +48,9 @@
 
 
 <% if (review_feedback.isEmpty()) { %>
-    <b>The review feedback is not available for this contest yet.</b>
+    <b>The review feedback is not available for this challenge yet.</b>
 <% } else { %>
-    <b>Contest:</b> <a href='/tc?module=ProjectDetail&pj=<rsc:item name="project_id" set="<%=review_feedback%>"/>&tab=results' class="statLink"><rsc:item set="<%=review_feedback%>" name="project_name"/></a>
+    <b>Challenge:</b> <a href='/tc?module=ProjectDetail&pj=<rsc:item name="project_id" set="<%=review_feedback%>"/>&tab=results' class="statLink"><rsc:item set="<%=review_feedback%>" name="project_name"/></a>
     <br>
     <b>Feedback author:</b> <tc-webtag:handle coderId='<%= review_feedback.getStringItem(0, "create_user") %>'/>
     <br>
@@ -70,7 +70,7 @@
 
                  <% if (review_feedback.getStringItem(0, "comment") != null) { %>
                    <tr>
-                     <td class="tableHeader" style="border-top: 1px solid #999999;">The review feedback is not available for this contest for the reason stated below.</td>
+                     <td class="tableHeader" style="border-top: 1px solid #999999;">The review feedback is not available for this challenge for the reason stated below.</td>
                    </tr>
                    <tr>
                      <td class="statLt" style="border-top: 1px solid #999999;"><rsc:item name="comment" set="<%=review_feedback%>" escapeHtml="true" /></td>
@@ -95,8 +95,8 @@
     </table>
 
     <br/>
-    Have a question about review feedback for this contest?
-    <a href='https://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ContactManager.do?method=contactManager&amp;pid=<rsc:item name="project_id" set="<%=review_feedback%>"/>'>Contact the contest managers</a>
+    Have a question about review feedback for this challenge?
+    <a href='https://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ContactManager.do?method=contactManager&amp;pid=<rsc:item name="project_id" set="<%=review_feedback%>"/>'>Contact the challenge managers</a>
 
 <% } %>
 

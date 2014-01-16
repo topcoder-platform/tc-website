@@ -79,7 +79,7 @@ the main educational benefits to be the following.</p>
 </ul>
 
 <p><span class="bodySubtitle">Pitfalls</span><br/>
-While there are many good things to be said about programming contests,
+While there are many good things to be said about programming challenges,
 there are some real dangers as well--things that everyone should be
 aware of.</p>
 
@@ -115,7 +115,7 @@ students, professionals, and even a university professor.  As should be
 obvious from my first few competitions, I learned C++ in the arena.</p>
 
 <p>While it may be uncommon to find TopCoder in a university course
-today, over time this may change.  Time constrained contests are a
+today, over time this may change.  Time constrained challenges are a
 great way to sharpen coding chops, and better coders produce much more
 reliable software.  The Association for Computing Machinery understands
 this--they've been doing competitions for thirty years.  Perhaps it's

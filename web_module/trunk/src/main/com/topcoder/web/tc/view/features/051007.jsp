@@ -68,7 +68,7 @@
 
 <p>But then there are those things which separate this competition from the typical SRM-style match, beyond the time commitment.  First, there is no single correct answer for any given test case (well, except maybe one match where a perfect solution was attainable, though that was not intended by the problem's creators).  In fact, most of the problems can be generalized to any of a number of "NP hard" problems, for which it is known that computing a perfect solution for a large enough test case is for all intents impossible, at least if you are hoping to have the calculations complete within your own lifetime.</p>
 
-<p>Next, resubmission is not only free from penalty, but is in fact encouraged, and is generally an essential part of participation.  As the contest progresses, one can see their current standing against everyone else, and it is very easy to quantitatively determine if an "improved" solution really does fare better against the competition.</p>
+<p>Next, resubmission is not only free from penalty, but is in fact encouraged, and is generally an essential part of participation.  As the challenge progresses, one can see their current standing against everyone else, and it is very easy to quantitatively determine if an "improved" solution really does fare better against the competition.</p>
 
 <p>Also, because of the length of time and nature of the problems, working "offline" is a much more common -- and again, almost essential -- part of doing well.  In some cases this means spending significant time in generating your own test cases, writing code to simulate the behavior of the TC server, or other similar tasks that are ancillary to the actual coding at hand.</p>
 

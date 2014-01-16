@@ -47,11 +47,11 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 
 <div align="center">
 <p><span class="bodyTitle">TopCoder&#174;-Powered Coding Challenge to Feature at Sun's 2005 JavaOne<sup>SM</sup> Conference</span><br />
-<span class="bodySubTitle"><em>Highly Rated JavaOne Programming Contest Returns for Third Consecutive Year at Worldwide Java Developer Event</em></span></p>
+<span class="bodySubTitle"><em>Highly Rated JavaOne Programming Challenge Returns for Third Consecutive Year at Worldwide Java Developer Event</em></span></p>
 </div>
 
 <p><strong>Glastonbury, CT, May 2, 2005&#151;</strong>
-TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced that they are again teaming up with Sun Microsystems, Inc. (Nasdaq: SUNW), the creator and leading advocate of Java(TM) technology, to host the JavaOne Coding Challenge at the tenth annual 2005 JavaOne conference, scheduled for June 27 - 30th at Moscone Center in San Francisco. As one of the most popular events held during the JavaOne conference, the Java Coding Challenge is an exciting contest of Java development skills and creativity. Judged by Java industry luminaries such as James Gosling, the inventor of Java, this year's event promises to raise the bar with TopCoder putting tremendous challenges forward for the competition.
+TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced that they are again teaming up with Sun Microsystems, Inc. (Nasdaq: SUNW), the creator and leading advocate of Java(TM) technology, to host the JavaOne Coding Challenge at the tenth annual 2005 JavaOne conference, scheduled for June 27 - 30th at Moscone Center in San Francisco. As one of the most popular events held during the JavaOne conference, the Java Coding Challenge is an exciting challenge of Java development skills and creativity. Judged by Java industry luminaries such as James Gosling, the inventor of Java, this year's event promises to raise the bar with TopCoder putting tremendous challenges forward for the competition.
 <br /><br />
 "The TopCoder-powered Coding Challenge continues to be one of highest rated and most exciting programs offered at the JavaOne Conference," said Matt Thompson, Director of Developer Outreach for Sun Microsystems. "It's a great opportunity for developers to come test their Java language coding skills in a unique developer-to-developer format."
 <br /><br />

@@ -187,7 +187,7 @@
 <tr class="light"><td class="value"><span class="bigRed">Ghostar</span></td><td class="value"><span class="bigRed">AssertionsOn: That</span></td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">Ghostar</span></td><td class="value"><span class="bigRed">AssertionsOn: That's a hard one to estimate</span></td></tr>
 <tr class="light"><td class="value"><strong>afonseca</strong></td><td class="value">AdamSelene: Are there plans to use Ruby? Rails?</td></tr>
-<tr class="dark"><td class="value"><span class="bigRed">Ghostar</span></td><td class="value"><span class="bigRed">AssertionsOn: I tend to take around 10 hours to complete one, but I pull from a lot of past contests I have done</span></td></tr>
+<tr class="dark"><td class="value"><span class="bigRed">Ghostar</span></td><td class="value"><span class="bigRed">AssertionsOn: I tend to take around 10 hours to complete one, but I pull from a lot of Past Challenges I have done</span></td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">afonseca: RoR is an option we explored late last year, right now we don't have any client demand but we are definitely open to it</span></td></tr>
 <tr class="dark"><td class="value"><strong>kurtrips</strong></td><td class="value">Ghostar: So given an architecture competition, how do we know what's required?</td></tr>
 <tr class="light"><td class="value"><span class="bigRed">Ghostar</span></td><td class="value"><span class="bigRed">AssertionsOn: Also, I am very familiar with the templates and deliverables</span></td></tr>
@@ -249,10 +249,10 @@
 <tr class="light"><td class="value"><strong>connect4</strong></td><td class="value">So to clarify, from the little I'm looking at right now, architecture competitions are more about setting up a design and less about writing code?</td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">Ghostar</span></td><td class="value"><span class="bigRed">connect4: That's correct</span></td></tr>
 <tr class="light"><td class="value"><span class="bigRed">Ghostar</span></td><td class="value"><span class="bigRed">connect4: Depending on the project, you may not write any code at all</span></td></tr>
-<tr class="dark"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">dcp: At least a major part of the TCO will be the SDC contests.  You can help influence the platform for those by participating in the concept and architecture for those =)</span></td></tr>
+<tr class="dark"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">dcp: At least a major part of the TCO will be the SDC challenges.  You can help influence the platform for those by participating in the concept and architecture for those =)</span></td></tr>
 <tr class="light"><td class="value"><strong>kurtrips</strong></td><td class="value">AdamSelene: Recently I have seen many design competitions launched which already have an almost complete tcuml as input. Are these the output of an architecture competition?</td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">Ghostar</span></td><td class="value"><span class="bigRed">kurtrips: I would assume so</span></td></tr>
-<tr class="light"><td class="value"><strong>dcp</strong></td><td class="value">AdamSelene: Sorry, not sure what SDC contest is, is that "specification"?</td></tr>
+<tr class="light"><td class="value"><strong>dcp</strong></td><td class="value">AdamSelene: Sorry, not sure what SDC challenge is, is that "specification"?</td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">kurtrips: That is possibly the case but I am not sure - normally the architecture will only provide the API which is shared between two components so that they can be performed in parallel</span></td></tr>
 <tr class="light"><td class="value"><span class="bigRed">Ghostar</span></td><td class="value"><span class="bigRed">kurtrips: I personally tend to provide pretty detailed sequence and interface documents</span></td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">kurtrips: dcp - the Sensations Developer Challenge - link in a second</span></td></tr>
@@ -269,12 +269,12 @@
 <tr class="light"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">=)</span></td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">Ghostar</span></td><td class="value"><span class="bigRed">connect4: That's right.  I think the testing competitions are towards the end of the process</span></td></tr>
 <tr class="light"><td class="value"><strong>connect4</strong></td><td class="value">You're a smrt typer there adam :)</td></tr>
-<tr class="dark"><td class="value"><span class="bigRed">Ghostar</span></td><td class="value"><span class="bigRed">connect4: I think the test competitions are broken up into specification and implementation contests</span></td></tr>
+<tr class="dark"><td class="value"><span class="bigRed">Ghostar</span></td><td class="value"><span class="bigRed">connect4: I think the test competitions are broken up into specification and implementation Challenges</span></td></tr>
 <tr class="light"><td class="value"><span class="bigRed">Ghostar</span></td><td class="value"><span class="bigRed">connect4: At least they were in the past</span></td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">Yes, that is how they tend to run still.</span></td></tr>
 <tr class="light"><td class="value"><strong>connect4</strong></td><td class="value">Ghostar: Cool, thanks for the learneding :)  Do you have to administer the architecture thing once you win it?</td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">They are not part of architecture.</span></td></tr>
-<tr class="light"><td class="value"><span class="bigRed">Ghostar</span></td><td class="value"><span class="bigRed">connect4: Yep, support for all contests that come out of the competition is the responsibility of the winner</span></td></tr>
+<tr class="light"><td class="value"><span class="bigRed">Ghostar</span></td><td class="value"><span class="bigRed">connect4: Yep, support for all challenges that come out of the competition is the responsibility of the winner</span></td></tr>
 <tr class="dark"><td class="value"><strong>connect4</strong></td><td class="value">AdamSelene: Ah ok.  Then I'll retract all testing questions until the future "testing" chat :)</td></tr>
 <tr class="light"><td class="value"><strong>connect4</strong></td><td class="value">Ghostar: Sounds fun.  Although potentially a lot of work!</td></tr>
 <tr class="dark"><td class="value"><strong>kurtrips</strong></td><td class="value">Ghostar: I'm not quite sure what 'sequence and interface documents' mean exactly? By interface, do you mean API?</td></tr>

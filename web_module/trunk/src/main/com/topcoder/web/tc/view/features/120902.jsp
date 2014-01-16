@@ -92,7 +92,7 @@ up for my lack of coding ability with my challenges."
 <P>
 Indeed, <B>Pablo Gilberto</B>'s knack for challenges has been rather costly for some other coders. 
 In the Finals of the 2001 TopCoder Invitational, <B>Pablo Gilberto</B> made a challenge 
-that ended up changing the entire outcome of the contest (<A HREF="/stat?c=coder_room_stats&amp;cr=112438&amp;rd=57&amp;rm=57" CLASS="bodyText">see room stats</A>). 
+that ended up changing the entire outcome of the challenge (<A HREF="/stat?c=coder_room_stats&amp;cr=112438&amp;rd=57&amp;rm=57" CLASS="bodyText">see room stats</A>). 
 </P>
 
 <P>

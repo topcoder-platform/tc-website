@@ -73,7 +73,7 @@
 
 <br clear="all">
 
-<p>The number of components posted on TopCoder Design and Development contests seems to increase almost every week. While more components means more variety, opportunity, and prize money (all good things), the increased number of components can lead to challenges for developers. When the component you're working on is dependent on another component that is also currently in development (or vice versa) it can make effective unit testing very difficult. </p>
+<p>The number of components posted on TopCoder Design and Development challenges seems to increase almost every week. While more components means more variety, opportunity, and prize money (all good things), the increased number of components can lead to challenges for developers. When the component you're working on is dependent on another component that is also currently in development (or vice versa) it can make effective unit testing very difficult. </p>
 
 <p>The point of unit testing, of course, is to focus on one individual unit of software at a time to ensure that each piece performs its task correctly. The problem, though, is that these units don't exist in a vacuum. If the component on which your project depends is not yet ready, you will need to simulate it in some way. </p>
 

@@ -3,7 +3,7 @@
 <html>
 
 <head>
-<title>Ultimate Software Development Contest</title>
+<title>Ultimate Software Development Challenge</title>
 
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
@@ -48,7 +48,7 @@
 
 						<table width="550" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 			<tr>
-                    			<td width="31%" class="sidebarTitle" valign="top"><strong>Design Contest</strong></td>
+                    			<td width="31%" class="sidebarTitle" valign="top"><strong>Design Challenge</strong></td>
                     			<td width="23%" class="sidebarTitle">Start Date/<br/>Projects Posted</td>
                     			<td width="23%" class="sidebarTitle">Registration Deadline</td>
                     			<td width="23%" class="sidebarTitle">End Date/<br/>Submission Deadline</td>
@@ -163,7 +163,7 @@
 						
 						<table width="550" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 			<tr>
-                    			<td width="31%" class="sidebarTitle" valign="top"><strong>Development Contest</strong></td>
+                    			<td width="31%" class="sidebarTitle" valign="top"><strong>Development Challenge</strong></td>
                     			<td width="23%" class="sidebarTitle">Start Date/<br/>Projects Posted</td>
                     			<td width="23%" class="sidebarTitle">Registration Deadline</td>
                     			<td width="23%" class="sidebarTitle">End Date/<br/>Submission Deadline</td>

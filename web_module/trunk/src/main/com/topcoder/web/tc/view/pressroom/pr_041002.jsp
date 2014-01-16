@@ -81,7 +81,7 @@ The third round was the Regional Finals. Here Nievelt competed against 8 coders 
 </P>
 
 <P>
-Nievelt has competed in a couple of other coding competitions including the ACM regional competition and the Northern Michigan University Programming Contest in which the MTU team took the top two places on March 23. 
+Nievelt has competed in a couple of other coding competitions including the ACM regional competition and the Northern Michigan University Programming Challenge in which the MTU team took the top two places on March 23. 
 </P>
 
 <P>

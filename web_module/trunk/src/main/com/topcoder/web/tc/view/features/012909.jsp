@@ -134,7 +134,7 @@
 
 <tr class="dark"><td class="value"><span class="bigRed">AssertionsOn</span></td><td class="value"><span class="bigRed">yoitsfrancis: Also, by looking at what past winners have produced greatly helps.</span></td></tr>
 
-<tr class="light"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">yoitsfrancis: Also, we have some resources on our wiki.  They are not 100% up to date to the current specification contests, but the content should still be helpful for the basics of what we are looking for.</span></td></tr>
+<tr class="light"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">yoitsfrancis: Also, we have some resources on our wiki.  They are not 100% up to date to the current specification challenges, but the content should still be helpful for the basics of what we are looking for.</span></td></tr>
 
 <tr class="dark"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">yoitsfrancis: Check this link:  http://www.topcoder.com/wiki/display/tc/Application+Requirements+Specifications</span></td></tr>
 
@@ -150,13 +150,13 @@
 
 <tr class="dark"><td class="value"><strong>yoitsfrancis</strong></td><td class="value">And may I know the reason why?</td></tr>
 
-<tr class="light"><td class="value"><span class="bigRed">AssertionsOn</span></td><td class="value"><span class="bigRed">Plus, all, yo u have to remember that these contests are not as technical as design and developement contests, so you don't have to be too techincal. If you can explain your ideas in a straightforward way, you have a great chance of  winning.</span></td></tr>
+<tr class="light"><td class="value"><span class="bigRed">AssertionsOn</span></td><td class="value"><span class="bigRed">Plus, all, yo u have to remember that these challenges are not as technical as design and developement challenges, so you don't have to be too techincal. If you can explain your ideas in a straightforward way, you have a great chance of  winning.</span></td></tr>
 
 <tr class="dark"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">yoitsfrancis: The specification track will have less trips to the TCO, but for every project we do we expect to have conceptualization, specification, and architecture work.</span></td></tr>
 
 <tr class="light"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">yoitsfrancis: Realistically, though we do have a large catalog, some amount of component work may be necessary for most projects... so I wouldn't write those off yet.</span></td></tr>
 
-<tr class="dark"><td class="value"><span class="bigRed">AssertionsOn</span></td><td class="value"><span class="bigRed">yoitsfrancis: Yes. Just look at the last 2 months of competitions. There has been a ton of Concept/Spec contests been put out.</span></td></tr>
+<tr class="dark"><td class="value"><span class="bigRed">AssertionsOn</span></td><td class="value"><span class="bigRed">yoitsfrancis: Yes. Just look at the last 2 months of competitions. There has been a ton of Concept/Spec challenges been put out.</span></td></tr>
 
 <tr class="light"><td class="value"><span class="bigRed">AssertionsOn</span></td><td class="value"><span class="bigRed">yoitsfrancis: Some people don't have the tech background for those types of competitions, and these would allow them to be involved in the TC process, as well as gain experience, feedback, and potentially some cash.</span></td></tr>
 
@@ -244,11 +244,11 @@
 
 <tr class="light"><td class="value"><span class="bigRed">jmpld40</span></td><td class="value"><span class="bigRed">Ghostar: Just so you are all aware, COncept and SPec comps are in the spotlight right now at TC and visit the threads or post here if you have ideas that should be on our radar</span></td></tr>
 
-<tr class="dark"><td class="value"><span class="bigRed">jmpld40</span></td><td class="value"><span class="bigRed">Ghostar: and we have a team dedicated to reviewing the contests so far, and the feedback, and will implement changes</span></td></tr>
+<tr class="dark"><td class="value"><span class="bigRed">jmpld40</span></td><td class="value"><span class="bigRed">Ghostar: and we have a team dedicated to reviewing the challenges so far, and the feedback, and will implement changes</span></td></tr>
 
 <tr class="light"><td class="value"><strong>Ghostar</strong></td><td class="value">That would help.  I'm not sure I like the idea of having the client actively involved in the review process</td></tr>
 
-<tr class="dark"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">Ghostar: Have you had a chance to look at the architecture scorecards that were posted?  Would posting scorecards in that format help for these contests?  We didn't get much feedback on the arch cards.</span></td></tr>
+<tr class="dark"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">Ghostar: Have you had a chance to look at the architecture scorecards that were posted?  Would posting scorecards in that format help for these challenges?  We didn't get much feedback on the arch cards.</span></td></tr>
 
 <tr class="light"><td class="value"><strong>Ghostar</strong></td><td class="value">I did look them over, but didn't have time to get too in depth with them</td></tr>
 
@@ -356,7 +356,7 @@
 
 <tr class="light"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">Ghostar: yes - it may slightly, but the intention is by paying round 1, you are compensated for the best ideas</span></td></tr>
 
-<tr class="dark"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">Ghostar: the net intended effect of the contest is to deliver a complete, quality business requirements document to the client</span></td></tr>
+<tr class="dark"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">Ghostar: the net intended effect of the challenge is to deliver a complete, quality business requirements document to the client</span></td></tr>
 
 <tr class="light"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">Ghostar: the advantage should be the ability to do that, in the end</span></td></tr>
 
@@ -410,7 +410,7 @@
 
 <tr class="dark"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">that is the intention with the round format =)</span></td></tr>
 
-<tr class="light"><td class="value"><span class="bigRed">AssertionsOn</span></td><td class="value"><span class="bigRed">Is there anyone new to specification contests that need more information about how to compete, etc.?  I know we are diving into contest specifics, so if anyone has any more general questions, speak  up.</span></td></tr>
+<tr class="light"><td class="value"><span class="bigRed">AssertionsOn</span></td><td class="value"><span class="bigRed">Is there anyone new to specification challenges that need more information about how to compete, etc.?  I know we are diving into challenge specifics, so if anyone has any more general questions, speak  up.</span></td></tr>
 
 <tr class="dark"><td class="value"><strong>Ghostar</strong></td><td class="value">AdamSelene: Yes, but you *have* to compete in the idea generation to compete in the documentation portion</td></tr>
 
@@ -446,7 +446,7 @@
 
 <tr class="dark"><td class="value"><strong>gt494</strong></td><td class="value">AdamSelene: would reg of round 2 depend on participation in round 1?</td></tr>
 
-<tr class="light"><td class="value"><strong>barbarab</strong></td><td class="value">AdamSelene: Yes, two separate contests will encourage and reward teamwork - especially if all good ideas are rewarded appropriately in the ideas competition.</td></tr>
+<tr class="light"><td class="value"><strong>barbarab</strong></td><td class="value">AdamSelene: Yes, two separate challenges will encourage and reward teamwork - especially if all good ideas are rewarded appropriately in the ideas competition.</td></tr>
 
 <tr class="dark"><td class="value"><span class="bigRed">AssertionsOn</span></td><td class="value"><span class="bigRed">AdamSelene: I personally don't like that idea.</span></td></tr>
 
@@ -562,7 +562,7 @@
 
 <tr class="dark"><td class="value"><span class="bigRed">AssertionsOn</span></td><td class="value"><span class="bigRed">lancord: Hello</span></td></tr>
 
-<tr class="light"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">lancord: Hi there, you're coming in on the tail end of the chat =) Do you have any questions about Concept/Spec contests?</span></td></tr>
+<tr class="light"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">lancord: Hi there, you're coming in on the tail end of the chat =) Do you have any questions about Concept/Spec challenges?</span></td></tr>
 
 <tr class="dark"><td class="value"><strong>lancord</strong></td><td class="value">yeah</td></tr>
 
@@ -588,7 +588,7 @@
 
 <tr class="light"><td class="value"><strong>lancord</strong></td><td class="value">like if u i devote 5-6 hrs daily</td></tr>
 
-<tr class="dark"><td class="value"><span class="bigRed">AssertionsOn</span></td><td class="value"><span class="bigRed">lancord: I personally put in about 10 hrs a day on contests, if not more.</span></td></tr>
+<tr class="dark"><td class="value"><span class="bigRed">AssertionsOn</span></td><td class="value"><span class="bigRed">lancord: I personally put in about 10 hrs a day on challenges, if not more.</span></td></tr>
 
 <tr class="light"><td class="value"><span class="bigRed">AdamSelene</span></td><td class="value"><span class="bigRed">If you can spend that much time per day, I would expect you to start seeing results within 3 to 4 competitions.  Every competition should give you feedback on how well you are doing, and where you need to improve.</span></td></tr>
 

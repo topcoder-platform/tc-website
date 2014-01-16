@@ -15,7 +15,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <jsp:include page="dev_design_no_overall_links.jsp"/>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="270" style="float: left; margin-right: 15px; margin-bottom: 15px;">
-    <tr><td class="title" colspan="3">Best Average Component Contest Score</td></tr>
+    <tr><td class="title" colspan="3">Best Average Component Challenge Score</td></tr>
     <tr><td class="headerC">Rank</td><td class="header">Coder</td><td class="headerR" nowrap="nowrap">Average score</td></tr>
     <% boolean even = false; %>
     <rsc:iterator list="<%=rsc%>" id="row">
@@ -28,8 +28,8 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> Best average score per contest. Only contests where the competitor was rated are included.
-    In order to be listed, a competitor must have at least 5 contests where their submission passed screening.
+<strong>Record:</strong> Best average score per challenge. Only challenges where the competitor was rated are included.
+    In order to be listed, a competitor must have at least 5 challenges where their submission passed screening.
 </span>
 
 </div>

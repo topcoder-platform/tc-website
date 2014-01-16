@@ -44,7 +44,7 @@
                         
 <div align="center">
 <p><span class="bodyTitle">AOL, Bloomberg, UBS and NSA Announced as Sponsors/Patrons <br>of 2006 TopCoder Collegiate Challenge</span><br />
-<span class="bodySubTitle"><em>UBS and National Security Agency Continue Involvement with<br> Leading Collegiate Computer Programming Contest<br></em></span></p>
+<span class="bodySubTitle"><em>UBS and National Security Agency Continue Involvement with<br> Leading Collegiate Computer Programming Challenge<br></em></span></p>
 </p>
 </div>
                         

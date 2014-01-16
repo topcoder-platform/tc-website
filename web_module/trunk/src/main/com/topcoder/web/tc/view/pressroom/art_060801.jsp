@@ -39,7 +39,7 @@
                     </jsp:include>
                         <div align="center">
 						<div align="center"><IMG SRC="/i/pressroom/star_gazette.gif" ALT="" border="0"/></div><BR/>
-						<p><span class="bodyTitle">Erin native wins $100,000 in contest</span><BR/></p>
+						<p><span class="bodyTitle">Erin native wins $100,000 in challenge</span><BR/></p>
                         </div>
 						Friday 6/08/01<BR/>
 						By MARGARET COSTELLO<BR/>

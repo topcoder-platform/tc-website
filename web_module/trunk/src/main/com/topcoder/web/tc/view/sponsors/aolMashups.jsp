@@ -46,12 +46,12 @@ You've probably said "If I were running AOL, I would do things this way." Here's
 <br><br>
 As you may know, AOL has opened up its APIs for the development community to play with. Now it's taking things one step further, and challenging people to come up with the next killer mashup. Just show us how you would combine one or more of AOL's open APIs with something else - another open API, an RSS feed, or whatever - and you could win a cash prize, and some serious respect.
 <br><br>
-The first Mashup contest is now live at <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">the Studio</A>. In it, you're asked to combine AOL's new WebAIM API - which allows instant messaging to be integrated into a web page or application - with something else, to create an interesting and useful mashup. Full contest rules and guidelines are available at the Studio contests page.
+The first Mashup challenge is now live at <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">the Studio</A>. In it, you're asked to combine AOL's new WebAIM API - which allows instant messaging to be integrated into a web page or application - with something else, to create an interesting and useful mashup. Full challenge rules and guidelines are available at the Studio challenges page.
 <br><br>
 Questions? Discuss them in <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">the Studio forum</A>.
 <br><br>
 <span class="subtitle">How does it work?</span><br>
-Once the contest starts, you'll have 10 days to lay out your vision for the mashup. Of course, 10 days is way too short to actually build the application, so all we're asking for is a visual representation of your idea  - you should show us how it looks, what it does, and why it's cool, but you don't have to worry about the underlying backend or actually integrating APIs. 
+Once the challenge starts, you'll have 10 days to lay out your vision for the mashup. Of course, 10 days is way too short to actually build the application, so all we're asking for is a visual representation of your idea  - you should show us how it looks, what it does, and why it's cool, but you don't have to worry about the underlying backend or actually integrating APIs. 
 <br><br>
 Winning entries will be featured on the TopCoder Studio site and on AOL's developer network at <A href="<tc-webtag:linkTracking link="http://developer.aol.com" refer="tc_mashups_page"/>" target="_blank">http://dev.aol.com</A> - and will receive a cash prize.
 

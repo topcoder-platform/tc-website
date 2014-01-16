@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta http-equiv="X-UA-Compatible" >
-<title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
+<title>Programming Challenges, Software Development, and Employment Services at TopCoder</title>
 <link rel="stylesheet" href="/news/wp-content/themes/tc2/style.css" type="text/css" media="screen" />
 <jsp:include page="../script.jsp" />
 <jsp:include page="../style.jsp">

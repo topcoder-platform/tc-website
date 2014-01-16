@@ -61,7 +61,7 @@
 
     <p>
         <tc-webtag:handle coderId="11972352" context="hs_algorithm"/> started off strong -- with two quick submits on
-        the easy and the medium, while he raced to finish the hard -- but when his medium failed the contest went to
+        the easy and the medium, while he raced to finish the hard -- but when his medium failed the challenge went to
         <tc-webtag:handle coderId="14886245" context="hs_algorithm"/>. <tc-webtag:handle coderId="22375930"
 
                                                                                          context="hs_algorithm"/> ended

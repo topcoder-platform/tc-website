@@ -53,10 +53,10 @@
 
             <span class="bigTitle">Review opportunities</span>
 
-            <p>In the table below you will be able to see which contests are available for review, the type of contest,
+            <p>In the table below you will be able to see which challenges are available for review, the type of challenge,
                 the current number of submissions on each, the review timeline for each, and the number of review positions
-                available for each contest. If you click on a contest name you will be able to see all of the details
-                associated with that contest review.</p>
+                available for each challenge. If you click on a challenge name you will be able to see all of the details
+                associated with that challenge review.</p>
             <br/>
             <%-- CONTEST REVIEW AUCTIONS --%>
             <c:if test="${not empty reviews}">
@@ -75,7 +75,7 @@
                             </th>
                         </tr>
                         <tr>
-                            <th class="tableHeader" align="left" width="40%">Contest</th>
+                            <th class="tableHeader" align="left" width="40%">Challenge</th>
                             <th class="tableHeader" align="center" width="18%" >Submissions</th>
                             <th class="tableHeader" align="center" width="24%" >Review Start</th>
                             <th class="tableHeader" align="center" width="18%">Open Positions</th>

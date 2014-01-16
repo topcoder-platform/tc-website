@@ -60,7 +60,7 @@ The application project, posted on the TopCoder website, provides an overview of
 Development is similarly competitive: Developers state their interest in a posted project description, and TopCoder selects at least two to participate. Upon submission, the code undergoes extensive testing. Only one winner is selected. At the back end, it all comes together in the integration and testing phase. After an internal QA certification phase, the application's deployed and tested in the client's environment.
 <br/><br/>
 <span class="bodySubtitle">For Cash, Royalties and Recognition</span><br/>
-Available component design and development contests are listed on the TopCoder website, with prizes ranging from $100-$1,000. Developers also earn royalties based on the quarterly revenue from the TopCoder Component Catalog.
+Available component design and development challenges are listed on the TopCoder website, with prizes ranging from $100-$1,000. Developers also earn royalties based on the quarterly revenue from the TopCoder Component Catalog.
 <br/><br/>
 Could wanna-bes encroach on TopCoder? Lydon isn't worried. It's too costly, he says, for most to emulate TopCoder's community, catalog and disciplined approach. 
                         <p><br /></p>

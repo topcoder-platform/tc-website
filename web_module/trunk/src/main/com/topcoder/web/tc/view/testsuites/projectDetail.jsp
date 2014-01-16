@@ -62,7 +62,7 @@
 
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="test_suites"/>
-                <jsp:param name="title" value="Active Contests"/>
+                <jsp:param name="title" value="Active Challenges"/>
             </jsp:include>
 
 <%-- Title --%>
@@ -179,8 +179,8 @@
                     
 <%-- Forum --%>
 <p><span class="bodySubtitle"><strong>Forum</strong></span><br />
-    Please use the contest <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">forum</a>
-    to view additional information and communicate with the contest owners.
+    Please use the challenge <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">forum</a>
+    to view additional information and communicate with the challenge owners.
 </p>
 
 

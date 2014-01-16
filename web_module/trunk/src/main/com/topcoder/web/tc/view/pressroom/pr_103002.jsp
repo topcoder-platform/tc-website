@@ -46,7 +46,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </jsp:include>
 
 <P><B>TopCoder Competitions Expand to High Schools</B><BR/>
-Host of Computer Programming Contests Offer Team Competitions at Connecticut High Schools;
+Host of Computer Programming challenges Offer Team Competitions at Connecticut High Schools;
 Connecticut Association of Schools (CAS) is the Premier Supporter of Academic Competitions
 </P>
 

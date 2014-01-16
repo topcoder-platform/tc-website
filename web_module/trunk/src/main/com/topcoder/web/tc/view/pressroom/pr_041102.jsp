@@ -117,7 +117,7 @@ His longer-term goals are to attend graduate school in computer sciences and he 
 </P>
 
 <P>
-Jack Hughes, TopCoder founder, said the contest brings attention to the top talent in the industry.
+Jack Hughes, TopCoder founder, said the challenge brings attention to the top talent in the industry.
 </P>
 
 <P>

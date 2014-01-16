@@ -50,9 +50,9 @@
       
 <p><strong>Dulles, VA, November 30, 2006 &#151;</strong>AOL and TopCoder, Inc., a leader in online programming competition, skills assessment and competitive software development, today announced a call for entries for the Web AIM Mashup Competition. Developers submit original concepts for Web applications based on Web AIM, AOL's new APIs that enable users to mashup and integrate Web-based instant messaging functionality for the popular AIM service directly into their Web sites and online communities.
 <br><br>
-Developers are asked to design a graphical user interface or submit a written explanation in order to clearly convey their mashup concept using the new Web AIM APIs. Contest entries will be judged on creativity, ease of use, market potential and ability to be shared with other users online. All submissions are due by December 6, 2006. 
+Developers are asked to design a graphical user interface or submit a written explanation in order to clearly convey their mashup concept using the new Web AIM APIs. Challenge entries will be judged on creativity, ease of use, market potential and ability to be shared with other users online. All submissions are due by December 6, 2006. 
 <br><br>
-Finalists will be selected on December 13, 2006. AOL will choose the winner from the finalists who participate in the Review and Revision phase, in which AOL works with each designer finalist to refine their idea. The winner will be announced on January 9, 2007 and will receive a grand prize of $5,000. For contest details and rules, visit: <A href="http://studio.topcoder.com/" target="_blank">http://studio.topcoder.com/</A>. 
+Finalists will be selected on December 13, 2006. AOL will choose the winner from the finalists who participate in the Review and Revision phase, in which AOL works with each designer finalist to refine their idea. The winner will be announced on January 9, 2007 and will receive a grand prize of $5,000. For challenge details and rules, visit: <A href="http://studio.topcoder.com/" target="_blank">http://studio.topcoder.com/</A>. 
 <br><br>
 Web AIM&#174; provides developers with the tools they need to create new and innovative experiences on the Web. The Web AIM APIs enable developers to mashup and integrate the following services and functionality directly into their Web sites: 
 

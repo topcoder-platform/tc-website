@@ -80,7 +80,7 @@ Amy Wacker, the daughter of James and Debbie Wacker of Brainerd, was awarded a $
 </P>
 
 <P>
-Stephanie Burnham, the daughter of Jan and Steve Burnham of Brainerd, submitted a poem to a contest sponsored by Creative Communication, based in Utah, and it was selected from thousands of entries as one of the top 10 in her grade division. Burnham is a fifth-grader at Pillager Elementary School. Burnham will be recognized in the poetry anthology called "A Celebration of Young Poets" and she will receive a $50 savings bond. 
+Stephanie Burnham, the daughter of Jan and Steve Burnham of Brainerd, submitted a poem to a challenge sponsored by Creative Communication, based in Utah, and it was selected from thousands of entries as one of the top 10 in her grade division. Burnham is a fifth-grader at Pillager Elementary School. Burnham will be recognized in the poetry anthology called "A Celebration of Young Poets" and she will receive a $50 savings bond. 
 </P>
 
 <P>

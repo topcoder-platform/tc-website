@@ -62,7 +62,7 @@ At the start of the Algorithm tournament, Eryx was the 3rd ranked member among m
 <br><br>
 This year's Design and Development tournament focused on creating generic standards-based JavaServer Faces components designed to take advantage of the rich design time API for Sun's Java Studio Creator.
 <br><br>
-Archak and Liu won hard fought contests against an elite field of international opponents. Archak took top Design honors over opponents from the US, China and the Phillipines.
+Archak and Liu won hard fought challenges against an elite field of international opponents. Archak took top Design honors over opponents from the US, China and the Phillipines.
 <br><br>
 "This is very unexpected - I didn't expect such a result," said an elated Archak. "I was quite nervous coming to the TopCoder Open for the first time and thought I had missed everything." 
 <br><br>

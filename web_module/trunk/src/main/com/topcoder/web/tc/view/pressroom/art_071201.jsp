@@ -39,11 +39,11 @@
                     </jsp:include>
                         <div align="center">
 						<div align="center"><IMG SRC="/i/pressroom/wpi_banner.gif" ALT="" border="0"/></div><BR/>
-						<p><span class="bodyTitle">Marut Competes in Top Coder Contest</span><BR/></p>
+						<p><span class="bodyTitle">Marut Competes in Top Coder Challenge</span><BR/></p>
                         </div>
 						<BR/><BR/>
                         Andrew Marut '04 may not be the Top Coder, but he is a littlie richer for  the experience of participating in the Top Coder Collegiate Challenge in San Francisco last month. Marut was one of 16 finalists from universities around the nation who competed in the programming contest, which sent the winner, a student from MIT, away with a grand prize of $100,000.<BR/><BR/>
-                        Marut qualified for the contest by completing an on-line challenge on the Web site www.topcoder.com, a service that helps employers find top-notch programmers. In San Francisco, the semifinalists were divided into groups of four. They completed a three-part challenge in which they first wrote code to solve three problems, critiqued each other's code, and then ran their programs to see how well they worked. The winner in each group advanced to the finals. Marut, who hails from Glastonbury, Conn., came in second in his group, a feat that earned him a prize of $10,000.<BR/><BR/>
+                        Marut qualified for the challenge by completing an on-line challenge on the Web site www.topcoder.com, a service that helps employers find top-notch programmers. In San Francisco, the semifinalists were divided into groups of four. They completed a three-part challenge in which they first wrote code to solve three problems, critiqued each other's code, and then ran their programs to see how well they worked. The winner in each group advanced to the finals. Marut, who hails from Glastonbury, Conn., came in second in his group, a feat that earned him a prize of $10,000.<BR/><BR/>
             </TD></TR>                                                                 
 <p><br></p>
                     </td>

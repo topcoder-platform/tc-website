@@ -56,7 +56,7 @@
 
 <p> 
 1275 coders have registered for the last SRM before the summer. 
-<tc-webtag:handle coderId="10574855" context="algorithm"/> won the contest and held a new rating record - 3700 rating points, incredible! 
+<tc-webtag:handle coderId="10574855" context="algorithm"/> won the challenge and held a new rating record - 3700 rating points, incredible! 
 <tc-webtag:handle coderId="251074" context="algorithm"/> surpassed <tc-webtag:handle coderId="19849563" context="algorithm"/> during the challenge phase and took the second place. 
 <tc-webtag:handle coderId="19849563" context="algorithm"/> remained with the third.
 <br />
@@ -461,7 +461,7 @@ By adding up each of these boxes we will get value for the longer prefix of the 
 Iterating this process we will find the answer for the problem.
 <br /><br />
 
-On the contest <tc-webtag:handle coderId="7581406" context="algorithm"/> thought out pretty similar approach for this problem. 
+On the challenge <tc-webtag:handle coderId="7581406" context="algorithm"/> thought out pretty similar approach for this problem. 
 You can use his <a href="/stat?c=problem_solution&rm=264929&rd=10675&pm=7772&cr=7581406">solution</a> as reference.
 <br /><br />
 </p>

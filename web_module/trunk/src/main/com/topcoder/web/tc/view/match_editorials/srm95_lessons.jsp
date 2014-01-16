@@ -173,7 +173,7 @@ for (i=0; i &lt; input.length() ; i++) {
 </P>
 
 <P>
-This strikes me as a classic problem contest trade-off.  What do I want
+This strikes me as a classic problem challenge trade-off.  What do I want
 from the solution?
 <OL>
    <LI> Fast coding time.</LI>

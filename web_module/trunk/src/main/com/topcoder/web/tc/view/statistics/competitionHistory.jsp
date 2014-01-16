@@ -146,7 +146,7 @@
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("date")%>" includeParams="true"/>">Date</a>
             </TD>
             <TD CLASS="header" WIDTH="20%">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("short_name")%>" includeParams="true"/>">Contest</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("short_name")%>" includeParams="true"/>">Challenge</a>
             </TD>
             <TD CLASS="header" WIDTH="">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("division")%>" includeParams="true"/>">Division</a>

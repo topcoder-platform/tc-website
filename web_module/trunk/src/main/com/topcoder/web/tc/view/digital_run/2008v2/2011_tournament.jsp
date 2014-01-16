@@ -45,9 +45,9 @@
 <span class="title">UI Prototype Digital Run Tournament!</span>
 <br /><br />
 UI Prototype Digital Run Tournament!
-We are happy to announce a special opportunity for UI Prototype competitors! During the months of April, May and June in 2011, a single member will be designated the "UI Prototype DR Tournament Winner" from each month based on how many points they accumulated during UI Prototype contests. The winner from each month will win an all-expenses paid trip to TCO11!
+We are happy to announce a special opportunity for UI Prototype competitors! During the months of April, May and June in 2011, a single member will be designated the "UI Prototype DR Tournament Winner" from each month based on how many points they accumulated during UI Prototype challenges. The winner from each month will win an all-expenses paid trip to TCO11!
 <br /><br />
-Winners are chosen based on the highest points earned from UI Prototype contests only. Points from other contest types will not count toward the tally. Each winner can only win a single trip and that trip is non-transferable.
+Winners are chosen based on the highest points earned from UI Prototype challenges only. Points from other challenge types will not count toward the tally. Each winner can only win a single trip and that trip is non-transferable.
 <br /><br />
 <br /><br />
 

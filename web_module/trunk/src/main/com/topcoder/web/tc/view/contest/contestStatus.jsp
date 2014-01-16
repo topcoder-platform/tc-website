@@ -41,7 +41,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-<title>Contest Status</title>
+<title>Challenge Status</title>
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
@@ -174,97 +174,97 @@
         <c:when test="${pt == DESIGN_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="comp_design"/>
-                <jsp:param name="title" value="Contest Status"/>
+                <jsp:param name="title" value="Challenge Status"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="comp_development"/>
-                <jsp:param name="title" value="Contest Status"/>
+                <jsp:param name="title" value="Challenge Status"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="architecture"/>
-                <jsp:param name="title" value="Contest Status"/>
+                <jsp:param name="title" value="Challenge Status"/>
             </jsp:include>
         </c:when>
          <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="conceptualization"/>
-                <jsp:param name="title" value="Contest Status"/>
+                <jsp:param name="title" value="Challenge Status"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == SPECIFICATION_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="specification"/>
-                <jsp:param name="title" value="Contest Status"/>
+                <jsp:param name="title" value="Challenge Status"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == ASSEMBLY_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="assembly"/>
-                <jsp:param name="title" value="Contest Status"/>
+                <jsp:param name="title" value="Challenge Status"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == TEST_SUITES_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="test_suites"/>
-                <jsp:param name="title" value="Contest Status"/>
+                <jsp:param name="title" value="Challenge Status"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == TEST_SCENARIOS_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="test_scenarios"/>
-                <jsp:param name="title" value="Contest Status"/>
+                <jsp:param name="title" value="Challenge Status"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == UI_PROTOTYPE_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="ui_prototype"/>
-                <jsp:param name="title" value="Contest Status"/>
+                <jsp:param name="title" value="Challenge Status"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == RIA_BUILD_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="ria_build"/>
-                <jsp:param name="title" value="Contest Status"/>
+                <jsp:param name="title" value="Challenge Status"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == RIA_COMPONENT_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="ria_component"/>
-                <jsp:param name="title" value="Contest Status"/>
+                <jsp:param name="title" value="Challenge Status"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == CONTENT_CREATION_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="content_creation"/>
-                <jsp:param name="title" value="Contest Status"/>
+                <jsp:param name="title" value="Challenge Status"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == REPORTING_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="reporting"/>
-                <jsp:param name="title" value="Contest Status"/>
+                <jsp:param name="title" value="Challenge Status"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == BUG_HUNT_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                  <jsp:param name="image" value="bug_hunt"/>
-                 <jsp:param name="title" value="Contest Status"/>
+                 <jsp:param name="title" value="Challenge Status"/>
             </jsp:include>
         </c:when>
           <c:when test="${pt == FIRST2FINISH_TYPE_ID}">
               <jsp:include page="/page_title.jsp">
                   <jsp:param name="image" value="first2finish"/>
-                  <jsp:param name="title" value="Contest Status"/>
+                  <jsp:param name="title" value="Challenge Status"/>
               </jsp:include>
           </c:when>
           <c:when test="${pt == CODE_TYPE_ID}">
               <jsp:include page="/page_title.jsp">
                   <jsp:param name="image" value="code"/>
-                  <jsp:param name="title" value="Contest Status"/>
+                  <jsp:param name="title" value="Challenge Status"/>
               </jsp:include>
           </c:when>
       </c:choose>
@@ -275,13 +275,13 @@
         <c:when test="${pt == ARCHITECTURE_TYPE_ID || pt == ASSEMBLY_TYPE_ID || pt == TEST_SUITES_TYPE_ID ||
             pt == TEST_SCENARIOS_TYPE_ID || pt == UI_PROTOTYPE_TYPE_ID || pt == RIA_BUILD_TYPE_ID ||
             pt == RIA_COMPONENT_TYPE_ID || pt == CONTENT_CREATION_TYPE_ID || pt == REPORTING_TYPE_ID || pt == BUG_HUNT_TYPE_ID || pt == FIRST2FINISH_TYPE_ID || pt == CODE_TYPE_ID}">
-            <td class="title" colspan="8">Contest Status</td>
+            <td class="title" colspan="8">Challenge Status</td>
         </c:when>
         <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
-            <td class="title" colspan="10">Contest Status</td>
+            <td class="title" colspan="10">Challenge Status</td>
         </c:when>
         <c:otherwise>
-            <td class="title" colspan="9">Contest Status</td>
+            <td class="title" colspan="9">Challenge Status</td>
         </c:otherwise>
         </c:choose>
     </tr>
@@ -299,7 +299,7 @@
             </td>
         </c:if>
         <td class="header" colspan="2">
-            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("component_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Contest</a>
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("component_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Challenge</a>
         </td>
         <td class="headerC" nowrap="nowrap">
             Registrants  <c:if test="${pt != CODE_TYPE_ID && pt != FIRST2FINISH_TYPE_ID}"> <br>Rated/Unrated  </c:if>

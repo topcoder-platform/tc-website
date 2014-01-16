@@ -74,7 +74,7 @@ SRM 392: 2658<br />
 <span style="padding-left:68px;">TCO08 Rd 3: 2576</span></p>
 
 <p><strong>What brought you to TopCoder?</strong><br />
-I actually found it via googling for coding competitions. I got interested in coding competitions as a result of doing some Informatics contests in school, looked for some other contests on the internet, and TC ended up being the first google hit for whatever it was I was searching for!</p>
+I actually found it via googling for coding competitions. I got interested in coding competitions as a result of doing some Informatics challenges in school, looked for some other challenges on the internet, and TC ended up being the first google hit for whatever it was I was searching for!</p>
  
 <p><strong>What is your proudest TopCoder moment?</strong><br />
 Winning Marathon match round 3 of the TCCC last year was fairly neat. Also, back in the days when everything was at 9p.m. Eastern, I think it must have been TCO '06, I went out clubbing in the evening, came back for the 2a.m. start, spent most of the match sobering up, and qualified with 3 semi-blind challenges. That was pretty awesome too.</p>
@@ -95,7 +95,7 @@ Probably the fact that I was coming back from a blip in the previous months help
 Any time my code fails is pretty stressful, particularly when I reckon it'll work. TCCC Algo round 3 last year was fairly horrible, I pasted in some bipartite matching code for the 250 but then passed it the wrong arguments, and then on the 500, enumerating through all bitmasks of length 3, I wrote for(i=0; i&lt;7, i++). I mean, how stupid do you have to be? I was also fairly unimpressed when I deleted a line of code without realizing it in the process of commenting out the debug output on my 500 in SRM 397.  Oh, and I also hate it when I'm debugging the 1k with 15 minutes to go; with high probability I'll get nowhere for 14.5 minutes, and then get somewhere (but not all the way there) with 30 seconds to go.</p>
 
 <p><strong>What do you do for fun outside of TopCoder?</strong><br />
-Other coding contests? I'm really looking forward to this year's IPSC. Seriously, in real life I'm doing a grad course in Mathematics at the University of Cambridge, and trying to decide whether I want to do a PhD or become an algorithmic trader next year. I also play Eton Fives (a very random English game) tolerably badly:)</p>
+Other coding challenges? I'm really looking forward to this year's IPSC. Seriously, in real life I'm doing a grad course in Mathematics at the University of Cambridge, and trying to decide whether I want to do a PhD or become an algorithmic trader next year. I also play Eton Fives (a very random English game) tolerably badly:)</p>
 
 <p><strong>What sights are there to see in your area?</strong><br />
 Well, like there's Cambridge. I've attached some shots of Trinity College.</p>
@@ -110,7 +110,7 @@ Britain isn't really famed for its cuisine. But my mum makes the best Fajitas in
     <img src="/i/m/oton_big.jpg" alt="Author" />
 </div>
 Studio Design: <tc-webtag:handle coderId="22076237" /><br />
-Won $2,100 in three contests<br />
+Won $2,100 in three challenges<br />
 <br /><br /><br />
 </p>
 
@@ -118,7 +118,7 @@ Won $2,100 in three contests<br />
 I knew TopCoder from a news that featured <tc-webtag:handle coderId="7459080" context="algorithm"/> as a winner of Google Code Jam India. I joined as a member on 2006, but realized not having good time (and skills) to compete. Later, when Studio is being introduced, that's the time.</p>
  
 <p><strong>What is your proudest TopCoder moment?</strong><br />
-It is when I won the first wireframe design contest of <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2059">TopCoder Registration Tool Wireframe</a> and later when I won <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2192">TopCoder Icon Design Contest Phase III</a>. The first is because my first winning on TC. The second is because I finally grabbing TCO08 point from design track and save my position on the leaderboard.</p>
+It is when I won the first wireframe design challenge of <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2059">TopCoder Registration Tool Wireframe</a> and later when I won <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2192">TopCoder Icon Design Challenge Phase III</a>. The first is because my first winning on TC. The second is because I finally grabbing TCO08 point from design track and save my position on the leaderboard.</p>
  
 <p><strong>What is the biggest obstacle you have had to overcome?</strong><br />
 First, I was not a true designer. I realized that. I was a programmer, but in my work, I was much in trouble with design job. I think I should learn and exercise more to being a designer at heart.</p>
@@ -133,7 +133,7 @@ I felt I was not a good person to give advice. But, let's face this. Never give 
 My wife, Yani. She was very supported to give me the time to do projects I involved.</p>
 
 <p><strong>What is your most stressful TopCoder moment?</strong><br />
-It was when I did and won the <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2106">triple</a> <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2105">Event &amp; Athlete Database</a> <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2107">Prototype contest</a>. You got two weeks to prototype 100 pages with so detailed and complex user interface. Not only the prizes is very very good. But, I think you will never meet such opportunities again in TC. And, nobody submit the complete solution but  me :-)</p>
+It was when I did and won the <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2106">triple</a> <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2105">Event &amp; Athlete Database</a> <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2107">Prototype challenge</a>. You got two weeks to prototype 100 pages with so detailed and complex user interface. Not only the prizes is very very good. But, I think you will never meet such opportunities again in TC. And, nobody submit the complete solution but  me :-)</p>
 
 <p><strong>What do you do for fun outside of TopCoder?</strong><br />
 Because I was fulltime to TopCoder, doing work at home is very challenged, because my daughter Sofia always trying to steal a moment sneaking into my room, and ask me to play with her. When this happened, I got no choice other than playing Dora's game, watching her baby's videos with iMac remote on hand. And, after some minutes, my wife saved me by bringing out the fun out of my 'cave' :-)</p>

@@ -64,7 +64,7 @@ division unchanged.
 </p>
 <p>
 At the end of the contest, it appeared this would be the
-first contest since SRM 55 that every submission on the easy
+first challenge since SRM 55 that every submission on the easy
 problem in Divison 1 passed.  This was not to be, as <b>haha</b>,
 in an admirable feat of honesty, turned himself in on a
 violation of the unused code rule.  This gesture may have

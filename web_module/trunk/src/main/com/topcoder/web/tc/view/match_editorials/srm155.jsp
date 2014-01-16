@@ -54,7 +54,7 @@
 
 <p>
 <b>SnapDragon</b> continues his dominance, winning for the sixth
-time out of the past eight contests. <b>Yarin</b> was hot on his heels
+time out of the past eight challenges. <b>Yarin</b> was hot on his heels
 until a late resubmit to fix a typo.  <b>ZorbaTHut</b> used one of
 only a handful of challenges in Division 1 to pull into second place.
 In Division 2, <b>TheFaxman</b> finished all three problems in a

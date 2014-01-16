@@ -60,7 +60,7 @@ videos from the most popular video destinations on the Web.  Competition
 details are available at <a href="http://www.topcoder.com/truveo" target="_blank"><u>www.topcoder.com/truveo</u></a> and Truveo can be accessed at <a href="http://www.truveo.com/" target="_blank"><u>www.truveo.com</u></a>. <br></p>
 <p>Building off the success of 
 AOL's Open AIM Developer Challenge, which introduced more than 50 
-exciting new plug-in applications for AIM (see today's <a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=index" target="_blank"><u>press release</u></a> announcing winners or visit the contest 
+exciting new plug-in applications for AIM (see today's <a href="http://www.topcoder.com/tc?module=Static&amp;d1=pressroom&amp;d2=index" target="_blank"><u>press release</u></a> announcing winners or visit the challenge 
 homepage at: <a href="http://www.topcoder.com/openaim" target="_blank">http://www.topcoder.com/openaim</a>), TopCoder will apply the 
 skills of its global community of top ranked software designers and 
 developers to extend the rich functionality of Truveo's open APIs, 
@@ -100,7 +100,7 @@ got for a piece of $100,000 in prize money. We will award nine (9) $10,000
 prizes and twenty (20) $500 prizes for the most creative, successful 
 and ingenious submissions.  <br></p>
 <p>To enter, view 
-all contest rules and details online at <a href="http://www.topcoder.com/truveo" target="_blank"><u>www.topcoder.com/truveo</u></a>.  Showcase your application on your own site or blog, or 
+all challenge rules and details online at <a href="http://www.topcoder.com/truveo" target="_blank"><u>www.topcoder.com/truveo</u></a>.  Showcase your application on your own site or blog, or 
 any one of the social network sites such as Facebook, MySpace, Friendster, 
 Bebo, Cyworld, Skyblog, Hi5, Orkut, or Live Journal. 
 Passing submissions will be showcased on the <a href="http://dev.aol.com/" target="_blank"><u>AOL Developer Network</u></a> and <a href="http://www.topcoder.com/" target="_blank"><u>TopCoder</u></a> as well.  <br></p>

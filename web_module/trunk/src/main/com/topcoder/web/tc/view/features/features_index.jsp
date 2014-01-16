@@ -50,7 +50,7 @@
             </tr>
             <tr valign="top">
               <td class="bodyText"><tc-webtag:handle coderId="20437508" context="algorithm" /></td>
-              <td class="bodyText" nowrap=nowrap><a href="tc?module=Static&d1=features&d2=020909">How to Compete Well in Conceptualization and Specification Contests</a></td>
+              <td class="bodyText" nowrap=nowrap><a href="tc?module=Static&d1=features&d2=020909">How to Compete Well in Conceptualization and Specification Challenges</a></td>
               <td class="bodyText" nowrap=nowrap>Feb 9, 2009</td>
             </tr>
             <tr valign="top">
@@ -175,7 +175,7 @@
             </tr>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="119676" /></td>
-               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=072903"><strong>The TopCoder Design Contest #2</strong></A></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=072903"><strong>The TopCoder Design Challenge #2</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Jul 29, 2003</td>
             </tr>
             <tr valign="top">

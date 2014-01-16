@@ -790,7 +790,7 @@ One way to solve this problem is to try out all possible combinations of keeping
 
 <b>The non-recursive solutions</b><br>
 <br>
-Recursion was not necessary to solve this problem. Non recursive solutions exist. Check <b>nordom</b>'s, <b>kupicekic</b>'s, <b>marek</b>'s and <b>Burunduk1</b>'s contest solutions for examples. Those solutions are not all the same -- they implement different algorithms. Some of those are quite difficult to come up with and code, and it would be too much to examine in detail each and every one of them, but here are a few useful observations:<br>
+Recursion was not necessary to solve this problem. Non recursive solutions exist. Check <b>nordom</b>'s, <b>kupicekic</b>'s, <b>marek</b>'s and <b>Burunduk1</b>'s challenge solutions for examples. Those solutions are not all the same -- they implement different algorithms. Some of those are quite difficult to come up with and code, and it would be too much to examine in detail each and every one of them, but here are a few useful observations:<br>
 <ul>
 <li>
 Notice the usage of switch(t % 3) in <b>nordom</b>'s solution. Essentially, it is looking at every possible solution as a number in base 3, and than uses the % to determine the operation that is performed, and / to perform a base 3 analog to binary bitwise rightshift. However the % operation is quite slow, so this code is actually slower than the recursion.

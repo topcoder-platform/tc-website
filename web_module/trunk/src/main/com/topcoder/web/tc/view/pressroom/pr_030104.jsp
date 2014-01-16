@@ -47,7 +47,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 
 <div align="center">
 <p><span class="bodyTitle">Columbia University Student Wins DoubleClick's 2004 TopCoder Programming Challenge</span><br />
-<span class="bodySubTitle"><em>Jason Winokur Named Champion in $10,000 Coding Contest Eliot Horowitz Wins DoubleClick Employee Challenge </em></span></p>
+<span class="bodySubTitle"><em>Jason Winokur Named Champion in $10,000 Coding Challenge Eliot Horowitz Wins DoubleClick Employee Challenge </em></span></p>
 </div>
 
 <p><strong>GLASTONBURY, Conn., March 1, 2004&#151;</strong>
@@ -58,7 +58,7 @@ TopCoder, Inc., the leader in online programming competition, skills assessment 
 
 <p>"TopCoder's competition model provides us with a powerful tool for recruitment and assessment as we look to identify the next generation of DoubleClick's programming talent," said Mok Choe, Chief Information Officer, DoubleClick.  "We've also generated a lot of excitement within our internal development group and given our own talent a chance to shine."</p>
 
-<p>DoubleClick used the TopCoder contest to cultivate the competitive spirit and the technical strength of the contestants who solved the same set of complex problems during two rounds of competitions using Java, C++, C# or Visual Basic as their language of choice.</p>
+<p>DoubleClick used the TopCoder challenge to cultivate the competitive spirit and the technical strength of the contestants who solved the same set of complex problems during two rounds of competitions using Java, C++, C# or Visual Basic as their language of choice.</p>
 
 <p>"Many of the world's top technology companies use TopCoder to reach both professional and collegiate developers," said Rob Hughes, President of TopCoder.  "Nothing attracts an audience like competition, and TopCoder sets the pace."</p>
 

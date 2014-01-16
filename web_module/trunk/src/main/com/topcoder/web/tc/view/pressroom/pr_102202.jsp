@@ -46,7 +46,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </jsp:include>
 
 <P><B>TopCoder Expands to Include Employment Services</B><BR/>
-Host of Computer Programming Contests Offers More to Members and Clients</P>
+Host of Computer Programming challenges Offers More to Members and Clients</P>
 
 <P>
 <B>GLASTONBURY, CT., Oct. 22, 2002</B> - TopCoder, Inc., a company committed to identifying and promoting computer programming talent through competition, today announced it has expanded its business offering to include employment services. <A HREF="/corp/?module=Static&amp;d1=corp&amp;d2=tces_home" CLASS="bodyText">TopCoder Employment Services (TCES)</A> is designed to improve an organization's often-inefficient hiring process by providing an unmatched method to identify proficient computer programmers.

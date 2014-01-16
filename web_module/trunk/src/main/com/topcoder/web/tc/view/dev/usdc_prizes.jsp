@@ -3,7 +3,7 @@
 <html>
 
 <head>
-<title>Ultimate Software Development Contest</title>
+<title>Ultimate Software Development Challenge</title>
 
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
@@ -51,7 +51,7 @@
 <p align="center"><strong>*Prizes are in addition to component payments.*</strong></p>
 			<table width="550" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
-                    <td colspan="2" class="sidebarTitle"><strong>Design Contest</strong> - The Design contest will award the following prizes:</td>
+                    <td colspan="2" class="sidebarTitle"><strong>Design Challenge</strong> - The Design challenge will award the following prizes:</td>
                 </tr>
                 
                 <tr>
@@ -100,7 +100,7 @@
 			<p align="center"><strong>*Prizes are in addition to component payments.*</strong></p>
 			<table width="550" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
-                    <td colspan="2" class="sidebarTitle"><strong>Development Contest</strong> - The Development contest will award the following prizes:</td>
+                    <td colspan="2" class="sidebarTitle"><strong>Development Challenge</strong> - The Development challenge will award the following prizes:</td>
                    
                 </tr>                
                 

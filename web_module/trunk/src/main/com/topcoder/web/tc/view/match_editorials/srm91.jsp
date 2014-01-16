@@ -256,7 +256,7 @@ In summary, the only two difficulties of this problem are implementing an effici
 and reading and understanding the problem statement.  Not that I am faulting the problem
 writer on this count; the obfuscation was most likely intentional, to make the problem
 more challenging (and it's fun to write problems like that).  Problem statements like this
-are a pretty common occurrence in ACM contests (although StarCraft references may be few and far between).
+are a pretty common occurrence in ACM challenges (although StarCraft references may be few and far between).
 </P>
 
 <P>
@@ -315,7 +315,7 @@ a single value representing an actual position rather than a set of variables gi
 </P>
 
 <P>
-The Level 3 problem is the sort of problem that few people can solve in a contest situation, but in retrospect
+The Level 3 problem is the sort of problem that few people can solve in a challenge situation, but in retrospect
 turns out to be not quite as difficult as it seemed before.  Only 18 out of 232 even submitted a solution for
 this problem, and unfortunately I was not one of them.  However, Room 1 submissions tend to be quite edifying,
 and this match proved to be no exception.

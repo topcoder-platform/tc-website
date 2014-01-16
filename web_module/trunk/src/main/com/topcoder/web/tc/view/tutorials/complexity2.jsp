@@ -1015,7 +1015,7 @@ Master Theorem doesn't apply?
 <P>
 We won't answer these questions here. This article doesn't claim to be the one and
 only reference to computational complexity. If you are already asking these questions,
-you understand the basics you need for programming contests - and if you
+you understand the basics you need for programming challenges - and if you
 are interested in knowing more, there are good books around that can help you.
 
 <P>

@@ -67,7 +67,7 @@ No purchase necessary to enter or win. Void where prohibited.
     <li><b>When to start the Single Round Match (SRM)</b><br/>
         TopCoder High School (TCHS) members must register for the SRM. Registration is from
         <rsc:item name="reg_start_time" row="<%=rsr%>" format="hh:mm a z"/> to <rsc:item name="reg_end_time" row="<%=rsr%>"  format="hh:mm a z"/>. To register, login
-        to the TopCoder High School Arena application, click on the 'Active Contests' menu, choose the SRM to
+        to the TopCoder High School Arena application, click on the 'Active Challenges' menu, choose the SRM to
         register for, and select the 'Register' option. <strong><em>TCHS members from all over the world may be
         participating in
         this SRM, when not indicated, start times will be communicated as Eastern Time, so contestants in different time zones must
@@ -130,7 +130,7 @@ binding and conclusive in all matters.
     use or misuse of a prize.</p>
 
 <p>TopCoder, in its sole discretion, reserves the right to disqualify any person tampering with the entry process,
-    the operation of the Web site, the contest process, or is otherwise in violation of the rules. TopCoder reserves
+    the operation of the Web site, the challenge process, or is otherwise in violation of the rules. TopCoder reserves
     the right to cancel, terminate or modify the SRM if it is not capable of completion as planned for any reason,
     including
     infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.</p>
@@ -186,7 +186,7 @@ No purchase necessary to enter or win. Void where prohibited.
     <li><b>When to start the Single Round Match (SRM)</b><br/>
         TopCoder High School (TCHS) members must register for the SRM. Registration is from
         <rsc:item name="reg_start_time" row="<%=rsr%>" format="hh:mm a z"/> to <rsc:item name="reg_end_time" row="<%=rsr%>"  format="hh:mm a z"/>. To register, login
-        to the TopCoder High School Arena application, click on the 'Active Contests' menu, choose the SRM to
+        to the TopCoder High School Arena application, click on the 'Active Challenges' menu, choose the SRM to
         register for, and select the 'Register' option. <strong><em>TCHS members from all over the world may be
         participating in
         this SRM, when not indicated, start times will be communicated as Eastern Time, so contestants in different time zones must
@@ -249,7 +249,7 @@ binding and conclusive in all matters.
     use or misuse of a prize.</p>
 
 <p>TopCoder, in its sole discretion, reserves the right to disqualify any person tampering with the entry process,
-    the operation of the Web site, the contest process, or is otherwise in violation of the rules. TopCoder reserves
+    the operation of the Web site, the challenge process, or is otherwise in violation of the rules. TopCoder reserves
     the right to cancel, terminate or modify the SRM if it is not capable of completion as planned for any reason,
     including
     infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.</p>

@@ -63,12 +63,12 @@ Algorithm onsite events, we had 6 competitors in the TCO 05 finals, 8 competitor
 and 16 competitors in the TCCC 06 finals &mdash; so this year marks the end of steady growth for Russia.
 But the more interesting stat is that prior to the 2005 TCO only one Russian ever advanced to a TopCoder 
 onsite Algorithm event &mdash; <tc-webtag:handle coderId="274023" context="algorithm"/> in the TCO 03. Then, what was the reason for that jump in the TCO 05?</p>
-<p>That jump unveils one important property of Russian programming contest competitors &mdash; we all keep
+<p>That jump unveils one important property of Russian programming challenge competitors &mdash; we all keep
 in contact. There are many All-Russian competitions, including, but not limited to the ACM ICPC semifinal 
 NEERC as the biggest event for university students and the All-Russian high school olympiad as the
 community center for highschoolers. These two biggest shows are accompanied by many other 
-internet and onsite contests, and most Russian competitors try to participate in many, if not all,
-of them. That means frequent meetings, and constant competition, and search for more fun contests to 
+internet and onsite challenges, and most Russian competitors try to participate in many, if not all,
+of them. That means frequent meetings, and constant competition, and search for more fun challenges to 
 participate in. That's why when several Russian competitors started to participate in TopCoder SRMs 
 regularly -- after finding that they brought so much fun and experience, the entire community followed suit and jumped into TopCoder.</p>
 <p>Another exciting thing such a community brings for Russian competitors is that older competitors
@@ -83,14 +83,14 @@ powerful youngsters. :)</p>
 </div></p>
 <p><tc-webtag:handle coderId="11829284" context="algorithm"/><br/>
 <i>Has taught these finalists at some point</i>: <tc-webtag:handle coderId="21971539" context="algorithm"/>, <tc-webtag:handle coderId="22641345" context="algorithm"/>, <tc-webtag:handle coderId="15881985" context="algorithm"/>, <tc-webtag:handle coderId="19721111" context="algorithm"/>, 
-and in some sense all others by posting a total of 24 contests (roughly 240 problems!) at the Russian ICPC training camps during the last five years.<br/>
+and in some sense all others by posting a total of 24 challenges (roughly 240 problems!) at the Russian ICPC training camps during the last five years.<br/>
 <i>ACM ICPC finalist</i>: 2000, 2001.<br/>
 <i>TC Algorithm rating (max)</i>: 2812 (3198).<br/>
 
 <i>TC rated Algorithm events</i>: 94.<br/>
 <i>TC problems authored</i>: 14.<br/>
 <i>Previous TCO and TCCC onsite appearances</i>: TCO 06 &mdash; 6th place, TCCC 06 &mdash; 4th place.</p>
-<p>Andrew joined the Russian progamming contest community in the late 1990s, and has become
+<p>Andrew joined the Russian progamming challenge community in the late 1990s, and has become
 one of its key figures since then. Having participated in the ICPC World Finals in 2000 and 2001,
 and earning fourth and the third place respectively, he continued his career as a coach,
 and became one of the best (and most successful) coaches in Russia. As a result, he led the SPb IFMO team
@@ -105,14 +105,14 @@ his form to become a target in less than a year.</p>
 </div></p>
 <p><tc-webtag:handle coderId="7485898" context="algorithm"/><br/>
 <i>Has taught these finalists at some point</i>: <tc-webtag:handle coderId="19721111" context="algorithm"/>, and most of the others by
-posting many good contests at the Russian ICPC training camps and http://acm.sgu.ru online judge.<br/>
+posting many good challenges at the Russian ICPC training camps and http://acm.sgu.ru online judge.<br/>
 <i>ACM ICPC finalist</i>: 2002, 2003.<br/>
 <i>TC Algorithm rating (max)</i>: 2667 (2726).<br/>
 <i>TC rated Algorithm events</i>: 81.<br/>
 <i>TC problems authored</i>: 86.<br/>
 
 <i>Previous TCO and TCCC onsite appearances</i>: TCO 05 &mdash; semifinalist.</p>
-<p>Andrew (again :)) was one of those at the origin of the programming contest community at the Saratov
+<p>Andrew (again :)) was one of those at the origin of the programming challenge community at the Saratov
 State University. Unlike many other bright students who decide to study in major Moscow and St. Petersburg
 universities, he stayed in Saratov, and formed a team together with <tc-webtag:handle coderId="308953" context="algorithm"/> and <tc-webtag:handle coderId="309641" context="algorithm"/> 
 that made the world know of Saratov
@@ -132,7 +132,7 @@ TopCoder problem writer.</p>
 
 <i>Previous TCO and TCCC onsite appearances</i>: TCO 05 &mdash; 8th place, TCO 06 and TCCC 06 &mdash; semifinalist.</p>
 Nikolay is one of the few Russian TopCoder members not actively involved in the Russian
-progamming contest community: he wasn't a big contest lover during his university years, and moved abroad
+progamming challenge community: he wasn't a big challenge lover during his university years, and moved abroad
 after his graduation in 2002. However, he became an active TopCoder member while working abroad,
 reaching the top in both Algorithm and Component Design competitions. He has attended the onsite part for both
 Algorithm and Design tracks of the last three major TC tournaments &mdash; incredible enough on its own, but he
@@ -176,7 +176,7 @@ style and to regain all his skills. This guy might become a target very soon.</p
 he earned 10th place at the 2006 World Finals. His alliance with <tc-webtag:handle coderId="2058177" context="algorithm"/> is a good example
 of a self-made team. Ufa was never famous for its programming competition achievements 
 (unlike Moscow, St. Petersburg, Saratov or Yekaterinburg), but those guys put in a lot of hard work,
-participated in a lot of online contests, solved most of the available problem archives &mdash; and they
+participated in a lot of online challenges, solved most of the available problem archives &mdash; and they
 got rewarded. <tc-webtag:handle coderId="7340263" context="algorithm"/> is a stable red at TopCoder, notable for his amazing challenges.
 He has also become a regular problem writer.</p>
 
@@ -192,7 +192,7 @@ He has also become a regular problem writer.</p>
 <i>Previous TCO and TCCC onsite appearances</i>: TCCC 06 &mdash; semifinalist.</p>
 <p>The story of Denis is similiar to the one of his teammate <tc-webtag:handle coderId="7340263" context="algorithm"/>. Having earned
 the 13th and the 10th places in the ICPC finals, he is still actively participating in online
-programming contests after his ICPC retirement. Denis was quite close to becoming a target
+programming challenges after his ICPC retirement. Denis was quite close to becoming a target
 this winter, so he is capable of putting in some really amazing performances. Maybe one of them
 will to be seen at this TCO?</p>
 
@@ -223,9 +223,9 @@ status. Who knows, maybe TopCoder format suits him better?</p>
 <i>TC rated Marathon events</i>: 4.</p>
 <p>Maxim is representing another diamond in the crown of the Russian programming schools &mdash; the Petrozavodsk
 State University. Heavily supported by the University, and even by the local government,
-Petrozavodsk students are among the most motivated to perform  in programming contests. Regular two-week
+Petrozavodsk students are among the most motivated to perform  in programming challenges. Regular two-week
 training camps for all the top Russian teams take place in Petrozavodsk twice a year, so it's a base
-for a constantly evolving Russian university students' programming contest community, and Petrozavodsk
+for a constantly evolving Russian university students' programming challenge community, and Petrozavodsk
 students have a chance to compete with and  learn from the finest Russian teams and coaches. Maxim's team
 earned the 19th place at the 2006 ICPC World Finals.</p>
 <p>However, it is the introduction of the Marathon Matches that allowed Maxim to show his best and
@@ -248,7 +248,7 @@ posession of the required skills, so let's wish him luck in the Marathon track!<
 <i>TC Algorithm rating (max)</i>: 2808 (2868).<br/>
 <i>TC rated Algorithm events</i>: 27.<br/>
 <i>Previous TCO and TCCC onsite appearances</i>: TCCC 06 &mdash; semifinalist.</p>
-<p>Mikhail became famous among the Russian programming contest community by placing second in the 2003 
+<p>Mikhail became famous among the Russian programming challenge community by placing second in the 2003 
 All-Russian high school olympiad and then moving to the U.S. for the last two years of his high school 
 studies. However, he then returned back to Russia and joined the SPb IFMO, and together with <tc-webtag:handle coderId="22641345" context="algorithm"/>
 and <tc-webtag:handle coderId="22248856" context="algorithm"/> formed the first team of the school (after the retirement of <tc-webtag:handle coderId="15881985" context="algorithm"/> and his
@@ -305,7 +305,7 @@ perform well when it is required &mdash; this can surely help him onsite.</p>
 <i>TC Algorithm rating (max)</i>: 2726 (2735).<br/>
 <i>TC rated Algorithm events</i>: 52.<br/>
 <i>TC problems authored</i>: 12.</p>
-<p>Vitaliy has spent a lot of time solving programming contest problems during his last year of high school,
+<p>Vitaliy has spent a lot of time solving programming challenge problems during his last year of high school,
 and that allowed him to jumpstart his career by winning the All-Russian high school olympiad in 2004.
 Ever since, he has been participating in almost all programming competition events, in the university ones
 as a participant, and in the high school ones as an assistant coach. As the ICPC participant in the
@@ -332,7 +332,7 @@ is still quite unaccustomed to TopCoder, alternating really good performances wi
 Let's hope he'll do the former at the TCO!</p>
 <p>That completes the Russian team &mdash; are all the others ready for battle? The strengh of the Russian
 team lies both in its diversity and in its unity. You will surely see all the Russians chatting in
-their native language during the onsite, cheering and encouraging each other. But during the contest 
+their native language during the onsite, cheering and encouraging each other. But during the challenge 
 different skills can appear to be in the limelight &mdash; will it be the experience of <tc-webtag:handle coderId="11829284" context="algorithm"/>
 and <tc-webtag:handle coderId="7485898" context="algorithm"/>, or the youth and creativity of <tc-webtag:handle coderId="21971539" context="algorithm"/> and <tc-webtag:handle coderId="19721111" context="algorithm"/>?
 Regardless, the Russian team is ready to show its best.</p>

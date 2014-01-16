@@ -58,8 +58,8 @@
 <tr class="bodyText"><td nowrap="nowrap">09.17.08 3:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=hs&amp;d2=spotlightSessions">Introducing Spotlight Sessions at TopCoder</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.11.08 10:30 AM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=1000132">Calling all Designers!  We Need a TCO09 Logo!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.05.08 4:30 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2343">Flex Your Muscles In Studio</a></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">09.04.08 2:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2339">New Contest at TopCoder Studio – My eBay HTML Optimization!</a></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">08.05.08 3:45 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2313">PROFLO JQuery Plugin Contest at TopCoder Studio!</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.04.08 2:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2339">New Challenge at TopCoder Studio – My eBay HTML Optimization!</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">08.05.08 3:45 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2313">PROFLO JQuery Plugin Challenge at TopCoder Studio!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.16.08 10:00 AM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2288">Facebook Application Build at TopCoder Studio!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.13.08 10:00 AM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">Event Calendar updated through December 2008</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.12.08 12:15 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=616032">The TCCC: A Difficult Decision</a></td></tr>
@@ -75,22 +75,22 @@
 <tr class="bodyText"><td nowrap="nowrap">02.14.08 1:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewPastContests">Happy Valentines Day from TopCoder!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.13.08 4:00 PM - </td><td width="100%">Downtime for scheduled maintenance: Wednesday, February 13</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.25.08 2:00 PM - </td><td width="100%"><a href="/wiki/display/tc/Bug+Races">Off to the Races</a></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">01.15.08 6:00 PM - </td><td width="100%"><a href="/wiki/display/tc/Bug+Races">Introducing the TopCoder Bug Races!</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">01.15.08 6:00 PM - </td><td width="100%"><a href="/wiki/display/tc/Bug+Races">Introducing the TopCoder Races!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.03.08 4:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=architecture&amp;d2=beta">Registration Open for Three More Architecture Competitions</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.19.07 9:00 AM - </td><td width="100%">TopCoder Has Moved</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.13.07 12:15 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">Event Calendar updated through March 2008</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.12.07 2:30 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=architecture&amp;d2=beta">TopCoder Architecture Competitions Are Here!</a></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">11.21.07 1:15 PM - </td><td width="100%"><a href="http://www.topcoder.com/registration/actions/ProjectDetails.do?method=displayProjectDetails&projectId=30002900">Checkpoint added to Client Cockpit Contest</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.21.07 1:15 PM - </td><td width="100%"><a href="http://www.topcoder.com/registration/actions/ProjectDetails.do?method=displayProjectDetails&projectId=30002900">Checkpoint added to Client Cockpit Challenge</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.12.07 1:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=593270&amp;start=0">The Next Evolution of TopCoder</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.30.07 5:45 PM - </td><td width="100%"><A target="_blank" href="http://csf.topcoder.com/forums?module=Thread&amp;threadID=123&amp;start=0">CSF Mashup Assembly $40,000.00 Series Prize Purse Winners</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.10.07 10:15 AM - </td><td width="100%"><A target="_blank" href="http://www.equitrader.com/trader/xco/tournaments">Test your trading skills, win $20,000</a></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">09.07.07 2:15 PM - </td><td width="100%"><a href="/registration/actions/ProjectManagement.do?method=displayProjectList">New Registration Tool for Assembly Contests</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.07.07 2:15 PM - </td><td width="100%"><a href="/registration/actions/ProjectManagement.do?method=displayProjectList">New Registration Tool for Assembly Challenges</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.04.07 4:30 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=586772">Coder of the Month dates updated</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.28.07 5:00 PM - </td><td width="100%"><a href="http://csf.topcoder.com/?module=Static&amp;d1=assembly&amp;d2=btWorkspaceDetails">BT Workspace Mashup Assembly Competition now open</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.28.07 11:00 AM - </td><td width="100%"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=585029&amp;start=24&amp;mc=35">Congratulations to tomekkulczynski</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.27.07 12:45 PM - </td><td width="100%"><a href="http://csf.topcoder.com/">BT Workspace Design Mashup winner</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.17.07 3:00 PM - </td><td width="100%"><a href="http://csf.topcoder.com/?module=Static&amp;d1=assembly&amp;d2=btWiCitiesDetails">BT Wireless Cities Mashup Assembly Competition open</a></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">08.14.07 3:00 PM - </td><td width="100%"><a href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2118">TopCoder Arena Navigation Wireframe Design Contest</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">08.14.07 3:00 PM - </td><td width="100%"><a href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2118">TopCoder Arena Navigation Wireframe Design Challenge</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.09.07 2:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=dev&amp;d2=umltool&d3=description">Introducing the TopCoder UML Tool</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.25.07 4:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=sponsors&amp;d2=btChat20070721">BT SRM 359 chat session transcript</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.19.07 3:00 PM - </td><td width="100%"><a href="http://csf.topcoder.com/?module=ViewContestDetails&amp;ct=1007">British Telecom Mashup Design Competition open for registration</a></td></tr>
@@ -114,9 +114,9 @@
         <a href="/tc?module=ViewSurvey&amp;sid=16934">Component Design &amp; Development</a>; 
         <a href="/tc?module=ViewSurvey&amp;sid=16923">Marathon Match</a>; 
         <a href="/tc?module=ViewSurvey&amp;sid=16928">Algorithm</a></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">04.23.07 5:45 PM - </td><td width="100%"><a href="/to/?module=ViewBallot&rd=2032">"The Ball" Logo &amp; Icon Prediction Contest Round 2</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.23.07 5:45 PM - </td><td width="100%"><a href="/to/?module=ViewBallot&rd=2032">"The Ball" Logo &amp; Icon Prediction Challenge Round 2</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.19.07 2:00 PM - </td><td width="100%">Predict the TCO T-shirt winners</td></tr>
-<tr class="bodyText"><td nowrap="nowrap">04.19.07 2:00 PM - </td><td width="100%"><a href="/to/?module=ViewBallot&rd=2028">"The Ball" Logo &amp; Icon Prediction Contest Round 1</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.19.07 2:00 PM - </td><td width="100%"><a href="/to/?module=ViewBallot&rd=2028">"The Ball" Logo &amp; Icon Prediction Challenge Round 1</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.13.07 10:00 AM - </td><td width="100%"><a href="/belarus">TopCoder College Tour comes to Belarus</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.11.07 10:30 AM - </td><td width="100%"><a href="http://csf.topcoder.com/?module=Static&amp;d1=assembly&amp;d2=activeContests">Connected Services Assembly Competition now open</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.10.07 12:15 PM - </td><td width="100%"><a href="/tc?module=ViewSurvey&amp;sid=16884">Vote for the homepage redesign winner</a></td></tr>
@@ -131,16 +131,16 @@
 <tr class="bodyText"><td nowrap="nowrap">03.06.07 3:15 PM - </td><td width="100%"><a href="/tc?module=SurveyResults&amp;sid=16491">The votes are in for the new Member Badges</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.28.07 2:00 PM - </td><td width="100%"><a href="/tc?module=ViewSurvey&amp;sid=16491">Vote for the new member badges</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.12.07 3:45 PM - </td><td width="100%">Additional forums maintenance scheduled</td></tr>
-<tr class="bodyText"><td nowrap="nowrap">02.08.07 9:20 AM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2056">Now open: Registration Tool Design Contest</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">02.08.07 9:20 AM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2056">Now open: Registration Tool Design Challenge</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.07.07 5:00 PM - </td><td width="100%">Forums maintenance scheduled</td></tr>
-<tr class="bodyText"><td nowrap="nowrap">01.11.07 4:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2051">New at TopCoder Studio: Equitrader Wireframe contest</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">01.11.07 4:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2051">New at TopCoder Studio: Equitrader Wireframe challenge</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.02.07 3:15 PM - </td><td width="100%">Deadlines extended due to site outage</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.20.06 4:15 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2048">New AOL Mashup: $19,000 in prizes</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.14.06 11:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=features&amp;d2=121406">TopCoder Celebrates 100,000 Members</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.11.06 4:15 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=help&amp;d2=getPaid&node=algo_get_paid">"How to get paid" updated</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.01.06 9:30 AM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=calendar&amp;d2=jan_07">Events Calendar updated through May 2007</a></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">11.15.06 7:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=sponsors&amp;d2=aolMashups">Now open: AOL Mashup contest</a></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">11.06.06 10:30 AM - </td><td width="100%"><a href="/tc?module=ViewSurvey&amp;sid=8054">News Icons Contest Vote</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.15.06 7:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=sponsors&amp;d2=aolMashups">Now open: AOL Mashup challenge</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.06.06 10:30 AM - </td><td width="100%"><a href="/tc?module=ViewSurvey&amp;sid=8054">News Icons Challenge Vote</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.03.06 10:30 AM - </td><td width="100%"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Updated Online Review now online</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.01.06 4:50 PM - </td><td width="100%">Online Review scheduled maintenance</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.30.06 4:00 PM - </td><td width="100%">TopCoder members honor victor_lxd</td></tr>
@@ -149,7 +149,7 @@
 <tr class="bodyText"><td nowrap="nowrap">10.02.06 2:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=513341">TopCoder is turning 100!</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.18.06 4:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_091806">In memoriam: victor_lxd</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.14.06 3:00 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=collegetour&amp;d2=description">2006 TopCoder College Tour continues</a></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">08.30.06 4:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">gojohnie wins the first TopCoder Studio contest</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">08.30.06 4:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">gojohnie wins the first TopCoder Studio challenge</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.14.06 10:00 AM - </td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">Introducing TopCoder Studio</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.06.06 9:00 AM - </td><td width="100%">Downtime for scheduled maintenance: 08.03</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.31.06 7:30 PM - </td><td width="100%"><a href="/tc?module=MemberContact">Member Contacting now available</a></td></tr>

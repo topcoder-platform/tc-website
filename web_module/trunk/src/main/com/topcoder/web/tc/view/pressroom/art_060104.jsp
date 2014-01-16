@@ -41,16 +41,16 @@
                         <p><span class="bodyTitle">Cracking the Hiring Code</span></p>
                         </div>
 <p>                        
-Companies are shelling out anywhere from $35,000 to $150,000 to participate in contests such as those that challenge programmers to write code. For companies, the payoff is twofold: the ability to see the skills of employees that a traditional interview will never deliver, and a chance to spread their brand name. 
+Companies are shelling out anywhere from $35,000 to $150,000 to participate in challenges such as those that challenge programmers to write code. For companies, the payoff is twofold: the ability to see the skills of employees that a traditional interview will never deliver, and a chance to spread their brand name. 
 </p>
 <p>
 It seems like only yesterday that employers were relying on more gimmicks than P.T. Barnum to attract techies. The labor shortage was so severe that signing bonuses, stock options and high-end perks became de rigueur. Then the dot-com bomb hit, nuking the employment scene and leaving IT workers reeling. Many of these highly paid individuals soon found themselves trading greenbacks for pink slips.
 </p>
 <p>
-Now, with the economy on the uptick and the employment scene beginning to stabilize, companies are once again looking to attract and hire techies--though in a far more sensible way. One tool in their arsenal: coding competitions. Although colleges and universities have long held contests to recognize outstanding programmers, TopCoder Inc. has expanded the concept to the workplace. Already, the likes of Yahoo!, NVIDIA, Google, DoubleClick, Intel and Sun Microsystems have bitten.
+Now, with the economy on the uptick and the employment scene beginning to stabilize, companies are once again looking to attract and hire techies--though in a far more sensible way. One tool in their arsenal: coding competitions. Although colleges and universities have long held challenges to recognize outstanding programmers, TopCoder Inc. has expanded the concept to the workplace. Already, the likes of Yahoo!, NVIDIA, Google, DoubleClick, Intel and Sun Microsystems have bitten.
 </p>
 <p><span class="bodySubTitle">Interviews are "not enough"</span><br/>
-Here's how the concept works: TopCoder finds talented programmers, many of them from leading universities, to compete in contests that include first-place cash awards as large as $50,000 and overall purses that exceed $100,000.
+Here's how the concept works: TopCoder finds talented programmers, many of them from leading universities, to compete in challenges that include first-place cash awards as large as $50,000 and overall purses that exceed $100,000.
 </p>
 <p>
 The contestants square off against one another and against the clock, advancing round by round into the finals. Along the way, TopCoder tracks results at its Web site, including names, points and rankings. Finally, TopCoder's review board selects a winner. In most cases, a group of companies sponsor these events and participate together. Occasionally, a company chooses to sponsor its own private competition.
@@ -59,7 +59,7 @@ The contestants square off against one another and against the clock, advancing 
 "The idea was to develop a platform that could objectively analyze and rate the skills of software developers," says Rob Hughes, chief operating officer of three-year-old TopCoder, based in Glastonbury, Connecticut. "For companies, hiring programmers is a challenging proposition. It is difficult to identify people with the right skills and talent level through the traditional recruiting and hiring process. A resume and an interview aren't enough."
 </p>
 <p><span class="bodySubTitle">Non-traditional approach</span><br/>
-Companies shell out anywhere from $35,000 to $150,000 to participate in a coding contest (the higher figure applies to so-called "private label" events for a single company). In return, firms gain access to a pool of highly qualified potential employees. The approach also helps organizations improve their visibility and name cachet at universities as well as within tight-knit circles of software developers. As many as 1,000 individuals typically enter the contests, Hughes says. Sponsors can communicate with all entrants via e-mail, chat and instant messaging. This provides an opportunity to "educate" and "inform" them about the firm.
+Companies shell out anywhere from $35,000 to $150,000 to participate in a coding challenge (the higher figure applies to so-called "private label" events for a single company). In return, firms gain access to a pool of highly qualified potential employees. The approach also helps organizations improve their visibility and name cachet at universities as well as within tight-knit circles of software developers. As many as 1,000 individuals typically enter the challenges, Hughes says. Sponsors can communicate with all entrants via e-mail, chat and instant messaging. This provides an opportunity to "educate" and "inform" them about the firm.
 </p>
 <p>
 One organization sold on the concept is Sunnyvale, California-based Yahoo! The Internet firm has participated in coding competitions for the last two years, and corralled both interns and employees there. "In a world where there are very few new ideas, it is a new idea," states Ken Perluss, talent acquisition director for Yahoo!

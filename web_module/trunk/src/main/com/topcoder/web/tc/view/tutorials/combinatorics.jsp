@@ -80,7 +80,7 @@
 <p><i>Permutation without repetition</i></p>
 <p>When we choose <i>k</i> objects from <i>n</i>-element set in such a way that the order matters and each object can be chosen only once:</p>
 <div align="center"><img src="/i/education/combinatorics/combin03.jpg" /></div>
-<p>For example, suppose we are planning the next 3 contests and we have a set of 10 easy problems to choose from. We will only use one easy problem in each contest, so we can choose our problems in <img align="absmiddle" src="/i/education/combinatorics/combin04.jpg" /> different ways.</p>
+<p>For example, suppose we are planning the next 3 challenges and we have a set of 10 easy problems to choose from. We will only use one easy problem in each contest, so we can choose our problems in <img align="absmiddle" src="/i/education/combinatorics/combin04.jpg" /> different ways.</p>
 <p><i>Permutation (variation) with repetition</i></p>
 <p>The number of possible choices of <i>k</i> objects from a set of <i>n</i> objects when order is important and one object can be chosen more than once:</p>
 <div align="center"><em>n<sup>k</sup></em></span></div>
@@ -105,7 +105,7 @@ There would be <img src="/i/education/combinatorics/combin10.jpg" /> different c
 <p>The sum of <tt>x<sub>i</sub></tt> will be <tt>k</tt>, because <tt>k</tt> ones are left after substitution.</p>
 <p><span class="bodySubtitle">The Basics</span></p>
 <p><i>Binary vectors</i></p>
-<p>Some problems, and contest problems are no exception, can be reformulated in terms of binary vectors. Accordingly, some knowledge of the basic combinatorial properties of binary vectors is rather important. Let&rsquo;s have a look at some simple things associated with them:</p>
+<p>Some problems, and challenge problems are no exception, can be reformulated in terms of binary vectors. Accordingly, some knowledge of the basic combinatorial properties of binary vectors is rather important. Let&rsquo;s have a look at some simple things associated with them:</p>
 <p>1. Number of binary vectors of length n: 2<sup>n</sup>.</p>
 <p>2. Number of binary vectors of length n and with k &lsquo;1&rsquo; is <br />
 <img src="/i/education/combinatorics/combin14.jpg" />.</p>

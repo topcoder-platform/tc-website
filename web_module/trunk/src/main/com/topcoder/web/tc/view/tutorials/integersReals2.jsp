@@ -83,7 +83,7 @@ When talking about the sign-mantissa-exponent representation we noted that any <
 <br><br>
 It is worth noting that if <tt>memset()</tt> is used to fill an array of floating point variables with zero bytes, the value of the stored numbers will be zero. Also, global variables in C++ are initialized to a zero bit pattern, thus global floating point variables will be initialized to zero.
 <br><br>
-Also, note that negative zero is sometimes printed as "-0" or "-0.0". In some programming contests (with inexperienced problemsetters) this may cause your otherwise correct solution to fail.
+Also, note that negative zero is sometimes printed as "-0" or "-0.0". In some programming challenges (with inexperienced problemsetters) this may cause your otherwise correct solution to fail.
 <br><br>
 There are quite a few subtle pitfalls concerning the negative zero. For example, the expressions "<tt>0.0 - x</tt>" and "<tt>-x</tt>" are not equivalent - if <span class="math"><i>x</i> = 0.0</span>, the value of the first expression is 0.0, the second one evaluates to <span class="math">-0.0</span>. 
 <br><br>

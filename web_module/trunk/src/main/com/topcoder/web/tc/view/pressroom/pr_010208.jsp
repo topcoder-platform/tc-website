@@ -44,7 +44,7 @@
                         
 <div align="center">
 <p><span class="bodyTitle">TopCoder Expands With New Headquarters in Connecticut</span><br />
-<span class="bodySubTitle"><em>Global Leader in Programming Contests and Software Methodology Stays Centered in Glastonbury</em></span></p>
+<span class="bodySubTitle"><em>Global Leader in Programming challenges and Software Methodology Stays Centered in Glastonbury</em></span></p>
 </div>
       
 <p>

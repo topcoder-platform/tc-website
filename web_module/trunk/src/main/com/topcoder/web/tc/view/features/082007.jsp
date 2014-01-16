@@ -106,9 +106,9 @@
 <p><strong>Q: What's your proudest TopCoder moment? </strong></p>
 <p>A: I have many proud moments. My first victory in a design competition was one of these moments, or when I won a room in an algorithm competition. I feel happy about any victory (or also a second place) in a design contest. </p>
 <p><strong>Q: What's one thing you learned at TopCoder that has helped you in other areas of your life? </strong></p>
-<p>A: I learned several technologies doing the design contests. I also learned the TopCoder methodology and I apply this methodology in some parts of my work. I'm an architect/designer/developer in Java (in my company there is not much distinction among these types of jobs). But I think that the community is the part of TopCoder that I learn from. The community of TopCoder is filled with many highly skilled people from the computer science world. It's very good for me to share in the knowledge of this community. It's a mechanism that can improve ones skills a great deal. </p>
+<p>A: I learned several technologies doing the design challenges. I also learned the TopCoder methodology and I apply this methodology in some parts of my work. I'm an architect/designer/developer in Java (in my company there is not much distinction among these types of jobs). But I think that the community is the part of TopCoder that I learn from. The community of TopCoder is filled with many highly skilled people from the computer science world. It's very good for me to share in the knowledge of this community. It's a mechanism that can improve ones skills a great deal. </p>
 <p><strong>Q: What advice would you give to someone just starting in TopCoder competitions? </strong></p>
-<p>A: For the design contests, don't worry if you fail a submission or if you receive a low score. Learn from your mistakes, study the winning submissions and start your next design.&nbsp; </p>
+<p>A: For the design challenges, don't worry if you fail a submission or if you receive a low score. Learn from your mistakes, study the winning submissions and start your next design.&nbsp; </p>
 
 <br />
 <p>

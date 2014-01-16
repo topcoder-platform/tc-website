@@ -244,7 +244,7 @@
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=${cr}" class="bcLink">Member Profile</A>
  | <A HREF="/tc?module=CompetitionHistory&pt=${pt}&cr=${cr}" class="bcLink">Competition History</A>
- | <A HREF="/tc?module=OutstandingProjects&pt=${pt}&cr=${cr}" class="bcLink">Current Contests</A>
+ | <A HREF="/tc?module=OutstandingProjects&pt=${pt}&cr=${cr}" class="bcLink">Current Challenges</A>
  | Reliability Detail
  | <A HREF="/tc?module=ReviewerRatingHistory&pt=${pt}&cr=${cr}" class="bcLink">Reviewer Rating History</A>
             </span>
@@ -260,7 +260,7 @@
             Catalog
         </td>
         <td class="header" width="30%">
-            Contest
+            Challenge
         </td>
         <td class="headerC" width="5%">
             Reliable

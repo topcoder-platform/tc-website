@@ -16,7 +16,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <div style="float:right;"><A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">back to table of contents</A></div>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="270" style="float: left; margin-right: 15px; margin-bottom: 15px;">
-    <tr><td class="title" colspan="3">Highest Component Contest Royalty Earners</td></tr>
+    <tr><td class="title" colspan="3">Highest Component Challenge Royalty Earners</td></tr>
     <tr><td class="headerC">Rank</td><td class="header">Coder</td><td class="headerR">Ryoalties</td></tr>
     <% boolean even = false; %>
     <rsc:iterator list="<%=rsc%>" id="row">
@@ -38,7 +38,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> Top earners from software royalties.  Component competitors earn software royalties for winning contests designing and developing components used by TopCoder Software customers.<br /><br />A record will be listed as "HIDDEN" if the competitor has opted to hide his/her payments.
+<strong>Record:</strong> Top earners from software royalties.  Component competitors earn software royalties for winning challenges designing and developing components used by TopCoder Software customers.<br /><br />A record will be listed as "HIDDEN" if the competitor has opted to hide his/her payments.
 </span>
 </div>
 </html>

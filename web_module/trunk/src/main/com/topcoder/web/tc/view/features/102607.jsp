@@ -71,7 +71,7 @@
 <table align="center" class="stat" style="width: 450px;" cellpadding="0" cellspacing="0">
     <thead>
         <tr>
-            <td class="headerC">TCCC Contest Name</td>
+            <td class="headerC">TCCC Challenge Name</td>
             <td class="headerC">Submissions</td>
             <td class="headerC">Submissions<br />Passed<br />Screening</td>
             <td class="headerC">Unique<br />Submitters</td>
@@ -79,42 +79,42 @@
         </tr>
     </thead>
     <tr class="light">
-        <td>REPOST: TSM Presentation Contest</td>
+        <td>REPOST: TSM Presentation Challenge</td>
         <td align="center">4</td>
         <td align="center">1</td>
         <td align="center">1</td>
         <td align="center">1</td>
     </tr>
     <tr class="dark">
-        <td>TCCC07 Program Design Contest</td>
+        <td>TCCC07 Program Design Challenge</td>
         <td align="center">24</td>
         <td align="center">7</td>
         <td align="center">12</td>
         <td align="center">6</td>
     </tr>
     <tr class="light">
-        <td>TopCoder CPP Storyboard Design Contest</td>
+        <td>TopCoder CPP Storyboard Design Challenge</td>
         <td align="center">7</td>
         <td align="center">6</td>
         <td align="center">7</td>
         <td align="center">6</td>
     </tr>
     <tr class="dark">
-        <td>TCCC07 T-Shirt Design Contest</td>
+        <td>TCCC07 T-Shirt Design Challenge</td>
         <td align="center">42</td>
         <td align="center">32</td>
         <td align="center">21</td>
         <td align="center">21</td>
     </tr>
     <tr class="light">
-        <td>Equitrader EAPTS Prototype Contest</td>
+        <td>Equitrader EAPTS Prototype Challenge</td>
         <td align="center">8</td>
         <td align="center">2</td>
         <td align="center">2</td>
         <td align="center">2</td>
     </tr>
     <tr class="dark">
-        <td>REPOST: ESD Prototype Design Contest</td>
+        <td>REPOST: ESD Prototype Design Challenge</td>
         <td align="center">0</td>
         <td align="center">0</td>
         <td align="center">0</td>
@@ -135,14 +135,14 @@
         <td align="center">4</td>
     </tr>
     <tr class="light">
-        <td>TCCC '07 Invitation Design Contest</td>
+        <td>TCCC '07 Invitation Design Challenge</td>
         <td align="center">35</td>
         <td align="center">17</td>
         <td align="center">11</td>
         <td align="center">10</td>
     </tr>
     <tr class="dark">
-        <td>Thyche Corporation Plan Library Redesign Contest</td>
+        <td>Thyche Corporation Plan Library Redesign Challenge</td>
         <td align="center">7</td>
         <td align="center">1</td>
         <td align="center">3</td>
@@ -165,7 +165,7 @@
 <ul>
     <li>This year a total of 69 competitors registered for the Studio Design Competition.</li>
     <li>Out of 69 competitors, 42 registered for at least 1 contest.</li>
-    <li>There were 10 contests in total that fell under TCCC07.</li>
+    <li>There were 10 challenges in total that fell under TCCC07.</li>
     <li>170 submissions were made by 76 unique submitters.</li>
     <li>A total of 80 submissions passed screening out of 170. So, the success rate is less than 50%, which makes screening one of the deadly phases.</li>
     <li>69 competitors represented 24 countries, which makes Studio participation very diverse.</li>
@@ -217,9 +217,9 @@
 <p>We are still a few days away for finding the Studio Design Champion. So, what are they thinking now?  Let's have them onboard!</p>
 <br />
 
-<p><strong>So, when did you start participating in Studio Contests? How did you get involved?</strong></p>
+<p><strong>So, when did you start participating in Studio challenges? How did you get involved?</strong></p>
 <p><tc-webtag:handle coderId="13298470" />: After I turned 18. I wanted to participate earlier, but I had to wait until 18.</p>
-<p><tc-webtag:handle coderId="15006955" />: I knew about TopCoder from my friend. I signed up in May 2005 to participate in logo contests for big tournaments. Over a year later, TopCoder launched Studio, and I felt that it would be a perfect place for me. I started to participate in several contests and I liked it so much that I participate nowadays and I'll surely participate in future!</p>
+<p><tc-webtag:handle coderId="15006955" />: I knew about TopCoder from my friend. I signed up in May 2005 to participate in logo challenges for big tournaments. Over a year later, TopCoder launched Studio, and I felt that it would be a perfect place for me. I started to participate in several challenges and I liked it so much that I participate nowadays and I'll surely participate in future!</p>
 <div align="center"><img style="border:1px solid #000000;" src="/i/education/feature102607/Tricia_Tjia.png" /><br /><tc-webtag:handle coderId="22673857" /></div>
 
 
@@ -232,30 +232,30 @@
 <p><tc-webtag:handle coderId="13358674" />: Well, programming. I'm working on some games and on a e-learning website right now, but I'm really passionate about sports, especially tennis and soccer.</p>
 
 <p><strong>Why did you think that you should participate in the TCCC07?</strong></p>
-<p><tc-webtag:handle coderId="22677185" />: I had been participating in TCCC-eligible contests and seeing the TCCC logo everywhere I decided why not just register for it. And after that point I didn't give it much thought, I just continued participating in contests as always.</p>
+<p><tc-webtag:handle coderId="22677185" />: I had been participating in TCCC-eligible challenges and seeing the TCCC logo everywhere I decided why not just register for it. And after that point I didn't give it much thought, I just continued participating in challenges as always.</p>
 <p><tc-webtag:handle coderId="22673857" />: It's good for my experience because I haven't been there (Orlando) before, so I think this is my chance.  Besides, it's so interesting to see a lot of talented people there.  That's great. :)</p>
 <div align="center"><img style="border:1px solid #000000;" src="/i/education/feature102607/amiune.png" /><br /><tc-webtag:handle coderId="13358674" /></div>
 
-<p><strong>How much time do you usually spend on Studio contests?</strong></p>
-<p><tc-webtag:handle coderId="22626864" />: It depends mostly on the kind of contests that are posted in a specific week. I usually take part in storyboard and print contests. For sure, designing a web page takes many more hours than designing a t-shirt.</p>
-<p><tc-webtag:handle coderId="15006955" />: It's hard to tell... I participated in about 4-5 contests but in some of them I didn't pass the screening and in the others I didn't manage to submit my work before the deadline. In total it was a little more than one week.</p>
+<p><strong>How much time do you usually spend on Studio challenges?</strong></p>
+<p><tc-webtag:handle coderId="22626864" />: It depends mostly on the kind of challenges that are posted in a specific week. I usually take part in storyboard and print challenges. For sure, designing a web page takes many more hours than designing a t-shirt.</p>
+<p><tc-webtag:handle coderId="15006955" />: It's hard to tell... I participated in about 4-5 challenges but in some of them I didn't pass the screening and in the others I didn't manage to submit my work before the deadline. In total it was a little more than one week.</p>
 
 <p><strong>Has this affected your studies?</strong></p>
 <p><tc-webtag:handle coderId="22673857" />: This is the easiest question because I'll definitely say yes, but I think in a positive way: I learn a lot of things from Studio.</p>
 <p><tc-webtag:handle coderId="15006955" />: No, it hasn't</p>
 <div align="center"><img style="border:1px solid #000000;" src="/i/education/feature102607/CoralBlue.png" /><br /><tc-webtag:handle coderId="22677185" /></div>
 
-<p><strong>What type of contests do you like the most? Why?</strong></p>
-<p><tc-webtag:handle coderId="22626864" />: In general I like web page design contests. I believe it is the kind of contest where my creativity is really put to the test. There are many more elements that I have to design than in other competitions and I haven't so many constraints to take in consideration.</p>
+<p><strong>What type of challenges do you like the most? Why?</strong></p>
+<p><tc-webtag:handle coderId="22626864" />: In general I like web page design challenges. I believe it is the kind of challenge where my creativity is really put to the test. There are many more elements that I have to design than in other competitions and I haven't so many constraints to take in consideration.</p>
 <p><tc-webtag:handle coderId="13358674" />: T-shirt design because that is where I can be more creative.</p>
 
-<p><strong>What type of contests do you like the least? Why?</strong></p>
+<p><strong>What type of challenges do you like the least? Why?</strong></p>
 <p><tc-webtag:handle coderId="22677185" />: Anything involving prototyping, because my code never seems to render properly in Internet Explorer.</p>
 <p><tc-webtag:handle coderId="15006955" />: I don't like prototypes because they are very time consuming and work is done rather from the backside and you can't see the visual effect of it very well.</p>
 <div align="center"><img style="border:1px solid #000000;" src="/i/education/feature102607/Maraqja.png" /><br /><tc-webtag:handle coderId="15006955" /></div>
 
 <p><strong>Did you ask your friends to participate? Any help provided by your college?</strong></p>
-<p><tc-webtag:handle coderId="13358674" />: I always invite my colleagues to try these contests at TopCoder.</p>
+<p><tc-webtag:handle coderId="13358674" />: I always invite my colleagues to try these challenges at TopCoder.</p>
 <p><tc-webtag:handle coderId="22076237" />: Yes, one is very successful: <tc-webtag:handle coderId="22690239" />.  He came from my high school too.</p>
 <div align="center"><img style="border:1px solid #000000;" src="/i/education/feature102607/oton.png" /><br /><tc-webtag:handle coderId="22076237" /></div>
 
@@ -276,10 +276,10 @@
 <p><tc-webtag:handle coderId="22677185" />: I'm not sure, since I haven't had a chance to look at the other participants' designs. But the Top 3 would be The Best, The Second Best and the Third Best. =)</p>
 <p><tc-webtag:handle coderId="13298470" />: Tough question. We will see.</p>
 <p><tc-webtag:handle coderId="22626864" />: I think <tc-webtag:handle coderId="22689218" /> and <tc-webtag:handle coderId="22673857" /> are the favorites.</p>
-<p><tc-webtag:handle coderId="13358674" />: If you see the leader board, <tc-webtag:handle coderId="22689218" /> is the big favorite but I met the other guys and girls at the TCO and they are amazing: <tc-webtag:handle coderId="22673857" /> won the logo contest, <tc-webtag:handle coderId="22076237" /> is unbeatable on prototype contests and web design, <tc-webtag:handle coderId="15006955" /> is an incredible designer and you must see her amazing work as a photographer, and <tc-webtag:handle coderId="22626864" /> has a natural talent.  So the winner will depend very much on the contest type.</p>
+<p><tc-webtag:handle coderId="13358674" />: If you see the leader board, <tc-webtag:handle coderId="22689218" /> is the big favorite but I met the other guys and girls at the TCO and they are amazing: <tc-webtag:handle coderId="22673857" /> won the logo contest, <tc-webtag:handle coderId="22076237" /> is unbeatable on prototype challenges and web design, <tc-webtag:handle coderId="15006955" /> is an incredible designer and you must see her amazing work as a photographer, and <tc-webtag:handle coderId="22626864" /> has a natural talent.  So the winner will depend very much on the challenge type.</p>
 <p><tc-webtag:handle coderId="22673857" />: My top 3 are <tc-webtag:handle coderId="22689218" />, <tc-webtag:handle coderId="22076237" />, and  <tc-webtag:handle coderId="22626864" /></p>
 <p><tc-webtag:handle coderId="15006955" />: Hmm... in the interview for TCO07 I wrote that yiming will win and he did. So this time I'll write that I will win and I hope I will. :) Top 3... I'll stand for the ladies so <tc-webtag:handle coderId="15006955" />, <tc-webtag:handle coderId="22673857" /> and <tc-webtag:handle coderId="22677185" /> ;)</p>
-<p><tc-webtag:handle coderId="22076237" />: I don't know. All competitors seem very creative. I think the contest will be very challenging.</p>
+<p><tc-webtag:handle coderId="22076237" />: I don't know. All competitors seem very creative. I think the challenge will be very challenging.</p>
 <div align="center"><img style="border:1px solid #000000;" src="/i/education/feature102607/abedavera.png" /><br /><tc-webtag:handle coderId="22689218" /></div>
 
 <p><strong>Any advice for other Studio Members?</strong></p>

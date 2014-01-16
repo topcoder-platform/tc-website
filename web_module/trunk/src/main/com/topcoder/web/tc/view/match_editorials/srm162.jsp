@@ -53,7 +53,7 @@ About 15 minutes into the competition, both <b>SnapDragon</b> and <b>tomek</b>
 had submitted the easy and medium, with <b>SnapDragon</b> leading by only 17
 hundredths of  a point.  However, by submitting the level 3 in under 14
 minutes, <b>tomek</b> pulled ahead and ended up winning the division.  With his
-second contest win, <b>tomek</b> pushed his rating up to become the second
+second challenge win, <b>tomek</b> pushed his rating up to become the second
 highest rated coder.  The problem set provided some interesting stats, with
 some of the highest success rates among submissions that I've seen in a while.
 In Division 1 alone, over 80% of all problems submitted passed system tests.

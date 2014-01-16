@@ -68,7 +68,7 @@
     <img src="/i/m/oninkxronda_big.jpg" alt="Author" />
 </div>
 Studio Design: <tc-webtag:handle coderId="22418135" /><br />
-Won $1,400 in four contests<br />
+Won $1,400 in four challenges<br />
 <br /><br />
 </p>
 

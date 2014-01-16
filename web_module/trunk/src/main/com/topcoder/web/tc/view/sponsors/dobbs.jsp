@@ -43,14 +43,14 @@
             <p style="font-size:14px; border:1px solid #999999; margin:5px;" align="center"><strong>Click <a href="http://software.topcoder.com/review/actions/ViewProjectDetails.do?method=viewProjectDetails&amp;pid=30004440">here</a> to view the Software Architecture competition results.</strong></p>
             <p>Welcome to Dr. Dobb's Architecture and Design World software architecture contest!  Here you can register for the competition, as well as learn more about architecture competitions.  Check out <a href="/wiki/display/docs/DDADW+Problem+Statement">the problem statement</a>.</p>
             
-            <p><strong>Contest Overview:</strong><br />
-            The 2008 Software Architecture Contest ("Contest") will take place between May 10, 2008 and July 24, 2008 and is part of the Dr. Dobb's Architecture and Design World 2008 being held on July 21-24, 2008 at the Hyatt Regency McCormick Place in Chicago, Illinois.  The Contest is open to registered Architecture &amp; Design World 2008 attendees only.  The Contest will take place both online and onsite leading up to the conclusion of the Event.  Contest entrants must enter their submissions online at www.topcoder.com/dobbs by July 23, 2008 until 11:59a.m. CDT or at the TopCoder booth onsite at the Event from July 21-23, 2008 until 11:59 a.m. CDT. The Contest is open to residents of the United States (excluding Puerto Rico) and Canada (excluding the province of Quebec).</p>
+            <p><strong>Challenge Overview:</strong><br />
+            The 2008 Software Architecture Challenge ("Contest") will take place between May 10, 2008 and July 24, 2008 and is part of the Dr. Dobb's Architecture and Design World 2008 being held on July 21-24, 2008 at the Hyatt Regency McCormick Place in Chicago, Illinois.  The Challenge is open to registered Architecture &amp; Design World 2008 attendees only.  The Challenge will take place both online and onsite leading up to the conclusion of the Event.  Challenge entrants must enter their submissions online at www.topcoder.com/dobbs by July 23, 2008 until 11:59a.m. CDT or at the TopCoder booth onsite at the Event from July 21-23, 2008 until 11:59 a.m. CDT. The Challenge is open to residents of the United States (excluding Puerto Rico) and Canada (excluding the province of Quebec).</p>
 
             <p>The winner of the competition will receive a free All Access pass to an upcoming Dr. Dobb's event!</p>
             <ol>
                 <li>Read the <strong><a href="/wiki/display/training/Architecture+Deliverable+Module">Training Material</a></strong> to learn about the deliverables involved.</li>
                 <li>Read the Dr. Dobb's <strong><a href="/wiki/display/docs/Dr.+Dobb%27s+Rules">Rules and Regulations</a></strong></li>
-                <li><strong><a href="/reg/">Register</a></strong> to become a TopCoder member (required to register for the contest)</li>
+                <li><strong><a href="/reg/">Register</a></strong> to become a TopCoder member (required to register for the challenge)</li>
                 <li><strong><a href="/tc?module=ViewRegistration&amp;pj=30004440">Register for the competition!</a></strong></li>
             </ol>
             <br /><br />

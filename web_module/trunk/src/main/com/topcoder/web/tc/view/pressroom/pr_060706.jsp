@@ -44,7 +44,7 @@
                         
 <div align="center">
 <p><span class="bodyTitle">Science Museum of Minnesota Partners with <br>TopCoder High School Competitions</span><br />
-<span class="bodySubTitle"><em>Launch of Worldwide Computer Contest for High School-Age Students Promotes <br>Problem Solving Skills in Math and Science<br></em></span></p>
+<span class="bodySubTitle"><em>Launch of Worldwide Computer Challenge for High School-Age Students Promotes <br>Problem Solving Skills in Math and Science<br></em></span></p>
 </p>
 </div>
                         

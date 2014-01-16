@@ -252,7 +252,7 @@ x to city y.  It is easy to build the C table from the original cost data
 using Floyd's All-Pairs Shortest-Path algorithm.  (If you don't know
 Floyd's algorithm, learn it.  Other than your system sorting routine,
 it may very well be the single most useful "off-the-shelf" algorithm
-around for programming contests.)
+around for programming challenges.)
 </p>
 
 <font size="+2">

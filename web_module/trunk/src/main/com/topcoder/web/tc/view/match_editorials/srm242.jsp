@@ -53,7 +53,7 @@ In division 1, <b>Petr</b> was in the lead after the coding phase, and
 remained  first despite an unsuccessful challenge. The system tests
 did not change anything in the top 5, so <b>Petr</b> won the match.
 Congratulations to him for his first SRM win and an impressive 200 rating
-point increase, that brought him to the top ten after just 5 contests!
+point increase, that brought him to the top ten after just 5 challenges!
 Close second came <b>kalinov</b>, and <b>Yarin</b> took the third place.
 </p>
 

@@ -44,7 +44,7 @@
                         
 <div align="center">
 <p><span class="bodyTitle">TopCoder High School Launches Global <br>Programming Tournament in June</span><br />
-<span class="bodySubTitle"><em>Worldwide Contest From TopCoder Will Promote Problem Solving Skills in <br>Math and Science Among High School-Age Students<br></em></span></p>
+<span class="bodySubTitle"><em>Worldwide Challenge From TopCoder Will Promote Problem Solving Skills in <br>Math and Science Among High School-Age Students<br></em></span></p>
 </p>
 </div>
                         

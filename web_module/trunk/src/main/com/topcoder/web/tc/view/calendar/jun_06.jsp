@@ -61,7 +61,7 @@
       <td class="empty">&#160;</td>
       <td class="value">1
          <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> challenges posted</strong><br>
          9:00 AM
          </div>
       </td>
@@ -80,7 +80,7 @@
          7:00 PM
          </div>
          <div class="tccc06">
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview">TCCC06 Logo Design Contest</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview">TCCC06 Logo Design Challenge</A></strong><br>
          9:00 AM
          </div>
       </td>
@@ -98,7 +98,7 @@
          7:00 AM
          </div>
          <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> challenges posted</strong><br>
          9:00 AM
          </div>
       </td>
@@ -131,7 +131,7 @@
       </td>
       <td class="value">15
          <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> challenges posted</strong><br>
          9:00 AM
          </div>
       </td>
@@ -156,7 +156,7 @@
       </td>
       <td class="value">22
          <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> challenges posted</strong><br>
          9:00 AM
          </div>
       </td>
@@ -189,7 +189,7 @@
       </td>
       <td class="value">29
          <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> challenges posted</strong><br>
          9:00 AM
          </div>
       </td>

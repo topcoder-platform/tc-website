@@ -50,7 +50,7 @@
 
 <jsp:include page="/page_title.jsp">
 <jsp:param name="image" value="bug_hunt"/>
-<jsp:param name="title" value="Active Contests"/>
+<jsp:param name="title" value="Active Challenges"/>
 </jsp:include>
 
 <%-- Title --%>
@@ -168,13 +168,13 @@
 
 <%-- Forum --%>
 <p><span class="bodySubtitle"><strong>Forum</strong></span><br>
-    Please use the contest
+    Please use the challenge
     <% if (projectDetail.getItem(0, "jive_category_id").getResultData() == null) { %>
     forum
     <% } else { %>
     <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">forum</a>
     <% } %>
-    to view additional information and communicate with the contest owners.
+    to view additional information and communicate with the challenge owners.
 </p>
 
 <p><strong>Scorecards</strong><br/>

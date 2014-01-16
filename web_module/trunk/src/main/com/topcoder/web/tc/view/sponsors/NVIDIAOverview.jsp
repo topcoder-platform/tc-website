@@ -55,12 +55,12 @@
             Overview&#160;&#160;|&#160;&#160;
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NVIDIAInstructions">How to Compete</a> &#160;&#160;|&#160;&#160;
 			<a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NVIDIARules">Rules</a>&#160;&#160;|&#160;&#160;
-            <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
+            <a href="/longcontest/?module=ViewActiveContests">Active Challenges</a>
 		</p>
         
         <span class="bigTitle">Overview</span>
         <p>NVIDIA's <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nvidia.com/object/cuda_home.html#' refer='nvidia_superhero' />">CUDA Zone</a> is pleased to host the CUDA Superhero Challenge, a series of marathon matches which will harness the parallel processing power of the NVIDIA CUDA architecture to solve some of computing's biggest challenges. </p>
-        <p>The first contest was a great success!&nbsp; With over 200 competitors and almost 700 submissions, five lucky members won cash prizes!<br />
+        <p>The first challenge was a great success!&nbsp; With over 200 competitors and almost 700 submissions, five lucky members won cash prizes!<br />
             1st Place:&nbsp;<a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=20771536" target="_blank">iquadrat</a><br />
             2nd Place: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=15635535" target="_blank">b285714</a><br />
             3rd Place: <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=22837355" target="_blank">nemossi</a><br />

@@ -39,7 +39,7 @@
                     </jsp:include>
                         <div align="center">
 						<div align="center"><IMG SRC="/i/pressroom/sfbiztimes.gif" ALT="" border="0"/></div><BR/>
-						<p><span class="bodyTitle">Geekletes descend upon programming contest</span><BR/></p>
+						<p><span class="bodyTitle">Geekletes descend upon programming challenge</span><BR/></p>
                         </div>
 						Industry Wrapups<BR/>
 						From the October 12, 2001 print edition<BR/>

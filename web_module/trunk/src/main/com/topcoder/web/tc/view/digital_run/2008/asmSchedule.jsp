@@ -44,7 +44,7 @@
 
 <span class="title">Schedule</span>
 <br /><br />
-Includes Assembly contests posted within the following date range, inclusive:
+Includes Assembly challenges posted within the following date range, inclusive:
 <br /><br />
 <strong>Stage #1:</strong> January 1, 2008 - March 31, 2008<br />
 <strong>Stage #2:</strong> April 1, 2008 - June 30, 2008<br />

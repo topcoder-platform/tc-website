@@ -54,7 +54,7 @@
 <h2>Match summary</h2>
 
 <p>
-Despite featuring some very fast submissions early on, HS SRM 13 was a close contest to the end.  
+Despite featuring some very fast submissions early on, HS SRM 13 was a close challenge to the end.  
 <tc-webtag:handle coderId="13298470" context="hs_algorithm"/>, <tc-webtag:handle coderId="22630298" context="hs_algorithm"/>, <tc-webtag:handle coderId="15803565" context="hs_algorithm"/>, <tc-webtag:handle coderId="22627711" context="hs_algorithm"/>, and <tc-webtag:handle coderId="15092597" context="hs_algorithm"/> each took a turn in the lead on the strength of quick early submissions.  They were overtaken by perennial top finisher <tc-webtag:handle coderId="14886245" context="hs_algorithm"/>, who started a bit later but ended up submitting for 1559 points.  With many top competitors finished with all problems, the spotlight shifted to <tc-webtag:handle coderId="21468741" context="hs_algorithm"/>, another "red" who had arrived even later and was just starting.  At the 56 minute mark, <tc-webtag:handle coderId="21468741" context="hs_algorithm"/> had just submitted his medium problem and was racing a short clock to finish the hard - and an even shorter clock if he was to edge out <tc-webtag:handle coderId="14886245" context="hs_algorithm"/>.  He finished, but at the end of coding he trailed <tc-webtag:handle coderId="14886245" context="hs_algorithm"/>, <tc-webtag:handle coderId="15092597" context="hs_algorithm"/>, and <tc-webtag:handle coderId="15803565" context="hs_algorithm"/>.
 </p>
 

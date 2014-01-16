@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Feature Articles: How to Compete Well in Conceptualization and Specification Contests</title>
+<title>TopCoder Feature Articles: How to Compete Well in Conceptualization and Specification Challenges</title>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:include page="/script.jsp"/>
@@ -58,7 +58,7 @@
     <a href="/tc?module=Static&amp;d1=help&amp;d2=writeForTC">Write for TopCoder</a>
 </div>
  
-<span class="bigTitle">How to Compete Well in Conceptualization and Specification Contests</span>
+<span class="bigTitle">How to Compete Well in Conceptualization and Specification Challenges</span>
 <br />
 <br />
 <br clear="all">
@@ -69,9 +69,9 @@
 <p>A short picture of the Conceptualization and Specification competitions is shown below (from TC process). </p>
 <img src="/i/education/Conceptualization.jpg" alt="Conceptualization" />
 
-<p>The Conceptualization contest produces the Conceptualization Document with high level use cases and requirements. And the Specification contest produces a specification document with detailed activities (exact description of the business requirements, data definition and verification, etc...) .</p>
+<p>The Conceptualization challenge produces the Conceptualization Document with high level use cases and requirements. And the Specification challenge produces a specification document with detailed activities (exact description of the business requirements, data definition and verification, etc...) .</p>
 <p>The entire TopCoder process is also available here: <a href="http://www.topcoder.com/wiki/display/tc/The+TopCoder+Platform+-+Software+Application+Development+Methodology">http://www.topcoder.com/wiki/display/tc/The+TopCoder+Platform+-+Software+Application+Development+Methodology</a></p>
-<p>Conceptualization and Specification contests produce the business <strong>REQUIREMENTS</strong> for the application. Those contests are not Architecture and not Design, because we are not implementing the system there, but we are defining the customer needs of that system.<br>
+<p>Conceptualization and Specification challenges produce the business <strong>REQUIREMENTS</strong> for the application. Those challenges are not Architecture and not Design, because we are not implementing the system there, but we are defining the customer needs of that system.<br>
 The common order of software competitions for application development is as follows:</p>
 <ol>
   <li>Studio Storyboard (optional)</li>
@@ -82,7 +82,7 @@ The common order of software competitions for application development is as foll
   <li>and so on...</li>
 </ol>
 <h3>Processed Documents</h3>
-<p>The documents, involved in the Conceptualization contests, are shown on the next table.</p>
+<p>The documents, involved in the Conceptualization challenges, are shown on the next table.</p>
 <table cellspacing="0" cellpadding="5" style="border: solid 1px #999999; width: 85%">
   <tr>
     <th colspan="4" style="background-color:#CCCCCC">Conceptualization Competition Documents Reference Card</th>
@@ -157,7 +157,7 @@ The common order of software competitions for application development is as foll
   <li><strong>Requirements</strong><br>
     Defines the formal requirements to the new application. This is a core space to keep the needed application functionality. All of what is defined here &ndash;will next be implemented in the actual application. We describe the application features from the customer and application user point of view. Some technical details arrive there, but, of course, only at quite a high level.</li>
 </ul>
-<p>The context diagrams and process maps (workflows) are parts of the Conceptualization Document and visually show how the application works. The Use Case diagram is a formal UML diagram, showing the application functionality from the client point of view. That diagram is well known for the Architecture and Design competitions. Any other diagrams and maybe screen shots of the proposed application are appreciated in the Conceptualization contests, but they are fully optional.</p>
+<p>The context diagrams and process maps (workflows) are parts of the Conceptualization Document and visually show how the application works. The Use Case diagram is a formal UML diagram, showing the application functionality from the client point of view. That diagram is well known for the Architecture and Design competitions. Any other diagrams and maybe screen shots of the proposed application are appreciated in the Conceptualization challenges, but they are fully optional.</p>
 <p>The documents for the Specification competition are as following:</p>
 <table cellspacing="0" cellpadding="5" style="border: solid 1px #999999; width: 85%">
   <tr>
@@ -225,7 +225,7 @@ The common order of software competitions for application development is as foll
 <p>The judging process of the Conceptualization and Specification competitions is different (if compared to Architecture and Design). The reviewers are customers and TopCoder PMs. The Conceptualization competition has recently changed to the mini-tournament format: <a href="http://forums.topcoder.com/?module=Thread&threadID=630177&start=0">http://forums.topcoder.com/?module=Thread&amp;threadID=630177&amp;start=0</a></p>
 <p>There are two rounds of each Conceptualization competition. In the first round, the customer will subjectively select three winners (with prizes like $100, $75, $50 and no DR points). And to win in round 1, we have to convince the customer that our submission better describes the customer&rsquo;s needs. The second round is used to improve quality of the initial submissions. The client accumulates all the new/fresh ideas from the submissions and will post them on the forum. The submissions are kept non-public, and all participants from the round 1 can post improved submissions in round 2. Then the submissions will be judged according to the formal scorecard, which evaluates quality aspects of each section of the submitted documents. A total score higher than 75% is needed to pass round 2 and winners will be selected by higher scores.</p>
 <p>Judging of Specification competition is very similar &ndash; just round 1 is absent.</p>
-<p>The TopCoder has plans to invite community members for reviewing Conceptualization and Specification contests. They will be able to check much more detail and may be even have an influence on customer.</p>
+<p>The TopCoder has plans to invite community members for reviewing Conceptualization and Specification challenges. They will be able to check much more detail and may be even have an influence on customer.</p>
 <h3>Tips &amp; Tricks</h3>
 <p>The next guidelines were prepared after winning several conceptualization and specification competitions:</p>
 <ol>
@@ -260,11 +260,11 @@ The common order of software competitions for application development is as foll
     <td style="border: solid 1px #999999; border-collapse:collapse; border-right: none; border-top: none;"><p>Final fix of BRD and Use Cases</p></td>
   </tr>
   <tr> 
-    <td style="border: solid 1px #999999; border-collapse:collapse; border-right: none; border-top: none; border-left: none;"><p>Optionally support one downstream contest, for example, Studio Wireframes or Prototype contest (can NOT be a competitor for that contest)</p></td> 
-    <td style="border: solid 1px #999999; border-collapse:collapse; border-right: none; border-top: none;"><p>Optionally support one downstream contest, for example, &nbsp;Architecture contest (can NOT be a competitor for that contest)</p></td>
+    <td style="border: solid 1px #999999; border-collapse:collapse; border-right: none; border-top: none; border-left: none;"><p>Optionally support one downstream contest, for example, Studio Wireframes or Prototype challenge (can NOT be a competitor for that contest)</p></td> 
+    <td style="border: solid 1px #999999; border-collapse:collapse; border-right: none; border-top: none;"><p>Optionally support one downstream contest, for example, &nbsp;Architecture challenge (can NOT be a competitor for that contest)</p></td>
   </tr>
   <tr>
-    <td colspan="2"><p>Can be a competitor of the contest next after supported one. The only restriction is for one contest, where the winner will answer on the forum questions</p></td>
+    <td colspan="2"><p>Can be a competitor of the challenge next after supported one. The only restriction is for one contest, where the winner will answer on the forum questions</p></td>
   </tr>
 </table>
 

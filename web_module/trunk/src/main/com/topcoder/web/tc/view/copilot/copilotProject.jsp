@@ -86,11 +86,11 @@
                                            <tbody>
                                              <%-- the left box to show project statistics --%>
                                                <tr>
-                                                   <td>Planned Number of Contests:</td>
+                                                   <td>Planned Number of Challenges:</td>
                                                    <td class="number b">${copilotProject.totalPlannedContests}</td>
                                                </tr>
                                                <tr>
-                                                   <td>Real Number of Contests:</td>
+                                                   <td>Real Number of Challenges:</td>
                                                    <td class="number b">${copilotProject.totalRealContests}</td>
                                                </tr>
                                                <tr>
@@ -140,11 +140,11 @@
                                                  <c:forEach items="${copilotProject.contestTypeStats}" var="entry">
                                                     <table class="ctype${entry.value.projectCategoryId}">
                                                         <tr>
-                                                            <td>Planned No. of Contests:</td>
+                                                            <td>Planned No. of Challenges:</td>
                                                             <td class="number b">${entry.value.plannedContests}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Real No. of Contests:</td>
+                                                            <td>Real No. of Challenges:</td>
                                                             <td class="number b">${entry.value.realContests}</td>
                                                         </tr>
                                                         <tr>
@@ -258,15 +258,15 @@
                           <div id="chart2">
                               <div class="chart"></div>
                               <div class="legend">
-                                  <div class="planned-legend"><span class="icon"></span>Planned Contests</div>
-                                  <div class="real-legend"><span class="icon"></span>Real Contests</div>
+                                  <div class="planned-legend"><span class="icon"></span>Planned Challenges</div>
+                                  <div class="real-legend"><span class="icon"></span>Real Challenges</div>
                               </div>
                           </div>
                           <div id="chart3">
                               <div class="chart"></div>
                               <div class="legend">
-                                  <div class="planned-legend"><span class="icon"></span>Planned Contests</div>
-                                  <div class="real-legend"><span class="icon"></span>Real Contests</div>
+                                  <div class="planned-legend"><span class="icon"></span>Planned Challenges</div>
+                                  <div class="real-legend"><span class="icon"></span>Real Challenges</div>
                                   <div class="reposts-legend"><span class="icon"></span>Reposts</div>
                                   <div class="failures-legend"><span class="icon"></span>Failures</div>
                               </div>

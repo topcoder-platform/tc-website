@@ -45,7 +45,7 @@
 
 <span class="title">How to Get Paid</span>
 <br><br>
-TopCoder begins the payment process for algorithm, design, development and assembly contests one business day after each contest is concluded.  Design, development, and assembly contests are over when they are closed and removed from the online review tool.  This will happen by 5:00 PM Eastern Time on the business day following the end of final review (for a successful project) or when all submissions have failed screening or review.
+TopCoder begins the payment process for algorithm, design, development and assembly challenges one business day after each challenge is concluded.  Design, development, and assembly challenges are over when they are closed and removed from the online review tool.  This will happen by 5:00 PM Eastern Time on the business day following the end of final review (for a successful project) or when all submissions have failed screening or review.
 <br><br>
 <strong>Timing</strong><br>
 Payments of $25.00 or more are distributed on or before the 15th day of the following month. For example: payments earned between November 1 and November 30 will be sent out on or before December 15.

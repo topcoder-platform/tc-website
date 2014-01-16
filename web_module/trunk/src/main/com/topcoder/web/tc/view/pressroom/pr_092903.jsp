@@ -59,7 +59,7 @@ Details are provided at: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tc
 <p>Beginning in October, programmers from all around the world will compete in qualifying rounds of the 2003 TopCoder Open.  Through a series 
 of online rounds, the field will be narrowed to 16 semifinalists.  These semifinalists will then compete head-to-head over two days at the Mohegan 
 Sun Casino in Uncasville, CT on December 4th and 5th.  For the first time, in addition to the programming tournament, the event will feature new 
-component design and development contests.  The winners of each of these contests will receive $15,000.</p>
+component design and development challenges.  The winners of each of these challenges will receive $15,000.</p>
 
 <p>"Intel is excited to be a part of this great programming tournament," said Richard Wirt, Intel Senior Fellow and General Manager, Software and 
 Solutions Group.  "It is clear that many of these competitors are involved in the technology decisions that will shape our future.  By working together 

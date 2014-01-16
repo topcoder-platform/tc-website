@@ -20,7 +20,7 @@
             <fmt:formatDate value="<%=new Date()%>" pattern="E, d MMM yyyy HH:mm:ss"/>
         </pubDate>
 		<description>
-			TopCoder Active contest RSS
+			TopCoder Active challenge RSS
 		</description>
 		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" href="http://www.topcoder.com/tc" type="application/rss+xml" />
         <rsc:iterator list="${results[param.c]}" id="resultRow">

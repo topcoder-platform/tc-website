@@ -128,7 +128,7 @@ A common type of problem might be the shortest path through a maze.  Starting wi
 <br><br>
 Most standard libraries, such the Java API, and the .NET framework, provide a Queue class that provides these two basic interfaces for adding and removing items from a queue.
 <br><br>
-BFS type problems appear frequently on contests; on some problems, successful identification of BFS is simple and immediately, other times it is not so obvious.
+BFS type problems appear frequently on challenges; on some problems, successful identification of BFS is simple and immediately, other times it is not so obvious.
 <br><br>
 A queue implementation may be as simple as an array, and a pointer to the current position within the array.  For instance, if you know that you are trying to get from point A to point B on a 50x50 grid, and have determined that the direction you are facing (or any other details) are not relevant, then you know that there are no more than 2,500 "states" to visit.  Thus, your queue is programmed like so:
 

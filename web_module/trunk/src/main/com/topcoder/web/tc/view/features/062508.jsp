@@ -150,7 +150,7 @@ Long Jin Tea, Dong Po Meat.</p>
     <img src="/i/m/sweetpea_big.jpg" alt="sweetpea, May's Studio Designer of the Month" />
 </div>
 <strong>Studio</strong>: <tc-webtag:handle coderId="22682305" /><br />
-Won $2250 &amp; Won 1st Place <br />in 3 big contests!<br /><br /><br />
+Won $2250 &amp; Won 1st Place <br />in 3 big challenges!<br /><br /><br />
 </p>
 
 <p><strong>What brought you to TopCoder?</strong><br />
@@ -172,7 +172,7 @@ Don't think about winning.Just try your best and do it for fun.</p>
 Support from many people around me :)</p>
 
 <p><strong>What is your most stressful TopCoder moment?</strong><br />
-When I need to finish my work in the office while there are many interesting contests posted in studio's website :'(</p>
+When I need to finish my work in the office while there are many interesting challenges posted in studio's website :'(</p>
 
 <p><strong>What do you do for fun outside of TopCoder?</strong><br />
 Playing piano with my duet-couple <tc-webtag:handle coderId="7459080" context="algorithm" />,windows shopping and watching movies :D.</p>

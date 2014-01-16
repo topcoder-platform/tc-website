@@ -122,7 +122,7 @@ according to the following rules:
         <b>When to start the Competition</b><br>
         TopCoder members must register from within the TopCoder Arena for this competition.
         Registration is from <rsc:item name="reg_start_time" row="<%=rsr%>" format="hh:mm a z"/> to <rsc:item name="reg_end_time" row="<%=rsr%>"  format="hh:mm a z"/>.
-        To register, login to the TopCoder Arena application, click on the 'Active Contests' menu, choose the event to
+        To register, login to the TopCoder Arena application, click on the 'Active Challenges' menu, choose the event to
         register for, and select the 'Register' option. TopCoder members from all over the country will be participating
         in this event, but <b><i>when not indicated, start times will be communicated as Eastern Time, so contestants in different time
         zones must adjust accordingly</i></b>. All competitors who have registered for the competition will be assigned
@@ -211,7 +211,7 @@ eligibility, (ii) represents and warrants that they have not cheated; that the i
 submitted is theirs alone, (iii) verifies the accuracy of the demographic information submitted, (iv) authorizes
 TopCoder to publicize the tournament's results, (v) agrees to sign any applicable forms required by tax authorities,
 (vi) grants to TopCoder a perpetual, royalty-free, irrevocable, non-exclusive right and license to use, reproduce and
-publish any and all information submitted during the contest (including source code and text posted by you) into any
+publish any and all information submitted during the challenge (including source code and text posted by you) into any
 form, medium or technology, and (vii) releases TopCoder from liability arising out of any prize won. The Form W-9 or
 W-8BEN is required by the IRS for tax reporting purposes. If prize notification is returned as undeliverable, or the
 winner fails to return the Affidavit, or the W-9 or W-8BEN, as specified, the winner will be disqualified and the prize
@@ -339,7 +339,7 @@ rated event following the rating change.
         <b>When to start the Competition</b><br>
         TopCoder members must register from within the TopCoder Arena for this competition.
         Registration is from <rsc:item name="reg_start_time" row="<%=rsr%>" format="hh:mm a z"/> to <rsc:item name="reg_end_time" row="<%=rsr%>"  format="hh:mm a z"/>.
-        To register, login to the TopCoder Arena application, click on the 'Active Contests' menu, choose the event to
+        To register, login to the TopCoder Arena application, click on the 'Active Challenges' menu, choose the event to
         register for, and select the 'Register' option. TopCoder members from all over the country will be participating
         in this event, but <b><i>when not indicated, start times will be communicated as Eastern Time, so contestants in different time
         zones must adjust accordingly</i></b>. All competitors who have registered for the competition will be assigned

@@ -68,7 +68,7 @@ Friday, March 21, 2008; 11:19 AM</p>
 
 <p>The situation has had chip makers and major software vendors making broad-based efforts to raise awareness of both the promise and challenges of programming for multiple cores.</p>
 
-<p>TopCoder, a software development company that invites its membership to work on various aspects of a project through competitions, just began a series ofspecial contests,along with chipmaker AMD, that focuses on multithreading.</p>
+<p>TopCoder, a software development company that invites its membership to work on various aspects of a project through competitions, just began a series ofspecial challenges,along with chipmaker AMD, that focuses on multithreading.</p>
 
 <p>Mike Lydon, TopCoder's chief technology officer, said multicore programming remains the province of an elite few. "What we've seen from the skill set perspective is, it varies quite a bit," he said. "As you would expect, the high-end developers are familiar with threading. After that it drops off pretty quickly."</p>
 

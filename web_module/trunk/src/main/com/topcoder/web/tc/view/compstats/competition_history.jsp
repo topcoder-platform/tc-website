@@ -269,7 +269,7 @@
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=${cr}" class="bcLink">Member Profile</A>
  | Competition History
- | <A HREF="/tc?module=OutstandingProjects&pt=${pt}&cr=${cr}" class="bcLink">Current Contests</A>
+ | <A HREF="/tc?module=OutstandingProjects&pt=${pt}&cr=${cr}" class="bcLink">Current Challenges</A>
  | <A HREF="/tc?module=ReliabilityDetail&pt=${pt}&cr=${cr}" class="bcLink">Reliability Detail</A>
  | <A HREF="/tc?module=ReviewerRatingHistory&pt=${pt}&cr=${cr}" class="bcLink">Reviewer Rating History</A>
 </span>
@@ -342,7 +342,7 @@
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Date</a>
             </TD>
             <TD CLASS="header" WIDTH="36%">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Contest</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Challenge</a>
             </TD>
             <TD CLASS="header" WIDTH="8%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("category_desc")%>" includeParams="true"/>">Category</a>
@@ -401,7 +401,7 @@
                 <TD class="valueR" nowrap="nowrap">
                     <% if (resultRow.getItem("project_id").getResultData() != null) { %>
                         <A HREF="/tc?module=ProjectDetail&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>&tab=results" CLASS="statLink">
-                            Contest Details
+                            Challenge Details
                         </A>
                     <% } %>
                 </TD>

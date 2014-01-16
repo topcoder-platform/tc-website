@@ -44,7 +44,7 @@
                         
 <div align="center">
 <p><span class="bodyTitle">Truveo Developer Challenge Showcases 93 New Ways To View Video Online</span><br />
-<span class="bodySubTitle"><em>Contest Yields 93 Innovative New Video Search Applications Based on Truveo API</em></span></p>
+<span class="bodySubTitle"><em>Challenge Yields 93 Innovative New Video Search Applications Based on Truveo API</em></span></p>
 </div>
       
 <p>
@@ -60,7 +60,7 @@ Unleashing their creativity, developers introduced new applications ranging from
 </p>
 
 <p>
-"From simply incorporating video search results into a Website to advanced and complex new video search applications, we've been impressed by how well TopCoder developers have chosen to implement the Truveo API," said Pete Kocks, President of Truveo and Vice President of AOL. "We expect that these new applications and developers will help continue to spread the word and we're delighted to see such an outpouring of creativity from this contest.  Congratulations to all the winners."
+"From simply incorporating video search results into a Website to advanced and complex new video search applications, we've been impressed by how well TopCoder developers have chosen to implement the Truveo API," said Pete Kocks, President of Truveo and Vice President of AOL. "We expect that these new applications and developers will help continue to spread the word and we're delighted to see such an outpouring of creativity from this challenge.  Congratulations to all the winners."
 </p>
 
 <p>

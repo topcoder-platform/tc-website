@@ -35,7 +35,7 @@
 <!--[if IE]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie.css" /><![endif]-->
 <!--[if IE 7]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie7.css" /><![endif]-->
 <!--[if IE 6]><link rel="stylesheet" type="text/css" href="/css/home/screen-ie6.css" /><![endif]-->
-<title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
+<title>Programming challenges, Software Development, and Employment Services at TopCoder</title>
 <script src="/js/home/jquery-1.2.6.min.js" type="text/javascript"></script>
 <script src="/js/home/jquery.hoverIntent.minified.js" type="text/javascript"></script>
 <script src="/js/home/jquery.jcarousel.pack.js" type="text/javascript"></script>
@@ -179,14 +179,14 @@ $(document).ready(function(){
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=113">Component Development</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=14">Assembly</a></li>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests">Marathon Matches</a></li>
-                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Bug+Races">Bug Races</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Bug+Races">Races</a></li>
                             <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Studio Competitions</a></li>
                         </ul>
                     </li>
                     <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">Studio</a>
                         <ul>
-                            <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active Contests</a></li>
-                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/">Launch a Contest</a></li>
+                            <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active Challenges</a></li>
+                            <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/">Launch a Challenge</a></li>
                             <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
                             <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/blog/">Studio Blog</a></li>
                             <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=MyStudioHome">My Studio</a></li>
@@ -286,7 +286,7 @@ $(document).ready(function(){
                     <ul class="right-list">
                         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Assembly">Software Assembly</a></li>
                         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Test+Suites">Test Suites</a></li>
-                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Bug+Races">Bug Races </a></li>
+                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Bug+Races">Races </a></li>
                         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=hs&d2=home">High School </a></li>
                         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Static&d1=instructions">Marathon Matches </a></li>
                     </ul>
@@ -300,7 +300,7 @@ $(document).ready(function(){
                 <div class="right-column">
                     <h3>Ongoing Competitions</h3>
                     <div id="digital-run">
-                        <p>You don't have to win every contest to make big money at TopCoder. The more you participate, and the better you perform, the more
+                        <p>You don't have to win every challenge to make big money at TopCoder. The more you participate, and the better you perform, the more
                         points you can earn toward this guaranteed monthly bonus pool.<br/><a href="http://<%=ApplicationServer.SERVER_NAME%>/dr">Learn More &gt;</a></p>
                     </div>
                        <div id="topcoder-open">

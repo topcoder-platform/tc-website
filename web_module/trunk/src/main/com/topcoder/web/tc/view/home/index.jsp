@@ -234,7 +234,7 @@
 												<dd>Virtual Software Factory / Directed Innovation</dd>
 											</dl>
 											<p>
-												PayPal X Contests powered by TopCoder is a community focused on competing with PayPal X technologies for all sorts of cool projects - from building new apps, to working on SDKS, even working on mobile libraries and products!  
+												PayPal X challenges powered by TopCoder is a community focused on competing with PayPal X technologies for all sorts of cool projects - from building new apps, to working on SDKS, even working on mobile libraries and products!  
 											</p>
 										</div>
 										<div id="p2">
@@ -244,7 +244,7 @@
 												<dd>Virtual Software Factory / Directed Innovation</dd>
 											</dl>
 											<p>
-                                                Assist internal engineering teams to build various APIs to expose capabilities within PayPalX's core products.  Provide open innovation contests to use and display the capabilities of those APIs.
+                                                Assist internal engineering teams to build various APIs to expose capabilities within PayPalX's core products.  Provide open innovation challenges to use and display the capabilities of those APIs.
          									</p>
 										</div>
 										<div id="p3">

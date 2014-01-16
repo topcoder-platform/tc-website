@@ -85,7 +85,7 @@ Why am I not able to copy and paste to my arena applet?
 <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
 
 <A HREF="#13" CLASS="bodyText">
-The small HTML window that holds the contest applet does not pop up in Mozilla 0.9.4.
+The small HTML window that holds the challenge applet does not pop up in Mozilla 0.9.4.
 </A>
 
 </TD>
@@ -185,7 +185,7 @@ permission java.awt.AWTPermission "accessClipboard";<BR/>
 <BR/>
 
 <A NAME="13" CLASS="bodyText"><B>
-The small HTML window that holds the contest applet does not pop up in Mozilla 0.9.4.
+The small HTML window that holds the challenge applet does not pop up in Mozilla 0.9.4.
 </B></A>
 
 <BR/>

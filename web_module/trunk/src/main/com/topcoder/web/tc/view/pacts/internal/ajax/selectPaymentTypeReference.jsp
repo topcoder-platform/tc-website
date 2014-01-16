@@ -178,11 +178,11 @@
 
                      <c:when test="${refId == STUDIO_CONTEST}">
                         <c:if test="${empty studioContests}">
-                        <input type="hidden" name="missing_reference" value="Please select a studio contest for the payment"/>                        
-                          Enter search text for studio contest name: <input type="text" name="searchInput" value="${search}" />
+                        <input type="hidden" name="missing_reference" value="Please select a studio challenge for the payment"/>                        
+                          Enter search text for studio challenge name: <input type="text" name="searchInput" value="${search}" />
                           <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
-                                <font color="#FF0000">No studio contests found containing <c:out value="${search}"/>. </font>
+                                <font color="#FF0000">No studio challenges found containing <c:out value="${search}"/>. </font>
                             </c:if>
                           <br/>
                         </c:if>
@@ -202,11 +202,11 @@
 
                      <c:when test="${refId == COMPONENT_CONTEST}">
                         <c:if test="${empty componentContests}">                  
-                            <input type="hidden" name="missing_reference" value="Please select a component contest for the payment"/>                        
-                          Enter search text for component contest name: <input type="text" name="searchInput" value="${search}" />
+                            <input type="hidden" name="missing_reference" value="Please select a component challenge for the payment"/>                        
+                          Enter search text for component challenge name: <input type="text" name="searchInput" value="${search}" />
                           <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
-                                <font color="#FF0000">No component contests found containing <c:out value="${search}"/>. </font>
+                                <font color="#FF0000">No component challenges found containing <c:out value="${search}"/>. </font>
                             </c:if>
                           <br/>
                         </c:if>

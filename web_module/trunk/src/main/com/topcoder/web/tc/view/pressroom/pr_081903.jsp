@@ -46,25 +46,25 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </jsp:include>
 
 <div align="center">
-<p><span class="bodyTitle">TopCoder Hosts Software Component Design and Development Contest as Part of 2003 TopCoder Open</span><br />
+<p><span class="bodyTitle">TopCoder Hosts Software Component Design and Development Challenge as Part of 2003 TopCoder Open</span><br />
 <span class="bodySubTitle"><em>International Competitors Vie For $30,000</em></span></p>
 </div>
 
 <p><strong>GLASTONBURY, Conn., August 19, 2003&#151;</strong>
 TopCoder, Inc., the leader in on-line programming competition and skills assessment, today announced its Software 
-Component Design and Development Contest as part of the 2003 TopCoder Open.  In addition to the annual coding 
-competition for professional and collegiate programmers, TopCoder will host a separate two-part contest focused on 
+Component Design and Development Challenge as part of the 2003 TopCoder Open.  In addition to the annual coding 
+competition for professional and collegiate programmers, TopCoder will host a separate two-part challenge focused on 
 software component development.  One aspect of the component competition will test the design skills of software 
 architects while the other will challenge programmers to implement previous winning designs.</p>
 
-<p>"The addition of the Software Component Design and Development Contest is a natural progression for TopCoder," 
+<p>"The addition of the Software Component Design and Development Challenge is a natural progression for TopCoder," 
 said Jack Hughes, chairman and founder of TopCoder.  "The common denominator amongst our vast and growing member 
 base is great technologists.  The additional competitions allow them to test their skills by tackling a business problem 
 with a software design, or use existing designs to develop software components, in addition to quickly solving 
 algorithmic problems.  Many will do all three."</p>
 
-<p><span class="bodySubTitle">Software Component Design and Development Contest</span><br />
-The development competition of the Software Component Design and Development Contest begins on September 2.  
+<p><span class="bodySubTitle">Software Component Design and Development Challenge</span><br />
+The development competition of the Software Component Design and Development Challenge begins on September 2.  
 TopCoder will post software designs <A href="/tc?module=ViewActiveContests&ph=112">here</A>.
 Eligible TopCoder members view the project designs and submit source code by September 15.  On September 4, the 
 design competition begins and TopCoder will post software design specifications.  Architects are invited to submit 
@@ -79,7 +79,7 @@ online rounds will advance to the finals.</p>
 in Uncasville, Connecticut on December 5.  The winner of the onsite design and development competitions will each 
 receive a grand prize of $10,000.  Each second place finisher will receive $5,000.</p>
 
-<p>"We are very excited to integrate a software design and development contest into the TopCoder Open," said Dave 
+<p>"We are very excited to integrate a software design and development challenge into the TopCoder Open," said Dave 
 Tanacea, president of TopCoder Software.  "It gives us an opportunity to showcase the quality of the commercial 
 software TopCoder Software is building in addition to highlighting the incredible talent of TopCoder members."</p>
 

@@ -47,7 +47,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 
 <div align="center">
 <p><span class="bodyTitle">Intel Corporation Sponsors 2004 TopCoder Open Tournament</span><br />
-<span class="bodySubTitle"><em>Intel Joins as One of the Premier-Level Sponsors for Programming Contest</em></span></p>
+<span class="bodySubTitle"><em>Intel Joins as One of the Premier-Level Sponsors for Programming Challenge</em></span></p>
 </div>
 
 <p><strong>GLASTONBURY, Conn., August 04, 2004&#151;</strong>
@@ -55,7 +55,7 @@ TopCoder, Inc., the leader in online programming competition, skills assessment 
 <br/><br/>
 "We are pleased to participate as a sponsor of the 2004 TopCoder Open, which is recognized as one of the pre-eminent events of its kind in the world," said Melissa Laird, general manager, Solutions Enabling Division, Intel Corporation. "We look forward to an exciting tournament and the interaction with an exceptional field of contestants."
 <br/><br/>
-The initial online qualification rounds will begin September 7th and continue through September 29th, with the top 32 competitors advancing to the Onsite Finals in Santa Clara, CA on November 11th and 12th.  Contestants can compete in the Algorithm or Component competitions, or both. Cash prizes for the 2004 TopCoder Open will comprise $100,000 for the component tournament and $50,000 for the algorithm contest for an overall prize purse worth $150,000. 
+The initial online qualification rounds will begin September 7th and continue through September 29th, with the top 32 competitors advancing to the Onsite Finals in Santa Clara, CA on November 11th and 12th.  Contestants can compete in the Algorithm or Component competitions, or both. Cash prizes for the 2004 TopCoder Open will comprise $100,000 for the component tournament and $50,000 for the algorithm challenge for an overall prize purse worth $150,000. 
 <br/><br/>
 "The 2004 Open will be the largest and most competitive tournament in our history," said Rob Hughes, President and COO of TopCoder. "Intel continues to demonstrate their support of the TopCoder event, and the developer community at large."<br/><br/>
 <span class="bodySubTitle">About Intel</span><br />

@@ -126,7 +126,7 @@ By&#160;KaiEl,<I>TopCoder Member</I><BR/>
 
 
 <P>
-	As the above example shows, a writer's job does not end when the match starts. The writer for each contest has to stay in the administrative lobby during his or her match to help address questions and concerns from other TopCoder members.  These usually amount to outright requests for help on the tougher problems, which TopCoder writers and administrators can't give. In SRM109, <B>brett1479</B> had to deny these requests of about half-a-dozen participants with responses such as, "We can't give out too much help," or "You have to reread the problem, I'm sorry."
+	As the above example shows, a writer's job does not end when the match starts. The writer for each challenge has to stay in the administrative lobby during his or her match to help address questions and concerns from other TopCoder members.  These usually amount to outright requests for help on the tougher problems, which TopCoder writers and administrators can't give. In SRM109, <B>brett1479</B> had to deny these requests of about half-a-dozen participants with responses such as, "We can't give out too much help," or "You have to reread the problem, I'm sorry."
 </P>
 	
 <P>

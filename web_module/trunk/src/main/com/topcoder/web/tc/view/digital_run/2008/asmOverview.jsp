@@ -146,7 +146,7 @@ NOTE: Coaches may earn Digital Run points.
 <br /><br />
 <strong>For example:</strong>
 <br /><br />
-Team A has three participants and places second; Team B has two participants and places first.  The contest has a prize purse of $10,000.  Both teams agree to split their prizes equally among their respective team members. The participants on Team A would receive (10,000 * 0.30)/3 = 1000.00 points per person and Team B would receive (10,000 * 0.70)/2 = 3500.00 per person.
+Team A has three participants and places second; Team B has two participants and places first.  The challenge has a prize purse of $10,000.  Both teams agree to split their prizes equally among their respective team members. The participants on Team A would receive (10,000 * 0.30)/3 = 1000.00 points per person and Team B would receive (10,000 * 0.70)/2 = 3500.00 per person.
 <br /><br />
 <strong>Example 2:</strong>
 <br /><br />

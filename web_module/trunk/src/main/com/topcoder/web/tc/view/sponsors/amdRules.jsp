@@ -42,9 +42,9 @@
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdInstructions">How to Compete</a>&#160;&#160;|&#160;&#160;
             Rules&#160;&#160;|&#160;&#160;
             <%--
-            <span class="grayedOut">Active Contests (coming soon)</span>
+            <span class="grayedOut">Active Challenges (coming soon)</span>
             --%>
-            <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
+            <a href="/longcontest/?module=ViewActiveContests">Active Challenges</a>
         </p>
         
         <p><span class="bigTitle">Official Rules &amp; Regulations</span></p>

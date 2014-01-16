@@ -148,7 +148,7 @@ Please refer to the <a href="http://apps.topcoder.com/wiki/x/FIXTAg">How-To</a> 
 
 To be considered for review, you must submit 2 documents in a single zip file.<br><Br>
 
-1.	Game Plan - This is a roadmap of the contests that you plan to run to complete the project.  This should be your best estimate based on the information provided to you.  Communicate in the forums to make sure expectations are clear.  (<a href=http://www.topcoder.com/wiki/download/attachments/47416596/GamePlan_Template.xls>Download the Template</a>)<br><br>
+1.	Game Plan - This is a roadmap of the challenges that you plan to run to complete the project.  This should be your best estimate based on the information provided to you.  Communicate in the forums to make sure expectations are clear.  (<a href=http://www.topcoder.com/wiki/download/attachments/47416596/GamePlan_Template.xls>Download the Template</a>)<br><br>
 2.	Strategy Document - This is a 1 page text document that describes your general approach and strategy to executing and completing the project.  You should include explanations of release points, dependencies, assumptions and risks.  (<a href=http://apps.topcoder.com/wiki/download/attachments/47416596/Strategy_Document_Sample.doc>Download a Sample</a>)<br>
 
           
@@ -174,7 +174,7 @@ If you win, you may be asked to make minor adjustments to your submission.  If s
 
 <%-- Forum --%>
 <p><span class="bodySubtitle"><strong>Forum</strong></span><br>
-    Please use the contest
+    Please use the challenge
 <% if (projectDetail.getItem(0, "jive_category_id").getResultData() == null) { %>
     forum
     <% } else { %>

@@ -66,7 +66,7 @@
         </tr>
         <c:if test="${assignment_document.type.id == STUDIO_CONTEST_TYPE_ID}">
                 <tr>
-                    <td><b>Studio Contest referenced:</b></td>
+                    <td><b>Studio Challenge referenced:</b></td>
                     <td><c:out value="${assignment_document.studioContest.name}"/></td>
                 </tr>
         </c:if>

@@ -195,10 +195,10 @@ the substantial prize money - that is perhaps the main factor that has kept me c
 "Competing for so long" and "substantial prize money" are both accurate statements to describe 
 <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=favs#dmwright" CLASS="bodyGeneric">dmwright</A>, being that he is one of the TopCoder originals, becoming a member on April 3, 2001.  
 "A friend of mine, and now fellow competitor, saw a TopCoder flyer for last year's Collegiate 
-Challenge and told me about it.  Since I'd competed in some different programming contests in high 
+Challenge and told me about it.  Since I'd competed in some different programming challenges in high 
 school, and done fairly well (he finished first at the International Olympiad in Informatics in 1998), 
 I figured I had a reasonable chance of doing well.  So I entered the contest, and I've entered almost 
-every TopCoder contest since then."  
+every TopCoder challenge since then."  
 </P>
 
 <P>

@@ -17,7 +17,7 @@
 <c:if test="${fn:length(supportingDocs) > 0}">
     <p><span class="bodySubtitle"><strong>Supporting Documentation</strong></span>
     <c:if test="${!canDownloadDocuments}">
-        <i>(register the contest to see the documentation)</i>
+        <i>(register the challenge to see the documentation)</i>
     </c:if>
     <br/>
 

@@ -38,17 +38,17 @@
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText">
-                        <div align="center"><br /><img src="/i/development/header_des_bonus_contest2.gif" alt="TopCoder Software Component Design Bonus Contest 2" width="554" height="150" border="0" /></div>
+                        <div align="center"><br /><img src="/i/development/header_des_bonus_contest2.gif" alt="TopCoder Software Component Design Bonus Challenge 2" width="554" height="150" border="0" /></div>
 
 <!-- Comment out until final winner is known -->
                         <p>With an average score of 91.21 points on 6 submissions, <strong>TangentZ</strong> beat out the rest of the TopCoder competition to take 
-                        the top spot... and the $3000 bonus.  In addition to the bonus, <strong>TangentZ</strong> earned $1,004.50 in component winnings during the contest.</p>
+                        the top spot... and the $3000 bonus.  In addition to the bonus, <strong>TangentZ</strong> earned $1,004.50 in component winnings during the challenge.</p>
                         
                         <p>Coming in second, <strong>isv</strong> also submitted 6 submissions with his top 5 averaging 90.68 points. <strong>isv's</strong> bonus was $2,000, 
-                        which is on top of his $1,065 in component design earnings during the contest.</p>
+                        which is on top of his $1,065 in component design earnings during the challenge.</p>
                         
                         <p><strong>srowen</strong> came in third with an average score of 89.16 points for 5 submissions.  The $1,000 bonus adds to his $412 
-                        in component design earnings during the contest.</p><br/>
+                        in component design earnings during the challenge.</p><br/>
                     </td>
                 </tr>
 
@@ -95,7 +95,7 @@
                         </table>
 
                         <table border="0" cellspacing="0" cellpadding="5" width="100%">
-                            <tr valign="top"><td class="bodyText" colspan="3">Thank you to everyone who submitted entries for our second Component Design Contest.</td></tr>
+                            <tr valign="top"><td class="bodyText" colspan="3">Thank you to everyone who submitted entries for our second Component Design Challenge.</td></tr>
                         </table>
                         
                         <p><br/></p>
@@ -313,15 +313,15 @@
                             <li>Third place will receive $1,000.</li>
                         </ul>
 
-                        <p>Get started today... There are plenty of <a href="/tc?module=ViewActiveContests&ph=112">Active Contests</a> for you to choose from.</p></strong>
+                        <p>Get started today... There are plenty of <a href="/tc?module=ViewActiveContests&ph=112">Active Challenges</a> for you to choose from.</p></strong>
 
                         <hr width="100%" noshade="noshade" color="#666666" />
 
-                        <p><font size="3"><strong>Contest Requirements</strong></font><br />
+                        <p><font size="3"><strong>Challenge Requirements</strong></font><br />
                         Submit a minimum of five designs that pass screening for TopCoder Component Design Projects whose initial submission
                         dates are between April 10, 2003 and June 25, 2003. To pass screening, a design submission must score in the top 5 for
                         that component and meet the minimum requirements of the screening scorecard. All submissions that pass screening will
-                        be entered into the contest. <strong>Only your 5 highest-scoring submissions count towards your average score. </strong>
+                        be entered into the challenge. <strong>Only your 5 highest-scoring submissions count towards your average score. </strong>
                         The TopCoder members with the 3 highest average scores will be declared the first, second and third place winners,
                         respectively.</p>
 
@@ -340,7 +340,7 @@
                             country of residence.</li>
                         </ol>
 
-                        <p>TopCoder reserves the right to change the Contest Requirements, Design and Development Terms, and Component
+                        <p>TopCoder reserves the right to change the Challenge Requirements, Design and Development Terms, and Component
                         Methodology at any time. For more information read the full <a href="/tc?module=Static&d1=about&d2=terms">Terms and Conditions</a></p>
 
                         <hr width="100%" noshade="noshade" color="#666666" />

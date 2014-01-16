@@ -19,7 +19,7 @@
   -      * support for specification reviews was added.
   -      * code was refactored to avoid duplication.
 
-  - Version 1.4 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) changes:
+  - Version 1.4 (Content Creation Challenge Online Review and TC Site Integration Assembly 1.0) changes:
   - Fix Review Opportunities table header colspan problem.
   -
   - Version 1.5 (Review Application Integration assembly) change notes:
@@ -73,15 +73,15 @@
 
                 <span class="bigTitle">Review opportunities</span>
 
-                <p>In the table below you will be able to see which contests are available for review, the type of contest,
+                <p>In the table below you will be able to see which challenges are available for review, the type of challenge,
                    the current number of submissions on each, the review timeline for each, and the number of review positions
-                   available for each contest. If you click on a contest name you will be able to see all of the details
-                   associated with that contest review.</p>
+                   available for each challenge. If you click on a challenge name you will be able to see all of the details
+                   associated with that challenge review.</p>
                 <p>If you are not currently on the ${eligibleReviewBoardName} you may send an email to
                    <a href="mailto:support@topcoder.com">support@topcoder.com</a> requesting permission to perform reviews.
                    Please keep in mind that only members who meet the <a href="http://apps.topcoder.com/wiki/display/tc/Reviewer+Qualification+Requirements">Reviewer Qualification Requirements</a>
                    are eligible to join the TopCoder Review Board.</p>
-                <p>In order to sign up for a review position, click on the "details" link for any contest with positions
+                <p>In order to sign up for a review position, click on the "details" link for any challenge with positions
                    available, select the review roles you would like to apply for and click "Apply Now".</p>
 
                 <br/>
@@ -111,7 +111,7 @@
                                             projectType == DESIGN_PROJECT_TYPE}">
                                     <td class="tableHeader" align="center">Catalog</td>
                                 </c:if>
-                                <td class="tableHeader" width="100%">Contest</td>
+                                <td class="tableHeader" width="100%">Challenge</td>
                                 <td class="tableHeader" align="right">Reviewer<br><nobr>Payment *</nobr></td>
                                 <td class="tableHeader" align="center">Submissions</td>
                                 <td class="tableHeader" align="center">Review Start</td>
@@ -229,7 +229,7 @@
                                             projectType == DESIGN_PROJECT_TYPE}">
                                     <td class="tableHeader" align="center">Catalog</td>
                                 </c:if>
-                                <td class="tableHeader" width="100%">Contest</td>
+                                <td class="tableHeader" width="100%">Challenge</td>
                                 <td class="tableHeader" align="right">Reviewer<br>Payment</td>
                                 <td class="tableHeader" align="center">Review Start</td>
                                 <td class="tableHeader" align="left">Details</td>

@@ -474,7 +474,7 @@ long long getCount(int n, int k, int f) {
     return dp[a][(1&lt;&lt;n)-1-(1&lt;&lt;f)];
 </pre>
 <p>
-Allthough the above implementation works, I wouldn't feel comfortable in the contest with it, because of the 1.99 seconds runtime. With one further observation, we can reduce the runtime dramatically. The number of permutations with an extra slope of k depends only of the length of the intervals that are still available, and not on the position or the order of these intervals. Therefore we can memoize on the state: (lengths of available intervals,extra slope required). The following code runs in only 31 milliseconds in the worst case!
+Allthough the above implementation works, I wouldn't feel comfortable in the challenge with it, because of the 1.99 seconds runtime. With one further observation, we can reduce the runtime dramatically. The number of permutations with an extra slope of k depends only of the length of the intervals that are still available, and not on the position or the order of these intervals. Therefore we can memoize on the state: (lengths of available intervals,extra slope required). The following code runs in only 31 milliseconds in the worst case!
 </p>
 <pre>
 map&lt;vector&lt;int&gt;,long long&gt; mem[20];
@@ -509,7 +509,7 @@ public:
 };
 </pre>
 <p>
-During the contest I thought of both approaches above, and I was just about to implement the second algorithm when I noticed an easier algorithm. The additional slope each interval contributes is independent of the other intervals! So if we fix the numbers that go in each interval and fix how much each interval should contribute to the slope, we have smaller subproblems which we can dp / memoize on. The state in this case is: (length of the interval, extra slope required). Specifically if we have one interval of length n, and place the smallest number on position f, we can loop over all possible additional slopes for the interval to the left of f, and the additional slope for the interval to the right of f follows from this immediately. We recursively calculate the number of ways for both of these subcases, multiply their results and multiply that with the number of ways to place f of the n-1 remaining elements to the left of f. The following code is very similar to my fastest submission during the contest and runs in 2 milliseconds.
+During the challenge I thought of both approaches above, and I was just about to implement the second algorithm when I noticed an easier algorithm. The additional slope each interval contributes is independent of the other intervals! So if we fix the numbers that go in each interval and fix how much each interval should contribute to the slope, we have smaller subproblems which we can dp / memoize on. The state in this case is: (length of the interval, extra slope required). Specifically if we have one interval of length n, and place the smallest number on position f, we can loop over all possible additional slopes for the interval to the left of f, and the additional slope for the interval to the right of f follows from this immediately. We recursively calculate the number of ways for both of these subcases, multiply their results and multiply that with the number of ways to place f of the n-1 remaining elements to the left of f. The following code is very similar to my fastest submission during the challenge and runs in 2 milliseconds.
 </p>
 <pre>
 long long choose[20][20];

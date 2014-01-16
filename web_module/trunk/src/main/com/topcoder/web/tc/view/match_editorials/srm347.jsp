@@ -321,7 +321,7 @@ Here are the subproblems you needed to solve:
 <li>How long will it take to deliver a given subset of customers, starting from <b>i</b> and ending at <b>0</b>?</li>
 <li>What is the best way to distribute the load between two cars?</li></ul>
 
-If you have any ambition of doing well in programming contests, make the Floyd-Warshall algorithm second nature.  If you've got a weighted graph with a small number (less than 100) of nodes and you want to store a matrix of shortest paths between any pair of points, Floyd-Warshall is your friend for ease of implementation.  Set all non-existent paths to a very large integer, and run the following line of code:
+If you have any ambition of doing well in programming challenges, make the Floyd-Warshall algorithm second nature.  If you've got a weighted graph with a small number (less than 100) of nodes and you want to store a matrix of shortest paths between any pair of points, Floyd-Warshall is your friend for ease of implementation.  Set all non-existent paths to a very large integer, and run the following line of code:
 
 <pre>
     <font color="blue">for</font> (<font color="blue">int</font> i=0;i&lt;N;i++) <font color="blue">for</font> (<font color="blue">int</font> j=0;j&lt;N;j++) <font color="blue">for</font> (<font color="blue">int</font> k=0;k&lt;N;k++) {

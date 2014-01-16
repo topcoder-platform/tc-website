@@ -46,7 +46,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </jsp:include>
 
 <P><B>TopCoder Reaches 10,000 Member Milestone</B></P>
-<P>Host of Computer Programming Contests Sees Considerable Growth in the Last Six Months</P>
+<P>Host of Computer Programming challenges Sees Considerable Growth in the Last Six Months</P>
 <P>GLASTONBURY, CT., March 4, 2002 - TopCoder, Inc., a company committed to identifying and promoting computer programming talent through competition, today announced it has reached the 10,000-member mark just one year into the company's existence.</P>
 <P>Almost 75 Percent of Membership Gained in Past Six Months</P>
 <P>Aided by membership drives to increase the amount of competitors in the 2001 TopCoder Invitational and the current TopCoder Collegiate Challenge, TopCoder added over 7,300 new members from September 2001 through February 2002.  The following chart outlines TopCoder's membership growth over the past six months:</P>

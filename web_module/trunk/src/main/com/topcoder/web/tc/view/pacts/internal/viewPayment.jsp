@@ -139,13 +139,13 @@
 </c:if>
 <c:if test="${payment.header.studioContestId > 0}">
 		<tr>
-			<td><b>Studio Contest ID:</b></td>
+			<td><b>Studio Challenge ID:</b></td>
 			<td><c:out value="${payment.header.studioContestId}" /></td>
 		</tr>
 </c:if>
 <c:if test="${payment.header.componentContestId > 0}">
 		<tr>
-			<td><b>Contest ID:</b></td>
+			<td><b>Challenge ID:</b></td>
 			<td><c:out value="${payment.header.componentContestId}" /></td>
 		</tr>
 </c:if>

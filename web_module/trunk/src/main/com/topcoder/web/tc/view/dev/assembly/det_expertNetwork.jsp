@@ -35,12 +35,12 @@
 
 <jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="assembly"/>
-<jsp:param name="title" value="Active Contests"/>
+<jsp:param name="title" value="Active Challenges"/>
 </jsp:include>
 
 <span class="bigTitle">Expert Network Application</span>
 <br><br>
-<%--<span class="bigRed">NOTE: Registration has been extended for this contest. Please see new Timeline and Checkpoints dates below.</span>
+<%--<span class="bigRed">NOTE: Registration has been extended for this challenge. Please see new Timeline and Checkpoints dates below.</span>
 <br><br>--%>
 <div class="sectionHeader">Overview</div>
 <span class="bodySubtitle">Application Overview</span><br>

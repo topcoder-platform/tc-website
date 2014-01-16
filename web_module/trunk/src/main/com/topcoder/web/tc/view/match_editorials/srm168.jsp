@@ -303,7 +303,7 @@ bool digitsMatch(int x, int y)
 Now, the trivial solution.  If we assume there is a function DS, which calculates the digit sum of an integer, the answer is simply 9 - DS(leftOver) % 9.
 However, the math to prove this is certainly non-trivial.  Despite this fact,
 many coders either already knew this solution, guessed it correctly, or proved
-it out during the contest (<b>BEHiker57W</b> is one of the provers), which
+it out during the challenge (<b>BEHiker57W</b> is one of the provers), which
 lead to a lot of very quick solutions.  In any case, here is a proof, compiled
 from notes from <b>BEHiker57W</b>, <b>AdminBrett</b>, and <b>lars2520</b>
 (Forgive me for the informal proof, but math proofs are not my thing):

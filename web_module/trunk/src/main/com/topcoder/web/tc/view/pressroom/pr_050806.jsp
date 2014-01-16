@@ -60,7 +60,7 @@ Mitrichev, known to the member community by his handle '<b>Petr</b>', beat 47 of
 <br><br>
 At the start of the Algorithm tournament, <b>Petr</b> was the 4th seed and ranked 3rd among TopCoder member worldwide. <b>Petr</b> successfully submitted the only solution to the hardest problem to win the closely contested Championship round. Mitrichev beat out second place finisher Tomasz '<b>tomek</b>' Czajka of Poland. The 64 finalists each earned a spot at the event by besting thousands of other programmers from around the world in simultaneous, online competitions.
 <br><br>
-<b>Pops</b> and <b>sindu</b> won hard fought contests against an elite field of international component opponents. <b>Pops</b> took top Design honors over opponents from the North America and Europe and <b>sindu</b> claimed victory over developers from China, Hong Kong and Europe.
+<b>Pops</b> and <b>sindu</b> won hard fought challenges against an elite field of international component opponents. <b>Pops</b> took top Design honors over opponents from the North America and Europe and <b>sindu</b> claimed victory over developers from China, Hong Kong and Europe.
 <br><br>
 The Algorithm tournament was a timed competition where the participants solved complex algorithmic problems using Java, VB.Net, C++ or C#. The Component tournament was divided into two tracks. The Design competition required competitors to submit a software design based on general requirements and The Development competition asked competitors to develop a re-useable software component from a specific TopCoder guideline. A peer review board evaluated submissions and awarded final point standings based on TopCoder's rigorous scorecard system. Visit <A href="/reg/">/reg/</a> for full membership details.
 <br><br>

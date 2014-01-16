@@ -209,9 +209,9 @@ function goBack() {
                 <c:otherwise>
                     <tr>
                         <td class="bodyText" colspan="2">
-                            By applying to review the contest you are committing to the <a href="/tc?module=ReviewAuctionDetails&${REVIEW_AUCTION_ID}=${param[REVIEW_AUCTION_ID]}">review timeline</a>.
+                            By applying to review the challenge you are committing to the <a href="/tc?module=ReviewAuctionDetails&${REVIEW_AUCTION_ID}=${param[REVIEW_AUCTION_ID]}">review timeline</a>.
                             The timeline can change later since phases rarely end exactly as per the original schedule.
-                            The reviewers must be available throughout the entire contest and adjust to the changes in
+                            The reviewers must be available throughout the entire challenge and adjust to the changes in
                             the timeline.
                             Failure to meet the timeline may result in a suspension from the TopCoder Review Board.
                             More details can be found <a href="http://www.topcoder.com/wiki/display/tc/Late+Deliverables+Tracking">here</a>.

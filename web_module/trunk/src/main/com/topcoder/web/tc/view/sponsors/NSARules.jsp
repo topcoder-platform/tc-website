@@ -43,7 +43,7 @@
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NSAOverview">Overview</a>&#160;&#160;|&#160;&#160;
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NSAInstructions">How to Compete</a>&#160;&#160;|&#160;&#160;
             Rules&#160;&#160;|&#160;&#160;
-            <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
+            <a href="/longcontest/?module=ViewActiveContests">Active Challenges</a>
         </p>
         <br /><br />
         <p><span class="bigTitle">Official Rules &amp; Regulations</span></p>

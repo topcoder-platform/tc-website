@@ -141,7 +141,7 @@ long time," <B>John Dethridge</B> said, "so the administrator spoke with me to c
 </P>
 
 <P>
-After the coding and challenge phases were over, the contest administrators went into 
+After the coding and challenge phases were over, the challenge administrators went into 
 the "war room," the place where the system tests were being run. This is when Jack Hughes, founder of TopCoder, became aware of the situation.
 </P>
 
@@ -170,7 +170,7 @@ This assumption would not last, however, as the administrators soon called the f
 </P>
 
 <P>
-"At the end of the challenge phase, the admins took the four finalists into a room in the back, which was confusing," said <B>lbackstrom</B>, one of the sixteen semi-finalists.  "Someone mentioned that in a previous tournament they had told the competitors the results before announcing them to the audience, so some of us thought perhaps that's what was happening. After a few minutes, word began to circulate that the administrators had told <B>John Dethridge</B> during the contest that the sample input was wrong, and it was apparent that things were going to be delayed."
+"At the end of the challenge phase, the admins took the four finalists into a room in the back, which was confusing," said <B>lbackstrom</B>, one of the sixteen semi-finalists.  "Someone mentioned that in a previous tournament they had told the competitors the results before announcing them to the audience, so some of us thought perhaps that's what was happening. After a few minutes, word began to circulate that the administrators had told <B>John Dethridge</B> during the challenge that the sample input was wrong, and it was apparent that things were going to be delayed."
 </P>
 
 <P>
@@ -178,7 +178,7 @@ While the on-site spectators rested and talked amongst themselves, those watchin
 </P>
 
 <P>
-"The waiting started," said Goron, an online spectator, of the blackout. "We waited and waited and waited.  Then the contest was scrubbed. In the re-run, <B>John Dethridge</B> won."
+"The waiting started," said Goron, an online spectator, of the blackout. "We waited and waited and waited.  Then the challenge was scrubbed. In the re-run, <B>John Dethridge</B> won."
 </P>
 
 <P>
@@ -186,7 +186,7 @@ While the on-site spectators rested and talked amongst themselves, those watchin
 </P>
 
 <P>
-After being assembled in the 'war room' for 20 to 25 minutes, the administrators and coders came out and the decision to re-run the contest was announced. Hughes explains his reasoning:
+After being assembled in the 'war room' for 20 to 25 minutes, the administrators and coders came out and the decision to re-run the challenge was announced. Hughes explains his reasoning:
 </P>
 
 <P>
@@ -206,7 +206,7 @@ After a new round was run with a backup set of questions, (checked beforehand by
 </P>
 
 <P>
-Looking back, coders seem hopelessly split as to whether or not the decision to re-run the final round of the contest was the best one possible, based on the information available at the time. Retired member Goron, who started a 60+-message thread on the Round Tables about the issue, seems in the lead of those opposed to the decision.
+Looking back, coders seem hopelessly split as to whether or not the decision to re-run the final round of the challenge was the best one possible, based on the information available at the time. Retired member Goron, who started a 60+-message thread on the Round Tables about the issue, seems in the lead of those opposed to the decision.
 </P>
 
 <P>
@@ -218,7 +218,7 @@ Goron had plenty of support for his position. "The most flattering judgment that
 </P>
 
 <P>
-"My biased opinion is that the least unfair solution would have been to let the contest stand," said <B>SnapDragon</B>, who has posted extensively in the Round Table discussion on why he feels the decision was unfair. "Conditions in the contest were technically equal, even though John was possibly harmed by the error and I was not. I understand the administrators' decision, but they were mistaken in believing that it would end up being fair to everyone. Instead of being unfair to <B>John Dethridge</B>, it was unfair to both <B>dgarthur</B> and me."
+"My biased opinion is that the least unfair solution would have been to let the challenge stand," said <B>SnapDragon</B>, who has posted extensively in the Round Table discussion on why he feels the decision was unfair. "Conditions in the challenge were technically equal, even though John was possibly harmed by the error and I was not. I understand the administrators' decision, but they were mistaken in believing that it would end up being fair to everyone. Instead of being unfair to <B>John Dethridge</B>, it was unfair to both <B>dgarthur</B> and me."
 </P>
 
 <P>
@@ -250,7 +250,7 @@ Others are largely undecided on the issue. "The way it was handled was clearly n
 </P>
 
 <P>
-As a result of the controversy, steps are already being taken at TopCoder to prevent problems like these from happening in the future. A Contest Review Board, made up entirely of coders, has been proposed by Jack Hughes to "minimize mistakes affecting tournaments and SRMs as well as helping to set rules, process and policy for when they do [occur]," according to a Round Table post. <B>Lars</B> has also taken pains to make sure future examples are correct before they get to the applet. "Right before every match now, I go back and reread everything, and re-test the reference solutions on all test cases," he said.
+As a result of the controversy, steps are already being taken at TopCoder to prevent problems like these from happening in the future. A Challenge Review Board, made up entirely of coders, has been proposed by Jack Hughes to "minimize mistakes affecting tournaments and SRMs as well as helping to set rules, process and policy for when they do [occur]," according to a Round Table post. <B>Lars</B> has also taken pains to make sure future examples are correct before they get to the applet. "Right before every match now, I go back and reread everything, and re-test the reference solutions on all test cases," he said.
 </P>
 
 <P>

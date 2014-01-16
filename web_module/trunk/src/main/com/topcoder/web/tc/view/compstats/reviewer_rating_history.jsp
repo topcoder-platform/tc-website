@@ -266,7 +266,7 @@
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=${cr}" class="bcLink">Member Profile</A>
  | <A HREF="/tc?module=CompetitionHistory&pt=${pt}&cr=${cr}" class="bcLink">Competition History</A>
- | <A HREF="/tc?module=OutstandingProjects&pt=${pt}&cr=${cr}" class="bcLink">Current Contests</A>
+ | <A HREF="/tc?module=OutstandingProjects&pt=${pt}&cr=${cr}" class="bcLink">Current Challenges</A>
  | <A HREF="/tc?module=ReliabilityDetail&pt=${pt}&cr=${cr}" class="bcLink">Reliability Detail</A>
  | Reviewer Rating History
 </span>
@@ -336,7 +336,7 @@
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Review Date</a>
             </TD>
             <TD CLASS="header">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Contest</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Challenge</a>
             </TD>
             <TD CLASS="headerC" WIDTH="12%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Feedback Score</a>

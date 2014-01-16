@@ -63,7 +63,7 @@ At the start of the Coding tournament, Czajka, known by the handle 'tomek', was 
 "It was a hard fought victory and the competition was strong," said Czajka. "I have a great deal of respect for the other finalists and look forward to the next competition!" 
 </p>
 <p>
-Aksonov and Koshlyak battled to win their contests in Design and Development respectively. After the results were announced, Aksonov said he was excited to be put to the test by such a collection of coding talent. Koshlyak intends to use part of his prize to start his own software company.
+Aksonov and Koshlyak battled to win their challenges in Design and Development respectively. After the results were announced, Aksonov said he was excited to be put to the test by such a collection of coding talent. Koshlyak intends to use part of his prize to start his own software company.
 </p>
 <p>
 "Yahoo! salutes each and every competitor who made this event such a great success," said Libby Sartain, Senior Vice President, Human Resources and Chief People Yahoo, "Their passion, creativity and ability to perform in a challenging arena is a great credit to them all."

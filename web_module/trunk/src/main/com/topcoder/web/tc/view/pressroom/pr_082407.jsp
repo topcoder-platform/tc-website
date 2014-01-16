@@ -44,7 +44,7 @@
                         
 <div align="center">
 <p><span class="bodyTitle">Lilly and Deutsche Bank Announced as New Sponsors &amp; NSA Returns as Patron of 2007 TopCoder Collegiate Challenge</span><br />
-<span class="bodySubTitle"><em>Lilly and Deutsche Bank Onboard with Leading Collegiate Programming Contest National Security Agency Continues Patronage of Fifth Major Event</em></span></p>
+<span class="bodySubTitle"><em>Lilly and Deutsche Bank Onboard with Leading Collegiate Programming Challenge National Security Agency Continues Patronage of Fifth Major Event</em></span></p>
 </div>
       
 <p><strong>Glastonbury, Conn., August 24, 2007 &#151;</strong>TopCoder&#174;, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced Eli Lilly and Company <strong>(NYSE: LLY)</strong>, and Deutsche Bank <strong>(NYSE: DB)</strong>, a leading global investment bank, as first time sponsors of the 2007 TopCoder Collegiate Challenge scheduled for October 30th - November 2nd at Disney World in Orlando, Florida. In addition, the National Security Agency (NSA) has continued as an event patron for an unprecedented fifth major event. Full details including event schedules, rules and guidelines are available online at: <a href="http://www.topcoder.com/tccc07">http://www.topcoder.com/tccc07</a>.</p>

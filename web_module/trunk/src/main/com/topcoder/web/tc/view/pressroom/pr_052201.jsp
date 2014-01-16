@@ -69,7 +69,7 @@ Group 4: 2:00 pm - 4:00 pm Pacific Time<BR/></P>
 <P><SPAN CLASS="bodyTextBold">Awards Ceremony and Reception</SPAN><BR/>
 12:00 pm - 2:00 pm Pacific Time<BR/></P>
 <P CLASS="smallText">About TopCoder, Inc.<BR/>
-TopCoder, Inc. organizes and hosts programming competitions for its members. Through its website, www.topcoder.com, the company has effectively combined the challenge of online contests, the efficiency of online recruiting and the objectivity of IT certification. By offering substantial membership incentives, including cash awards, and a unique objective rating model, TopCoder brings together highly qualified, talent-differentiated programmers, and facilitates connections with companies seeking access to such a group. As a commercial site, TopCoder establishes partnerships with organizations in the form of subscriptions and sponsorships. It costs programmers nothing to participate.</P> 
+TopCoder, Inc. organizes and hosts programming competitions for its members. Through its website, www.topcoder.com, the company has effectively combined the challenge of online challenges, the efficiency of online recruiting and the objectivity of IT certification. By offering substantial membership incentives, including cash awards, and a unique objective rating model, TopCoder brings together highly qualified, talent-differentiated programmers, and facilitates connections with companies seeking access to such a group. As a commercial site, TopCoder establishes partnerships with organizations in the form of subscriptions and sponsorships. It costs programmers nothing to participate.</P> 
 
 
 

@@ -4,7 +4,7 @@
   - Since: Project View
   - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
   -
-  - Description: This page shows aggregated information about contests in the specified date range grouped
+  - Description: This page shows aggregated information about challenges in the specified date range grouped
   -              by client and project name.
 --%>
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -153,10 +153,10 @@
                                                 <td class="header" width="16%">Client Name</td>
                                                 <td class="header" width="3%">&nbsp;</td>
                                                 <td class="header" width="16%">Project Name</td>
-                                                <td class="header" width="16%">Contest Name</td>
-                                                <td class="header" width="16%">Contest Category</td>
+                                                <td class="header" width="16%">Challenge Name</td>
+                                                <td class="header" width="16%">Challenge Category</td>
                                                 <td class="header" width="14%">Status</td>
-                                                <td class="header" width="16%">Contest Fee</td>
+                                                <td class="header" width="16%">Challenge Fee</td>
                                             </tr>
                                         </tbody>
                                         <c:forEach items="${clients}" var="client" varStatus="statusCli">

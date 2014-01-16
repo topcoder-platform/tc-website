@@ -46,9 +46,9 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </jsp:include>
 
 
-<P CLASS="bodyTextBold"> 01.28.2002 <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/>United Kingdom Added to TopCoder Developer Community<BR/><SPAN CLASS="bodyTextItal">Host of Computer Programming Contests Continues Global Expansion</SPAN></P>
+<P CLASS="bodyTextBold"> 01.28.2002 <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/>United Kingdom Added to TopCoder Developer Community<BR/><SPAN CLASS="bodyTextItal">Host of Computer Programming challenges Continues Global Expansion</SPAN></P>
 <P>GLASTONBURY, CT., Jan. 28, 2002 - TopCoder, Inc., a company committed to identifying and promoting computer programming talent through competition, today announced it has expanded eligibility to its online and onsite 
-computer programming contests to include citizens of the United Kingdom.  The addition of the United Kingdom to the TopCoder developer community demonstrates the company's continuing global expansion efforts.  The United 
+computer programming challenges to include citizens of the United Kingdom.  The addition of the United Kingdom to the TopCoder developer community demonstrates the company's continuing global expansion efforts.  The United 
 Kingdom is the fourth international territory to be added since the company launched its competitions in February 2001. Citizens of Canada, Australia and India are also eligible to compete.</P>
 <P>"We are pleased to welcome the citizens of the United Kingdom to TopCoder's developer community, and are excited about the continued international expansion of our competitions," said Jack Hughes, Chairman and 
 founder of TopCoder.  "Programmers from Australia, Canada, India and the United Kingdom are a driving force within the worldwide IT community and are becoming an increasingly important and influential group to target."</P>

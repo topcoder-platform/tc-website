@@ -52,7 +52,7 @@
 						"I lost to a guy from the Citadel," he says. "Navy and the Citadel are both in our region so it's kind of a tough region."<BR/><BR/>
 						And in June, while taking a break from work on a doctorate in computer science, Nierman won $25,000 in a computer programming competition. The TopCoder Collegiate Challenge was open to college students in the United States and Canada.<BR/><BR/>
 						"He's not a typical computer nerd," says his mother.<BR/><BR/>
-						She says she wasn't surprised to hear that he was one of 16 finalists for the contest, sponsored by TopCoder Inc. The California company runs contests to judge the abilities of computer programmers and uses that information to help match programmers with employers. As a finalist, Nierman received $3,000 and a flight to San Francisco for the finals.<BR/><BR/>
+						She says she wasn't surprised to hear that he was one of 16 finalists for the contest, sponsored by TopCoder Inc. The California company runs challenges to judge the abilities of computer programmers and uses that information to help match programmers with employers. As a finalist, Nierman received $3,000 and a flight to San Francisco for the finals.<BR/><BR/>
 						She also wasn't worried about how her son would handle the pressure of competition.<BR/><BR/>
 						"He's a relaxed person," she says. "Our kids have always done well in competitions. They're used to competing in sports. When they get under pressure, they do well. They get that from their Dad."<BR/><BR/>
 						Dave Nierman was a top athlete for the former Peshastin-Dryden high school in the 1960s.<BR/><BR/>

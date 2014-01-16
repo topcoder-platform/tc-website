@@ -48,7 +48,7 @@
 </div>
       
 <p>
-<strong>SAN FRANCISCO (Adobe MAX Conference) November 17, 2008 &#151;</strong>Ribbit, Silicon Valley's first phone company, today announced it is partnering with competitive software development community TopCoder to offer the Killer App Challenge, a chance for developers to create the next killer application on the Ribbit open platform for integrating voice communications in applications, web sites, and communities. The competition begins immediately and will conclude in March 2009. Cash prizes totaling $100,000 will be awarded to the most compelling, creative, and useful application in each of five development categories, as well as a grand prize for the best overall entrant. Full contest details can be found at <a target="_blank" href="http://www.ribbit.com/killerappchallenge">www.ribbit.com/killerappchallenge</a>.
+<strong>SAN FRANCISCO (Adobe MAX Conference) November 17, 2008 &#151;</strong>Ribbit, Silicon Valley's first phone company, today announced it is partnering with competitive software development community TopCoder to offer the Killer App Challenge, a chance for developers to create the next killer application on the Ribbit open platform for integrating voice communications in applications, web sites, and communities. The competition begins immediately and will conclude in March 2009. Cash prizes totaling $100,000 will be awarded to the most compelling, creative, and useful application in each of five development categories, as well as a grand prize for the best overall entrant. Full challenge details can be found at <a target="_blank" href="http://www.ribbit.com/killerappchallenge">www.ribbit.com/killerappchallenge</a>.
 </p>
 
 <p>
@@ -60,7 +60,7 @@ The Ribbit platform - a carrier-grade telephony-plus-software infrastructure wit
 </p>
 
 <p>
-The five contest categories are:<br />
+The five challenge categories are:<br />
 <ul>
     <li><strong>Media, Advertising and Entertainment</strong> - Add unprecedented interactive value to a media campaign by captivating a target audience through rich voice capabilities</li>
     <li><strong>Social Networking and Communication</strong> - Create a Web 3.0 preview application that connects people via Open Telephony</li>
@@ -71,7 +71,7 @@ The five contest categories are:<br />
 </p>
 
 <p>
-Developers retain full ownership of their applications, so even those applications not chosen as a contest winner can be deployed to deliver exciting new voice capabilities to customers, partners and employees. For a complete description of the rules and prizes of the Ribbit Killer App Challenge, visit <a target="_blank" href="http://www.ribbit.com/killerappchallenge">www.ribbit.com/killerappchallenge</a>.
+Developers retain full ownership of their applications, so even those applications not chosen as a challenge winner can be deployed to deliver exciting new voice capabilities to customers, partners and employees. For a complete description of the rules and prizes of the Ribbit Killer App Challenge, visit <a target="_blank" href="http://www.ribbit.com/killerappchallenge">www.ribbit.com/killerappchallenge</a>.
 </p>
 
 <p>

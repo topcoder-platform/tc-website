@@ -56,7 +56,7 @@
 </div>
 <br><br>
 <span class="subtitle">Announcing the Digital Run: Stage 1 winners</span><br>
-Stage 1 of the Digital Run concluded on August 3. While some contests are still being finalized, and a few potential points remain to be assigned, the two top winners have clearly emerged:
+Stage 1 of the Digital Run concluded on August 3. While some challenges are still being finalized, and a few potential points remain to be assigned, the two top winners have clearly emerged:
 <ul>
 <li>Design Cup: <tc-webtag:handle coderId="11797255" context="design" />  won Stage 1 with 7,060 points and total prizes of $29,664.</li>
 <li>Development Cup:  <tc-webtag:handle coderId="15073791" context="development" />  won Stage 1 with 3,990 points and total prizes of $14,088.</li>

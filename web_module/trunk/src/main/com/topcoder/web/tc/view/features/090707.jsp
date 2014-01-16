@@ -72,12 +72,12 @@ TCCC07 Rd 1A: 1984<br>
   SRM 363: 1727</p>
 
 <p><strong>Q: What brought you to TopCoder? </strong></p>
-<p>A: I heard first about the Google India Code Jam and didn't know much about the format of the contest then. I came in at something like 120 in the rankings for the contest, but I was sure I could make it to the onsites the next time. Hence I started competing in TopCoder for practice.</p>
+<p>A: I heard first about the Google India Code Jam and didn't know much about the format of the challenge then. I came in at something like 120 in the rankings for the contest, but I was sure I could make it to the onsites the next time. Hence I started competing in TopCoder for practice.</p>
 <p><strong>Q: What advice would you give to someone just starting out? </strong></p>
 <p>A: Do only what you want to do and do all that you want to do. Make sure no one around you knows what it is. :-) 
 <br>I like <tc-webtag:handle coderId="7581406" context="algorithm"/>'s quote: &quot;Well, I can't die of hunger. So let me do what I want to.&quot;</p>
 <p><strong>Q: What was the biggest contributor to your progress this month?</strong></p>
-<p>A: I am writing a local contest for our campus, to create teams for the upcoming ACM ICPC. I think I wrote a nice problemset, and that helped me practice well written invariant rich code.</p>
+<p>A: I am writing a local challenge for our campus, to create teams for the upcoming ACM ICPC. I think I wrote a nice problemset, and that helped me practice well written invariant rich code.</p>
 <p><strong>Q: Who is your favorite teacher, professor, or coach?</strong></p>
 <p>A: First of all, my best inspiration is Shreevatsa, or <tc-webtag:handle coderId="10254716" context="algorithm"/>. I really love following <tc-webtag:handle coderId="144400" context="algorithm"/>'s code. And I enjoy competing, and share a lot in common, with <tc-webtag:handle coderId="7581406" context="algorithm"/>.</p>
 <br />

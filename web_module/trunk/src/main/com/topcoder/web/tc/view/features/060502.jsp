@@ -186,7 +186,7 @@ When <B>vulture</B> exploited <B>jonmac</B>'s corner-case in his 500-point solut
 </P>
 
 <P>
-The walls came crashing down when it was announced immediately after the contest that I would lose two of my challenges on the 250-point problems.  My 400-point lead vanished: 200 to lost challenge points and the another 200 or so to <B>jonmac</B> regaining credit for his 250-point solution.  I panicked, realizing that only 206.76 points separated us and that <B>jonmac</B> could have scored that much on his 250-point problem (I had forgotten and the scores had not yet been updated).  However, I was quickly reminded by my guests, who had been working through all the possible scenarios, that he received under 200 points:  I had won."
+The walls came crashing down when it was announced immediately after the challenge that I would lose two of my challenges on the 250-point problems.  My 400-point lead vanished: 200 to lost challenge points and the another 200 or so to <B>jonmac</B> regaining credit for his 250-point solution.  I panicked, realizing that only 206.76 points separated us and that <B>jonmac</B> could have scored that much on his 250-point problem (I had forgotten and the scores had not yet been updated).  However, I was quickly reminded by my guests, who had been working through all the possible scenarios, that he received under 200 points:  I had won."
 </P>
 
 <P>

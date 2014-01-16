@@ -57,7 +57,7 @@
     Right now the Ball is in beta testing.  We're launching it first to our most reliable source of thinkers and code breakers: YOU, the TopCoder community.  Before we let any random person play the game, we want to know what bugs there are and whether the game can be automated, broken or cheated.  That's where you come in.  
     </p>
     <p>
-    For several weeks, starting April 4, 2007, we'll be running a bug finding contest in parallel with the Ball game itself.  Each TopCoder member who reports a novel* bug or a novel* method to automate game play will receive a share of a $1,500 prize pool.  We've provided a simple bug report form <LINK> for you to let us know when you've found a bug or a way to circumvent the intended game play. 
+    For several weeks, starting April 4, 2007, we'll be running a bug finding challenge in parallel with the Ball game itself.  Each TopCoder member who reports a novel* bug or a novel* method to automate game play will receive a share of a $1,500 prize pool.  We've provided a simple bug report form <LINK> for you to let us know when you've found a bug or a way to circumvent the intended game play. 
     </p>
     <p>
     The success of the Ball depends largely on what the TopCoder community finds.  <A href="http://www.theball.com/">Download the plug-in</A> now and start chasing the Ball!

@@ -83,13 +83,13 @@
 
     <p><span class="bodySubtitle">What is it?</span><br />
     Every year, the TopCoder Open (TCO) includes two component tracks allowing members to compete on top of the usual
-    design and development contests that appear on the site weekly. While not the most popular or spectator-friendly tournament track, 
-    the component contest always proves to be a tough, five-week competition, and this year hundreds of members registered, with over 
+    design and development challenges that appear on the site weekly. While not the most popular or spectator-friendly tournament track, 
+    the component challenge always proves to be a tough, five-week competition, and this year hundreds of members registered, with over 
     100 submitting. Over the five weeks, a large amount of quality work was generated, with both new members and component regulars 
     raising their work intensity to compete for the final 8 design and 8 development positions in Las Vegas.</p>
     
-    <p>For those new to the format, the TCO component contest works as follows:<br/>
-    During a five week period, members can submit in the usual TopCoder Software component contests, to gain themselves points in the TCO. 
+    <p>For those new to the format, the TCO component challenge works as follows:<br/>
+    During a five week period, members can submit in the usual TopCoder Software component challenges, to gain themselves points in the TCO. 
     Unlike the Digital run, points depend solely on final placement for everyone who scores over 75%; If you win your component, you get 10 points,
     second place gets you 7 points, a third placing is worth 5 points, 4 points for fourth, and zero points for fifth or below. While 
     these point values may seem strange, if you play around with them you may notice some complex orderings, such as:</p>
@@ -103,7 +103,7 @@
     there is no doubt that you need mostly firsts - something that gets increasingly difficult each year as more and more people submit.</p>
     
     <p><span class="bodySubtitle">The Digital Run effect</span><br />
-    This was the first year that the TCO component contest was run at the same time as a stage of the 
+    This was the first year that the TCO component challenge was run at the same time as a stage of the 
     <a href="/dr">Digital Run</a> (DR), and it was interesting to see how 
     the two concurrent competitions affected the results of each other. For one, any member who had placed in the top five in a DR stage
     already had won a trip to the finals as a spectator. The four-submission cap for the Open meant that 
@@ -112,7 +112,7 @@
     to disrupt the usual TCO results, with the possible exception that the more active submitters did not stop submitting even after they
     had locked up a guaranteed place in the finals. In past years, early TCO leaders might have been more likely to back off in the later rounds and allow other competitors to notch some critical first-place finishes, but there was no relenting this year.</p>
 
-    <p><span class="bodySubtitle">Design contest (<a href="/tc?module=TCO07ContestDetails&ct=286">results</a>)</a>: </span><br />
+    <p><span class="bodySubtitle">Design challenge (<a href="/tc?module=TCO07ContestDetails&ct=286">results</a>)</a>: </span><br />
     <table class="formFrame" width="450" cellpadding="6" cellspacing="2">
         <tr class="GAtableText">
             <td># registrants</td><td>109</td><td># who submitted</td><td>52</td>
@@ -126,21 +126,21 @@
     This year's designers were provided with a large number of components from which they could gain points - with the usual mixture of mainly
     Java components, but with enough .NET ones to give C# designers a chance of making the finals. The early weeks consisted of a number
     of generic catalog components (Logging Wrapper, Collection Wrappers, Object Diff, ...) as well as components to help organise
-    TC's new assembly contests (Phase / Project / Team Management). Many early projects proved popular, as designers took the opportunity
+    TC's new assembly challenges (Phase / Project / Team Management). Many early projects proved popular, as designers took the opportunity
     to get some early points on the board. Part way through, the relatively simple
     <a href="http://www.topcoder.com/tc?module=ProjectDetail&pj=30001310&tab=results">Null Streams</a> component proved one of the most popular
-    design contests ever with 12 submissions -- all of them passing review. Then in the final week, a number of Survey components gave
+    design challenges ever with 12 submissions -- all of them passing review. Then in the final week, a number of Survey components gave
     members a last chance to climb up the leaderboard towards the top 8.</p>
 
     <p><b><i>Observations:</i></b>
     <ul>
-        <li>Three designers - <tc-webtag:handle coderId="287614" />, <tc-webtag:handle coderId="152342" /> and <tc-webtag:handle coderId="119676" /> - all managed to reach the 40-point mark, with <tc-webtag:handle coderId="22498968" /> also getting 30 from 3 contests.</li>
+        <li>Three designers - <tc-webtag:handle coderId="287614" />, <tc-webtag:handle coderId="152342" /> and <tc-webtag:handle coderId="119676" /> - all managed to reach the 40-point mark, with <tc-webtag:handle coderId="22498968" /> also getting 30 from 3 challenges.</li>
         <li><tc-webtag:handle coderId="287614" /> submitted in 10 components, with an impressive 7 wins and 3 seconds.</li>
         <li>Not to be outdone, <tc-webtag:handle coderId="252022" /> made 17 submissions, with 14 passing review, 3 wins and 6 seconds.</li>
         <li><tc-webtag:handle coderId="152342" /> managed to score the second ever perfect score for design, with 100% for <a href="/tc?module=ProjectDetail&pj=30001385&tab=results">Survey Model</a>.</li>
     </ul></p>
     
-    <p><span class="bodySubtitle">Development contest (<a href="/tc?module=TCO07ContestDetails&ct=287">results</a>): </span><br />
+    <p><span class="bodySubtitle">Development challenge (<a href="/tc?module=TCO07ContestDetails&ct=287">results</a>): </span><br />
     <table class="formFrame" width="450" cellpadding="6" cellspacing="2">
         <tr class="GAtableText">
             <td># registrants</td><td>243</td><td># who submitted</td><td>99</td>
@@ -162,7 +162,7 @@
 
     <p><b><i>Observations:</i></b>
     <ul>
-        <li>Four developers - <tc-webtag:handle coderId="14926554" />, <tc-webtag:handle coderId="14788013" />, <tc-webtag:handle coderId="9998760" /> and <tc-webtag:handle coderId="14820574" /> all obtained 40 points, and <tc-webtag:handle coderId="22655076" /> won 30 points from 3 contests. </li>
+        <li>Four developers - <tc-webtag:handle coderId="14926554" />, <tc-webtag:handle coderId="14788013" />, <tc-webtag:handle coderId="9998760" /> and <tc-webtag:handle coderId="14820574" /> all obtained 40 points, and <tc-webtag:handle coderId="22655076" /> won 30 points from 3 challenges. </li>
         <li><tc-webtag:handle coderId="14820574" /> was the most active submitter in the contest, with 8 components, including 5 wins. </li>
         <li>Three of <tc-webtag:handle coderId="14926554" />'s wins came from the difficult Time Tracker projects, netting $5600 in prizes and 1825 Digital Run points.</li>
         <li><tc-webtag:handle coderId="14788013" />  joined an exclusive club -- the small handful of developers who have reached red -- after scoring 99.6 for <a href="/tc?module=ProjectDetail&pj=30001320&tab=results">Text Normalization</a>.</li>

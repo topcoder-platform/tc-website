@@ -59,7 +59,7 @@ At the start of the Algorithm tournament, mathijs was the 15th seed and the 17th
 <br /><br />
 "It was decided in the last minute," said Vogelzang. "I discovered a bug in my own program but apparently nobody saw it - including the problem writer. I hadn't expected to be in the finals and now I've actually won!" 
 <br /><br />
-Carcu and Linscott won hard fought contests against an elite field of international opponents. Carcu took top Design honors over Mihai Pasca from the Babes-Bolyai Computer Science University in Romania and Kyle Littlefield of the University of Washington, United States. 
+Carcu and Linscott won hard fought challenges against an elite field of international opponents. Carcu took top Design honors over Mihai Pasca from the Babes-Bolyai Computer Science University in Romania and Kyle Littlefield of the University of Washington, United States. 
 <br /><br />
 "The TopCoder members are extraordinary people and very intelligent," said an elated Carcu. "I would encourage developers everywhere to participate in this competition as they may discover they have a talent in software component design."
 <br /><br />

@@ -44,7 +44,7 @@
                         
 <div align="center">
 <p><span class="bodyTitle">TopCoder Joins Lineups for SD Best Practices and Software Business 2008 Conferences October 28-31</span><br />
-<span class="bodySubTitle"><em>TopCoder Algorithm Contest Takes Center Stage in Boston, TopCoder Presentation on<br />Harnessing the Benefits of Crowdsourcing Highlight of San Francisco</em></span></p>
+<span class="bodySubTitle"><em>TopCoder Algorithm Challenge Takes Center Stage in Boston, TopCoder Presentation on<br />Harnessing the Benefits of Crowdsourcing Highlight of San Francisco</em></span></p>
 </div>
       
 <p>

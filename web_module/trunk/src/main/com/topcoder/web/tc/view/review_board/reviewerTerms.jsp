@@ -60,7 +60,7 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-        <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
+        <title>Programming Challenges, Software Development, and Employment Services at TopCoder</title>
 
         <jsp:include page="/script.jsp"/>
         <jsp:include page="/style.jsp">

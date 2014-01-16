@@ -85,7 +85,7 @@
       
       <a name="divisionsummary"></a>
       <p><span class="bodySubtitle">3 Division Summary</span><br/>
-      The Division Summary Window is very similar to the Room Summary Window, except that it contains information for <i>all</i> competitors within a division, rather than just a single room.  Since the division summary is not specific to a single room, it must be accessed from the Active Contests menu.  To launch the Division Summary Window, select "Active Contests", the appropriate event, "Division Summary".
+      The Division Summary Window is very similar to the Room Summary Window, except that it contains information for <i>all</i> competitors within a division, rather than just a single room.  Since the division summary is not specific to a single room, it must be accessed from the Active Challenges menu.  To launch the Division Summary Window, select "Active Challenges", the appropriate event, "Division Summary".
       <br/><br/>
       Most of the functionality in the Room Summary Window exists in the Division Summary.  You may switch divisions using the "Select a Division" drop-down list at the top of the window.
       </p>

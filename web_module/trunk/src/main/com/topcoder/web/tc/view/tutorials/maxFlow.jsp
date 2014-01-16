@@ -70,7 +70,7 @@ By&#160;<tc-webtag:handle coderId="8593420" context="algorithm"/><br />
 
 <H3>Introduction</H3>
 
-This article covers a problem that often arises in real life situations and, as expected, in programming contests, with Top Coder being no exception. It is addressed mostly to coders who are not familiar with the subject, but it may prove useful to the more experienced as well. Lots of papers have been written, and there are many algorithms known to solve this problem. While they are not the fastest, the algorithms presented here have the advantage of being simple and efficient, and because of this they are usually preferred during a contest setup.    The reader is advised to read the article on <A href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs1">graph theory</A> first, as the concepts presented there are needed to understand those presented here.
+This article covers a problem that often arises in real life situations and, as expected, in programming challenges, with Top Coder being no exception. It is addressed mostly to coders who are not familiar with the subject, but it may prove useful to the more experienced as well. Lots of papers have been written, and there are many algorithms known to solve this problem. While they are not the fastest, the algorithms presented here have the advantage of being simple and efficient, and because of this they are usually preferred during a challenge setup.    The reader is advised to read the article on <A href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs1">graph theory</A> first, as the concepts presented there are needed to understand those presented here.
 <br><br>
 
 <span class="bodySubtitle">The Standard Maximum Flow Problem</span><br>
@@ -226,7 +226,7 @@ int pfs()
 
 The analysis of its performance is pretty complicated, but it may prove worthwhile to remember that with PFS at most <font face="times new roman, serif">2<i>M</i>1<i>gU</i></font> steps are required, where U is the maximum capacity of an edge in the network. As with BFS, this number is a lot larger than the actual number of steps for most networks. Combine this with the <font face="times new roman, serif"><i>O</i>(<i>M</i> 1g <i>M</i>)</font>  complexity of the search to get the worst-case running time of this algorithm.
 <br><br>
-Now that we know what these methods are all about, which of them do we choose when we are confronted with a max-flow problem? The PFS approach seems to have a better worst-case performance, but in practice their performance is pretty much the same. So, the method that one is more familiar with may prove more adequate. Personally, I prefer the shortest-path method, as I find it easier to implement during a contest and less error prone.
+Now that we know what these methods are all about, which of them do we choose when we are confronted with a max-flow problem? The PFS approach seems to have a better worst-case performance, but in practice their performance is pretty much the same. So, the method that one is more familiar with may prove more adequate. Personally, I prefer the shortest-path method, as I find it easier to implement during a challenge and less error prone.
 <br/><br/>
 <A href="/tc?module=Static&d1=tutorials&d2=maxFlow2">...continue to Section 2</A>
 

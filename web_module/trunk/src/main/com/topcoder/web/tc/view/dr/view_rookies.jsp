@@ -161,8 +161,8 @@ Please select a <strong>season</strong><br>
     </tr>
     <tr>
         <td class="header B" colspan="2">&#160;</td>
-        <td class="headerC B" colspan="4">Completed Contests</td>
-        <td class="headerC" colspan="2" nowrap="nowrap">Current Contests</td>
+        <td class="headerC B" colspan="4">Completed Challenges</td>
+        <td class="headerC" colspan="2" nowrap="nowrap">Current Challenges</td>
     </tr>
     <tr>
         <td class="headerC">
@@ -253,7 +253,7 @@ Please select a <strong>season</strong><br>
 <p class="small" align="left">
     * Bonuses are based on current earned points and the dollar per point value for completed projects. Current and
     future projects may affect the final results.<br>
-    ** Assuming first place finish with all current contests with all competitors passing review<br>
+    ** Assuming first place finish with all current challenges with all competitors passing review<br>
     *** Has not yet passed review enough times this season to qualify as a rookie
 </p>
 

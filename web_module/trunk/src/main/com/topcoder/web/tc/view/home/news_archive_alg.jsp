@@ -60,9 +60,9 @@
 <tr class="bodyText"><td nowrap="nowrap">04.17.07 3:15 PM&#160;-&#160</td><td width="100%">Arena maintenance scheduled for April 17</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.06.07 10:30 AM&#160;-&#160</td><td width="100%"><a href="/tc?module=Static&amp;d1=help&amp;d2=problemWriter&amp;node=algo_write">Payments for algorithm problems increased</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.22.07 5:20 PM&#160;-&#160</td><td width="100%"><a href="http://forums.topcoder.com/?module=Thread&amp;threadID=515502&amp;mc=1#578866">Save the Date: Stress Test SRM</a></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">12.12.06 5:00 PM&#160;-&#160</td><td width="100%"><a href="/tc?module=SurveyResults&amp;sid=11060">yiming Wins the Arena Skin Contest</a></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">12.04.06 5:00 PM&#160;-&#160</td><td width="100%"><a href="/tc?module=ViewSurvey&amp;sid=11060">Arena Skin Contest Vote</a></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">11.06.06 4:30 PM&#160;-&#160</td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2046">Arena Skin Contest</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">12.12.06 5:00 PM&#160;-&#160</td><td width="100%"><a href="/tc?module=SurveyResults&amp;sid=11060">yiming Wins the Arena Skin Challenge</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">12.04.06 5:00 PM&#160;-&#160</td><td width="100%"><a href="/tc?module=ViewSurvey&amp;sid=11060">Arena Skin Challenge Vote</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.06.06 4:30 PM&#160;-&#160</td><td width="100%"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&amp;ct=2046">Arena Skin Challenge</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.11.06 4:00 PM&#160;-&#160</td><td width="100%"><a href="/collegetour">TopCoder College Tour comes to Beijing</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.03.06 6:00 PM&#160;-&#160</td><td width="100%"><a href="/tc?module=Static&amp;d1=statistics&amp;d2=recordbook_home">New statistics in Algorithm Record Book</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.07.06 9:00 AM&#160;-&#160</td><td width="100%">AOL adds $5000 prize purse per match for SRMs <a href="/tc?module=MatchDetails&amp;rd=9995">315</a>, <a href="/tc?module=MatchDetails&amp;rd=10002">322</a>, and <a href="/tc?module=MatchDetails&amp;rd=10005">325</a>.</td></tr>

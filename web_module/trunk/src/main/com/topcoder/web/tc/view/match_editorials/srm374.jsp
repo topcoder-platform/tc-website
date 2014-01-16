@@ -61,7 +61,7 @@ The first match after the TCCC was composed of a straightforward Easy, a very ea
 </p>
 
 <p>
-In Division 2, the problemset was composed of a geometrical Easy and the Easy and Medium from Division 1 as Medium and Hard respectively. At the end of the contest <tc-webtag:handle coderId="22659060" context="algorithm"/> won the match, followed by <tc-webtag:handle coderId="22698588" context="algorithm"/> and <tc-webtag:handle coderId="22688987" context="algorithm"/>, all with three successful problems. Congratulations to them too.
+In Division 2, the problemset was composed of a geometrical Easy and the Easy and Medium from Division 1 as Medium and Hard respectively. At the end of the challenge <tc-webtag:handle coderId="22659060" context="algorithm"/> won the match, followed by <tc-webtag:handle coderId="22698588" context="algorithm"/> and <tc-webtag:handle coderId="22688987" context="algorithm"/>, all with three successful problems. Congratulations to them too.
 </p>
 
 <H1>

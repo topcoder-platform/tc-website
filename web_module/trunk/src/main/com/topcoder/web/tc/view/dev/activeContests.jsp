@@ -26,7 +26,7 @@
 
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <head>
-    <title>Active Contests</title>
+    <title>Active Challenges</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="/script.jsp"/>
@@ -60,7 +60,7 @@
            
 <jsp:include page="/page_title.jsp">
     <jsp:param name="image" value="<%= design ? "comp_design":"comp_development"%>"/>
-    <jsp:param name="title" value="Active Contests"/>
+    <jsp:param name="title" value="Active Challenges"/>
 </jsp:include>
 
 <% if (design) { %>
@@ -84,7 +84,7 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="11">Active Component Design Contests</td>
+        <td class="title" colspan="11">Active Component Design Challenges</td>
     </tr>
     <tr>
         <td class="headerC">
@@ -202,7 +202,7 @@
 </table>
 
 <div align="right" style="padding-top: 10px">
-    Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Contests page</a> or subscribe to the RSS feed
+    Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Challenges page</a> or subscribe to the RSS feed
     <a href="/tc?module=BasicRSS&amp;c=rss_Pipeline&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" /></a>
 </div>
 
@@ -227,7 +227,7 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="11">Active Component Development Contests</td>
+        <td class="title" colspan="11">Active Component Development Challenges</td>
     </tr>
     <tr>
         <td class="headerC">
@@ -345,7 +345,7 @@
 </table>
 
 <div align="right" style="padding-top: 10px">
-    Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Contests page</a> or subscribe to the RSS feed
+    Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Challenges page</a> or subscribe to the RSS feed
     <a href="/tc?module=BasicRSS&amp;c=rss_Pipeline&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" /></a>
 </div>
 

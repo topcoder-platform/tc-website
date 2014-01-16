@@ -22,7 +22,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
         <td class="headerC">Rank</td>
         <td class="header">Coder</td>
         <td class="headerR">Debut Rating</td>
-        <td class="header">Contest</td>
+        <td class="header">Challenge</td>
         <td class="headerC">Date</td>           
        </tr>
 

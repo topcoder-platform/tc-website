@@ -6,7 +6,7 @@
 <html>
 
 <head>
-<title>Ultimate Software Development Contest</title>
+<title>Ultimate Software Development Challenge</title>
 
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
@@ -68,16 +68,16 @@ else
                         <a name="week"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
-                                <td class=usdcTitle>Weekly Contests</td>
+                                <td class=usdcTitle>Weekly Challenges</td>
                             </tr>
                         </table>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class="sidebarTitle" width=30%>Contest</td>
+                                <td class="sidebarTitle" width=30%>Challenge</td>
                                 <td class="sidebarTitle" width=20% align=center>Start Date</td>
                                 <td class="sidebarTitle" width=20% align=center>End Date</td>
                                 <td class="sidebarTitle" width=10% align=center>Winner</td>
-                                <td class="sidebarTitle" width=10% align=right>Contest Prizes</td>
+                                <td class="sidebarTitle" width=10% align=right>Challenge Prizes</td>
                                 <td class="sidebarTitle" width=10% align=center>Components</td>
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
@@ -97,16 +97,16 @@ else
                         <a name="month"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
-                                <td class=usdcTitle>Monthly Contests</td>
+                                <td class=usdcTitle>Monthly Challenges</td>
                             </tr>
                         </table>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class="sidebarTitle" width=30%>Contest</td>
+                                <td class="sidebarTitle" width=30%>Challenge</td>
                                 <td class="sidebarTitle" width=20% align=center>Start Date</td>
                                 <td class="sidebarTitle" width=20% align=center>End Date</td>
                                 <td class="sidebarTitle" width=10% align=center>Winner</td>
-                                <td class="sidebarTitle" width=10% align=right>Contest Prizes</td>
+                                <td class="sidebarTitle" width=10% align=right>Challenge Prizes</td>
                                 <td class="sidebarTitle" width=10% align=center>Components</td>
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
@@ -126,16 +126,16 @@ else
                         <a name="quarter"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
-                                <td class=usdcTitle>Quarterly Contests</td>
+                                <td class=usdcTitle>Quarterly Challenges</td>
                             </tr>
                         </table>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class="sidebarTitle" width=30%>Contest</td>
+                                <td class="sidebarTitle" width=30%>Challenge</td>
                                 <td class="sidebarTitle" width=20% align=center>Start Date</td>
                                 <td class="sidebarTitle" width=20% align=center>End Date</td>
                                 <td class="sidebarTitle" width=10% align=center>Winner</td>
-                                <td class="sidebarTitle" width=10% align=right>Contest Prizes</td>
+                                <td class="sidebarTitle" width=10% align=right>Challenge Prizes</td>
                                 <td class="sidebarTitle" width=10% align=center>Components</td>
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">

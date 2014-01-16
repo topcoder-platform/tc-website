@@ -46,7 +46,7 @@
 						Apr 24 2001 12:00AM<BR/><BR/>
 						Jack Hughes thinks computer programmers are the Rodney Dangerfields of American business: Their work can make or break a company, yet they still get no respect.<BR/><BR/>
 						But Hughes, himself a programmer, is determined to change that. He's launching a high-profile tournament aimed at giving the nation's best authors of computer code a chance to strut their stuff.<BR/><BR/>
-						The winner of his grueling contests, the first of which is under way, will earn $100,000 cash and the title of TopCoder. Even greater riches and recognition may soon follow in the form of a job from a major software company.<BR/><BR/>
+						The winner of his grueling challenges, the first of which is under way, will earn $100,000 cash and the title of TopCoder. Even greater riches and recognition may soon follow in the form of a job from a major software company.<BR/><BR/>
 						A far-out scheme? Perhaps.<BR/><BR/>
 						But then, lots of people didn't understand Hughes' last venture, a Glastonbury-based software company called Tallan Inc. All that changed last February when, at the height of the dot-com frenzy, Hughes sold 80 percent of Tallan to Massachusetts-based CMGI Inc. for an eye-popping $920 million in cash and stock.<BR/><BR/>
 						The deal made Hughes one of Greater Hartford's biggest winners in the Internet sweepstakes that burned out during the past year.<BR/><BR/>
@@ -60,10 +60,10 @@
 						Spectators will be able to discuss and root for their favorite programmers via online chat rooms set up during the competition.<BR/><BR/>
 						The first TopCoder tournament, known as the TopCoder Collegiate Challenge, is under way, and is scheduled to culminate with championship rounds on June 5 and 6 at the JavaOne Conference in San Francisco.<BR/><BR/>
 						Beyond the honor of the tournament victory, TopCoder winners stand to accumulate a substantial amount of money. The overall tournament champion will pocket $100,000. Lower finishers will earn anywhere from $3,000 to $25,000.<BR/><BR/>
-						Later TopCoder contests - some of them one-day affairs, others the multiple-round tournaments - will be open to professional programmers, as well as students.<BR/><BR/>
+						Later TopCoder challenges - some of them one-day affairs, others the multiple-round tournaments - will be open to professional programmers, as well as students.<BR/><BR/>
 						Indeed, organizers believe some programmers may become so proficient that they may literally become tournament professionals, earning their living solely from TopCoder events.<BR/><BR/>
 						"There's more to this than just finding a pool of employable talent," Hughes said. "There could be people who do nothing but participate in TopCoder tournaments."<BR/><BR/>
-						In time, TopCoder also hopes to expand the kinds of programming contests it holds beyond Java to other computer languages, such as C++, Perl, SQL and more.<BR/><BR/>
+						In time, TopCoder also hopes to expand the kinds of programming challenges it holds beyond Java to other computer languages, such as C++, Perl, SQL and more.<BR/><BR/>
 						Hughes traces the undervaluation of computer programming talent to historical factors that gave programmers - or "coders," as they're known in the trade - a job classification similar to those of clerks and administrative staff.<BR/><BR/>
 						That classification, enshrined in federal labor law, separated programmers from other educated professionals, such as lawyers, accountants and doctors, and thus helped keep salaries down.<BR/><BR/>
 						But equally important, he said, is that programmers have had no place where they could show off their talents. And that's the role TopCoder expects to fill.<BR/><BR/>

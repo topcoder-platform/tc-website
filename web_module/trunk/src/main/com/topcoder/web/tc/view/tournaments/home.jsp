@@ -172,7 +172,7 @@
          <br />
          <a target="_blank" href="/pdfs/tournaments/tco08/TCO08_Program_View.pdf">Program [PDF]</a>
          <br />
-         <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2127">Logo Contest</a>
+         <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2127">Logo Challenge</a>
          </td>
       </tr>
    </table>
@@ -194,7 +194,7 @@
          <br />
          <a target="_blank" href="/pdfs/tournaments/TCHS08_Program_View.pdf">Program [PDF]</a>
          <br />
-         <a href="http://studio.topcoder.com/?module=ViewSubmissions&amp;ct=2138">Logo Contest</a>
+         <a href="http://studio.topcoder.com/?module=ViewSubmissions&amp;ct=2138">Logo Challenge</a>
          </td>
       </tr>
    </table>
@@ -215,7 +215,7 @@
          <br />
          <a target="_blank" href="/pdfs/tournaments/TCCC07_Program_View.pdf">Program [PDF]</a>
          <br />
-         <a href="http://studio.topcoder.com/?module=ViewSubmissions&amp;ct=2104">Logo Contest</a>
+         <a href="http://studio.topcoder.com/?module=ViewSubmissions&amp;ct=2104">Logo Challenge</a>
          </td>
       </tr>
    </table>
@@ -236,7 +236,7 @@
          <br />
          <a target="_blank" href="/pdfs/tournaments/TCO07_Program_View.pdf">Program [PDF]</a>
          <br />
-         <a href="http://studio.topcoder.com/?module=ViewSubmissions&amp;ct=2047">Logo Contest</a>
+         <a href="http://studio.topcoder.com/?module=ViewSubmissions&amp;ct=2047">Logo Challenge</a>
          </td>
       </tr>
    </table>
@@ -258,7 +258,7 @@
          <br />
          <a target="_blank" href="/pdfs/tournaments/tchs07_webprogram.pdf">Program [PDF]</a>
          <br />
-         <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2030">Logo Contest</a>
+         <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2030">Logo Challenge</a>
          </td>
       </tr>
    </table>
@@ -279,7 +279,7 @@
          <br />
          <a target="_blank" href="/i/tournament/tccc06/pdfs/tccc06_program.pdf">Program [PDF]</a>
          <br />
-         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=logo_overview">Logo Contest</a>
+         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=logo_overview">Logo Challenge</a>
          </td>
       </tr>
    </table>
@@ -300,7 +300,7 @@
          <br />
          <a target="_blank" href="/pdfs/tournaments/tco06_program.pdf">Program [PDF]</a>
          <br />
-         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=logo_overview">Logo Contest</a>
+         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=logo_overview">Logo Challenge</a>
          </td>
       </tr>
    </table>
@@ -321,7 +321,7 @@
          <br />
          <a target="_blank" href="/pdfs/tournaments/tco05_program.pdf">Program [PDF]</a>
          <br />
-         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=logo_overview">Logo Contest</a>
+         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=logo_overview">Logo Challenge</a>
          </td>
       </tr>
    </table>

@@ -428,7 +428,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
 
 <p>
 The first thing to note in this problem is that numDivisible(L, R, a) is equal to (numDivisible(1, R, a) - numDivisible(1, L - 1, a)). 
-This approach -- counting specific numbers not greater than A, instead of counting specific numbers not greater than A and not smaller than B -- is a well-known trick and may help you in future contests, so don't forget it after submitting this problem!
+This approach -- counting specific numbers not greater than A, instead of counting specific numbers not greater than A and not smaller than B -- is a well-known trick and may help you in future challenges, so don't forget it after submitting this problem!
 </p>
 <p>
 Now we need to find the number of positive integers not greater than <b>A</b>, which are divided by at least one element of <b>a</b>.

@@ -154,7 +154,7 @@ Surprised and pleasured. It's one big honor to be a studio member.</p>
 <p><strong>What is one thing that you have learned at Studio that has helped you in other areas of your life?</strong><br />
 "Value Your Time", Many people have one bad habit -- dilatoriness, including me.<br />
 We all like leave things to be done at the last minute, and waste a lot of time in start and process.<br />
-At Studio, several times I've competed but uploaded my submission at the last minute.  This has caused me to lose contests due to submission failures.<br />
+At Studio, several times I've competed but uploaded my submission at the last minute.  This has caused me to lose challenges due to submission failures.<br />
 I saw somebody discuss this in the studio forum, and I laughed in my sleeve, because I'm same as them :) so I think we should "Value Your Time", value our time and throw dilatoriness down, quickly and efficiency work everything in our life.<br />
 </p>
 </div>

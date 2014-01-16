@@ -77,7 +77,7 @@
     </head>
     <body>
         <h1>PACTS</h1>
-        <h2 align="center">Generate Software Contest Payments</h2>
+        <h2 align="center">Generate Software Challenge Payments</h2>
         <center>
             <form name="paymentForm" id="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
                 <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="GenerateComponentPayments"/>
@@ -125,7 +125,7 @@
                     </tr>
                     <tr>
                         <td align="center" colspan="3">
-                            <a href="JavaScript:document.paymentForm.submit();">Generate Software Contest Payments</a><br/>
+                            <a href="JavaScript:document.paymentForm.submit();">Generate Software Challenge Payments</a><br/>
                         </td>
                     </tr>
                 </table>

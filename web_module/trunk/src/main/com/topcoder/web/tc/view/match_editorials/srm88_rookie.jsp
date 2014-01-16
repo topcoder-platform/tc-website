@@ -93,7 +93,7 @@ of them, and taking the division was <A HREF="/tc?module=MemberProfile&amp;cr=28
 out of 1800 gave him an impressive debut rating of 1888, which places
 him in 8th on the all time list.  This puts him directly below recent TopCoder 
 wonder, <A HREF="/tc?module=MemberProfile&amp;cr=277956" CLASS="bodyGeneric">kpsmith</A>
-, whose rating is up to 2049 in only three contests.  
+, whose rating is up to 2049 in only three challenges.  
 </P>
 
 <P>

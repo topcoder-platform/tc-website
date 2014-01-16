@@ -45,7 +45,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
     <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
-                        <p><font size="4"><strong>The TopCoder Design Contest #2</strong></font><br />
+                        <p><font size="4"><strong>The TopCoder Design Challenge #2</strong></font><br />
                         Tuesday, July 29, 2003</p>
 
                         <p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=119676"><strong>Pops</strong></a><br />
@@ -53,17 +53,17 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
                         
                         <p>
 <b>Introduction</b><br />
-The TopCoder Design Contest #2 was a very different contest than  the 
-previous one due to changes in the contest rules, design requirements, and judging. 
+The TopCoder Design Challenge #2 was a very different challenge than  the 
+previous one due to changes in the challenge rules, design requirements, and judging. 
 The top 3 designers were awarded payments of $3000, $2000 and $1000, based 
 on the average of the top 5 submission scores from each designer. Design requirements
 changed by removing the need for functional tests.  The scorecard added new categories,
 relaxed the wording on others and a much needed appeals process was put into place.  Altogether,
-the contest provided a wonderful experience to all and definitely improved the resulting
+the challenge provided a wonderful experience to all and definitely improved the resulting
 submissions.
 </p>
 <p>
-Week 1 of the contest was kicked off by submissions from <strong>Mikhail_T</strong>, 
+Week 1 of the challenge was kicked off by submissions from <strong>Mikhail_T</strong>, 
 <strong>ozzie</strong>, <strong>Saxophonist</strong> and <strong>WishingBone</strong>.  
 This was closely followed in week 2 with <strong>DenisKulagin</strong>, <strong>haha</strong>, 
 and <strong>MPhk</strong> submitting first designs, <strong>Mikhail_T</strong> submitting a 
@@ -103,7 +103,7 @@ Week 8 is where things get interesting.  Designers must make a choice whether th
 for the goal (and maybe tradeoff quality for quantity).  At this point, <strong>schveiguy</strong> posted a forum message wondering if anyone was going 
 to make the cut.  Personally, I wondered about <strong>srowen</strong>, who had proved quite capable in the first contest, but had failed to follow-up on 
 his outstanding first submission.  Both fears proved groundless beginning in week 8 with 12 submissions.  <strong>Ken Vogel</strong>, <strong>rhett</strong>, 
-<strong>scamp</strong>, <strong>shiro</strong> and <strong>ThinMan</strong> entered the contest with single submissions.  <strong>adic</strong>, <strong>aksonov</strong>, <strong>argolite</strong>, 
+<strong>scamp</strong>, <strong>shiro</strong> and <strong>ThinMan</strong> entered the challenge with single submissions.  <strong>adic</strong>, <strong>aksonov</strong>, <strong>argolite</strong>, 
 <strong>isv</strong>, <strong>ozzie</strong>, <strong>srowen</strong>, and <strong>TangentZ</strong> added to their totals by a single submission.  Both <strong>ozzie</strong> and <strong>TangentZ</strong>
 became the first competitors to make the 5 design qualifying minimum this week.  Week 9 was another busy week with an additional 7 submissions 
 with single submissions from <strong>isv</strong>, <strong>Ken Vogel</strong>, <strong>ozzie</strong>, <strong>schveiguy</strong>, <strong>srowen</strong> and a double submission from 
@@ -121,9 +121,9 @@ later rejected in the screening process for reasons you can read in the forum.  
 <p>
 I had an opportunity to interview the three finalists to get their viewpoints on the contest.  Like the first contest, time played the biggest roll.  <strong>TangentZ</strong> 
 clearly didn't want to get into a time crunch and chose to submit as early as possible - the downside being that he was on pins and needles the final weeks wondering if 
-his early submissions were good enough.  <strong>isv</strong> swore not to make the mistake he made in the first contest by spreading himself too thinly between projects 
-(both the design contest and an application project), thus losing all of them.  He instead committed himself to the contest and decided to submit as many designs as he could.  
-<strong>srowen</strong> had commitments outside of the contest that prevented him from submitting throughout the contest until the final two weeks.  The final push to 
+his early submissions were good enough.  <strong>isv</strong> swore not to make the mistake he made in the first challenge by spreading himself too thinly between projects 
+(both the design challenge and an application project), thus losing all of them.  He instead committed himself to the challenge and decided to submit as many designs as he could.  
+<strong>srowen</strong> had commitments outside of the challenge that prevented him from submitting throughout the challenge until the final two weeks.  The final push to 
 submit the required minimum designs cost him in quality and consequently - his final ranking.
 </p>
 <p>
@@ -134,7 +134,7 @@ very creative project because it does not simply follow some industry standards 
 That always gives me a good feeling".  <strong>isv's</strong>  favorite design was the modifications to the config manager version 3.0.  In <strong>isv's</strong>  words, "making modifications to 
 existing designs/code is one of my favorite kinds of jobs". <strong> srowen</strong>  thought the Generic Event Manager was the most rewarding one - "It showcases one of Java's 
 little-known but powerful reflection-related capabilities -- dynamic proxies and the Proxy class. Everything about that design really came together nicely".
-In summary, the TopCoder Design Contest #2 was a great success in introducing new people to the design process, a success to all of the designers who won 
+In summary, the TopCoder Design Challenge #2 was a great success in introducing new people to the design process, a success to all of the designers who won 
 money on each individual winning design, a success to the top three designers who received a bonus and a clear success to the potential customers who will be 
 using the resulting high-quality components made from those designs.
 </p>

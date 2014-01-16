@@ -48,14 +48,14 @@ Plain Dealer Reporter</P>
 <P>He made the words "Hello world" flash in three-dimensional type across his parents' computer screen.</P>
 <P>World, say hello again to Matt Crowley 2.0 - an upgraded version of the youngster who built that first program. Nowadays, the 16-year-old sophomore helps oversee a computer network security system he created for his high school.</P>
 <P>Now meet Alexander Mosby, a senior at Glenville High School who got interested in computers a little more than a year ago. Today he knows so much he's won up to $75,000 in scholarships to study computer science.</P>
-<P>And here's Ben Wilhelm, a sophomore at Oberlin College who loathes computer science classes. He's favored to take home $100,000 in a nationwide computer programming contest later this month.</P>
+<P>And here's Ben Wilhelm, a sophomore at Oberlin College who loathes computer science classes. He's favored to take home $100,000 in a nationwide computer programming challenge later this month.</P>
 <P><B>Part of larger group</B></P>
 <P>Dozens of Alexes, Matts and Bens pepper Northeast Ohio. They're creating new software, building computers and constructing homemade versions of the Palm Pilot.</P>
 <P>They are cropping up thanks in part to efforts by schools and industry to attract talented youth to technology. New computer classes and big-time competitions are making kids take notice or drawing out those who have a natural affinity for the field.</P>
 <P>So while Northeast Ohio may struggle when it comes to adopting information technology, younger Ohioans are going high tech.</P>
 <P>"I think this generation is taking notice of the fact that technology is the future and everybody is gradually, no matter what field they want to be in, going to be involved with technology," Mosby said. "They are taking it upon themselves to learn about technology."</P>
 <P>Younger generations often lead the charge into new fields, but the trend seems more pronounced when it comes to technology, say educators and industry leaders.</P>
-<P>TopCoder, the national programming contest in which Wilhelm is a finalist, just opened its college and professional competitions to high school students.</P>
+<P>TopCoder, the national programming challenge in which Wilhelm is a finalist, just opened its college and professional competitions to high school students.</P>
 <P>"I think the general population would be amazed by what 16-, 17- and 18-year-olds could make a computer do," said Tom Longo, vice president of membership at TopCoder. "Many of the collegiate programmers are as talented or more talented than many of our professional members."</P>
 <P><B>Code monkey'</B></P>
 <P>Crowley got into coding after his father challenged him to write that first "Hello World" program. Now, he's a self-described "code monkey" and wears a popular programmer T-shirt that plays off the Latin phrase Cogito Ergo Sum - I Think Therefore I Am.</P>

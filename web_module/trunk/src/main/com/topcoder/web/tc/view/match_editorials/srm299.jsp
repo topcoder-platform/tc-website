@@ -58,7 +58,7 @@ lot of challenges, mainly time-outs on the medium problem.
 <P>Division 2 also saw a hard last problem that had many submissions but where 
 few passed. First place was taken by Aesop thanks to a successful challenge, 
 closely followed by first timers taral and dan19. A notable first timer was also 
-the TCO "Pick Me" contest winner davidyang, solving the first two problems and 
+the TCO "Pick Me" challenge winner davidyang, solving the first two problems and 
 almost making it to division 1. </P>
 
 <H1> 

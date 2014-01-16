@@ -63,15 +63,15 @@
 
 <jsp:include page="../page_title.jsp">
     <jsp:param name="image" value="statistics_w"/>
-    <jsp:param name="title" value="Component Contest Details"/>
+    <jsp:param name="title" value="Component Challenge Details"/>
 </jsp:include>
 
 <span class="bodySubtitle">Component Statistics >
 <a href='/tc?module=CompList&amp;<%=Constants.PHASE_ID%>=<rsc:item set="<%=projectInfo%>" name="phase_id"/>'
    class="statLink">
     <rsc:item set="<%=projectInfo%>" name="phase_desc"/>
-    Contests</a>
- > Contest Details
+    Challenges</a>
+ > Challenge Details
 </span><br>
 <span class="bc">
 <% if (dates.size() > 1) { %>
@@ -106,11 +106,11 @@
         <tr>
             <td class="title" colspan="2">
                 <rsc:item set="<%=projectInfo%>" name="phase_desc"/>
-                Contest Details
+                Challenge Details
             </td>
         </tr>
         <tr>
-            <td class="value" colspan="2" style="border: 0px none ;"><strong>Contest:</strong><br>
+            <td class="value" colspan="2" style="border: 0px none ;"><strong>Challenge:</strong><br>
 
 				<a href="/tc?module=ProjectDetail&pj=<%=projectId%>"><rsc:item set="<%=projectInfo%>" name="component_name"/>
                 <rsc:item set="<%=projectInfo%>" name="version_text"/></a>

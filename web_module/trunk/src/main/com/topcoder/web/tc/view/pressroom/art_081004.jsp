@@ -44,7 +44,7 @@
 						<p>
 						Poland's Tomek Czajka has programmed his way to glory, and $75,000 in winnings. So we had to ask: Star Wars, or Lord of the Rings?
 						<br/><br/>
-						Known in his competitive coding circles by first name only, Tomek Czajka is one of the world's best programmers. He's earned over $75,000 in algorithm-writing contests over the last few years on TopCoder, the Top Gun of programming competition sites. In addition to fortune and fame in the developer community, TopCoder winners are often recruited by event sponsors like Microsoft, Yahoo, and Google. Tomek is ranked #2 on the site he'd be #1 if he hadn't taken a break during the last few months, which caused a slight dip in his ranking.  A recent graduate of Warsaw University, Tomek is on his way to Purdue University to begin a Ph.D. program in computer science.
+						Known in his competitive coding circles by first name only, Tomek Czajka is one of the world's best programmers. He's earned over $75,000 in algorithm-writing challenges over the last few years on TopCoder, the Top Gun of programming competition sites. In addition to fortune and fame in the developer community, TopCoder winners are often recruited by event sponsors like Microsoft, Yahoo, and Google. Tomek is ranked #2 on the site he'd be #1 if he hadn't taken a break during the last few months, which caused a slight dip in his ranking.  A recent graduate of Warsaw University, Tomek is on his way to Purdue University to begin a Ph.D. program in computer science.
 						<br/><br/>
 						Who: Tomek Czajka<br/>
 						What: TopCoder, soon-to-be graduate student in computer science<br/>
@@ -60,8 +60,8 @@
 						<b>Where does all that money go?</b><br/>
 						To a bank in New York; I will start spending when I move to Purdue.
 						<br/><br/>
-						<b>How many TopCoder contests have you won?</b><br/>
-						Two major contests (TopCoder Open 2003, TopCoder Collegiate Challenge 2004) and eight weekly single-round matches
+						<b>How many TopCoder challenges have you won?</b><br/>
+						Two major challenges (TopCoder Open 2003, TopCoder Collegiate Challenge 2004) and eight weekly single-round matches
 						<br/><br/>
 						<b>What would you be doing if you weren't a programmer?</b><br/>
 						Math

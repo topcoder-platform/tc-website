@@ -129,7 +129,7 @@ Being a very energetic guy, John wants to have the time of his life! With so man
    </tr>
    <tr class="GAtableText">
       <td>10</td>
-      <td>Participate in an "All you can eat" and "All you can drink" contest</td>
+      <td>Participate in an "All you can eat" and "All you can drink" challenge</td>
       <td>Saturday, 9:01 PM - Saturday, 11:59 PM</td>
    </tr>
 </table>
@@ -145,7 +145,7 @@ We still don't want to check for every possible solution, so let's try another t
 <ul>
    <li>Take a shower (15 minutes)</li>
    <li>Participate in the TopCoder Single Round Match (2 hours)</li>
-   <li>Participate in an "All you can eat" and "All you can drink" contest (2 hours 58 minutes)</li>
+   <li>Participate in an "All you can eat" and "All you can drink" challenge (2 hours 58 minutes)</li>
    <li>Debug the room (3 hours)</li>
    <li>Attend the Rock Concert (4 hours)</li>
    <li>Have some paintball fun (6 hours)</li>

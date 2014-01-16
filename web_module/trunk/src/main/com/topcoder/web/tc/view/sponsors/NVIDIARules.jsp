@@ -41,7 +41,7 @@
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NVIDIAOverview">Overview</a>&#160;&#160;|&#160;&#160;
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NVIDIAInstructions">How to Compete</a>&#160;&#160;|&#160;&#160;
             Rules&#160;&#160;|&#160;&#160;
-            <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
+            <a href="/longcontest/?module=ViewActiveContests">Active Challenges</a>
         </p>
         
         <p><span class="bigTitle">Official Rules &amp; Regulations</span></p>
@@ -136,7 +136,7 @@
 		<ul>
 			<li>Does not include or anticipate the inclusion of any unsuitable or offensive content, including nudity, sexually explicit, disparaging, libelous or other inappropriate content.</li>
 			<li>Does not include or anticipate the inclusion of any content that is in violation of or infringes third party intellectual property rights including, but not limited to copyrights, including music copyrights, trademarks, and rights of publicity.</li>
-			<li>Has not been entered in previous contests, or won previous awards.</li>
+			<li>Has not been entered in previous challenges, or won previous awards.</li>
 			<li>Has not been published or distributed previously in any media.</li>
 			<li>Is suitable for a general audience;</li>
 			<li>Does not contain any claims that are not and cannot be substantiated or that would be false and/or misleading to a reasonable consumer.</li>

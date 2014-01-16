@@ -54,7 +54,7 @@
 <span class="bigTitle">Match summary</span>
 
 <p>
-Much more than just another typical match, this marked the first in a new series of contests for high school students.
+Much more than just another typical match, this marked the first in a new series of challenges for high school students.
 Congratulations to everyone who joined in this historic match!</p>
 <p>
 In a close race, <b>Burunduk1</b> from the Russian Federation won the match, thanks to
@@ -72,7 +72,7 @@ Now, how did you feel the match?
 Did you like it?
 Do you still hear your overclocked heart beating at the rhythm of your keystrokes?
 Did you stay awake for three more hours discussing or debugging your solutions? 
-There's a lot to learn and explore while you wait for the next contest:
+There's a lot to learn and explore while you wait for the next challenge:
 </p>
 
 <ul>
@@ -80,7 +80,7 @@ There's a lot to learn and explore while you wait for the next contest:
 There are always active members willing to help, and you can learn a lot quickly.</li>
 <li> There are several <a href="http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=alg_index">Educational Articles</a>
   that will help you learn techniques and concepts that you can 
-  apply in the next contest and in your educational or professional life.</li>
+  apply in the next challenge and in your educational or professional life.</li>
 <li> The advice you will hear most often, of course, is: <b>practice</b>! You can log in to the Arena practice rooms anytime. 
 </li>
 </ul>
@@ -403,7 +403,7 @@ Though this is not the case as this solution handles only small values, it shoul
 in future matches. 
 The reader is encourage to
 follow <a href="/tc?module=Static&d1=tutorials&d2=integersReals">this article</a> to get an idea
-of where and why floating point arithmetic can fail in a contest.</p>
+of where and why floating point arithmetic can fail in a challenge.</p>
 
 <font size="+2">
 
@@ -502,8 +502,8 @@ Used as: Level Three: <blockquote><table cellspacing="2">
 </table></blockquote>
 
 <p>
-This problem features one of the favorite subjects of algorithm contest problems: labyrinths! 
-Everyone who has ever tried a programming contest has come across ascii-represented 
+This problem features one of the favorite subjects of algorithm challenge problems: labyrinths! 
+Everyone who has ever tried a programming challenge has come across ascii-represented 
 labyrinths with variety of tasks to solve.
 The majority, and this is not an exception, include as one task to 'walk' within the rooms or empty 
 spaces. This can't be done by just looking at the values of the cells and their neighbors, 
