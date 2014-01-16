@@ -7104,5 +7104,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return roundName;
         }
     }
+
+    public void advanceOnHoldPaymentForAD(long userId) throws Exception {
+        (new PaymentStatusManager()).signedGlobalAD(userId);
+    }
+
+    public void advanceOnHoldPaymentForAffidavit(long paymentId) throws Exception {
+        (new PaymentStatusManager()).affirmedAffidavit(paymentId);
+    }
 }
 
