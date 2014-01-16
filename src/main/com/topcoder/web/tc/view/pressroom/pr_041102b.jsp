@@ -45,7 +45,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
     <jsp:param name="title" value="TopCoder Press Release"/>
 </jsp:include>
 
-<P><B>BHS grad has shot at winning $100,000 in computer contest</B></P>
+<P><B>BHS grad has shot at winning $100,000 in computer challenge</B></P>
 
 <P>
 By JENNIFER STOCKINGER<BR/> 

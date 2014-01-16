@@ -67,7 +67,7 @@
 						Online initial rounds have already begun, although there's still room for new contestants. Finalists will compete in November in Las Vegas for a $350,000 purse, with a grand prize of $100,000.<BR/><BR/>
 						"The idea of the company," said Jack Hughes, chairman of TopCoder, "is that employers are looking for high-talent entrepreneurs."<BR/><BR/>
 						TopCoder plans to make money through competition sponsorships and subscriptions, through which companies can gain access to participants. There is no charge to competing programmers.<BR/><BR/>
-						"It's still early," Hughes said of his angel-backed company. "There's not a lot of revenue yet, but we're growing. In March, when we started recruiting (participants) we had 20 to 30. Now, we've had 1,574 programmers registered as members for our contests."<BR/><BR/>
+						"It's still early," Hughes said of his angel-backed company. "There's not a lot of revenue yet, but we're growing. In March, when we started recruiting (participants) we had 20 to 30. Now, we've had 1,574 programmers registered as members for our challenges."<BR/><BR/>
             </TD></TR>                                                                 
 <p><br></p>
                     </td>

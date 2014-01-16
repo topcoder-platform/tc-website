@@ -48,7 +48,7 @@
 
 <span class="bigTitle">Match summary</span>
 
-<P>This afternoon's contest was one of the wackiest in recent memory. Division 2 
+<P>This afternoon's challenge was one of the wackiest in recent memory. Division 2 
 featured a couple of math problems that could lead to issues of double 
 imprecision if solved the wrong way, and a simple dynamic programming problem 
 about binary search trees. Division 1 seemed very simple at first glance, with 

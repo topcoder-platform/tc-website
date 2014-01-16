@@ -69,7 +69,7 @@ span.conj { text-decoration: overline; }
 
 <span class="bodySubtitle">Introduction</span><br>
 Computational geometry problems appear frequently in
-Topcoder contests and a series of <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=geometry1">articles</a>
+Topcoder challenges and a series of <a href="/tc?module=Static&amp;d1=tutorials&amp;d2=geometry1">articles</a>
 has already been written on the subject. However, competitors
 who have tried to implement these algorithms (particularly in
 C++) will no doubt have been frustrated by the lack of a

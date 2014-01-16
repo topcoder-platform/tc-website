@@ -196,11 +196,11 @@ public class ViewCopilotProject extends ShortHibernateProcessor {
         String[] barChart = BAR_CHART1_PROPERTIES;
         List<List<String>> chartValues = new ArrayList<List<String>>();
         List<String> row1 = new ArrayList<String>();
-        row1.add("\"Contests\"");
+        row1.add("\"Challenges\"");
         row1.add(String.valueOf(projectDTO.getTotalPlannedContests()));
         row1.add(String.valueOf(projectDTO.getTotalRealContests()));
         List<String> row2 = new ArrayList<String>();
-        row2.add("\"Bug Races\"");
+        row2.add("\"Races\"");
         row2.add(String.valueOf(projectDTO.getPlannedBugRaces()));
         row2.add(String.valueOf(projectDTO.getTotalRealBugRaces()));
         chartValues.add(row1);

@@ -59,7 +59,7 @@
 
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <head>
-    <title>TopCoder :: Active Contests</title>
+    <title>TopCoder :: Active Challenges</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="../script.jsp"/>
@@ -161,85 +161,85 @@
         <c:when test="${pt == TEST_SUITES_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="test_suites"/>
-                <jsp:param name="title" value="Active Contests"/>
+                <jsp:param name="title" value="Active Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == TEST_SCENARIOS_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="test_scenarios"/>
-                <jsp:param name="title" value="Active Contests"/>
+                <jsp:param name="title" value="Active Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="architecture"/>
-                <jsp:param name="title" value="Active Contests"/>
+                <jsp:param name="title" value="Active Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == ASSEMBLY_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="assembly"/>
-                <jsp:param name="title" value="Active Contests"/>
+                <jsp:param name="title" value="Active Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="conceptualization"/>
-                <jsp:param name="title" value="Active Contests"/>
+                <jsp:param name="title" value="Active Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == SPECIFICATION_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="specification"/>
-                <jsp:param name="title" value="Active Contests"/>
+                <jsp:param name="title" value="Active Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == UI_PROTOTYPE_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="ui_prototype"/>
-                <jsp:param name="title" value="Active Contests"/>
+                <jsp:param name="title" value="Active Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == RIA_BUILD_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="ria_build"/>
-                <jsp:param name="title" value="Active Contests"/>
+                <jsp:param name="title" value="Active Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == RIA_COMPONENT_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="ria_component"/>
-                <jsp:param name="title" value="Active Contests"/>
+                <jsp:param name="title" value="Active Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == CONTENT_CREATION_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="content_creation"/>
-                <jsp:param name="title" value="Active Contests"/>
+                <jsp:param name="title" value="Active Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == REPORTING_TYPE_ID}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="reporting"/>
-                <jsp:param name="title" value="Active Contests"/>
+                <jsp:param name="title" value="Active Challenges"/>
             </jsp:include>
         </c:when>
           <c:when test="${pt == BUG_HUNT_TYPE_ID}">
               <jsp:include page="/page_title.jsp">
                   <jsp:param name="image" value="bug_hunt"/>
-                  <jsp:param name="title" value="Active Contests"/>
+                  <jsp:param name="title" value="Active Challenges"/>
               </jsp:include>
           </c:when>
           <c:when test="${pt == FIRST2FINISH_TYPE_ID}">
               <jsp:include page="/page_title.jsp">
                   <jsp:param name="image" value="first2finish"/>
-                  <jsp:param name="title" value="Active Contests"/>
+                  <jsp:param name="title" value="Active Challenges"/>
               </jsp:include>
           </c:when>
           <c:when test="${pt == CODE_TYPE_ID}">
               <jsp:include page="/page_title.jsp">
                   <jsp:param name="image" value="code"/>
-                  <jsp:param name="title" value="Active Contests"/>
+                  <jsp:param name="title" value="Active Challenges"/>
               </jsp:include>
           </c:when>
       </c:choose>
@@ -401,51 +401,51 @@
 
           <c:choose>
             <c:when test="${pt == TEST_SUITES_TYPE_ID}">
-                Active Test Suites Contests</td>
+                Active Test Suites Challenges</td>
             </c:when>
             <c:when test="${pt == TEST_SCENARIOS_TYPE_ID}">
-                Active Test Scenarios Contests</td>
+                Active Test Scenarios Challenges</td>
             </c:when>
             <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
-                Active Software Architecture Contests</td>
+                Active Software Architecture Challenges</td>
             </c:when>
             <c:when test="${pt == ASSEMBLY_TYPE_ID}">
-                Active Software Assembly Contests</td>
+                Active Software Assembly Challenges</td>
             </c:when>
             <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
-                Active Software Conceptualization Contests</td>
+                Active Software Conceptualization Challenges</td>
             </c:when>
             <c:when test="${pt == SPECIFICATION_TYPE_ID}">
-                Active Software Specification Contests</td>
+                Active Software Specification Challenges</td>
             </c:when>
             <c:when test="${pt == UI_PROTOTYPE_TYPE_ID}">
-                Active UI Prototype Contests</td>
+                Active UI Prototype Challenges</td>
             </c:when>
             <c:when test="${pt == RIA_BUILD_TYPE_ID}">
-                Active RIA Build Contests</td>
+                Active RIA Build Challenges</td>
             </c:when>
             <c:when test="${pt == RIA_COMPONENT_TYPE_ID}">
-                Active RIA Component Contests</td>
+                Active RIA Component Challenges</td>
             </c:when>
             <c:when test="${pt == CONTENT_CREATION_TYPE_ID}">
-                Active Content Creation Contests</td>
+                Active Content Creation Challenges</td>
             </c:when>
             <c:when test="${pt == REPORTING_TYPE_ID}">
-                Active Reporting Contests</td>
+                Active Reporting Challenges</td>
             </c:when>
             <c:when test="${pt == BUG_HUNT_TYPE_ID}">
-                Active Bug Hunt Contests</td>
+                Active Bug Hunt Challenges</td>
             </c:when>
           <c:when test="${pt == FIRST2FINISH_TYPE_ID}">
-              Active First2Finish Contests</td>
+              Active First2Finish Challenges</td>
           </c:when>
           <c:when test="${pt == CODE_TYPE_ID}">
-              Active Code Contests</td>
+              Active Code Challenges</td>
           </c:when>
           </c:choose>
     </tr>
     <tr>
-      <td class="header" width="30%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Contest</a></td>
+      <td class="header" width="30%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Challenges</a></td>
       <td class="header" width="10%">&#160;</td>
       <td class="header" width="10%">&#160;</td>
       <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Register by</a></td>
@@ -558,7 +558,7 @@
     </rsc:iterator>
 </table>
 <div align="right" style="padding-top: 10px">
-    Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Contests page</a> or subscribe to the RSS feed
+    Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Challenges page</a> or subscribe to the RSS feed
     <a href="/tc?module=BasicRSS&amp;c=rss_Pipeline&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
 </div>
 

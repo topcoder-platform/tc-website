@@ -50,7 +50,7 @@
 
 
 <p>Yarin remained red hot, as only one of two coders (radeye was the other) to solve all three problems
-    successfully.  His hot streak over the last few contests has propelled him up to 2nd place overall,
+    successfully.  His hot streak over the last few challenges has propelled him up to 2nd place overall,
     58 points behind John Dethridge.  SnapDragon, on the other hand had an unusual off night, and dropped 124
     points.</p><p>The div 2 problems were a little on the easy side, with over 50% of submissions being correct
     for all three problems.  The div 1 easy and medium problems were quite well balanced, and most people had

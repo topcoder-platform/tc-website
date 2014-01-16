@@ -90,7 +90,7 @@
     5.14.11 - 2008.04.02
 <ul>
     <li>Going back to the old assembly registration pages -pulky</li>
-    <li>Added contest status pages for assembly and architecture -pulky</li>
+    <li>Added challenge status pages for assembly and architecture -pulky</li>
 </ul>
 </p>
 
@@ -183,7 +183,7 @@
     <li>TCO08 RSVP page -pulky</li>
     <li>Add report for TCO '08 reg -dok</li>
     <li>Cache report results for 15 minutes -dok</li>
-    <li>Don't link from a contest name on mm active contests to the details page if it's a tournament round -dok</li>
+    <li>Don't link from a challenge name on mm Active Challenges to the details page if it's a tournament round -dok</li>
 </ul>
 </p>
 
@@ -268,7 +268,7 @@
     5.13.3 - 2007.11.12
 <ul>
     <%--
-            <li>Component contest details page and Submission download processor updated
+            <li>Component challenge details page and Submission download processor updated
                 to use catalog ids instead of descriptions -pulky</li>
     --%>
 </ul>
@@ -380,7 +380,7 @@
             <li>Updated the Left navigator to be more congruent with algo</li>
             <li>Add match list page</li>
             <li>Add match winners page</li>
-            <li>Update Active Contest page to just display the active contests instead of all</li>
+            <li>Update Active Challenge page to just display the Active Challenges instead of all</li>
             <li>Add search by Marathon Matches criteria in advanced search, as well as columns in the result</li>
             <li>Add Record Book pages for Marathon Matches</li>
             <li>Add Top Ranks for Marathon Matches</li>
@@ -630,7 +630,7 @@
     5.9.3 - 2007.05.21
 <ul>
     <li>Don't cache marathon match data for too long, it's too big -dok</li>
-    <li>Add component name filter on component past contests page -dok</li>
+    <li>Add component name filter on component Past Challenges page -dok</li>
     <li>Remove queue from PACTS -dok</li>
     <li>New Poseidon license key in the component registration email -dok</li>
 </ul>
@@ -648,7 +648,7 @@
     5.9.1 - 2007.05.07
 <ul>
     <li>Avoid NPE in component registration if a event has no dates associated -dok</li>
-    <li>Show friendly message on the component current contests page if the user has none -dok</li>
+    <li>Show friendly message on the component current challenges page if the user has none -dok</li>
     <li>Make result sets sort nulls a bit more intelligently. Always sort them to the bottom -dok</li>
     <li>Enhancements to the Assignment Document functionality in order to accelerate the process -pulky</li>
     <%--    <li>New button in pact that verifies owed payments before printing -pulky</li>--%>
@@ -707,7 +707,7 @@
     <li>Fix bug in condorcet schulze results that basically inverted the results -dok</li>
     <li>Submission download: the custom components can't be downloaded anymore, except by admins - cucu</li>
     <li>Add Ball bug report form -dok</li>
-    <%--<li>Add component contest result for Belgrade College Tour - cucu<li>--%>
+    <%--<li>Add component challenge result for Belgrade College Tour - cucu<li>--%>
 </ul>
 </p>
 
@@ -822,7 +822,7 @@ modified in at least one of these tables: resource, submission, upload, project_
     5.7.0 - 2007.02.15
 <ul>
     <%--<li>Add TCO07 registration backend</li>--%>
-    <li>Include icon on active contests pages for tournament component projects</li>
+    <li>Include icon on Active Challenges pages for tournament component projects</li>
     <li>Prompt user if they are not registered for tco07 and are registering for a component</li>
     <li>Add region column to TCHS07 registrants page</li>
 </ul>
@@ -843,7 +843,7 @@ modified in at least one of these tables: resource, submission, upload, project_
     <%--<li>RatingTag was taken out since it is no longer in use</li>--%>
     <li>Fixed bug when showing a problem with Matrix2D data type</li>
     <%--<li>TCS Loader: Added filter by elegibility (just open projects)</li>--%>
-    <li>When submiting a long contest, if the round id, contest id and component id are not consistent, throw an
+    <li>When submiting a long contest, if the round id, challenge id and component id are not consistent, throw an
         exception
     </li>
     <%--<li>When registering for a long round, the room_id is not looked up anymore, it wasn't needed.
@@ -898,7 +898,7 @@ after deploying, the query and command long_contest_find_room can be deleted </l
 <p>
     5.6.0 - 2007.01.15
 <ul>
-    <li>Add system driven Active Contests, registrants, project details and registration for assembly
+    <li>Add system driven Active Challenges, registrants, project details and registration for assembly
         competitions.
     </li>
 </ul>
@@ -996,7 +996,7 @@ after deploying, the query and command long_contest_find_room can be deleted </l
     <li>Add testers in problem detail</li>
     <li>New component stats added
         <ul>
-            <li>Best Average Component Contest Score</li>
+            <li>Best Average Component Challenge Score</li>
             <li>Most Submission Reviews</li>
             <li>Highest Rating Point Gain</li>
             <li>Impressive Debuts</li>
@@ -1014,7 +1014,7 @@ after deploying, the query and command long_contest_find_room can be deleted </l
 <p>
     5.5.9 - 2006.11.20
 <ul>
-    <li>Design and Development Active Contests columns are now sorteable</li>
+    <li>Design and Development Active Challenges columns are now sorteable</li>
     <li>Fix bug in the member card preview. It would error out if a person that is only rated in TC HS attempted to
         view his/her card
     </li>
@@ -1210,7 +1210,7 @@ after deploying, the query and command long_contest_find_room can be deleted </l
     </li>
     <li>Fix bug in reg process that provide a "please login" error message when it should say "session expired"</li>
     <li>Don't allow someone to submit emtpy code in a marathon match</li>
-    <li>Added in component contest page a link to download any submission for closed projects</li>
+    <li>Added in component challenge page a link to download any submission for closed projects</li>
     <li>Allow admin search to return a maximum of 1000 records</li>
     <%--
             <li>
@@ -1353,7 +1353,7 @@ after deploying, the query and command long_contest_find_room can be deleted </l
 <ul>
     <li>Fix problem details so that it doesn't crash the database</li>
     <li>Added outstanding points to the Digital Run scoreboards pages</li>
-    <li>Added current contests page</li>
+    <li>Added current challenges page</li>
 </ul>
 </p>
 
@@ -1386,7 +1386,7 @@ after deploying, the query and command long_contest_find_room can be deleted </l
         match
     </li>
     <li>Add unified registration process to the corporate and TopCoder Software sites.</li>
-    <li>Show all matches in the Marathon Match active contests page, not just past 5</li>
+    <li>Show all matches in the Marathon Match Active Challenges page, not just past 5</li>
 </ul>
 </p>
 
@@ -1562,11 +1562,11 @@ after deploying, the query and command long_contest_find_room can be deleted </l
     </li>
     <li>Don't link to the component catalog for custom components on:
         <ul>
-            <li>Component Contest Details</li>
+            <li>Component Challenge Details</li>
             <li>Scorecard Details</li>
             <li>Component Design Details</li>
             <li>Component Development Details</li>
-            <li>Contest Status</li>
+            <li>Challenge Status</li>
             <li>Registrants</li>
             <li>Component Earnings History</li>
             <li>Component Ratings History</li>
@@ -1604,8 +1604,8 @@ after deploying, the query and command long_contest_find_room can be deleted </l
 <ul>
     <li>Fix timezones and times college tour page</li>
     <li>Fix Google India Content</li>
-    <li>Add registrants and component details fields to contest status page</li>
-    <li>Fix registrants query on active contests page to be at the time of registration rather than change over
+    <li>Add registrants and component details fields to challenge status page</li>
+    <li>Fix registrants query on Active Challenges page to be at the time of registration rather than change over
         time
     </li>
     <li>When viewing marathon match results for a particular coder, move the the correct row when the page
@@ -1621,23 +1621,23 @@ after deploying, the query and command long_contest_find_room can be deleted </l
     <li>New left navigation</li>
     <li>Component Recordbook
         <ul>
-            <li>Best Component Contest Winning Percentage</li>
-            <li>Best Average Component Contest Placement</li>
-            <li>Most Component Contest Wins</li>
-            <li>Highest Component Contest Scores</li>
-            <li>Most Component Contest Submissions</li>
+            <li>Best Component Challenge Winning Percentage</li>
+            <li>Best Average Component Challenge Placement</li>
+            <li>Most Component Challenge Wins</li>
+            <li>Highest Component Challenge Scores</li>
+            <li>Most Component Challenge Submissions</li>
             <li>Most Component Reviews</li>
-            <li>Highest Component Contest Overall Earners</li>
-            <li>Highest Component Contest Prize Earners</li>
-            <li>Highest Component Contest Royalty Earners</li>
-            <li>Largest Single Component Contest Prizes</li>
+            <li>Highest Component Challenge Overall Earners</li>
+            <li>Highest Component Challenge Prize Earners</li>
+            <li>Highest Component Challenge Royalty Earners</li>
+            <li>Largest Single Component Challenge Prizes</li>
             <li>Highest Component Tournament Winnings</li>
         </ul>
     </li>
     <li>SRM Division Wins Page</li>
     <li>Top SRM Winners</li>
     <li>Match Archive</li>
-    <li>Removed existing, and added new Component Contest Status Page</li>
+    <li>Removed existing, and added new Component Challenge Status Page</li>
     <li>Populate placed for all valid submissions even if they don't reach min. score</li>
     <li>Create and populate rating date for projects</li>
     <li>Adjust system to only use ph for the phase parameter, never pi</li>
@@ -1646,7 +1646,7 @@ after deploying, the query and command long_contest_find_room can be deleted </l
         most recent successful submission
     </li>
     <%--
-                <li>put logic behind the contest details links on the component page in the catalog</li>
+                <li>put logic behind the challenge details links on the component page in the catalog</li>
     --%>
 </ul>
 </p>
@@ -1682,7 +1682,7 @@ after deploying, the query and command long_contest_find_room can be deleted </l
 <ul>
     <li>add search to recruiting reporting site</li>
     <li>add placement information to recruiting reporting site</li>
-    <li>add contest details links to the tco06 component results pages</li>
+    <li>add challenge details links to the tco06 component results pages</li>
     <li>fix bug that would not allow practice rooms to work for intel</li>
     <li>add marathon match admin site</li>
     <%--
@@ -1695,8 +1695,8 @@ after deploying, the query and command long_contest_find_room can be deleted </l
     4.1.9 - 2006.01.30
 <ul>
     <li>tco06 component results site - placement points only for those that get over 75</li>
-    <li>add the round name to the contest name in the marathon match site</li>
-    <li>link from component catalog to the contest results</li>
+    <li>add the round name to the challenge name in the marathon match site</li>
+    <li>link from component catalog to the challenge results</li>
     <li>store old rating as null in project_result if the competitor is not rated</li>
 </ul>
 
@@ -1717,7 +1717,7 @@ after deploying, the query and command long_contest_find_room can be deleted </l
     4.1.7 - 2006.01.16
 <ul>
     <li>Another attempt to improve the ACIDity of the reviewer reg process</li>
-    <li>New reg code for component contests</li>
+    <li>New reg code for component challenges</li>
     <li>moved applet autodetect code to a file</li>
     <li>fixed bad applet links that didn't do autodetect</li>
 </ul>
@@ -1736,9 +1736,9 @@ after deploying, the query and command long_contest_find_room can be deleted </l
 <p>
     4.1.5 - 2006.01.04
 <ul>
-    <li>allow people to see solutions (other than their own) for practice long contest rounds.</li>
+    <li>allow people to see solutions (other than their own) for practice long challenge rounds.</li>
     <li>passwords may only contains the characters we allow</li>
-    <li>make the comp projects page a jsp, rename it active contests</li>
+    <li>make the comp projects page a jsp, rename it Active Challenges</li>
     <li>make the multiplier status page be a jsp and call it registrants</li>
     <li>some bug fixes/enhancements for the college tour pages</li>
     <li>changed how component registration questions are flaged in db</li>
@@ -1762,7 +1762,7 @@ after deploying, the query and command long_contest_find_room can be deleted </l
     <li>Marathon Match site Minor enhancements/bug fixes
         <ul>
             <li>Make paging on the standings page work</li>
-            <li>Add total submission count to active contests page</li>
+            <li>Add total submission count to Active Challenges page</li>
             <li>add language to standings page</li>
             <li>link to submission from submission history page if you're looking at your own stuff</li>
             <li>fixed bug in sorting tag where ignored parameters weren't actually ignored</li>
@@ -1778,12 +1778,12 @@ after deploying, the query and command long_contest_find_room can be deleted </l
     <li>Marathon Match site
         <ul>
             <li>Fix bug where language wasn't reflected in types for problem statement page from active
-                contests
+                challenges
             </li>
             <li>Fix bug where language wasn't reflected on reload of submit page in the args/return type</li>
             <li>Fix tc time link</li>
             <li>allow admins to see the probelm statement even though they are not reg'd</li>
-            <li>only show contest link on submission history if results are available</li>
+            <li>only show challenge link on submission history if results are available</li>
             <li>Forum links</li>
             <li>pending indicator on submission history and standings</li>
         </ul>
@@ -1862,7 +1862,7 @@ after deploying, the query and command long_contest_find_room can be deleted </l
     <li>Added forum links to round stats, round overview, problem details, match editorial
         and room stats.
     </li>
-    <li>Added TCO06 Logo Contest site</li>
+    <li>Added TCO06 Logo Challenge site</li>
 </ul>
 </p>
 

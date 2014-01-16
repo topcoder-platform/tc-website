@@ -7,7 +7,7 @@
 <html>
 
 <head>
-<title>Ultimate Software Development Contest</title>
+<title>Ultimate Software Development Challenge</title>
 
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
@@ -87,7 +87,7 @@ else
                                 <td class="sidebarTitle" align=center>Position Points</td>
                                 <td class="sidebarTitle" align=center>Complete Projects</td>
                                 <td class="sidebarTitle" align=center>Projects In Progess</td>
-                                <td class="sidebarTitle" align=right>Contest Prize</td>
+                                <td class="sidebarTitle" align=right>Challenge Prize</td>
                                 <td class="sidebarTitle" align=center>Results</td>
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">

@@ -86,7 +86,7 @@ The Problems
 
 <p>This problem had some people
 puzzled. I know in my room, I, and at least one other person, spent almost the
-whole contest on this problem. However, if you recognized how to determine a
+whole challenge on this problem. However, if you recognized how to determine a
 square quickly, you were all set, as no special algorithm was needed to loop
 through the inputs.<br/>
 <br/>

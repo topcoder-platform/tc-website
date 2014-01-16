@@ -130,7 +130,7 @@ We can see Chinese coders play much better and better. The most important reason
 Development finalist<br />
 ZheJiang University
 <br /><br />
-"A lot of my classmates helped me, especially <tc-webtag:handle coderId="13324255" context="algorithm"/> who is the monitor of our class. When I started to compete in Component Development contest, I asked him a lot of questions about the contest procedure, the code convention and dependent components' detail (I was too lazy to read the component doc), and he gave me great help. He is my torchbearer on TopCoder Component Development contest."
+"A lot of my classmates helped me, especially <tc-webtag:handle coderId="13324255" context="algorithm"/> who is the monitor of our class. When I started to compete in Component Development contest, I asked him a lot of questions about the challenge procedure, the code convention and dependent components' detail (I was too lazy to read the component doc), and he gave me great help. He is my torchbearer on TopCoder Component Development contest."
 <br />
 <br />
 Would he change anything about his education if he could? &quot;I would choose College of Computer Science, Zhejiang University again!"
@@ -144,20 +144,20 @@ ZheJiang University
 <br /><br />
 "You may see from my rating history that I participated quite often in the year of 2003. So did my teammates. After each SRM, we discussed the problems and the mistakes we made in that match. It really helped a lot in making rapid progress. Though this happened quite a time ago, my achievement could not have been done without the solid foundation set at that time."
 <br /><br />
-"Though I don't have the statistics and can't say for certain, I think Chinese students have done better this year mainly because the first Google Code Jam China was held this January. In GCJC, competitors got to know that TopCoder, the provider of the competition platform, is also holding contests on its own website. As a result, many of them (especially those who are or had been IOI or ICPC competitors) began to participate in SRMs. The more Chinese competitors there are, the higher the chances for finalists to be Chinese."
+"Though I don't have the statistics and can't say for certain, I think Chinese students have done better this year mainly because the first Google Code Jam China was held this January. In GCJC, competitors got to know that TopCoder, the provider of the competition platform, is also holding challenges on its own website. As a result, many of them (especially those who are or had been IOI or ICPC competitors) began to participate in SRMs. The more Chinese competitors there are, the higher the chances for finalists to be Chinese."
 <br />
 <br />
 <div class="photo"><img src="/i/m/zjq_big5.jpg"></div><tc-webtag:handle coderId="10526732" context="development"/><br />
 Development finalist<br />
 ZheJiang University
 <br /><br />
-"My university has a very good history in ICPC contest, and also has our own online judging system (<A href="http://acm.zju.edu.cn">http://acm.zju.edu.cn</A>), which is one of the most successful OJ systems. Many of my schoolmates, and not just those from Computer Science, are very willing to practice their programming skills. That is a part of the reason why there are so many people from our University competing in TopCoder&#8230; There have always been many talented college students here, but they just haven't known that there was a contest like the TCCC. "
+"My university has a very good history in ICPC contest, and also has our own online judging system (<A href="http://acm.zju.edu.cn">http://acm.zju.edu.cn</A>), which is one of the most successful OJ systems. Many of my schoolmates, and not just those from Computer Science, are very willing to practice their programming skills. That is a part of the reason why there are so many people from our University competing in TopCoder&#8230; There have always been many talented college students here, but they just haven't known that there was a challenge like the TCCC. "
 <br /><br />
 <div class="photo"><img src="/i/m/daiwb_big3.jpg"></div><tc-webtag:handle coderId="8347577" context="algorithm"/><br />
 Development finalist<br />
 ZheJiang University
 <br /><br />
-"I'm member of the ACM/ICPC team of our school. My teammates introduced TopCoder to me and taught me how to compete in SRM, and that's where I started my TopCoder life. When I was trying to learn how to compete in component contests, they also offered me a lot of help, or else I would not have known how to get started."
+"I'm member of the ACM/ICPC team of our school. My teammates introduced TopCoder to me and taught me how to compete in SRM, and that's where I started my TopCoder life. When I was trying to learn how to compete in component challenges, they also offered me a lot of help, or else I would not have known how to get started."
 <br /><br />
 "In China, there are lots of very very good programmers. You can see that in every year's IOI, as the Chinese team will almost always be the top. This year TCCC has more Chinese coders because more Chinese coder are now familiar with it&#8230; I hope TopCoder holds more activities in China so it will become more and more popular."
 <br><br>

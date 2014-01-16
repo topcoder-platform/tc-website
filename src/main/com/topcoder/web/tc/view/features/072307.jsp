@@ -76,7 +76,7 @@ Winner: <tc-webtag:handle coderId="309453" context="algorithm"/></p>
 <p><strong>Q: When did you realize you were going to win? </strong></p>
 <p> A: I only realized it the exact moment I won. When my solution passed, I was going to be second anyways. Whether I would be first only depended on <tc-webtag:handle coderId="144400" context="algorithm"/>'s solutions. He expected them to be correct, but a small bug is easy to make. Fortunately... </p>
 <p><strong>Q: What do you think was the one most important thing that made the difference and helped you win? </strong></p>
-<p> A: Chill out and relax... The night before the final I played some poker in the Mirage poker room until around 2:00 AM. I slept in until about 10:00, got up, enjoyed a good breakfast and went to the AOL presentation. After a quick lunch, I spent half an hour swimming in the Mirage pool before going to the contest area and arrived there completely relaxed and not nervous at all. </p>
+<p> A: Chill out and relax... The night before the final I played some poker in the Mirage poker room until around 2:00 AM. I slept in until about 10:00, got up, enjoyed a good breakfast and went to the AOL presentation. After a quick lunch, I spent half an hour swimming in the Mirage pool before going to the challenge area and arrived there completely relaxed and not nervous at all. </p>
 <p><strong>Q: What was the hardest part of the competition? </strong></p>
 <p> A: Beating tough opponents such as <tc-webtag:handle coderId="144400" context="algorithm"/> and <tc-webtag:handle coderId="19849563" context="algorithm"/>. On the other hand, since I know they are much better than I am, I had nothing to lose. That might've helped. </p>
 <p><strong>Q: If you had to do it again, what would you do differently? </strong></p>
@@ -126,16 +126,16 @@ Winner: <tc-webtag:handle coderId="15214882" context="development"/></p>
 <p><span class="bodySubtitle">Studio Design Competition</span><br />
 Winner: <tc-webtag:handle coderId="10481546"/></p>
 <p><strong>Q: When did you realize you were going to win? </strong></p>
-<p> A: The rank list of studio design contest was announced in reverse order. When I saw that the 2nd through 7th place submissions were not mine, I knew I was winning. </p>
+<p> A: The rank list of studio design challenge was announced in reverse order. When I saw that the 2nd through 7th place submissions were not mine, I knew I was winning. </p>
 <p><strong>Q: What one thing  made the difference for you? </strong></p>
 <p> A. I think it is experience. Thanks to TopCoder Studio, I did more designs within one year than I did in the previous ten years! </p>
 <p><strong>Q: What was the hardest part of the competition? </strong></p>
-<p> A: Jet lag is a big problem for me. I couldn't go to sleep at all during the night. When the final contest started &ndash; at about the time I usually go to bed at home -- I became too tired. Luckily, I persisted successfully, though I fell asleep for about 10 minutes at my desk. </p>
+<p> A: Jet lag is a big problem for me. I couldn't go to sleep at all during the night. When the final challenge started &ndash; at about the time I usually go to bed at home -- I became too tired. Luckily, I persisted successfully, though I fell asleep for about 10 minutes at my desk. </p>
 <p><strong>Q: If you had to do it again, what would you do differently? </strong></p>
 <p>A:  I would reduce the radius of the rounded rectangles to 5px, and optimize the color style. The white area in the page seems to have a bit of glare, so I would like to make it darker. </p>
 <p><strong>Q: What was it like to win? </strong></p>
 <p> A: Dreams come true, absolutely. :) </p>
-<p>Check out the TCO07 Studio Design Contest <a href="/tc?module=SurveyResults&sid=19040">final vote results</a>. </p>
+<p>Check out the TCO07 Studio Design Challenge <a href="/tc?module=SurveyResults&sid=19040">final vote results</a>. </p>
 <br>
 
 <p>&nbsp;</p>

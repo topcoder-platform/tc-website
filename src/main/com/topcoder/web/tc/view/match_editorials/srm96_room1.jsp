@@ -81,7 +81,7 @@
 
 <b>Coding Phase</b>
 <p>
-            The contest began in a very competitive manner, when four coders submitted their solutions
+            The challenge began in a very competitive manner, when four coders submitted their solutions
             to the Level 1 problem all within a single minute.
             <B>kv</B>, <B>ZorbaTHut</B>, <B>venco</B>, and <B>SnapDragon</B>
             started out with scores with a range of only 2 points.

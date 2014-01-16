@@ -127,73 +127,73 @@
         <c:when test="${pt == DESIGN_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="comp_design"/>
-                <jsp:param name="title" value="Component Design Current Contests"/>
+                <jsp:param name="title" value="Component Design Current Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="comp_development"/>
-                <jsp:param name="title" value="Component Development Current Contests"/>
+                <jsp:param name="title" value="Component Development Current Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="assembly"/>
-                <jsp:param name="title" value="Assembly Current Contests"/>
+                <jsp:param name="title" value="Assembly Current Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="conceptualization"/>
-                <jsp:param name="title" value="Conceptualization Current Contests"/>
+                <jsp:param name="title" value="Conceptualization Current Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="specification"/>
-                <jsp:param name="title" value="Specification Current Contests"/>
+                <jsp:param name="title" value="Specification Current Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="architecture"/>
-                <jsp:param name="title" value="Architecture Current Contests"/>
+                <jsp:param name="title" value="Architecture Current Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="test_suites"/>
-                <jsp:param name="title" value="Test Suites Current Contests"/>
+                <jsp:param name="title" value="Test Suites Current Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="test_scenarios"/>
-                <jsp:param name="title" value="Test Scenarios Current Contests"/>
+                <jsp:param name="title" value="Test Scenarios Current Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="ui_prototype"/>
-                <jsp:param name="title" value="UI Prototype Current Contests"/>
+                <jsp:param name="title" value="UI Prototype Current Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="ria_build"/>
-                <jsp:param name="title" value="RIA Build Current Contests"/>
+                <jsp:param name="title" value="RIA Build Current Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="content_creation"/>
-                <jsp:param name="title" value="Content Creation Current Contests"/>
+                <jsp:param name="title" value="Content Creation Current Challenges"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == REPORTING_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="reporting"/>
-                <jsp:param name="title" value="Reporting Current Contests"/>
+                <jsp:param name="title" value="Reporting Current Challenges"/>
             </jsp:include>
         </c:when>
     </c:choose>
@@ -242,7 +242,7 @@
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=${cr}" class="bcLink">Member Profile</A>
  | <A HREF="/tc?module=CompetitionHistory&pt=${pt}&cr=${cr}" class="bcLink">Competition History</A>
- | Current Contests
+ | Current Challenges
  | <A HREF="/tc?module=ReliabilityDetail&pt=${pt}&cr=${cr}" class="bcLink">Reliability Detail</A>
  | <A HREF="/tc?module=ReviewerRatingHistory&pt=${pt}&cr=${cr}" class="bcLink">Reviewer Rating History</A>
    </span>
@@ -289,7 +289,7 @@
                     <td class="title" colspan="10">Current Reporting
                 </c:when>
             </c:choose>
-            Contests
+            Challenges
         </td></tr>
         <tr>
             <c:if test="${pt == DEVELOPMENT_PROJECT_TYPE}">
@@ -299,7 +299,7 @@
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Date</a>
             </TD>
             <TD CLASS="header" width="40%">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Contest</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Challenge</a>
             </TD>
             <TD CLASS="headerC" width="20%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Submissions</a>
@@ -315,7 +315,7 @@
         <% if (rsc2.isEmpty()) {%>
         <tr class="light">
             <TD class="value" colspan="5">
-                <tc-webtag:handle coderId='${cr}' context='${type}'/> has no current contests.
+                <tc-webtag:handle coderId='${cr}' context='${type}'/> has no current challenges.
             </TD>
         </tr>
         <% } else { %>
@@ -340,7 +340,7 @@
                 <TD class="valueR" nowrap="nowrap">
                     <% if (resultRow.getItem("project_id").getResultData() != null) { %>
                     <A HREF="/tc?module=ViewRegistrants&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
-                        Contest Details
+                        Challenge Details
                     </A>
                     <% } %>
                 </TD>
@@ -349,7 +349,7 @@
         </rsc:iterator>
         <% } %>
     </TABLE>
-    * Assuming first place finish with all current contests with all competitors passing review
+    * Assuming first place finish with all current challenges with all competitors passing review
 
     <p><br></p>
     <!-- END BODY -->

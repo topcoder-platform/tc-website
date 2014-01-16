@@ -67,7 +67,7 @@ With the Collegiate Challenge less than a month away, we asked some past TCCC wi
     <br><br>
     While he is undoubtedly a serious competitor, <tc-webtag:handle coderId="144400" /> emphasizes the value of the overall experience, not just of winning. 
     <br><br>
-    "The series of TopCoder contests was one of the factors in my choosing a Ph.D. program in the USA, since it gave me the opportunity to travel to the United States a few times," he says.  "More importantly, the contests let me meet a number of great people who do mathematics and Computer Science research, both in academia and other places, and I am sure it will influence my life a lot."
+    "The series of TopCoder challenges was one of the factors in my choosing a Ph.D. program in the USA, since it gave me the opportunity to travel to the United States a few times," he says.  "More importantly, the challenges let me meet a number of great people who do mathematics and Computer Science research, both in academia and other places, and I am sure it will influence my life a lot."
     <br><br>
 
 <br style="clear:both;">

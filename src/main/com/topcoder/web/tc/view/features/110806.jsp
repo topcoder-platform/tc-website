@@ -90,7 +90,7 @@ My indoor options were limited to working in the school's computer lab -- but tr
 With the TopCoder Collegiate Challenge coming up soon, now is a good time to consider how the choices you make in college can shape the future of your career. 
 <br><br>
 <span class="subtitle">Building up your experience (and your resume) through TopCoder</span><br>
-Were I attending university today, I would scrap my career as a ball chaser and direct my energy and effort to the Topcoder Collegiate Challenge. There, I could engage my interest, develop "real" software, interact with talented developers, and showcase my abilities to major corporations. Sponsors like AOL provide a major credibility boost to contests that not only require excellent development quality, but also solid design and testing strategies. This complete package of skills provides the college student "top coder" with an absolute advantage in the workforce.
+Were I attending university today, I would scrap my career as a ball chaser and direct my energy and effort to the Topcoder Collegiate Challenge. There, I could engage my interest, develop "real" software, interact with talented developers, and showcase my abilities to major corporations. Sponsors like AOL provide a major credibility boost to challenges that not only require excellent development quality, but also solid design and testing strategies. This complete package of skills provides the college student "top coder" with an absolute advantage in the workforce.
 <br><br>
 <div style="float: right; padding: 0px 0px 10px 15px;">
 <table class="formFrame" width="170" cellpadding="6" cellspacing="2">
@@ -99,7 +99,7 @@ Were I attending university today, I would scrap my career as a ball chaser and 
    </tr>
 </table>
 </div>
-Employers seek developers who can actively solve problems under often tight deadlines. TopCoder's regular contests are timed situations; programmers must not only provide working code but also determine how that code can be "broken." Discover a terminal bug in a TopCoder contest and you earn critical points, prizes, and the ultimate: "high ranking." Find a serious bug in a mission-critical application at a job and you earn reputation, security, and higher pay.
+Employers seek developers who can actively solve problems under often tight deadlines. TopCoder's regular challenges are timed situations; programmers must not only provide working code but also determine how that code can be "broken." Discover a terminal bug in a TopCoder challenge and you earn critical points, prizes, and the ultimate: "high ranking." Find a serious bug in a mission-critical application at a job and you earn reputation, security, and higher pay.
 <br><br>
 There's a joke that goes something like this&#8230; a Harvard graduate shows up for his first day at work, and approaches his boss, who hands him a broom, instructing him to sweep the hallway.  When he balks, and explains that he's a Harvard graduate, the boss takes the broom back and says, "I'm sorry, you're right&#8230; let me show you how to use that broom." 
 <br><br>

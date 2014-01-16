@@ -39,13 +39,13 @@
                     </jsp:include>
                         <div align="center">
 						<div align="center"><IMG SRC="/i/pressroom/houston_chron.gif" ALT="" border="0"/></div><BR/>
-						<p><span class="bodyTitle">College student outpaces rivals to win contest</span></p>
+						<p><span class="bodyTitle">College student outpaces rivals to win challenge</span></p>
                         </div>
 						Nov. 26, 2001, 10:53AM<BR/>
 						FOCUS: COMPETITION<BR/>
 						By ED ASHER<BR/>
 						&copy; 2001 Houston Chronicle<BR/><BR/>
-						Like the tortoise in the Aesop fable, Jon McAlister of Houston outdistanced two competitors to win a national computer programing contest and a $100,000 prize.<BR/><BR/>
+						Like the tortoise in the Aesop fable, Jon McAlister of Houston outdistanced two competitors to win a national computer programing challenge and a $100,000 prize.<BR/><BR/>
 						The 20-year-old Stanford University student, a graduate of Langham Creek High School, won the first TopCoder Invitational earlier this month. The competition was sponsored by TopCoder Inc., a new company that recruits computer programmers for high-tech corporations.<BR/><BR/>
 						Seeded No. 3 in a field that began with 256 contestants, McAlister entered the final round at a casino resort in Mashantucket, Conn., on Nov. 3.<BR/><BR/>
 						"I was not rated as high as the other two guys, so they didn't worry about me and just competed against each other," McAlister said of the top two seeds, one a professional programmer, the other a college student.<BR/><BR/>
@@ -59,8 +59,8 @@
 						"You have to solve all the probabilities of each line. It was just a combination of experience and luck," McAlister said.<BR/><BR/>
 						He has plenty of experience.<BR/><BR/>
 						He got his first computer when he was in the eighth grade and has been programing since.<BR/><BR/>
-						As a teen-ager, he competed nationally and internationally in some of the most rigorous and respected computer contests for high school students. With teams and also individually, he traveled to places such as Chicago, Wisconsin, Washington, D.C., and the European country of Latvia.<BR/><BR/>
-						In Latvia, he was the only Texan among four American students whose team took first place at the Eastern European Computing Olympiad, a prestigious contest that drew teen-agers from around the globe.<BR/><BR/>
+						As a teen-ager, he competed nationally and internationally in some of the most rigorous and respected computer challenges for high school students. With teams and also individually, he traveled to places such as Chicago, Wisconsin, Washington, D.C., and the European country of Latvia.<BR/><BR/>
+						In Latvia, he was the only Texan among four American students whose team took first place at the Eastern European Computing Olympiad, a prestigious challenge that drew teen-agers from around the globe.<BR/><BR/>
 						As for his plans, McAlister hasn't yet decided whether he wants to do software research for the government or for a university.<BR/><BR/>
 						But he already has plans for the money.<BR/><BR/>
 						"I'm going to buy an electric/gas hybrid car. It may be slower, but it's more economical," he said.<BR/><BR/>

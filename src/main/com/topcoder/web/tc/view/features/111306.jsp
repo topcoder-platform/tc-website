@@ -74,7 +74,7 @@
 </div>
 
 <br clear="all">
-<i>The winners of this year's TopCoder Collegiate Challenge <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogger_winners">"Pick Me" contest</A>, RRLevering and Churchillio will be blogging about the TCCC from San Diego later this week. Read about their expectations for the tournament below, and look for the first of their blog entries on Wednesday morning at <A href="http://www.topcoder.com/tccc06">www.topcoder.com/tccc06</A>.</i>
+<i>The winners of this year's TopCoder Collegiate Challenge <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogger_winners">"Pick Me" challenge</A>, RRLevering and Churchillio will be blogging about the TCCC from San Diego later this week. Read about their expectations for the tournament below, and look for the first of their blog entries on Wednesday morning at <A href="http://www.topcoder.com/tccc06">www.topcoder.com/tccc06</A>.</i>
 <br><br>
 <span class="subtitle">RRLevering</span><br>
 It's really amazing to think that in just a couple days I'll be sitting in a room with some of the best programmers in the world, and it won't be a chat room. I've been competing in TopCoder development competitions for almost three years now and I must admit a feeling of curiosity with regards to the people behind the handles that strive alongside me every week.

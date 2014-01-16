@@ -70,7 +70,7 @@ By&#160;<tc-webtag:handle coderId="251074" context="algorithm"/><br />
 <br/>
 
 <span class="bodySubtitle">Introduction</span><br>
-        Most of the optimizations that go into TopCoder contests
+        Most of the optimizations that go into TopCoder challenges
         are high-level; that is, they affect the algorithm rather than
         the implementation. However, one of the most useful and
         effective low-level optimizations is bit manipulation, or

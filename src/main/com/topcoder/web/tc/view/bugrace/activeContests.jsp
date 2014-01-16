@@ -24,7 +24,7 @@
 
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <head>
-    <title>TopCoder :: Active Bug Races</title>
+    <title>TopCoder :: Active Races</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="../script.jsp"/>
@@ -53,7 +53,7 @@
 
         <jsp:include page="/page_title.jsp">
             <jsp:param name="image" value="bugrace"/>
-            <jsp:param name="title" value="Active Contests"/>
+            <jsp:param name="title" value="Active Challenges"/>
         </jsp:include>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
@@ -65,10 +65,10 @@
     </tr>
 </table>
 
-<p>Click on an issue to view its details. If you would like to work on an issue, first view the details and then click "Vote". Voting will be equivalent to registering to work on the issue. Read the <a href="/wiki/display/tc/Bug+Race+Competition+Overview" title="Bug Race Competition Overview">full instructions</a> on how to compete.</p>
+<p>Click on an issue to view its details. If you would like to work on an issue, first view the details and then click "Vote". Voting will be equivalent to registering to work on the issue. Read the <a href="/wiki/display/tc/Bug+Race+Competition+Overview" title="Race Competition Overview">full instructions</a> on how to compete.</p>
 <div class='panelMacro'><table class='infoMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="http://apps.topcoder.com/wiki/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b>New Opportunities</b><br />
-                <p>Interested in reviewing submissions to Bug Race Competitions, performing environment setups, managing source control merges for submissions, etc?&nbsp; Click <a href="/wiki/display/tc/Bug+Race+Competition+Reviews" title="Bug Race Competition Reviews">here</a> to see the available tasks.</p></td></tr></table></div>
-<p><font color="#ff0000">Your ability to participate in these competitions is conditioned upon your agreement to the TopCoder&nbsp;</font><a href="/wiki/display/tc/Bug+Race+Competitions+Terms+of+Work" title="Bug Race Competitions Terms of Work">Terms of Work</a>.</p>
+                <p>Interested in reviewing submissions to Race Competitions, performing environment setups, managing source control merges for submissions, etc?&nbsp; Click <a href="/wiki/display/tc/Bug+Race+Competition+Reviews" title="Race Competition Reviews">here</a> to see the available tasks.</p></td></tr></table></div>
+<p><font color="#ff0000">Your ability to participate in these competitions is conditioned upon your agreement to the TopCoder&nbsp;</font><a href="/wiki/display/tc/Bug+Race+Competitions+Terms+of+Work" title="Race Competitions Terms of Work">Terms of Work</a>.</p>
 <p>&#95;Note: Issues that are marked "In Progress" have already received one or more submissions which are currently being verified by TopCoder. Issues that are marked "Open" have not yet received a passing submission. If a submission does not fix the issue, or is too low in quality,<br/>
 TopCoder will restore the issue to the "Open" status.&#95;</p>
 
@@ -81,10 +81,10 @@ TopCoder will restore the issue to the "Open" status.&#95;</p>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-      <td class="title" colspan="7">Active Bug Race Competitions</td>
+      <td class="title" colspan="7">Active Race Competitions</td>
     </tr>
     <tr>
-      <td class="header" width="30%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Contest</a></td>
+      <td class="header" width="30%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Challenge</a></td>
       <td class="header" width="10%">&#160;</td>
       <td class="header" width="10%">&#160;</td>
       <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Payment</a></td>
@@ -132,7 +132,7 @@ TopCoder will restore the issue to the "Open" status.&#95;</p>
     </rsc:iterator>
 </table>
 <div align="right" style="padding-top: 10px">
-    Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Contests page</a> or subscribe to the RSS feed
+    Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Challenges page</a> or subscribe to the RSS feed
     <a href="/tc?module=BasicRSS&amp;c=rss_Pipeline&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
 </div>
         </td>

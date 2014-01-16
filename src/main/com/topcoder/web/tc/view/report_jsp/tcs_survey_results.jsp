@@ -20,7 +20,7 @@
     String projPhase = ""; %>
 <%  int qNum = 0; %>
 <head>
-<title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
+<title>Programming challenges, Software Development, and Employment Services at TopCoder</title>
 
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">

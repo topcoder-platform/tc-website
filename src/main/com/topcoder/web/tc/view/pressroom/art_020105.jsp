@@ -46,7 +46,7 @@
 &#8220;Tomek&#8221; and &#8220;Pops&#8221; may be unfamiliar names to you, but in the world of coding competitions, they&#8217;re as big as rock stars.
 <br /><br />
 Now they&#8217;re at the top of the stack, according to their peers who
-participate in online programming contests at TopCoder.com, a mecca for
+participate in online programming challenges at TopCoder.com, a mecca for
 those willing to publicly test their programming chops.
 <br /><br />
 Submissions to the competitions (usually divided into

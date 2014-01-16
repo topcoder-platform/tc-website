@@ -94,7 +94,7 @@
 </P>
 
 <P>
-    "Probably every second contest someone will suggest that another person obfuscated
+    "Probably every second challenge someone will suggest that another person obfuscated
     their code," <B>dok</B> said. Despite frequent accusations, though, no coder has yet lost
     points for their code due to the obfuscation rule. "People accuse obfuscation because
     others don't indent enough, or indent strangely, or single space indent," <B>dok</B> says.

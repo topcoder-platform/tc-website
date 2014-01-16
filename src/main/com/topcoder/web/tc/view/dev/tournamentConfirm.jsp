@@ -43,11 +43,11 @@
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
             <p style="width: 510px;">
-               <strong>Are you sure you want to register for this contest?</strong>
+               <strong>Are you sure you want to register for this challenge?</strong>
                <br><br>
-               Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
+               Please be aware that you are NOT REGISTERED for the tournament, and Registering for this challenge will not register you for the tournament.  If you don't register for the tournament prior to registering for this challenge, it will not count in the tournament standings even if you sign up at a later date.
                <br><br>
-               <a href="/tc?module=ProjectRegister&amp;pj=<%=request.getAttribute(Constants.PROJECT_ID)%>&amp;confirm=true&amp;<%=Constants.TERMS_AGREE%>=on">Yes, register for this contest anyway</a>
+               <a href="/tc?module=ProjectRegister&amp;pj=<%=request.getAttribute(Constants.PROJECT_ID)%>&amp;confirm=true&amp;<%=Constants.TERMS_AGREE%>=on">Yes, register for this challenge anyway</a>
             </p>
 
         </td>

@@ -46,7 +46,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </jsp:include>
 
 <div align="center">
-<h3>TopCoder to Administer Contest at the 2003 JavaOne<span class="super">SM</span> Conference</h3>
+<h3>TopCoder to Administer Challenge at the 2003 JavaOne<span class="super">SM</span> Conference</h3>
 JavaOne<span class="super">SM</span> Coding Challenge will be Powered by TopCoder<span class="super">TM</span>
 </div>
 

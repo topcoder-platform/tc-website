@@ -38,7 +38,7 @@
 </jsp:include>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="3">Assembly Contest Standings</td></tr>
+   <tr><td class="title" colspan="3">Assembly Challenge Standings</td></tr>
    <tr>
       <td class="tableHeader" width="50%" nowrap="nowrap">Team</td>
       <td class="tableHeader" width="50%" nowrap="nowrap">Team Members</td>

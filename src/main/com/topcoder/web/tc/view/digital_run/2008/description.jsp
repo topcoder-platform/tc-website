@@ -103,7 +103,7 @@ The Digital Run is back for the 2008 season!
 If you're an active competitor in Design, Development or Assembly competitions, you are already competing in the Digital Run. Easy, right?
 <br /><br />
 <span class="subtitle">How to win</span><br />
-Each component or Assembly contest posted for a competition will carry placement points. Points will be awarded to competitors based on the number of submissions that pass review. The members with the highest point totals at the end of each Stage win big.
+Each component or Assembly challenge posted for a competition will carry placement points. Points will be awarded to competitors based on the number of submissions that pass review. The members with the highest point totals at the end of each Stage win big.
 <br /><br />
 
 </div>

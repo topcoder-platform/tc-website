@@ -87,12 +87,12 @@
                     <c:choose>
                         <c:when test="${not pf}">
                             <A HREF="/tc?module=ProjectDetail&pj=${resultRow.map['reference_id']}&tab=results" CLASS="statLink">
-                                Contest Details
+                                Challenge Details
                             </A>
                         </c:when>
                         <c:otherwise>
                             <A HREF="/tc?module=ViewRegistrants&pj=${resultRow.map['reference_id']}" CLASS="statLink">
-                                Contest Details
+                                Challenge Details
                             </A>
                         </c:otherwise>
                     </c:choose>

@@ -44,16 +44,16 @@
                         </div>
 						Tuesday, November 6, 2001<BR/>
 						By Krishna Raghavan<BR/><BR/>
-						Kamen Yotov grad has just returned from the final round of the TopCoder 2001 Invitational Programming Contest with a prize of $250,000. Yotov defeated 4,300 of the world's leading 
+						Kamen Yotov grad has just returned from the final round of the TopCoder 2001 Invitational Programming Challenge with a prize of $250,000. Yotov defeated 4,300 of the world's leading 
 						computer programmers to earn the lucrative invitation to the competition.<BR/><BR/>
 						"The TopCoder Invitational Programming Tournament is a fiercely competitive, long-lasting endeavor. We're excited to have Cornell's Kamen Yotov in the final elite sixteen," said Rob 
 						Hughes, President/COO of TopCoder.<BR/><BR/>
-						Yotov's foray into the TopCoder contest came quite by chance.<BR/><BR/>
+						Yotov's foray into the TopCoder challenge came quite by chance.<BR/><BR/>
 						"I saw a poster on the third floor bulletin board in Upson Hall advertising the contest," he said.<BR/><BR/>
-						The contest sparked Yotov's interest for a variety of reasons.<BR/><BR/>
-						"I think everybody who likes programming should try this contest. You meet other bright people, most of whom are students right now," he said.<BR/><BR/>
+						The challenge sparked Yotov's interest for a variety of reasons.<BR/><BR/>
+						"I think everybody who likes programming should try this challenge. You meet other bright people, most of whom are students right now," he said.<BR/><BR/>
 						"Apart from the fun, you get the money," he added.<BR/><BR/>
-						Yotov set to work immediately in the online elimination rounds, which occurred in late September. The TopCoder contest tests a programmer's speed and ability to write high-quality 
+						Yotov set to work immediately in the online elimination rounds, which occurred in late September. The TopCoder challenge tests a programmer's speed and ability to write high-quality 
 						code under intense time pressure and competition.<BR/><BR/>
 						His agile, accurate programming skill and ability to find holes in others' code enabled him to advance to the final round, which occurred on Friday and Saturday at the Foxwoods Resort 
 						Casino in Mashantucket, CT.<BR/><BR/>

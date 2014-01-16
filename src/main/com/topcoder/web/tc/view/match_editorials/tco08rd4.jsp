@@ -58,12 +58,12 @@
 Round 4 of the 2008 TopCoder Open saw 147 of the best competitors battling for 72 spots at the onsite finals in Las Vegas. Excitement was high. There were at least twice as many observers as coders in the Arena – some rooting for the their fellow countrymen, some for their favorite coder.
 </p>
 <p>
-The contest began slowly. Unlike the other online rounds, no one solved the easy problem quickly, with the first submission coming from <tc-webtag:handle coderId="8355516" context="algorithm"/> in a little less than 12 minutes. </p>
+The challenge began slowly. Unlike the other online rounds, no one solved the easy problem quickly, with the first submission coming from <tc-webtag:handle coderId="8355516" context="algorithm"/> in a little less than 12 minutes. </p>
 <p>
 As solutions to the easy trickled in, <tc-webtag:handle coderId="22663781" context="algorithm"/>, who had skipped the easy to work directly on the medium, submitted the medium to take the lead with 50 minutes of coding time left. Soon after <tc-webtag:handle coderId="10574855" context="algorithm"/>, to the cheers and adulation of his massive fan club in the Arena, jumped to first with a rapid submission of the medium after resubmitting the easy.
 </p>
 <p>
-A bunch of medium solutions soon followed. With 20 minutes remaining, about 25-30 coders were working on the hard problem, and it seemed as if at least a couple people would solve it. However, only <tc-webtag:handle coderId="22641704" context="algorithm"/> submitted a solution to the hard before the contest phase came to an end.
+A bunch of medium solutions soon followed. With 20 minutes remaining, about 25-30 coders were working on the hard problem, and it seemed as if at least a couple people would solve it. However, only <tc-webtag:handle coderId="22641704" context="algorithm"/> submitted a solution to the hard before the challenge phase came to an end.
 </p>
 <p>
 In the first few mintues of the challenge phase, <tc-webtag:handle coderId="22641704" context="algorithm"/>'s hard went down and <tc-webtag:handle coderId="10574855" context="algorithm"/> jumped back into the lead by a sizeable margin with a string of challenges on top of his fast time for the medium. Observers watched as a few targets and high ranking reds lost their easy and medium solutions, and fell out of contention. System tests took out more solutions and the cut-off for the onsite round fell to 153.18 points.

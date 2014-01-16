@@ -207,7 +207,7 @@
         The <dfn>convex hull</dfn> of a set of points is the
         smallest convex polygon that surrounds the entire set, and has
         a number of practical applications. An efficient method that
-        is often used in contests is the Graham scan [2], which
+        is often used in challenges is the Graham scan [2], which
         requires a sort by angle. This isn't as easy as it looks at
         first, since computing the actual angles is expensive and
         introduces problems with numeric error. A simpler yet equally

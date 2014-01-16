@@ -143,7 +143,7 @@ a completed TopCoder Competition Assignment Agreement, if one is not already on 
 TopCoder, AND a document explaining how their solution works. If a Competitor solved the 
 task offline, then the entire process used to find the submitted answers will need to be 
 documented. That should include all code, scripts, data used in this process. The document must
-be submitted within 7 days after the contest results are published. Questions sent by email from 
+be submitted within 7 days after the challenge results are published. Questions sent by email from 
 TopCoder requesting clarification to this document must be answered within 3 days. If the 
 document or a response to a clarification request is not received, TopCoder reserves the right to 
 disqualify the submission.  
@@ -176,7 +176,7 @@ disqualify the submission.
         In order to be eligible for prizes, a competitor must be a TopCoder 
         member in good standing, at least 18 years of age, and must not be a 
         resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, 
-        the Quebec province of Canada, or anywhere else where this contest is 
+        the Quebec province of Canada, or anywhere else where this challenge is 
         prohibited by applicable law.
         </p>
     <%}%>
@@ -393,7 +393,7 @@ the 10 highest non-zero final scores will be awarded the following prizes.</p>
     </tr>
 </table>
 
-<p align="justify">One week after the start of the contest the first set of checkpoint prizes will be selected. The contestants with the top 4 highest
+<p align="justify">One week after the start of the challenge the first set of checkpoint prizes will be selected. The contestants with the top 4 highest
 provisional scores (on the leader board) at that time will receive the prizes listed below. Then two weeks after the start of the contest, the second
 set of checkpoint prizes will be selected for the contestants with the 4 highest provisional scores at that time.
 See below for the exact date and time for the selection of the checkpoint winners. </p>
@@ -427,10 +427,10 @@ These could be used to aid your job search, for applying for entry into a school
 <p align="justify"> If there are ties for any of the non-cash prizes, the tie will be broken by selecting the earliest submissions. In the event of a tie for a cash prize, the associated prize money will be divided evenly between the tied contestants.</p>
 
 <p align="justify">Before the contest, this problem was extensively tested by an experienced marathon competitor (but for a shorter time period
-than the actual contest). The tester's pre-contest solution will be submitted at the start of the contest (using the handle "mm_tester") and
+than the actual contest). The tester's pre-contest solution will be submitted at the start of the challenge (using the handle "mm_tester") and
 will not be modified throughout the contest. This will make the tester's provisional score visible throughout the match. The tester will be eligible
 for the final prizes based on his initial submission, but not the tester is eligible for the checkpoint prizes.
-The tester's identity will not be revealed until the contest is over.</p>
+The tester's identity will not be revealed until the challenge is over.</p>
 <%}%>
 
 
@@ -634,7 +634,7 @@ The tester's identity will not be revealed until the contest is over.</p>
        <br>•	Is free and clear of all liens, claims, encumbrances or demands of any third parties. 
        <br>•	Does not include or anticipate the inclusion of any unsuitable or offensive content, including nudity, sexually explicit, 
 	   disparaging, libelous or other inappropriate content. 
-       <br>•	Has not been entered in previous contests, or won previous awards. 
+       <br>•	Has not been entered in previous challenges, or won previous awards. 
        <br>•	Has not been published or distributed previously in any media. 
        <br>•	Is suitable for a general audience. 
        <br>•	Does not contain any claims that are not and cannot be substantiated or that would be false and/or misleading to a reasonable consumer. 
@@ -684,13 +684,13 @@ The tester's identity will not be revealed until the contest is over.</p>
 			<% if (round_id == 15103 || round_id == 15120 || round_id == 15130 || round_id == 15189 || round_id == 15200 || round_id == 15201
 				|| round_id == 15322 || round_id == 15327 || round_id == 15458 || round_id == 15611 || round_id == 15618 || round_id == 15630 ||
 				round_id == 15637 || round_id == 15678 || round_id == 15761 || round_id == 15765) { %>
-			The description must be submitted within 7 days after the contest results are published.
+			The description must be submitted within 7 days after the challenge results are published.
 			Questions sent by email from TopCoder requesting clarification to the description must be answered within 3 days.
 			If the description or a response to a clarification request is not received, TopCoder reserves the right to disqualify the submission. 
 			<% } %>
 
 			<% if (round_id == 15398 || round_id == 15589) { %>
-			The description must be submitted within 3 days after the contest results are published.
+			The description must be submitted within 3 days after the challenge results are published.
 			Questions sent by email from TopCoder requesting clarification to the description must be answered within 3 days.
 			If the description or a response to a clarification request is not received, TopCoder reserves the right to disqualify the submission. 
 			<% } %>
@@ -712,7 +712,7 @@ The tester's identity will not be revealed until the contest is over.</p>
 			if one is not already on file with TopCoder, AND a document explaining how their solution works.
 			If a Competitor solved the task offline, then the entire process used to find the submitted answers will need to be documented.
 			That should include all code, scripts, data used in this process.
-			The document must be submitted within 7 days after the contest results are published.
+			The document must be submitted within 7 days after the challenge results are published.
 			Questions sent by email from TopCoder requesting clarification to this document must be answered within 3 days.
 			If the document or a response to a clarification request is not received, TopCoder reserves the right to disqualify the submission.
 		<%}%>
@@ -972,7 +972,7 @@ The tester's identity will not be revealed until the contest is over.</p>
     </p>
 
     <h2 align="center">
-        <a href="?<%=Constants.MODULE_KEY%>=MatchDetails&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}" class="bcLink">Back to Contest Details</a>
+        <a href="?<%=Constants.MODULE_KEY%>=MatchDetails&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}" class="bcLink">Back to Challenge Details</a>
     </h2>
 
     </div>

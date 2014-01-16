@@ -84,7 +84,7 @@ There are a few, but I'd pick <a href="/tc?module=Static&amp;d1=match_editorials
 My inability to solve the Hard took a while to fix. Speed and accuracy are rarely problems for me, but they are only useful when I can see how to solve a problem. The main goal of my practice has been to solve the Hard problem more often.</p>
 
 <p><strong>What is one thing that you have learned at TopCoder that has helped you in other areas of your life?</strong><br />
-Dynamic programming, certainly. I have yet to need other algorithms in practice, but I've solved several real-world problems using dynamic programming. I learned dynamic programming in my first week at TopCoder, and since then have received a lot practice in the technique from TopCoder and other contests. Dynamic programming is not my favourite algorithmic technique in contests (I prefer graph algorithms), but it has helped the most elsewhere in my life.</p>
+Dynamic programming, certainly. I have yet to need other algorithms in practice, but I've solved several real-world problems using dynamic programming. I learned dynamic programming in my first week at TopCoder, and since then have received a lot practice in the technique from TopCoder and other challenges. Dynamic programming is not my favourite algorithmic technique in challenges (I prefer graph algorithms), but it has helped the most elsewhere in my life.</p>
 
 <p><strong>What advice would you give to someone just starting out?</strong><br />
 Avoid focusing too much on solving problems. Most of my improvement has come from learning new algorithms and studying others' solutions. TopCoder is an excellent resource for the latter, since all solutions are public. I also find learning algorithms and techniques to be the most satisfying training. But don't forget to compete as well, because SRMs are exciting and good motivation to study.</p>
@@ -110,7 +110,7 @@ One 2nd place<br /><br />
 </p>
 
 <p><strong>What brought you to TopCoder?</strong><br />
-A friend was telling me about some multi-threaded contest run by Intel a couple of years ago, I went to their site and had a look but wasn't too interested. However on their site I also found that Intel were sponsoring some contests on a site called TopCoder... it turned out these were the <a href="/longcontest/stats/?module=ViewOverview&amp;rd=9881">Intel Multithreaded Marathon Matches</a>. All my previous programming contest experience had been much more laid back, writing games, where people chatted about what they were working on, so it took me a little time to adjust to the more formal format for TC contests. But the contests were fascinating and I was quickly hooked.</p>
+A friend was telling me about some multi-threaded challenge run by Intel a couple of years ago, I went to their site and had a look but wasn't too interested. However on their site I also found that Intel were sponsoring some challenges on a site called TopCoder... it turned out these were the <a href="/longcontest/stats/?module=ViewOverview&amp;rd=9881">Intel Multithreaded Marathon Matches</a>. All my previous programming challenge experience had been much more laid back, writing games, where people chatted about what they were working on, so it took me a little time to adjust to the more formal format for TC challenges. But the challenges were fascinating and I was quickly hooked.</p>
  
 <p><strong>What is your proudest TopCoder moment?</strong><br />
 Coming 2nd in division in <a href="/stat?c=round_overview&er=5&amp;rd=11123">SRM389</a>. I rarely solve the hard problems so I was particularly happy to get a rainbow (each problem solved using a different language).</p>
@@ -122,10 +122,10 @@ I think it would have to be getting to grips with the TC component library. Eith
 It's hard to choose just one. The first time I found a real-world application for Dynamic Programming was pretty cool, but much more useful is the experience I've gained doing UML design work. And it was the Digital Run which made me realise I could leave my job and work from home as a freelance software developer... which is what I do now! So it's quite fair to say TopCoder changed my life!</p>
  
 <p><strong>What advice would you give to someone just starting out?</strong><br />
-Take the time to explore the site, including the wiki. There is a lot of content but it can be hard to find everything. If you're doing SRMs, then don't rush to submit 3 problems fast, pay attention to the parameter constraints, and be VERY careful of using floating point numbers. If you're doing design contests, then be very thorough. Check you document every argument of every method and so on, there are so many easy points here.</p>
+Take the time to explore the site, including the wiki. There is a lot of content but it can be hard to find everything. If you're doing SRMs, then don't rush to submit 3 problems fast, pay attention to the parameter constraints, and be VERY careful of using floating point numbers. If you're doing design challenges, then be very thorough. Check you document every argument of every method and so on, there are so many easy points here.</p>
 
 <p><strong>What is the biggest contributor to your progress this month?</strong><br />
-The new architecture contests gave me a chance to do something new, and there wasn't a lot of competition. It's fun to see my components go through the pipeline and I'm really interested to see how this new contest type develops this year. Hopefully we'll see more contests and an architecture DR.</p>
+The new architecture challenges gave me a chance to do something new, and there wasn't a lot of competition. It's fun to see my components go through the pipeline and I'm really interested to see how this new challenge type develops this year. Hopefully we'll see more challenges and an architecture DR.</p>
 
 <p><strong>What is your most stressful TopCoder moment?</strong><br />
 Every time I open my review scores for a design contest, and see how my beautiful design has been ripped to shreds!</p>
@@ -176,7 +176,7 @@ Movies, cooking and walking with my dog.<br /><br />Thank you.</p>
     <img src="/i/m/nophoto.jpg" alt="Author" />
 </div>
 Studio Design: <tc-webtag:handle coderId="22705851" /><br />
-Won $1,850 in six contests<br />
+Won $1,850 in six challenges<br />
 <br /><br />
 </p>
 
@@ -184,7 +184,7 @@ Won $1,850 in six contests<br />
 One day, I read a blog about TopCoder development competitions. It's very interesting. And then I found TopCoder hold UI design competitions too, which is more interesting for me. So I registered an account and became one of the TopCoder Studio members.</p>
  
 <p><strong>What is your proudest TopCoder moment?</strong><br />
-Completed two Cockpit widget design contests within one day, and fortunately, I won both.</p>
+Completed two Cockpit widget design challenges within one day, and fortunately, I won both.</p>
  
 <p><strong>What is the biggest obstacle you have had to overcome?</strong><br />
 My English isn't good enough. Compared with the other members, I lacked in experience too.</p>
@@ -199,7 +199,7 @@ As same as the above answer.</p>
 Admins. They answered many questions very kindly. They help me a lot indeed.</p>
 
 <p><strong>What is your most stressful TopCoder moment?</strong><br />
-I submitted my prototype files for the <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2170">TopCoder Cockpit Report Widget Prototype</a> just 3 minutes before the deadline. I won this contest luckily.</p>
+I submitted my prototype files for the <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2170">TopCoder Cockpit Report Widget Prototype</a> just 3 minutes before the deadline. I won this challenge luckily.</p>
 
 <p><strong>What do you do for fun outside of TopCoder?</strong><br />
 I like travel very much. Watching movie is another big fun for me.<br /><br />Thank you very much!</p>

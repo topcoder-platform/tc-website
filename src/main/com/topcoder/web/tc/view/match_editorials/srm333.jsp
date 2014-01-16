@@ -92,7 +92,7 @@ and <tc-webtag:handle coderId="22262451" context="algorithm"/> (5 good, 17th ove
 <br />
 During the challenge phase the leader changed almost every minute. We saw <tc-webtag:handle coderId="11829284" context="algorithm"/> leading
 the pack, then <tc-webtag:handle coderId="10428762" context="algorithm"/>, <tc-webtag:handle coderId="22058011" context="algorithm"/>, ... and in the last minutes of the challenge phase
-<tc-webtag:handle coderId="7421158" context="algorithm"/> claimed the top spot for a while. But the contest wasn't over yet.
+<tc-webtag:handle coderId="7421158" context="algorithm"/> claimed the top spot for a while. But the challenge wasn't over yet.
 <br />
 <br />
 After the system tests we saw that only two coders had solved all three tasks: the SRM

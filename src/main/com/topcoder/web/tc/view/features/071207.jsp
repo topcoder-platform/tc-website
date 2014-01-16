@@ -83,7 +83,7 @@ My handle comes from the Province I live in (AnHui) and my name.  I use this id 
 
 <p><strong>How did you get started in programming competitions? </strong></p>
 <p>As I mentioned above, there was an annual LOGO competition in my city. However it didn't involve real coding because it was an exam on paper.</p>
-<p>Besides this one, my first "real" programming contest was the NOIP (National Olympiad in Informatics Partitional). I took part in it in the year of 2001.</p>
+<p>Besides this one, my first "real" programming challenge was the NOIP (National Olympiad in Informatics Partitional). I took part in it in the year of 2001.</p>
 
 <p><strong>How did you learn about TopCoder?</strong></p>
 <p>I dreamed of having a frequently held competition. TopCoder realized that dream. TopCoder competitions provide me with an excellent way to practice, compete, compare myself with others, see how I am improving, and so on.</p>
@@ -111,7 +111,7 @@ My handle comes from the Province I live in (AnHui) and my name.  I use this id 
 <p>Both. I saw programming as a kind of "playing" when I was young because I felt it was very interesting. And I spent much time on it. Being a middle school student, I found there were many things to learn before I could master programming. So I then worked hard on things like algorithms, data structures and so on.</p>
 
 <p><strong>When practicing, do you use practice problems from TopCoder or do you use problems from other sites (UVA, SPOJ, etc.)?  </strong></p>
-<p>I used to use ZJU (http://acm.zju.edu.cn) to practice (WishingBone was the Administrator). However I prefer the sites like URAL (http://acm.timus.ru ) and SGU (http://acm.sgu.ru).  To Petr's fans: there are 2 contests of his at the http://acm.sgu.ru site.  I also use SPOJ.  I did a few problems from UVA, but the number of problems in UVA is so huge&#8230;</p>
+<p>I used to use ZJU (http://acm.zju.edu.cn) to practice (WishingBone was the Administrator). However I prefer the sites like URAL (http://acm.timus.ru ) and SGU (http://acm.sgu.ru).  To Petr's fans: there are 2 challenges of his at the http://acm.sgu.ru site.  I also use SPOJ.  I did a few problems from UVA, but the number of problems in UVA is so huge&#8230;</p>
 
 <p><strong>Did you have any teachers that helped you to develop the skills needed for programming competitions, or did you learn mostly on your own?</strong></p>
 <p>Yes I have a teacher, but I learned more by myself than from my teacher. And the help from my friends (for example, Tang Wenbin, see question 20) has been really great.</p>
@@ -121,8 +121,8 @@ My handle comes from the Province I live in (AnHui) and my name.  I use this id 
 <p>Usually, I don't try to do problems pertaining to specific knowledge. But I will do so after learning something new, to help develop that skill.</p>
 
 <p><strong>If you've done other programming competitions, how do they compare with TopCoder?</strong></p>
-<p>OI contests and SRMs are of quite different styles. Maybe the major similarity between them is that their problems are usually very algorithmic. However, OI emphasizes the ability to think out a complex algorithm and realize it, while SRMs are more about coding speed and precision. </p>
-<p>Compared with ICPC-style contests, SRMs are a mini version of ICPC. But SRMs aren't judged during the contest (a bit like OI), and they have the "Challenge" phase, which makes the contest more exciting and dramatic.</p>
+<p>OI challenges and SRMs are of quite different styles. Maybe the major similarity between them is that their problems are usually very algorithmic. However, OI emphasizes the ability to think out a complex algorithm and realize it, while SRMs are more about coding speed and precision. </p>
+<p>Compared with ICPC-style challenges, SRMs are a mini version of ICPC. But SRMs aren't judged during the challenge (a bit like OI), and they have the "Challenge" phase, which makes the challenge more exciting and dramatic.</p>
 
 <p><strong>In your opinion, what are the most important skills someone needs to do well in TopCoder SRMs?</strong></p>
 <p>First, the coding precision. I mean, the ability to get the code to really work. Without the correctness, none of the other skills really matter.</p>
@@ -140,19 +140,19 @@ My handle comes from the Province I live in (AnHui) and my name.  I use this id 
 <p>I like many kinds of sports, but am good at none of them.</p>
 
 <p><strong>Who has been the single most important influence on you?</strong></p>
-<p>Tang Wenbin (<tc-webtag:handle coderId="15206296" />). He introduced TopCoder SRMs to me (although I registered before, I didn't realize what SRMs were like). In the year of 2006 we practiced together in a team named "Himalaya Zerglings" (with Zhu Chenguang), and we took part in many ICPC-like contests, including the IPSC 2006.</p>
+<p>Tang Wenbin (<tc-webtag:handle coderId="15206296" />). He introduced TopCoder SRMs to me (although I registered before, I didn't realize what SRMs were like). In the year of 2006 we practiced together in a team named "Himalaya Zerglings" (with Zhu Chenguang), and we took part in many ICPC-like challenges, including the IPSC 2006.</p>
 
 <p><strong>What advice do you have for lower rated TopCoder members on how they can improve?</strong></p>
 <ol>
-	<li>Spend some time practicing different kinds of problems, and do more contests. Doing a contest is completely different from doing a list of problems. </li>
-	<li>Be calm in the contests. This is a weekly held contest. If you fail in this contest, you can get your rating back in another contest.</li>
-	<li>Don't forget what Petr said:  "Do not spend all your time on training or studying - this way you will probably become very exhausted and unwilling to compete more. Whatever you do - have fun. Once you find programming is no fun anymore - drop it. Play soccer, find a girlfriend, study something not related to programming, just live a life - programming contests are only programming contests, and nothing more. Don't let them become your life - for your life is much more interesting and colorful."</li>
+	<li>Spend some time practicing different kinds of problems, and do more challenges. Doing a challenge is completely different from doing a list of problems. </li>
+	<li>Be calm in the challenges. This is a weekly held contest. If you fail in this contest, you can get your rating back in another contest.</li>
+	<li>Don't forget what Petr said:  "Do not spend all your time on training or studying - this way you will probably become very exhausted and unwilling to compete more. Whatever you do - have fun. Once you find programming is no fun anymore - drop it. Play soccer, find a girlfriend, study something not related to programming, just live a life - programming challenges are only programming challenges, and nothing more. Don't let them become your life - for your life is much more interesting and colorful."</li>
 </ol>
 
 <p><strong>Do you get nervous before SRMs and what methods do you use to stay calm?</strong></p>
-<p>Doing SRMs is a very good way of practice.  Because of their high frequency and the method of calculating rating, everyone can experience success and failure in these contests. And most of the SRMs are not decisive (in terms of drastically affecting your rating or having to achieve some rank to qualify, as with the ACM-ICPC regionals, for example), so why should I feel nervous before them? </p>
+<p>Doing SRMs is a very good way of practice.  Because of their high frequency and the method of calculating rating, everyone can experience success and failure in these challenges. And most of the SRMs are not decisive (in terms of drastically affecting your rating or having to achieve some rank to qualify, as with the ACM-ICPC regionals, for example), so why should I feel nervous before them? </p>
 <p>However, some SRMs do make me nervous. For example, at the time of SRM 352, my rating was 2993 and I was a little nervous to be so close to becoming a target. And I also got a little nervous in the Online Round of the TCHS tournament. </p>
-<p>Maybe it's the "side-effect" of being under 18, as I don't get any cash prize from the SRMs. So whether it's a money contest or not doesn't have much effect on me (however, in the money contests I often face more powerful opponents). </p>
+<p>Maybe it's the "side-effect" of being under 18, as I don't get any cash prize from the SRMs. So whether it's a money challenge or not doesn't have much effect on me (however, in the money challenges I often face more powerful opponents). </p>
 <p>What is "the method used to stay calm"?  If you think you're nervous, you'll find yourself really nervous. It's just a psychological state. I think the best way to stay calm is to try not to think about being "nervous", but just focus on the problems.</p>
 
 <p><strong>How does it feel to be a "target" and one of the top ranked competitors in the world?</strong></p>
@@ -160,8 +160,8 @@ My handle comes from the Province I live in (AnHui) and my name.  I use this id 
 <p>However, doing SRMs isn't everything, that is, I still have many things to do. While I'm good at coding and thinking the algorithmic problems, I may be not so good at other things. The target means I did well, but what I need is to be even better at other things.</p>
 
 <p><strong>What are your long-term goals with programming competitions?</strong></p>
-<p>Programming competitions are so much fun, and they increased my interest and knowledge in Computer Science. That may be the most important advantage of Programming Contests. I hope I can go abroad by taking part in one of the big tournaments, as that would be a great experience for me. </p>
-<p>Besides SRMs, I may try other contests (Design/Development/Studio/Blog/&#8230;) in the future. Each contest will have its own joy, and it would be better if I can do something different.</p>
+<p>Programming competitions are so much fun, and they increased my interest and knowledge in Computer Science. That may be the most important advantage of Programming challenges. I hope I can go abroad by taking part in one of the big tournaments, as that would be a great experience for me. </p>
+<p>Besides SRMs, I may try other challenges (Design/Development/Studio/Blog/&#8230;) in the future. Each challenge will have its own joy, and it would be better if I can do something different.</p>
 <br>
 
 <p>&nbsp;</p>

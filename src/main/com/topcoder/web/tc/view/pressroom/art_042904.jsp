@@ -48,10 +48,10 @@ In software, no country is hotter than India. But at the Apr. 16 TopCoder Colleg
 Indians barely ranked as also-rans: 58 Indian students were among 705 competitors in the early rounds, but none made it into the 24-person programming final.
 </p>
 <p>
-The country consistently trails. Officials at TopCoder, the Glastonbury (Conn.) company that runs the contests, have ranked competition results of 36,000 programmers over three years. University of Warsaw ranks highest, with its students in the 97th percentile. Massachusetts Institute of Technology students finish, on average, in the 86th. Indian Institute of Technology is far behind, in the 56th percentile. Topcoder officials say the contests reflect pure math skills. But G. Sivakumar, head of computer science at IIT Bombay, says students need training for the contests because they're races against the clock. He says the Chinese already provide courses, and that India will likely follow.
+The country consistently trails. Officials at TopCoder, the Glastonbury (Conn.) company that runs the challenges, have ranked competition results of 36,000 programmers over three years. University of Warsaw ranks highest, with its students in the 97th percentile. Massachusetts Institute of Technology students finish, on average, in the 86th. Indian Institute of Technology is far behind, in the 56th percentile. Topcoder officials say the challenges reflect pure math skills. But G. Sivakumar, head of computer science at IIT Bombay, says students need training for the challenges because they're races against the clock. He says the Chinese already provide courses, and that India will likely follow.
 </p>
 <p>
-Companies such as Yahoo! (YHOO) and Intel (INTC) sponsor the contest and use it as a recruiting tool. While India is sure to keep landing its share of software jobs, look for recruiters to keep banging on doors in places such as Boston and Warsaw, too.
+Companies such as Yahoo! (YHOO) and Intel (INTC) sponsor the challenge and use it as a recruiting tool. While India is sure to keep landing its share of software jobs, look for recruiters to keep banging on doors in places such as Boston and Warsaw, too.
 </p>
 <p>By Stephen Baker</p>
 ê                        <p><br /></p>

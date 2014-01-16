@@ -33,7 +33,7 @@
 <td width="100%" align="center" class="bodyColumn">
 <jsp:include page="../page_title.jsp">
     <jsp:param name="image" value="statistics_w"/>
-    <jsp:param name="title" value="Component Contest Details"/>
+    <jsp:param name="title" value="Component Challenge Details"/>
 </jsp:include>
 
 <div class="fixedWidth">
@@ -51,7 +51,7 @@ If it doesn't start, please click here:
             <input type="submit" value="Download Submission">    
         </form>
 
-<a href="/tc?module=ProjectDetail&pj=<%= request.getAttribute(Constants.PROJECT_ID).toString() %>&tab=results">Back to Contest Details</a>
+<a href="/tc?module=ProjectDetail&pj=<%= request.getAttribute(Constants.PROJECT_ID).toString() %>&tab=results">Back to Challenge Details</a>
 </div>
 </TD>
 <td WIDTH="180" VALIGN="top">

@@ -75,7 +75,7 @@
 
 <div align=center><img src="/i/education/tco07bloggers/caveart.jpg" width="200px" /></div>
 
-<p>This design, for the COBOL "hammer" component, shows only the central "rock" object.  The review board docked heavily for not including the author's name, and for showing the rock as connecting to three mysteriously missing objects.  On appeal, this was shown to be a bug in Poseidon's rendering, and the entire contest was unrated (with prize money split evenly between competitors who passed screening).  Confused Roman historians would later misinterpret this design as a picture of a horse, thus naming Poseidon the God of horses, the sea, and (presumably) sea horses.  Modern historians recognize this role actually belongs to Aquaman.</p>
+<p>This design, for the COBOL "hammer" component, shows only the central "rock" object.  The review board docked heavily for not including the author's name, and for showing the rock as connecting to three mysteriously missing objects.  On appeal, this was shown to be a bug in Poseidon's rendering, and the entire challenge was unrated (with prize money split evenly between competitors who passed screening).  Confused Roman historians would later misinterpret this design as a picture of a horse, thus naming Poseidon the God of horses, the sea, and (presumably) sea horses.  Modern historians recognize this role actually belongs to Aquaman.</p>
 
 <div align=center><img src="/i/education/tco07bloggers/graph.PNG" /></div>
 

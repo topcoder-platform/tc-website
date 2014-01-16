@@ -47,9 +47,9 @@
 <span class="bodySubTitle"><em>Developers Invited by NVIDIA and TopCoder to Tackle Parallel Computing with the NVIDIA CUDA Architecture</em></span></p>
 </div>
       
-<p><strong>Santa Clara, CA - August 27, 2009</strong> - NVIDIA Corporation today announced that it will be working with TopCoder, a competitive software development community, on the CUDA Superhero Challenge, a series of contests for computer programmers who will harness the parallel processing power of the NVIDIA(R) CUDA(TM) architecture to solve some of computing's biggest challenges.</p>
+<p><strong>Santa Clara, CA - August 27, 2009</strong> - NVIDIA Corporation today announced that it will be working with TopCoder, a competitive software development community, on the CUDA Superhero Challenge, a series of challenges for computer programmers who will harness the parallel processing power of the NVIDIA(R) CUDA(TM) architecture to solve some of computing's biggest challenges.</p>
 
-<p>The first contest, which is open to all eligible developers, begins Sept. 14 and will conclude Sept. 25. $5,000 of prizes will be awarded to five contest winners, who will be announced at NVIDIA's GPU Technology Conference being held at the Fairmont Hotel in San Jose, Calif., from Sept. 30 to Oct. 2, 2009. Additional details about the CUDA Superhero Challenge can be found at <a href="http://www.topcoder.com/nvidia">www.topcoder.com/nvidia</a>.</p>
+<p>The first contest, which is open to all eligible developers, begins Sept. 14 and will conclude Sept. 25. $5,000 of prizes will be awarded to five challenge winners, who will be announced at NVIDIA's GPU Technology Conference being held at the Fairmont Hotel in San Jose, Calif., from Sept. 30 to Oct. 2, 2009. Additional details about the CUDA Superhero Challenge can be found at <a href="http://www.topcoder.com/nvidia">www.topcoder.com/nvidia</a>.</p>
 
 <p>"PC architecture has evolved from central processing on just the CPU to co-processing on the CPU and the GPU," said Sanford Russell, general manager of the CUDA group at NVIDIA. "By tapping into the TopCoder community, we can educate over 200,000 programmers on the advantages parallel programming offers and fan the flames of the GPU Computing revolution."</p>
 

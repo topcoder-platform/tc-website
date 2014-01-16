@@ -44,7 +44,7 @@
                         
 <div align="center">
 <p><span class="bodyTitle">TopCoder Open to Feature World's Elite Software Developers in Competitive Programming's Top Tournament</span><br />
-<span class="bodySubTitle"><em>Las Vegas to Host New Software Symposium as TopCoder's Annual Computing Contest Expands;  <br />120 to Compete for Top Honors and Share of $260,000 in Prize Money May 11-15, 2008</em></span></p>
+<span class="bodySubTitle"><em>Las Vegas to Host New Software Symposium as TopCoder's Annual Computing Challenge Expands;  <br />120 to Compete for Top Honors and Share of $260,000 in Prize Money May 11-15, 2008</em></span></p>
 </div>
       
 <p>

@@ -17,7 +17,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <jsp:include page="dev_design_links.jsp"/>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="270" style="float: left; margin-right: 15px; margin-bottom: 15px;">
-    <tr><td class="title" colspan="3">Highest Component Contest Prize Earners</td></tr>
+    <tr><td class="title" colspan="3">Highest Component Challenge Prize Earners</td></tr>
     <tr><td class="headerC">Rank</td><td class="header">Coder</td><td class="headerR">Earnings</td></tr>
     <% boolean even = false; %>
     <rsc:iterator list="<%=rsc%>" id="row">
@@ -40,7 +40,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
 </table>
 
 <span class="bodyText">
-<strong>Record:</strong> The top earners for all Design and Development Contests.  This does not include royalties, tournament prizes or reliability bonuses.<br /><br />A record will be listed as "HIDDEN" if the competitor has opted to hide his/her payments.
+<strong>Record:</strong> The top earners for all Design and Development challenges.  This does not include royalties, tournament prizes or reliability bonuses.<br /><br />A record will be listed as "HIDDEN" if the competitor has opted to hide his/her payments.
 </span>
 
 </div>

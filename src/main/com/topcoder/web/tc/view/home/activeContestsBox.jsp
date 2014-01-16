@@ -47,7 +47,6 @@
 <c:set var="contentcreation" value="<%=Home.CONTENT_CREATION%>"/>
 <c:set var="reporting" value="<%=Home.REPORTING%>"/>
 <c:set var="bughunt" value="<%=Home.BUG_HUNT%>"/>
-<c:set var="cloudspokes" value="<%=Home.CLOUDSPOKES%>"/>
 <c:set var="first2finish" value="<%=Home.FIRST2FINISH%>"/>
 <c:set var="code" value="<%=Home.CODE%>"/>
 
@@ -60,7 +59,7 @@
             <table cellpadding="0" cellspacing="0" class="rightNav" style="width: 100%;">
                 <tbody>
                     <tr>
-                        <td class="title">Active Contests</td>
+                        <td class="title">Active Challenges</td>
                     </tr>
                     <c:if test="${activeContestsSummary[dr].contestCount>0}">
                         <tr>
@@ -68,16 +67,6 @@
                                 <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[dr].prizeTotal}" pattern="#,###,###"/> pts</div>
                                 <a href="/dr" class="gMetal">Digital Run</a>
                                 (${activeContestsSummary[dr].contestCount})
-                            </td>
-                        </tr>
-                    </c:if>
-                    <c:if test="${activeContestsSummary[cloudspokes].contestCount>0}">
-                        <tr>
-                            <td class="value">
-                                <div class="prizes">
-                                    <fmt:formatNumber value="${activeContestsSummary[cloudspokes].prizeTotal}" pattern="$###,###"/></div>
-                                <a href="/tc?module=CloudSpokes&page=activeContests" class="gMetal">CloudSpokes</a>
-                                (${activeContestsSummary[cloudspokes].contestCount})
                             </td>
                         </tr>
                     </c:if>
@@ -136,7 +125,7 @@
                         <tr>
                             <td class="value">
                                 <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[bugs].prizeTotal}" pattern="$###,###"/></div>
-                                <a href="/tc?module=ViewActiveBugRaces" class="gMetal">Bug Races</a>
+                                <a href="/tc?module=ViewActiveBugRaces" class="gMetal">Races</a>
                                 (${activeContestsSummary[bugs].contestCount})
                             </td>
                         </tr>

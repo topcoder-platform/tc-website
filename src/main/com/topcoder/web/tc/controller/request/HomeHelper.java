@@ -243,7 +243,7 @@ public class HomeHelper {
             ResultSetContainer rsc = dai.getData(dataRequest).get("bug_race_active_contests_summary");
             if (!rsc.isEmpty()) {
                 ret.setContestCount(rsc.get(0).getIntItem("total_contests"));
-                ret.setName("Bug Races");
+                ret.setName("Races");
                 if (rsc.get(0).getItem("total_prizes").getResultData()!=null) {
                     ret.setPrizeTotal(rsc.get(0).getFloatItem("total_prizes"));
                 }

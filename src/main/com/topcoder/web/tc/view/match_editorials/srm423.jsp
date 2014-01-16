@@ -493,7 +493,7 @@ While the queue is not empty
 For all states where OUTCOME is UNKNOWN, set OUTCOME to DRAW
 </pre>
 <p>
-For a contest submission using this approach take a look at <tc-webtag:handle coderId="10574855" context="algorithm"/>'s
+For a challenge submission using this approach take a look at <tc-webtag:handle coderId="10574855" context="algorithm"/>'s
 <a href="/stat?c=problem_solution&amp;rm=299099&amp;rd=13514&amp;pm=9977&amp;cr=10574855">solution</a>.
 </p>
 <p>

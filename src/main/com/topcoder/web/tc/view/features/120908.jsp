@@ -153,7 +153,7 @@ Web application development, piano playing, tennis and table-tennis, writing, an
 </p>
 
 <p><strong>What is one thing that you have learned at Studio that has helped you in other areas of your life?</strong><br />
-Be confident, though the amount of candidates in each contest is not a big number. But when you participate in it, you must believe yourself that you are the ONE. Additionally, I find a good life-formula: "do a little more, receive a lot".<br />
+Be confident, though the amount of candidates in each challenge is not a big number. But when you participate in it, you must believe yourself that you are the ONE. Additionally, I find a good life-formula: "do a little more, receive a lot".<br />
 </p>
 </div>
 <br />

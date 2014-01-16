@@ -148,7 +148,7 @@
 
         <a name="movingaround"></a>
       <p><span class="bodySubtitle">8 Moving Around</span><br/>
-      You may move around the Arena by using the menus at the top of the Arena.  The "Lobbies" menu will allow you to switch between the various lobbies, the "Practice Rooms" menu provides navigation between the many practice rooms that are available, and the "Active Contests" menu will allow you to move to the various rooms of a specific match or tournament that is being run.  When you first log in, you will automatically be placed into the "Chat Room 1" lobby.  From there you can move to any of the other rooms in the Arena.
+      You may move around the Arena by using the menus at the top of the Arena.  The "Lobbies" menu will allow you to switch between the various lobbies, the "Practice Rooms" menu provides navigation between the many practice rooms that are available, and the "Active Challenges" menu will allow you to move to the various rooms of a specific match or tournament that is being run.  When you first log in, you will automatically be placed into the "Chat Room 1" lobby.  From there you can move to any of the other rooms in the Arena.
 
         <a name="leaderboard"></a>
       <p><span class="bodySubtitle">9 The Leader Board</span><br/>

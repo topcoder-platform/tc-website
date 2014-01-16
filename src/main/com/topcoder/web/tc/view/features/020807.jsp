@@ -85,8 +85,8 @@ language.
 <br />
 If you haven't used the arena before, start with the
 official <a href="/tc?module=Static&d1=help&d2=index">How to compete</a> guide. You may also want to take a look at some
-<a href="/tc?module=Static&d1=help&d2=sampleProblems">sample problems</a> to get a feel for the style of the contests. If you sign up and enter the arena,
-all the previous contests are available for practice. The default editor is a bit
+<a href="/tc?module=Static&d1=help&d2=sampleProblems">sample problems</a> to get a feel for the style of the challenges. If you sign up and enter the arena,
+all the previous challenges are available for practice. The default editor is a bit
 lacking, so you should also check out the available <a href="tc?module=Static&d1=applet&d2=plugins">plugins</a>;
 these include several alternative editors (KawigiEdit is quite
 popular), a plugin to let you use your normal desktop editor
@@ -142,13 +142,13 @@ instead of the full loop specification.
 There are a few things to keep in mind when you do this:
 <ol>
  <li>In the real world, this is considered very poor
- style. Don't do it outside of programming contests.</li>
+ style. Don't do it outside of programming challenges.</li>
  <li>Have a look at other programmers' submissions to get
  some ideas (<tc-webtag:handle coderId="8355516" context="algorithm" />'s template
  shows off the possibilities as well as several 
  <a href="tc?module=Static&d1=features&d2=022006">GCC extensions</a>), but any code you submit in the arena
  has to have been written by you (no copy-and-paste).</li>
- <li>The contest rules limit the amount of unused code
+ <li>The challenge rules limit the amount of unused code
  that you submit, so you need to keep your template to a
  minimum.</li>
 </ol>
@@ -197,7 +197,7 @@ There are a few things that can be done in other languages
 but not in C++. Two notable examples are arbitrarily large
 integers (<tt>BigInteger</tt> in Java) and computational
 geometry operations (line intersections, etc.). This is less of
-a problem in TopCoder than in other contests, since nothing
+a problem in TopCoder than in other challenges, since nothing
 prevents you from maintaining pre-written libraries and
 just pasting them into your code when the need arises (subject
 to the rules that you have to have written the library

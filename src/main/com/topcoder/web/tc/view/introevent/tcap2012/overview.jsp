@@ -63,7 +63,7 @@
             Please refer to the <a href="http://community.topcoder.com/tco12">TCO 12 website</a> for visa and travel requirements.
             </li>
             <li>10 Calabi-Yau Daily Champions<sup>*</sup> - Competitors with highest provisional ranks during the last 10 days will
-            receive a Calabi-Yau Manifold Glass Sculpture. The champions are selected 216 hours prior to contest end time, and every 24
+            receive a Calabi-Yau Manifold Glass Sculpture. The champions are selected 216 hours prior to challenge end time, and every 24
             hours after that. If at that time a competitor has already received the daily champion in the prior days the next
             best competitor will be selected. If there is a tie for the highest provisional rank, the competitor having the earliest last
             submission time will be selected among all tied competitors.

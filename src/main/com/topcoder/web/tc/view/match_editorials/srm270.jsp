@@ -543,7 +543,7 @@ horizontally... and check whether for this angle the rectangle fits also vertica
 
 <p>
 Doubles are precise enough for this solution to work reliably, as long as we choose a suitable
-margin for error tolerance. In the contest this was probably the best solution.
+margin for error tolerance. In the challenge this was probably the best solution.
 </p>
 
 <p>

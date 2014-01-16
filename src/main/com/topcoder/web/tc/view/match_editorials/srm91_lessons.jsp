@@ -80,7 +80,7 @@
 
 <P>
 SRM 91 was a wednesday night contest.  As a landmark, it was the 
-first contest sponsored by Citrix.  In all, 654 coders took part.
+first challenge sponsored by Citrix.  In all, 654 coders took part.
 There were 43 rooms in Division-II, of which 4 rooms were in the 
 rookie section.
 </P>

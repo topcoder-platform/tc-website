@@ -177,7 +177,7 @@ The Problems
     <b>see Logan's solution in the practice room</b><BR/><P><B>Implementation</B></P>
 <p>
                 This is the classic breadth-first search problem, seen numerous times on TopCoder and in various
-                other programming contests.  The map can be interpreted as a graph.  Each location in the map is
+                other programming challenges.  The map can be interpreted as a graph.  Each location in the map is
                 a vertex, and an implicit edge of weight 1 exists between it and each of its 4-neighbors (the neighbors
                 in the four cardinal directions).  When all edges have weight 1,
                 breadth-first search consists of starting at some set of points and

@@ -37,14 +37,14 @@
 <jsp:param name="title" value="Scorecard"/>
 </jsp:include>
 
-<span class="subtitle">Contest: Time Tracker Admin and Time Approval</span><br>
+<span class="subtitle">Challenge: Time Tracker Admin and Time Approval</span><br>
 <strong>
 Team: Team ACCTiVe<br>
 Reviewer: <tc-webtag:handle coderId="11781622" />
 </strong>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="8">Assembly Contest Scorecard</td></tr>
+   <tr><td class="title" colspan="8">Assembly Challenge Scorecard</td></tr>
    <tr>
       <td class="header">&#160;</td>
       <td class="headerC">Weight</td>

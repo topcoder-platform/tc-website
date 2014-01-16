@@ -103,7 +103,7 @@
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Date</a>
                 </TD>
                 <TD CLASS="header" WIDTH="50%">
-                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Contest</a>
+                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Challenge</a>
                 </TD>
                 <TD CLASS="header" WIDTH="50%">
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Round</a>

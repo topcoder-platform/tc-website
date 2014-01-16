@@ -550,7 +550,7 @@ Pseudocode for canPlaceMine and placeMine follows (unPlaceMine is similar to pla
 
 For a complete implementation of this algorithm, take a look at <a href="http://www.topcoder.com/tc?module=HSProblemSolution&cr=22641901&rd=10069&pm=3454">nima.ahmadi's solution</a>.<br><br>
 
-The second approach taken during the contest was to simply generate all subsets of the board using <a href="http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=integersReals">bitmasks</a>.  That is, we generate each possible subset of cells of <b>board</b>, and check each one to verify that it is valid.  To make 
+The second approach taken during the challenge was to simply generate all subsets of the board using <a href="http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=integersReals">bitmasks</a>.  That is, we generate each possible subset of cells of <b>board</b>, and check each one to verify that it is valid.  To make 
 it feasible to use a single bitmask for all rows, there's a trick that we can use that transforms a single integer into (row,column) form and vice-versa.  Since there are numCols columns in each row, then the jth column of the ith row can be uniquely represented 
 as B = i * numCols + j.  Thus, to get an integer in this canonical form to its corresponding (row,column) representation, we have row = B / numCols and col = B % numCols. Using some of our pseudocode above, the algorithm looks something like this:
 <pre>

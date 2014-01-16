@@ -49,7 +49,7 @@
 <span class="bigTitle">Match summary</span>
 
 <p>This problem set was pretty easy. Some coders completed their work in 20 minutes.  
-There was a long list of contestants with a complete set of problems after 40 minutes and at the end of the contest 86.15% of coders had submitted the hardest task.
+There was a long list of contestants with a complete set of problems after 40 minutes and at the end of the challenge 86.15% of coders had submitted the hardest task.
 But only 36.18% of div1-hard solutions were correct. <b>Im2Good</b>, who made 12 successful challenges, won this match and became the <A href="/stat?&amp;c=highest_totals&amp;dn=1">Highest Match Total</A> champion (a
 title that hasn't changed since 05.08.01). <b>misof</b> and <b>jdmetz</b> took second and third.
 </p>

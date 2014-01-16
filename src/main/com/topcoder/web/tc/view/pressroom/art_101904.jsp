@@ -38,7 +38,7 @@
                         <jsp:param name="title" value="Article"/>
                     </jsp:include>
                         <div align="center">
-                        <p><span class="bodyTitle">Google holds coding contest</span></p>
+                        <p><span class="bodyTitle">Google holds coding challenge</span></p>
                         </div>
 
 						<p>
@@ -54,7 +54,7 @@ Szewcyzk was definitely in his element Friday, surrounded by 49 of the world's t
 <br/><br/>
 The winner - Sergio Sancho of Argentina - took home $10,000 and a chance to impress Google engineers and perhaps land a job with the world's most famous search engine.
 <br/><br/>
-The contest is both a recruiting tool for Google and a way for the company to nurture programmers it will need to draw on as it continues to grow.
+The challenge is both a recruiting tool for Google and a way for the company to nurture programmers it will need to draw on as it continues to grow.
 <br/><br/>
 "We have hired people out of it," said Alan Eustace, vice president of resources and systems engineering at Google. "But I don't think that's what is most important. We're trying to appeal to the community of problem-solvers. The more actively you support the community, the more active it becomes, and the more chances you'll have people you want to hire."
 <br/><br/>

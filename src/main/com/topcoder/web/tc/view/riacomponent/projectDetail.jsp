@@ -59,7 +59,7 @@
                 <td width="100%" align="left" class="bodyColumn">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="ria_component"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 
                     <%-- Title --%>
@@ -205,7 +205,7 @@
                                     <span class="bodySubtitle"><strong>
                                         Forum
                                     </strong></span><br>
-                                    Please use the contest
+                                    Please use the challenge
                                 
                                     <c:choose>
                                         <c:when test="${empty projectDetailRow.map['jive_category_id']}">
@@ -215,7 +215,7 @@
                                             <a href="${FORUMS_URL}=${projectDetailRow.map['jive_category_id']}">forum</a>
                                         </c:otherwise>
                                     </c:choose>
-                                    to view additional information and communicate with the contest owners.
+                                    to view additional information and communicate with the challenge owners.
                                 </p>
                                 
                                 <p><span class="bodySubtitle"><strong>Scorecards</strong></span><br/>

@@ -77,16 +77,16 @@ TCO07 Rd 2: 1263
 <a href="http://forums.topcoder.com/?module=Thread&threadID=573867&start=45&mc=90">This</a>. Of course, it was a great, great day for me. When the world's best puzzle solvers and programmers -- <tc-webtag:handle coderId="272072" />, <tc-webtag:handle coderId="144400" />, <tc-webtag:handle coderId="10574855" />, etc. -- said 'congrats,' and I have no idea how it happened&#8230;</p>
 
 <p><strong>What's one thing you've noticed about the most successful TopCoder members that you think others could learn from?</strong><br />
-First, they are "elegant." <tc-webtag:handle coderId="144400" />, whom I rate to be deservedly unbeatable in quite some time around, is very "creative," in the sense that he doesn't usually take the most natural/code-lengthy method. He prefers being experimental and doesn't care if it's the finals of an international event (from his article during finals of TCO a year or two back). I think it's innovation that keeps him running. Despite all this experimentation he's been quite reliable, too -- in the world's riskiest contests, [TopCoder!?] he earns his spot all the time!</p>
+First, they are "elegant." <tc-webtag:handle coderId="144400" />, whom I rate to be deservedly unbeatable in quite some time around, is very "creative," in the sense that he doesn't usually take the most natural/code-lengthy method. He prefers being experimental and doesn't care if it's the finals of an international event (from his article during finals of TCO a year or two back). I think it's innovation that keeps him running. Despite all this experimentation he's been quite reliable, too -- in the world's riskiest challenges, [TopCoder!?] he earns his spot all the time!</p>
 
 <p><strong>What's a tip that you think is particularly important?</strong><br />
-I think practice helps quite a lot. These contests cannot be completely new, as such problems can't be re-invented within a hour. Hence they tend to stick around some basic ideas, once we get comfortable with them, I think it boils down to who is more "bug-free." Though it looks bad put this way, that's what I believe to be close to the truth.</p>
+I think practice helps quite a lot. These challenges cannot be completely new, as such problems can't be re-invented within a hour. Hence they tend to stick around some basic ideas, once we get comfortable with them, I think it boils down to who is more "bug-free." Though it looks bad put this way, that's what I believe to be close to the truth.</p>
 
 <p><strong>What advice would you give to someone just starting in TopCoder competitions?</strong><br />
 Don't do this! There are better things to do&#8230;  This is too addictive!</p>
 
 <p><strong>What's the biggest obstacle you've had to overcome?</strong><br />
-It is generally bugs. Bugs take 80% of contest time, especially in contests like TopCoder, you don't think too long when compared to the total time spent on a problem. It's just that we get stuck up on a problem for long and, worse, we can't even estimate how much longer this problem is going to take. The good news, though, is that this part generally improves by constant practice and concentration, I think.</p>
+It is generally bugs. Bugs take 80% of challenge time, especially in challenges like TopCoder, you don't think too long when compared to the total time spent on a problem. It's just that we get stuck up on a problem for long and, worse, we can't even estimate how much longer this problem is going to take. The good news, though, is that this part generally improves by constant practice and concentration, I think.</p>
 <br />
 --%>
 

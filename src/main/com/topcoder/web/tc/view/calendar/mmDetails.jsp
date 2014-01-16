@@ -37,7 +37,7 @@
 
 <head>
     <title>TopCoder</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="../script.jsp" />
     <jsp:include page="../style.jsp">
@@ -68,7 +68,7 @@
 
     <jsp:include page="../page_title.jsp">
         <jsp:param name="image" value="long_comps_topcoder"/>
-        <jsp:param name="title" value="Contest Details"/>
+        <jsp:param name="title" value="Challenge Details"/>
     </jsp:include>
 
 <%if(roundId == 13992 ) {%>
@@ -150,7 +150,7 @@
 
 <% if (roundId == 15761) { %>
 <p align="justify">
-<i>This contest is brought to you by: NASA's Center of Excellence for Collaborative Innovation and Harvard Business School in association with the Institute of Quantitative Social Sciences.</i>
+<i>This challenge is brought to you by: NASA's Center of Excellence for Collaborative Innovation and Harvard Business School in association with the Institute of Quantitative Social Sciences.</i>
 </p>
 <% } %>
 
@@ -166,7 +166,7 @@ rules for these events are a departure from anything that TopCoder has run in th
 collaboration and information sharing during competition.
 <br><br>
 The second Experimental Marathon Match will include an algorithm problem provided by the Integrated Medical Model Team at NASA . 
-In this contest programmers will be asked to help NASA optimize a space flight medical kit  for astronauts. We believe that the 
+In this challenge programmers will be asked to help NASA optimize a space flight medical kit  for astronauts. We believe that the 
 TopCoder community may have an interesting take on this problem and could potentially come up with a breakthrough that will help 
 NASA explore our universe.  
 <br><br>
@@ -211,7 +211,7 @@ The email with the link to the brief questions will come from TopCoder and we re
 you register only if you plan to dedicate significant effort and time to this competition</b> that begins on November 4, 2009 and 
 will last for ten days, and you are willing to complete the contribution list (if applicable) and the Post-Competition Survey following the 
 competition. In addition, the number of available spaces for competitors is limited and we will only allow 480 competitors into 
-the competition with preference given to competitors who have demonstrated a high likelihood of participating in contests after 
+the competition with preference given to competitors who have demonstrated a high likelihood of participating in challenges after 
 they register.  Once registration is closed, and prior to the start of the competition, you will receive an email with your Group 
 and Room assignment. 
 <br><br>
@@ -253,7 +253,7 @@ Please check out the rules link below for more detail.
 					to receive an invitation from NASA to view a NASA launch as described above.
 					<br><br>
 					T-Shirts: All Contestants who are assigned to a Room and who actively participate are eligible to receive 
-					a contest T-shirt.
+					a challenge T-shirt.
 					<br><br>
 					All prizes are contingent upon fully completing a survey from TopCoder and our academic research partners.
 					<br>
@@ -272,7 +272,7 @@ Please check out the rules link below for more detail.
 					NASA Launch Invitation: Each of the 5 members of the highest-scoring Room team, if actively engaged in the competition,  
 					will be eligible to receive an invitation from NASA to view a NASA launch as described above.
 					<br><br>
-					T-Shirts: All Contestants who are assigned to a Room and who actively participate are eligible to receive a contest T-shirt.
+					T-Shirts: All Contestants who are assigned to a Room and who actively participate are eligible to receive a challenge T-shirt.
 					<br><br>
 					All prizes are contingent upon fully completing a survey from TopCoder and our academic research partners.
 					<br>
@@ -324,7 +324,7 @@ Please check out the rules link below for more detail.
     your submission to TopCoder.
 <p>
 <p align="justify">
-This is a summary with highlights of the contest details. Please make sure to read
+This is a summary with highlights of the challenge details. Please make sure to read
     all of the rules carefully before competing.
 </p>
 <p>You must be eligible to compete in the match as defined in the rules.</b>
@@ -764,7 +764,7 @@ Additionally, there is a $1,000 USD prize for an unusual and perspective idea. O
 
 <%if (roundId == 15520) {%>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">There is a total $30,000 USD cash prize purse for this contest, 100 T-shirts, 5 stickers that have flown in space
+    <p align="justify">There is a total $30,000 USD cash prize purse for this challenge, 100 T-shirts, 5 stickers that have flown in space
 and 5 letters of recommendation. $25,000 USD is allocated for the final prizes and $5,000 are allocated for checkpoint prizes. The contestants with
 the 10 highest non-zero final scores will be awarded the following prizes.</p>
 
@@ -801,8 +801,8 @@ the 10 highest non-zero final scores will be awarded the following prizes.</p>
     </tr>
 </table>
 
-<p align="justify">One week after the start of the contest the first set of checkpoint prizes will be selected. The contestants with the top 4 highest
-provisional scores (on the leader board) at that time will receive the prizes listed below. Then two weeks after the start of the contest, the second
+<p align="justify">One week after the start of the challenge the first set of checkpoint prizes will be selected. The contestants with the top 4 highest
+provisional scores (on the leader board) at that time will receive the prizes listed below. Then two weeks after the start of the challenge, the second
 set of checkpoint prizes will be selected for the contestants with the 4 highest provisional scores at that time.
 See below for the exact date and time for the selection of the checkpoint winners. </p>
 
@@ -829,16 +829,16 @@ See below for the exact date and time for the selection of the checkpoint winner
 <p align="justify">There will also be final bonus prizes for the top 5 final finishers. The
 1st, 2nd, 3rd, 4th, and 5th place final winners will receive stickers from NASA <b>which have actually orbited the Earth</b>.
 These stickers were flown on Space Shuttle Endeavour, on mission STS-134, May 16, 2011. TopCoder will also provide a letter of reference for
-each of the 1st, 2nd, 3rd, 4th, and 5th place final winners describing their performance in the contest.
+each of the 1st, 2nd, 3rd, 4th, and 5th place final winners describing their performance in the challenge.
 These could be used to aid your job search, for applying for entry into a school or even for your astronaut application.</p>
 
 <p align="justify"> If there are ties for any of the non-cash prizes, the tie will be broken by selecting the earliest submissions. In the event of a tie for a cash prize, the associated prize money will be divided evenly between the tied contestants.</p>
 
-<p align="justify">Before the contest, this problem was extensively tested by an experienced marathon competitor (but for a shorter time period
-than the actual contest). The tester's pre-contest solution will be submitted at the start of the contest (using the handle "mm_tester") and
-will not be modified throughout the contest. This will make the tester's provisional score visible throughout the match. The tester will be eligible
+<p align="justify">Before the challenge, this problem was extensively tested by an experienced marathon competitor (but for a shorter time period
+than the actual challenge). The tester's pre-challenge solution will be submitted at the start of the challenge (using the handle "mm_tester") and
+will not be modified throughout the challenge. This will make the tester's provisional score visible throughout the match. The tester will be eligible
 for the final prizes based on his initial submission, but not the tester is eligible for the checkpoint prizes.
-The tester's identity will not be revealed until the contest is over.</p>
+The tester's identity will not be revealed until the challenge is over.</p>
 <%}%>
 
 <%if(roundId == 15201 || roundId == 15202 || roundId == 15327) {%>

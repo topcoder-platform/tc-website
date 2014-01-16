@@ -39,16 +39,16 @@
                     </jsp:include>
                         <div align="center">
 						<div align="center"><IMG SRC="/i/pressroom/rckymntnews.gif" ALT="Rocky Mountain News" border="0"/></div><BR/>
-						<p><span class="bodyTitle">Massaro: Whiz cracks contest code</span></p>
+						<p><span class="bodyTitle">Massaro: Whiz cracks challenge code</span></p>
                         </div>
 						December 20, 2001<BR/><BR/>
 						LAFAYETTE -- Daniel Wright is thinking ahead. Here, in the midst of the holiday season, he's looking forward to spring.<BR/><BR/>
 						Don't think he's a grouch who sucks lemons instead of Christmas punch. He's going to spend the holidays at home. And he's going to be busy.<BR/><BR/>
 						"I won't have any free time this winter break," he said. "I'll probably be working on an honors thesis."<BR/><BR/>
-						Wright, 20, is studying computer science at Stanford University. He's pretty much a whiz. He finished second in the TopCoder national computer contest last month. Competitors solve complicated math problems. They were definitely not the kind of stuff you could solve with a hand-held calculator.<BR/><BR/>
+						Wright, 20, is studying computer science at Stanford University. He's pretty much a whiz. He finished second in the TopCoder national computer challenge last month. Competitors solve complicated math problems. They were definitely not the kind of stuff you could solve with a hand-held calculator.<BR/><BR/>
 						Going in, Wright was the favorite to win.<BR/><BR/>
 						But his mind got to drifting when it should have been drafting. So he settled for second-best money of $25,000.<BR/><BR/>
-						He had placed second in a previous contest in June.<BR/><BR/>
+						He had placed second in a previous challenge in June.<BR/><BR/>
 						"It was just lack of concentration," he said. "I had that in mind the whole time in this round. I didn't want to repeat that."<BR/><BR/>
 						He did.<BR/><BR/>
 						Wright is a native of South Africa. He moved to Boulder County with his family in December 1998.<BR/><BR/>

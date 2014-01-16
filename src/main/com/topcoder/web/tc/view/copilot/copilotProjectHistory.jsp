@@ -127,7 +127,7 @@
                 <th id="projectNameHeaderID">Project Name</th>
                 <th class="display-none"></th>
                 <th class="border-l" colspan="2">
-                    <div class="numberof border-b" id="numberOfContestHeaderID"><span>Number of contests</span></div>
+                    <div class="numberof border-b" id="numberOfContestHeaderID"><span>Number of challenges</span></div>
                     <div class="plan-real">
                         <div class="plan border-r" id="plannedContestHeaderID"><span>Planned</span></div>
                         <div class="real" id="realContestHeaderID"><span>Actual</span></div>

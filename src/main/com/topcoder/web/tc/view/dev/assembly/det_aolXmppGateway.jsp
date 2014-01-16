@@ -35,7 +35,7 @@
 
 <jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="assembly"/>
-<jsp:param name="title" value="Active Contests"/>
+<jsp:param name="title" value="Active Challenges"/>
 </jsp:include>
 
 <div style="float:left;padding-right:8px;"><img src="/i/development/smAOL.gif" alt="" border="0" /></div>

@@ -106,7 +106,7 @@
 <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
 <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>MAC OSX</B></TD></TR>
 
-<TR><TD><A HREF="#mac1" CLASS="bodyText">The small HTML window that holds the contest applet does not load up the applet in MAC OSX</A></TD></TR>
+<TR><TD><A HREF="#mac1" CLASS="bodyText">The small HTML window that holds the challenge applet does not load up the applet in MAC OSX</A></TD></TR>
 
 <TR><TD><A HREF="#mac3" CLASS="bodyText">I tried loading the Arena through the JWS link and I'm getting an error when JWS is running that the applet cannot be loaded.</A></TD></TR>
 
@@ -323,7 +323,7 @@ Some extensions are also present, including most of those from SGI's STL, such a
 
 <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>MAC OSX</B></TD></TR>
 <TR><TD HEIGHT="10" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
-<TR><TD CLASS="bodyText"><A NAME="mac1"><B>The small HTML window that holds the contest applet does not load up the applet in MAC OSX</B></A></TD></TR>
+<TR><TD CLASS="bodyText"><A NAME="mac1"><B>The small HTML window that holds the challenge applet does not load up the applet in MAC OSX</B></A></TD></TR>
 <TR><TD CLASS="bodyText">A workaround is to load the arena through Java Web Start (JWS).  A link that allows you to load the arena through JWS and more info on JWS is available on TopCoder home page.</TD></TR>
 <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 

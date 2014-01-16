@@ -210,7 +210,7 @@ have to say.  Some may respond. No one will laugh at you. I won't, anyway.
 Even as I write about the attractions of the Round Tables, I am reminded
 of interface details that bother me. Some of the thread categories are
 difficult to tell apart: what exactly is the difference between Contest
-Participation and Contest Discussion, or between Contest Discussion and
+Participation and Challenge Discussion, or between Challenge Discussion and
 Algorithm Discussion? Furthermore, I have found the Search facility
 nearly useless in looking up past threads. Yet I can recommend Round
 Table participation with a clear conscience because I know that the

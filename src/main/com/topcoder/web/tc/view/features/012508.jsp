@@ -181,7 +181,7 @@ Hanging out with my friends.</p>
     <img src="/i/m/djackmania_big.jpg" alt="Author" />
 </div>
 Studio Design: <tc-webtag:handle coderId="22690288" /><br />
-Won $3,400 in three contests<br />
+Won $3,400 in three challenges<br />
 <br /><br />
 </p>
 

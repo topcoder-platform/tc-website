@@ -128,7 +128,7 @@
 <strong>Room:</strong> <A href="<%=roomStatsLink%>" class="bcLink"><%= sRoomName %></A><br>
 <strong>Coder:</strong> <tc-webtag:handle coderId="<%= sCoderId %>" context='<%=context%>' /><br>
 <% if(forumId > 0) { %>
-<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumId %>" class="bcLink">Discuss this contest</a>
+<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumId %>" class="bcLink">Discuss this challenge</a>
 <% } %>
 <br><br>
 --%>

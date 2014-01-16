@@ -38,7 +38,7 @@
 
 <div style="float:right;white-space:nowrap;" align="right">
     All times are <a target="_blank" href="http://www.timeanddate.com/worldclock/city.html?n=98">Eastern Time</a> unless stated otherwise.<br />
-    Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Contests page</a> or subscribe to the RSS feed
+    Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Challenges page</a> or subscribe to the RSS feed
     <a href="/tc?module=BasicRSS&amp;c=rss_Pipeline&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
 </div>
 
@@ -142,7 +142,7 @@
       <td class="value">27
          <div class="tco09">
          <div class="emblem"><img src="/i/tournament/tco09/emblem.png" alt="TCO09" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=rules&d5=tco09">All Finalist and Contest Winners Documents Due Date</A></strong>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=rules&d5=tco09">All Finalist and Challenge Winners Documents Due Date</A></strong>
          </div>
       </td>
       <td class="value">28

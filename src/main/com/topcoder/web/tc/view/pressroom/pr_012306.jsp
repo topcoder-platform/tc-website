@@ -54,7 +54,7 @@
 <br><br>
 
 <span class="bodySubtitle">About TopCoder Marathon Matches</span><br>
-TopCoder created the Marathon Match Series to provide a more flexible competition with an extended timeline that offers different types of problems than can be offered in a traditional TopCoder algorithm competition. In contrast to traditional TopCoder contests, the marathon format requires competitors to come up with the most effective optimizations, rather than a pure coding 'sprint' to implement a successful algorithm the quickest. 
+TopCoder created the Marathon Match Series to provide a more flexible competition with an extended timeline that offers different types of problems than can be offered in a traditional TopCoder algorithm competition. In contrast to traditional TopCoder challenges, the marathon format requires competitors to come up with the most effective optimizations, rather than a pure coding 'sprint' to implement a successful algorithm the quickest. 
 <br><br>
 Unlike traditional TopCoder algorithm competitions, the Marathon Match system is not necessarily testing only for correctness. In Marathon Matches, the scoring mechanism may also be different for each problem. A description of the scoring mechanism will be provided in the problem statement, requiring competitors to understand the scoring mechanism in order to effectively compete.
 <br><br>

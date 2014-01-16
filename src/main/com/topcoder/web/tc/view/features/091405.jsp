@@ -76,7 +76,7 @@ circumstances?  What are the secrets behind <tc-webtag:handle coderId="144400"/>
 As early as elementary school <tc-webtag:handle coderId="144400"/> was participating in math competitions.  These opened the
 doorway to Polish science camps, and eventually the opportunity to study abroad in England.  In high
 school, at the Polish Olympiad in Informatics, <tc-webtag:handle coderId="144400"/> began to show interest in the theory of
-algorithms.  Years later, during ACM contest training, he was able to hone these skills and help his
+algorithms.  Years later, during ACM challenge training, he was able to hone these skills and help his
 team win at the World Finals.  If it hasn't become clear already, <tc-webtag:handle coderId="144400"/> loves to compete.  Through
 this passion, he has had many achievements, and reached a level attained by few.
 <br><br>

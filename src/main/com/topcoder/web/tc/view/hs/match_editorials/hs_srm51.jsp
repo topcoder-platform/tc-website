@@ -57,7 +57,7 @@
 
 <p> 
 TCHS SRM 51 was held at the same time as SRM 407 and was marked by the use of a common problem between the 
-two contests. Unfortunately, this meant that coders could not compete in both of them. However, after a few issues 
+two challenges. Unfortunately, this meant that coders could not compete in both of them. However, after a few issues 
 with double registrations were resolved, HS round 51 got off to timely and speedy start.
 <tc-webtag:handle coderId="22694437" context="hs_algorithm"/> started things off with a submit on the easy barely three
 minutes into the round. The next few minutes saw more submits on the 250 pointer. However, it was the ten minute mark 
@@ -71,13 +71,13 @@ put in a surprising 828.56 point submission for the hard and became the top scor
 The other coders went through the easy and medium problems quicky but were stuck on the hard. 
 <br /><br />
 By the hour mark, the contestants seemed to have gotten a hang of the 1000 pointer
-and the submissions started rolling in. At the end of the contest there were a large number of submits across
+and the submissions started rolling in. At the end of the challenge there were a large number of submits across
 the board. The subsequent challenge phase was quite lively, it proved to particularly fruitful for <tc-webtag:handle coderId="22663117" context="hs_algorithm"/>
 who racked up 4 successful challenges and took over as the top scorer. On the other hand 
 <tc-webtag:handle coderId="22723868" context="hs_algorithm"/>'s lightning quick submit on the hard proved faulty and 
 saw him drop out of contention.
 <br /><br />
-The system test phase did not throw up too many surprises and the contest ended with
+The system test phase did not throw up too many surprises and the challenge ended with
 <tc-webtag:handle coderId="22663117" context="hs_algorithm"/> from the United States taking the win, 
 <tc-webtag:handle coderId="21761885" context="hs_algorithm"/> picking up second and
 <tc-webtag:handle coderId="22654002" context="hs_algorithm"/> third.

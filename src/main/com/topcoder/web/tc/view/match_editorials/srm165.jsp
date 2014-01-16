@@ -58,7 +58,7 @@ five seconds, denying <b>SnapDragon</b> 50 points that would have propelled him
 into first place.  It looked like <b>WishingBone</b> would eke out the
 victory until his Hard problem timed out during system tests.  Division 1
 also witnessed the end of an amazing streak by <b>Tomek</b>, who had
-until now submitted all three problems in every contest he had entered.
+until now submitted all three problems in every challenge he had entered.
 </p>
 
 <p>
@@ -459,7 +459,7 @@ If you are math phobic, this problem probably gave you a severe case of
 the heebie jeebies.  Even if you are comfortable with math, you may
 have been uncomfortable with this problem because it was deliberately
 written to test a slightly different skill from most TopCoder problems.
-Usually, contest problems ask you either to come up with an algorithm
+Usually, challenge problems ask you either to come up with an algorithm
 from scratch or to use an algorithm that is clearly specified.  
 This problem asked you to use a particular algorithm, but did not specify
 how that algorithm works.  Intead, you were asked to generalize the 

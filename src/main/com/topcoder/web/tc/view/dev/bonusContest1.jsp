@@ -46,7 +46,7 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="bodyText">
-                        <div align="center"><img src="/i/development/bonusContestGraphic.gif" alt="TopCoder Software Development Bonus Contest" width="470" height="59" border="0" /></div>
+                        <div align="center"><img src="/i/development/bonusContestGraphic.gif" alt="TopCoder Software Development Bonus Challenge" width="470" height="59" border="0" /></div>
                         
                         <p><strong>With an average score of 93.09 on 5 submissions, Pops beat out 40 other TopCoder members to take the top spot... and the $2000 bonus.</strong></p>
 
@@ -104,7 +104,7 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="bodyText">
-                        <p>Thank you to everyone who submitted entries for our February/March Component Design Contest.</p>
+                        <p>Thank you to everyone who submitted entries for our February/March Component Design Challenge.</p>
                     </td>
                 </tr>
             </table>
@@ -115,7 +115,7 @@
                         <table border="0" cellspacing="0" cellpadding="3" width="300" class="formFrame">
 
                 <tr>
-                    <td class="statTextLarge" colspan="3" bgcolor="#999999"><a name="design"></a><font size="3">Qualifying Contest Entries</font></td>
+                    <td class="statTextLarge" colspan="3" bgcolor="#999999"><a name="design"></a><font size="3">Qualifying Challenge Entries</font></td>
                 </tr>
 
                 <tr valign="middle">
@@ -381,13 +381,13 @@
                         
                         <hr width="100%" noshade="noshade" color="#666666" />
                         
-                        <p><strong>Contest Requirements</strong><br />
+                        <p><strong>Challenge Requirements</strong><br />
                         Just submit designs that pass screening for a minimum of four Component Design Projects whose initial submission dates are between February 1, 2003 
                         and March 31, 2003. To pass screening, a design submission must score in the top 5 for that component and meet the minimum requirements of the 
-                        screening scorecard.  All submissions that pass screening will be entered into the contest. The design submission with the highest review board score 
+                        screening scorecard.  All submissions that pass screening will be entered into the challenge. The design submission with the highest review board score 
                         greater than or equal to 75 will be declared the component design winner for that project.</p>
 
- <!--                        <p>Get started today... There are plenty of <a href="/tc?module=ViewActiveContests&ph=112">Active Contests</a> for you to choose from.</p> -->
+ <!--                        <p>Get started today... There are plenty of <a href="/tc?module=ViewActiveContests&ph=112">Active Challenges</a> for you to choose from.</p> -->
 
                         <p>Not sure what to submit? See our <a href="/tc?module=Static&d1=dev&d2=support&d3=desDocumentation">sample design solution</a> for ideas.</p>
                         

@@ -329,12 +329,12 @@ TopCoder Chief Financial Officer Tanya Horgan addressed the eligibility issue as
 
 <P>
 "In order to include additional countries, TopCoder must first perform a thorough review of the gaming 
-laws in each country to determine whether our contests would be considered lawful.  This review would 
-include an evaluation of whether our contests would be considered a lottery, since we award cash prizes.  
+laws in each country to determine whether our challenges would be considered lawful.  This review would 
+include an evaluation of whether our challenges would be considered a lottery, since we award cash prizes.  
 It is, as we know, a skills contest, however we must review the subtle details of the laws to ensure our 
 contests comply with each country's laws.  TopCoder engages a local law firm in each country to perform 
-the review, and they report to us their findings and opinion as to whether our contests comply with local 
-laws.  Their report also includes an affidavit that contest winners must execute, as the language in the 
+the review, and they report to us their findings and opinion as to whether our challenges comply with local 
+laws.  Their report also includes an affidavit that challenge winners must execute, as the language in the 
 affidavits varies by country.
 </P>
 

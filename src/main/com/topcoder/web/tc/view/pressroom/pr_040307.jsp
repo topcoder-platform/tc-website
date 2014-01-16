@@ -61,8 +61,8 @@ Wu joined TopCoder as a member in May 2002. During the next two and a half years
 <b>Partial list of Jiazhi Wu's Achievements</b>
 <ul>
 <li>TopCoder Collegiate Challenge, International Regional Champion, 2003;</li>
-<li>ACM International Collegiate Programming Contest (ACM/ICPC), Champion 2003, Aizu; 2003, Runner-up, Xi'an; 2002, 4th place, Beijing;  2003, 13th place in World Finals;</li>
-<li>International Collegiate Mathematical Contest in Modeling, 2nd Prize, 2002;</li>
+<li>ACM International Collegiate Programming Challenge (ACM/ICPC), Champion 2003, Aizu; 2003, Runner-up, Xi'an; 2002, 4th place, Beijing;  2003, 13th place in World Finals;</li>
+<li>International Collegiate Mathematical Challenge in Modeling, 2nd Prize, 2002;</li>
 <li>Founder and first president of ZJU Google Camp in 2006. Held technical internship with Google that same year;</li>
 <li>Coached and created new training regimen for Zhejiang University ACM/ICPC teams which made the 2005 World Finals;</li>
 <li>TopCoder record and reputation &mdash; one of the most prolific and successful members of all time.</li>

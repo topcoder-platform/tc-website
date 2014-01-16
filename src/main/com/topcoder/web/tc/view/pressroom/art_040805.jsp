@@ -48,7 +48,7 @@ SANTA CLARA, CALIF. - April 8, 2005 - The nerds have taken over the Marriott. On
 <br /><br />
 So begins the fifth annual TopCoder Collegiate Challenge, a computer-programming tournament in which contestants write algorithms to solve complicated problems while racing the clock. To survive, contestants need to master geometry, number theory, and for al proofs. For academe's cyber set, this is March Madness. 
 <br /><br />
-Run by TopCoder, Inc., a Connecticut-based software company, and sponsored by Yahoo, the contest and its $20,000 prize for first place brings together some of the world's top young programmers. The two-day event, one of several programming contests held each year, also attracts recruiters from leading technology companies, who come to dangle lucrative offers for jobs and internships before young computer jocks.
+Run by TopCoder, Inc., a Connecticut-based software company, and sponsored by Yahoo, the challenge and its $20,000 prize for first place brings together some of the world's top young programmers. The two-day event, one of several programming challenges held each year, also attracts recruiters from leading technology companies, who come to dangle lucrative offers for jobs and internships before young computer jocks.
 <br /><br />
 After all, it is not easy to find students who can write a super-fast computer program to solve a problem like this: "Determine how many different character strings of a given length can be created using the letters A, B, or C."
 <br /><br />
@@ -56,22 +56,22 @@ Nearly 1,300 students entered the competition, the first two rounds of which too
 <br /><br />
 As the first group of eight contestants prepares for combat this morning, a computer-generated voice introduces each of them to a small crowd of spectators. One by one the students step forward, smile at the applause, then walk to the stage, where desktop computers await. "The semifinal competition is about to begin," says the voice, programmed to sound like a British woman. "Good luck."
 <br /><br />
-The challengers here will need plenty of luck to beat Tomasz Czajka, the tournament's reigning champion and No. 1 seed. A 23-year-old doctoral candidate in Purdue University's computer-science program, he won three major tournaments last year, two of which were open to professional programmers. He has earned nearly $100,000 on the contest circuit and feels as mighty as a mainframe.
+The challengers here will need plenty of luck to beat Tomasz Czajka, the tournament's reigning champion and No. 1 seed. A 23-year-old doctoral candidate in Purdue University's computer-science program, he won three major tournaments last year, two of which were open to professional programmers. He has earned nearly $100,000 on the challenge circuit and feels as mighty as a mainframe.
 <br /><br />
-Mr. Czajka (pronounced chee-ka) believes that his ability to relax during the contest gives him an edge over more stressed out competitors. "This is really like a holiday to me," he says.
+Mr. Czajka (pronounced chee-ka) believes that his ability to relax during the challenge gives him an edge over more stressed out competitors. "This is really like a holiday to me," he says.
 <br /><br />
-Still, during the competition he seems a bit hyper. He walks fast and talks faster. As the contest begins, his rivals show little, if any, emotion, but Mr. Czajka tries to psych them out by flashing a big grin and pumping his right fist into the air.
+Still, during the competition he seems a bit hyper. He walks fast and talks faster. As the challenge begins, his rivals show little, if any, emotion, but Mr. Czajka tries to psych them out by flashing a big grin and pumping his right fist into the air.
 <br /><br />
 In his native Poland, Mr. Czajka is a superstar. He has swigged coffee with Aleksander Kwasniewski, the Polish president, and garnered plenty of attention from the nation's press. In his homeland, he says, people treat him like a star athlete.
 <br /><br />
-Tall and thin, Mr. Czajka liked to play volleyball in high school, but he admits he was not very good. In coding contests, however, "he is scarily good," says James McKeown, TopCoder's director of communications. "He is the man."
+Tall and thin, Mr. Czajka liked to play volleyball in high school, but he admits he was not very good. In coding challenges, however, "he is scarily good," says James McKeown, TopCoder's director of communications. "He is the man."
 <br /><br />
 <span class="bodySubtitle">PROGRAMMED FOR VICTORY</span><br />
 The son of two computer programmers, Mr. Czajka grew up in Stalowa Wola, a town east of Krakow. After his parents bought him a computer for his 10th birthday, he and his father would sit and write programs together. At 13 he started entering math competitions and attending science camps, where he learned the mathematical roots of computer science, like algorithms and beat structures. 
 <br /><br />
 At 14 Mr. Czajka entered his first high-school computing contest, in which students had to solve three problems in five hours. He didn't win, but the competition thrilled him. He knew then that he was hard-wired for cerebral combat. "It's like sports," he says. "You either run fast or you don't."
 <br /><br />
-He won several computing contests and TopCoder events before graduating from Warsaw University last year with a bachelor's degree in computer science. Upon earning a Ph.D. from Purdue, he might seek a job at a research laboratory. Perhaps he will return to Poland. Who knows? For now, his passion is cranking out code at warp speed. 
+He won several computing challenges and TopCoder events before graduating from Warsaw University last year with a bachelor's degree in computer science. Upon earning a Ph.D. from Purdue, he might seek a job at a research laboratory. Perhaps he will return to Poland. Who knows? For now, his passion is cranking out code at warp speed. 
 <br /><br />
 On the first day of competition, Mr. Czajka ? better known by his nickname, Tomek ? sits at his computer, alternately chewing on his pencil, scribbling calculations, and typing furiously. He and the seven other contestants have been given three problems to answer in 85 minutes. Points are awarded for the accuracy of their code as well as for speed. 
 <br /><br />
@@ -108,9 +108,9 @@ Yahoo representatives, he says, have told him that if he worked there this summe
 <span class="bodySubtitle">'YOU HAVE FAST HEADS'</span><br />
 That night Yahoo recruiters take the contestants on a tour of the company's headquarters, a few miles away in Sunnyvale, where they hobnob with senior vice presidents over plates of roast beef and ice-cream sundaes. 
 <br /><br />
-The next morning, a few contestants are up early enough to watch the wild-card round; the winner will compete in this afternoon's finals. After lunch all of the students get a pep talk from Steven S. Skiena, a professor of computer science at the State University of New York at Stony Brook and one of the authors of Programming Challenges: The Programming Contest Training Manual (Springer-Verlag, 2003).
+The next morning, a few contestants are up early enough to watch the wild-card round; the winner will compete in this afternoon's finals. After lunch all of the students get a pep talk from Steven S. Skiena, a professor of computer science at the State University of New York at Stony Brook and one of the authors of Programming Challenges: The Programming Challenge Training Manual (Springer-Verlag, 2003).
 <br /><br />
-Mr. Skiena believes that programming contests are valuable learning experiences, even for the contestants that do not reach the finals. "Programmers have to learn skills as opposed to facts," he says. "Thinking algorithmically is very, very hard. You learn it by doing and practicing."
+Mr. Skiena believes that programming challenges are valuable learning experiences, even for the contestants that do not reach the finals. "Programmers have to learn skills as opposed to facts," he says. "Thinking algorithmically is very, very hard. You learn it by doing and practicing."
 <br /><br />
 In his talk, he tells the contestants how "awesome" they are, cracking them up when he says: "You have fast heads. You have fast hands. You have balls." It is a reference to the fact that these students thrive under pressure ? and that every last one of them is male.
 <br /><br />
@@ -126,7 +126,7 @@ As they wait for the results, Mr. Czajka and Mr. Vogelzang stand next to each ot
 <br /><br />
 A few minutes later, a TopCoder employee proclaims Mr. Vogelzang the winner. Mr. Czajka's challenges have failed. He looks surprised. Still, he smiles and congratulates his rival. 
 <br /><br />
-The new champion walks to the front of the room, where he receives a game-show-size check, nearly as long as he is tall, for $20,000. Contests like this, Mr. Vogelzang says, make him doubt his plan to become a doctor.
+The new champion walks to the front of the room, where he receives a game-show-size check, nearly as long as he is tall, for $20,000. challenges like this, Mr. Vogelzang says, make him doubt his plan to become a doctor.
 <br /><br />
 Mr. Czajka says he is satisfied with second place. He has just won $10,000 after all. But he vows to return to the next tournament, in the fall. "To win," he says.
 </p>

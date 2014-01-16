@@ -236,7 +236,7 @@ See <a href="/tc?module=MemberProfile&cr=10574855">Petr</a>'s
 </p>
 <p>
 If you were not sure about the greedy approach during the contest, the problem could be brute forced through all reasonable strategies.
-Even in a contest haste one can easily see that neither button should be clicked more than, say, 1000 times.
+Even in a challenge haste one can easily see that neither button should be clicked more than, say, 1000 times.
 Therefore one can just iterate through all 1M cases, 
 check for each case whether it fixes the clock and return the minimal number of clicks among all proper cases.
 This approach isn't error-prone and doesn't require any tricks, so you are safe choosing it.
@@ -394,7 +394,7 @@ for a clear implementation of this approach.
 <p>
 If this optimization isn't enough for you, you can avoid binary search at all, solving the last equation mathematically.
 (see Petr's <a href="/stat?c=problem_solution&rm=247651&rd=9811&pm=5968&cr=10574855">solution</a>).
-On the other hand, during the contest its really important to correctly estimate your skills and abilities.
+On the other hand, during the challenge its really important to correctly estimate your skills and abilities.
 If you think coding the "slow" binary search will take you less time than looking for the formula, it may be better to go with one of the first approaches.
 </p>
 <font size="+2"> 

@@ -80,7 +80,7 @@
 <p>But I'm still surprised to find myself currently at #3 on the TopCoder ranking. I knew I was good, but some of the top guys are really amazing. </p>
 <p><strong> </strong><strong>What are your hobbies, other than TopCoder?</strong></p>
 <p>What, there are other things to do than TopCodering? </p>
-<p>OK, seriously, I do some other programming contests, but also read books, watch movies, play table tennis. I'm a serious fan of Monty Python too. </p>
+<p>OK, seriously, I do some other programming challenges, but also read books, watch movies, play table tennis. I'm a serious fan of Monty Python too. </p>
 <p><strong> </strong><strong>How do you approach an algorithmic SRM event?</strong></p>
 <p>A lot of it is about having the right mindset - believing that you can solve the problems and having faith in your solution. At the moment I'm working in the order easy-medium-hard. I usually submit as soon as I can solve all the sample cases, although depending on the problem I might test some corner cases as well. </p>
 <p>Something I learned from <tc-webtag:handle coderId="10574855" context="algorithm"/> is to then test the problem immediately, rather than hoping there is time to come back and do it later. </p>
@@ -88,9 +88,9 @@
 <p>Initially, I just took part in as many SRMs as I could. When I started, I switched to VIM on Windows, which is the environment I used at the finals. I also worked through old finals in the practice rooms. Finals tend to have tougher problems than SRMs, so it was important to make the mental adjustment. </p>
 <p><strong> </strong><strong>How have TopCoder events changed your programming?</strong></p>
 <p>It's definitely made my coding faster and less error-prone. I don't type any faster, but I've picked up a lot of shortcuts and so I write less code. And the less code you write, the less chance there is of bugs. </p>
-<p>I also used to try to fully optimize almost everything, as a result of experience with IOI and similar contests. I now take the approach that I try to write the minimum amount of code to get the job done, even if it's a bit slower to run. </p>
-<p><strong> </strong><strong>What topics of study would you suggest to a new TopCoder member who wants to excel in algorithmic contests?</strong></p>
-<p>You should definitely work through the <a href="/tc?module=Static&d1=tutorials&d2=alg_index">Algorithm tutorials</a> on the TopCoder site - they're all important. I guess dynamic programming and graph theory are the two pillars on which most contest problems are based. </p>
+<p>I also used to try to fully optimize almost everything, as a result of experience with IOI and similar challenges. I now take the approach that I try to write the minimum amount of code to get the job done, even if it's a bit slower to run. </p>
+<p><strong> </strong><strong>What topics of study would you suggest to a new TopCoder member who wants to excel in algorithmic challenges?</strong></p>
+<p>You should definitely work through the <a href="/tc?module=Static&d1=tutorials&d2=alg_index">Algorithm tutorials</a> on the TopCoder site - they're all important. I guess dynamic programming and graph theory are the two pillars on which most challenge problems are based. </p>
 <p>But no amount of book-learning is going to help without experience. The best way to get good at TopCoder is to take part in a lot of matches and, after each match, find out what theory you needed to solve the problems. </p>
 <p><strong> </strong><strong>What is your proudest moment in TopCoder? How did you feel?</strong></p>
 <p>I would say advancing from the final round at the TCCC06 finals. I was really happy about it, and a little bit disbelieving. </p>

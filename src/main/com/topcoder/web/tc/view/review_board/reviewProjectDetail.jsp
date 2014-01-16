@@ -316,7 +316,7 @@
                             <td class="bodyText">
                                 <p align="left">
                                     Select the review roles you would like to apply for and click the button.
-                                    The system will assign members that best meet the review requirements for this contest.
+                                    The system will assign members that best meet the review requirements for this challenge.
                                     <c:if test="${auctionCategoryId == CONTEST_REVIEW_AUCTION_CATEGORY_ID}">
                                         Although you will be assigned to at most one review position, applying for multiple
                                         roles increases your chances of being selected.

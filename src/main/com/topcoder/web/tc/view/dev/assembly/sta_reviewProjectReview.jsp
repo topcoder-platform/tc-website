@@ -37,11 +37,11 @@
 <jsp:param name="title" value="Standings"/>
 </jsp:include>
 
-<span class="bodySubtitle">Contest: Online Review Project Review</span>
+<span class="bodySubtitle">Challenge: Online Review Project Review</span>
 <br><br>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="3">Assembly Contest Standings</td></tr>
+   <tr><td class="title" colspan="3">Assembly Challenge Standings</td></tr>
    <tr>
       <td class="header" width="50%" nowrap="nowrap">Team</td>
       <td class="header" width="50%" nowrap="nowrap">Team Members</td>

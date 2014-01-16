@@ -46,10 +46,10 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </jsp:include>
 
 <P><B>China, New Zealand and Ireland Added to TopCoder Developer Community</B></P>
-<P>Host of Computer Programming Contests Continues To Expand Globally</P>
+<P>Host of Computer Programming challenges Continues To Expand Globally</P>
 
 <P>
-GLASTONBURY, CT., May 28, 2002 - TopCoder, Inc., a company committed to identifying and promoting computer programming talent through competition, today announced it has expanded eligibility to its online and onsite computer programming contests to include citizens of China, New Zealand and Ireland.  The addition of these countries to the TopCoder developer community demonstrates the company's continuing global expansion efforts, representing the fifth, sixth and seventh international territories that have been added since the company launched its competitions in February 2001.  According to an IDC report published in 2001, these three countries alone have more than 300,000 professional developers in residence.  Citizens of Canada, Australia, India and the United Kingdom are also eligible to compete along with the primarily U.S. member base.
+GLASTONBURY, CT., May 28, 2002 - TopCoder, Inc., a company committed to identifying and promoting computer programming talent through competition, today announced it has expanded eligibility to its online and onsite computer programming challenges to include citizens of China, New Zealand and Ireland.  The addition of these countries to the TopCoder developer community demonstrates the company's continuing global expansion efforts, representing the fifth, sixth and seventh international territories that have been added since the company launched its competitions in February 2001.  According to an IDC report published in 2001, these three countries alone have more than 300,000 professional developers in residence.  Citizens of Canada, Australia, India and the United Kingdom are also eligible to compete along with the primarily U.S. member base.
 </P>
 
 <P>

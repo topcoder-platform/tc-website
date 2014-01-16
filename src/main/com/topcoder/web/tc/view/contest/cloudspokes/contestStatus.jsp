@@ -19,7 +19,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <title>Contest Status</title>
+    <title>Challenge Status</title>
     <jsp:include page="/script.jsp"/>
     <script language="JavaScript" type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="/js/cloudspokes.js"></script>
@@ -56,18 +56,18 @@
 
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="cloudspokes"/>
-                <jsp:param name="title" value="Contest Status"/>
+                <jsp:param name="title" value="Challenge Status"/>
             </jsp:include>
 
             <table class="stat" cellpadding="0" cellspacing="0" width="100%" id="cloudSpokesContestStatus">
                 <thead>
                 <tr>
                     <th class="title" colspan="6">
-                        CloudSpokes Contest Status
+                        CloudSpokes Challenge Status
                     </th>
                 </tr>
                 <tr>
-                    <th class="header" width="40%" align="left"><a href="javascript:;">Contest</a></th>
+                    <th class="header" width="40%" align="left"><a href="javascript:;">Challenge</a></th>
                     <th class="headerC" width="12%" style="text-align: center"><a href="javascript:;">Registrants</a>
                     </th>
                     <th class="headerC" width="12%" style="text-align: center"><a href="javascript:;">Submission Due

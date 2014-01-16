@@ -54,7 +54,7 @@ function menu_goto( menuform )
 
         <div id="eventDescBox">
             <div class="spacer">
-                <div>Now is your chance to be the driving force in the growth of TopCoder and reap the benefits in the form of monthly cash bonuses in the Digital Run. The DR is now tied directly to TopCoder's revenue, so the more you compete, the more contests we run, the more cash we pay out at the end of each month.</div>
+                <div>Now is your chance to be the driving force in the growth of TopCoder and reap the benefits in the form of monthly cash bonuses in the Digital Run. The DR is now tied directly to TopCoder's revenue, so the more you compete, the more challenges we run, the more cash we pay out at the end of each month.</div>
                 <div>>> <a href="http://forums.topcoder.com/?module=Thread&amp;threadID=617309">how it works...</a></div>
             </div>
         </div>
@@ -87,7 +87,7 @@ function menu_goto( menuform )
                     <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=desRules">Rules</a>
                 </div>
                 <div>
-                    <a href="/tc?module=ViewActiveContests&amp;ph=112">Active contests</a>
+                    <a href="/tc?module=ViewActiveContests&amp;ph=112">Active Challenges</a>
                 </div>
                 <div>
                     <a href="/dr?module=ViewLeaderBoard&amp;tid=2198">Leaderboards</a>
@@ -112,7 +112,7 @@ function menu_goto( menuform )
                     <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=devRules">Rules</a>
                 </div>
                 <div>
-                    <a href="/tc?module=ViewActiveContests&amp;ph=113">Active contests</a>
+                    <a href="/tc?module=ViewActiveContests&amp;ph=113">Active Challenges</a>
                 </div>
                 <div>
                     <a href="/dr?module=ViewLeaderBoard&amp;tid=2199">Leaderboards</a>
@@ -137,7 +137,7 @@ function menu_goto( menuform )
                     <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=rules">Rules</a>
                 </div>
                 <div>
-                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active contests</a>
+                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active Challenges</a>
                 </div>
                 <div>
                     <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/dr?module=ViewLeaderBoard&amp;tid=2200">Leaderboards</a>

@@ -135,7 +135,7 @@
                     <% } %>
                     <td class="header">
                        	<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRatingHistory<tc-webtag:sort column="<%=history.getColumnIndex("contest_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
-				            Contest
+				            Challenge
 				        </A>                    
                     </td>
                     <td class="header">

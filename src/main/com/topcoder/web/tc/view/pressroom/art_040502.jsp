@@ -39,7 +39,7 @@
                     </jsp:include>
                         <div align="center">
 						<div align="center"><IMG SRC="/i/pressroom/denver_bizjrnl.gif" ALT="Denver Business Journal" border="0"/></div><BR/>
-						<p><span class="bodyTitle">Coder wins big in contests</span></p>
+						<p><span class="bodyTitle">Coder wins big in challenges</span></p>
                         </div>
 <P>Lyn Berry-Helmlinger<BR/>
 Denver Business Journal</P>
@@ -49,7 +49,7 @@ Denver Business Journal</P>
 <P>Wright is one of 16 finalists to advance to the championship rounds of the 2002 Sun Microsystems and TopCoder Collegiate Challenge tournament. The competition is scheduled for April 19-20 at the University Park Hotel@MIT in Cambridge, Mass.</P>
 <P>TopCoder will score the contestants based on their ability to use a particular coding language under the pressure of peer-to-peer competition -- known as intensity -- and velocity, which is the ability to write quality code quickly and accurately. The winner of the tournament will receive $150,000.</P>
 <P>Wright is confident about his chances in the upcoming tournament.</P>
-<P>"I came very, very close to winning $100,000 in the previous Invitational contest," he said. "By the TopCoder rating system, I'm one of the highest seeds for this contest -- so maybe this time I'll be lucky."</P>
+<P>"I came very, very close to winning $100,000 in the previous Invitational contest," he said. "By the TopCoder rating system, I'm one of the highest seeds for this challenge -- so maybe this time I'll be lucky."</P>
 <P>Wright has entered the tournament as the second seed in the West region. This is Wright's third consecutive appearance in TopCoder's first three major tournaments, according to Adam Loss, TopCoder's director of public relations.</P>
 <P>"Maybe the third time will be a charm for Daniel," said Jack Hughes, TopCoder founder and chairman. "Daniel is the only member of TopCoder to reach the final 16 in each of our first three major tournaments, which is a tremendous testament to his coding skill."</P>
 <P>Previously, Wright tied for ninth and won $5,750 at the 2001 TopCoder Collegiate Challenge; he was the runner-up at the 2001 TopCoder Invitational, where he competed with a group of opponents that included professional coders -- and won $25,000.</P>

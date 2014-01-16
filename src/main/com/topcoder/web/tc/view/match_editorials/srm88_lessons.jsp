@@ -190,7 +190,7 @@ Problems:
 	regenerated the factors.  Why?  Sunspots or brain damage: you choose...</LI>
 	<LI>Failing to pay attention to bounds.  Several solutions timed out because
 	the loop did not stop at the square root.  The impact on running time is
-	obvious after the contest is over.</LI>
+	obvious after the challenge is over.</LI>
 	<LI>Failing on the test case with a single input of "1"</LI>
 	<LI>Failing on the first test case of the input.  I know that many people 
 	wonder "How much testing makes sense?".  Testing at least one example is 

@@ -190,7 +190,7 @@ Other achievements:
 Student of Lviv National University
 </p>
 
-<p><tc-webtag:handle coderId="13351270" /> wrote his first SRM less then 18 months ago, so he's the least experienced of the Ukrainian semifinalists. He admits he was really surprised to advance onsite, even though by the TCO qualifications he was ranked among the Top 30 Algorithm competitors (and several SRMs later he outrated <tc-webtag:handle coderId="311170" /> ). <tc-webtag:handle coderId="13351270" /> owes his recent progress to permanent practice: he spends most of his leisure time on training, and misses contests only in very special cases, like when he had an exam scheduled for the same day.</p>
+<p><tc-webtag:handle coderId="13351270" /> wrote his first SRM less then 18 months ago, so he's the least experienced of the Ukrainian semifinalists. He admits he was really surprised to advance onsite, even though by the TCO qualifications he was ranked among the Top 30 Algorithm competitors (and several SRMs later he outrated <tc-webtag:handle coderId="311170" /> ). <tc-webtag:handle coderId="13351270" /> owes his recent progress to permanent practice: he spends most of his leisure time on training, and misses challenges only in very special cases, like when he had an exam scheduled for the same day.</p>
 
 <p>Unlike other Ukrainian advancers, <tc-webtag:handle coderId="13351270" /> received his USA visa for the first time this year. He met a traditional obstacle at the embassy - his interview was arranged for June at first, and it took a letter from TC to rearrange it.</p>
 
@@ -208,7 +208,7 @@ Other achievements:
 </ul>
 </p>
 
-<p><tc-webtag:handle coderId="9927526" /> is a student of Physical-Technical Institute, a relatively young department of NTUU "KPI". PTI has two decent ACM teams, in spite of the fact that students can't use computer labs for contests, and that they offer no instruction on contest-specific problems. <tc-webtag:handle coderId="9927526" /> is planning to organize a course on solving ACM-specific problems for younger students during next year.</p>
+<p><tc-webtag:handle coderId="9927526" /> is a student of Physical-Technical Institute, a relatively young department of NTUU "KPI". PTI has two decent ACM teams, in spite of the fact that students can't use computer labs for challenges, and that they offer no instruction on contest-specific problems. <tc-webtag:handle coderId="9927526" /> is planning to organize a course on solving ACM-specific problems for younger students during next year.</p>
 
 <p><tc-webtag:handle coderId="9927526" /> gives credits for his progress to six months of intense practice before the ACM World Finals. "Our team was lucky to be invited to Petrozavodsk winter training camp, training with best Russian teams has been a useful experience."</p>
 

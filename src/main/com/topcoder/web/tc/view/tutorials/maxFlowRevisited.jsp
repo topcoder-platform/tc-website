@@ -314,7 +314,7 @@ Figure 5. Comparison on dense networks. 200 test cases. <i>m &ge; n1.85</i>.</di
 
 <p>As you can see, the <span class="math">O(nm</span>log<span class="math">U)</span> algorithm isn't so fast. It is even slower than the <span class="math">O(n<sup>2</sup>m)</span> algorithm. The <span class="math">O(nm<sup>2</sup>)</span> algorithm (it is the most popular) has worse time bounds, but it works much faster than most of the other algorithms with better time bounds. </p>
 
-<p>My recommendation: Always use the scaling capacity path algorithm with BFS, because it is very easy to implement. The improved shortest augmenting path algorithm is rather easy, too, but you need to be very careful to write the program correctly. During the contest it is very easy to miss a bug.</p>
+<p>My recommendation: Always use the scaling capacity path algorithm with BFS, because it is very easy to implement. The improved shortest augmenting path algorithm is rather easy, too, but you need to be very careful to write the program correctly. During the challenge it is very easy to miss a bug.</p>
 
 <p>I would like to finish the article with the full implementation of the improved shortest augmenting path algorithm. To maintain a network I use the adjacency matrix with purpose to providing best understanding of the algorithm. It is not the same realization what was used during our practical analysis. With the "help" of the matrix it works a little slower than one that uses adjacency list. However, it works faster on dense networks, and it is up to the reader which data structure is best for them.</p>
 

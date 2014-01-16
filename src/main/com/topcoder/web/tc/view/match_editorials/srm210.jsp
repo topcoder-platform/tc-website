@@ -49,7 +49,7 @@
 <span class="bigTitle">Match summary</span>
 
 <p>
-The problems of this match contained a variety of traditional programming contest topics, but they shared a common theme of relevance to "real world" concerns in software development.
+The problems of this match contained a variety of traditional programming challenge topics, but they shared a common theme of relevance to "real world" concerns in software development.
 Besides enhancing the validity of TopCoder competitions as an indicator of on-the-job performance, real world problems also net the problem writer a handsome bonus payment.
 Unfortunately, these problems have a somewhat tarnished reputation since they frequently involve tedious simulations of complex but uninteresting systems.
 Therefore, my goal was to create a problem set that was both relevant in the real world and fun to solve.

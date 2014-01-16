@@ -427,7 +427,7 @@ int minSplitNumber(int width, int height, int nTiles) {
         return ret==3?-1:ret;
 }
 </pre>
-Another approach a lot of coders took during the contest is handling case by
+Another approach a lot of coders took during the challenge is handling case by
 case. If we take this approach, we get the following solution:
 <pre>
 int minSplitNumber(int width, int height, int nTiles) {

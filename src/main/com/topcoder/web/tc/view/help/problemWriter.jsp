@@ -55,10 +55,10 @@ So you've taken your best shot at some of TopCoder's algorithm problems, and you
 
 <ul>
 <li>Try to write your problems in such way that they work together as a problem set.</li>
-<li>You can write any type of contest that you'd like, including a High School match or an SRM.</li>
+<li>You can write any type of challenge that you'd like, including a High School match or an SRM.</li>
 <li>You can submit problems as often (or as rarely) as you like - submitting a problem does not commit you to any regular writing schedule.</li>
-<li>You may not participate in any contest in which problems you wrote are being used.</li>
-<li>You will also have the opportunity to write the Match Editorial for the contest in which your problems were used (though writing the editorial is not obligatory). Payment for editorial writing is in addition to the payment for problem writing.</li>
+<li>You may not participate in any challenge in which problems you wrote are being used.</li>
+<li>You will also have the opportunity to write the Match Editorial for the challenge in which your problems were used (though writing the editorial is not obligatory). Payment for editorial writing is in addition to the payment for problem writing.</li>
 </ul>
 
 <p>

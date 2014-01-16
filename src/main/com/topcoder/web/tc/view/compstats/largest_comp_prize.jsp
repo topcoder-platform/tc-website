@@ -19,12 +19,12 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <strong>Record:</strong> Winners of the largest prizes for a single Design or Development Competition.  This does not include reliability bonuses.<br /><br />A record will be listed as "HIDDEN" if the competitor has opted to hide his/her payments.
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%" style="float: left; margin-bottom: 15px;">
-    <tr><td class="title" colspan="5">Largest Single Component Contest Prizes</td></tr>
+    <tr><td class="title" colspan="5">Largest Single Component Challenge Prizes</td></tr>
     <tr>
       <td class="headerC">Rank</td>
       <td class="header">Coder</td>
       <td class="headerR">Prize</td>
-      <td class="header">Contest</td>
+      <td class="header">Challenge</td>
       <td class="headerC">Date</td>
    </tr>
     <% boolean even = false; %>

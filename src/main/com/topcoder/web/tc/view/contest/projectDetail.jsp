@@ -221,7 +221,7 @@
                                 <div class="tab">
                                     <ul>
                                         <li><a href="javascript:;" <c:if test="${tabIndex == 'overview'}"> class="current"</c:if> rel="overview">
-                                            <span><span><span>Contest Overview</span></span></span>
+                                            <span><span><span>Challenge Overview</span></span></span>
                                         </a></li>
                                         <c:if test="${checkpointReviewFinished}">
                                         <li><a href="javascript:;" <c:if test="${tabIndex == 'checkpoint'}"> class="current"</c:if> rel="checkpoints">
@@ -240,9 +240,9 @@
                                 <div class="tabContainer">
                                     <!-- overview -->
                                     <div id="overview" class="tabContainerInner">
-                                        <!-- contest overview -->
+                                        <!-- challenge overview -->
                                         <div class="contestOverview">
-                                            <h3>Contest Overview</h3>
+                                            <h3>Challenge Overview</h3>
                                             <div class="containerInner" id="contestOverviewContainerInner">
                                                 
                                 <c:if test="${isCopilotPosting}">
@@ -274,7 +274,7 @@
                                                 <p>
                                                 Please refer to the <a href="http://apps.topcoder.com/wiki/x/FIXTAg">How-To</a> guidelines prior to submitting.<br/><br/>
                                                 To be considered for review, you must submit 2 documents in a single zip file.<br/><br/>
-                                                1.  Game Plan - This is a roadmap of the contests that you plan to run to complete the project.  This should be your best estimate based on the information provided to you.  Communicate in the forums to make sure expectations are clear.  (<a href=http://www.topcoder.com/wiki/download/attachments/47416596/GamePlan_Template.xls>Download the Template</a>)<br/><br/>
+                                                1.  Game Plan - This is a roadmap of the challenges that you plan to run to complete the project.  This should be your best estimate based on the information provided to you.  Communicate in the forums to make sure expectations are clear.  (<a href=http://www.topcoder.com/wiki/download/attachments/47416596/GamePlan_Template.xls>Download the Template</a>)<br/><br/>
                                                 2.  Strategy Document - This is a 1 page text document that describes your general approach and strategy to executing and completing the project.  You should include explanations of release points, dependencies, assumptions and risks.  (<a href=http://apps.topcoder.com/wiki/download/attachments/47416596/Strategy_Document_Sample.doc>Download a Sample</a>)<br/>
                                                 </p>
                                                 <p><span class="bodySubtitle">Final Submission Guidelines</span></p>
@@ -697,7 +697,7 @@
                             <!-- time line -->
                             <div class="timeline">
                                 <div class="inner">
-                                    <h3><span>Contest Timelines</span></h3>
+                                    <h3><span>Challenge Timelines</span></h3>
                                     <ul>
                                         <li>
                                             <strong>Posted On:</strong>
@@ -782,14 +782,14 @@
                                 <div class="shadow"></div>
                             </div>
                             <!-- End review style section -->
-                            <!-- Contest Links -->
+                            <!-- Challenge Links -->
                             <div class="contestLinks">
-                                <h3>Contest Links</h3>
+                                <h3>Challenge Links</h3>
                                 <div class="inner">
                                     <ul>
                                         <% if (projectDetail.getItem(0, "jive_category_id").getResultData() != null) { %>
                                         <li>
-                                            <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">Contest Forum</a>
+                                            <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">Challenge Forum</a>
                                         </li>
                                         <% } %>
                                         <% if (projectDetail.getItem(0, "screening_scorecard_id").getResultData() != null) { %>

@@ -119,7 +119,7 @@
 </div>
 
 <p>Wednesday morning I was sitting out on the patio outside my room, leafing through the TCCC07 Program when I was assaulted by a duck. I first saw him out the corner of my eye, waddling onto the patio, but was unaware of the threat he posed. He regarded me inquisitively - I paid him little attention until he started pecking my thigh. Startled... I looked around thinking maybe this was his room. I then realized he was probably just hungry. I went inside and dug through my luggage for a packet of Delta Airlines snacks - Came back, sat down and hand-fed the duck mini-pretzels... Which he seemed to relish.</p>
-<p>Here's a series of shots taken inside the Contemporary Resort Wednesday and Thursday. All the shops and restaurants are down below. I got to judge a pumpkin carving contest there, alas... No pics. Which is a shame, because those pumpkins were incredibly well done.</p>
+<p>Here's a series of shots taken inside the Contemporary Resort Wednesday and Thursday. All the shops and restaurants are down below. I got to judge a pumpkin carving challenge there, alas... No pics. Which is a shame, because those pumpkins were incredibly well done.</p>
 <div align="center">
     <table width="100%">
         <tr>

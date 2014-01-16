@@ -348,7 +348,7 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
 </table></blockquote>
 
 <p>
-This problem obviously refers to the TopCoder contests.  In the first step, you
+This problem obviously refers to the TopCoder challenges.  In the first step, you
 should calculate the probability of beating each of the other people
 independently.  You can do this by examining each of the 8 outcomes (2 outcomes
 for each of 3 problems) for each person.  Then, you can use brute force to find

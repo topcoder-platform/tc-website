@@ -59,7 +59,7 @@ At the start of the Algorithm Competition, Czajka, known by the handle 'tomek', 
 <br/><br/>
 "This was one of the toughest fields I have ever competed against - the level of collective talent is awesome," said tomek. "Today's win is very special to me. I'd like to express my respect for my opponents and to thank TopCoder and their great sponsors." 
 <br/><br/>
-Adrian Carcu and Jin GuanZhou battled to win their contests in Design and Development.  Sergey Kalinichenko of San Francisco, CA and Pavlo Aksonov of Kiev, Ukraine finished in second and third place in the Design Competition, while Chip Bradford of Fairport, NY, and Celsus Kintanar of Los Banos, Philippines were awarded second and third place in the Development Competition. GuanZhou intends to use part of his prize to fund his education.
+Adrian Carcu and Jin GuanZhou battled to win their challenges in Design and Development.  Sergey Kalinichenko of San Francisco, CA and Pavlo Aksonov of Kiev, Ukraine finished in second and third place in the Design Competition, while Chip Bradford of Fairport, NY, and Celsus Kintanar of Los Banos, Philippines were awarded second and third place in the Development Competition. GuanZhou intends to use part of his prize to fund his education.
 <br/><br/>
 "Microsoft is proud to be involved as the title sponsor of the 2004 TopCoder Open," said Kristen Roby, Senior Director, College Recruiting. "We are excited by the high level of energy and skill represented by this field of gifted international contestants today and congratulate each of them on their competitive spirit."
 <br/><br/>

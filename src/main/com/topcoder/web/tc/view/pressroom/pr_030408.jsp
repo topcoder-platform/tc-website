@@ -56,7 +56,7 @@
 </p>
 
 <p>
-AOL's use of the TopCoder Enterprise Software Development Platform includes an enterprise-wide license to the TopCoder Component  Catalog of more than 1,100 reusable software components, access to the TopCoder Enterprise Software Development Platform suite of tools and processes and access to the TopCoder Competition engine of online and onsite programming contests. Over the course of the next 15 months, AOL will leverage the powerful strategic development capabilities presented by this enterprise-wide license to the TopCoder catalog of reusable software components, access the TopCoder "software factory" suite of tools and processes and increase usage of the TopCoder Competition platform of online and onsite programming contests. In addition, AOL will be afforded unique branding opportunities through enhanced access to the global TopCoder community. During the past 3 years more than $11 million has been paid out to over 1,500 of the top ranked and rated TopCoder designers, developers, architects and assemblers who have competed and contributed to produce the TopCoder Catalog.
+AOL's use of the TopCoder Enterprise Software Development Platform includes an enterprise-wide license to the TopCoder Component  Catalog of more than 1,100 reusable software components, access to the TopCoder Enterprise Software Development Platform suite of tools and processes and access to the TopCoder Competition engine of online and onsite programming challenges. Over the course of the next 15 months, AOL will leverage the powerful strategic development capabilities presented by this enterprise-wide license to the TopCoder catalog of reusable software components, access the TopCoder "software factory" suite of tools and processes and increase usage of the TopCoder Competition platform of online and onsite programming challenges. In addition, AOL will be afforded unique branding opportunities through enhanced access to the global TopCoder community. During the past 3 years more than $11 million has been paid out to over 1,500 of the top ranked and rated TopCoder designers, developers, architects and assemblers who have competed and contributed to produce the TopCoder Catalog.
 </p>
 
 <p>
@@ -79,7 +79,7 @@ The TopCoder 'Software Factory" license now allows AOL to take full advantage of
     <li><strong>Competition Screening</strong>: validation of component submissions with a set of rules;</li>
     <li><strong>Component Pipeline Report</strong>: access to the TopCoder competition platform posting schedule</li>
     <li><strong>Online Forums</strong>: access to project forums for each AOL-specific competition.</li>
-    <li><strong>TopCoder Competition Engine</strong>: TopCoder's best-of-breed programming competition engine and world renowned arenas including Component Design, Component Development, Assembly, Testing, Bug Races and Marathon Matches.</li>
+    <li><strong>TopCoder Competition Engine</strong>: TopCoder's best-of-breed programming competition engine and world renowned arenas including Component Design, Component Development, Assembly, Testing, Races and Marathon Matches.</li>
 </ul>
 
 <p>

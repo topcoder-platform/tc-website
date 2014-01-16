@@ -34,7 +34,7 @@
 <td width="100%" align="center" class="bodyColumn">
 <jsp:include page="../page_title.jsp">
     <jsp:param name="image" value="statistics_w"/>
-    <jsp:param name="title" value="Component Contest Details"/>
+    <jsp:param name="title" value="Component Challenge Details"/>
 </jsp:include>
 
 

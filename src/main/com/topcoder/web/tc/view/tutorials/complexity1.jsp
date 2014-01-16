@@ -127,7 +127,7 @@ the values in Table 1 <B>before</B> writing the actual code - then he
 could only implement the better algorithm.
 
 <P>
-The same situation occurs during programming contests: The size of
+The same situation occurs during programming challenges: The size of
 the input data is given in the problem statement. Suppose I found an
 algorithm. Questions I have to answer before I start to type should be:
 Is my algorithm worth implementing? Will it solve the largest test

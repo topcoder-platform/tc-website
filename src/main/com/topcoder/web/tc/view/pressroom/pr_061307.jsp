@@ -49,7 +49,7 @@
       
 <p><strong>GLASTONBURY, Conn., June 13, 2007 &#151;</strong>TopCoder&#174;, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced that its global community of members will help Professor Karim Lakhani of the Harvard Business School with his research agenda by providing access to their skills in innovative software development.</p>
 
-<p>The TopCoder community will compete in a Wikipedia analysis contest which will aid Professor Lakhani's research on distributed innovation systems and the movement of innovative activity to the edges of organizations and into communities (see <a href="<tc-webtag:linkTracking link='http://courseware.hbs.edu/public/cases/wikipedia/' refer='pr_061307' />">http://courseware.hbs.edu/public/cases/wikipedia/</a> for more details on the project).</p>
+<p>The TopCoder community will compete in a Wikipedia analysis challenge which will aid Professor Lakhani's research on distributed innovation systems and the movement of innovative activity to the edges of organizations and into communities (see <a href="<tc-webtag:linkTracking link='http://courseware.hbs.edu/public/cases/wikipedia/' refer='pr_061307' />">http://courseware.hbs.edu/public/cases/wikipedia/</a> for more details on the project).</p>
 
 <p>Lakhani is a professor at the Harvard Business School where he does research on distributed innovation systems and the movement of innovative activity to the edges of organizations and into communities. He has extensively studied the emergence of open source software communities and their unique innovation and product development strategies.</p>
 

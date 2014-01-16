@@ -49,7 +49,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <title>TopCoder :: Active Contests</title>
+    <title>TopCoder :: Active Challenges</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="../script.jsp"/>
@@ -184,73 +184,73 @@
                 <c:when test="${pt == DESIGN_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="comp_design"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="comp_development"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="conceptualization"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="specification"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="assembly"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="architecture"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == COMPONENT_TESTING_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="comp_testing"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="test_suites"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="test_scenarios"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="ui_prototype"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="ria_build"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == RIA_COMPONENT_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="ria_component"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == COPILOT_POSTING_PROJECT_TYPE}">
@@ -262,31 +262,31 @@
                 <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="content_creation"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == REPORTING_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="reporting"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == BUG_HUNT_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="bug_hunt"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == FIRST2FINISH_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="first2finish"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
                 <c:when test="${pt == CODE_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="code"/>
-                        <jsp:param name="title" value="Active Contests"/>
+                        <jsp:param name="title" value="Active Challenges"/>
                     </jsp:include>
                 </c:when>
             </c:choose>
@@ -353,9 +353,9 @@
                       Code
                 </c:when>
             </c:choose>
-                 Contest Details</td></tr>
+                 Challenge Details</td></tr>
         <tr>
-            <td class="cat" nowrap="nowrap">Contest:</td>
+            <td class="cat" nowrap="nowrap">Challenge:</td>
             <td class="stat" align="right" nowrap="nowrap">
                 <rsc:item name="component_name" set="<%=registrants%>"/>
                    <rsc:item name="version_text" set="<%=registrants%>"/>

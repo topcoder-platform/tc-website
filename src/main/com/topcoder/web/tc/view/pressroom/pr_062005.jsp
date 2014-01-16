@@ -38,7 +38,7 @@
                         <jsp:param name="title" value="Press Release"/>
                     </jsp:include>
                         <div align="center">
-                        <p><span class="bodyTitle">TopCoder&#174; Announces Return of Cash Prizes to Weekly Online Programming Contests</span><br />
+                        <p><span class="bodyTitle">TopCoder&#174; Announces Return of Cash Prizes to Weekly Online Programming Challenges</span><br />
                         <span class="bodySubTitle"><em>$5,000 Purse at Stake During Select Matches as TopCoder Opens Sponsorship of Highly Popular Single Round Series</em></span></p>
                         </p>
                         </div>

@@ -202,79 +202,79 @@
     <c:when test="${pt == DESIGN_TYPE_ID}">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="statistics_w"/>
-            <jsp:param name="title" value="Component Contest List"/>
+            <jsp:param name="title" value="Component Challenge List"/>
         </jsp:include>
-        <span class="bodySubtitle">Component Statistics &gt; Design Contests</span><br>
+        <span class="bodySubtitle">Component Statistics &gt; Design Challenges</span><br>
     </c:when>
     <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="statistics_w"/>
-            <jsp:param name="title" value="Component Contest List"/>
+            <jsp:param name="title" value="Component Challenge List"/>
         </jsp:include>
-        <span class="bodySubtitle">Component Statistics &gt; Development Contests</span><br>
+        <span class="bodySubtitle">Component Statistics &gt; Development Challenges</span><br>
     </c:when>
     <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="statistics_w"/>
-            <jsp:param name="title" value="Component Contest List"/>
+            <jsp:param name="title" value="Component Challenge List"/>
         </jsp:include>
-        <span class="bodySubtitle">Application Statistics &gt; Conceptualization Contests</span><br>
+        <span class="bodySubtitle">Application Statistics &gt; Conceptualization Challenges</span><br>
     </c:when>
     <c:when test="${pt == SPECIFICATION_TYPE_ID}">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="statistics_w"/>
-            <jsp:param name="title" value="Component Contest List"/>
+            <jsp:param name="title" value="Component Challenge List"/>
         </jsp:include>
-        <span class="bodySubtitle">Application Statistics &gt; Specification Contests</span><br>
+        <span class="bodySubtitle">Application Statistics &gt; Specification Challenges</span><br>
     </c:when>
     <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="statistics_w"/>
-            <jsp:param name="title" value="Component Contest List"/>
+            <jsp:param name="title" value="Component Challenge List"/>
         </jsp:include>
-        <span class="bodySubtitle">Application Statistics &gt; Architecture Contests</span><br>
+        <span class="bodySubtitle">Application Statistics &gt; Architecture Challenges</span><br>
     </c:when>
     <c:when test="${pt == ASSEMBLY_TYPE_ID}">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="statistics_w"/>
-            <jsp:param name="title" value="Component Contest List"/>
+            <jsp:param name="title" value="Component Challenge List"/>
         </jsp:include>
-        <span class="bodySubtitle">Application Statistics &gt; Assembly Contests</span><br>
+        <span class="bodySubtitle">Application Statistics &gt; Assembly Challenges</span><br>
     </c:when>
     <c:when test="${pt == TEST_SUITES_TYPE_ID}">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="statistics_w"/>
-            <jsp:param name="title" value="Component Contest List"/>
+            <jsp:param name="title" value="Component Challenge List"/>
         </jsp:include>
-        <span class="bodySubtitle">Application Statistics &gt; Test Suites Contests</span><br>
+        <span class="bodySubtitle">Application Statistics &gt; Test Suites Challenges</span><br>
     </c:when>
     <c:when test="${pt == TEST_SCENARIOS_TYPE_ID}">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="statistics_w"/>
-            <jsp:param name="title" value="Component Contest List"/>
+            <jsp:param name="title" value="Component Challenge List"/>
         </jsp:include>
-        <span class="bodySubtitle">Application Statistics &gt; Test Scenarios Contests</span><br>
+        <span class="bodySubtitle">Application Statistics &gt; Test Scenarios Challenges</span><br>
     </c:when>
     <c:when test="${pt == UI_PROTOTYPE_TYPE_ID}">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="statistics_w"/>
-            <jsp:param name="title" value="Studio Contest List"/>
+            <jsp:param name="title" value="Studio Challenge List"/>
         </jsp:include>
-        <span class="bodySubtitle">Studio Statistics &gt; UI Prototype Contests</span><br>
+        <span class="bodySubtitle">Studio Statistics &gt; UI Prototype Challenges</span><br>
     </c:when>
     <c:when test="${pt == RIA_BUILD_TYPE_ID}">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="statistics_w"/>
-            <jsp:param name="title" value="Studio Contest List"/>
+            <jsp:param name="title" value="Studio Challenge List"/>
         </jsp:include>
-        <span class="bodySubtitle">Studio Statistics &gt; RIA Build Contests</span><br>
+        <span class="bodySubtitle">Studio Statistics &gt; RIA Build Challenges</span><br>
     </c:when>
     <c:when test="${pt == RIA_COMPONENT_TYPE_ID}">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="statistics_w"/>
-            <jsp:param name="title" value="Studio Contest List"/>
+            <jsp:param name="title" value="Studio Challenge List"/>
         </jsp:include>
-        <span class="bodySubtitle">Studio Statistics &gt; RIA Component Contests</span><br>
+        <span class="bodySubtitle">Studio Statistics &gt; RIA Component Challenges</span><br>
     </c:when>
     <c:when test="${pt == COPILOT_POSTING_TYPE_ID}">
         <jsp:include page="../page_title.jsp" >
@@ -288,35 +288,35 @@
             <jsp:param name="image" value="statistics_w"/>
             <jsp:param name="title" value="Content Creation List"/>
         </jsp:include>
-        <span class="bodySubtitle">Application Statistics &gt; Content Creation Contests</span><br>
+        <span class="bodySubtitle">Application Statistics &gt; Content Creation Challenges</span><br>
     </c:when>
     <c:when test="${pt == REPORTING_TYPE_ID}">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="statistics_w"/>
             <jsp:param name="title" value="Reporting List"/>
         </jsp:include>
-        <span class="bodySubtitle">Application Statistics &gt; Reporting Contests</span><br>
+        <span class="bodySubtitle">Application Statistics &gt; Reporting Challenges</span><br>
     </c:when>
     <c:when test="${pt == BUG_HUNT_TYPE_ID}">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="statistics_w"/>
             <jsp:param name="title" value="Bug Hunt List"/>
         </jsp:include>
-        <span class="bodySubtitle">Application Statistics &gt; Bug Hunt Contests</span><br>
+        <span class="bodySubtitle">Application Statistics &gt; Bug Hunt Challenges</span><br>
     </c:when>
     <c:when test="${pt == FIRST2FINISH_TYPE_ID}">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="statistics_w"/>
             <jsp:param name="title" value="First2Finish List"/>
         </jsp:include>
-        <span class="bodySubtitle">Application Statistics &gt; First2Finish Contests</span><br>
+        <span class="bodySubtitle">Application Statistics &gt; First2Finish Challenges</span><br>
     </c:when>
     <c:when test="${pt == CODE_TYPE_ID}">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="statistics_w"/>
             <jsp:param name="title" value="Code List"/>
         </jsp:include>
-        <span class="bodySubtitle">Application Statistics &gt; Code Contests</span><br>
+        <span class="bodySubtitle">Application Statistics &gt; Code Challenges</span><br>
     </c:when>
 </c:choose>
 
@@ -408,7 +408,7 @@
                 </c:when>
             </c:choose>
 
-            Contest Details
+            Challenge Details
 
             </td></tr>
             <tr>
@@ -449,7 +449,7 @@
                <% }  %>
                </TD>
             <td class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item name="winner_score" row="<%=resultRow%>" ifNull="" format="0.00"/></TD>
-            <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><A HREF='/tc?module=ProjectDetail&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>&tab=results' class="bcLink">Contest Details</a></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><A HREF='/tc?module=ProjectDetail&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>&tab=results' class="bcLink">Challenge Details</a></TD>
             </TR>
       <%even=!even;%>
       </rsc:iterator>

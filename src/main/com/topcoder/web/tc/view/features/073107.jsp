@@ -105,7 +105,7 @@ SRM 352: 2188</p>
 <p><strong> Q: What&rsquo;s the biggest obstacle you&rsquo;ve had to overcome? </strong></p>
 <p> A: That&rsquo;s definitely laziness. The rest is just not worth mentioning. </p>
 <p><strong>Q: What would you compare the experience of competing to?</strong></p>
-<p>A: It depends on the type of a contest. If it&rsquo;s an algorithm match, that&rsquo;s real sport and I should say it demands a lot of psychic energy. Component contests are more like work, but the good point about them is that you have time to think and make everything nice.</p>
+<p>A: It depends on the type of a contest. If it&rsquo;s an algorithm match, that&rsquo;s real sport and I should say it demands a lot of psychic energy. Component challenges are more like work, but the good point about them is that you have time to think and make everything nice.</p>
 <p><strong>Q: What kind of environment do you like to compete in? </strong></p>
 <p> A: Normally I crawl deeper into the armchair and turn music on. Though you can&rsquo;t stay like that for too long and need to have a break, at least sometimes&hellip;</p>
 <p><strong>Q: Have you ever gotten burned out on programming competitions? What did you do to overcome it?</strong></p>

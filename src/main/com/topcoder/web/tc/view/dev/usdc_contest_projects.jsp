@@ -7,7 +7,7 @@
 <html>
 
 <head>
-<title>Ultimate Software Development Contest</title>
+<title>Ultimate Software Development Challenge</title>
 
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">

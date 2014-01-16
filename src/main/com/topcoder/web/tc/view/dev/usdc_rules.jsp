@@ -3,7 +3,7 @@
 <html>
 
 <head>
-<title>Ultimate Software Development Contest</title>
+<title>Ultimate Software Development Challenge</title>
 
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
@@ -44,7 +44,7 @@
 
 <h2>Official Rules</h2>
 
-<p>By participating in the Ultimate Software Development Contest (the "USDC" or the "Contest") you hereby 
+<p>By participating in the Ultimate Software Development Challenge (the "USDC" or the "Contest") you hereby 
 agree to comply with the following rules and regulations of the Contest.</p>
 
 <h3>Eligibility</h3>
@@ -58,17 +58,17 @@ agree to comply with the following rules and regulations of the Contest.</p>
 	refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S., 
 	or (iv) a non-U.S. resident authorized to perform services as an independent contractor.</li>
 	</ul>
-<p>The Contest is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law.  
+<p>The Challenge is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law.  
 Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria. </p>
 
 <p>Employees of TopCoder, Inc. and those involved in the production (including prize suppliers), implementation and distribution of 
-this contest and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or 
-affiliates, or any other persons or entities directly associated with the contest and members of the immediate families and/or 
+this challenge and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or 
+affiliates, or any other persons or entities directly associated with the challenge and members of the immediate families and/or 
 persons living in the same household as such persons, are ineligible to enter the Contest.</p>
 
 <h3>Registration</h3>
 
-<p>All members who are participating in each weekly contest must register for at least one component within 48 hours 
+<p>All members who are participating in each weekly challenge must register for at least one component within 48 hours 
 of the weekly posting date to be eligible for that week's prizes.</p>
 
 <h3>Placement Scoring</h3>
@@ -100,7 +100,7 @@ pass the minimum component score of 70. Placement scoring is as follows: </p>
 
 
 <h3>Prizes</h3>
-<p>If for any reason a prize is not awarded during the course of the Contest (i.e., the minimum number of submissions was not 
+<p>If for any reason a prize is not awarded during the course of the Challenge (i.e., the minimum number of submissions was not 
 received, the category was not offered, etc.), that prize will be forfeited.</p>
 
 
@@ -174,7 +174,7 @@ to 20% of the prize. The following is an example of payouts based on the member'
 <p>By participating in the Contest, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and 
 conclusive in all matters. Contestants must not cheat. All ideas for any component design or development solution submitted must be 
 the contestant's alone. All decisions relating to the viability of submissions, the ranking of submissions and all other matters 
-pertaining to the Contest shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.</p>
+pertaining to the Challenge shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.</p>
 
 <p>As a condition of participation in the Contest, all information provided in each competitor's TopCoder member profile must be 
 comprehensive, accurate and up-to-date. TopCoder may require each competitor to complete an additional registration form to register 
@@ -188,7 +188,7 @@ on file with TopCoder), a winner (i) confirms his/her
 eligibility, (ii) represents and warrants that he/she has not cheated; that the idea for the component design and/or development 
 solution submitted is his/hers alone, (iii) verifies the accuracy of the demographic information submitted to, and contained in, 
 the TopCoder member database, (iv) authorizes TopCoder to publicize the contest's results, (v) agrees to sign any applicable 
-forms required by tax authorities, (vi) assigns to TopCoder all rights to all information submitted during the contest 
+forms required by tax authorities, (vi) assigns to TopCoder all rights to all information submitted during the challenge 
 (including rights to source code and other executables), and (vii) releases TopCoder from liability arising out of any prize won. 
 TopCoder requires contestants to complete the Form W-9, W-8BEN, or W-8ECI for tax reporting purposes. If prize notification is 
 returned as undeliverable, or if the winner fails to return the Affidavit, or the appropriate tax form, the winner will be 
@@ -204,21 +204,21 @@ disclaims all liability associated with, and makes no warranties with regard to,
 
 <p>In addition, all prizewinners agree to cooperate with TopCoder's publicity efforts, without further compensation. This 
 includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, 
-for this or similar future contests, and to use the statements made by, or attributed to, the winners relating to TopCoder and 
+for this or similar future challenges, and to use the statements made by, or attributed to, the winners relating to TopCoder and 
 any and all rights to said use, without further compensation. Furthermore, all prizewinners agree to promptly notify TopCoder if a 
 third-party contacts the prizewinner regarding employment opportunities and/or media interest as a result of the prizewinner's 
 participation in the Contest.</p>
 
 <p>TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with competing in this Contest, 
 and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder suspects competitors 
-of cheating, tampering with the entry process, the operation of the Web site, or the contest process, or otherwise being in violation 
-of the rules. TopCoder reserves the right to cancel, terminate or modify the Contest if it is not capable of completion as planned for 
+of cheating, tampering with the entry process, the operation of the Web site, or the challenge process, or otherwise being in violation 
+of the rules. TopCoder reserves the right to cancel, terminate or modify the Challenge if it is not capable of completion as planned for 
 any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.</p>
 
 <h3>Other</h3>
-<p>The contest is void in whole or in part where prohibited by law.</p>
+<p>The challenge is void in whole or in part where prohibited by law.</p>
 
-<p>This contest is brought to you by TopCoder, Inc. (<a href="http://www.topcoder.com/">http://www.topcoder.com/</a>) 95 Glastonbury Blvd, Glastonbury, CT 06033.</p>
+<p>This challenge is brought to you by TopCoder, Inc. (<a href="http://www.topcoder.com/">http://www.topcoder.com/</a>) 95 Glastonbury Blvd, Glastonbury, CT 06033.</p>
 
 <p><br/></p>
 

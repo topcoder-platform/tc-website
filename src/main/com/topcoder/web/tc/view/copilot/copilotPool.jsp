@@ -127,19 +127,19 @@ The road you take will be defined by you and your copilot. Want to learn more? F
                 </option>
                 <option value="1" <% if (sorting == 1) {%> selected="selected" <% } %> >No. of Completed Projects &uarr;
                 </option>
-                <option value="2" <% if (sorting == 2) {%> selected="selected" <% } %>>No. of Completed Contests &uarr;
+                <option value="2" <% if (sorting == 2) {%> selected="selected" <% } %>>No. of Completed Challenges &uarr;
                 </option>
                 <option value="6" <% if (sorting == 6) {%> selected="selected" <% } %>>No. of Current Projects &uarr;
                 </option>
-                <option value="7" <% if (sorting == 7) {%> selected="selected" <% } %>>No. of Current Contests &uarr;
+                <option value="7" <% if (sorting == 7) {%> selected="selected" <% } %>>No. of Current Challenges &uarr;
                 </option>
                 <option value="11" <% if (sorting == 11) {%> selected="selected" <% } %> >No. of Completed Projects &darr;
                 </option>
-                <option value="12" <% if (sorting == 12) {%> selected="selected" <% } %>>No. of Completed Contests &darr;
+                <option value="12" <% if (sorting == 12) {%> selected="selected" <% } %>>No. of Completed Challenges &darr;
                 </option>
                 <option value="16" <% if (sorting == 16) {%> selected="selected" <% } %>>No. of Current Projects &darr;
                 </option>
-                <option value="17" <% if (sorting == 17) {%> selected="selected" <% } %>>No. of Current Contests &darr;
+                <option value="17" <% if (sorting == 17) {%> selected="selected" <% } %>>No. of Current Challenges &darr;
                 </option>
             </select>
         </form>
@@ -191,7 +191,7 @@ The road you take will be defined by you and your copilot. Want to learn more? F
                         </td>
                     </tr>
                     <tr>
-                        <td class="label">Contest :</td>
+                        <td class="label">Challenge :</td>
                         <td class="number b">
                             <%=m.getTotalContests() == CopilotPoolMember.UNDEFINED_STAT ? na :m.getTotalContests()%>
                         </td>
@@ -221,7 +221,7 @@ The road you take will be defined by you and your copilot. Want to learn more? F
                         </td>
                     </tr>
                     <tr>
-                        <td class="label current-bot">Current Contests :</td>
+                        <td class="label current-bot">Current Challenges :</td>
                         <td class="number b current-bot font-color01">
                             <%=m.getCurrentContests()  == CopilotPoolMember.UNDEFINED_STAT ? na : m.getCurrentContests()%>
                         </td>
@@ -257,18 +257,18 @@ The road you take will be defined by you and your copilot. Want to learn more? F
         <th>Member</th>
         <th class="border-l listHeader <% if(sorting % 10 == 1) {%> headerSortDown <% } %>" id="projectHeaderID"># of Projects
         </th>
-        <th class="border-l listHeader <% if(sorting % 10 == 2) {%> headerSortDown <% } %>" id="contestHeaderID"># of Contests
+        <th class="border-l listHeader <% if(sorting % 10 == 2) {%> headerSortDown <% } %>" id="contestHeaderID"># of Challenges
         </th>
         <th class="border-l listHeader <% if(sorting % 10 == 3) {%> headerSortDown <% } %>" id="repostHeaderID"># of Reposts</th>
         <th class="border-l listHeader <% if(sorting % 10 == 4) {%> headerSortDown <% } %>" id="failureHeaderID"># of Failures
         </th>
-        <th class="border-l listHeader <% if(sorting % 10 == 5) {%> headerSortDown <% } %>" id="bugRaceHeaderID"># of Bug Races
+        <th class="border-l listHeader <% if(sorting % 10 == 5) {%> headerSortDown <% } %>" id="bugRaceHeaderID"># of Races
         </th>
         <th class="border-l listHeader <% if(sorting % 10 == 6) {%> headerSortDown <% } %>" id="cProjectHeaderID">Number of
             Current Projects
         </th>
         <th class="border-l listHeader <% if(sorting % 10 == 7) {%> headerSortDown <% } %>" id="cContestHeaderID">Number of
-            Current Contests
+            Current Challenges
         </th>
         <th class="border-l">Copilot Profile</th>
     </tr>

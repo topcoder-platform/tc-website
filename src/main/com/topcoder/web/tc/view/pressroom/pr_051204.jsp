@@ -46,12 +46,12 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </jsp:include>
 
 <div align="center">
-<p><span class="bodyTitle">TopCoder Announces the Ultimate Software Development Contest</span><br />
+<p><span class="bodyTitle">TopCoder Announces the Ultimate Software Development Challenge</span><br />
 <span class="bodySubTitle"><em>$50,000 in Cash Prizes at Stake for Software Design and Development Competitions</em></span></p>
 </div>
 
 <p><strong>GLASTONBURY, Conn., May 12, 2004&#151;</strong>
-TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced the Ultimate Software Development Contest (USDC) scheduled to begin June 1, 2004 and run through September 2, 2004. The online competition will give eligible TopCoder members chances to win cash prizes totaling $50,000 during a series of weekly, monthly and quarterly contests, as well as match skills with other members around the globe using TopCoder's unique Competitive Development Methodology. Official rules and more details about the USDC are available at  http://www.topcoder.com.
+TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced the Ultimate Software Development Challenge (USDC) scheduled to begin June 1, 2004 and run through September 2, 2004. The online competition will give eligible TopCoder members chances to win cash prizes totaling $50,000 during a series of weekly, monthly and quarterly challenges, as well as match skills with other members around the globe using TopCoder's unique Competitive Development Methodology. Official rules and more details about the USDC are available at  http://www.topcoder.com.
 </p>
 <p>
 "At TopCoder we know that competition drives quality," said Dave Tanacea, President of TopCoder Software. "By expanding our industry standard algorithm competition into the component design and development disciplines with the USDC, our members can increase core competencies while improving their skills sets - all within an exciting and profitable arena."
@@ -60,7 +60,7 @@ TopCoder, Inc., the leader in online programming competition, skills assessment 
 The online competition will challenge contestants to submit component designs that adhere to strict project specifications and development solutions for those designs. Submissions will be independently reviewed and scored by TopCoder's Architecture and Design Review Boards to determine final ranking placement for each component. 
 </p>
 <p>
-The total prize purse of $50,000 will be awarded during the two tracks of competition:  design and development.  Prizes in the design competition will be $1,200 awarded each week, $3,500 each month and $9,000 each quarter. The prizes in the development contest will be $400 awarded each week, $1,750 each month and $4,500 each quarter. 
+The total prize purse of $50,000 will be awarded during the two tracks of competition:  design and development.  Prizes in the design competition will be $1,200 awarded each week, $3,500 each month and $9,000 each quarter. The prizes in the development challenge will be $400 awarded each week, $1,750 each month and $4,500 each quarter. 
 </p>
 <p><span class="bodySubTitle">About TopCoder and TopCoder Software</span><br />
 TopCoder is the recognized leader in identifying, evaluating and mobilizing effective software development resources. Through its proprietary programming competitions and rating system, TopCoder recognizes and promotes the abilities of the best programmers around the world.  TopCoder Software harnesses the talent of these developers to design, develop and deploy software through its revolutionary competitive development methodology. This methodology emphasizes thorough specification and design, distributed development using reusable components, and a rigorous quality assurance review process and results in higher quality, lower cost software solutions than traditional software development methodologies.  For more information about sponsoring TopCoder Events, recruiting TopCoder members and utilizing TopCoder Software, visit www.topcoder.com.

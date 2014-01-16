@@ -99,7 +99,7 @@
     TopCoder Review Boards and will be subject to final review and appeal in the same manner as standard
     component design and development submissions. Scoring of each submission by the TopCoder Review
     Boards is based on the criteria outlined in the Development Review Scorecard for the Development
-    Contest or the criteria outlined in the Design Review Scorecard for the Design Contest. Note that
+    Challenge or the criteria outlined in the Design Review Scorecard for the Design Challenge. Note that
     the scorecards to be used for the series are the ones that are in effect as of 
 <tc-webtag:format object="${startDate}" format=" MMMMM d, yyyy"/>. ALL
     SUBMISSIONS MUST BE RECEIVED ACCORDING TO THE SUBMISSION DEADLINE TO BE CONSIDERED A VIABLE ENTRY.

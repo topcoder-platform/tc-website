@@ -42,15 +42,15 @@
             How to Compete&#160;&#160;|&#160;&#160;
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdRules">Rules</a>&#160;&#160;|&#160;&#160;
             <%--
-            <span class="grayedOut">Active Contests (coming soon)</span>
+            <span class="grayedOut">Active Challenges (coming soon)</span>
             --%>
-            <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
+            <a href="/longcontest/?module=ViewActiveContests">Active Challenges</a>
         </p>
         
         <p><span class="bigTitle">How To Compete</span></p>
         
         <p><span class="bodySubtitle">Registration</span><br />
-        In order to compete in an AMD Multicore Threadfest event, one must first register. One may register at any time during the submission phase. The submission phase for each of the four (4) events will last for two weeks each. In order to register, you will need to click Register next to the appropriate Multicore Threadfest event within the Active Contests list and agree to the rules of the event. Once registered, you may view the problem statement by clicking the Problem Name from within the Active Contests list. Problem statements will be made available to all TopCoder members once the competition starts. Registration is not required to view them. Check the website for further details.</p>
+        In order to compete in an AMD Multicore Threadfest event, one must first register. One may register at any time during the submission phase. The submission phase for each of the four (4) events will last for two weeks each. In order to register, you will need to click Register next to the appropriate Multicore Threadfest event within the Active Challenges list and agree to the rules of the event. Once registered, you may view the problem statement by clicking the Problem Name from within the Active Challenges list. Problem statements will be made available to all TopCoder members once the competition starts. Registration is not required to view them. Check the website for further details.</p>
         
         <p><span class="bodySubtitle">Problem Statements</span><br />
         During the AMD Multicore Threadfest, the types of problems and the associated scoring mechanism will vary for each month's problem. A description of the scoring mechanism will be provided in the problem statement each month. Competitors will have to understand the scoring mechanism in order to effectively compete. The problems will be designed such that a solution that is properly threaded will tend to have a performance advantage over those that are not threaded, resulting in a higher score for threaded submissions. Each problem in the event series may have different memory usage constraints, threading constraints, and scoring criteria. These specifics will be outlined in the problem statement form for each event in the series.</p>

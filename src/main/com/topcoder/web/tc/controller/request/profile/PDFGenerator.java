@@ -844,7 +844,7 @@ public class PDFGenerator extends BaseProcessor {
         stats.getDefaultCell().setBorderWidth(1);
         stats.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
 
-        cell = new PdfPCell(new Phrase(contest.getPhaseDescription() + " Contest Details", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
+        cell = new PdfPCell(new Phrase(contest.getPhaseDescription() + " Challenge Details", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setBorderWidth(0);
         cell.setColspan(4);
         stats.addCell(cell);

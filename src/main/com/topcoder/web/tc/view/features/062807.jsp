@@ -73,16 +73,16 @@ SRM 349: 1523
 </p>
 
 <p><strong>What brought you to TopCoder? </strong><br>
-A bit more that a year ago (May, 2006) I met  <tc-webtag:handle coderId="344259" /> and he told me about TopCoder contests. He said it was very interesting and one could win a prize there.</p>
+A bit more that a year ago (May, 2006) I met  <tc-webtag:handle coderId="344259" /> and he told me about TopCoder challenges. He said it was very interesting and one could win a prize there.</p>
 
 <p><strong>What's one thing you learned at TopCoder that has helped you in other areas of your life? </strong><br>
 I had to learn STL.</p>
 
 <p><strong>What would you compare the experience of competing to -- does it feel like work, or like play, like a sporting event, or something else?</strong><br>
-The contest itself is definitely a sporting event J. Training process that precedes the contest is more like work but still is very enjoyable and interesting.</p>
+The challenge itself is definitely a sporting event J. Training process that precedes the challenge is more like work but still is very enjoyable and interesting.</p>
 
 <p><strong>In what kind of environment do you like to compete? </strong><br>
-Music, TV and the like impede my concentration. That's why I prefer silence and maybe just the sound of me mumbling something&#8230; I don't like darkness either as it strains my eyes so I try to set good lighting. I remember when my team took part in the regional ACM contest and at the trial round we were placed near the door and the board [Note: "Board" is a computer where participants may view the status of the contest] It was just unbearable. Annoying draughts and other people talking constantly about who is in which place did not give me a chance to gather wits and get to actually solving the problems. So I prefer a calm and comfortable environment. </p>
+Music, TV and the like impede my concentration. That's why I prefer silence and maybe just the sound of me mumbling something&#8230; I don't like darkness either as it strains my eyes so I try to set good lighting. I remember when my team took part in the regional ACM challenge and at the trial round we were placed near the door and the board [Note: "Board" is a computer where participants may view the status of the contest] It was just unbearable. Annoying draughts and other people talking constantly about who is in which place did not give me a chance to gather wits and get to actually solving the problems. So I prefer a calm and comfortable environment. </p>
 
 <p><strong>What was the biggest contributor to your progress this month?</strong><br>
 Luck :-)</p>
@@ -126,7 +126,7 @@ Poseidon. ;)</p>
 </p>
 
 <p><strong>What brought you to TopCoder?</strong><br>
-At the beginning I joined TopCoder for the algorithm contests. Later I found the development contest can prepare me for realistic programming. It's a good chance for a student to practice the realistic development.</p>
+At the beginning I joined TopCoder for the algorithm challenges. Later I found the development challenge can prepare me for realistic programming. It's a good chance for a student to practice the realistic development.</p>
 
 <p><strong>What's the coolest thing you've seen at TopCoder? </strong><br>
 In development contest, the coolest (also the most challenge) thing is the timeline, which pushes me to learn new technologies in a short time.</p>

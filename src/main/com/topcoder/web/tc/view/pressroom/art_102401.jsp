@@ -49,7 +49,7 @@
 						"It is particularly noteworthy that both have been able to make to both the finals of [the Collegiate Challenge] and the current TopCoder Invitation," said Jack Hughes, the founder and chairman of TopCoder, Inc.<BR/><BR/>
 						"The competition for the invitational has been fierce," Hughes said. "We applaud their ability to make it to the finals for a second time in a row and wish them the best of luck in the finals."<BR/><BR/>
 						McAlister has been competing in computer programming tournaments since high school.<BR/><BR/>
-						"My high school teacher. . . organized student teams every year for local, state and national math and programming contests, and with my interest in math and computer science, it wasn't long until our paths intersected," he said.<BR/><BR/>
+						"My high school teacher. . . organized student teams every year for local, state and national math and programming challenges, and with my interest in math and computer science, it wasn't long until our paths intersected," he said.<BR/><BR/>
 						He started competing in TopCoder tournaments after he saw a flyer on a bulletin board in the Gates Computer Science Building and has continued since then.<BR/><BR/>
 						McAlister said he is looking forward to the upcoming invitational.<BR/><BR/>
 						"I'm excited. I get a free trip to Connecticut . . . and I have a chance to earn another year's worth of tuition at Stanford," he said.<BR/><BR/>
@@ -69,7 +69,7 @@
 						The goal of the tournament, as well as of TopCoder, Inc., is to identify and promote the best computer programmers in the country, according to Loss.<BR/><BR/>
 						"By hosting competitions, providing the forum for a national event, and awarding significant prizes, TopCoder provides a means for the most talented individuals to be recognized," he said.<BR/><BR/>
 						"Our hope is that these individuals will garner the attention and praise they deserve," Loss said.<BR/><BR/>
-						With the tournament only two weeks away, Wright has been competing in weekly single-round contests in preparation.<BR/><BR/>
+						With the tournament only two weeks away, Wright has been competing in weekly single-round challenges in preparation.<BR/><BR/>
 						"I find them to be good practice, in addition to being a good source of income - each pays $300 if I'm lucky," he said.<BR/><BR/>
 						McAlister, on the other hand, has a different approach.<BR/><BR/>
 						"When I can, I will play the song 'Car Wash' repeatedly before [the] contest. It's a high school tradition that has worked well to calm anxiety."<BR/><BR/>

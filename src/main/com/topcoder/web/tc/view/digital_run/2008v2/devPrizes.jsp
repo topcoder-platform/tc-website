@@ -35,7 +35,7 @@
 
 <span class="title">Prizes</span>
 <br /><br />
-The Prize Pool for the Development Cup will grow with every competition posted within that month's timeframe. TopCoder will set a guaranteed minimum Prize Pool of $10,000 for the Development Cup per month (the pool will never be less than that amount). Every contest launched has a specific amount of points associated to it. Each point adds $1 to the Development Cup Prize Pool. For example, if we launch a component development competition on July 12, 2009 with 600 Digital Run points then TopCoder will add $600 to the Design Cup for July 2009. The more contests we launch, the larger the Development Cup Prize Pool will grow.
+The Prize Pool for the Development Cup will grow with every competition posted within that month's timeframe. TopCoder will set a guaranteed minimum Prize Pool of $10,000 for the Development Cup per month (the pool will never be less than that amount). Every challenge launched has a specific amount of points associated to it. Each point adds $1 to the Development Cup Prize Pool. For example, if we launch a component development competition on July 12, 2009 with 600 Digital Run points then TopCoder will add $600 to the Design Cup for July 2009. The more challenges we launch, the larger the Development Cup Prize Pool will grow.
 <br /><br />
 For each month, competitors will accumulate placement points according to the points table. In addition to the competition prize earnings, the top five (5) finishers will win large prizes and the top 1/2 of the point-getters in each month will receive a smaller prize. A total of 50% of the total Development Cup prize pool will be awarded in bonus prizes each month and will be distributed as follows:
 <br /><br />

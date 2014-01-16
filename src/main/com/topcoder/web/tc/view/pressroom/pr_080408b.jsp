@@ -43,16 +43,16 @@
 <div align="right"><tc-webtag:forumLink forumID="522683" message="Discuss this press release" /></div>
                         
 <div align="center">
-<p><span class="bodyTitle">TopCoder &amp; Think Services Announce Dr. Dobb's Architecture &amp; Design World 2008 Software Design Contest Winner</span><br />
+<p><span class="bodyTitle">TopCoder &amp; Think Services Announce Dr. Dobb's Architecture &amp; Design World 2008 Software Design Challenge Winner</span><br />
 <span class="bodySubTitle"><em>Architects Challenged to Create and Document Comprehensive Solutions to a Set of System Requirements</em></span></p>
 </div>
       
 <p>
-<strong>GLASTONBURY, CT. &amp; SAN FRANCISCO, CA., August 4, 2008 &#151;</strong>TopCoder&reg;, Inc. and Think Services today announced the winner of the recent Software Architecture Contest held during the Dr. Dobb's Architecture &amp; Design World 2008, July 21-24 at the Hyatt Regency McCormick Place in Chicago. Matt Cowan of Chicago won the first prize and Esteban Porcelli of Livingston, New Jersey took second place in the contest.
+<strong>GLASTONBURY, CT. &amp; SAN FRANCISCO, CA., August 4, 2008 &#151;</strong>TopCoder&reg;, Inc. and Think Services today announced the winner of the recent Software Architecture Challenge held during the Dr. Dobb's Architecture &amp; Design World 2008, July 21-24 at the Hyatt Regency McCormick Place in Chicago. Matt Cowan of Chicago won the first prize and Esteban Porcelli of Livingston, New Jersey took second place in the contest.
 </p>
 
 <p>
-The Software Architecture Contest presented attendees with a real-world exercise in architectural design to determine who could create and document the best comprehensive software solution to address a given set of system requirements within a set timeframe.
+The Software Architecture Challenge presented attendees with a real-world exercise in architectural design to determine who could create and document the best comprehensive software solution to address a given set of system requirements within a set timeframe.
 </p>
 
 <p>
@@ -60,7 +60,7 @@ Cowan won an All Access pass to the Dr. Dobb's Event of his choice including SD 
 </p>
 
 <p>
-"The Software Architecture Contest provided an engaging and interactive experience for our attendees at Architecture &amp; Design World," said Amber Ankerholz, Conference Manager, Dr. Dobb's Events. "We would like to extend our congratulations to all of the attendees who participated."
+"The Software Architecture Challenge provided an engaging and interactive experience for our attendees at Architecture &amp; Design World," said Amber Ankerholz, Conference Manager, Dr. Dobb's Events. "We would like to extend our congratulations to all of the attendees who participated."
 </p>
 
 <p>

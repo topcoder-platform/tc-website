@@ -90,7 +90,7 @@ The testing distribution posted by the TopCoder stuff will contain all the infor
   <li><strong>The prototype</strong><br>
   This is the most important part. It defines the page layout, the navigation, form, inputs, the names of links, etc. - all the critical details that must be used while writing the tests. It is highly recommended to deploy the prototype on the local http server (Tomcat, Apache, IIS, or whatever you feel comfortable with) and try to run the test cases against it.</li>
 </ul>
-If you have any questions about the prototype, or the scenarios, or anything, don't be afraid to post your thoughts on the forum specific to your contest (the forums will be created for each competition). 
+If you have any questions about the prototype, or the scenarios, or anything, don't be afraid to post your thoughts on the forum specific to your challenge (the forums will be created for each competition). 
 <br><br>
 
 <span class="bodySubtitle">Preparing the database.</span><br>

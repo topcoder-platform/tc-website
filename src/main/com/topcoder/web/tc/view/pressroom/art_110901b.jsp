@@ -49,7 +49,7 @@
 						Invitational Tournament, a competition that pits techies against each other in a battle of programming chops. He was finally eliminated in the 
 						semifinals, where a 16-person field was narrowed to four, but took away $5,750 in prize money regardless.<BR/><BR/>
 						To reach the national championship, Ellingson had to make his way through three preliminary rounds that weeded out the rest of a 256-person 
-						field. And before that, he had to outcode hundreds of other developers in weekly online contests held by TopCoder -- a Web-based service 
+						field. And before that, he had to outcode hundreds of other developers in weekly online challenges held by TopCoder -- a Web-based service 
 						created as a way of promoting skilled technical workers and providing a professional league for competition.<BR/><BR/>
 						Prior to the championship round, Ellingson had won more than $1,200 in weekly battles that he'd been competing in since May.<BR/><BR/>
 						The competitions, begun when TopCoder launched in February, present participating developers with a set of programming challenges that they 
@@ -59,9 +59,9 @@
 						"BEE."<BR/><BR/>
 						After the coding phase of the contest, there's the challenge phase. "You get the chance to look at other people's solutions and try and break 
 						them" by looking for design flaws, Ellingson said. "If you can find mistakes, you'll get bonuses to your own points."<BR/><BR/>
-						Ellingson, a fan of online computer games, said he heard about the TopCoder contests from a friend. "I thought, write programs and win money 
+						Ellingson, a fan of online computer games, said he heard about the TopCoder challenges from a friend. "I thought, write programs and win money 
 						-- sure, I'll check it out."<BR/><BR/>
-						He usually ranks in the top half of the weekly contests, which break TopCoder's thousands of subscribers into groups of eight. "The problems 
+						He usually ranks in the top half of the weekly challenges, which break TopCoder's thousands of subscribers into groups of eight. "The problems 
 						are generally fun, and there's a chat function where you get to talk with other developers from around the country," said Ellingson.<BR/><BR/>
 						He knew in advance that the finals would be harder, though. "The problems are about the same, but the people you're competing against are much 
 						tougher."<BR/><BR/>
@@ -72,7 +72,7 @@
 						"The thing didn't even have a screen; there was just a keyboard-connected computer someplace, and it printed out what you typed on paper," he 
 						said.<BR/><BR/>
 						He's worked at Actual Software for about five years, specializing in emergency notification services for telephone equipment.<BR/><BR/>
-						Despite the arcane problems used in the TopCoder contests, Ellingson said the regular, fast-paced tests have helped him in his everyday job, 
+						Despite the arcane problems used in the TopCoder challenges, Ellingson said the regular, fast-paced tests have helped him in his everyday job, 
 						as well.<BR/><BR/>
 						"In some ways I've been surprised at the amount of stuff I've picked up," he said. "When you're looking for the answer to the problems, you 
 						have to find the quickest, most efficient way of doing common, repetitive tasks -- which helps you in just about all areas."<BR/><BR/>

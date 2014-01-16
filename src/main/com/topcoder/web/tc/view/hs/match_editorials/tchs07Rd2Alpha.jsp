@@ -64,7 +64,7 @@ only because of his challenge points.
 <br /><br />
 
 At the top of the table, <tc-webtag:handle coderId="14848761" context="hs_algorithm"/>
-won the contest by a tiny margin over 
+won the challenge by a tiny margin over 
 <tc-webtag:handle coderId="15117368" context="hs_algorithm"/>. <tc-webtag:handle coderId="22663763" context="hs_algorithm"/> came in third about 100 points behind. 
 <br /><br />
 

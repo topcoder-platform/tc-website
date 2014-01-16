@@ -55,13 +55,13 @@
 <h2>Match summary</h2> 
 
 <p> 
-<tc-webtag:handle coderId="10574855" context="algorithm"/> continues his dominance, winning for the 3rd time out of the past three contests. 
+<tc-webtag:handle coderId="10574855" context="algorithm"/> continues his dominance, winning for the 3rd time out of the past three challenges. 
 After his third win he has also gained a new TopCoder rating record - 3744! Congratulations! 
 <tc-webtag:handle coderId="251074" context="algorithm"/> took the second place. He submitted Medium and Hard problems in about 12 minutes. However, as it is often the case, quick code is not always good code, and he had to resubmit them both. <tc-webtag:handle coderId="21659750" context="algorithm"/> finished third with two problems and four successful challenges. 
 <br />
 <br />
 
-This SRM seemed more difficult than the last few contests. 
+This SRM seemed more difficult than the last few challenges. 
 Division I participants easily rushed through the easy, but only 24 of them were able to successfully pass the medium, though many tried. There were less then 20 coders who opened the Hard and they were faced with a ferocious problem, with only <tc-webtag:handle coderId="10574855" context="algorithm"/> solving it correctly. As a result of two above-average problems a lot of high-rated coders, and even a few targets, took very low places.
 <br />
 <br />

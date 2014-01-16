@@ -52,7 +52,7 @@
 </p>
 
 <p>
-TopCoder Direct is a global platform for solutions that empower any business or individual to define and build any type of application - from simple websites to complex business-critical systems. With an easy to use web interface streamlining the process of engaging the TopCoder community, TopCoder Direct allows individuals to launch contests for everything from building a basic logo or redesigning a web site, to creating large transactional databases and custom web applications. TopCoder Direct offers a highly scalable and cost-effective way to support or replace traditional development and creative shops.
+TopCoder Direct is a global platform for solutions that empower any business or individual to define and build any type of application - from simple websites to complex business-critical systems. With an easy to use web interface streamlining the process of engaging the TopCoder community, TopCoder Direct allows individuals to launch challenges for everything from building a basic logo or redesigning a web site, to creating large transactional databases and custom web applications. TopCoder Direct offers a highly scalable and cost-effective way to support or replace traditional development and creative shops.
 </p>
 
 <p>
@@ -70,13 +70,13 @@ The TopCoder community is comprised of members who have backgrounds in everythin
 
 <p>
 <span class="bodySubtitle">TopCoder Direct Platform (Beta)</span><br />
-Users gain access to and interact with the TopCoder community through the TopCoder Direct section of TopCoder's website.  A series of highly functional widgets guides the user through the process of setting up contests, pricing and viewing submissions.  The user controls as much of the process as they desire with as much help from the community and TopCoder as desired.  The process and model combine to give unrivaled power to the individual through access to a global community in a competitive format.<br /><br />
+Users gain access to and interact with the TopCoder community through the TopCoder Direct section of TopCoder's website.  A series of highly functional widgets guides the user through the process of setting up challenges, pricing and viewing submissions.  The user controls as much of the process as they desire with as much help from the community and TopCoder as desired.  The process and model combine to give unrivaled power to the individual through access to a global community in a competitive format.<br /><br />
 Starting today with the creative aspects of application design and implementation: logos, web site graphics design, layout and prototypes, TopCoder Direct will ultimately allow companies and individuals to build entire applications on-line. The ability to interact with community member 'co-pilots' will be implemented in the next release of TopCoder Direct.  For a fee negotiated up-front, these co-pilots will help set-up, define and price competitions for those users that do not have the time or desire to do it themselves.
 </p>
 
 <p>
 <span class="bodySubtitle">Pricing &amp; Availability</span><br />
-When accessing TopCoder Direct users only pay when launching a contest.  Users determine what they would like to set the prize purse amount for a particular contest and TopCoder charges an administration fee based on this amount (currently 20%) of the prize purse.  Part of the administration fee (currently 50 percent) is contributed to a prize pool paid out based on a point based system developed for TopCoder members.  Under beta, creative contests (logos, web-site layout and prototypes, presentations and general graphics) can be launched quickly using only a credit card.  Platform services for larger applications are sold under a subscription and cost-plus pricing model on a case by case basis. For more information on pricing schedules visit <a href="http://topcoderblogs.com/direct/?page_id=2">http://topcoderblogs.com/direct/?page_id=27</a>
+When accessing TopCoder Direct users only pay when launching a contest.  Users determine what they would like to set the prize purse amount for a particular challenge and TopCoder charges an administration fee based on this amount (currently 20%) of the prize purse.  Part of the administration fee (currently 50 percent) is contributed to a prize pool paid out based on a point based system developed for TopCoder members.  Under beta, creative challenges (logos, web-site layout and prototypes, presentations and general graphics) can be launched quickly using only a credit card.  Platform services for larger applications are sold under a subscription and cost-plus pricing model on a case by case basis. For more information on pricing schedules visit <a href="http://topcoderblogs.com/direct/?page_id=2">http://topcoderblogs.com/direct/?page_id=27</a>
 </p>
 
 <p>

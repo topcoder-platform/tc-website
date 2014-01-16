@@ -66,7 +66,7 @@
     <jsp:param name="image" value="statistics_w"/>
     <jsp:param name="title" value="CloudSpokes Challenge List"/>
 </jsp:include>
-<span class="bodySubtitle">Application Statistics &gt; CloudSpokes Contests</span><br>
+<span class="bodySubtitle">Application Statistics &gt; CloudSpokes Challenges</span><br>
 
 <form name="compListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 
@@ -99,11 +99,11 @@
                     <thead>
                         <tr>
                             <th class="tableTitle" colspan="8">
-                                CloudSpokes Contest Details
+                                CloudSpokes Challenge Details
                             </th>
                         </tr>
                         <tr>
-                            <th class="tableHeader" align="left" width="30%">Contest</th>
+                            <th class="tableHeader" align="left" width="30%">Challenge</th>
                             <th class="tableHeader" align="center" width="9%" >Category</th>
                             <th class="tableHeader" align="center" width="9%">Complete Date</th>
                             <th class="tableHeader" align="right" width="9%">Registrants</th>
@@ -131,7 +131,7 @@
                             </td>
                             <td class="<%=even?"statLt":"statDk"%>" align="right"><fmt:formatNumber value="${challenge.winnerScore}" pattern="0.00"/></td>
                             <td class="<%=even?"statLt":"statDk"%>" align="center">
-                                <a target="_blank" class="bcLink" href="http://www.cloudspokes.com/challenges/${challenge.challengeId}">Contest Details</a>
+                                <a target="_blank" class="bcLink" href="http://www.cloudspokes.com/challenges/${challenge.challengeId}">Challenge Details</a>
                             </td>
                         </tr>
                         <% even = !even;%>

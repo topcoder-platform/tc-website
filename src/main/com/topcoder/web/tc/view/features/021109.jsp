@@ -93,7 +93,7 @@
 <tr class="light"><td class="value"><span class="bigRed">AleaActaEst</span></td><td class="value"><span class="bigRed">We are outnumbered by the admins...</span></td></tr>
 <tr class="dark"><td class="value"><strong>seckin_</strong></td><td class="value">so, what is component design? :)</td></tr>
 <tr class="light"><td class="value"><span class="bigRed">argolite</span></td><td class="value"><span class="bigRed">oh, do we have just an hour to answer that?!</span></td></tr>
-<tr class="dark"><td class="value"><strong>shankhs</strong></td><td class="value">how come a c/c++ programmer take part in components design contests?What else do we need to learn?</td></tr>
+<tr class="dark"><td class="value"><strong>shankhs</strong></td><td class="value">how come a c/c++ programmer take part in components design challenges?What else do we need to learn?</td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AleaActaEst</span></td><td class="value"><span class="bigRed">seckin_: A great way to have fun ... make some good money</span></td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">argolite</span></td><td class="value"><span class="bigRed">seckin_: Meet new red friends</span></td></tr>
 <tr class="light"><td class="value"><strong>shankhs</strong></td><td class="value">argolite: +1</td></tr>
@@ -206,7 +206,7 @@
 <tr class="dark"><td class="value"><strong>dcp</strong></td><td class="value">AleaActaEst: But when there's a heavy comp, yeah, I've done the 2-3 days without sleep thing as well.</td></tr>
 <tr class="light"><td class="value"><span class="bigRed">argolite</span></td><td class="value"><span class="bigRed">shankhs: that should then tell you how to get started, what you general deliverables are, etc</span></td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AleaActaEst</span></td><td class="value"><span class="bigRed">dcp: In general... you do what works for you... we are all a littel different... but I just hate sleep...</span></td></tr>
-<tr class="light"><td class="value"><span class="bigRed">argolite</span></td><td class="value"><span class="bigRed">shankhs: then once you know this, you should look at some past contests, in the catalog,</span></td></tr>
+<tr class="light"><td class="value"><span class="bigRed">argolite</span></td><td class="value"><span class="bigRed">shankhs: then once you know this, you should look at some Past Challenges, in the catalog,</span></td></tr>
 <tr class="dark"><td class="value"><strong>shankhs</strong></td><td class="value">argolite: and from where will i get the problem statement?The practice rooms dont have component designs' problems?</td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AleaActaEst</span></td><td class="value"><span class="bigRed">dcp: there is so much to DO!... and so littel time ;)</span></td></tr>
 <tr class="dark"><td class="value"><strong>dcp</strong></td><td class="value">AleaActaEst: Ever tried that polywhatever (can't remember the term) pattern? It's something like you take a nap every 3-4 hours?</td></tr>

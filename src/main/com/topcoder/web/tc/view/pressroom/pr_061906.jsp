@@ -44,7 +44,7 @@
                         
 <div align="center">
 <p><span class="bodyTitle">AOL Named Title Sponsor of 2006<br> TopCoder Collegiate Challenge</span><br />
-<span class="bodySubTitle"><em>AOL Supports Global Student Programming Community in <br>$200,000 Technical Software Contest</em></span></p>
+<span class="bodySubTitle"><em>AOL Supports Global Student Programming Community in <br>$200,000 Technical Software Challenge</em></span></p>
 </p>
 </div>
                         
