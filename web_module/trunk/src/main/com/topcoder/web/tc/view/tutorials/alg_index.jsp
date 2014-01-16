@@ -192,7 +192,7 @@
             </td></tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="21500759" context="algorithm"/>
-               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&amp;d1=tutorials&amp;d2=maxflowPushRelabel"><strong>A New Approach to the Maximum Flow Problem</strong></a>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&amp;d1=tutorials&amp;d2=maxflowPushRelabel"><strong>Push-Relabel Approach to the Maximum Flow Problem</strong></a>
             </td></tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="13298470" context="algorithm"/>

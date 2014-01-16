@@ -61,7 +61,7 @@
             </div>
 
 
-<span class="bigTitle">A New Approach to the Maximum Flow Problem </span>
+<span class="bigTitle">Push-Relabel Approach to the Maximum Flow Problem </span>
 <br /><br />
 
 <div class="authorPhoto">
