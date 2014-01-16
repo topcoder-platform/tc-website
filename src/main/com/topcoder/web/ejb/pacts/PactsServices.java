@@ -284,5 +284,9 @@ public interface PactsServices extends EJBObject {
     public List getAssignmentDocumentByUserIdProjectId(long userId, long projectId) throws RemoteException;
 
     public List getAssignmentDocumentByUserIdStudioContestId(long userId, long studioContestId) throws RemoteException;
+
+    void advanceOnHoldPaymentForAD(long userId) throws RemoteException, Exception;
+
+    void advanceOnHoldPaymentForAffidavit(long paymentId) throws RemoteException, Exception;
 }
 

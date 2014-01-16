@@ -289,5 +289,9 @@ public interface PactsClientServices extends EJBObject {
      */
     int checkInactiveCoders(long userId) throws RemoteException, SQLException;
 
+    void advanceOnHoldPaymentForAD(long userId) throws RemoteException, Exception;
+
+    void advanceOnHoldPaymentForAffidavit(long paymentId) throws RemoteException, Exception;
+
 }
 
