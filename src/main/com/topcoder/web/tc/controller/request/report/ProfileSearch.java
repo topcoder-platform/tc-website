@@ -62,9 +62,10 @@ public class ProfileSearch extends Base {
                         if (countOnly) {
                             getRequest().setAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY, countResults);
                         } else {
+/*
                             if (count.getIntItem(0, "total_count") > 1000) {
                                 throw new NavigationException("Sorry, your query returns more than 1000 records.  Please include more search criteria.");
-                            } else {
+                            } else {*/
                                 time = System.currentTimeMillis();
                                 QueryRequest fullRequest = new QueryRequest();
                                 fullRequest.addQuery("results", fullQuery);
@@ -74,7 +75,7 @@ public class ProfileSearch extends Base {
                                     log.debug("got full results in " + time);
                                 }
                                 getRequest().setAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY, fullResults);
-                            }
+//                            }
                         }
                         getRequest().setAttribute("column_headers", headers);
                     }
