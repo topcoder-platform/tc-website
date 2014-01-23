@@ -1767,7 +1767,8 @@ public class TCLoadTCS extends TCLoad {
 
 		                    if (stage != null &&
 		                            (projectResults.getInt("project_stat_id") == 7 ||  // COMPLETED
-		                                    projectResults.getInt("project_stat_id") == 1) && // ACTIVE
+                                             projectResults.getInt("project_stat_id") == 8 ||  // WINNER UNRESPONSIVE
+		                             projectResults.getInt("project_stat_id") == 1) && // ACTIVE
 		                            // Component Testing and RIA Build contests don't need to have the rating flag on to count
 		                            // towards DR.
 		                            (projectResults.getInt("rating_ind") == 1
@@ -1785,13 +1786,14 @@ public class TCLoadTCS extends TCLoad {
 		                                    projectResults.getDouble("final_score"), placed,
 		                                    0, projectResults.getDouble("amount"), numSubmissionsPassedReview, passedReview);
 
-		                            if (projectResults.getInt("project_stat_id") == 7) {
+		                            if (projectResults.getInt("project_stat_id") == 7 || projectResults.getInt("project_stat_id") == 8) {
 		                                pointsAwarded = crc.calculatePointsAwarded(pr);
 		                            } else if (projectResults.getInt("valid_submission_ind") == 1) {
 		                                potentialPoints = crc.calculatePotentialPoints(pr);
 		                            }
 		                        }
 		                    } else if ((projectResults.getInt("project_stat_id") == 7 ||       // completed
+                                        projectResults.getInt("project_stat_id") == 8 ||       // winner unresponsive
 		                        projectResults.getInt("project_stat_id") == 1) &&       // active
 		                        "On".equals(projectResults.getString("dr_ind")) &&      // counts towards DR
 		                        projectResults.getObject("posting_date") != null &&     // has a posting date
@@ -1812,7 +1814,7 @@ public class TCLoadTCS extends TCLoad {
 		                                    0, projectResults.getDouble("amount"), numSubmissionsPassedReview, passedReview);
 
 		                            drInsert.clearParameters();
-		                            if (projectResults.getInt("project_stat_id") == 7) {
+		                            if (projectResults.getInt("project_stat_id") == 7 || projectResults.getInt("project_stat_id") == 8) {
 		                                pointsAwarded = t.getPointsCalculator().calculatePointsAwarded(pr);
 		                                if (pointsAwarded + projectResults.getInt("point_adjustment") > 0) {
 		                                    drInsert.setLong(1, ++drPointsId);
