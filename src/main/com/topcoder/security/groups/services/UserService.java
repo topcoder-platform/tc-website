@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011-2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2011-2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.security.groups.services;
 
@@ -22,9 +22,16 @@ import com.topcoder.security.groups.services.dto.UserDTO;
  *   <li>Added method {@link #search(String, String)} to support search by handle and email.</li>
  * </ol>
  * </p>
+ * 
+ * <p>
+ * Version 1.2 (48hr Cockpit Group Management Improvement Release Assembly) change notes:
+ * <ol>
+ *   <li>Added method {@link #getUsersByHandles(String[])} to support search by handles.</li>
+ * </ol>
+ * </p>
  *
- * @author TCSASSEMBLER
- * @version 1.1
+ * @author suno1234, TCSASSEMBLER
+ * @version 1.2
  */
 public interface UserService {
 
@@ -69,4 +76,19 @@ public interface UserService {
      * @since 1.1
      */
     public List<UserDTO> search(String handle, String email) throws IllegalArgumentException, SecurityGroupException;
+    
+    /**
+     * Retrieves the list of users with the given handles. If not found, returns
+     * an empty list. Input handles shouldn't be empty
+     * 
+     * @param handles
+     *            the handles of the desired users     
+     * @return the users with the given handle
+     * @throws IllegalArgumentException
+     *             If handle is null/empty
+     * @throws SecurityGroupException
+     *             If there are any errors during the execution of this method
+     * @since 1.2
+     */
+    public List<UserDTO> getUsersByHandles(String[] handles) throws IllegalArgumentException, SecurityGroupException;
 }
