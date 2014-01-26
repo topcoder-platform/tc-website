@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011-2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2011-2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.security.groups.services.hibernate;
 
@@ -39,9 +39,17 @@ import com.topcoder.shared.util.DBMS;
  *      <li>Modified method {@link #get(long)} to change query property name</li>
  * </ol>
  * </p>
+ * 
+ * <p>
+ * Version 1.3 (48hr Cockpit Group Management Improvement Release Assembly) change notes:
+ * <ol>
+ *   <li>Added method {@link #getUserDTOFromResultRow(ResultSetRow)} extract a UserDTO object from search result row.</li>
+ *   <li>Added method {@link #getUsersByHandles(String[])} to support search by handles.</li>
+ * </ol>
+ * </p>
  *
- * @author backstretlili, TCSASSEMBLER
- * @version 1.2
+ * @author backstretlili, suno1234, TCSASSEMBLER
+ * @version 1.3
  */
 public class HibernateUserService extends BaseGroupService implements UserService {
 
@@ -57,6 +65,23 @@ public class HibernateUserService extends BaseGroupService implements UserServic
      */
     private DataAccess dataAccess;
 
+    /**
+     * Compose UserDTO from a database query search result row
+     * 
+     * @param row
+     *             query search result row
+     * @return UserDTO
+     *              the composed UserDTO
+     * @since 1.3
+     */
+    private UserDTO getUserDTOFromResultRow(ResultSetContainer.ResultSetRow row) {
+        UserDTO dto = new UserDTO();
+        dto.setUserId(row.getLongItem("user_id"));
+        dto.setHandle(row.getStringItem("handle"));
+        dto.setEmailAddress(row.getStringItem("address"));
+        return dto;
+    }
+    
     /**
      * Get a user by id,if not found return null
      * 
@@ -129,11 +154,7 @@ public class HibernateUserService extends BaseGroupService implements UserServic
             resultContainer = dataAccess.getData(request).get("search_users_by_handle_email");
             if (resultContainer != null) {
                 for (ResultSetContainer.ResultSetRow row : resultContainer) {
-                    UserDTO dto = new UserDTO();
-                    dto.setUserId(row.getLongItem("user_id"));
-                    dto.setHandle(row.getStringItem("handle"));
-                    dto.setEmailAddress(row.getStringItem("address"));
-                    result.add(dto);
+                    result.add(getUserDTOFromResultRow(row));
                 }
             }
         } catch (Exception e) {
@@ -182,11 +203,7 @@ public class HibernateUserService extends BaseGroupService implements UserServic
             resultContainer = dataAccess.getData(request).get("search_users_by_handle_email");
             if (resultContainer != null) {
                 for (ResultSetContainer.ResultSetRow row : resultContainer) {
-                    UserDTO dto = new UserDTO();
-                    dto.setUserId(row.getLongItem("user_id"));
-                    dto.setHandle(row.getStringItem("handle"));
-                    dto.setEmailAddress(row.getStringItem("address"));
-                    result.add(dto);
+                    result.add(getUserDTOFromResultRow(row));
                 }
             }
         } catch (Exception e) {
@@ -206,6 +223,60 @@ public class HibernateUserService extends BaseGroupService implements UserServic
      */
     public void setDataAccess(DataAccess dataAccess) {
         this.dataAccess = dataAccess;
+    }
+
+    /**
+     * Retrieves the list of users with the given handles. If not found, returns
+     * an empty list.
+     * 
+     * @param handles
+     *            the handles of the desired users
+     * @return the users with the given handle and email
+     * @throws IllegalArgumentException
+     *             If both handle and email is null/empty
+     * @throws SecurityGroupException
+     *             If there are any errors during the execution of this method
+     * @since 1.3
+     */
+    public List<UserDTO> getUsersByHandles(String[] handles) throws IllegalArgumentException, SecurityGroupException {
+        final String signature = CLASS_NAME + ".getUsersByHandles(String[] handles)";
+        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "handles" }, new Object[] { handles });
+
+        if (handles == null) {
+            wrapAndLogIllegalArgumentException(new IllegalArgumentException("handles is null"), logger, signature);
+        }
+        if (handles.length == 0) {
+            wrapAndLogIllegalArgumentException(new IllegalArgumentException("handles is empty"), logger, signature);
+        }
+
+        List<UserDTO> result = new ArrayList<UserDTO>();
+        try {
+            if (dataAccess == null)
+                dataAccess = new DataAccess(DBMS.JTS_OLTP_DATASOURCE_NAME);
+            Request request = new Request();
+            ResultSetContainer resultContainer = null;
+            request.setContentHandle("get_users_by_handles");
+            StringBuffer sb = new StringBuffer();
+            String prefix = "";
+            for (String handle : handles) {
+                sb.append(prefix);
+                prefix = ",";
+                sb.append("\"").append(handle).append("\"");
+            }
+            request.setProperty("usernames", sb.toString().toLowerCase());
+            resultContainer = dataAccess.getData(request).get("get_users_by_handles");
+            if (resultContainer != null) {
+                for (ResultSetContainer.ResultSetRow row : resultContainer) {
+                    result.add(getUserDTOFromResultRow(row));
+                }
+            }
+        } catch (Exception e) {
+            wrapAndLogSecurityException(e, logger, signature);
+        }
+
+        LoggingWrapperUtility.logExit(logger, signature, new Object[] { result });
+
+        return result;
     }
 
 }
