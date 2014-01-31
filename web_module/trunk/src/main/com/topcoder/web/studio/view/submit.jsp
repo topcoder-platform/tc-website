@@ -329,6 +329,7 @@
                             </div>
                             <div class="clear"></div>
                             <p class="normaltext">Check to see if your font is on the <a href="http://community.topcoder.com/studio/the-process/font-policy/" target="_blank">Studio Standard Fonts list</a>. If it is, leave the URL field blank.</p>
+                            <p>If you only used fonts that came with the client files, choose "I did not introduce any new fonts" from the dropdown box.</p>
                             <p>If your font is not on the list, you must provide the URL to the font page (not file) from one of the approved font websites in the dropdown box.</p>
                             <h5>Please list ALL fonts you have used in your design below.</h5>
                             <!--End .caption-->
@@ -341,14 +342,8 @@
                             
                             <c:forEach items="${fonts_data}" var="font" varStatus="i">
                                 <div class="add-font-item external-content-item">
-                                    <div class="text-input">
-                                        <div class="right-side">
-                                            <input type="text" name="<%= Constants.FONT_NAME %>" title="Font's Name"
-                                                   value="<c:out value="${font[0]}" escapeXml="true"/>">
-                                        </div>
-                                    </div>
                                     <select name="font">
-                                        <option value="">Standard List or Source of Font</option>
+                                        <option value="">Choose from this menu</option>
                                         <option value="Studio Standard Fonts list" <c:if test="${font[1] eq 'Studio Standard Fonts list'}">selected="selected"</c:if>>Studio Standard Fonts list</option>
                                         <option value="Fonts.com" <c:if test="${font[1] eq 'Fonts.com'}">selected="selected"</c:if>>Fonts.com</option>
                                         <option value="MyFonts" <c:if test="${font[1] eq 'MyFonts'}">selected="selected"</c:if>>MyFonts</option>
@@ -358,7 +353,16 @@
                                         <option value="Font Squirrel" <c:if test="${font[1] eq 'Font Squirrel'}">selected="selected"</c:if>>Font Squirrel</option>
                                         <option value="Linotype" <c:if test="${font[1] eq 'Linotype'}">selected="selected"</c:if>>Linotype</option>
                                         <option value="Typography.com" <c:if test="${font[1] eq 'Typography.com'}">selected="selected"</c:if>>Typography.com</option>
+                                        <option value="No New Fonts"  <c:if test="${font[1] eq 'No New Fonts'}">selected="selected"</c:if>>I did not introduce any new fonts</option>
                                     </select>
+
+                                    <div class="text-input">
+                                        <div class="right-side">
+                                            <input type="text" name="<%= Constants.FONT_NAME %>" title="Font's Name"
+                                                   value="<c:out value="${font[0]}" escapeXml="true"/>">
+                                        </div>
+                                    </div>
+
                                     <div class="text-input">
                                         <div class="right-side">
                                             <input type="text" name="<%= Constants.FONT_URL %>"
