@@ -5453,21 +5453,21 @@ public class TCLoadTCS extends TCLoad {
         final String SELECT
             = "SELECT a.client_id, a.name as client_name, a.creation_date as client_create_date, a.modification_date as client_modification_date, " +
               " b.project_id as billing_project_id, b.name as project_name, b.creation_date as project_create_date, b.modification_date as project_modification_date, " +
-              " b.po_box_number as billing_account_code " +
+              " b.po_box_number as billing_account_code, a.cmc_account_id " +
               " FROM time_oltp:client a, time_oltp:project b, time_oltp:client_project c" +
               " WHERE c.client_id = a.client_id AND c.project_id = b.project_id" +
               "  AND (a.modification_date > ? OR b.modification_date > ? OR c.modification_date > ?)";
 
         // Statement for updating the records in tcs_dw.client_project_dim table
         final String UPDATE = "UPDATE client_project_dim SET client_name = ?, client_create_date = ?, client_modification_date = ?, " +
-                        "project_name = ?, project_create_date = ?, project_modification_date = ?, billing_account_code = ? , client_id = ?" +
+                        "project_name = ?, project_create_date = ?, project_modification_date = ?, billing_account_code = ? , client_id = ?, cmc_account_id = ?" +
                         "WHERE billing_project_id = ?";
 
         // Statement for inserting the records to tcs_dw.client_project_dim table in target database
         final String INSERT
             = "INSERT INTO client_project_dim (client_id, client_name, client_create_date, client_modification_date," +
-              "                                billing_project_id, project_name, project_create_date, project_modification_date, billing_account_code, client_project_id)" +
-              "VALUES (?,?,?,?,?,?,?,?,?,?)";
+              "                                billing_project_id, project_name, project_create_date, project_modification_date, billing_account_code, client_project_id, cmc_account_id)" +
+              "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
         PreparedStatement select = null;
         PreparedStatement insert = null;
@@ -5486,6 +5486,7 @@ public class TCLoadTCS extends TCLoad {
             insert = prepareStatement(INSERT, TARGET_DB);
             update = prepareStatement(UPDATE, TARGET_DB);
             rs = select.executeQuery();
+			
 
             while (rs.next()) {
                 update.clearParameters();
@@ -5505,8 +5506,11 @@ public class TCLoadTCS extends TCLoad {
                 update.setString(7, rs.getString("billing_account_code"));
                 // client id
                 update.setLong(8, rs.getLong("client_id"));
+				// cmc account id
+				update.setString(9, rs.getString("cmc_account_id"));
                 // billing project id
-                update.setLong(9, rs.getLong("billing_project_id"));
+                update.setLong(10, rs.getLong("billing_project_id"));
+				
                 int retVal = update.executeUpdate();
 
                 if (retVal == 0) {
@@ -5531,7 +5535,9 @@ public class TCLoadTCS extends TCLoad {
                     // billing account code
                     insert.setString(9, rs.getString("billing_account_code"));
                     // billing project id as client project id
-                    insert.setLong(10, rs.getLong("billing_project_id")); System.out.println("------billing_project_id--------"+rs.getLong("billing_project_id"));
+                    insert.setLong(10, rs.getLong("billing_project_id"));
+					// billing account code
+                    insert.setString(11, rs.getString("cmc_account_id"));					System.out.println("------billing_project_id--------"+rs.getLong("billing_project_id"));
                     insert.executeUpdate();
                 }
                 count++;
