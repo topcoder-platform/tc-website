@@ -89,7 +89,7 @@
          11:00
         </div>
          <div class="long">
-         <strong><a href="/tc?module=MatchDetails&rd=15867">MM AlleleClassifier</a></strong><br />
+         <strong><a href="/tc?module=MatchDetails&rd=15876">MM AlleleClassifier</a></strong><br />
          13:00<br />
          10 days<br />
          $5K Prizes
