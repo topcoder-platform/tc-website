@@ -726,6 +726,8 @@ TopCoder may *offer* to purchase submissions that did not win any prize if the c
         <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right" nowrap="nowrap">$500</td>
     </tr>
 </table>
+<p align="justify">
+</p>
 <% } %>
 
 
