@@ -391,7 +391,7 @@ scorers will receive prizes with the first place winner receiving $7,000!
 
 <% if (roundId == 15876) { %>
 <p align="justify">
-This Marathon Match is a money match that has a <b>$5,000 prize purse</b>! The top four highest
+This Marathon Match is a money match that has a <b>$5,000 prize purse</b>! The top three highest
 scorers will receive prizes with the first place winner receiving $3,000!
 </p>
 <% } %>
