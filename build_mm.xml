@@ -255,6 +255,9 @@ copy in the classpath
         <copy todir="${jboss_lib}" file="${common.jar}"/>
         <copy todir="${jboss_lib}" file="${external.jars.dir}/id_generator-3.0.0.jar"/>
         <copy todir="${jboss_lib}" file="${external.jars.dir}/base_exception-2.0.0.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/jackson/1.9.7/jackson-core-asl.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/jackson/1.9.7/jackson-mapper-asl.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/json-lib-2.3-jdk15.jar"/>
 
         <!-- copy the config -->
         <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
