@@ -26,10 +26,16 @@ import java.util.StringTokenizer;
  * This class implements the interface SSOCookieService.
  * </p>
  * <p>
+ *     Version 1.1 (BUGR-10718) changes:
+ *     <ul>
+ *         <li>Moved createCookie and getCookie methods in <code>CookieHelper</code>.</li>
+ *     </ul>
+ * </p>
+ * <p>
  * <b> Thread Safety:</b> This class is immutable thus thread-safe.
  * </p>
- * @author ecnu_haozi
- * @version 1.0
+ * @author ecnu_haozi, MonicaMuranyi
+ * @version 1.1
  * @since 1.0 (TCCC-5802    https://apps.topcoder.com/bugs/browse/TCCC-5802)
  */
 public class SSOCookieServiceImpl implements SSOCookieService {
@@ -52,10 +58,10 @@ public class SSOCookieServiceImpl implements SSOCookieService {
         String userIdentity = userId + "|" + hashForUser(userId);
         if (rememberMe) {
             //This is a persistent cookie which will persist unless the user log out or change password.
-            response.addCookie( createCookie(ApplicationServer.SSO_COOKIE_KEY, userIdentity, Integer.MAX_VALUE));
+            response.addCookie( CookieHelper.createCookie(ApplicationServer.SSO_COOKIE_KEY, userIdentity, ApplicationServer.SSO_DOMAIN, Integer.MAX_VALUE));
         } else {
             //This is a session cookie which will invalidate when the user exit the browser.
-            response.addCookie( createCookie(ApplicationServer.SSO_COOKIE_KEY, userIdentity, null));
+            response.addCookie( CookieHelper.createCookie(ApplicationServer.SSO_COOKIE_KEY, userIdentity, ApplicationServer.SSO_DOMAIN, null));
         }
     }
     /**
@@ -65,7 +71,7 @@ public class SSOCookieServiceImpl implements SSOCookieService {
      * @param response The HTTP response sent back to the user's browser.
      */
     public void removeSSOCookie(HttpServletResponse response) {
-         response.addCookie( createCookie(ApplicationServer.SSO_COOKIE_KEY, "", 0));
+         response.addCookie( CookieHelper.createCookie(ApplicationServer.SSO_COOKIE_KEY, "", ApplicationServer.SSO_DOMAIN, 0));
     }
 
     /**
@@ -84,7 +90,7 @@ public class SSOCookieServiceImpl implements SSOCookieService {
             return false;
         }
 
-        Cookie ssoCookie = getCookie(cookies, ApplicationServer.SSO_COOKIE_KEY);
+        Cookie ssoCookie = CookieHelper.getCookie(cookies, ApplicationServer.SSO_COOKIE_KEY);
 
         if (ssoCookie == null) {
             return false;
@@ -109,7 +115,7 @@ public class SSOCookieServiceImpl implements SSOCookieService {
             return null;
         }
 
-        Cookie ssoCookie = getCookie(cookies, ApplicationServer.SSO_COOKIE_KEY);
+        Cookie ssoCookie = CookieHelper.getCookie(cookies, ApplicationServer.SSO_COOKIE_KEY);
 
         if (ssoCookie == null) {
             return null;
@@ -150,26 +156,6 @@ public class SSOCookieServiceImpl implements SSOCookieService {
         }
 
         return null;
-    }
-
-    /**
-     * Generate an cookie globally.
-     * @param name
-     *          the cookie name.
-     * @param value
-     *          the cookie value.
-     * @param maxAge
-     *          the Max_Age attribute of the cookie
-     * @return the cookie.
-     */
-    private Cookie createCookie(String name, String value, Integer maxAge) {
-        Cookie cookie = new Cookie(name, value);
-        if (maxAge != null) {
-            cookie.setMaxAge(maxAge);
-        }
-        cookie.setDomain(ApplicationServer.SSO_DOMAIN);
-        cookie.setPath("/");
-        return cookie;
     }
 
     /**
@@ -215,33 +201,5 @@ public class SSOCookieServiceImpl implements SSOCookieService {
         String hashString = hex.toString();
 
         return hashString;
-    }
-
-    /**
-     * Gets the cookie.
-     *
-     * @param cookies
-     *            the cookie array
-     *
-     * @param name
-     *            the cookie name.
-     * @return the cookie matches the given name in the given array.
-     */
-    private Cookie getCookie(Cookie[] cookies, String name) {
-        Cookie resultCookie = null;
-
-        for (Cookie cookie : cookies) {
-
-            // Get name of the cookie
-            String curCookieName = cookie.getName();
-
-            if (name.equals(curCookieName)) {
-                resultCookie = cookie;
-
-                break;
-            }
-        }
-
-        return resultCookie;
     }
 }

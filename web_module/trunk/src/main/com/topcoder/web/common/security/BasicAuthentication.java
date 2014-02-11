@@ -3,6 +3,8 @@
  */
 package com.topcoder.web.common.security;
 
+import com.topcoder.reg.RegistrationHelper;
+import com.topcoder.reg.dto.SessionSocialAccount;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrLocal;
@@ -21,6 +23,8 @@ import com.topcoder.web.common.TCResponse;
 
 import javax.servlet.http.Cookie;
 
+import org.apache.commons.lang.StringUtils;
+
 /**
  * Uses the TCS security component to process login requests, and HTTP cookies or a Persistor to store a User.
  * <p>
@@ -30,12 +34,19 @@ import javax.servlet.http.Cookie;
  * <li>Remove redundant authentication cookies.</li>
  *</ol>
  *</p>
+ *
+ *<p>
+ * Change log v1.2 (BUGR-10718) [ https://apps.topcoder.com/bugs/browse/BUGR-10718 ] 
+ *<ol>
+ * <li>Add logic to store the JWT cookie similar to SSO cookie.</li>
+ *</ol>
+ *</p>
  * <p>
  * <b> Thread Safety:</b> This class is mutable (field knownUser)so not thread safty.
  *</p>
  *
- * @author Greg Paul, Ambrose Feinstein, ecnu_haozi
- * @version 1.1
+ * @author Greg Paul, Ambrose Feinstein, ecnu_haozi, MonicaMuranyi
+ * @version 1.2
  */
 public class BasicAuthentication implements WebAuthentication {
 
@@ -82,6 +93,13 @@ public class BasicAuthentication implements WebAuthentication {
      * @since 1.1
      */
     private SSOCookieService ssoCookieService;
+    
+    /**
+     * The JWT cookie service provider.
+     * @since 1.1
+     */
+    private JWTCookieService jwtCookieService;
+
 
     /**
      * Construct an authentication instance backed by the given persistor
@@ -144,6 +162,7 @@ public class BasicAuthentication implements WebAuthentication {
         this.readOnly = this.response == null;
 
         this.ssoCookieService = new SSOCookieServiceImpl();
+        this.jwtCookieService = new JWTCookieServiceImpl();
 /*
         if (log.isDebugEnabled()) {
             log.debug("readonly " + readOnly);
@@ -186,12 +205,17 @@ public class BasicAuthentication implements WebAuthentication {
                 log.debug("datasource was not null");
                 sub = login.login(u.getUserName(), u.getPassword(), dataSource);
             }
+            String jsonWebToken = null;
+            SessionSocialAccount socialAccount = (SessionSocialAccount) request.getSession().getAttribute(RegistrationHelper.SOCIAL_ACCOUNT_SESSION_KEY);
+			if(socialAccount != null){
+				jsonWebToken = socialAccount.getSocialAccount().getJsonWebToken();
+			}
 
             boolean isImpersonationUsed = (u.getUserName().indexOf("/") >= 0);
             if (isImpersonationUsed) {
-               setLoginCookies(sub.getUserId(), false);
+               setLoginCookies(sub.getUserId(), jsonWebToken, false);
             } else {
-               setLoginCookies(sub.getUserId(), rememberUser);
+               setLoginCookies(sub.getUserId(), jsonWebToken, rememberUser);
             }
 
             log.info("login succeeded");
@@ -202,7 +226,14 @@ public class BasicAuthentication implements WebAuthentication {
         }
     }
 
-    protected void setLoginCookies(long uid, boolean rememberUser) throws Exception {
+    /**
+     * Sets the tcsso and jwt cookies
+     * @param uid the user id.
+     * @param jsonWebToken the json web token.
+     * @param rememberUser a flag to indicate if the user select rememberMe checkbox while logging in.
+     * @throws Exception if any error occurs.
+     */
+    protected void setLoginCookies(long uid, String jsonWebToken, boolean rememberUser) throws Exception {
         
         // mark the user known and not guest.
         if (uid != guest.getId()) {
@@ -213,6 +244,9 @@ public class BasicAuthentication implements WebAuthentication {
 
         if(inSSORing()) {
             ssoCookieService.setSSOCookie(response, uid, rememberUser);
+            if(StringUtils.isNotEmpty(jsonWebToken)){
+            	jwtCookieService.setJWTCookie(response, jsonWebToken, rememberUser);
+            }
         } else {
             //Store the user in Pesistor (Session here).
             setUserInPersistor(makeUser(uid));
@@ -233,6 +267,7 @@ public class BasicAuthentication implements WebAuthentication {
         
         if (inSSORing()) {
             ssoCookieService.removeSSOCookie(response);
+            jwtCookieService.removeJWTCookie(response);
         } else {
             //Store the user in Pesistor (Session here).
             setUserInPersistor(guest);
