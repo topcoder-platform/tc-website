@@ -17,6 +17,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import com.topcoder.reg.RegistrationHelper;
+import com.topcoder.reg.dto.SessionSocialAccount;
 import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.security.User;
 import com.topcoder.web.common.BaseProcessor;
@@ -42,13 +45,19 @@ import com.topcoder.web.tc.Constants;
  * This Servlet focuses on the second step.
  * </p>
  * <p>
+ *     Version 1.1 (BUGR-10718) changes:
+ *     <ul>
+ *         <li>Change {@link #setLoginCookies(long, String, boolean)}, added additional parameter (json web token)/li>
+ *     </ul>
+ * </p>
+ * <p>
  * Note: virtually all operations are delegated to {@link OpenIDManager}. Refer
  * to that class for more information.
  * </p>
  * 
- * @author leo_lol
- * @version 1.0 (Release Assembly - OpenID Project Update 1)
- * @since 1.0
+ * @author leo_lol, MonicaMuranyi
+ * @version 1.1
+ * @since 1.0 (Release Assembly - OpenID Project Update 1)
  */
 public class VerifyOpenId extends BaseProcessor {
     
@@ -72,7 +81,7 @@ public class VerifyOpenId extends BaseProcessor {
         
         TCRequest request = getRequest();
         TCResponse response = getResponse();
-        HttpSession session = request.getSession();
+        final HttpSession session = request.getSession();
         User user = getUser();
         //Shortcut for those who have already logged in.
         if(null != user && !(user.isAnonymous())){
@@ -120,7 +129,7 @@ System.out.println(result.getOpenId());
                         // add login cookie
                         new OpenIDAuthentication(new SessionPersistor(getRequest()
                                 .getSession()), getRequest(), getResponse()).setLoginCookies(
-                                userModel.getId(), true);
+                                userModel.getId(), ((SessionSocialAccount) session.getAttribute(RegistrationHelper.SOCIAL_ACCOUNT_SESSION_KEY)).getSocialAccount().getJsonWebToken(), true);
                         
                         //Get nextPage from request parameter
                         String nextPage = getRequest().getParameter("nextpage");
@@ -222,13 +231,13 @@ System.out.println(result.getOpenId());
          * <p>
          */
         @Override
-        public void setLoginCookies(long uid, boolean rememberUser)
+        public void setLoginCookies(long uid, String jsonWebToken, boolean rememberUser)
                 throws Exception {
             String signature = QUALIFIED_NAME + ".setLoginCookies(long uid,"
                     + " boolean rememberUser)";
-            Util.logEntrance(log, signature, new String[]{"uid","rememberUser"}, 
-                    new Object[]{uid, rememberUser});
-            super.setLoginCookies(uid, rememberUser);
+            Util.logEntrance(log, signature, new String[]{"uid","jsonWebToken","rememberUser"}, 
+                    new Object[]{uid, jsonWebToken, rememberUser});
+            super.setLoginCookies(uid, jsonWebToken, rememberUser);
             Util.logExit(log, null, signature, null);
         }
     }

@@ -34,12 +34,20 @@ import org.springframework.web.client.RestTemplate;
  *         <li>Change on {@link #getSocialAccount(String)} to get enterprise login name and id</li>
  *     </ul>
  * </p>
+ * 
+ * <p>
+ *     Version 1.2 (BUGR-10718) changes:
+ *     <ul>
+ *         <li>Change {@link #getSocialAccount(String)} to set the json web token on the social account/li>
+ *         <li>Rename and change {@link #getAccessTokens(String)} to also retrieve the json web token</li>
+ *     </ul>
+ * </p>
  * <p>
  * <strong>Thread Safety:</strong> This class is mutable and not thread-safe.
  * </p>
  * 
- * @author ecnu_haozi
- * @version 1.1
+ * @author ecnu_haozi, MonicaMuranyi
+ * @version 1.2
  * @since 1.0 (Release Assembly - TopCoder Website Social Login)
  */
 public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountService {
@@ -270,7 +278,10 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
         logger.info(signature);
 
         SocialAccount social = new SocialAccount();
-        String accessToken = getAccessToken(code);  System.out.println("---------accessToken-------"+accessToken);
+        String[] accessTokens = getAccessTokens(code);
+        String accessToken = accessTokens[0];  
+        System.out.println("---------accessToken-------"+accessToken);
+        social.setJsonWebToken(accessTokens[1]);
         String jsonString;
         try {
             jsonString =
@@ -343,7 +354,7 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
 
     /**
      * <p>
-     * Getting the Access Token.
+     * Getting the Access Token and Json Web Token.
      * </p>
      * 
      * @param code
@@ -352,7 +363,7 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
      * @throws SocialAccountException
      *             if failed to obtain the access token.
      */
-    private String getAccessToken(String code) throws SocialAccountException {
+    private String[] getAccessTokens(String code) throws SocialAccountException {
         MultiValueMap<String, Object> parts = new LinkedMultiValueMap<String, Object>();
 
         parts.add("client_id", Constants.CLIENT_ID_AUTH0);
@@ -360,6 +371,7 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
         parts.add("redirect_uri", "https://" + ApplicationServer.SERVER_NAME + Constants.REDIRECT_URL_AUTH0);
         parts.add("grant_type", "authorization_code");
         parts.add("code", code);
+        parts.add("scope", "openid");
 
         String jsonString;
         try {
@@ -371,7 +383,7 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
         }
 
         JSONObject rootNode = getJsonNode(jsonString);
-        return rootNode.getString("access_token");
+        return new String[]{rootNode.getString("access_token"), rootNode.getJSONString("id_token")};
     }
 
     /**

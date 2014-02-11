@@ -21,11 +21,18 @@ package com.topcoder.reg.dto;
  *         <li>Add {@link #socialUserId} variable.</li>
  *     </ul>
  * </p>
+ * 
+ * <p>
+ *     Version 1.3 (BUGR-10718) changes:
+ *     <ul>
+ *         <li>Add {@link #jsonWebToken} variable.</li>
+ *     </ul>
+ * </p>
  *
  * <strong>Thread Safety:</strong> This class is mutable and not thread-safe.
  * 
- * @author ecnu_haozi, tangzx
- * @version 1.2
+ * @author ecnu_haozi, tangzx, MonicaMuranyi
+ * @version 1.3
  * @since 1.0 (Release Assembly - TopCoder Website Social Login)
  */
 public class SocialAccount {
@@ -72,8 +79,14 @@ public class SocialAccount {
 	 * @since 1.2
 	 */
     private String socialUserId;
-
+    
     /**
+	 * the Json Web Token associated to this account.
+	 * @since 1.2
+	 */
+    private String jsonWebToken;
+
+	/**
      * <p>
      * The getter method for field providerId.
      * </p>
@@ -250,4 +263,24 @@ public class SocialAccount {
     public void setSocialUserId(String socialUserId) {
         this.socialUserId = socialUserId;
     }
+    
+    /**
+     * Getter of <code>jsonWebToken</code>
+     *
+     * @return json web token
+     * @since 1.3
+     */	
+    public String getJsonWebToken() {
+		return jsonWebToken;
+	}
+
+    /**
+     * Setter of <code>jsonWebToken</code>
+     *
+     * @param jsonWebToken json web token
+     * @since 1.3
+     */
+	public void setJsonWebToken(String jsonWebToken) {
+		this.jsonWebToken = jsonWebToken;
+	}
 }
