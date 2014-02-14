@@ -826,20 +826,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectDetails.append("a.state_code, a.city, a.address1, a.address2, u.first_name, u.middle_name, ");
         selectDetails.append("u.last_name, state.state_name, country.country_name, ");
         selectDetails.append("c.coder_type_id, ct.coder_type_desc, s.user_status_desc, a.address3, a.province ");
-        selectDetails.append("FROM coder c, user u, email e, coder_type ct, OUTER state, OUTER country, outer phone p, address a, user_address_xref x, user_status_lu s ");
-        selectDetails.append("WHERE c.coder_id = " + userId + " ");
-        selectDetails.append("AND u.user_id = " + userId + " ");
-        selectDetails.append("AND u.user_id = e.user_id ");
-        selectDetails.append("AND u.status = s.user_status_id ");
-        selectDetails.append("AND e.primary_ind = 1 ");
-        selectDetails.append("and p.user_id = u.user_id ");
-        selectDetails.append("and p.primary_ind = 1 ");
-        selectDetails.append("and x.user_id = u.user_id ");
-        selectDetails.append("and x.address_id = a.address_id ");
-        selectDetails.append("and a.address_type_id = 2 ");
-        selectDetails.append("AND ct.coder_type_id = c.coder_type_id ");
-        selectDetails.append("AND state.state_code = a.state_code ");
-        selectDetails.append("AND country.country_code = a.country_code ");
+        selectDetails.append("FROM user u ");
+        selectDetails.append(" INNER JOIN email e ON u.user_id = e.user_id AND e.primary_ind = 1 ");
+        selectDetails.append(" LEFT OUTER JOIN coder c ON c.coder_id = u.user_id ");
+        selectDetails.append(" LEFT OUTER JOIN coder_type ct ON ct.coder_type_id = c.coder_type_id ");
+        selectDetails.append(" LEFT OUTER JOIN phone p ON p.user_id = u.user_id AND p.primary_ind = 1 ");
+        selectDetails.append(" LEFT OUTER JOIN user_address_xref x ON x.user_id = u.user_id ");
+        selectDetails.append(" LEFT OUTER JOIN address a ON x.address_id = a.address_id AND a.address_type_id = 2 ");
+        selectDetails.append(" LEFT OUTER JOIN country ON country.country_code = a.country_code AND country.country_code = a.country_code ");
+        selectDetails.append(" LEFT OUTER JOIN state ON state.state_code = a.state_code ");
+        selectDetails.append(" INNER JOIN user_status_lu s ON u.status = s.user_status_id ");
+        selectDetails.append("WHERE u.user_id = " + userId);
 
         Connection c = null;
         try {
