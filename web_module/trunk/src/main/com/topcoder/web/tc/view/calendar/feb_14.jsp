@@ -111,6 +111,12 @@
       <td class="value">13
       </td>
       <td class="value">14
+         <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15879">MM OctaveClassifier</a></strong><br />
+         13:00<br />
+         10 days<br />
+         $7K Prizes
+         </div>
       </td>
       <td class="value">15
         <div class="srm">
