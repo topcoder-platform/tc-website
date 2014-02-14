@@ -1162,7 +1162,12 @@ public class TCLoadTCS extends TCLoad {
                     
                     double prizeTotal = rs.getDouble("contest_prizes_total");
                     double percentage = rs.getDouble("contest_fee_percentage");
-                    double adminFee = rs.getDouble("admin_fee");
+                    double adminFee = rs.getDouble("admin_fee");  
+					long projectStatusId = rs.getLong("project_stat_id");
+					if (projectStatusId == 4 ||  projectStatusId == 5 || projectStatusId == 6 || projectStatusId == 8 || projectStatusId == 11)
+					{
+						adminFee = 0;
+					}
                     update.setDouble(32, (percentage < 1e-5 ? adminFee : percentage * prizeTotal));
                     update.setDouble(33, prizeTotal);
                     if (rs.getString("billing_project_id") != null
@@ -1250,7 +1255,7 @@ public class TCLoadTCS extends TCLoad {
                         insert.setDouble(34, prizeTotal);
                         if (rs.getString("billing_project_id") != null
                                 && !rs.getString("billing_project_id").equals("0"))
-                        {
+                        {    System.out.println("------------billing id-------------------"+rs.getString("billing_project_id")+"!!!");
                             insert.setLong(35, rs.getLong("billing_project_id"));
                         }
                         else
@@ -5453,21 +5458,21 @@ public class TCLoadTCS extends TCLoad {
         final String SELECT
             = "SELECT a.client_id, a.name as client_name, a.creation_date as client_create_date, a.modification_date as client_modification_date, " +
               " b.project_id as billing_project_id, b.name as project_name, b.creation_date as project_create_date, b.modification_date as project_modification_date, " +
-              " b.po_box_number as billing_account_code, a.cmc_account_id " +
+              " b.po_box_number as billing_account_code, a.cmc_account_id, a.customer_number " +
               " FROM time_oltp:client a, time_oltp:project b, time_oltp:client_project c" +
               " WHERE c.client_id = a.client_id AND c.project_id = b.project_id" +
               "  AND (a.modification_date > ? OR b.modification_date > ? OR c.modification_date > ?)";
 
         // Statement for updating the records in tcs_dw.client_project_dim table
         final String UPDATE = "UPDATE client_project_dim SET client_name = ?, client_create_date = ?, client_modification_date = ?, " +
-                        "project_name = ?, project_create_date = ?, project_modification_date = ?, billing_account_code = ? , client_id = ?, cmc_account_id = ?" +
+                        "project_name = ?, project_create_date = ?, project_modification_date = ?, billing_account_code = ? , client_id = ?, cmc_account_id = ?, customer_number = ? " +
                         "WHERE billing_project_id = ?";
 
         // Statement for inserting the records to tcs_dw.client_project_dim table in target database
         final String INSERT
             = "INSERT INTO client_project_dim (client_id, client_name, client_create_date, client_modification_date," +
-              "                                billing_project_id, project_name, project_create_date, project_modification_date, billing_account_code, client_project_id, cmc_account_id)" +
-              "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+              "                                billing_project_id, project_name, project_create_date, project_modification_date, billing_account_code, client_project_id, cmc_account_id, customer_number)" +
+              "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
         PreparedStatement select = null;
         PreparedStatement insert = null;
@@ -5508,8 +5513,11 @@ public class TCLoadTCS extends TCLoad {
                 update.setLong(8, rs.getLong("client_id"));
 				// cmc account id
 				update.setString(9, rs.getString("cmc_account_id"));
+				// customer number
+				update.setString(10, rs.getString("customer_number"));
+				
                 // billing project id
-                update.setLong(10, rs.getLong("billing_project_id"));
+                update.setLong(11, rs.getLong("billing_project_id"));
 				
                 int retVal = update.executeUpdate();
 
@@ -5537,7 +5545,9 @@ public class TCLoadTCS extends TCLoad {
                     // billing project id as client project id
                     insert.setLong(10, rs.getLong("billing_project_id"));
 					// billing account code
-                    insert.setString(11, rs.getString("cmc_account_id"));					System.out.println("------billing_project_id--------"+rs.getLong("billing_project_id"));
+                    insert.setString(11, rs.getString("cmc_account_id"));		
+					// customer number
+                    insert.setString(12, rs.getString("customer_number"));     System.out.println("------billing_project_id--------"+rs.getLong("billing_project_id"));
                     insert.executeUpdate();
                 }
                 count++;
