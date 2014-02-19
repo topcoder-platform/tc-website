@@ -1032,7 +1032,7 @@ public class TCLoadTCS extends TCLoad {
                     "rating_date = ?, num_submissions_passed_review=?, winner_id=?, stage_id = ?, digital_run_ind = ?, " +
                     "suspended_ind = ?, project_category_id = ?, project_category_name = ?, " +
                     "tc_direct_project_id = ?, admin_fee = ?, contest_prizes_total = ?, " +
-                    "client_project_id = ?, duration = ? " +
+                    "client_project_id = ?, duration = ? , last_modification_date = current " +
                     "where project_id = ? ";
 
             final String INSERT = "insert into project (project_id, component_name, num_registrations, num_submissions, " +
@@ -1040,14 +1040,14 @@ public class TCLoadTCS extends TCLoad {
                     "category_id, category_desc, posting_date, submitby_date, complete_date, component_id, " +
                     "review_phase_id, review_phase_name, status_id, status_desc, level_id, viewable_category_ind, version_id, " +
                     "version_text, rating_date, num_submissions_passed_review, winner_id, stage_id, digital_run_ind, suspended_ind, project_category_id, project_category_name, " +
-                    "tc_direct_project_id, admin_fee, contest_prizes_total, client_project_id, duration) " +
+                    "tc_direct_project_id, admin_fee, contest_prizes_total, client_project_id, duration, last_modification_date) " +
                     "values (?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, ?, ?, ?, ?, " +
-                    "?, ?) ";
+                    "?, ?, current) ";
 
             // Statements for updating the duration, fulfillment, start_date_calendar_id fields
             final String UPDATE_AGAIN = "UPDATE project SET " +
