@@ -85,6 +85,12 @@ public class SocialAccount {
 	 * @since 1.2
 	 */
     private String jsonWebToken;
+	
+	/**
+	 * the accessToken associated to this account.
+	 * @since 1.2
+	 */
+    private String accessToken;
 
 	/**
      * <p>
@@ -282,5 +288,25 @@ public class SocialAccount {
      */
 	public void setJsonWebToken(String jsonWebToken) {
 		this.jsonWebToken = jsonWebToken;
+	}
+	
+	/**
+     * Getter of <code>jsonWebToken</code>
+     *
+     * @return json web token
+     * @since 1.3
+     */	
+    public String getAccessToken() {
+		return accessToken;
+	}
+
+    /**
+     * Setter of <code>jsonWebToken</code>
+     *
+     * @param jsonWebToken json web token
+     * @since 1.3
+     */
+	public void setAccessToken(String accessToken) {
+		this.accessToken = accessToken;
 	}
 }

@@ -155,10 +155,11 @@ public class CallbackAction extends BaseAction {
             if (userIdBoundWithSocialAccount != null) {
                 UserDTO user = userService.getUserByUserId(userIdBoundWithSocialAccount);
                 handle = user.getHandle();
-
+                
+				System.out.println("---------------handle -----------------------"+handle+"...");
                 user.setPassword(userService.getPasswordByUserId(userIdBoundWithSocialAccount));
                 password = user.getPassword();
-
+				System.out.println("---------------password -----------------------"+password+"...");
                 // store the page to redirect after login successfully into session.
                 session.setAttribute(RegistrationHelper.NEXT_PAGE_SESSION_KEY, state);
                 //LoggingWrapperUtility.logExit(logger, signature, new String[] {LOGIN});
@@ -184,7 +185,8 @@ public class CallbackAction extends BaseAction {
         }
 
         //LoggingWrapperUtility.logExit(logger, signature, new String[] {REGISTER});
-		regUrl = "https://" + req.getServerName() + "/reg2/showRegister.action";
+		//regUrl = "https://" + req.getServerName() + "/reg2/showRegister.action";
+		regUrl = "http://www.topcoder.com/?action=callback#access_token="+social.getAccessToken()+"&id_token="+social.getJsonWebToken()+"&token_type=bearer&state=http%3A%2F%2Fwww.topcoder.com";
         return REGISTER;
     }
 
