@@ -164,9 +164,17 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
         try {
             Long userId = null;
             if (StringUtils.isNotEmpty(social.getSocialUserId())) {
-                userId = queryUserId(SQL_COUNT_SOCIAL_USER_ID_AND_PROVIDER_ID,
-                        SQL_GET_ID_BY_SOCIAL_USER_ID_AND_PROVIDER_ID,
-                        social.getSocialUserId(), social.getProviderId());
+				try {  
+					System.out.println("---------------social user id -----------------------"+social.getSocialUserId()+"...");
+					System.out.println("---------------getProviderId -----------------------"+social.getProviderId()+"...");
+					userId = queryUserId(SQL_COUNT_SOCIAL_USER_ID_AND_PROVIDER_ID,
+							SQL_GET_ID_BY_SOCIAL_USER_ID_AND_PROVIDER_ID,
+							social.getSocialUserId(), social.getProviderId());
+							System.out.println("---------------userId -----------------------"+userId+"...");
+				} catch (Exception ee)
+				{
+					System.out.println("-----error getting social "+ ee);
+				}
             }
 
             if (userId == null) {
@@ -192,7 +200,7 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
             return userId;
         } catch (DataAccessException e) {
             // the exception is logged by caller.
-            throw new PersistenceException("Error while query social account", e);
+            throw new PersistenceException("Error while query social account " + e, e);
         }
 
     }
@@ -215,7 +223,7 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
     private Long queryUserId(String countSql, String retrieveSql, Object... args) throws DataAccessException {
         Long userId;
         int count = jdbcTemplate.queryForInt(countSql, args);
-        if (count == 0) {
+        if (count != 1) {
             userId = null;
         } else {
             userId = jdbcTemplate.queryForObject(retrieveSql, Long.class, args);
@@ -280,6 +288,7 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
         SocialAccount social = new SocialAccount();
         String[] accessTokens = getAccessTokens(code);
         String accessToken = accessTokens[0];  
+		social.setAccessToken(accessToken);
         System.out.println("---------accessToken-------"+accessToken);
         social.setJsonWebToken(accessTokens[1]);
         String jsonString;
