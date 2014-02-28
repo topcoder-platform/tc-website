@@ -99,8 +99,8 @@ A stack is one of the simplest data structures available.  There are four main o
 </ol>
 In C++, this is done with the STL class stack<T>:
 <pre class="code">
-#include <stack>
-stack<int> myStack;
+#include &lt;stack&gt;
+std::stack&lt;int&gt; myStack;
 </pre>
 In Java, we use the Stack class:
 <pre class="code">
