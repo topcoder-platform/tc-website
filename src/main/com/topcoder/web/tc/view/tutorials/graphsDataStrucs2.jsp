@@ -273,8 +273,8 @@ There are four main operations on a queue:
 </ol>
 In C++, this is done with the STL class queue<T>:
 <pre class="code">
-#include <queue>
-queue<int> myQueue;
+#include &lt;queue&gt;
+queue&lt;int&gt; myQueue;
 </pre>
 In Java, we unfortunately don't have a Queue class, so we will approximate it with the LinkedList class.  The operations on a linked list map well to a queue (and in fact, sometimes queues are implemented as linked lists), so this will not be too difficult.
 <br/><br/>
