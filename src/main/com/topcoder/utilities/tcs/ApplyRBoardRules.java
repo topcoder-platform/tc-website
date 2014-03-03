@@ -639,7 +639,7 @@ public class ApplyRBoardRules extends DBUtility {
         query.append("project_info pi_rating_date ");
         query.append("where pi_rating_date.project_info_type_id = 22 and ");
         query.append("pi_rating_date.project_id = p.project_id and ");
-        query.append("p.project_id not in (select ce.contest_id from contest_eligibility ce where ce.is_studio = 0) and ");
+//        query.append("p.project_id not in (select ce.contest_id from contest_eligibility ce where ce.is_studio = 0) and ");
         query.append("p.project_status_id in (1,4,5,6,7,8) and ");  // active or completed or canceled
         query.append("p.project_id = pr.project_id and  ");
         query.append("mdy(substr(pi_rating_date.value,1,2), substr(pi_rating_date.value,4,2), substr(pi_rating_date.value,7,4)) >= DATE(current) - ? UNITS DAY and  ");
@@ -665,7 +665,7 @@ public class ApplyRBoardRules extends DBUtility {
         query.append("      pi_open.project_info_type_id = 12 and ");
         query.append("      pi_open.project_id = p.project_id and ");
         query.append("      pi_open.value = 'Yes' and ");
-        query.append("      p.project_id not in (select ce.contest_id from contest_eligibility ce where ce.is_studio = 0) and ");
+//        query.append("      p.project_id not in (select ce.contest_id from contest_eligibility ce where ce.is_studio = 0) and ");
         query.append("      p.project_status_id in (4,5,6,7,8) and ");  // completed or canceled (active projects are not counted for the alternate rule)
         query.append("      p.project_category_id = ? ");
         query.append("order by mdy(substr(pi_rating_date.value,1,2), substr(pi_rating_date.value,4,2), substr(pi_rating_date.value,7,4)) desc");
