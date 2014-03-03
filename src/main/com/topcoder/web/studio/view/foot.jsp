@@ -31,16 +31,16 @@
         <div class="socials">
             <span>Follow Us!</span>
             <a href="https://www.facebook.com/pages/TopCoder-Studio-Design-Competitions/32709273825" rel="nofollow" target="_blank">
-                <img width="16" height="16" title="Follow Us on Facebook" alt="Follow Us on Facebook" src="http://www.topcoder.com/wp-content/plugins/social-media-widget/images/default/16/facebook.png">
+                <img width="16" height="16" title="Follow Us on Facebook" alt="Follow Us on Facebook" src="/i/facebook.png">
             </a>
             <a href="http://www.flickr.com/photos/53993064@N03" rel="nofollow" target="_blank">
-                <img width="16" height="16" src="http://www.topcoder.com/wp-content/plugins/social-media-widget/images/default/16/flickr.png" alt="Follow Us on Flickr" title="Follow Us on Flickr">
+                <img width="16" height="16" src="/i/flickr.png" alt="Follow Us on Flickr" title="Follow Us on Flickr">
             </a>
             <a href="https://twitter.com/TCStudio" rel="nofollow" target="_blank">
-                <img width="16" height="16" src="http://www.topcoder.com/wp-content/plugins/social-media-widget/images/default/16/twitter.png" alt="Follow Us on Twitter" title="Follow Us on Twitter">
+                <img width="16" height="16" src="/i/twitter.png" alt="Follow Us on Twitter" title="Follow Us on Twitter">
             </a>
             <a href="http://www.youtube.com/topcoderinc" rel="nofollow" target="_blank">
-                <img width="16" height="16" src="http://www.topcoder.com/wp-content/plugins/social-media-widget/images/default/16/youtube.png" alt="Follow Us on YouTube" title="Follow Us on YouTube">
+                <img width="16" height="16" src="/i/youtube.png" alt="Follow Us on YouTube" title="Follow Us on YouTube">
             </a>
         </div>
         <div class="nav">
