@@ -117,22 +117,25 @@ Stack stack = new Stack();
 <span class=bodySubtitle>Depth First Search</span><br/>
 Now to solve an actual problem using our search!  The depth first search is well geared towards problems where we want to find any solution to the problem (not necessarily the shortest path), or to visit all of the nodes in the graph.  A recent TopCoder problem was a classic application of the depth first search, the flood-fill.  The flood-fill operation will be familiar to anyone who has used a graphic painting application.  The concept is to fill a bounded region with a single color, without leaking outside the boundaries.
 <br/><br/>
-This concept maps extremely well to a Depth First search.  The basic concept is to visit a node, then push all of the nodes to be visited onto the stack.  To find the next node to visit we simply pop a node of the stack, and then push all the nodes connected to that one onto the stack as well and we continue doing this until all nodes are visited.  It is a key property of the Depth First search that we not visit the same node more than once, otherwise it is quite possible that we will recurse infinitely.  We do this by marking the node as we visit it, then unmarking it after we have finished our recursions.  This action allows us to visit all the paths that exist in a graph; however for large graphs this is mostly infeasible so we sometimes omit the marking the node as not visited step to just find one valid path through the graph (which is good enough most of the time).
+This concept maps extremely well to a Depth First search.  The basic concept is to visit a node, then push all of the nodes to be visited onto the stack.  To find the next node to visit we simply pop a node of the stack,
+and then push all the nodes connected to that one onto the stack as well and we continue doing this until all nodes are visited.  It is a key property of the Depth First search that we not visit the same node
+more than once, otherwise it is quite possible that we will recurse infinitely.  We do this by marking the node as we visit it.
 <br/><br/>
 So the basic structure will look something like this:
 <pre class="code">
 dfs(node start) {
- stack<node> s;
+ stack&lt;node&gt; s;
  s.push(start);
  while (s.empty() == false) {
   top = s.top();
   s.pop();
-  mark top as visited;
 
-  check for termination condition
+  if (top is not marked as visited) {
+   check for termination condition (have we reached the node we want to?)
 
-  add all of top's unvisited neighbors to the stack.
-  mark top as not visited;
+   mark top as visited;
+   add all of top's neighbors to the stack.
+  }
  }
 }
 </pre>
@@ -141,7 +144,6 @@ Alternatively we can define the function recursively as follows:
 dfs(node current) {
  mark current as visited;
  visit all of current's unvisited neighbors by calling dfs(neighbor)
- mark current as not visited;
 }
 </pre>
 The problem we will be discussing is <A href="/tc?module=ProblemDetail&rd=5857&pm=2998">grafixMask</A>, a Division 1 500 point problem from SRM 211.  This problem essentially asks us to find the number of discrete regions in a grid that has been filled in with some values already.  Dealing with grids as graphs is a very powerful technique, and in this case makes the problem quite easy.
@@ -156,9 +158,12 @@ initialize fills to false;
 foreach rectangle in Rectangles
     set from (rectangle.left, rectangle.top) to (rectangle.right, retangle.bottom) to true
 </pre>
-Now we have an initialized connectivity grid.  When we want to move from grid position (x, y) we can either move up, down, left or right.  When we want to move up for example, we simply check the grid position in (x, y-1) to see if it is true or false.  If the grid position is false, we can move there, if it is true, we cannot.
+Now we have an initialized connectivity grid.  When we want to move from grid position (x, y) we can either move up, down, left or right.  When we want to move up for example, we simply check the
+grid position in (x, y-1) to see if it is true or false.  If the grid position is false, we can move there, if it is true, we cannot.
 <br/><br/>
-Now we need to determine the area of each region that is left.  We don't want to count regions twice, or pixels twice either, so what we will do is set fill[x][y] to true when we visit the node at (x, y).  This will allow us to perform a Depth-First search to visit all of the nodes in a connected region and never visit any node twice, which is exactly what the problem wants us to do!  So our loop after setting everything up will be:
+Now we need to determine the area of each region that is left.  We don't want to count regions twice, or pixels twice either, so what we will do
+is set fill[x][y] to true when we visit the node at (x, y).  This will allow us to perform a Depth-First search to visit all of the nodes in a
+connected region and never visit any node twice, which is exactly what the problem wants us to do!  So our loop after setting everything up will be:
 <pre class="code">
 int[] result;
 
@@ -167,7 +172,9 @@ for x = 0 to 599
   if (fill[x][y] == false)
    result.addToBack(doFill(x,y));
 </pre>
-All this code does is check if we have not already filled in the position at (x, y) and then calls doFill() to fill in that region.  At this point we have a choice, we can define doFill recursively (which is usually the quickest and easiest way to do a depth first search), or we can define it explicitly using the built in stack classes.  I will cover the recursive method first, but we will soon see for this problem there are some serious issues with the recursive method.
+All this code does is check if we have not already filled in the position at (x, y) and then calls doFill() to fill in that region.  At this point we have a choice, we can
+define doFill recursively (which is usually the quickest and easiest way to do a depth first search), or we can define it explicitly using the built in stack classes.
+I will cover the recursive method first, but we will soon see for this problem there are some serious issues with the recursive method.
 <br/><br/>
 We will now define doFill to return the size of the connected area and the start position of the area:
 <pre class="code">
@@ -187,14 +194,21 @@ int doFill(int x, int y) {
  return 1 + doFill(x - 1, y) + doFill(x + 1, y) + doFill(x, y + 1) + doFill(x, y - 1);
 }
 </pre>
-This solution should work fine, however there is a limitation due to the architecture of computer programs.  Unfortunately, the memory for the implicit stack, which is what we are using for the recursion above is more limited than the general heap memory.  In this instance, we will probably overflow the maximum size of our stack due to the way the recursion works, so we will next discuss the explicit method of solving this problem.
+This solution should work fine, however there is a limitation due to the architecture of computer programs.  Unfortunately, the memory for the implicit stack, which is
+what we are using for the recursion above is more limited than the general heap memory.  In this instance, we will probably overflow the maximum size of our stack due
+to the way the recursion works, so we will next discuss the explicit method of solving this problem.
 </p>
 
       <div class=sideNote>
       <b>Sidenote:</b><br/>
-      Stack memory is used whenever you call a function; the variables to the function are pushed onto the stack by the compiler for you.  When using a recursive function, the variables keep getting pushed on until the function returns.  Also any variables the compiler needs to save between function calls must be pushed onto the stack as well.  This makes it somewhat difficult to predict if you will run into stack difficulties.  I recommend using the explicit Depth First search for every situation you are at least somewhat concerned about recursion depth.
+      Stack memory is used whenever you call a function; the variables to the function are pushed onto the stack by the compiler for you.  When using a recursive function, the variables keep
+getting pushed on until the function returns.  Also any variables the compiler needs to save between function calls must be pushed onto the stack as well.  This makes it somewhat
+difficult to predict if you will run into stack difficulties.  I recommend using the explicit Depth First search for every situation you are at least somewhat concerned about recursion depth.
       <br/><br/>
-      In this problem we may recurse a maximum of 600 * 400 times (consider the empty grid initially, and what the depth first search will do, it will first visit 0,0 then 1,0, then 2,0, then 3,0 ... until 599, 0.  Then it will go to 599, 1 then 598, 1, then 597, 1, etc. until it reaches 599, 399.  This will push 600 * 400 * 2 integers onto the stack in the best case, but depending on what your compiler does it may in fact be more information.  Since an integer takes up 4 bytes we will be pushing 1,920,000 bytes of memory onto the stack, which is a good sign we may run into trouble.
+      In this problem we may recurse a maximum of 600 * 400 times (consider the empty grid initially, and what the depth first search will do, it will first
+visit 0,0 then 1,0, then 2,0, then 3,0 ... until 599, 0.  Then it will go to 599, 1 then 598, 1, then 597, 1, etc. until it reaches 599, 399.  This
+will push 600 * 400 * 2 integers onto the stack in the best case, but depending on what your compiler does it may in fact be more information.  Since an
+integer takes up 4 bytes we will be pushing 1,920,000 bytes of memory onto the stack, which is a good sign we may run into trouble.
       </div>
 
 <p>
@@ -206,7 +220,7 @@ int doFill(int x, int y) {
  int result = 0;
 
  // Declare our stack of nodes, and push our starting node onto the stack
- stack<node> s;
+ stack&lt;node&gt; s;
  s.push(node(x, y));
 
  while (s.empty() == false) {
@@ -295,21 +309,21 @@ The Breadth First search is an extremely useful searching technique.  It differs
 The basic structure of a breadth first search will look this:
 <pre class="code">
 void bfs(node start) {
- queue<node> s;
+ queue&lt;node&gt; s;
  s.push(start);
+ mark start as visited
  while (s.empty() == false) {
   top = s.front();
   s.pop();
-  mark top as visited;
-</pre>
+
   check for termination condition (have we reached the node we want to?)
 
-  add all of top's unvisited neighbors to the stack.
-<pre class="code">
+  add all of top's unvisited neighbors to the queue
+  mark all of top's unvisited neighbors as visited
  }
 }
 </pre>
-Notice the similarities between this and a depth-first search, we only differ in the data structure used and we don't mark top as unvisited again.
+Notice the similarities between this and a depth-first search, we only differ in the data structure used and we mark a vertex visited as we push it into the queue, not as we pop it.
 <br/><br/>
 The problem we will be discussing in relation to the Breadth First search is a bit harder than the previous example, as we are dealing with a slightly more complicated search space.  The problem is the 1000 from Division 1 in SRM 156, Pathfinding.  Once again we will be dealing in a grid-based problem, so we can represent the graph structure implicitly within the grid.
 <br/><br/>
@@ -330,6 +344,11 @@ The visited array is simply a direct representation of our node in array form, w
 <br/><br/>
 Now that we have our basic structure set up, we can solve the problem (note that this code is not compilable):
 <pre class="code">
+void pushToQueue(queue&lt;node&gt; q, node v) {
+ if (visited[v.player1X][v.player1Y][v.player2X][v.player2Y]) return;
+ q.push(v);
+ visited[v.player1X][v.player1Y][v.player2X][v.player2Y] = true;
+}
 int minTurns(String[] board) {
  int width = board[0].length;
  int height = board.length;
@@ -337,19 +356,14 @@ int minTurns(String[] board) {
  node start;
  // Find the initial position of A and B, and save them in start.
 
- queue<node> q;
- q.push(start);
+ queue&lt;node&gt; q;
+ pushToQueue(q, start)
  while (q.empty() == false) {
   node top = q.front();
   q.pop();
 
   // Check if player 1 or player 2 is out of bounds, or on an X square, if so continue
   // Check if player 1 or player 2 is on top of each other, if so continue
-
-  // Make sure we haven't already visited this state before
-  if (visited[top.player1X][top.player1Y][top.player2X][top.player2Y]) continue;
-  // Mark this state as visited
-  visited[top.player1X][top.player1Y][top.player2X][top.player2Y] = true;
 
   // Check if the current positions of A and B are the opposite of what they were in start.
   // If they are we have exchanged positions and are finished!
@@ -361,17 +375,17 @@ int minTurns(String[] board) {
   // nested for loops, one for each direction that it is possible for one player to move.  Since we need
   // to generate the following deltas: (-1,-1), (-1,0), (-1,1), (0,-1), (0,0), (0,1), (1,-1), (1,0), (1,1)
   // we can use a for loop from -1 to 1 to do exactly that.
-  for (int player1XDelta = -1; player1XDelta <= -1; player1XDelta++) {
-   for (int player1YDelta = -1; player1YDelta <= -1; player1YDelta++) {
-    for (int player2XDelta = -1; player2XDelta <= -1; player2XDelta++) {
-     for (int player2YDelta = -1; player2YDelta <= -1; player2YDelta++) {
+  for (int player1XDelta = -1; player1XDelta <= 1; player1XDelta++) {
+   for (int player1YDelta = -1; player1YDelta <= 1; player1YDelta++) {
+    for (int player2XDelta = -1; player2XDelta <= 1; player2XDelta++) {
+     for (int player2YDelta = -1; player2YDelta <= 1; player2YDelta++) {
      // Careful though!  We have to make sure that player 1 and 2 did not swap positions on this turn
       if (top.player1X == top.player2X + player2XDelta && top.player1Y == top.player2Y + player2YDelta &&
          top.player2X == top.player1X + player1XDelta && top.player2Y == top.player1Y + player1YDelta)
         continue;
 
      // Add the new node into the queue
-      q.push(node(top.player1X + player1XDelta, top.player1Y + player1YDelta,
+      pushToQueue(q, node(top.player1X + player1XDelta, top.player1Y + player1YDelta,
               top.player2X + player2XDelta, top.player2Y + player2YDelta,
               top.steps + 1));
      }
