@@ -349,6 +349,7 @@ void pushToQueue(queue&lt;node&gt; q, node v) {
  q.push(v);
  visited[v.player1X][v.player1Y][v.player2X][v.player2Y] = true;
 }
+
 int minTurns(String[] board) {
  int width = board[0].length;
  int height = board.length;
