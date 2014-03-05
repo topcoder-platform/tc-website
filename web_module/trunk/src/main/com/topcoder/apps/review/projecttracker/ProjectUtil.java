@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.apps.review.projecttracker;
 
@@ -148,13 +148,14 @@ public class ProjectUtil {
 
         // Prepare resource
         ps = conn.prepareStatement("INSERT INTO resource " +
-                "(resource_id, resource_role_id, project_id, create_user, create_date, modify_user, modify_date) " +
-                " VALUES (?, 1, ?, ?, CURRENT, ?, CURRENT)");
+                "(resource_id, resource_role_id, project_id, user_id, create_user, create_date, modify_user, modify_date) " +
+                " VALUES (?, 1, ?, ?, ?, CURRENT, ?, CURRENT)");
 
         long resourceId = ProjectUtil.nextId(ProjectUtil.RESOURCE_ID_SEQ);
         int index = 1;
         ps.setLong(index++, resourceId);
         ps.setLong(index++, projectId);
+        ps.setLong(index++, userId);
         ps.setString(index++, String.valueOf(userId));
         ps.setString(index++, String.valueOf(userId));
 
@@ -521,13 +522,14 @@ public class ProjectUtil {
         }
         // Prepare resource for pm
         ps = conn.prepareStatement("INSERT INTO resource " +
-                "(resource_id, resource_role_id, project_id, create_user, create_date, modify_user, modify_date) " +
-                "VALUES (?, 13, ?, ?, CURRENT, ?, CURRENT)"); // 13 is manager
+                "(resource_id, resource_role_id, project_id, user_id, create_user, create_date, modify_user, modify_date) " +
+                "VALUES (?, 13, ?, ?, ?, CURRENT, ?, CURRENT)"); // 13 is manager
 
         long resourceId = nextId(RESOURCE_ID_SEQ);
         index = 1;
         ps.setLong(index++, resourceId);
         ps.setLong(index++, projectId);
+        ps.setLong(index++, modUserId);
         ps.setString(index++, String.valueOf(modUserId));
         ps.setString(index++, String.valueOf(modUserId));
         ps.executeUpdate();
