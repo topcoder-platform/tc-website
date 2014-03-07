@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2013 - 2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.reg;
 
@@ -22,7 +22,7 @@ import com.topcoder.web.common.StringUtils;
  * <p>
  * <strong>Thread Safety:</strong> This class is thread-safe.
  * </p>
- * 
+ * sendEmailAfterActivation
  * <p>
  * Version 1.1(Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log: Updated
  * sendResetPasswordEmail method to send the reset password token in the body of email.
@@ -33,8 +33,15 @@ import com.topcoder.web.common.StringUtils;
  * <li>Add a session key <code>SOCIAL_ACCOUNT_SESSION_KEY</code> for the current logged in social account.</li>
  * <ol>
  * </p>
- * @author sampath01, leo_lol, Urmass ,ecnu_haozi
- * @version 1.2
+ * <p>
+ * Change in v1.3 (F2F - TopCoder Reg2 - Send Email After user activation)
+ * <ol>
+ * <li>Add new method <code>sendEmailAfterActivation()</code> for sending an email for greeting a new user.</li>
+ * <ol>
+ * </p>
+ *
+ * @author sampath01, leo_lol, Urmass ,ecnu_haozi, TCSDEVELOPER
+ * @version 1.3
  * @since 1.0
  */
 public final class RegistrationHelper {
@@ -122,7 +129,7 @@ public final class RegistrationHelper {
 
     /**
      * Method to calculate the strength of the password.
-     * 
+     *
      * @param password
      *            The password to calculate
      * @return rank of strength, minus means unacceptable scenarios.
@@ -164,7 +171,7 @@ public final class RegistrationHelper {
 
     /**
      * This method checks if the given string is null or empty.
-     * 
+     *
      * @param var
      *            String to validate.
      * @param varName
@@ -182,7 +189,7 @@ public final class RegistrationHelper {
 
     /**
      * This method checks if the given variable is null.
-     * 
+     *
      * @param var
      *            Object to validate.
      * @param varName
@@ -200,7 +207,7 @@ public final class RegistrationHelper {
 
     /**
      * This method is to construct an exception instance according to the given message.
-     * 
+     *
      * @param msg
      *            Exception message.
      * @param clazz
@@ -229,7 +236,7 @@ public final class RegistrationHelper {
 
     /**
      * Sends an email.
-     * 
+     *
      * @param subject
      *            the subject of email
      * @param content
@@ -255,7 +262,7 @@ public final class RegistrationHelper {
 
     /**
      * Sends the activation email for a newly registered user.
-     * 
+     *
      * @param subject
      *            the email subject
      * @param activationCode
@@ -284,7 +291,7 @@ public final class RegistrationHelper {
     /**
      * Sends the reset password email. This method was updated to send the reset password token in the body of
      * email.
-     * 
+     *
      * @param emailSetting
      *            the email setting
      * @param toEmail
@@ -309,10 +316,44 @@ public final class RegistrationHelper {
     }
 
     /**
+     * Sends the welcome email for a newly registered user.
+     *
+     * @param subject
+     *            the email subject
+     * @param userHandle
+     *            the registered user handle
+     * @param emailBodyTemplateFile
+     *            the email body template file
+     * @param toAddress
+     *            the to address
+     * @param fromAddress
+     *            the from address
+     * @param senderName
+     *            the sender's name
+     * @throws Exception
+     *             if any exception occurs while sending the email
+     * @since 1.3
+     */
+    public static void sendEmailAfterActivation(String subject, String userHandle,
+        String emailBodyTemplateFile, String toAddress, String fromAddress, String senderName)
+        throws Exception {
+        TCSEmailMessage mail = new TCSEmailMessage();
+        mail.setSubject(subject);
+        String msg = readFileAsString(emailBodyTemplateFile);
+        msg = msg.replace("%USER_HANDLE%", userHandle);
+        mail.setSubject(subject);
+        mail.setBody(msg);
+        mail.addToAddress(toAddress, TCSEmailMessage.TO);
+        mail.setFromAddress(fromAddress, senderName);
+        // use this updated html email sender
+        EmailEngine.sendHtml(mail);
+    }
+
+    /**
      * <p>
      * Reads the file content as string.
      * </p>
-     * 
+     *
      * @param filePath
      *            the file path,the file should be on the class path
      * @return The content of file
@@ -336,7 +377,7 @@ public final class RegistrationHelper {
 
     /**
      * This method would validate if the given handle is valid and non-offensive
-     * 
+     *
      * @param handle
      *            The handle to check, assumed not null.
      * @param action
@@ -377,7 +418,7 @@ public final class RegistrationHelper {
 
     /**
      * Checks whether given handle exactly matches invalid handle in persistence.
-     * 
+     *
      * @param handle
      *            the handle to check
      * @return true, if given handle exactly matches invalid handle in persistence, false otherwise
@@ -398,7 +439,7 @@ public final class RegistrationHelper {
      * Finds such invalid handle that could be made from given handle removing leading and trailing numbers or
      * adding plural affixes.
      * </p>
-     * 
+     *
      * @param handle
      *            the handle to check
      * @return true, if given handle literally match invalid handle or founded such invalid handle that could be
@@ -423,7 +464,7 @@ public final class RegistrationHelper {
 
     /**
      * Checks that given handle without some quantity of leading/trailing numbers equal to invalid handle.
-     * 
+     *
      * @param handle
      *            the handle to check
      * @return true if given handle without some quantity of leading/trailing numbers equal to invalid handle,
@@ -461,7 +502,7 @@ public final class RegistrationHelper {
 
     /**
      * Checks that given handle with extracted group that matches given pattern equal to invalid handle.
-     * 
+     *
      * @param handle
      *            the handle to check
      * @param pattern
@@ -484,7 +525,7 @@ public final class RegistrationHelper {
 
     /**
      * This utility method checks if the given string is null or empty.
-     * 
+     *
      * @param s
      *            String to check.
      * @return true if the given string is null or empty; false otherwise.
