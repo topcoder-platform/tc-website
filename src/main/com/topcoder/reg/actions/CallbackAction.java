@@ -1,24 +1,25 @@
 /*
- * Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2013 - 2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.reg.actions;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import org.apache.struts2.ServletActionContext;
-
-import com.topcoder.commons.utils.LoggingWrapperUtility;
 import com.topcoder.reg.RegistrationHelper;
 import com.topcoder.reg.dto.SessionSocialAccount;
 import com.topcoder.reg.dto.SocialAccount;
 import com.topcoder.reg.dto.UserDTO;
+import com.topcoder.reg.util.DiscourseSSOUtil;
 import com.topcoder.reg.services.PersistenceException;
 import com.topcoder.reg.services.SocialAccountException;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.TCWebException;
+import org.apache.commons.httpclient.util.URIUtil;
+import org.apache.commons.lang.StringUtils;
+import org.apache.struts2.ServletActionContext;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -35,11 +36,19 @@ import com.topcoder.shared.util.logging.Logger;
  *     </ul>
  * </p>
  *
+ * <p>
+ *     Version 1.2 (PoC Assembly - Discourse SSO by using existing Auth0 Login) changes:
+ *     <ul>
+ *         <li>Change on {@link #execute()} to support discourse sso.</li>
+ *         <li>Add {@link #setSSONextPageIfNeeded(HttpSession, UserDTO, String, String)} to set sso callback url.</li>
+ *     </ul>
+ * </p>
+ *
  * <strong>Thread Safety:</strong> Technically speaking, this class is mutable and not thread-safe. But Struts only
  * uses this class in thread-safe manner.
- * 
- * @author ecnu_haozi
- * @version 1.1
+ *
+ * @author ecnu_haozi, TCSASSEMBLER
+ * @version 1.2
  * @since 1.0 (Release Assembly - TopCoder Website Social Login)
  */
 public class CallbackAction extends BaseAction {
@@ -127,6 +136,22 @@ public class CallbackAction extends BaseAction {
 
         // set this action's data fields.
         try {
+            // parse state to get parameters
+            String nextPage = null;
+            String sso = null;
+            String sig = null;
+
+            if (null != state) {
+                String[] params = StringUtils.split(state);
+                if (params.length > 2) {
+                    nextPage = URIUtil.decode(params[0]);
+                    sso = params[1];
+                    sig = params[2];
+                } else {
+                    nextPage = URIUtil.decode(state);
+                }
+            }
+
             // retrieve social data according to the code value.
             social = socialService.getSocialAccount(code);
 
@@ -143,9 +168,10 @@ public class CallbackAction extends BaseAction {
                 password = user.getPassword();
 
                 // store the page to redirect after login successfully into session.
-                session.setAttribute(RegistrationHelper.NEXT_PAGE_SESSION_KEY, state);
+                session.setAttribute(RegistrationHelper.NEXT_PAGE_SESSION_KEY, nextPage);
                 //LoggingWrapperUtility.logExit(logger, signature, new String[] {LOGIN});
 
+                setSSONextPageIfNeeded(session, user, sso, sig);
                 return LOGIN;
             }            
             
@@ -162,37 +188,58 @@ public class CallbackAction extends BaseAction {
                 session.setAttribute(RegistrationHelper.NEXT_PAGE_SESSION_KEY, state);
                 //LoggingWrapperUtility.logExit(logger, signature, new String[] {LOGIN});
 
+                setSSONextPageIfNeeded(session, user, sso, sig);
                 return LOGIN;
             }
 
         } catch (PersistenceException e) {
             //LoggingWrapperUtility.logException(logger, signature, e);
-			logger.error(signature+e);
+            logger.error(signature + e);
             messages.add(e.getMessage());
             return FAIL;
         } catch (SocialAccountException e) {
             //LoggingWrapperUtility.logException(logger, signature, e);
-			logger.error(signature+e);
+            logger.error(signature + e);
             messages.add(e.getMessage());
             return FAIL;
         } catch (Exception e) {
             //LoggingWrapperUtility.logException(logger, signature, e);
-			logger.error(signature+e);
+            logger.error(signature + e);
             messages.add(e.getMessage());
             return FAIL;
         }
 
         //LoggingWrapperUtility.logExit(logger, signature, new String[] {REGISTER});
-		//regUrl = "https://" + req.getServerName() + "/reg2/showRegister.action";
-		regUrl = "http://www.topcoder.com/?action=callback#access_token="+social.getAccessToken()+"&id_token="+social.getJsonWebToken()+"&token_type=bearer&state=http%3A%2F%2Fwww.topcoder.com";
+        //regUrl = "https://" + req.getServerName() + "/reg2/showRegister.action";
+        regUrl = "http://www.topcoder.com/?action=callback#access_token=" + social.getAccessToken() + "&id_token=" + social.getJsonWebToken() + "&token_type=bearer&state=http%3A%2F%2Fwww.topcoder.com";
         return REGISTER;
+    }
+
+    /**
+     * Set sso next page in session if it's from discourse sso and is valid.
+     *
+     * @param session the http session
+     * @param user the user
+     * @param sso the payload
+     * @param sig the signed payload
+     *
+     * @throws TCWebException if exception occurs.
+     * @since 1.2
+     */
+    private void setSSONextPageIfNeeded(HttpSession session, UserDTO user, String sso, String sig) throws TCWebException {
+        if (StringUtils.isNotEmpty(sso) && StringUtils.isNotEmpty(sig)) {
+            String next = DiscourseSSOUtil.getSSOCallbackURL(sso, sig, user);
+            if (StringUtils.isNotEmpty(next)) {
+                session.setAttribute(RegistrationHelper.NEXT_PAGE_SESSION_KEY, next);
+            }
+        }
     }
 
     /**
      * <p>
      * The getter method for field social.
      * </p>
-     * 
+     *
      * @return the social
      */
     public SocialAccount getSocial() {
@@ -203,9 +250,8 @@ public class CallbackAction extends BaseAction {
      * <p>
      * The setter method for field social.
      * </p>
-     * 
-     * @param social
-     *            the social to set
+     *
+     * @param social the social to set
      */
     public void setSocial(SocialAccount social) {
         this.social = social;
@@ -226,9 +272,8 @@ public class CallbackAction extends BaseAction {
      * <p>
      * The setter method for field handle.
      * </p>
-     * 
-     * @param handle
-     *            the handle to set
+     *
+     * @param handle the handle to set
      */
     public void setHandle(String handle) {
         this.handle = handle;
@@ -238,7 +283,7 @@ public class CallbackAction extends BaseAction {
      * <p>
      * The getter method for field password.
      * </p>
-     * 
+     *
      * @return the password
      */
     public String getPassword() {
@@ -249,9 +294,8 @@ public class CallbackAction extends BaseAction {
      * <p>
      * The setter method for field password.
      * </p>
-     * 
-     * @param password
-     *            the password to set
+     *
+     * @param password the password to set
      */
     public void setPassword(String password) {
         this.password = password;
@@ -318,18 +362,16 @@ public class CallbackAction extends BaseAction {
      * <p>
      * The setter method for field messages.
      * </p>
-     * 
-     * @param messages
-     *            the messages to set
+     *
+     * @param messages the messages to set
      */
     public void setMessages(List<String> messages) {
         this.messages = messages;
     }
-	
-	public String getRegUrl() {
+
+    public String getRegUrl() {
         return regUrl;
     }
-
 
     public void setRegUrl(String regUrl) {
         this.regUrl = regUrl;
