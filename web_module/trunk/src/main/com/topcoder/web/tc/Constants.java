@@ -228,8 +228,17 @@ import java.util.MissingResourceException;
  *      <li>Add {@link #AFFIDAVIT_DOCUSIGN_TEMPLATE_ID} field.</li>
  * </ol>
  * </p>
- * @author pulky, isv, VolodymyrK, TrePe, gevak, ecnu_haozi, tangzx, gonia_119
- * @version 1.9.14
+ *
+ * <p>
+ * Changes in version 1.9.15 (PoC Assembly - Discourse SSO by using existing Auth0 Login):
+ * <ol>
+ *      <li>Add {@link #DISCOURSE_CALLBACK_URL} field.</li>
+ *      <li>Add {@link #DISCOURSE_SSO_SECRET} field.</li>
+ * </ol>
+ * </p>
+ *
+ * @author pulky, isv, VolodymyrK, TrePe, gevak, ecnu_haozi, tangzx, gonia_119, TCSASSEMBLER
+ * @version 1.9.15
  */
 public class Constants implements WebConstants {
 
@@ -1873,6 +1882,20 @@ public class Constants implements WebConstants {
      * @since 1.9.13
      */
     public static String BIND_CALLBACK_URL_AUTH0;
+
+    /**
+     * The discourse sso secret.
+     *
+     * @since 1.9.15
+     */
+    public static String DISCOURSE_SSO_SECRET;
+
+    /**
+     * The discourse callback url.
+     *
+     * @since 1.9.15
+     */
+    public static String DISCOURSE_CALLBACK_URL;
 
     static {
         initialize();
