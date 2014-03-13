@@ -40,6 +40,11 @@ public class Resource extends Base {
     protected Long phaseId;
 
     /**
+     * <p>A <code>Long</code> providing the ID of the associated user.</p>
+     */
+    protected Long userId;
+
+    /**
      * <p>A <code>Set</code> mapping the info type IDs to values.</p>
      */
     protected Set<ResourceInfo> info = new HashSet<ResourceInfo>();
@@ -149,6 +154,25 @@ public class Resource extends Base {
     public void setPhaseId(Long phaseId) {
         this.phaseId = phaseId;
     }
+
+    /**
+     * <p>Gets the ID of the associated user.</p>
+     *
+     * @return a <code>Long</code> providing the ID of the associated user.
+     */
+    public Long getUserId() {
+        return this.userId;
+    }
+
+    /**
+     * <p>Sets the ID of the associated user.</p>
+     *
+     * @param userId a <code>Long</code> providing the ID of the associated user.
+     */
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     /**
      * <p>Gets the date for record modification.</p>
      *
