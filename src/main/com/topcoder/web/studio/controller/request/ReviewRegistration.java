@@ -179,6 +179,7 @@ public class ReviewRegistration extends BaseTermsOfUse {
             role.setId((int) roleId);
             resource.setRole(role);
             resource.setPhaseId(phase.getId());
+            resource.setUserId(userId);
             resource.setCreateUser(String.valueOf(userId));
             resource.setCreateDate(now);
             resource.setModifyUser(String.valueOf(userId));

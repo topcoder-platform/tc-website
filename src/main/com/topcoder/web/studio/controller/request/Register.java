@@ -217,6 +217,7 @@ public class Register extends BaseTermsOfUse {
         ResourceRole role = new ResourceRole();
         role.setId(ResourceRole.SUBMITTER_RESOURCE_ROLE_ID.intValue());
         resource.setRole(role);
+        resource.setUserId(u.getId());
         resource.setCreateUser(String.valueOf(u.getId()));
         resource.setCreateDate(now);
         resource.setModifyUser(String.valueOf(u.getId()));

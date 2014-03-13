@@ -13,6 +13,7 @@
         <property name="projectId" column="project_id"/>
         <many-to-one name="role" column="resource_role_id" class="ResourceRole" />
         <property name="phaseId" column="project_phase_id"/>
+        <property name="userId" column="user_id"/>
         <property name="createUser" column="create_user"/>
         <property name="modifyUser" column="modify_user"/>
         <property name="createDate" column="create_date"/>
