@@ -36,7 +36,7 @@ $(document).ready(function () {
 
 <body>
 	<div align="center" style="padding: 6px 0px 6px;">
-		<A href="/"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0" /> </A>
+		<A href="/"><img src="/i/registration/tc-new-logo.png" alt="TopCoder" border="0" /> </A>
 	</div>
 
 	<div align="center">
