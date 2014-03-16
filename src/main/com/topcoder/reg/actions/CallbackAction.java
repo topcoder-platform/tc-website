@@ -185,7 +185,7 @@ public class CallbackAction extends BaseAction {
                 user.setPassword(userService.getPasswordByUserId(userIdBoundWithSocialAccount));
                 password = user.getPassword();
                 // store the page to redirect after login successfully into session.
-                session.setAttribute(RegistrationHelper.NEXT_PAGE_SESSION_KEY, state);
+                session.setAttribute(RegistrationHelper.NEXT_PAGE_SESSION_KEY, nextPage);
                 //LoggingWrapperUtility.logExit(logger, signature, new String[] {LOGIN});
 
                 setSSONextPageIfNeeded(session, user, sso, sig);
