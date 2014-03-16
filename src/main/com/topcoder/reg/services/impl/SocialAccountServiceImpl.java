@@ -392,7 +392,7 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
         }
 
         JSONObject rootNode = getJsonNode(jsonString);
-        return new String[]{rootNode.getString("access_token"), rootNode.getJSONString("id_token")};
+        return new String[]{rootNode.getString("access_token"), rootNode.getString("id_token")};
     }
 
     /**
