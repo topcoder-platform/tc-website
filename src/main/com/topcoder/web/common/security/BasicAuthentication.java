@@ -176,10 +176,11 @@ public class BasicAuthentication implements WebAuthentication {
      * If login fails, throw a LoginException.
      *
      * @param u
+     * @returns User instance
      * @throws LoginException
      */
-    public void login(User u) throws LoginException {
-        login(u, true);
+    public User login(User u) throws LoginException {
+        return login(u, true);
     }
 
     /**
@@ -188,9 +189,13 @@ public class BasicAuthentication implements WebAuthentication {
      * If login fails, throw a LoginException.
      *
      * @param u
+     * @param rememberUser whether or not the user
+     *                     should be recognized the next time attempt to use the site
+     *                     basically we're setting a cookie to remember them (getActiveUser())
+     * @returns User instance
      * @throws LoginException
      */
-    public void login(User u, boolean rememberUser) throws LoginException {
+    public User login(User u, boolean rememberUser) throws LoginException {
         if (readOnly) {
             throw new RuntimeException("Sorry, this intance can not be used to login because it is read only, it was instantiated with no response object.");
         }
@@ -219,6 +224,8 @@ public class BasicAuthentication implements WebAuthentication {
             }
 
             log.info("login succeeded");
+
+            return makeUser(sub.getUserId());
         } catch (Exception e) {
             log.info("login failed", e);
             //not necessarily accurate, but gotta say something...

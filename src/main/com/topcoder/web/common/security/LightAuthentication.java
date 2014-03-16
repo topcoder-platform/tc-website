@@ -48,12 +48,12 @@ public class LightAuthentication extends BasicAuthentication {
      * @param rememberUser
      * @throws LoginException
      */
-    public void login(User u, boolean rememberUser) throws LoginException {
+    public User login(User u, boolean rememberUser) throws LoginException {
         log.info("attempting login as " + u.getId() + " path: " + defaultCookiePath.getName() + " remember " + rememberUser);
         try {
             currentUser = u;
             log.info("login succeeded");
-
+            return u;
         } catch (Exception e) {
             log.info("login failed", e);
             //not necessarily accurate, but gotta say something...
@@ -61,7 +61,7 @@ public class LightAuthentication extends BasicAuthentication {
         }
     }
 
-    public void login(User u, boolean rememberUser, String dataSource) throws LoginException {
+    public User login(User u, boolean rememberUser, String dataSource) throws LoginException {
         throw new RuntimeException("Not implemented");
     }
 

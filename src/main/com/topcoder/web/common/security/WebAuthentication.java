@@ -26,9 +26,10 @@ public interface WebAuthentication extends Authentication {
      * @param rememberUser whether or not the user
      *                     should be recognized the next time attempt to use the site
      *                     basically we're setting a cookie to remember them (getActiveUser())
+     * @returns User instance
      * @throws LoginException
      */
-    void login(User u, boolean rememberUser) throws LoginException;
+    User login(User u, boolean rememberUser) throws LoginException;
 
     /**
      * A user is "known" if they've ever logged in.  We do not make
