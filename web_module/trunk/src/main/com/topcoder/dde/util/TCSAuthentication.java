@@ -91,19 +91,19 @@ public class TCSAuthentication implements WebAuthentication {
      * @throws com.topcoder.shared.security.LoginException
      *
      */
-    public void login(User u, boolean rememberUser) throws LoginException {
+    public User login(User u, boolean rememberUser) throws LoginException {
         throw new RuntimeException("Not implemented");
     }
 
-    public void login(User u) throws LoginException {
+    public User login(User u) throws LoginException {
         throw new RuntimeException("Not implemented");
     }
 
-    public void login(User u, boolean rememberUser, String dataSource) throws LoginException {
+    public User login(User u, boolean rememberUser, String dataSource) throws LoginException {
         throw new RuntimeException("Not implemented");
     }
 
-    public void login(User u, String dataSource) throws LoginException {
+    public User login(User u, String dataSource) throws LoginException {
         throw new RuntimeException("Not implemented");
     }
 

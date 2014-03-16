@@ -34,6 +34,7 @@ import com.topcoder.web.common.model.Notification;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
 
+
 import java.util.List;
 import java.util.Set;
 
@@ -92,14 +93,15 @@ public class EventRegServlet extends BaseServlet {
             TCResponse tcResponse = HttpObjectFactory.createResponse(response);
             WebAuthentication authentication = createAuthentication(tcRequest, tcResponse);
 
+            com.topcoder.shared.security.User currentUser = authentication.getActiveUser();
             // if user not logged in
-            if(authentication.getActiveUser().isAnonymous()){
+            if(currentUser.isAnonymous()){
                 if (handle != null && !handle.equals("")
                      && password != null && !password.equals(""))
                 {
                     try {
                         //BUGR-4262
-                        authentication.login(new SimpleUser(0, handle, password),false);
+                        currentUser = authentication.login(new SimpleUser(0, handle, password),false);
                     } catch (LoginException e) {
                         response.getOutputStream().println(cb == null ? "<response>bad login</response>" : cb + "({\"response\":\"bad login\"})");
                         return;
@@ -113,11 +115,11 @@ public class EventRegServlet extends BaseServlet {
                 
             }
 
-            if (!authentication.getActiveUser().isAnonymous()){
+            if (!currentUser.isAnonymous()){
 
                 UserTermsOfUseDao userTermsOfUse = TermsOfUseUtil.getUserTermsOfUseDao();
 
-                long userId = authentication.getActiveUser().getId();
+                long userId = currentUser.getId();
                 long eventId = Long.parseLong(eventstr);
                 long termsId = 0;
                 String commandToRefresh = "";
