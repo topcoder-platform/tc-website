@@ -41,7 +41,7 @@
     Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming challenges page</a> or subscribe to the RSS feed
     <a href="/tc?module=BasicRSS&amp;c=rss_Pipeline&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
 </div>
-<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=may_14" class="prevNext">&lt; prev</a> <!-- | <a href="/tc?module=Static&amp;d1=calendar&amp;d2=jul_14" class="prevNext">next &gt;</a> --></strong>
+<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=may_14" class="prevNext">&lt; prev</a>  | <a href="/tc?module=Static&amp;d1=calendar&amp;d2=jul_14" class="prevNext">next &gt;</a></strong>
 <jsp:include page="dropdown.jsp" >
 <jsp:param name="currMonth" value="jun_14"/>
 </jsp:include>
@@ -75,6 +75,11 @@
       <td class="value">6
       </td>
       <td class="value">7
+        <div class="tco14">
+          <div class="emblem"><img src="/i/tournament/tco14/emblem.png" alt="TCO14" /></div>
+          <strong><A href="http://community.topcoder.com/tco14/algorithm/">Algorithm Round 2B</A></strong><br />
+          12:00<br />
+        </div>
       </td>
    </tr>
 
