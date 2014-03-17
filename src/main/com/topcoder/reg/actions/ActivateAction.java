@@ -6,7 +6,9 @@ package com.topcoder.reg.actions;
 import org.apache.struts2.ServletActionContext;
 
 import javax.annotation.PostConstruct;
-//import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
+
 
 import com.opensymphony.xwork2.config.ConfigurationException;
 //import com.topcoder.commons.utils.LoggingWrapperUtility;
@@ -16,6 +18,7 @@ import com.topcoder.reg.services.PersistenceException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.reg.dto.UserDTO;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.ApplicationServer;
 
 import com.topcoder.reg.EmailSetting;
 
@@ -38,9 +41,15 @@ import com.topcoder.reg.EmailSetting;
  * for sending an email for greeting a new user.</li>
  * <ol>
  * </p>
- *
- * @author leo_lol, TCSDEVELOPER
- * @version 1.1
+ * <p>
+ * Change in 1.2 (FIRST2FINISH : TopCoder Reg2 - Auto Logon After User Activiation).
+ *  <ol>
+ *  <li>Add password and handle parameters, and redirect into Login action with these two parameters.</li>
+ *  <li>Set the redirect page to Application.SERVER_NAME, I.E. http://topcoder.com</li>
+ *  </ol>
+ * </p>
+ * @author leo_lol, ecnu_haozi, TCSDEVELOPER
+ * @version 1.2
  * @since 1.0
  */
 public class ActivateAction extends BaseAction {
@@ -64,6 +73,18 @@ public class ActivateAction extends BaseAction {
      * Represents the activation code.
      */
     private String code;
+
+    /**
+     * Field to store user name from front-end.
+     * @since 1.2
+     */
+    private String handle;
+
+    /**
+     * Field to store password from front-end.
+     * @since 1.2
+     */
+    private String password;
 
     /**
      * Represents the Welcome email messages settings.
@@ -98,7 +119,17 @@ public class ActivateAction extends BaseAction {
             userService.activate(code);
             long userId = StringUtils.getCoderId(code);
             userDTO = userService.getUserByUserId(userId);
-            ServletActionContext.getRequest().setAttribute(USER_HANDLE_KEY, userDTO.getHandle());
+
+            handle = userDTO.getHandle();
+
+            userDTO.setPassword(userService.getPasswordByUserId(userId));
+            password = userDTO.getPassword();
+
+            HttpServletRequest req = ServletActionContext.getRequest();
+            HttpSession session = req.getSession();
+            // store the page to redirect after login successfully into session.
+            session.setAttribute(RegistrationHelper.NEXT_PAGE_SESSION_KEY,  "https://" + ApplicationServer.SERVER_NAME);
+
         } catch (PersistenceException e) {
             addActionError(e.getMessage());
             logger.error(e);
@@ -135,7 +166,55 @@ public class ActivateAction extends BaseAction {
     public void setEmailSetting(EmailSetting emailSetting) {
         this.emailSetting = emailSetting;
     }
+    /**
+     * <p>
+     * The getter method for field handle.
+     * </p>
+     * 
+     * @return the handle
+     * @since 1.2
+     */
+    public String getHandle() {
+        return handle;
+    }
 
+    /**
+     * <p>
+     * The setter method for field handle.
+     * </p>
+     * 
+     * @param handle
+     *            the handle to set
+     * @since 1.2
+     */
+    public void setHandle(String handle) {
+        this.handle = handle;
+    }
+
+    /**
+     * <p>
+     * The getter method for field password.
+     * </p>
+     * 
+     * @return the password
+     * @since 1.2
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * <p>
+     * The setter method for field password.
+     * </p>
+     * 
+     * @param password
+     *            the password to set
+     * @since 1.2
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
     /**
      * This method checks success of IoC.
      *
