@@ -33,17 +33,17 @@
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="calendar"/>
-<jsp:param name="title" value="May 2014"/>
+<jsp:param name="title" value="August 2014"/>
 </jsp:include>
 
 <div style="float:right;white-space:nowrap;" align="right">
     All times are <a target="_blank" href="http://www.timeanddate.com/worldclock/city.html?n=98">Eastern Time</a> unless stated otherwise.<br />
-    Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming challenges page</a> or subscribe to the RSS feed
+    Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Contests page</a> or subscribe to the RSS feed
     <a href="/tc?module=BasicRSS&amp;c=rss_Pipeline&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
 </div>
-<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=apr_14" class="prevNext">&lt; prev</a> | <a href="/tc?module=Static&amp;d1=calendar&amp;d2=jun_14" class="prevNext">next &gt;</a></strong>
+<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=jul_14" class="prevNext">&lt; prev</a> <!-- | <a href="/tc?module=Static&amp;d1=calendar&amp;d2=sep_14" class="prevNext">next &gt;</a> --></strong>
 <jsp:include page="dropdown.jsp" >
-<jsp:param name="currMonth" value="may_14"/>
+<jsp:param name="currMonth" value="aug_14"/>
 </jsp:include>
 
 <table cellspacing="0" cellpadding="0" class="calendar" width="100%">
@@ -62,22 +62,19 @@
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
+      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="value">1
       </td>
       <td class="value">2
       </td>
-      <td class="value">3
-      </td>
    </tr>
 
    <tr>
+      <td class="value">3
+      </td>
       <td class="value">4
       </td>
       <td class="value">5
-        <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=15852">SRM 619</A></strong><br />
-         07:00
-        </div>
       </td>
       <td class="value">6
       </td>
@@ -86,16 +83,17 @@
       <td class="value">8
       </td>
       <td class="value">9
-      </td>
-      <td class="value">10
-        <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=15853">SRM 620</A></strong><br />
-         12:00
+        <div class="tco14">
+          <div class="emblem"><img src="/i/tournament/tco14/emblem.png" alt="TCO14" /></div>
+          <strong><A href="http://community.topcoder.com/tco14/algorithm/">Algorithm Round 3B</A></strong><br />
+          12:00<br />
         </div>
       </td>
    </tr>
 
    <tr>
+      <td class="value">10
+      </td>
       <td class="value">11
       </td>
       <td class="value">12
@@ -108,25 +106,16 @@
       </td>
       <td class="value">16
       </td>
-      <td class="value">17
-        <div class="tco14">
-          <div class="emblem"><img src="/i/tournament/tco14/emblem.png" alt="TCO14" /></div>
-          <strong><A href="http://community.topcoder.com/tco14/algorithm/">Algorithm Round 2A</A></strong><br />
-          12:00<br />
-        </div>
-      </td>
    </tr>
 
    <tr>
+      <td class="value">17
+      </td>
       <td class="value">18
       </td>
       <td class="value">19
       </td>
       <td class="value">20
-        <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=15854">SRM 621</A></strong><br />
-         11:00
-        </div>
       </td>
       <td class="value">21
       </td>
@@ -134,11 +123,11 @@
       </td>
       <td class="value">23
       </td>
-      <td class="value">24
-      </td>
    </tr>
 
    <tr>
+      <td class="value">24
+      </td>
       <td class="value">25
       </td>
       <td class="value">26
@@ -146,17 +135,22 @@
       <td class="value">27
       </td>
       <td class="value">28
-        <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=15855">SRM 622</A></strong><br />
-         21:00
-        </div>
       </td>
       <td class="value">29
       </td>
       <td class="value">30
       </td>
+   </tr>
+
+   <tr>
       <td class="value">31
       </td>
+      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
+      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
+      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
+      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
+      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
+      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
    </tr>
 </table>
 
