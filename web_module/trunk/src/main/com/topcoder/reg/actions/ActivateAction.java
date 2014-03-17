@@ -9,12 +9,10 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 
-
 import com.opensymphony.xwork2.config.ConfigurationException;
-//import com.topcoder.commons.utils.LoggingWrapperUtility;
 import com.topcoder.reg.RegistrationHelper;
 import com.topcoder.reg.services.PersistenceException;
-//import com.topcoder.web.common.WebConstants;
+import com.topcoder.reg.services.AlreadyActivatedException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.reg.dto.UserDTO;
 import com.topcoder.shared.util.logging.Logger;
@@ -121,6 +119,8 @@ public class ActivateAction extends BaseAction {
             addActionError(e.getMessage());
             logger.error(e);
             throw e;
+        } catch (AlreadyActivatedException e) {
+            return SUCCESS;
         }
 
         // send the Welcome Email messages
