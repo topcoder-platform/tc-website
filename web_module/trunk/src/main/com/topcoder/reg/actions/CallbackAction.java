@@ -141,12 +141,15 @@ public class CallbackAction extends BaseAction {
             String sso = null;
             String sig = null;
 
-            if (null != state) {
-                String[] params = StringUtils.split(state);
-                if (params.length > 2) {
-                    nextPage = URIUtil.decode(params[0]);
-                    sso = params[1];
-                    sig = params[2];
+            if (null != state) { System.out.println("---------------state-------------------------="+state);
+                String[] url = StringUtils.split(state, '?');
+                if (url.length > 1) {
+                    nextPage = URIUtil.decode(url[0]);
+					String[] params = StringUtils.split(url[1], '&');
+					if (params.length > 1) {
+						sso = (StringUtils.split(params[0], '='))[1];
+						sig = (StringUtils.split(params[1], '='))[1];
+					}
                 } else {
                     nextPage = URIUtil.decode(state);
                 }
@@ -227,6 +230,7 @@ public class CallbackAction extends BaseAction {
      * @since 1.2
      */
     private void setSSONextPageIfNeeded(HttpSession session, UserDTO user, String sso, String sig) throws TCWebException {
+		System.out.println("----------------setSSONextPageIfNeeded---------------------------"+sso+"sig="+sig);
         if (StringUtils.isNotEmpty(sso) && StringUtils.isNotEmpty(sig)) {
             String next = DiscourseSSOUtil.getSSOCallbackURL(sso, sig, user);
             if (StringUtils.isNotEmpty(next)) {
