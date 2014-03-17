@@ -38,10 +38,7 @@
         </action>
         
         <action name="activate" class="activateAction">
-            <result type="chain" >
-                <param name="actionName">login</param>
-                <param name="namespace">/</param>
-            </result>
+            <result>/activate-success.jsp</result>
         </action>
         
         <action name="callback" class="callbackAction">
@@ -62,10 +59,7 @@
 
         <action name="login" class="loginAction">
             <interceptor-ref name="chain" />
-            <result name="success" type="httpheader">
-                <param name="status">301</param>
-                <param name="headers.Location">${nextPage}</param>
-            </result>
+            <result name="success" type="redirect">${nextPage}</result>
             <result name="loginfail">/login-fail.jsp</result>
         </action>
 

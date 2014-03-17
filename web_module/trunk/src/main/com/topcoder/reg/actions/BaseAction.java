@@ -4,6 +4,7 @@
 package com.topcoder.reg.actions;
 
 import javax.annotation.PostConstruct;
+import java.util.Arrays;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.topcoder.reg.RegistrationHelper;
@@ -13,6 +14,26 @@ import com.topcoder.reg.services.UserService;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogFactory;
 import com.topcoder.shared.util.logging.Logger;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.topcoder.reg.dto.UserInfoDTO;
+import com.topcoder.reg.util.DataProvider;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.login.LoginRemote;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.SimpleRequest;
+import com.topcoder.web.common.SimpleResponse;
+import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.Constants;
+import com.topcoder.web.common.security.SessionPersistor;
+
 
 /**
  * This action is responsible for holding common data like logger. It implements checkConfiguration method which will be
@@ -29,8 +50,14 @@ import com.topcoder.shared.util.logging.Logger;
  * <li>Add SocialAccountService instance to support social account single sign-in related operations.</li>
  * <ol>
  * <p>
+* <p>
+ * Change in 1.2 (FIRST2FINISH : TopCoder Reg2 - Auto Logon After User Activiation).
+ *  <ol>
+ *  <li>refactor out common code into login() method</li>
+ *  </ol>
+ * </p>
  * @author sampath01, leo_lol, ecnu_haozi
- * @version 1.1
+ * @version 1.2
  * @since 1.0
  */
 public class BaseAction extends ActionSupport {
@@ -109,6 +136,73 @@ public class BaseAction extends ActionSupport {
                 ConfigurationException.class);
         RegistrationHelper.checkNotNullOrEmpty("authenticationSessionKey", authenticationSessionKey,
                 ConfigurationException.class);
+    }
+    /**
+     * Log in the user.
+     * @param handle the user handle.
+     * @param password the user password.
+     * @param rememberMe indicate whether to remember the user.
+     * @param logger to log the exception.
+     * @param signature the caller method's signature.
+     * @param result the string of return value. result[0] is the login status: ERROR , NONE or SUCCESS; result[1] is the details.
+     * @throws Exception if any exception occurs.
+     * @since 1.2
+     */
+    public void login(String handle, String password, boolean rememberMe, Logger logger, String signature, String [] result)throws Exception{
+        TCSubject tcSubject = null;
+        try {
+            LoginRemote login = (LoginRemote) Constants.createEJB(LoginRemote.class);
+            tcSubject = login.login(handle, password, DBMS.JTS_OLTP_DATASOURCE_NAME);
+        } catch (Exception e) {
+            result[0] = ERROR;
+            result[1] = "handle or password is wrong, or email is inactive.";
+            logger.error(signature+e);
+            return;
+        }
+
+        HttpServletRequest request = ServletActionContext.getRequest();
+        HttpServletResponse response = ServletActionContext.getResponse();
+        HttpSession session = request.getSession();
+
+        BasicAuthentication authentication = new BasicAuthentication(new SessionPersistor(session), new SimpleRequest(
+                request), new SimpleResponse(response), BasicAuthentication.MAIN_SITE, DBMS.JTS_OLTP_DATASOURCE_NAME);
+        UserInfoDTO info = DataProvider.getUserStatusByHandle(handle);
+        if (Arrays.binarySearch(WebConstants.ACTIVE_STATI, info.getUserStatus()) > 0) {
+            if (info.getEmailStatus() != WebConstants.ACTIVE_EMAIL_STATUS) {
+                authentication.logout();
+                
+                result[0] = ERROR;
+                result[1] = "Your email is inactive";
+                return ;
+            }
+            
+            authentication.login(new SimpleUser(0, handle, password), rememberMe);
+
+            session.setAttribute(userSessionKey, authentication.getActiveUser());
+            session.setAttribute(userHandleSessionKey, handle);
+            session.setAttribute(authenticationSessionKey, authentication);
+
+            result[0] = SUCCESS;
+            result[1] = "OK";
+            return;
+        }
+
+        authentication.logout();
+        if (Arrays.binarySearch(WebConstants.INACTIVE_STATI, info.getUserStatus()) > 0) {
+            result[0] = ERROR;
+            result[1] = "Account is inactive";
+            return;
+        }
+
+        if (Arrays.binarySearch(WebConstants.UNACTIVE_STATI, info.getUserStatus()) > 0) {
+            result[0] = ERROR;
+            result[1] = "Account is not activated after registeration step one";
+            return;
+        }
+
+        result[0] = NONE;
+        result[1] = "System Intenal error.";
+        return;
     }
 
     /**

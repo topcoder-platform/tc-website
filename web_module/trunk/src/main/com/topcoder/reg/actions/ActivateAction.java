@@ -44,8 +44,7 @@ import com.topcoder.reg.EmailSetting;
  * <p>
  * Change in 1.2 (FIRST2FINISH : TopCoder Reg2 - Auto Logon After User Activiation).
  *  <ol>
- *  <li>Add password and handle parameters, and redirect into Login action with these two parameters.</li>
- *  <li>Set the redirect page to Application.SERVER_NAME, I.E. http://topcoder.com</li>
+ *  <li>log in the user after activation. </li>
  *  </ol>
  * </p>
  * @author leo_lol, ecnu_haozi, TCSDEVELOPER
@@ -73,18 +72,6 @@ public class ActivateAction extends BaseAction {
      * Represents the activation code.
      */
     private String code;
-
-    /**
-     * Field to store user name from front-end.
-     * @since 1.2
-     */
-    private String handle;
-
-    /**
-     * Field to store password from front-end.
-     * @since 1.2
-     */
-    private String password;
 
     /**
      * Represents the Welcome email messages settings.
@@ -119,16 +106,16 @@ public class ActivateAction extends BaseAction {
             userService.activate(code);
             long userId = StringUtils.getCoderId(code);
             userDTO = userService.getUserByUserId(userId);
-
-            handle = userDTO.getHandle();
+            ServletActionContext.getRequest().setAttribute(USER_HANDLE_KEY, userDTO.getHandle());
+            
+            String handle = userDTO.getHandle();
 
             userDTO.setPassword(userService.getPasswordByUserId(userId));
-            password = userDTO.getPassword();
+            String password = userDTO.getPassword();
+            
+            String [] result = new String [2];
 
-            HttpServletRequest req = ServletActionContext.getRequest();
-            HttpSession session = req.getSession();
-            // store the page to redirect after login successfully into session.
-            session.setAttribute(RegistrationHelper.NEXT_PAGE_SESSION_KEY,  "https://" + ApplicationServer.SERVER_NAME);
+            login(handle, password, false, logger, signature, result);
 
         } catch (PersistenceException e) {
             addActionError(e.getMessage());
@@ -166,55 +153,7 @@ public class ActivateAction extends BaseAction {
     public void setEmailSetting(EmailSetting emailSetting) {
         this.emailSetting = emailSetting;
     }
-    /**
-     * <p>
-     * The getter method for field handle.
-     * </p>
-     * 
-     * @return the handle
-     * @since 1.2
-     */
-    public String getHandle() {
-        return handle;
-    }
 
-    /**
-     * <p>
-     * The setter method for field handle.
-     * </p>
-     * 
-     * @param handle
-     *            the handle to set
-     * @since 1.2
-     */
-    public void setHandle(String handle) {
-        this.handle = handle;
-    }
-
-    /**
-     * <p>
-     * The getter method for field password.
-     * </p>
-     * 
-     * @return the password
-     * @since 1.2
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * <p>
-     * The setter method for field password.
-     * </p>
-     * 
-     * @param password
-     *            the password to set
-     * @since 1.2
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
     /**
      * This method checks success of IoC.
      *
