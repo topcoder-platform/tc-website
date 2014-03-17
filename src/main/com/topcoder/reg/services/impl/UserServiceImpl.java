@@ -5,6 +5,7 @@ package com.topcoder.reg.services.impl;
 
 import com.topcoder.reg.dto.UserDTO;
 import com.topcoder.reg.services.PersistenceException;
+import com.topcoder.reg.services.AlreadyActivatedException;
 import com.topcoder.reg.services.UserService;
 import com.topcoder.security.Util;
 import com.topcoder.security.ldap.LDAPClient;
@@ -490,7 +491,7 @@ public class UserServiceImpl extends BaseImpl implements UserService {
      *             If there Any error. Say activation code wrong.
      */
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = PersistenceException.class)
-    public void activate(String activationCode) throws PersistenceException {
+    public void activate(String activationCode) throws PersistenceException, AlreadyActivatedException {
         final String signature = CLASS_NAME + "#activate(String activationCode)";
         logger.info(signature);
         long userId = StringUtils.getCoderId(activationCode);
@@ -506,7 +507,7 @@ public class UserServiceImpl extends BaseImpl implements UserService {
                 }
 
                 if (!"U".equals(status)) {
-                    throw new PersistenceException("User has been activated");
+                    throw new AlreadyActivatedException("User has been activated");
                 }
 
                 if (1 == emailStatusId) {

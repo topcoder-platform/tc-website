@@ -109,7 +109,7 @@ public interface UserService {
      * @throws PersistenceException
      *             If there Any error. Say activation code wrong.
      */
-    public void activate(String activationCode) throws PersistenceException;
+    public void activate(String activationCode) throws PersistenceException, AlreadyActivatedException;
     
     /**
      * Get password according to user id.
