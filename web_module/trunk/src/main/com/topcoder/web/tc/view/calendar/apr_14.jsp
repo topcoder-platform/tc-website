@@ -73,6 +73,11 @@
         </div>
       </td>
       <td class="value">5
+        <div class="tco14">
+          <div class="emblem"><img src="/i/tournament/tco14/emblem.png" alt="TCO14" /></div>
+          <strong><A href="http://community.topcoder.com/tco14/algorithm/">Algorithm Round 1A</A></strong><br />
+          12:00<br />
+        </div>
       </td>
    </tr>
 
@@ -94,6 +99,11 @@
       <td class="value">11
       </td>
       <td class="value">12
+        <div class="tco14">
+          <div class="emblem"><img src="/i/tournament/tco14/emblem.png" alt="TCO14" /></div>
+          <strong><A href="http://community.topcoder.com/tco14/algorithm/">Algorithm Round 1B</A></strong><br />
+          12:00<br />
+        </div>
       </td>
    </tr>
 
@@ -136,6 +146,11 @@
       <td class="value">25
       </td>
       <td class="value">26
+        <div class="tco14">
+          <div class="emblem"><img src="/i/tournament/tco14/emblem.png" alt="TCO14" /></div>
+          <strong><A href="http://community.topcoder.com/tco14/algorithm/">Algorithm Round 1C</A></strong><br />
+          12:00<br />
+        </div>
       </td>
    </tr>
 
