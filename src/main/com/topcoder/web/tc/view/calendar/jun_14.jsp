@@ -133,6 +133,12 @@
       <td class="value">24
       </td>
       <td class="value">25
+        <div class="tco14">
+          <div class="emblem"><img src="/i/tournament/tco14/emblem.png" alt="TCO14" /></div>
+          <strong><A href="http://community.topcoder.com/tco14/marathon/">Marathon Round 3</A></strong><br />
+          13:00<br />
+          2 weeks<br />
+        </div>
       </td>
       <td class="value">26
       </td>
