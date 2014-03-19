@@ -83,6 +83,7 @@
 
 		<% String qdl = request.getParameter("SID") ; 
 			String tcid = request.getParameter("tcid") ; 
+			String linksrc = request.getParameter("linksrc") ; 
 		
 	
 			
@@ -132,7 +133,7 @@
 				
 					<div class="content">
 					
-							<iframe src="https://harvard.qualtrics.com/SE/?SID=<%=qdl%>&tcid=<%=uid%>&join-month=<%=month%>&join-year=<%=year%>&join-day=<%=day%>" height="700px" width="1000px"></iframe>
+							<iframe src="https://harvard.qualtrics.com/SE/?SID=<%=qdl%>&tcid=<%=uid%>&join-month=<%=month%>&join-year=<%=year%>&join-day=<%=day%>&linksrc=<%=linksrc%>" height="700px" width="1000px"></iframe>
 				
 						</div><!-- end .content --> 
 				</div></div>
