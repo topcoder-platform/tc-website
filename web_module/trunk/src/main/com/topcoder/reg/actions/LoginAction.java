@@ -3,6 +3,8 @@
  */
 package com.topcoder.reg.actions;
 
+import com.topcoder.security.login.UserUnactivatedException;
+import com.topcoder.web.tc.Constants;
 import org.apache.struts2.ServletActionContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -55,6 +57,11 @@ public class LoginAction extends BaseAction {
     private static final String LOGIN_FAIL = "loginfail";
 
     /**
+     * The struts result page to go if the login user is unactivated..
+     */
+    private static final String UNACTIVATED = "unactivated";
+
+    /**
      * Field to store user name from front-end.
      */
     private String handle;
@@ -92,14 +99,21 @@ public class LoginAction extends BaseAction {
         logger.info(signature);
 
         String [] result = new String [2];
-        login(handle, password, rememberMe, logger, signature, result);
-        
+        try {
+            login(handle, password, rememberMe, logger, signature, result);
+        } catch (UserUnactivatedException e) {
+            message = "OK";
+            nextPage = Constants.UNACTIVATED_USER_REDIRECT_URL;
+            return UNACTIVATED;
+        }
+
         message = result[1];
         if(result[0] == ERROR) {
             return LOGIN_FAIL;
         } else if(result[0] == SUCCESS){
             HttpServletRequest request = ServletActionContext.getRequest();
             HttpServletResponse response = ServletActionContext.getResponse();
+
             HttpSession session = request.getSession();
 
             nextPage = (String) session.getAttribute(RegistrationHelper.NEXT_PAGE_SESSION_KEY);

@@ -11,6 +11,7 @@ import com.topcoder.reg.RegistrationHelper;
 import com.topcoder.reg.services.ConfigurationException;
 import com.topcoder.reg.services.SocialAccountService;
 import com.topcoder.reg.services.UserService;
+import com.topcoder.security.login.UserUnactivatedException;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogFactory;
 import com.topcoder.shared.util.logging.Logger;
@@ -153,6 +154,9 @@ public class BaseAction extends ActionSupport {
         try {
             LoginRemote login = (LoginRemote) Constants.createEJB(LoginRemote.class);
             tcSubject = login.login(handle, password, DBMS.JTS_OLTP_DATASOURCE_NAME);
+        } catch (UserUnactivatedException e) {
+            logger.error(signature+e);
+            throw e;
         } catch (Exception e) {
             result[0] = ERROR;
             result[1] = "handle or password is wrong, or email is inactive.";

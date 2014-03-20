@@ -61,6 +61,7 @@
             <interceptor-ref name="chain" />
             <result name="success" type="redirect">${nextPage}</result>
             <result name="loginfail">/login-fail.jsp</result>
+            <result name="unactivated" type="redirect">${nextPage}</result>
         </action>
 
         <action name="logout" class="logoutAction">
@@ -104,6 +105,9 @@
                 <param name="includeProperties">message, nextPage</param>
             </result>
             <result name="loginfail" type="json">
+                <param name="includeProperties">message, nextPage</param>
+            </result>
+            <result name="unactivated" type="json">
                 <param name="includeProperties">message, nextPage</param>
             </result>
         </action>
