@@ -1897,6 +1897,11 @@ public class Constants implements WebConstants {
      */
     public static String DISCOURSE_CALLBACK_URL;
 
+    /**
+	 * The redirect url for when unactivated user login
+	 */
+    public static String UNACTIVATED_USER_REDIRECT_URL;
+
     static {
         initialize();
     }

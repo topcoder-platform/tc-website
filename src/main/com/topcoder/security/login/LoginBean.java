@@ -270,7 +270,7 @@ public class LoginBean extends BaseEJB {
             return LDAPClient.authenticateTopCoderMember(username, password);
         } catch (LDAPClientException e) {
             if (e.isUserStatusNotActive()) {
-                throw new AuthenticationException("User account is not active");
+                throw new UserUnactivatedException("User " + username + " is not active");
             } else if (e.isInvalidCredentialProvided()) {
                 throw new AuthenticationException("Username and/or password are incorrect");
             } else if (e.isUnknownUserHandle()) {
