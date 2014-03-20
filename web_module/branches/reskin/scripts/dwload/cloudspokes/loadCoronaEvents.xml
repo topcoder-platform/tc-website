@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<coronaEventsLoadingTool>
+    <sourcesList>
+        <source name="TransactionalData"
+                value="jdbc:informix-sqli://env.topcoder.com:2021/common_oltp:INFORMIXSERVER=informixoltp_tcp;user=informix;password=1nf0rm1x"/>
+    </sourcesList>
+    <parameterList>
+        <parameter name="CoronaURL" value="http://api.cloudspokes.com/v1/corona"/>
+		<parameter name="Token" value="bb44b7a05f9cb089157c831a80d82021"/>
+    </parameterList>
+</coronaEventsLoadingTool>
