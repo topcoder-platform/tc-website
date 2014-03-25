@@ -1,8 +1,8 @@
 
 <img src="http://www.topcoder.com/wp-content/themes/tcs-responsive/i/logo.png" alt="" width="330" height="58" />
-<h1>Welcome to topcoder, <span style="color: #ff0000;">%USER_HANDLE%</span>!</h1>
+<h1>Welcome to [topcoder], <span style="color: #ff0000;">%USER_HANDLE%</span>!</h1>
 
-<p>Thank you for registering for topcoder! You've joined a unique community of design, development and data science specialists! <a href="http://www.topcoder.com/challenges">Start competing today</a> for money, special prizes, badges and bragging rights!</p>
+<p>Thank you for registering for [topcoder]! You've joined a unique community of design, development and data science specialists! <a href="http://www.topcoder.com/challenges">Start competing today</a> for money, special prizes, badges and bragging rights!</p>
 
 <h2>Getting Started</h2>
 
@@ -29,7 +29,7 @@
 <li>Chat with our members on our <a href="http://forums.topcoder.com/">discussion forums</a></li>
 </ul>
 
-<p>Regards, <br /> The topcoder Team <br /> <em>...where the rubber meets the code!<span style="font-size: 1.5em;">&nbsp;</span></em></p>
+<p>Regards, <br /> The [topcoder] Team <br /> <em>...where the rubber meets the code!<span style="font-size: 1.5em;">&nbsp;</span></em></p>
 
 <h2>Follow Us!</h2>
 
