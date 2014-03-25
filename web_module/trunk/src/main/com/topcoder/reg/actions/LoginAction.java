@@ -104,6 +104,10 @@ public class LoginAction extends BaseAction {
         } catch (UserUnactivatedException e) {
             message = "OK";
             nextPage = Constants.UNACTIVATED_USER_REDIRECT_URL;
+
+            if (nextPage == null || nextPage.trim().length() == 0) {
+                nextPage = "http://www.topcoder.com";
+            }
             return UNACTIVATED;
         }
 
