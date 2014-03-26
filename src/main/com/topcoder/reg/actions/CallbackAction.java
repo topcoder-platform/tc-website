@@ -144,11 +144,14 @@ public class CallbackAction extends BaseAction {
             if (null != state) { System.out.println("---------------state-------------------------="+state);
                 String[] url = StringUtils.split(state, '?');
                 if (url.length > 1) {
-                    nextPage = URIUtil.decode(url[0]);
+                    String np = URIUtil.decode(url[0]);
 					String[] params = StringUtils.split(url[1], '&');
 					if (params.length > 1) {
 						sso = (StringUtils.split(params[0], '='))[1];
 						sig = (StringUtils.split(params[1], '='))[1];
+						nextPage = np;
+					} else {
+						nextPage = URIUtil.decode(state);
 					}
                 } else {
                     nextPage = URIUtil.decode(state);
