@@ -106,7 +106,7 @@ public class LoginAction extends BaseAction {
             nextPage = Constants.UNACTIVATED_USER_REDIRECT_URL;
 
             if (nextPage == null || nextPage.trim().length() == 0) {
-                nextPage = "http://www.topcoder.com";
+                nextPage = "http://www.topcoder.com/account-inactive/";
             }
             return UNACTIVATED;
         }
