@@ -213,7 +213,7 @@
                     nav.search("m_test_scenarios_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewAuctions&amp;pt=" + WebConstants.TEST_SCENARIOS_PROJECT_TYPE, "Review Opportunities", "test_scenarios_review"));
                     nav.search("m_test_scenarios_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&amp;pt=" + WebConstants.TEST_SCENARIOS_PROJECT_TYPE, "Meet the Review Board", "test_scenarios_review_board"));
                 nav.search("competition_qa").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_bugraces_competitions')", "Race", "m_bugraces_competitions"));
-                    nav.search("m_bugraces_competitions").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Bug+Race+Competition+Overview", "Overview", "bugraces_overview"));
+                    nav.search("m_bugraces_competitions").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Race+Competition+Overview", "Overview", "bugraces_overview"));
                     nav.search("m_bugraces_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_bugraces_support')", "Track Information", "m_bugraces_support"));
                             nav.search("m_bugraces_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Bug+Race+Competitions", "How to Compete", "bugraces_how_to_compete"));
                     nav.search("m_bugraces_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewActiveBugRaces", "Active Challenges", "bugraces_compete"));
