@@ -21,7 +21,7 @@
 <input name="Search" value="Search" type="submit" alt="Search" onclick="">
 <br>
 --%>
-<A href="?module=Search" class="rtbcLink">Search</A>
+<A href="?module=Search" class="rtbcLink search singleSearch">Search</A>
 <%--
 <% if (errors != null && errors.get(ForumConstants.SEARCH_QUERY) != null) { %><br><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_QUERY%>"><%=err%></tc-webtag:errorIterator></span><% } %>
 </form>

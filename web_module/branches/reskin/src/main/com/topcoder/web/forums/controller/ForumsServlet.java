@@ -96,6 +96,15 @@ public class ForumsServlet extends BaseServlet {
     protected void process(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
+        if(request.getParameter("legacy") != null) {
+            IS_NEW_STYLE = false;
+        } else {
+            IS_NEW_STYLE = true;
+        }
+
+        request.setAttribute("isNewStyle", IS_NEW_STYLE);
+        getTopCoderTweets(request);
+
         RequestProcessor rp = null;
         WebAuthentication authentication = null;
         SessionInfo info = null;

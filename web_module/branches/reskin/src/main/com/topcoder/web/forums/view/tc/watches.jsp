@@ -55,7 +55,7 @@
                 <jsp:param name="title" value="Watches"/>
             </jsp:include>
 
-            <div class="topLinksL">
+            <div class="topLinksL breadcrumbs">
                 <span class="rtbc"><a href="?module=Main" class="rtbcLink">Forums</a> <img src="/i/interface/exp_w.gif" align="absmiddle"/> My Watches </span><br><br>
             </div>
 
@@ -63,18 +63,19 @@
                 <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<b>My Watches</b>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User
                 Settings</A><br/>
             </div><br><br>
-	
+
+            <span class="notes">
             All watch updates will be emailed to your email address: <b><%=user.getEmail()%></b>.
             Watches on content that hasn't been updated for more than 90 days will be automatically removed from your
             list.
-            To prevent any watch from being automatically deleted, toggle the "Save" option.<br><br>
+            To prevent any watch from being automatically deleted, toggle the "Save" option.<br><br></span>
             
             <%	if (watchManager.getTotalWatchCount(user, JiveConstants.THREAD) > 0) { %>
             <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
                 <tc-webtag:hiddenInput name="module" value="Watches"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.WATCH_TYPE%>" value="<%=String.valueOf(JiveConstants.THREAD)%>"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
-                <div style="padding-bottom:3px;"><b>Watched Threads (<%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%>)</b></div>
+                <div style="padding-bottom:3px;" class="tableSubHeader"><b>Watched Threads (<%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%>)</b></div>
                 <table cellpadding="0" cellspacing="0" class="rtTable">
                     <tr>
                         <td class="rtHeader" width="70%">Thread</td>
@@ -126,7 +127,7 @@
                 <tc-webtag:hiddenInput name="module" value="Watches"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.WATCH_TYPE%>" value="<%=String.valueOf(JiveConstants.FORUM)%>"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
-                <div style="padding-bottom:3px;"><b>Watched Forums (<%=watchManager.getTotalWatchCount(user, JiveConstants.FORUM)%>)</b></div>
+                <div style="padding-bottom:3px;" class="tableSubHeader"><b>Watched Forums (<%=watchManager.getTotalWatchCount(user, JiveConstants.FORUM)%>)</b></div>
                 <table cellpadding="0" cellspacing="0" class="rtTable">
                     <tr>
                         <td class="rtHeader" width="100%">Forum</td>
@@ -198,7 +199,7 @@
                 <tc-webtag:hiddenInput name="module" value="Watches"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.WATCH_TYPE%>" value="<%=String.valueOf(JiveConstants.FORUM_CATEGORY)%>"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
-                <div style="padding-bottom:3px;"><b>Watched Software Forums (<%=watchManager.getTotalWatchCount(user, JiveConstants.FORUM_CATEGORY)%>)</b></div>
+                <div style="padding-bottom:3px;" class="tableSubHeader"><b>Watched Software Forums (<%=watchManager.getTotalWatchCount(user, JiveConstants.FORUM_CATEGORY)%>)</b></div>
                 <table cellpadding="0" cellspacing="0" class="rtTable">
                     <tr>
                         <td class="rtHeader" width="100%">Category</td>

@@ -20,6 +20,7 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
@@ -269,9 +270,12 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
 	<td class="categoriesBox" style="padding-right: 20px;">
    		<jsp:include page="categoriesHeader.jsp" />
 	</td>
-	<td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-        <jsp:include page="searchHeader.jsp" />
-       	<%  if (ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
+	<td nowrap="nowrap" valign="top" style="padding-right: 20px;">
+    <c:if test="${!isNewStyle}">
+            <jsp:include page="searchHeader.jsp" />
+    </c:if>
+
+        <%  if (ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
 	    	<%	ImageData imageData = (ImageData)request.getAttribute("imageData"); %>
 			<%	if (!"".equals(StringUtils.checkNull(imageData.getPhaseIcon()))) { %>
 	    		<img align="middle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/i/<%=imageData.getPhaseIcon()%>" alt="<%=imageData.getPhaseText()%>" width="25" height="17" border="0">
@@ -282,6 +286,10 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
 		<%	} %>
 	</td>
    <td align="right" nowrap="nowrap" valign="top">
+       <c:if test="${isNewStyle}">
+           <a class="rtbcLink search" href="?module=Search">Search</a>
+           <span class="thin-sep">|</span>
+       </c:if>
    <A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.THREAD%>&<%=ForumConstants.WATCH_ID%>=<%=thread.getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>"
    class="rtbcLink"><%=watchMessage%></A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
    View:
@@ -312,7 +320,7 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
 </tr>
 
 <%	int colspan = (paginator.getNumPages() > 1) ? 2 : 3; %>
-<tr><td colspan="<%=colspan%>" style="padding-bottom:3px;"><b>
+<tr><td class='breadcrumbs' colspan="<%=colspan%>" style="padding-bottom:3px;"><b>
    <%	boolean showComponentLink = "true".equals((String)request.getAttribute("showComponentLink"));
    		Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
     	while (itCategories.hasNext()) {
@@ -356,7 +364,7 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
 
 <%-------------POSTS---------------%>
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
-<table cellpadding="0" cellspacing="0" class="rtTable" style="margin-bottom:6px;">
+<table cellpadding="0" cellspacing="0" class="rtTable rtTablePost" style="margin-bottom:6px;">
    	<tr>
       	<td class="rtHeader" colspan="2">
       	<%  String msgBodyID = "msgBody" + message.getID(); 
@@ -517,16 +525,20 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
       <td class="rtTextCell" width="100%"><%=message.getBody()%></td>
       <%   } %>
    	</tr>
-	<tr>
-		<td></td>
-		<td width="100%"></td>
-	</tr>
+
+    <c:if test="${!isNewStyle}">
+        <tr>
+            <td></td>
+            <td width="100%"></td>
+        </tr>
+    </c:if>
+
 </table>
 </tc-webtag:iterator>
 <%-------------POSTS END---------------%>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><td><b>
+<tr><td class='breadcrumbs'><b>
    <%	itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
     	while (itCategories.hasNext()) {
     		ForumCategory category = (ForumCategory)itCategories.next(); %>
