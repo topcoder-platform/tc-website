@@ -91,6 +91,21 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        if (!NEW_STYLE_ENABLED) {
+            IS_NEW_STYLE = false;
+        } else {
+            if(request.getParameter("legacy") != null) {
+                IS_NEW_STYLE = false;
+            } else {
+                IS_NEW_STYLE = true;
+            }
+        }
+
+        request.setAttribute("isNewStyle", IS_NEW_STYLE);
+
+        getTopCoderTweets(request);
+
         try {
             try {
 
@@ -200,6 +215,15 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        if(request.getParameter("legacy") != null) {
+            IS_NEW_STYLE = false;
+        } else {
+            IS_NEW_STYLE = true;
+        }
+
+        request.setAttribute("isNewStyle", IS_NEW_STYLE);
+
         try {
             try {
                 if (request.getParameter(MODULE) != null || request.getAttribute(MODULE) != null) {

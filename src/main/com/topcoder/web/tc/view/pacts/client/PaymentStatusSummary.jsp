@@ -44,7 +44,7 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-<td width="100%" align="left" class="bodyColumn">
+<td width="100%" align="left" class="bodyColumn summary" id="payments">
 
 <jsp:include page="../../page_title.jsp" >
 <jsp:param name="image" value="pact_s"/>
@@ -55,7 +55,14 @@
     <div style="float:right;">
        <A href="/wiki/display/tc/How+to+Get+Paid+for+Competing"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
     </div>
-    <span class="bodySubtitle">Payments > </span><br>
+    <c:choose>
+        <c:when test="${isNewStyle}">
+            <h2>Payments</h2>
+        </c:when>
+        <c:otherwise>
+            <span class="bodySubtitle">Payments > </span><br>
+        </c:otherwise>
+    </c:choose>
     <a href="/PactsMemberServlet?module=PaymentHistory&full_list=true" class="bcLink">View all</a> | <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false" class="bcLink">View pending</a> | <a href="/PactsMemberServlet?module=PaymentHistory&xls=true" class="bcLink">Export to Excel</a> | Payments Summary
 </div>
 
@@ -64,11 +71,14 @@
     <br>
     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
     <tbody>
-        <tr>
-            <td class="title" colspan="2">
-            Payment Summary
-            </td>
-        </tr>
+        <c:if test="${!isNewStyle}">
+            <tr>
+                <td class="title" colspan="2">
+                    Payment Summary
+                </td>
+            </tr>
+        </c:if>
+
         <tr>
             <td class="header">Payment Status</td>
             <td class="headerR">Net Amount</td>
@@ -93,7 +103,14 @@
         </rsc:iterator>
 
         <tr>
-            <td class="headerR" colspan="2">Total:&nbsp;<fmt:formatNumber value="<%=new Double(total)%>" type="currency" currencySymbol="$"/></td>
+            <c:choose>
+                <c:when test="${isNewStyle}">
+                    <td class="total" colspan="2">Total:&nbsp;<fmt:formatNumber value="<%=new Double(total)%>" type="currency" currencySymbol="$"/></td>
+                </c:when>
+                <c:otherwise>
+                    <td class="headerR" colspan="2">Total:&nbsp;<fmt:formatNumber value="<%=new Double(total)%>" type="currency" currencySymbol="$"/></td>
+                </c:otherwise>
+            </c:choose>
         </tr>
 
     </tbody>

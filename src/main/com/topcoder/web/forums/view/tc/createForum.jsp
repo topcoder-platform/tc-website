@@ -7,6 +7,8 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
@@ -104,7 +106,7 @@ function AllowTabCharacter() {
        <td class="categoriesBox" style="padding-right: 20px;">
           <jsp:include page="categoriesHeader.jsp" />
        </td>
-       <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
+       <td nowrap="nowrap" valign="top" tyle="padding-right: 20px;">
            <jsp:include page="searchHeader.jsp" />
        </td>
     </tr>
@@ -121,7 +123,7 @@ function AllowTabCharacter() {
 </table>
 
 <br>
-<table cellpadding="0" cellspacing="0" class="rtTable" width=100%>
+<table cellpadding="0" cellspacing="0" class="rtTable rtTablePost" width=100%>
 <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
 <tc-webtag:hiddenInput name="module"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
@@ -140,14 +142,24 @@ function AllowTabCharacter() {
         <b>Name:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.FORUM_NAME%>" escapeHtml="false" onKeyPress="return noenter(event)"/><br/><br/>
         <%  if (errors.get(ForumConstants.FORUM_DESCRIPTION) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.FORUM_DESCRIPTION%>"><%=err%><br/></tc-webtag:errorIterator></span><% } %>
         <b>Description:</b></font><br/><tc-webtag:textArea id="tcPostArea" rows="15" cols="72" name="<%=ForumConstants.FORUM_DESCRIPTION%>" onKeyDown="AllowTabCharacter()"/>
+
+            <c:if test="${isNewStyle}">
+                <div class="rtFooter">
+                    <a onclick="form1.module.value='CreateForum';form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_CREATE%>';form1.submit();" class="btn" href="javascript:;" alt="Post">Post</a>
+                </div>
+            </c:if>
+
         </td>
     </tr>
-    
-    <tr>
-        <td class="rtFooter">
-            <input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='CreateForum';form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_CREATE%>'"/>
-        </td>
-    </tr>
+
+    <c:if test="${!isNewStyle}">
+        <tr>
+            <td class="rtFooter">
+                <input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='CreateForum';form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_CREATE%>'"/>
+            </td>
+        </tr>
+    </c:if>
+
 </form>
 </table>
 

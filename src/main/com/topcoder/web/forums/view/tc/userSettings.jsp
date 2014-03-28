@@ -6,6 +6,7 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
@@ -87,7 +88,7 @@ function toggleTabs(id) {
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-   <div class="topLinksL">
+   <div class="topLinksL breadcrumbs">
    <span class="rtbc"><a href="?module=Main" class="rtbcLink">Forums</a> <img src="/i/interface/exp_w.gif" align="absmiddle"/> User Settings </span><br><br>
    </div>
    <div class="topLinksR">
@@ -134,7 +135,7 @@ function toggleTabs(id) {
 <tc-webtag:hiddenInput name="module" value="Settings"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_SECTION%>" value="gen"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>" value="save"/>
-<table cellpadding="0" cellspacing="0" class="rtTable" style="width:100%;">
+<table cellpadding="0" cellspacing="0" class="rtTable rtTableSettings" style="width:100%;">
    <tr id="bodyGen2">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Forums per Category page:</strong></td>
       <td class="rtThreadCell" style="width:100%;">
@@ -523,8 +524,18 @@ function toggleTabs(id) {
 </table>
 <span id="infoRate">TopCoder provides the ability to rate posts.  You may click the [+] next to the thread title if you think it is of high quality.   Similarly, you may click the [-] if it is of low quality.  We recommend that you also post your comments if you agree or disagree with the content of a post. Also, when ratings are enabled, you may click on a post's subject to expand or collapse the post.</span>
 <div align="right">
-<input type="image" src="/i/roundTables/save.gif" alt="Save"/>
-</div></form>
+
+    <c:choose>
+        <c:when test="${isNewStyle}">
+            <a onclick="form1.submit();" class="btn" href="javascript:;" alt="Post">Save</a>
+        </c:when>
+        <c:otherwise>
+            <input type="image" src="/i/roundTables/save.gif" alt="Save"/>
+        </c:otherwise>
+    </c:choose>
+
+</div>
+</form>
 
 <div style="clear:both;">&nbsp;</div>
 

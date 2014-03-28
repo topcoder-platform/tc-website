@@ -80,6 +80,7 @@
         <pathelement location="${jars.dir}/tcs/configuration_persistence/1.0.2/configuration_persistence.jar"/>
         <pathelement location="${jars.dir}/tcs/topcoder_commons_utility/1.0.0/topcoder_commons_utility.jar"/>
         <pathelement location="${jars.dir}/tcs/logging_wrapper/2.0.0/logging_wrapper.jar"/>
+        <pathelement location="${jars.dir}/twitter4j-core-3.0.6.jar"/>
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>

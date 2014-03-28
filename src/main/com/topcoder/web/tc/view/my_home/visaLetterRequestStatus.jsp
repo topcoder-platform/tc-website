@@ -34,7 +34,7 @@
         <!-- Left Column Ends -->
 
         <!-- Center Column Begins -->
-        <td width="100%" align="center" class="bodyColumn">
+        <td width="100%" align="center" class="bodyColumn"  id="visa-letters">
             <div class="fixedWidthBody">
 
                 <jsp:include page="/page_title.jsp">
