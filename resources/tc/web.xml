@@ -327,6 +327,10 @@
     <servlet>
         <servlet-name>stat</servlet-name>
         <servlet-class>com.topcoder.web.tc.controller.legacy.stat.servlet.StatisticsHttpServlet</servlet-class>
+        <init-param>
+            <param-name>is_new_style</param-name>
+            <param-value>true</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
