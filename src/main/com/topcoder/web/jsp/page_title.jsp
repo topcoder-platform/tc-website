@@ -6,6 +6,7 @@
 
 <%
   String image = StringUtils.checkNull ( request.getParameter("image") );
+  String imageName = Character.toUpperCase(image.charAt(0)) + image.substring(1);
 %>
 
 <table cellspacing="0" cellpadding="0" class="pageTitleTable">
