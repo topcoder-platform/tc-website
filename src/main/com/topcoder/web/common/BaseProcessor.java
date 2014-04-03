@@ -103,6 +103,7 @@ public abstract class BaseProcessor implements RequestProcessor {
             } catch (TCException e) {
                 throw e;
             } catch (Exception e) {
+                e.printStackTrace();
                 throw new TCException(e);
             }
         } finally {
