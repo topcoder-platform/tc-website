@@ -73,11 +73,6 @@
         </div>
       </td>
       <td class="value">5
-        <div class="tco14">
-          <div class="emblem"><img src="/i/tournament/tco14/emblem.png" alt="TCO14" /></div>
-          <strong><A href="http://community.topcoder.com/tco14/algorithm/">Algorithm Round 1A</A></strong><br />
-          12:00<br />
-        </div>
       </td>
    </tr>
 
@@ -107,7 +102,7 @@
       <td class="value">12
         <div class="tco14">
           <div class="emblem"><img src="/i/tournament/tco14/emblem.png" alt="TCO14" /></div>
-          <strong><A href="http://community.topcoder.com/tco14/algorithm/">Algorithm Round 1B</A></strong><br />
+          <strong><A href="http://community.topcoder.com/tco14/algorithm/">Algorithm Round 1A</A></strong><br />
           12:00<br />
         </div>
       </td>
@@ -127,8 +122,13 @@
       <td class="value">18
       </td>
       <td class="value">19
+        <div class="tco14">
+          <div class="emblem"><img src="/i/tournament/tco14/emblem.png" alt="TCO14" /></div>
+          <strong><A href="http://community.topcoder.com/tco14/algorithm/">Algorithm Round 1B</A></strong><br />
+          12:00<br />
+        </div>
         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=15850">SRM 617</A></strong><br />
+         <strong><A href="/tc?module=MatchDetails&rd=15850">SRM 617 (to be moved)</A></strong><br />
          12:00
         </div>
       </td>
