@@ -127,10 +127,6 @@
           <strong><A href="http://community.topcoder.com/tco14/algorithm/">Algorithm Round 1B</A></strong><br />
           12:00<br />
         </div>
-        <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=15850">SRM 617 (to be moved)</A></strong><br />
-         12:00
-        </div>
       </td>
    </tr>
 
@@ -138,6 +134,10 @@
       <td class="value">20
       </td>
       <td class="value">21
+        <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=15850">SRM 617</A></strong><br />
+         8:00
+        </div>
       </td>
       <td class="value">22
       </td>
