@@ -16,6 +16,8 @@ import org.apache.commons.lang.StringUtils;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -84,10 +86,8 @@ public class DiscourseSSOUtil {
             addParamString(params, "external_id", user.getUserId().toString(), true);
             addParamString(params, "username", user.getHandle(), false);
 
-            String name = (user.getFirstName() == null ? "" : user.getFirstName())
-                    + " "
-                    + (user.getLastName() == null ? "" : user.getLastName());
-            addParamString(params, "name", name, false);
+            // use handle as name
+            addParamString(params, "name",  user.getHandle(), false);
 
             String payload = StringUtils.join(params.iterator(), "&");
             payload = new String(Base64.encodeBase64(payload.getBytes()));
@@ -107,6 +107,8 @@ public class DiscourseSSOUtil {
             throw new TCWebException("Can't find algorithm.", e);
         } catch (InvalidKeyException e) {
             throw new TCWebException("The key is invalid.", e);
+        } catch (UnsupportedEncodingException e) {
+            throw new TCWebException("Unsupported encoding..", e);
         }
     }
 
@@ -118,11 +120,11 @@ public class DiscourseSSOUtil {
      * @param value the value
      * @param required whether required or not
      */
-    private static void addParamString(List<String> params, String name, String value, boolean required) {
+    private static void addParamString(List<String> params, String name, String value, boolean required) throws UnsupportedEncodingException {
         if (!required && StringUtils.isEmpty(value)) {
             return;
         }
-        params.add(name + "=" + (value == null ? "" : value.trim()));
+        params.add(name + "=" + URLEncoder.encode((value == null ? "" : value.trim()), "UTF-8"));
     }
 
     /**
