@@ -13,7 +13,7 @@
 String type = (String)request.getParameter("type");
 if (type == null) type = HandleTag.COMPONENT; %>
 
-<div style="float:right;"><A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">back to table of contents</A></div>
+<div style="float:right;"><A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home"  class="bodyText">back to table of contents</A></div>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="270" style="float: left; margin-right: 15px; margin-bottom: 15px;">
     <tr><td class="title" colspan="3">Highest Component Challenge Overall Earners</td></tr>

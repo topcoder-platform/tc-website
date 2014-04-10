@@ -96,7 +96,7 @@
 <jsp:include page="../../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="myHome">
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
@@ -125,7 +125,7 @@
     </div>
     <% } %>
     <c:choose>
-        <c:when test="${isNewStyle}">
+        <c:when test="${not empty isNewStyle && isNewStyle}">
             <h2>Payments</h2>
         </c:when>
         <c:otherwise>

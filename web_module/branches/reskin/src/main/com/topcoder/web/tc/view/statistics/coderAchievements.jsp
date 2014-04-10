@@ -42,7 +42,7 @@
 <span class="bodySubtitle">Statistics&#160;>&#160;Coder Achievements</span>
 
     <p><br /></p>
-<div align="center">
+<div align="center" class="centerControls">
 <table cellpadding="0" cellspacing="0" border="0" width="500" class="statTableHolder">
    <tr>
       <td>

@@ -26,13 +26,13 @@
 <jsp:include page="../top.jsp"/>
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
 <TR>
-<TD WIDTH="180" VALIGN="top">
+<TD WIDTH="180" VALIGN="top" class="alignTop" class="alignTop">
     <jsp:include page="/includes/global_left.jsp">
         <jsp:param name="node" value="m_algo_stats"/>
     </jsp:include>
 </TD>
-<TD WIDTH="10" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-<TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+<TD WIDTH="10" VALIGN="top" class="alignTop" class="alignTop"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+<TD CLASS="bodyText" WIDTH="100%" VALIGN="top" class="alignTop" class="alignTop"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
 
 
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
@@ -104,19 +104,19 @@
 <!-- BEGIN BODY -->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
     <TR>
-        <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom">
+        <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom" class="alignBottom">
             <IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
-        <TD VALIGN="bottom" WIDTH="180" ALIGN="left">
+        <TD VALIGN="bottom" class="alignBottom" WIDTH="180" ALIGN="left">
             <IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
-        <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
+        <TD CLASS="bodyTextBold" VALIGN="middle" class="alignMiddle" WIDTH="100%">
             &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Problem Statistics&#160;&#160;</SPAN>
         </TD>
-        <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
+        <TD VALIGN="top" class="alignTop" class="alignTop" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
     </TR>
 </TABLE>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%"  class="paddingTable">
 <TR>
-<TD VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"><BR>
+<TD VALIGN="top" class="alignTop" class="alignTop" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"><BR>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
     <TR>
         <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
@@ -141,15 +141,15 @@
         <TD COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     </TR>
     <TR>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10">
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" class="alignMiddle" WIDTH="10">
             <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">Class Name</TD>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center">Method Name</TD>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center">&#160;</TD>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center">Difficulty</TD>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center">Status</TD>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right">Score</TD>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="top" WIDTH="10">
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" WIDTH="20%" HEIGHT="18">Class Name</TD>
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="center">Method Name</TD>
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="center">&#160;</TD>
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="center">Difficulty</TD>
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="center">Status</TD>
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="right">Score</TD>
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="top" class="alignTop" class="alignTop" WIDTH="10">
             <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
     </TR>
     <TR>
@@ -160,20 +160,20 @@
         if (rscSubmissions.size() > 0) { %>
     <logic:iterate name="resultSetSubmissions" id="resultRow" type="ResultSetContainer.ResultSetRow">
         <TR>
-            <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+            <TD VALIGN="middle" class="alignMiddle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
             <% if (pageContext.getAttribute("pm").toString().equals(resultRow.getItem(2).toString())) { %>
-            <TD CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">
+            <TD CLASS="statText" VALIGN="middle" class="alignMiddle" WIDTH="20%" HEIGHT="18">
                 <SPAN CLASS="coderBrackets">[&#160;</SPAN><SPAN CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 0 /* class name */ + "]" %>'/></SPAN><SPAN CLASS="coderBrackets">&#160;]</SPAN>
             </TD>
             <% } else { %>
-            <TD CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">
+            <TD CLASS="statText" VALIGN="middle" class="alignMiddle" WIDTH="20%" HEIGHT="18">
                 <A HREF="/stat?c=problem_solution&rd=<%= sRoundId %>&rm=<%=sRoomId %>&cr=<%=sCoderId%>&pm=<bean:write name="resultRow" property='<%= "item[" + 2 /* class name */ + "]" %>'/>" CLASS="statText">
                     <bean:write name="resultRow" property='<%= "item[" + 0 /* class name */ + "]" %>'/></A>
             </TD>
             <% } %>
-            <TD CLASS="statText" VALIGN="middle" ALIGN="center">
+            <TD CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="center">
                 <bean:write name="resultRow" property='<%= "item[" + 1 /* method name */ + "]" %>'/></TD>
-            <TD CLASS="statText" VALIGN="middle" ALIGN="center">
+            <TD CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="center">
                 <% if (sSolutionText.trim().length()==0) { %>
                 &#160;
                 <% } else { %>
@@ -181,13 +181,13 @@
                     details</a>
                 <% } %>
             </TD>
-            <TD CLASS="statText" VALIGN="middle" ALIGN="center">
+            <TD CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="center">
                 <bean:write name="resultRow" property='<%= "item[" + 3 /* problem level */ + "]" %>'/></TD>
-            <TD CLASS="statText" VALIGN="middle" ALIGN="center">
+            <TD CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="center">
                 <bean:write name="resultRow" property='<%= "item[" + 6 /* problem status*/ + "]" %>'/></TD>
-            <TD CLASS="statText" VALIGN="middle" ALIGN="right">
+            <TD CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="right">
                 <bean:write format="0.00" name="resultRow" property='<%= "item[" + 7 /* score*/ + "].resultData" %>'/></TD>
-            <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+            <TD VALIGN="top" class="alignTop" class="alignTop" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
         </TR>
     </logic:iterate>
     <TR>
@@ -204,13 +204,13 @@
 
 
     <TR>
-        <TD CLASS="statText" COLSPAN="8" VALIGN="middle" ALIGN="center">
+        <TD CLASS="statText" COLSPAN="8" VALIGN="middle" class="alignMiddle" ALIGN="center">
             <A HREF="/stat?c=problem_statement&pm=<%= pageContext.getAttribute("pm").toString()%>&rd=<%=sRoundId%>&rm=<%=sRoomId%>&cr=<%=sCoderId%>" CLASS="statText">View&nbsp;<%= sClassName %>
                 &nbsp; Problem Statement</A>
         </TD>
     </TR>
     <TR>
-        <TD CLASS="problemText" COLSPAN="8" VALIGN="middle" ALIGN="left">
+        <TD CLASS="problemText" COLSPAN="8" VALIGN="middle" class="alignMiddle" ALIGN="left">
             <%= sSolutionText.trim().length() == 0 ? "Solution Not Available" : addSpace(sSolutionText) %>
         </TD>
     </TR>
@@ -233,20 +233,20 @@
         <TD COLSPAN="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     </TR>
     <TR>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10">
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" class="alignMiddle" WIDTH="10">
             <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">Challenger</TD>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center">Challenge Arguments</TD>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="5">
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" WIDTH="20%" HEIGHT="18">Challenger</TD>
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="center">Challenge Arguments</TD>
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" class="alignMiddle" WIDTH="5">
             <IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center">Expected Result</TD>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="5">
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="center">Expected Result</TD>
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" class="alignMiddle" WIDTH="5">
             <IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center">Received Result</TD>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="5">
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="center">Received Result</TD>
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" class="alignMiddle" WIDTH="5">
             <IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center">Succeeded</TD>
-        <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="top" WIDTH="10">
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="center">Succeeded</TD>
+        <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="top" class="alignTop" class="alignTop" WIDTH="10">
             <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
     </TR>
     <logic:iterate name="resultSetDefense" id="resultRow" type="ResultSetContainer.ResultSetRow">
@@ -257,7 +257,7 @@
         <% if (row % 2 == 0) { %>
 
         <TR>
-            <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+            <TD VALIGN="middle" class="alignMiddle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
             <TD CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">
                 <A HREF="/tc?module=MemberProfile&cr=<bean:write name="resultRow" property='<%= "item[" + 2 /* challenger id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>">
                     <bean:write name="resultRow" property='<%= "item[" + 0 /* challenger name */ + "]" %>'/></A>
@@ -269,7 +269,7 @@
             <TD CLASS="statText" VALIGN="middle" ALIGN="center"><%= addSpace(resultRow.getItem(4).toString())%></TD>
             <TD VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
             <TD CLASS="statText" VALIGN="middle" ALIGN="center"><%= resultRow.getItem(6).toString().equals("Y") ? "Yes" : "No" %></TD>
-            <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+            <TD VALIGN="top" class="alignTop" class="alignTop" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
         </TR>
         <TR>
             <TD COLSPAN="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -292,7 +292,7 @@
             <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" WIDTH="5">
                 <IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
             <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><%= resultRow.getItem(6).toString().equals("Y") ? "Yes" : "No" %></TD>
-            <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10">
+            <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" class="alignTop" class="alignTop" WIDTH="10">
                 <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
         </TR>
         <TR>
@@ -349,7 +349,7 @@
             <TD COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         </TR>
         <% if (row % 2 == 0) { %>
-        <TR valign="top">
+        <TR VALIGN="top" class="alignTop">
             <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
             <TD CLASS="statText" ALIGN="left"><%= JSPUtils.htmlEncode(resultRow.getItem(0))%></TD>
             <TD WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
@@ -362,7 +362,7 @@
             <TD COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         </TR>
         <% } else { %>
-        <TR valign="top">
+        <TR VALIGN="top" class="alignTop">
             <TD BACKGROUND="/i/steel_blue_bg.gif" WIDTH="10">
                 <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
             <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="left"><%= JSPUtils.htmlEncode(resultRow.getItem(0))%></TD>
@@ -402,7 +402,7 @@
 
 </TD>
 <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-<TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
+<TD WIDTH="180" VALIGN="top" class="alignTop" class="alignTop"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
     <rsc:iterator list="<%=image%>" id="resultRow">
         <CENTER>
             <A HREF="<rsc:item name="link" row="<%=resultRow%>"/>"><img src="<rsc:item name="file" row="<%=resultRow%>"/>" ALT="" WIDTH="<rsc:item name="width" row="<%=resultRow%>"/>" HEIGHT="<rsc:item name="height" row="<%=resultRow%>"/>" BORDER="0"/></A>

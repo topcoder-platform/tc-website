@@ -22,9 +22,13 @@
 <script type="text/javascript" src="/js/reskin/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="/js/reskin/jquery-migrate-1.2.1.js"></script>
 <!--[if lt IE 9]>
-<script type="text/javascript" src="js/html5shiv.js"></script>
+<script type="text/javascript" src="/js/reskin/html5shiv.js"></script>
 <![endif]-->
 <script type="text/javascript" src="/js/reskin/jquery.jfeed.pack.js"></script>
 <script type="text/javascript" src="/js/reskin/newTCScript.js"></script>
 <% } %>
+
+
+
+
 

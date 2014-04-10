@@ -14,7 +14,7 @@
 %>
 
 <c:choose>
-    <c:when test="${isNewStyle}">
+    <c:when test="${not empty isNewStyle && isNewStyle}">
         <footer id="footer">
             <div class="container">
                 <div class="footerContentSection twitter">

@@ -9,7 +9,7 @@
 
 
 <c:choose>
-    <c:when test="${isNewStyle}">
+    <c:when test="${not empty isNewStyle && isNewStyle}">
         <table>
             <thead>
             <tr>

@@ -55,7 +55,7 @@
     <jsp:param name="title" value="Algorithm Competition Record Book"/>
 </jsp:include>
 
-<div style="float:right;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">back to table of contents</A></div>
+<div style="float:right;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home"  class="bodyText">back to table of contents</A></div>
 <span class="bodyText">
 <% if (streakType.equals("4")){ %>
 <A HREF="/stat?c=consecutive_rating_increases&wst=3">SRMs</A> | SRMs and Tournaments

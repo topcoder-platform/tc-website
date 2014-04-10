@@ -19,13 +19,13 @@
    <jsp:include page="../top.jsp" />
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
-       <TD WIDTH="180" VALIGN="top">
+       <TD WIDTH="180" VALIGN="top" class="alignTop">
          <jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="top_rated_algo"/>
          </jsp:include>
        </TD>
-       <TD WIDTH="10" VALIGN="top"><IMG src="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-       <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
+       <TD WIDTH="10" VALIGN="top" class="alignTop"><IMG src="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+       <TD CLASS="bodyText" WIDTH="100%" VALIGN="top" class="alignTop"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
 
          <!-- BEGIN BODY -->
 <% //common code that pulls out the request bean.
@@ -33,17 +33,17 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 %>
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
            <TR>
-             <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
-             <TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
+             <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom" class="alignBottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
+             <TD VALIGN="bottom" class="alignBottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
              <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
                &#160;<SPAN CLASS="bodySubhead">&#160;&#160;School Rankings&#160;&#160;</SPAN>
              </TD>
-             <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
+             <TD VALIGN="top" class="alignTop" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
            </TR>
          </TABLE>
-         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
+         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%"  class="paddingTable">
            <TR>
-             <TD VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR>
+             <TD VALIGN="top" class="alignTop" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR>
  <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
@@ -80,7 +80,7 @@ pageContext.setAttribute("resultSet", rsc);
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="12%">Country</TD>
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="12%">Member Count</TD>
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="20%">Rating</TD>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="top" class="alignTop" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -93,7 +93,7 @@ pageContext.setAttribute("resultSet", rsc);
 					 <TD CLASS="statText" HEIGHT="13" ALIGN="left"><bean:write name="resultRow" property='<%= "item[" + 5 /* country */ + "]" %>'/></TD>
 					 <TD CLASS="statText" HEIGHT="13" ALIGN="left"><bean:write name="resultRow" property='<%= "item[" + 2 /* rated count */ + "]" %>'/></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 1 /* avg. rating */ + "]" %>'/></TD>
-                     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                     <TD VALIGN="top" class="alignTop" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    </TR>
                  </logic:iterate>
                  <TR>
@@ -126,7 +126,7 @@ pageContext.setAttribute("resultSet", rsc);
          <!-- END BODY -->
        </TD>
        <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-       <TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
+       <TD WIDTH="180" VALIGN="top" class="alignTop"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
          <jsp:include page="../public_right.jsp" />
        </TD>
     <!-- Gutter -->

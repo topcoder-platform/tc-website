@@ -144,7 +144,7 @@ Maximum file size: <%=ForumsUtil.getFileSizeStr(attachManager.getMaxAttachmentSi
 
 
     <c:choose>
-        <c:when test="${isNewStyle}">
+        <c:when test="${not empty isNewStyle && isNewStyle}">
             <%-- Attach Files & Post Message --%>
 
             <a onclick="form1.module.value='Attach';form1.submit();" class="btn" href="javascript:;" alt="Post">Attach Files</a>
@@ -163,13 +163,13 @@ Maximum file size: <%=ForumsUtil.getFileSizeStr(attachManager.getMaxAttachmentSi
             <%-- Attach Files & Post Message --%>
             <input type="image" src="/i/interface/btn_attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='Attach'"/>
 
-<%-- Cancel --%>
-<%    if (postMode.equals("Edit")) {
-        String urlNext = sessionInfo.getServletPath() + "?module=Message&" + ForumConstants.MESSAGE_ID + "=" + message.getID(); %> 
-        <a href="<%=urlNext%>"><img src="/i/interface/btn_cancel.gif" class="rtButton" alt="Cancel"/></a>
-<%    } else { %>
-        <input type="image" src="/i/interface/btn_cancel.gif" class="rtButton" alt="Cancel" onclick="form1.module.value='Post'"/>
-<%    } %>
+            <%-- Cancel --%>
+            <%    if (postMode.equals("Edit")) {
+                String urlNext = sessionInfo.getServletPath() + "?module=Message&" + ForumConstants.MESSAGE_ID + "=" + message.getID(); %>
+            <a href="<%=urlNext%>"><img src="/i/interface/btn_cancel.gif" class="rtButton" alt="Cancel"/></a>
+            <%    } else { %>
+            <input type="image" src="/i/interface/btn_cancel.gif" class="rtButton" alt="Cancel" onclick="form1.module.value='Post'"/>
+            <%    } %>
 
         </c:otherwise>
     </c:choose>

@@ -2,7 +2,7 @@
 
 
 <c:choose>
-    <c:when test="${isNewStyle}">
+    <c:when test="${not empty isNewStyle && isNewStyle}">
 
         <section class="news-archive">
             <h3>News Archive</h3>

@@ -210,7 +210,7 @@
     <link type="text/css" rel="stylesheet" href="/css/coders.css" />
     <% } %>
 <link type="text/css" rel="stylesheet" href="/css/reskin/newStyles.css"/>
-<!--[if lt IE 9]>
+<!--[if IE 8]>
 <link type="text/css" rel="stylesheet" href="/css/reskin/newStyles_ie8.css"/>
 <![endif]-->
 <% } %>

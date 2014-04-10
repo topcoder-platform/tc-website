@@ -43,6 +43,10 @@
             <param-value>/error.jsp</param-value>
             <description>where to forward for errors</description>
         </init-param>
+        <init-param>
+            <param-name>is_new_style</param-name>
+            <param-value>true</param-value>
+        </init-param>
 <!--        <load-on-startup>2</load-on-startup>-->
     </servlet>
 
@@ -78,6 +82,10 @@
             <param-name>error_page</param-name>
             <param-value>/error.jsp</param-value>
             <description>where to forward for errors</description>
+        </init-param>
+        <init-param>
+            <param-name>is_new_style</param-name>
+            <param-value>true</param-value>
         </init-param>
     </servlet>
 

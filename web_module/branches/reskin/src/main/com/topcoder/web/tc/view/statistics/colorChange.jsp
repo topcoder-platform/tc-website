@@ -128,7 +128,7 @@ This chart shows all instances of a member changing handle colors in the last 30
 <tc-webtag:hiddenInput name="<%=Constants.ALGO_RATING_TYPE_ID%>"/>
 <tc-webtag:hiddenInput name="<%=Constants.COLOR%>"/>
 
-<div align="center">
+<div align="center" class="centerControls">
 Enter a member's handle here to narrow the chart down to just that member:<br>
 <tc-webtag:textInput name="<%=Constants.HANDLE%>"/> <button name="handleSubmit" value="submit" type="submit">Submit</button>
 </div>

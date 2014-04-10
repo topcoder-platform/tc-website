@@ -10,6 +10,10 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:if test="${not empty isNewStyle && isNewStyle}">
+    <jsp:include page="/script.jsp" />
+</c:if>
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
@@ -56,7 +60,7 @@
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="mainContent coderOfMonth">
    <tr valign="top">
 <!-- Left Column Begins-->
       <td width="180">

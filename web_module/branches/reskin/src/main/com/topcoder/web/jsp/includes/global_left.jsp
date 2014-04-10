@@ -6,7 +6,7 @@
 
 
 <c:choose>
-    <c:when test="${isNewStyle}">
+    <c:when test="${not empty isNewStyle && isNewStyle}">
         <c:import url="http://${serverName}/distui/">
             <c:param name="<%=WebConstants.MODULE_KEY%>" value="LeftNavNew"/>
             <c:param name="node" value="${param['node']}"/>
