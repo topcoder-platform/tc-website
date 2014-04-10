@@ -47,7 +47,7 @@ boolean div1 = !StringUtils.checkNull(request.getParameter("dn")).equals("2");
     <jsp:param name="title" value="Algorithm Competition Record Book"/>
 </jsp:include>
 
-<div style="float:right; padding-left: 20px;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">back to table of contents</A></div>
+<div style="float:right; padding-left: 20px;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home"  class="bodyText">back to table of contents</A></div>
 <%= div1 ? "Div I | <A href='/stat?&c=division_wins&dn=2'>Div II</A>" : "<A href='/stat?&c=division_wins&dn=1'>Div I</A> | Div II" %>
 
 <br><br>

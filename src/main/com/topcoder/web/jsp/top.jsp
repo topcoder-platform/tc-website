@@ -42,7 +42,7 @@
 %>
 
 <c:choose>
-    <c:when test="${isNewStyle}">
+    <c:when test="${not empty isNewStyle && isNewStyle}">
         <header id="navigation" class="newUser">
             <div class="container">
                 <div class="headerTopRightMenu">

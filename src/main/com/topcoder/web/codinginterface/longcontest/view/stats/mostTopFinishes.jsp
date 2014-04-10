@@ -11,7 +11,7 @@
     <jsp:param name="title" value="Marathon Competition Record Book"/>
 </jsp:include>
 
-<div style="float:right;"><A href="/longcontest/?module=Static&d1=stats&d2=recordbook_home">back to table of contents</A></div>
+<div style="float:right;"><A href="/longcontest/?module=Static&d1=stats&d2=recordbook_home"  class="bodyText">back to table of contents</A></div>
 <span class="bodyText">
 <tc-webtag:ifLink useLink="${mp != 5}" text="Top 5" link="/longcontest/stats/?module=Recordbook&c=marathon_most_top_finishes&mp=5"/> |
 <tc-webtag:ifLink useLink="${mp != 10}" text="Top 10" link="/longcontest/stats/?module=Recordbook&c=marathon_most_top_finishes&mp=10"/> 

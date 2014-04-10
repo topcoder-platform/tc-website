@@ -49,7 +49,7 @@
     <jsp:param name="title" value="Algorithm Competition Record Book"/>
 </jsp:include>
 
-<div style="float:right;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">back to table of contents</A></div>
+<div style="float:right;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home"  class="bodyText">back to table of contents</A></div>
 <span class="bodyText">
 <br><br>
 <strong>Record:</strong> This chart represents the longest consecutive SRM appearances.  It includes only rated events.

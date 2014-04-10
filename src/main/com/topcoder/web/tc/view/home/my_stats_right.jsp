@@ -11,7 +11,7 @@
 
 
 <c:choose>
-    <c:when test="${isNewStyle}">
+    <c:when test="${not empty isNewStyle && isNewStyle}">
         <% if (coderInfo!=null && !coderInfo.isEmpty()) { %>
         <section class="member-show">
             <div class="profile">

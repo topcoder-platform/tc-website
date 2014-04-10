@@ -51,7 +51,7 @@ Top Ranked Designers<br>
 
 <br><br>
 
-   <div align="center">
+   <div align="center" class="centerControls">
 
    <table class="stat" cellpadding="0" cellspacing="0" width="500">
       <tr>

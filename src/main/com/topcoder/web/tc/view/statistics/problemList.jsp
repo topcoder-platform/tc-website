@@ -13,6 +13,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("problem_list"); %>
 <% ResultSetContainer levels = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("levels"); %>
 <% ResultSetContainer categories = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("categories"); %>
@@ -125,19 +126,19 @@ function submitEnter(e) {
 <!-- BEGIN BODY -->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
     <TR>
-        <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom">
+        <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom" class="alignBottom">
             <IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
-        <TD VALIGN="bottom" WIDTH="180" ALIGN="left">
+        <TD VALIGN="bottom" class="alignBottom" WIDTH="180" ALIGN="left">
             <IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
-        <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
+        <TD CLASS="bodyTextBold" VALIGN="middle" class="alignMiddle" WIDTH="100%">
             &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Problem Archive&#160;&#160;</SPAN>
         </TD>
         <TD VALIGN="top" ALIGN="right"><a href="http://apps.topcoder.com/wiki/display/tc/Write+Problems+for+TopCoder"><IMG SRC="/i/write_problems_banner.png" ALT="" BORDER="0"></a></TD>
     </TR>
 </TABLE>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%" class="paddingTable">
 <TR>
-<TD VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR>
+<TD VALIGN="top" WIDTH="100%" style="padding:10px"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR>
 
 
 <form name="problemListForm" method="get">
@@ -147,15 +148,15 @@ function submitEnter(e) {
 <input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
 <input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
 
-<table border="0" cellspacing="0" cellpadding="2" bgcolor="#001B35" width="100%">
+<table border="0" cellspacing="0" cellpadding="2"  class="paddingTable2" bgcolor="#001B35" width="100%">
     <tr>
-        <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" WIDTH="10">
+        <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" class="alignMiddle" WIDTH="10">
             <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
         <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" align=left><span class=bodySubtitle>Search</span></TD>
     </tr>
 </table>
 
-<table border="0" cellspacing="0" cellpadding="2" bgcolor="#001B35" width="100%">
+<table border="0" cellspacing="0" cellpadding="2"  class="paddingTable2" bgcolor="#001B35" width="100%" class="problemSearch">
 <tr>
     <td colspan="2" class="errorText" align="center">
         <tc-webtag:errorIterator id="err" name="<%=Constants.CLASS_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
@@ -260,52 +261,94 @@ function submitEnter(e) {
 
 <br/><br/>
 
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#001B35" WIDTH="100%">
+<TABLE BORDER="0" CELLSPACING="0" cellpadding="2"  class="paddingTable2" BGCOLOR="#001B35" WIDTH="100%">
 <TR>
     <TD colspan="12" class="statText"><%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
         | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
     </TD>
 </TR>
 <TR>
-    <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" WIDTH="10">
-        <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="13%" HEIGHT="18">
-        <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="0"/><%=addParams(request)%>" class="statText"><b>Problem&nbsp;Name</b></a>
-    </TD>
-    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="15%">
-        <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="1"/><%=addParams(request)%>" class="statText"><b>Challenge</b></a>
-    </TD>
-    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="10%">
-        <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="2"/><%=addParams(request)%>" class="statText"><b>Date</b></a>
-    </TD>
-    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="10%">
-        <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="18"/><%=addParams(request)%>" class="statText"><b>Writer</b></a>
-    </TD>
-    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="20%">
-        <b>Categories</b>
-    </TD>
-    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="5%">
-        <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="4" ascColumn="8" descColumn="9"/><%=addParams(request)%>" class="statText"><b>Div.
-            1<br/>Level</b></a></TD>
-    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="15%">
-        <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="6" ascColumn="12" descColumn="13"/><%=addParams(request)%>" class="statText"><b>Div.
-            1<br/>Success Rate</b></a></TD>
-    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="10%">
-        <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="5" ascColumn="10" descColumn="11"/><%=addParams(request)%>" class="statText"><b>Div.
-            2<br/>Level</b></a></TD>
-    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="15%">
-        <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="7" ascColumn="14" descColumn="15"/><%=addParams(request)%>" class="statText"><b>Div.
-            2<br/>Success Rate</b></a></TD>
-    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="5%" HEIGHT="18"></TD>
-    <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10">
-        <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+
+
+    <c:choose>
+        <c:when test="${not empty isNewStyle && isNewStyle}">
+            <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" class="alignMiddle" WIDTH="10">
+                <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" WIDTH="13%" HEIGHT="18">
+                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="0"/><%=addParams(request)%>" class="statText"><b>Problem&nbsp;Name</b></a>
+            </TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="left" WIDTH="11%">
+                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="1"/><%=addParams(request)%>" class="statText"><b>Challenge</b></a>
+            </TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="left" WIDTH="8%">
+                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="2"/><%=addParams(request)%>" class="statText"><b>Date</b></a>
+            </TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="left" WIDTH="10%">
+                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="18"/><%=addParams(request)%>" class="statText"><b>Writer</b></a>
+            </TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="left" WIDTH="18%">
+                <b>Categories</b>
+            </TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="right" WIDTH="5%">
+                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="4" ascColumn="8" descColumn="9"/><%=addParams(request)%>" class="statText"><b>Div.
+                    1<br/>Level</b></a></TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="right" WIDTH="12%">
+                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="6" ascColumn="12" descColumn="13"/><%=addParams(request)%>" class="statText"><b>Div.
+                    1<br/>Success Rate</b></a></TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="right" WIDTH="5%">
+                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="5" ascColumn="10" descColumn="11"/><%=addParams(request)%>" class="statText"><b>Div.
+                    2<br/>Level</b></a></TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="right" WIDTH="12%">
+                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="7" ascColumn="14" descColumn="15"/><%=addParams(request)%>" class="statText"><b>Div.
+                    2<br/>Success Rate</b></a></TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" WIDTH="8%" HEIGHT="18"></TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10">
+                <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+        </c:when>
+        <c:otherwise>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" class="alignMiddle" WIDTH="10">
+                <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" WIDTH="13%" HEIGHT="18">
+                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="0"/><%=addParams(request)%>" class="statText"><b>Problem&nbsp;Name</b></a>
+            </TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="left" WIDTH="15%">
+                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="1"/><%=addParams(request)%>" class="statText"><b>Challenge</b></a>
+            </TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="left" WIDTH="10%">
+                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="2"/><%=addParams(request)%>" class="statText"><b>Date</b></a>
+            </TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="left" WIDTH="10%">
+                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="18"/><%=addParams(request)%>" class="statText"><b>Writer</b></a>
+            </TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="left" WIDTH="20%">
+                <b>Categories</b>
+            </TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="right" WIDTH="5%">
+                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="4" ascColumn="8" descColumn="9"/><%=addParams(request)%>" class="statText"><b>Div.
+                    1<br/>Level</b></a></TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="right" WIDTH="15%">
+                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="6" ascColumn="12" descColumn="13"/><%=addParams(request)%>" class="statText"><b>Div.
+                    1<br/>Success Rate</b></a></TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="right" WIDTH="10%">
+                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="5" ascColumn="10" descColumn="11"/><%=addParams(request)%>" class="statText"><b>Div.
+                    2<br/>Level</b></a></TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" ALIGN="right" WIDTH="15%">
+                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="7" ascColumn="14" descColumn="15"/><%=addParams(request)%>" class="statText"><b>Div.
+                    2<br/>Success Rate</b></a></TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" class="alignMiddle" WIDTH="5%" HEIGHT="18"></TD>
+            <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10">
+                <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+        </c:otherwise>
+    </c:choose>
+
+
 </TR>
 <TR>
     <TD colspan="12"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
 </TR>
 <rsc:iterator list="<%=rsc%>" id="resultRow">
     <TR>
-        <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+        <TD VALIGN="middle" class="alignMiddle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
         <TD CLASS="statText" HEIGHT="13">
             <A HREF="/stat?c=problem_statement&pm=<rsc:item name="problem_id" row="<%=resultRow%>"/>" class="statText">
                 <rsc:item name="problem_name" row="<%=resultRow%>"/>
@@ -364,14 +407,14 @@ function submitEnter(e) {
 </TR>
 
 <TR>
-    <TD colspan="12" VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+    <TD colspan="12" VALIGN="middle" class="alignMiddle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
 </TR>
 <TR>
     <TD colspan="12" ALIGN="center" CLASS="statText">
     </TD>
 </TR>
 <TR>
-    <TD colspan="12" VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+    <TD colspan="12" VALIGN="middle" class="alignMiddle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
 </TR>
 </TABLE>
 </form>

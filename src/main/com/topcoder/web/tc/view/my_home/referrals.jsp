@@ -22,7 +22,7 @@
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="myHome">
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
@@ -38,7 +38,7 @@
          <div class="myTCBody">
 
              <c:choose>
-                 <c:when test="${isNewStyle}">
+                 <c:when test="${not empty isNewStyle && isNewStyle}">
                  <!-- Referrals -->
                  <section id="referrals_v2">
                      <div class="description">

@@ -45,7 +45,7 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
     <jsp:param name="title" value="Algorithm Competition Record Book"/>
 </jsp:include>
 
-<div style="float:right; padding-left: 20px;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">back to table of contents</A></div>
+<div style="float:right; padding-left: 20px;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home"  class="bodyText">back to table of contents</A></div>
 <br><br>
 <strong>Record:</strong> This chart ranks the top-25 in Submission Accuracy. Submission Accuracy is measured by dividing the number of correct submissions by the number of total submissions by a member.  NOTE: Note: Based on a minimum of 50 submissions, only includes those coders that have competed in the last 180 days
 

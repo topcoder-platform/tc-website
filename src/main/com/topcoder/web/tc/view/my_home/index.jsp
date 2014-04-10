@@ -119,7 +119,7 @@
     Boolean isNewStyle = request.getAttribute("isNewStyle") == null ? false : (Boolean) request.getAttribute("isNewStyle");
 %>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="myHome">
 <tbody>
     <tr valign="top">
 <%-- Left Column Begins--%>

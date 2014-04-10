@@ -71,7 +71,7 @@ function submitEnter(e) {
     <jsp:param name="title" value="Top Ranked Algorithm Competitors"/>
 </jsp:include>
 
-<div align="center">
+<div align="center" class="centerControls">
 Competitors
  | <A href="/stat?c=school_avg_rating" class="bcLink">Schools</A>
  | <A href="/stat?c=country_avg_rating" class="bcLink">Countries</A>
@@ -156,9 +156,9 @@ View &#160;
 <%--
          <table border="0" cellspacing="0" cellpadding="0" width="100%">
            <tr>
-             <td width="11" height="26" align="left" valign="bottom"><img width="11" height="26" border="0" src="/i/steelblue_top_left1.gif"></td>
-             <td valign="bottom" width="180" align="left"><img width="180" height="26" border="0" src="/i/header_statistics.gif"></td>
-             <td class="bodyTextBold" valign="middle" width="100%">
+             <td width="11" height="26" align="left" VALIGN="bottom" class="alignBottom"><img width="11" height="26" border="0" src="/i/steelblue_top_left1.gif"></td>
+             <td VALIGN="bottom" class="alignBottom" width="180" align="left"><img width="180" height="26" border="0" src="/i/header_statistics.gif"></td>
+             <td class="bodyTextBold" VALIGN="middle" class="alignMiddle" width="100%">
                &#160;<SPAN class="bodySubhead">&#160;&#160;Coder Rankings&#160;&#160; <%if(request.getAttribute("countryName") != null) {%> - <%=request.getAttribute("countryName")%><%}%></SPAN>
              </td>
              <td valign="top" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="26" border="0"></td>
@@ -188,14 +188,14 @@ View &#160;
                    </td>
                  </tr>
                  <tr>
-                   <td background="/i/steel_bluebv_bg.gif" valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
-                   <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" width="20%" height="18">
+                   <td background="/i/steel_bluebv_bg.gif" VALIGN="middle" class="alignMiddle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
+                   <td background="/i/steel_bluebv_bg.gif" class="statText" VALIGN="middle" class="alignMiddle" width="20%" height="18">
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>" class="statText">Rank</a>
                    </td>
-                   <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="left" width="48%">
+                   <td background="/i/steel_bluebv_bg.gif" class="statText" VALIGN="middle" class="alignMiddle" align="left" width="48%">
                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>" class="statText">Handle</a>
                </td>
-                   <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="right" width="20%">
+                   <td background="/i/steel_bluebv_bg.gif" class="statText" VALIGN="middle" class="alignMiddle" align="right" width="20%">
                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>" class="statText">Rating</a>
                </td>
                    <td background="/i/steel_bluebv_bg.gif" valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
@@ -203,12 +203,12 @@ View &#160;
 
                  <rsc:iterator list="<%=list%>" id="resultRow">
                      <tr>
-                       <td valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
+                       <td VALIGN="middle" class="alignMiddle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                        <td class="statText" height="13"><rsc:item name="rank" row="<%=resultRow%>"/></td>
-                       <td class="statText" valign="middle" align="left">
+                       <td class="statText" VALIGN="middle" class="alignMiddle" align="left">
                         <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="algorithm" darkBG="true" />
                        </td>
-                       <td class="statText" valign="middle" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+                       <td class="statText" VALIGN="middle" class="alignMiddle" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
                        <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                      </tr>
                  </rsc:iterator>

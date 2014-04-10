@@ -18,7 +18,7 @@
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="myHome">
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
@@ -30,7 +30,7 @@
 
 
        <c:choose>
-           <c:when test="${isNewStyle}">
+           <c:when test="${not empty isNewStyle && isNewStyle}">
                <!-- Center Column Begins -->
                <td class="cardCell" width="100%" align="center">
 

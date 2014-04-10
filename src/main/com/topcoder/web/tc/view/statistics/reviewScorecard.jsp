@@ -327,7 +327,7 @@ score.
     	
 		    </tbody></table>
 <!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    <table border="0" cellpadding="2"  class="paddingTable2" cellspacing="0" width="100%">
 		    	<tbody><tr>
 		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
@@ -530,7 +530,7 @@ from the designer.
     	
 		    </tbody></table>
 <!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    <table border="0" cellpadding="2"  class="paddingTable2" cellspacing="0" width="100%">
 		    	<tbody><tr>
 		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
@@ -877,7 +877,7 @@ the code style point of view should be tolerated.
     	
 		    </tbody></table>
 <!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    <table border="0" cellpadding="2"  class="paddingTable2" cellspacing="0" width="100%">
 		    	<tbody><tr>
 		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
@@ -1257,7 +1257,7 @@ transfer can be made with multiple readings. </p><p class="scorecardQuestion">Ra
     	
 		    </tbody></table>
 <!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    <table border="0" cellpadding="2"  class="paddingTable2" cellspacing="0" width="100%">
 		    	<tbody><tr>
 		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
@@ -1663,7 +1663,7 @@ testing of the component will be maintained or enhanced.
     	
 		    </tbody></table>
 <!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    <table border="0" cellpadding="2"  class="paddingTable2" cellspacing="0" width="100%">
 		    	<tbody><tr>
 		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
@@ -1736,7 +1736,7 @@ number of tests that were successful.
     	
 		    </tbody></table>
 <!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    <table border="0" cellpadding="2"  class="paddingTable2" cellspacing="0" width="100%">
 		    	<tbody><tr>
 		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
@@ -1817,7 +1817,7 @@ submission is clearly above average.
     	
 		    </tbody></table>
 <!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    <table border="0" cellpadding="2"  class="paddingTable2" cellspacing="0" width="100%">
 		    	<tbody><tr>
 		    		<td class="normal"><img src="http://www.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>

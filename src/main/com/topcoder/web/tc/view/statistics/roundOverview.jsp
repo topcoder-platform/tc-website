@@ -24,7 +24,7 @@
           <jsp:include page="../top.jsp" />
 
        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-          <tr valign="top">
+          <tr VALIGN="top" class="alignTop">
        <!-- Left Column Begins-->
                <td width="180">
                    <jsp:include page="/includes/global_left.jsp">
@@ -42,12 +42,12 @@
        <!-- Center Column Begins -->
                 <td class="bodyText" width="100%" align="center" style="padding: 12px 0px 0px 0px;">
 
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" valign="top">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" VALIGN="top" class="alignTop">
                   <tr>
-                    <td width="11" height="26" align="left" valign="bottom"><img width="11" height="26" border="0" src="/i/steelblue_top_left1.gif"></td>
-                    <td valign="bottom" width="180" align="left"><img width="180" height="26" border="0" src="/i/header_statistics.gif"></td>
+                    <td width="11" height="26" align="left" VALIGN="bottom" class="alignBottom"><img width="11" height="26" border="0" src="/i/steelblue_top_left1.gif"></td>
+                    <td VALIGN="bottom" class="alignBottom" width="180" align="left"><img width="180" height="26" border="0" src="/i/header_statistics.gif"></td>
                     <td class="bodyTextBold" valign="middle" width="100%">&#160;<span class="bodySubhead">&#160;&#160;<%= "Match Overview"%>&#160;&#160;</span></td>
-                    <td valign="top" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="26" border="0"></td>
+                    <td VALIGN="top" class="alignTop" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="26" border="0"></td>
                   </tr>
                 </table>
 
@@ -144,9 +144,9 @@
     for(int i = 0; i<divisions;i++)topN = Math.max(topN,ptrs[i]);
 
 %>
-         <table width="100%" border="0" cellpadding="5" cellspacing="0" bgcolor="#001B35" valign="top" style="padding: 3px 10px 0px 10px;">
+         <table width="100%" border="0" cellpadding="5" cellspacing="0" bgcolor="#001B35" VALIGN="top" class="alignTop" style="padding: 3px 10px 0px 10px;">
            <tr>
-             <td class="bodyText" valign="top">
+             <td class="bodyText" VALIGN="top" class="alignTop">
 
 <%
        String currRound = roundID+"";
@@ -188,9 +188,9 @@ function goTo(selection){
            </tr>
          </table>
 
-         <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#001B35" valign="top" style="padding: 0px 10px 0px 10px;">
+         <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#001B35" VALIGN="top" class="alignTop" style="padding: 0px 10px 0px 10px;">
            <tr>
-             <td class="bodyText" height="10" colspan="5" valign="top"><A NAME="leaders"></a></td>
+             <td class="bodyText" height="10" colspan="5" VALIGN="top" class="alignTop"><A NAME="leaders"></a></td>
            </tr>
 
            <tr>
@@ -236,7 +236,7 @@ function goTo(selection){
          </table>
 
          <a name="problem_stats"></a>
-         <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#001B35" valign="top" style="padding: 10px 10px 0px 10px;">
+         <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#001B35" VALIGN="top" class="alignTop" style="padding: 10px 10px 0px 10px;">
            <tr><td valign="middle" colspan="7" width="100%" nowrap="0" height="16" class="registerNav" background="/i/steel_bluebv_bg.gif">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Problem Stats</B></td></tr>
            <tr>
              <td valign="middle" nowrap="0" width="17%" height="16" class="statText">&#160;</td>
@@ -300,7 +300,7 @@ function goTo(selection){
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-       <td width="180" valign="top"><img src="/i/clear.gif" width="180" height="1" border="0">
+       <td width="180" VALIGN="top" class="alignTop"><img src="/i/clear.gif" width="180" height="1" border="0">
        <rsc:iterator list="<%=image%>" id="resultrow">
         <CENTER><a href="<rsc:item name="link" row="<%=resultrow%>"/>"><img src="<rsc:item name="file" row="<%=resultrow%>"/>" ALT="" width="<rsc:item name="width" row="<%=resultrow%>"/>" height="<rsc:item name="height" row="<%=resultrow%>"/>" border="0"/></a></CENTER>
        </rsc:iterator>

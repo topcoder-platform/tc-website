@@ -20,7 +20,7 @@
          </jsp:include>
        </TD>
 <!-- Center Column Begins -->
-<td width="100%" align="center" class="bodyColumn">
+<td width="100%" align="center" class="bodyColumn statistics">
 
 <div class="fixedWidthBody">
 
@@ -29,7 +29,7 @@
 <jsp:param name="title" value="Recent Handle Color Changes - Algorithm"/>
 </jsp:include>
 
-<div align="center">
+<div align="center" class="centerControls">
 <strong>
 <A href="" class="bcLink">All changes</A>
  | <A href="" class="coderTextRed">New reds</A>

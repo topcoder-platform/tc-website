@@ -22,6 +22,9 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+<c:if test="${not empty isNewStyle && isNewStyle}">
+    <jsp:include page="/script.jsp" />
+</c:if>
     <script type="text/javascript">
         function submitEnter(e) {
         var keycode;
@@ -58,7 +61,7 @@
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="mainContent">
    <tr valign="top">
 <!-- Left Column Begins-->
       <td width="180">

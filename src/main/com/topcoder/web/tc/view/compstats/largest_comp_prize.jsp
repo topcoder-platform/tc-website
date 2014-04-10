@@ -13,7 +13,7 @@
 String type = (String)request.getParameter("type");
 if (type == null) type = HandleTag.COMPONENT; %>
 
-<div style="float:right;"><A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home">back to table of contents</A></div>
+<div style="float:right;"><A href="/tc?module=Static&d1=compstats&d2=comp_recordbook_home"  class="bodyText">back to table of contents</A></div>
 <jsp:include page="dev_design_links.jsp"/>
 <br><br>
 <strong>Record:</strong> Winners of the largest prizes for a single Design or Development Competition.  This does not include reliability bonuses.<br /><br />A record will be listed as "HIDDEN" if the competitor has opted to hide his/her payments.
