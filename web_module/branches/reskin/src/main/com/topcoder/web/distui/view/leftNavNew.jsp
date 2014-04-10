@@ -16,15 +16,98 @@
         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/active-challenges/design/">Design</a></li>
         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/active-challenges/develop/">Develop</a></li>
         <li>
+            <a href="javascript:;">Review Opportunities<i></i></a>
+            <ul class="hide">
+                <li>
+                    <dl>
+                        <dt>Component Development</dt>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=2&legacy=true">Review Opportunities</a></dd>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=2&legacy=true">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Assembly</dt>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=14&legacy=true">Review Opportunities</a></dd>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=14&legacy=true">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>First2Finish</dt>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=38&legacy=true">Review Opportunities</a></dd>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=38&legacy=true">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Code</dt>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=39&legacy=true">Review Opportunities</a></dd>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=39&legacy=true">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Test Suites</dt>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=13&legacy=true">Review Opportunities</a></dd>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=13&legacy=true">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Report</dt>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=36&legacy=true">Review Opportunities</a></dd>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=36&legacy=true">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>UI prototype</dt>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=19&legacy=true">Review Opportunities</a></dd>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=19&legacy=true">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>RIA Build</dt>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=24&legacy=true">Review Opportunities</a></dd>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=24&legacy=true">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Content Creation</dt>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=35&legacy=true">Review Opportunities</a></dd>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=35&legacy=true">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Test Scenarios</dt>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=26&legacy=true">Review Opportunities</a></dd>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=26&legacy=true">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="last-item">
+                        <dt>Bug Hunt</dt>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=9&legacy=true">Review Opportunities</a></dd>
+                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=9&legacy=true">Meet the review board</a></dd>
+                    </dl>
+                </li>
+
+            </ul>
+        </li>
+        <li>
             <a href="javascript:;">Data Science<i></i></a>
             <ul class="hide">
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MatchList">Match Archive</a></li>
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=round_overview">Match Overviews</a></li>
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=SrmDivisionWins">Match Winners</a></li>
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=last_match">Match Results</a></li>
+                <li><a id="algo_match_archive" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MatchList">Match Archive</a></li>
+                <li><a id="algo_match_overviews" href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=round_overview">Match Overviews</a></li>
+                <li><a id="algo_match_winners" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=SrmDivisionWins">Match Winners</a></li>
+                <li><a id="algo_match_results" href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=last_match">Match Results</a></li>
                 <li><a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Problem+Set+Analysis">Match Editorials</a></li>
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ProblemArchive">Problem Archive</a></li>
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ColorChange&ratid=1">Recent Color Changes</a></li>
+                <li><a id="algo_problem_archive" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ProblemArchive">Problem Archive</a></li>
+                <li><a id="algo_color_changes" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ColorChange&ratid=1">Recent Color Changes</a></li>
                 <li><a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Data+Feeds">Data Feeds</a></li>
                 <li><a href="javascript:arena();">Launch Arena</a></li>
             </ul>
@@ -32,14 +115,14 @@
         <li>
             <a href="javascript:;">Marathon Match<i></i></a>
             <ul class="hide">
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests">Challenges</a></li>
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=MatchList">Match Archive</a></li>
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=ViewOverview">Match Overview</a></li>
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=MatchWinners">Match Winners</a></li>
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Static&d1=match_editorials&d2=archive">Match Editorials</a></li>
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Static&d1=support&d2=dataFeed">Data Feeds</a></li>
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewPractice">Practice</a></li>
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewQueue">Queue Status</a></li>
+                <li><a id="long_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests">Challenges</a></li>
+                <li><a id="long_match_archive" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=MatchList">Match Archive</a></li>
+                <li><a id="long_match_overview" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=ViewOverview">Match Overview</a></li>
+                <li><a id="long_match_winners" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=MatchWinners">Match Winners</a></li>
+                <li><a id="long_editorials" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Static&d1=match_editorials&d2=archive">Match Editorials</a></li>
+                <li><a id="long_data_feeds" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Static&d1=support&d2=dataFeed">Data Feeds</a></li>
+                <li><a id="long_practice" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewPractice">Practice</a></li>
+                <li><a id="long_queue" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewQueue">Queue Status</a></li>
             </ul>
         </li>
         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/dr">The Digital Run</a></li>
@@ -55,39 +138,39 @@
                 <li><a href="http://community.topcoder.com/x/">PayPalX</a></li>
             </ul>
         </li>
-        <li><a href="javascript:;">Events</a></li>
+        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=calendar&d2=thisMonth">Events</a></li>
         <li>
             <a href="javascript:;">Statistics<i></i></a>
             <ul class="hide">
                 <li>
                     <dl>
                         <dt>Top Ranked</dt>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=AlgoRank">Algorithm</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=HSRank">High School</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=CoderRank">Marathon Match</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=top_conceptors">Conceptualization</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=top_specificators">Specification</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=top_architects">Architecture</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=top_designers">Design</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=top_developers">Development</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=top_assemblers">Assembly</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=top_testers">Test Suites</a></dd>
+                        <dd><a id="top_rated_algo" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=AlgoRank">Algorithm</a></dd>
+                        <dd><a id="top_rated_hs" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=HSRank">High School</a></dd>
+                        <dd><a id="top_rated_long" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=CoderRank">Marathon Match</a></dd>
+                        <dd><a id="top_rated_conceptors" href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=top_conceptors">Conceptualization</a></dd>
+                        <dd><a id="top_rated_specificators" href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=top_specificators">Specification</a></dd>
+                        <dd><a id="top_rated_architects" href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=top_architects">Architecture</a></dd>
+                        <dd><a id="top_rated_des" href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=top_designers">Design</a></dd>
+                        <dd><a id="top_rated_dev" href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=top_developers">Development</a></dd>
+                        <dd><a id="top_rated_assemblers" href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=top_assemblers">Assembly</a></dd>
+                        <dd><a id="top_rated_testers" href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=top_testers">Test Suites</a></dd>
                     </dl>
                 </li>
                 <li>
                     <dl>
                         <dt>Record Book</dt>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=statistics&d2=recordbook_home">Algorithm</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=compstats&d2=comp_recordbook_home">Component</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Static&d1=stats&d2=recordbook_home">Marathon Match</a></dd>
+                        <dd><a  id="algo_recordbook" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=statistics&d2=recordbook_home">Algorithm</a></dd>
+                        <dd><a  id="comp_recordbook" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=compstats&d2=comp_recordbook_home">Component</a></dd>
+                        <dd><a  id="long_recordbook" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Static&d1=stats&d2=recordbook_home">Marathon Match</a></dd>
                     </dl>
                 </li>
                 <li>
                     <dl class="last-item">
                         <dt>Coder of the Month</dt>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=COMHistory&achtid=5">Algorithm</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=COMHistory&achtid=6">Design</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=COMHistory&achtid=7">Development</a></dd>
+                        <dd><a  id="algo_com" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=COMHistory&achtid=5">Algorithm</a></dd>
+                        <dd><a  id="des_com" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=COMHistory&achtid=6">Design</a></dd>
+                        <dd><a  id="dev_com" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=COMHistory&achtid=7">Development</a></dd>
                     </dl>
                 </li>
             </ul>
@@ -95,10 +178,10 @@
         <li>
             <a href="javascript:;">Tutorials<i></i></a>
             <ul class="hide">
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=education&d2=overview">Overview</a></li>
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tutorials&d2=alg_index">Algorithm Tutorials</a></li>
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tutorials&d2=software_index">Software Tutorials</a></li>
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tutorials&d2=mm_index">Marathon Tutorials</a></li>
+                <li><a id="edu_overview" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=education&d2=overview">Overview</a></li>
+                <li><a  id="algo_tutorials" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tutorials&d2=alg_index">Algorithm Tutorials</a></li>
+                <li><a id="comp_tutorials" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tutorials&d2=software_index">Software Tutorials</a></li>
+                <li><a id="mm_tutorials" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tutorials&d2=mm_index">Marathon Tutorials</a></li>
             </ul>
         </li>
         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/forums/" id="forums">Forums</a></li>
