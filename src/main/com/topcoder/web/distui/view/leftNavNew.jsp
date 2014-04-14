@@ -13,8 +13,8 @@
 <script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
 <section class="navigation">
     <ul>
-        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/active-challenges/design/">Design</a></li>
-        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/active-challenges/develop/">Develop</a></li>
+        <li><a href="http://www.topcoder.com/active-challenges/design/">Design</a></li>
+        <li><a href="http://www.topcoder.com/active-challenges/develop/">Develop</a></li>
         <li>
             <a href="javascript:;">Review Opportunities<i></i></a>
             <ul class="hide">
@@ -101,6 +101,7 @@
         <li>
             <a href="javascript:;">Data Science<i></i></a>
             <ul class="hide">
+                <li><a href="http://www.topcoder.com/active-challenges/data/">Single Round Matches (SRM)</a></li>
                 <li><a id="algo_match_archive" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MatchList">Match Archive</a></li>
                 <li><a id="algo_match_overviews" href="http://<%=ApplicationServer.SERVER_NAME%>/stat?c=round_overview">Match Overviews</a></li>
                 <li><a id="algo_match_winners" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=SrmDivisionWins">Match Winners</a></li>
@@ -115,7 +116,7 @@
         <li>
             <a href="javascript:;">Marathon Match<i></i></a>
             <ul class="hide">
-                <li><a id="long_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests">Challenges</a></li>
+                <li><a id="long_compete" href="http://www.topcoder.com/active-challenges/data/">Challenges</a></li>
                 <li><a id="long_match_archive" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=MatchList">Match Archive</a></li>
                 <li><a id="long_match_overview" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=ViewOverview">Match Overview</a></li>
                 <li><a id="long_match_winners" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=MatchWinners">Match Winners</a></li>
@@ -130,15 +131,10 @@
         <li>
             <a href="javascript:;">topcoder Networks<i></i></a>
             <ul class="hide">
-                <li><a href="http://community.topcoder.com/alcatel/">Alcatel Lucent</a></li>
-                <li><a href="http://community.topcoder.com/amdapp/">AMD OpenCL</a></li>
-                <li><a href="http://community.topcoder.com/darpacs/">DARPA CS-STEM</a></li>
-                <li><a href="http://community.topcoder.com/lifetech-network/">Life Technologies</a></li>
                 <li><a href="http://community.topcoder.com/ntl/">NASA Tournament Lab</a></li>
-                <li><a href="http://community.topcoder.com/x/">PayPalX</a></li>
             </ul>
         </li>
-        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=calendar&d2=thisMonth">Events</a></li>
+        <li><a href="http://www.topcoder.com/community/events/">Events</a></li>
         <li>
             <a href="javascript:;">Statistics<i></i></a>
             <ul class="hide">
@@ -178,10 +174,9 @@
         <li>
             <a href="javascript:;">Tutorials<i></i></a>
             <ul class="hide">
-                <li><a id="edu_overview" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=education&d2=overview">Overview</a></li>
-                <li><a  id="algo_tutorials" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tutorials&d2=alg_index">Algorithm Tutorials</a></li>
-                <li><a id="comp_tutorials" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tutorials&d2=software_index">Software Tutorials</a></li>
-                <li><a id="mm_tutorials" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tutorials&d2=mm_index">Marathon Tutorials</a></li>
+                <li><a  id="algo_tutorials" href="http://help.topcoder.com/data-science/competing-in-algorithm-challenges/algorithm-tutorials/">Algorithm Tutorials</a></li>
+                <li><a id="comp_tutorials" href="http://help.topcoder.com/development/competing-in-development-challenges/development-tutorials/ ">Software Tutorials</a></li>
+                <li><a id="mm_tutorials" href="http://help.topcoder.com/data-science/competing-in-algorithm-challenges/marathon-match-tutorials/">Marathon Tutorials</a></li>
             </ul>
         </li>
         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/forums/" id="forums">Forums</a></li>
