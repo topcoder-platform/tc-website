@@ -18,6 +18,8 @@
       imageName = "Software Tutorials";
   } else if(imageName.equalsIgnoreCase("mm_tut")) {
       imageName = "Marathon Match Tutorials";
+  } else if(imageName.toLowerCase().indexOf("digital_run") != -1) {
+      imageName = "Digital Run";
   }
 
 %>
