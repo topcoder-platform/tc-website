@@ -165,17 +165,20 @@ public class Util {
         r.setContentHandle(DIRECT_PROJECT_AND_CLIENT_FOR_CONTEST_QUERY_NAME);
         r.setProperty(Constants.PROJECT_ID_KEY, String.valueOf(contestId));
         result = da.getData(r).get(DIRECT_PROJECT_AND_CLIENT_FOR_CONTEST_QUERY_NAME);
-        AuthorizationService authorizationService = retrieveAuthorizationService(request);
-        long tcDirectId = result.getLongItem(0, "tc_direct_id");
-        if (result.getItem(0, "client_id").getResultData() != null) {
-            long clientId = result.getLongItem(0, "client_id");
-            if (authorizationService.isCustomerAdministrator(userId, clientId)) {
+        if (!result.isEmpty()) {
+            AuthorizationService authorizationService = retrieveAuthorizationService(request);
+            long tcDirectId = result.getLongItem(0, "tc_direct_id");
+            if (result.getItem(0, "client_id").getResultData() != null) {
+                long clientId = result.getLongItem(0, "client_id");
+                if (authorizationService.isCustomerAdministrator(userId, clientId)) {
+                    return true;
+                }
+            }
+            if (authorizationService.checkAuthorization(userId, tcDirectId, ResourceType.PROJECT) != null) {
                 return true;
             }
         }
-        if (authorizationService.checkAuthorization(userId, tcDirectId, ResourceType.PROJECT) != null) {
-            return true;
-        }
+
         return false;
     }
 
@@ -287,8 +290,8 @@ public class Util {
         if ((winnerUserId != null) && (winnerUserId == currentUserId)) {
             return true;
         } else if (hasCockpitPermissions(request, currentUserId, project.getId())) {
-			return true;
-		} else if (project.getViewableSubmissions()) {
+            return true;
+        } else if (project.getViewableSubmissions()) {
             Set<ProjectPhase> phases = project.getPhases();
             boolean approvalClosed = false;
             for (ProjectPhase phase : phases) {
