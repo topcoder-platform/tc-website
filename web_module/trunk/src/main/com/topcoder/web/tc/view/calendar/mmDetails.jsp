@@ -350,7 +350,7 @@ This is a summary with highlights of the challenge details. Please make sure to 
 
 <%if(roundId == 13772 || roundId == 14525 || roundId == 14584 || roundId == 15024 || roundId == 15075 || roundId == 15023 || 
      roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15078 || roundId == 15103 || roundId == 15120 ||
-     roundId == 15189 || roundId == 15322 || roundId == 15458 || roundId == 15618 || roundId == 15637) {%>
+     roundId == 15189 || roundId == 15322 || roundId == 15458 || roundId == 15618 || roundId == 15637 || roundId == 15876) {%>
 <p align="justify">
     This Marathon Match is a money match that has a <b>$10,000 prize purse</b>! The top five highest scorers 
 	will receive prizes with the first place winner receiving $5,000!
@@ -462,6 +462,9 @@ total prize money</b>.
     outlined in the problem statement that is associated with this event.	
     Each event may have a different scoring mechanism. 
     Competitors will have to understand the scoring mechanism in order to effectively compete.
+    <% if (roundId == 15948) { %>
+	Participants may submit code written in one of the following languages: Java, C++. 
+    <% } %>
     <% if (roundId == 15130 || roundId == 15611) { %>
     <br><br>
     Participants may submit only code written in C++.
@@ -649,7 +652,7 @@ submission, within one week of the announcment of the winners in order to receiv
 
 <%if(roundId == 13772 || roundId == 14525 || roundId == 14584 || roundId == 15024 || roundId == 15075 || roundId == 15023 || 
      roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15078 || roundId == 15103 || roundId == 15120 ||
-     roundId == 15189 || roundId == 15322 || roundId == 15458 || roundId == 15618 || roundId == 15637) {%>
+     roundId == 15189 || roundId == 15322 || roundId == 15458 || roundId == 15618 || roundId == 15637 || roundId == 15948) {%>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">There will be $10,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
