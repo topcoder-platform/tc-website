@@ -102,8 +102,8 @@ function goTo(selection){
  <BODY>
    <jsp:include page="../top.jsp" />
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-     <TR>
-       <TD WIDTH="180" VALIGN="top" class="alignTop">
+     <TR valign="top">
+       <TD WIDTH="180">
          <jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="algo_match_results"/>
          </jsp:include>
