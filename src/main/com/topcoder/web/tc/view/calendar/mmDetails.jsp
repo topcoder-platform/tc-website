@@ -464,8 +464,7 @@ total prize money</b>.
     Competitors will have to understand the scoring mechanism in order to effectively compete.
     <% if (roundId == 15948) { %>
 	Participants may submit code written in one of the following languages: Java, C++. 
-    <% } %>
-    <% if (roundId == 15130 || roundId == 15611) { %>
+    <% } else <% if (roundId == 15130 || roundId == 15611) { %>
     <br><br>
     Participants may submit only code written in C++.
 <% if (roundId == 15611) { %>
