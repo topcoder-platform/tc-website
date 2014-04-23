@@ -361,7 +361,7 @@ Additionally, there is a $1,000 USD prize for an unusual and perspective idea. O
 <% } %>
 
 
-<% if (roundId == 15611 || roundId == 15955) { %>
+<% if (round_id == 15611 || round_id == 15955) { %>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">The Marathon Match has $10,000 in total prize money.  The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
@@ -380,7 +380,7 @@ Additionally, there is a $1,000 USD prize for an unusual and perspective idea. O
     </tr>
 </table>
 
-<% if (roundId == 15611) { %>
+<% if (round_id == 15611) { %>
 <p align="justify">In order to be eligible for these prizes, your code submission must be written in C++ and must be made before 9 AM, April 22, 2013.</p>
 
 <p align="justify">The <a href="http://apps.topcoder.com/forums/?module=Thread&threadID=786874&start=0">additional submission phase</a> has up to $6,000
@@ -398,7 +398,7 @@ TopCoder may *offer* to purchase submissions that did not win any prize if the c
     
 <% } %>
 
-<% if (roundId == 15955) { %>
+<% if (round_id == 15955) { %>
 <p>
 After the end of the Marathon Match, we will conduct a follow-up round in which we will welcome all the members (who submitted to this match) to
 participate and provide a scientific explanation and/or support to their solutions. The top three submissions in this contest will be awarded following prizes based on how much scientific relevance the solutions have.
