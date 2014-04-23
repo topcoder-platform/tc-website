@@ -361,8 +361,8 @@ Additionally, there is a $1,000 USD prize for an unusual and perspective idea. O
 <% } %>
 
 
-<% if (round_id == 15611) { %>
-		<div class="sectionHeader">Prizes</div>
+<% if (roundId == 15611 || roundId == 15955) { %>
+<div class="sectionHeader">Prizes</div>
     <p align="justify">The Marathon Match has $10,000 in total prize money.  The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
@@ -380,6 +380,7 @@ Additionally, there is a $1,000 USD prize for an unusual and perspective idea. O
     </tr>
 </table>
 
+<% if (roundId == 15611) { %>
 <p align="justify">In order to be eligible for these prizes, your code submission must be written in C++ and must be made before 9 AM, April 22, 2013.</p>
 
 <p align="justify">The <a href="http://apps.topcoder.com/forums/?module=Thread&threadID=786874&start=0">additional submission phase</a> has up to $6,000
@@ -394,6 +395,32 @@ in total prize money:
 <p align="justify">
 TopCoder may *offer* to purchase submissions that did not win any prize if the client is interested in using them.
 </p>
+    
+<% } %>
+
+<% if (roundId == 15955) { %>
+<p>
+After the end of the Marathon Match, we will conduct a follow-up round in which we will welcome all the members (who submitted to this match) to
+participate and provide a scientific explanation and/or support to their solutions. The top three submissions in this contest will be awarded following prizes based on how much scientific relevance the solutions have.
+<p>
+
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$2,200</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$1,300</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$900</td>
+    </tr>
+</table>
+
+<% } %>
+
+<p align="justify">
+</p>
+
 <% } %>
 
 <%if (round_id == 15520) {%>
@@ -719,13 +746,14 @@ The tester's identity will not be revealed until the challenge is over.</p>
 		       || round_id == 15077 || round_id == 15078 || round_id == 15080 || round_id == 15103 || round_id == 15120
 		       || round_id == 15130 || round_id == 15189 || round_id == 15200 || round_id == 15201 || round_id == 15322
 			|| round_id == 15327 || round_id == 15458 || round_id == 15611 || round_id == 15618 || round_id == 15637 || round_id == 15678 || round_id == 15761
-			|| round_id == 15765 || round_id == 15876 || round_id == 15879 || round_id == 15948) { %>
+			|| round_id == 15765 || round_id == 15876 || round_id == 15879 || round_id == 15948 || round_id == 15955) { %>
 			As a condition of winning and redeeming a cash prize, Competitors will be required to submit, 
 			among other things, a completed TopCoder Competition Assignment Agreement, 
 			if one is not already on file with TopCoder, AND a one to two-page description explaining how the algorithm for the winning submission works.
 			<% if (round_id == 15103 || round_id == 15120 || round_id == 15130 || round_id == 15189 || round_id == 15200 || round_id == 15201
 				|| round_id == 15322 || round_id == 15327 || round_id == 15458 || round_id == 15611 || round_id == 15618 || round_id == 15630 ||
-				round_id == 15637 || round_id == 15678 || round_id == 15761 || round_id == 15765 || round_id == 15876 || round_id == 15879 || round_id == 15948) { %>
+				round_id == 15637 || round_id == 15678 || round_id == 15761 || round_id == 15765 || round_id == 15876 || round_id == 15879
+                                || round_id == 15948 || round_id == 15955) { %>
 			The description must be submitted within 7 days after the challenge results are published.
 			Questions sent by email from TopCoder requesting clarification to the description must be answered within 3 days.
 			If the description or a response to a clarification request is not received, TopCoder reserves the right to disqualify the submission. 
@@ -741,6 +769,11 @@ The tester's identity will not be revealed until the challenge is over.</p>
 			This description may or may not be published in a scientific article, in part or in full and may be substantially altered, at the discretion
 			of TopCoder. If the description is submitted for publication, you may or may not be offered an authorship position on the manuscript.
 			<% } %>
+
+                        <% if (round_id == 15955) { %>
+                        Additionally, Competitors will need to provide the code that was used to obtain the submitted predictions and to show how this code
+obtains exactly (or at least statistically similar) predictions. 
+                        <% } %>
 		<%} else if (round_id != 15520) { %>
 
 			TopCoder does not require assignment of winning submissions in this competition.
@@ -776,7 +809,7 @@ The tester's identity will not be revealed until the challenge is over.</p>
 		|| rsr.getIntItem("round_id") == 15589 || rsr.getIntItem("round_id") == 15611 || rsr.getIntItem("round_id") == 15618
 		|| rsr.getIntItem("round_id") == 15630 || rsr.getIntItem("round_id") == 15637 || rsr.getIntItem("round_id") == 15678
 		|| rsr.getIntItem("round_id") == 15761 || rsr.getIntItem("round_id") == 15765 || rsr.getIntItem("round_id") == 15876
-                || rsr.getIntItem("round_id") == 15879 || rsr.getIntItem("round_id") == 15948) {%>
+                || rsr.getIntItem("round_id") == 15879 || rsr.getIntItem("round_id") == 15948 || rsr.getIntItem("round_id") == 15955) {%>
 
 		<p align="justify">
 			This Competition is open to all members of the TopCoder website, who have agreed to the terms thereof, and who are at least 
@@ -853,7 +886,7 @@ The tester's identity will not be revealed until the challenge is over.</p>
 	       || round_id == 15080 || round_id == 15103 || round_id == 15120 || round_id == 15130 || round_id == 15189 || round_id == 15200
 	       || round_id == 15201 || round_id == 15322 || round_id == 15327 || round_id == 15398 || round_id == 15458 || round_id == 15520 || round_id == 15589
 		|| round_id == 15611 || round_id == 15618 || round_id == 15630 || round_id == 15637 || round_id == 15678 || round_id == 15761
-		|| round_id == 15765 || round_id == 15876 || round_id == 15879 || round_id == 15948) { %>
+		|| round_id == 15765 || round_id == 15876 || round_id == 15879 || round_id == 15948 || round_id == 15955) { %>
 		
 		<p align="justify">
 			You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property 
