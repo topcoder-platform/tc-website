@@ -148,6 +148,12 @@
       <td class="value">22
       </td>
       <td class="value">23
+         <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15955">EPA ToxCast Challenge</a></strong><br />
+         17:00<br />
+         3 weeks<br />
+         $10K + $4.4K Prizes
+         </div>
       </td>
       <td class="value">24
         <div class="srm">

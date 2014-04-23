@@ -319,7 +319,7 @@ Please check out the rules link below for more detail.
      || roundId == 15201 || roundId == 15202 || roundId == 15322 || roundId == 15327 || roundId == 15398
      || roundId == 15458 || roundId == 15520 || roundId == 15589 || roundId == 15611 || roundId == 15618
      || roundId == 15630 || roundId == 15637 || roundId == 15678 || roundId == 15761 || roundId == 15765
-     || roundId == 15876 || roundId == 15879 || roundId == 15948) {%>
+     || roundId == 15876 || roundId == 15879 || roundId == 15948 || roundId == 15955) {%>
 <p align="justify">
     <b>Please note that this event is being run for a TopCoder customer.  By winning a prize in this event you agree to transfer ownership of
     your submission to TopCoder.
@@ -364,16 +364,22 @@ and $2,000, respectively!
 </p>
 <% } %>
 
-<% if (roundId == 15611) { %>
+<% if (roundId == 15611 || roundId == 15955) { %>
 <p align="justify">
 This Marathon Match is a money match that has a <b>$10,000 prize purse</b>! The top four highest scorers
 will receive prizes with the first place winner receiving $4,000!
 </p>
+<% if (roundId == 15611) { %>
 <p>
 The match will be followed with an <a href="http://apps.topcoder.com/forums/?module=Thread&threadID=786874&start=0">additional submission phase</a>
 which offers up to <b>$6,000 in prizes</b>!
 </p>
-<% } %>
+<% } 
+   if (roundId == 15955) { %>
+<p>The match will be followed with a qualitative contest that has a <b>$4,400 prize purse</b>! Three
+best submissions will receive prizes with the first place winner receiving $2,200!
+<% } 
+} %>
 
 <% if (roundId == 15761) { %>
 <p align="justify">
@@ -683,7 +689,7 @@ submission, within one week of the announcment of the winners in order to receiv
 </p>
 <%}%>
 
-<% if (roundId == 15611) { %>
+<% if (roundId == 15611 || roundId == 15955) { %>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">The Marathon Match has $10,000 in total prize money.  The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
@@ -702,6 +708,7 @@ submission, within one week of the announcment of the winners in order to receiv
     </tr>
 </table>
 
+<% if (roundId == 15611) { %>
 <p align="justify">In order to be eligible for these prizes, your code submission must be written in C++ and must be made before 9 AM, April 22, 2013.</p>
 
 <p align="justify">The <a href="http://apps.topcoder.com/forums/?module=Thread&threadID=786874&start=0">additional submission phase</a> has up to $6,000
@@ -717,8 +724,31 @@ in total prize money:
 TopCoder may *offer* to purchase submissions that did not win any prize if the client is interested in using them.
 </p>
     
+<% } %>
+
+<% if (roundId == 15955) { %>
+<p>
+After the end of the Marathon Match, we will conduct a follow-up round in which we will welcome all the members (who submitted to this match) to
+participate and provide a scientific explanation and/or support to their solutions. The top three submissions in this contest will be awarded following prizes based on how much scientific relevance the solutions have.
+<p>
+
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$2,200</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$1,300</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$900</td>
+    </tr>
+</table>
+
+<% } %>
+
 <p align="justify">
 </p>
+
 <% } %>
 
 <% if (roundId == 15876) { %>
