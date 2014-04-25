@@ -65,6 +65,8 @@ public class ForumsServlet extends BaseServlet {
         };
         tOrphaned.start();
 
+// 04/25/2014: Commenting this out for now because it causes bug when people are removed from groups but are not added to individual permissions for unknown reason.
+/*
         // Convert software group permissions into user permissions - pages load slowly for users 
         // who are in many permission groups. When this is fixed (probably by Jive), the user permissions
         // can be converted back into group permissions, and this thread can be removed.
@@ -87,6 +89,8 @@ public class ForumsServlet extends BaseServlet {
             }
         };
         tConvertTCSPerms.start();
+
+*/
     }
 
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
