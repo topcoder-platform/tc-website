@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<loadDefinition>
+    <sourcesList>
+    	<source name="tcs_dw" value="jdbc:informix-sqli://env.topcoder.com:2021/tcs_dw:INFORMIXSERVER=informixoltp_tcp;user=coder;password=c0d3r4T" />
+		<source name="jira" value="jdbc:mysql://localhost:3306/bugs_oltp?user=bugs&amp;password=Aa3E6aKZ"/>
+	</sourcesList>
+</loadDefinition>
