@@ -53,8 +53,7 @@
                         </div>
                     <% } else { %>
                         <div class="headerTopRightMenuLink logIn">
-                            <div class="text"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Login" class="actionLogin">Log In</a></div>
-                            <div class="icon"></div>
+                            <div class="text"><a href="http://www.topcoder.com/?action=showlogin" class="actionLogin">Log In</a></div>
                             <div class="clear"></div>
                         </div>
                     <%}%>

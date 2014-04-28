@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001-2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common;
 
@@ -10,6 +10,7 @@ import java.util.Set;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -149,11 +150,28 @@ public abstract class BaseServlet extends HttpServlet {
         if (!NEW_STYLE_ENABLED) {
             IS_NEW_STYLE = false;
         } else {
+
             if(req.getParameter("legacy") != null) {
                 IS_NEW_STYLE = false;
             } else {
-                IS_NEW_STYLE = true;
+                Cookie[] cookies = req.getCookies();
+                boolean foundOldThemeCookie = false;
+                if(cookies != null && cookies.length > 0) {
+                    for(Cookie c : cookies) {
+                        if(c.getName().equalsIgnoreCase("oldTheme")) {
+                            foundOldThemeCookie = true;
+                            break;
+                        }
+                    }
+                }
+
+                if(foundOldThemeCookie) {
+                    IS_NEW_STYLE = false;
+                } else {
+                    IS_NEW_STYLE = true;
+                }
             }
+
         }
 
         req.setAttribute("isNewStyle", IS_NEW_STYLE);

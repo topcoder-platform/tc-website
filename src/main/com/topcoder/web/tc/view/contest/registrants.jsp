@@ -293,97 +293,107 @@
 
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
+
+    <c:if test="${not empty isNewStyle && isNewStyle}">
+        <tr><td class="challengeNameTD"><rsc:item name="component_name" set="<%=registrants%>"/>
+            <rsc:item name="version_text" set="<%=registrants%>"/></td></tr>
+    </c:if>
+
 <tr>
-<td class="divider">
-    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-        <tr><td class="tableTitle" colspan="2">
-            <c:choose>
-                <c:when test="${pt == DESIGN_PROJECT_TYPE}">
-                      Design
-                </c:when>
-                <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
-                      Development
-                </c:when>
-                <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
-                      Conceptualization
-                </c:when>
-                <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
-                      Specification
-                </c:when>
-                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
-                      Assembly
-                </c:when>
-                <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
-                      Architecture
-                </c:when>
-                <c:when test="${pt == COMPONENT_TESTING_PROJECT_TYPE}">
-                      Component Testing
-                </c:when>
-                <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
-                      Test Suites
-                </c:when>
-                <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
-                      Test Scenarios
-                </c:when>
-                <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
-                      UI Prototype
-                </c:when>
-                <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
-                      RIA Build
-                </c:when>
-                <c:when test="${pt == RIA_COMPONENT_PROJECT_TYPE}">
-                      RIA Component
-                </c:when>
-                <c:when test="${pt == COPILOT_POSTING_PROJECT_TYPE}">
-                      Copilot Posting
-                </c:when>
-                <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
-                      Content Creation
-                </c:when>
-                <c:when test="${pt == REPORTING_PROJECT_TYPE}">
-                      Reporting
-                </c:when>
-                <c:when test="${pt == BUG_HUNT_PROJECT_TYPE}">
-                      Bug Hunt
-                </c:when>
-                <c:when test="${pt == FIRST2FINISH_PROJECT_TYPE}">
-                      First2Finish
-                </c:when>
-                <c:when test="${pt == CODE_PROJECT_TYPE}">
-                      Code
-                </c:when>
-            </c:choose>
-                 Challenge Details</td></tr>
-        <tr>
-            <td class="cat" nowrap="nowrap">Challenge:</td>
-            <td class="stat" align="right" nowrap="nowrap">
-                <rsc:item name="component_name" set="<%=registrants%>"/>
-                   <rsc:item name="version_text" set="<%=registrants%>"/>
-            </td>
-        </tr>
-        <c:if test="${pt == DESIGN_PROJECT_TYPE or pt == DEVELOPMENT_PROJECT_TYPE}">
+
+<c:if test="${empty isNewStyle || !isNewStyle}">
+    <td class="divider">
+        <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
+            <tr><td class="tableTitle" colspan="2">
+                <c:choose>
+                    <c:when test="${pt == DESIGN_PROJECT_TYPE}">
+                        Design
+                    </c:when>
+                    <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
+                        Development
+                    </c:when>
+                    <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
+                        Conceptualization
+                    </c:when>
+                    <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
+                        Specification
+                    </c:when>
+                    <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                        Assembly
+                    </c:when>
+                    <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+                        Architecture
+                    </c:when>
+                    <c:when test="${pt == COMPONENT_TESTING_PROJECT_TYPE}">
+                        Component Testing
+                    </c:when>
+                    <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
+                        Test Suites
+                    </c:when>
+                    <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
+                        Test Scenarios
+                    </c:when>
+                    <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
+                        UI Prototype
+                    </c:when>
+                    <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
+                        RIA Build
+                    </c:when>
+                    <c:when test="${pt == RIA_COMPONENT_PROJECT_TYPE}">
+                        RIA Component
+                    </c:when>
+                    <c:when test="${pt == COPILOT_POSTING_PROJECT_TYPE}">
+                        Copilot Posting
+                    </c:when>
+                    <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
+                        Content Creation
+                    </c:when>
+                    <c:when test="${pt == REPORTING_PROJECT_TYPE}">
+                        Reporting
+                    </c:when>
+                    <c:when test="${pt == BUG_HUNT_PROJECT_TYPE}">
+                        Bug Hunt
+                    </c:when>
+                    <c:when test="${pt == FIRST2FINISH_PROJECT_TYPE}">
+                        First2Finish
+                    </c:when>
+                    <c:when test="${pt == CODE_PROJECT_TYPE}">
+                        Code
+                    </c:when>
+                </c:choose>
+                Challenge Details</td></tr>
             <tr>
-                <td class="cat" nowrap="nowrap">Component:</td>
+                <td class="cat" nowrap="nowrap">Challenge:</td>
                 <td class="stat" align="right" nowrap="nowrap">
-                <% if (registrants.getIntItem(0, "viewable")==1) { %>
-                <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" set="<%=registrants%>"/>">
                     <rsc:item name="component_name" set="<%=registrants%>"/>
-                </a>
-                    <% } else { %>
-                    <rsc:item name="component_name" set="<%=registrants%>"/>
-                    <% } %>
+                    <rsc:item name="version_text" set="<%=registrants%>"/>
                 </td>
             </tr>
-        </c:if>
-        <tr>
-            <td class="cat" nowrap="nowrap" style="padding-top: 3px">Catalog:</td>
-            <td class="stat" align="right" nowrap="nowrap" style="padding-top: 3px">
-                <tc_tags:languageIcon catalogName = "<%=registrants.getStringItem(0, "catalog_name")%>" aolBrand="<%=(registrants.getItem(0, "aol_brand").getResultData() != null)%>"
-                                      paypalBrand="<%=(registrants.getItem(0, "paypal_brand") != null && registrants.getItem(0, "paypal_brand").getResultData() != null)%>"/>
-            </td>
-        </tr>
-    </table>
-</td>
+            <c:if test="${pt == DESIGN_PROJECT_TYPE or pt == DEVELOPMENT_PROJECT_TYPE}">
+                <tr>
+                    <td class="cat" nowrap="nowrap">Component:</td>
+                    <td class="stat" align="right" nowrap="nowrap">
+                        <% if (registrants.getIntItem(0, "viewable")==1) { %>
+                        <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" set="<%=registrants%>"/>">
+                            <rsc:item name="component_name" set="<%=registrants%>"/>
+                        </a>
+                        <% } else { %>
+                        <rsc:item name="component_name" set="<%=registrants%>"/>
+                        <% } %>
+                    </td>
+                </tr>
+            </c:if>
+            <tr>
+                <td class="cat" nowrap="nowrap" style="padding-top: 3px">Catalog:</td>
+                <td class="stat" align="right" nowrap="nowrap" style="padding-top: 3px">
+                    <tc_tags:languageIcon catalogName = "<%=registrants.getStringItem(0, "catalog_name")%>" aolBrand="<%=(registrants.getItem(0, "aol_brand").getResultData() != null)%>"
+                                          paypalBrand="<%=(registrants.getItem(0, "paypal_brand") != null && registrants.getItem(0, "paypal_brand").getResultData() != null)%>"/>
+                </td>
+            </tr>
+        </table>
+    </td>
+</c:if>
+
 <td width="75%" valign="top">
     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
         <tr><td class="tableTitle" colspan="10">Registrants</td></tr>
