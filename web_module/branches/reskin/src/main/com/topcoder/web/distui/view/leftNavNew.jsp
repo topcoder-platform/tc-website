@@ -21,78 +21,78 @@
                 <li>
                     <dl>
                         <dt>Component Development</dt>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=2&legacy=true">Review Opportunities</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=2&legacy=true">Meet the review board</a></dd>
+                        <dd><a id="dev_review" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=2">Review Opportunities</a></dd>
+                        <dd><a id="dev_review_board" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=2">Meet the review board</a></dd>
                     </dl>
                 </li>
                 <li>
                     <dl>
                         <dt>Assembly</dt>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=14&legacy=true">Review Opportunities</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=14&legacy=true">Meet the review board</a></dd>
+                        <dd><a id="assembly_review" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=14">Review Opportunities</a></dd>
+                        <dd><a id="assembly_review_board" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=14">Meet the review board</a></dd>
                     </dl>
                 </li>
                 <li>
                     <dl>
                         <dt>First2Finish</dt>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=38&legacy=true">Review Opportunities</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=38&legacy=true">Meet the review board</a></dd>
+                        <dd><a id="first2finish_review" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=38">Review Opportunities</a></dd>
+                        <dd><a id="first2finish_review_board" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=38">Meet the review board</a></dd>
                     </dl>
                 </li>
                 <li>
                     <dl>
                         <dt>Code</dt>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=39&legacy=true">Review Opportunities</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=39&legacy=true">Meet the review board</a></dd>
+                        <dd><a id="code_review"href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=39">Review Opportunities</a></dd>
+                        <dd><a id="code_review_board" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=39">Meet the review board</a></dd>
                     </dl>
                 </li>
                 <li>
                     <dl>
                         <dt>Test Suites</dt>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=13&legacy=true">Review Opportunities</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=13&legacy=true">Meet the review board</a></dd>
+                        <dd><a id="test_suites_review" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=13">Review Opportunities</a></dd>
+                        <dd><a id="test_suites_review_board" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=13">Meet the review board</a></dd>
                     </dl>
                 </li>
                 <li>
                     <dl>
                         <dt>Report</dt>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=36&legacy=true">Review Opportunities</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=36&legacy=true">Meet the review board</a></dd>
+                        <dd><a id="reporting_review" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=36">Review Opportunities</a></dd>
+                        <dd><a id="reporting_review_board" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=36">Meet the review board</a></dd>
                     </dl>
                 </li>
                 <li>
                     <dl>
                         <dt>UI prototype</dt>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=19&legacy=true">Review Opportunities</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=19&legacy=true">Meet the review board</a></dd>
+                        <dd><a id="ui_prototype_review" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=19">Review Opportunities</a></dd>
+                        <dd><a id="ui_prototype_review_board" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=19">Meet the review board</a></dd>
                     </dl>
                 </li>
                 <li>
                     <dl>
                         <dt>RIA Build</dt>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=24&legacy=true">Review Opportunities</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=24&legacy=true">Meet the review board</a></dd>
+                        <dd><a id="ria_build_review" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=24">Review Opportunities</a></dd>
+                        <dd><a id="ria_build_review_board" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=24">Meet the review board</a></dd>
                     </dl>
                 </li>
                 <li>
                     <dl>
                         <dt>Content Creation</dt>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=35&legacy=true">Review Opportunities</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=35&legacy=true">Meet the review board</a></dd>
+                        <dd><a id="content_creation_review" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=35">Review Opportunities</a></dd>
+                        <dd><a id="content_creation_review_board" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=35">Meet the review board</a></dd>
                     </dl>
                 </li>
                 <li>
                     <dl>
                         <dt>Test Scenarios</dt>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=26&legacy=true">Review Opportunities</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=26&legacy=true">Meet the review board</a></dd>
+                        <dd><a id="test_scenarios_review"  href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=26">Review Opportunities</a></dd>
+                        <dd><a id="test_scenarios_review_board" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=26">Meet the review board</a></dd>
                     </dl>
                 </li>
                 <li>
                     <dl class="last-item">
                         <dt>Bug Hunt</dt>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=9&legacy=true">Review Opportunities</a></dd>
-                        <dd><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=9&legacy=true">Meet the review board</a></dd>
+                        <dd><a id="bug_hunt_review" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=9">Review Opportunities</a></dd>
+                        <dd><a id="bug_hunt_review_board" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=9">Meet the review board</a></dd>
                     </dl>
                 </li>
 

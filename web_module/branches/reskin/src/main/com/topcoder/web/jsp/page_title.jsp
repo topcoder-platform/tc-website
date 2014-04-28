@@ -31,7 +31,8 @@
 
             <c:choose>
                 <c:when test="${not empty isNewStyle && isNewStyle}">
-                    <%=imageName%>
+                    <%--<%=imageName%>--%>
+                    <img border="0" src="/i/header_<%=image%>.gif" alt="<%=image%>"/>
                 </c:when>
                 <c:otherwise>
                     <img border="0" src="/i/header_<%=image%>.gif" alt="<%=image%>"/>

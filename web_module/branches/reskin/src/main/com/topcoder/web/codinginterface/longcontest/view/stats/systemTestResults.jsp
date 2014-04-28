@@ -111,7 +111,7 @@ text-align: left;
                   <a href="<%=prevPageLink%>"><img src="/i/interface/btn_tableScroll_U.gif" alt="UP" border="0" /></A>
                   </logic:notEmpty>
                </td></tr>
-                <tr>
+                <tr class="alignMiddle">
                      <td class="scrollLeft">
                         <logic:notEmpty name="prevPageColLink">
                         <a href="<%=prevPageColLink%>" class="bcLink"><img src="/i/interface/btn_tableScroll_L.gif" alt="LEFT" border="0" /></A>

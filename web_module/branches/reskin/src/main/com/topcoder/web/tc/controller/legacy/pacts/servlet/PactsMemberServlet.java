@@ -43,6 +43,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.TaxFormWithText;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -98,7 +99,22 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
             if(request.getParameter("legacy") != null) {
                 IS_NEW_STYLE = false;
             } else {
-                IS_NEW_STYLE = true;
+                Cookie[] cookies = request.getCookies();
+                boolean foundOldThemeCookie = false;
+                if(cookies != null && cookies.length > 0) {
+                    for(Cookie c : cookies) {
+                        if(c.getName().equalsIgnoreCase("oldTheme")) {
+                            foundOldThemeCookie = true;
+                            break;
+                        }
+                    }
+                }
+
+                if(foundOldThemeCookie) {
+                    IS_NEW_STYLE = false;
+                } else {
+                    IS_NEW_STYLE = true;
+                }
             }
         }
 
@@ -219,7 +235,22 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
         if(request.getParameter("legacy") != null) {
             IS_NEW_STYLE = false;
         } else {
-            IS_NEW_STYLE = true;
+            Cookie[] cookies = request.getCookies();
+            boolean foundOldThemeCookie = false;
+            if(cookies != null && cookies.length > 0) {
+                for(Cookie c : cookies) {
+                    if(c.getName().equalsIgnoreCase("oldTheme")) {
+                        foundOldThemeCookie = true;
+                        break;
+                    }
+                }
+            }
+
+            if(foundOldThemeCookie) {
+                IS_NEW_STYLE = false;
+            } else {
+                IS_NEW_STYLE = true;
+            }
         }
 
         request.setAttribute("isNewStyle", IS_NEW_STYLE);

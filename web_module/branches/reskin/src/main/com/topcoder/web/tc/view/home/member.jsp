@@ -113,7 +113,7 @@
                                     </div>
                                     <!-- End .post-container -->
 
-                                    <jsp:include page="news_archives.jsp" />
+                                    <%--<jsp:include page="news_archives.jsp" />--%>
 
 
                                 </div>
