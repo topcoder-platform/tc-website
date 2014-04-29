@@ -66,6 +66,7 @@ public class ForumsServlet extends BaseServlet {
         };
         tOrphaned.start();
 
+/*
         // Convert software group permissions into user permissions - pages load slowly for users 
         // who are in many permission groups. When this is fixed (probably by Jive), the user permissions
         // can be converted back into group permissions, and this thread can be removed.
@@ -88,6 +89,8 @@ public class ForumsServlet extends BaseServlet {
             }
         };
         tConvertTCSPerms.start();
+
+*/
     }
 
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
