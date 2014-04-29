@@ -57,11 +57,11 @@
 <IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" border="0"><BR/>
 <table border="0" CELLSPACING="0" CELLPADDING="0" width="100%" align="center">
     <tr>
-        <td WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom">
+        <td WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom" class="alignBottom">
             <IMG WIDTH="11" HEIGHT="26" border="0" SRC="/i/steelblue_top_left1.gif"></TD>
-        <td VALIGN="bottom" WIDTH="180" ALIGN="left">
+        <td VALIGN="bottom" class="alignBottom" WIDTH="180" ALIGN="left">
             <IMG WIDTH="180" HEIGHT="26" border="0" SRC="/i/header_statistics.gif"></TD>
-        <td CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
+        <td CLASS="bodyTextBold" VALIGN="middle" class="alignMiddle" WIDTH="100%">
             &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Problem Detail&#160;&#160;</SPAN>
         </TD>
         <td VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" border="0"></TD>
@@ -69,7 +69,7 @@
 </table>
 
 <div class="statTableIndent">
-<table border="0" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#001B35" WIDTH="100%" align="center">
+<table border="0" CELLSPACING="0" cellpadding="2"  class="paddingTable2" BGCOLOR="#001B35" WIDTH="100%" align="center">
     <tr>
         <td class="statTextBig" nowrap=nowrap valign="top">
             Problem Name:
@@ -169,7 +169,7 @@
         <td class="bodyText"><br/></td>
         <tr/>
 </table>
-<table border="0" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#001B35" WIDTH="100%" align="center">
+<table border="0" CELLSPACING="0" cellpadding="2"  class="paddingTable2" BGCOLOR="#001B35" WIDTH="100%" align="center">
     <tr>
         <td BACKGROUND="/i/steel_bluebv_bg.gif"></td>
         <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
@@ -243,7 +243,7 @@
         <td class="bodyText"><br/></td>
         <tr/>
 </table>
-<table border="0" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#001B35" WIDTH="100%" align="center">
+<table border="0" CELLSPACING="0" cellpadding="2"  class="paddingTable2" BGCOLOR="#001B35" WIDTH="100%" align="center">
 <% if (!div1Lang.isEmpty()) { %>
 <tr>
     <td class="statText">Division I</td>

@@ -1,14 +1,29 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     String tabLev1 = request.getParameter("tabLev1") == null ? "" : request.getParameter("tabLev1");
     String tabLev2 = request.getParameter("tabLev2") == null ? "" : request.getParameter("tabLev2");
 %>
 
 <div id="eventLogo">
-    <img src="/i/digital_run/digitalrunlogo20080625.png" alt="The Digital Run" />
+    <c:choose>
+        <c:when test="${not empty isNewStyle && isNewStyle}">
+            <img src="/i/reskin/digital_run/digitalrunlogo20080625.png" alt="The Digital Run" />
+        </c:when>
+        <c:otherwise>
+            <img src="/i/digital_run/digitalrunlogo20080625.png" alt="The Digital Run" />
+        </c:otherwise>
+    </c:choose>
 </div>
 
 <div id="eventBannerBox">
-    <img src="/i/digital_run/ban20080625.png" alt="" />
+    <c:choose>
+        <c:when test="${not empty isNewStyle && isNewStyle}">
+            <img src="/i/reskin/digital_run/ban20080625.png" alt="." />
+        </c:when>
+        <c:otherwise>
+            <img src="/i/digital_run/ban20080625.png" alt="." />
+        </c:otherwise>
+    </c:choose>
 </div>
 
 <hr />

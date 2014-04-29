@@ -95,7 +95,7 @@
 </table>
 
 <%-------------POSTS---------------%>
-<table cellpadding="0" cellspacing="0" class="rtTable">
+<table cellpadding="0" cellspacing="0" class="rtTable rtTablePost">
    <tr>
       <td class="rtHeader" colspan="2">
          <div style="float: right; padding-left: 5px; white-space: nowrap;">

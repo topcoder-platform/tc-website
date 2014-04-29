@@ -11,6 +11,7 @@
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
@@ -67,13 +68,13 @@
        <td class="categoriesBox" style="padding-right: 20px;">
           <jsp:include page="categoriesHeader.jsp" />
        </td>
-       <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
+       <td nowrap="nowrap" valign="top" style="padding-right: 20px;">
            <jsp:include page="searchHeader.jsp" />
        </td>
     </tr>
     
     <tr>
-        <td colspan="2" style="padding-bottom:3px;"><b>
+        <td colspan="2" style="padding-bottom:3px;" class='breadcrumbs'><b>
             <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
                 <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> <img src="/i/interface/exp_w.gif" align="absmiddle"/>
             </tc-webtag:iterator>
@@ -95,8 +96,9 @@
 
 <br>
 
+            <span class="notes">
 <b>Use the form below to attach files to this message. 
-Maximum file size: <%=ForumsUtil.getFileSizeStr(attachManager.getMaxAttachmentSize()*1024)%>.</b>
+Maximum file size: <%=ForumsUtil.getFileSizeStr(attachManager.getMaxAttachmentSize()*1024)%>.</b></span>
 
 <%  if (errors.get(ForumConstants.ATTACHMENT_ERROR) != null) { %>
     <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.ATTACHMENT_ERROR%>"><%=err%><br/></tc-webtag:errorIterator></span>
@@ -113,7 +115,7 @@ Maximum file size: <%=ForumsUtil.getFileSizeStr(attachManager.getMaxAttachmentSi
 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.ATTACHMENT_ID%>"/>
 
-<table cellpadding="3" cellspacing="0" border="0">
+<table cellpadding="3" cellspacing="0" border="0" class="attachFilesTable">
 
 <%  String removeProcessor = postMode.equals("Edit") ? "EditAttachments" : "AttachFiles";
     Iterator iter = message.getAttachments();
@@ -140,16 +142,38 @@ Maximum file size: <%=ForumsUtil.getFileSizeStr(attachManager.getMaxAttachmentSi
 
 <br>
 
-<%-- Attach Files & Post Message --%>
-<input type="image" src="/i/interface/btn_attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='Attach'"/>
 
-<%-- Cancel --%>
-<%    if (postMode.equals("Edit")) {
-        String urlNext = sessionInfo.getServletPath() + "?module=Message&" + ForumConstants.MESSAGE_ID + "=" + message.getID(); %> 
-        <a href="<%=urlNext%>"><img src="/i/interface/btn_cancel.gif" class="rtButton" alt="Cancel"/></a>
-<%    } else { %>
-        <input type="image" src="/i/interface/btn_cancel.gif" class="rtButton" alt="Cancel" onclick="form1.module.value='Post'"/>
-<%    } %>
+    <c:choose>
+        <c:when test="${not empty isNewStyle && isNewStyle}">
+            <%-- Attach Files & Post Message --%>
+
+            <a onclick="form1.module.value='Attach';form1.submit();" class="btn" href="javascript:;" alt="Post">Attach Files</a>
+
+
+            <%-- Cancel --%>
+            <%    if (postMode.equals("Edit")) {
+                String urlNext = sessionInfo.getServletPath() + "?module=Message&" + ForumConstants.MESSAGE_ID + "=" + message.getID(); %>
+                <a href="<%=urlNext%>" class="btn btnBlue"> Cancel </a>
+            <%    } else { %>
+                <a href="javascript:;" onclick="form1.module.value='Post';form1.submit();" class="btn btnBlue"> Cancel </a>
+            <%    } %>
+
+        </c:when>
+        <c:otherwise>
+            <%-- Attach Files & Post Message --%>
+            <input type="image" src="/i/interface/btn_attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='Attach'"/>
+
+            <%-- Cancel --%>
+            <%    if (postMode.equals("Edit")) {
+                String urlNext = sessionInfo.getServletPath() + "?module=Message&" + ForumConstants.MESSAGE_ID + "=" + message.getID(); %>
+            <a href="<%=urlNext%>"><img src="/i/interface/btn_cancel.gif" class="rtButton" alt="Cancel"/></a>
+            <%    } else { %>
+            <input type="image" src="/i/interface/btn_cancel.gif" class="rtButton" alt="Cancel" onclick="form1.module.value='Post'"/>
+            <%    } %>
+
+        </c:otherwise>
+    </c:choose>
+
 
 </form>
 

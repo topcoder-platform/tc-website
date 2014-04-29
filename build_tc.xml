@@ -257,6 +257,9 @@
         <path refid="spring.3.1.2.path" />
         <pathelement location="${jars.dir}/spring.jar"/>
         <pathelement location="${struts.dir}/struts.jar"/>
+
+        <!-- twitter API -->
+        <pathelement location="${jars.dir}/twitter4j-core-3.0.6.jar"/>
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>
@@ -685,6 +688,7 @@
                 <include name="EmailEngineConfig.properties"/>
                 <include name="LDAP.properties"/>
                 <include name="CloudSpokes.properties"/>
+                <include name="twitter4j.properties"/>
             </fileset>
         </copy>
         <copy todir="${jboss_conf}">
@@ -879,6 +883,8 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/jackson/2.1.5/jackson-core-2.1.5.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/jackson/2.1.5/jackson-databind-2.1.5.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/docusign/eSignJavaLib.jar"/>
+
+        <copy todir="${jboss_lib}" file="${jars.dir}/twitter4j-core-3.0.6.jar"/>
 
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.0/hibernate-validator.jar"/>
         

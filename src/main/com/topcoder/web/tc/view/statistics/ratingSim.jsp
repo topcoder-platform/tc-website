@@ -24,29 +24,29 @@
     <jsp:include page="../top.jsp" />
     <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
         <TR>
-            <TD WIDTH="180" VALIGN="top">
+            <TD WIDTH="180" VALIGN="top" class="alignTop" class="alignTop">
 <jsp:include page="../includes/global_left.jsp">
 <jsp:param name="node" value="m_algo_stats"/>
 </jsp:include>
             </TD>
-            <TD WIDTH="10" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-            <TD CLASS="bodyText" WIDTH="99%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+            <TD WIDTH="10" VALIGN="top" class="alignTop" class="alignTop"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+            <TD CLASS="bodyText" WIDTH="99%" VALIGN="top" class="alignTop" class="alignTop"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
 
                 <!-- BEGIN BODY -->
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                     <TR>
-                        <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
-                        <TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
+                        <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom" class="alignBottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
+                        <TD VALIGN="bottom" class="alignBottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
                         <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
                             &#160;<SPAN CLASS="bodySubhead">&#160;&#160;<%= "Rating Sim"%>&#160;&#160;</SPAN>
                         </TD>
-                        <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
+                        <TD VALIGN="top" class="alignTop" class="alignTop" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
                     </TR>
                 </TABLE>
 
-                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" width="100%">
+                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" width="100%"  class="paddingTable">
                     <TR>
-                        <TD CLASS="bodyText" VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/><br/>
+                        <TD CLASS="bodyText" VALIGN="top" class="alignTop" class="alignTop"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/><br/>
 
 <%
 ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("Rounds_By_Date");
@@ -164,7 +164,7 @@ ResultSetContainer rsc = (ResultSetContainer) request.getAttribute("Rounds_By_Da
 
             <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
 
-            <TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
+            <TD WIDTH="180" VALIGN="top" class="alignTop" class="alignTop"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
                 <jsp:include page="../public_right.jsp" />
             </TD>
             <!-- Gutter -->

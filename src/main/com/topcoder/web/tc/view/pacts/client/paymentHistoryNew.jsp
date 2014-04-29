@@ -25,7 +25,7 @@
 <jsp:include page="../../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="myHome">
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
@@ -43,11 +43,35 @@
 <jsp:param name="title" value="Payments"/>
 </jsp:include>
 
+<%
+     Boolean isNewStyle = request.getAttribute("isNewStyle") == null ? false : (Boolean) request.getAttribute("isNewStyle");
+%>
+
 <div align="left">
+
+
+    <% if(isNewStyle) { %>
+        <div style="float:right; padding-top:12px;">
+            <A class="informationLink" href="/wiki/display/tc/How+to+Get+Paid+for+Competing">How to get paid</A>
+        </div>
+    <% } else { %>
+        <div style="float:right;">
+            <A href="/wiki/display/tc/How+to+Get+Paid+for+Competing"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
+        </div>
+    <% } %>
+
     <div style="float:right;">
        <A href="/wiki/display/tc/How+to+Get+Paid+for+Competing"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
     </div>
-    <span class="bodySubtitle">Payments > </span><br>
+    <c:choose>
+        <c:when test="${not empty isNewStyle && isNewStyle}">
+           <h2>Payments</h2>
+        </c:when>
+        <c:otherwise>
+            <span class="bodySubtitle">Payments > </span><br>
+        </c:otherwise>
+    </c:choose>
+
     <c:if test="${fullList}" >
         View all | <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false" class="bcLink">View pending</a>
     </c:if>
@@ -60,7 +84,7 @@
 
 <c:choose>
 <c:when test="${not empty payments}">
-<table cellpadding="0" cellspacing="0" class="stat" width="100%">
+<table cellpadding="0" cellspacing="0" class="stat" width="100%" id="payments">
 <tbody>
     <tr>
         <td class="title" colspan="5">
@@ -72,10 +96,10 @@
         <td class="headerC">Create Date</td>
         <td class="headerR">Net Payment</td>
         <td class="headerC">Status</td>
-        <td class="headerC">
+        <td class="headerC" style="font-weight: bold">
             <c:if test="${fullList}" >
-                <b>Date Paid            
-            </c:if>&nbsp;
+                Date Paid
+            </c:if>
         </td>
     </tr>
     

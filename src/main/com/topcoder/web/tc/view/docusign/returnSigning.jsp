@@ -37,8 +37,8 @@
                         You have cancelled signing the document. You can sign the document at a later time by starting the signing process again.
                     </c:when>
                     <c:when test="${event eq 'signing_complete'}">
-                        You have successfully signed the document. Please close this window to return to the previous page, and refresh to check the status of your terms agreements on the challenge.<br/>
-                        Depending on the type of the signed document, it may now be forwarded for countersignature to the Appirio Legal team, or processed immediately. You will get a email notification when your document is fully signed by all parties and completed.
+                        You have successfully signed the document. Depending on the type of the signed document, it may now be forwarded for countersignature to the Appirio Legal team, or processed immediatelly.<br/>
+                        You will get a email notification when your document is fully signed by all parties and completed.
                     </c:when>
                     <c:otherwise>
                         There was an unexpected error while processing your signature.<br/>

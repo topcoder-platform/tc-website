@@ -14,6 +14,7 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
@@ -44,7 +45,7 @@
     <jsp:param name="level1" value="forums"/>
 </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="mainContent">
 <tr valign="top">
 
 <!-- Left Column Begins-->
@@ -68,10 +69,22 @@
         <td class="categoriesBox" style="padding-right: 20px;">
             <jsp:include page="categoriesHeader.jsp"/>
         </td>
-        <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-            <jsp:include page="searchHeader.jsp"/>
-        </td>
+
+        <c:if test="${!isNewStyle}">
+            <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
+                <jsp:include page="searchHeader.jsp"/>
+            </td>
+        </c:if>
+
         <td align="right" nowrap="nowrap" valign="top">
+
+
+             <c:if test="${isNewStyle}">
+                 <a class="rtbcLink search" href="?module=Search">Search</a>
+                 <span class="thin-sep">|</span>
+             </c:if>
+
+
             <A href="?module=History" class="rtbcLink">My Post
                 History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User
             Settings</A><br/>

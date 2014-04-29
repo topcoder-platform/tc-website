@@ -42,7 +42,7 @@
         </jsp:include>
 
 
-        <table cellpadding="6" cellspacing="0" border="0">
+        <table cellpadding="6" cellspacing="0" border="0" class="recordBook">
             <tr valign="top">
                 <td width="50%">
                     <strong>Consecutive Rating Increases</strong><br>

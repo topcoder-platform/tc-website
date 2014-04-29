@@ -285,7 +285,7 @@ for(int i = 1; i+1&lt;N; i++){
     int cross = x1*y2 - x2*y1;
     area += cross;
 }
-return abs(area/2.0);
+return abs(cross/2.0);
 </pre>
 Notice that if the coordinates are all integers, then the final area of the
 polygon is one half of an integer.

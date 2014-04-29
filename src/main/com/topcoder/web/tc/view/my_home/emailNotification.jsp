@@ -29,7 +29,7 @@
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="myHome">
 <tbody>
     <tr valign="top">
 <%-- Left Column Begins--%>
@@ -41,7 +41,7 @@
 <%-- Left Column Ends --%>
 
 <%-- Center Column Begins --%>
-        <td width="100%" align="center" class="bodyColumn">
+        <td width="100%" align="center" class="bodyColumn" id="email-notifications">
             <div class="maxWidthBody" align="left">
             
                 <jsp:include page="../page_title.jsp" >
@@ -49,7 +49,7 @@
                     <jsp:param name="title" value="Email Notification Preferences"/>
                 </jsp:include>
 
-                <p align="center">
+                <p align="center" class="note">
                     Please check off all the email categories that you'd like to receive
                 </p>
 
@@ -80,11 +80,34 @@
                     </c:forEach>
                 </tbody>
                 </table>
-                </form>        
+                </form>
+
+                <%
+                    Boolean isNewStyle = request.getAttribute("isNewStyle") == null ? false : (Boolean) request.getAttribute("isNewStyle");
+                %>
+
+                <% if(isNewStyle) { %>
+                <div>
+                    <table class="controls">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <a class="btn" href="javascript:submit()">Save</a>
+                            </td>
+                            <td>
+                                <a class="btn btnBlue" href="/tc?module=MyHome">Cancel</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <% } else { %>
+
 
                 <div align="center">
                     <table cellpadding="0" cellspacing="0" style="margin: 20px;">
-                    <tbody>
+                        <tbody>
                         <tr>
                             <td>
                                 <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Save</a>
@@ -93,9 +116,12 @@
                                 <a href="/tc?module=MyHome" class="button" style="width: 60px;">Cancel</a>
                             </td>
                         </tr>
-                    </tbody>
+                        </tbody>
                     </table>
                 </div>
+
+                <% } %>
+
 
             </div>
         </td>

@@ -44,16 +44,16 @@
     <title>TopCoder - My TopCoder</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+
     <jsp:include page="../script.jsp" />
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
 
-    <script type="text/javascript" src="/js/jquery-1.4.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery.form.js"></script>
     <script type="text/javascript" src="/js/jquery.Jcrop.js"></script>
     <script type="text/javascript" src="/js/photo.js"></script>
-    <script type="text/javascript" src="/js/tcscript.js"></script>
+    <%--<script type="text/javascript" src="/js/tcscript.js"></script>--%>
     
     <script src="//d19p4zemcycm7a.cloudfront.net/w2/auth0-widget-2.3.6.min.js"></script>
     
@@ -101,7 +101,6 @@
     
     <link type="text/css" href="/css/jquery.Jcrop.css" rel="stylesheet"/>
     <link type="text/css" href="/css/photo.css" rel="stylesheet"/>
-    <link type="text/css" href="/css/style.css" rel="stylesheet"/>
 
     <script type="text/javascript">
         var previewPath = <%= request.getParameter("previewPath") == null ? null : "\'"  + URLEncoder.encode(request.getParameter("previewPath"), "UTF-8").replaceAll("%2F", "/") + "\'" %>;
@@ -116,7 +115,11 @@
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<%
+    Boolean isNewStyle = request.getAttribute("isNewStyle") == null ? false : (Boolean) request.getAttribute("isNewStyle");
+%>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="myHome">
 <tbody>
     <tr valign="top">
 <%-- Left Column Begins--%>
@@ -128,7 +131,7 @@
 <%-- Left Column Ends --%>
 
 <%-- Center Column Begins --%>
-        <td width="100%" align="center" class="bodyColumn">
+        <td width="100%" align="center" class="bodyColumn" id="my-home">
             <div class="maxWidthBody" align="left">
 
                 <jsp:include page="../page_title.jsp" >
@@ -147,7 +150,7 @@
                         </td>
                     </tr>
                     <tr class="light">
-                        <td class="valueC B" rowspan="10" nowrap="nowrap" style="vertical-align: middle;">
+                        <td class="valueC B" rowspan="8" nowrap="nowrap" style="vertical-align: middle;">
                             <c:choose>
                                 <c:when test="${userImage!=null}">
                                     <div>
@@ -158,7 +161,7 @@
                                 </c:when>
                                 <c:otherwise>
 								        <%-- BUGR9488 trigger the submit photo modal if there is no photo yet--%>
-                                    <a href="javascript:;" id="submitPhotoLink">
+                                    <a href="javascript:;" id="submitPhotoLink" class="submitPhotoTrigger">
                                         <img src="/i/m/nophoto_submit.gif" name="image_path" alt="" class="memberPhoto"/>
                                     </a>
                                 </c:otherwise>
@@ -237,14 +240,15 @@
                             Email:
                         </td>
                         <td class="value">
-                            ${regUser.primaryEmailAddress.address}
+                            <a href="mailto:${regUser.primaryEmailAddress.address}">${regUser.primaryEmailAddress.address}</a>
+
                         </td>
                     </tr>
                 </tbody>
                 </table>
 
                 <div style="clear: both;">
-                <table cellpadding="0" cellspacing="0" class="stat" width="100%">
+                <table cellpadding="0" cellspacing="0" class="stat links" width="100%">
                 <tbody>
                     <tr>
                         <td class="header">
@@ -267,7 +271,7 @@
                                 <p><a href="/tc?module=HSViewUnregister">Unregister from TCHS</a></p>
                             </c:if>
                             <p><a href="https://www.topcoder.com/reg/?nrg=false">Update my profile</a></p>
-							   <p class="<c:if test='${userImage!=null}'>hide</c:if>"><a href="javascript:;" id="submitPhotoLink" >Submit a photo</a></p>
+							   <p class="<c:if test='${userImage!=null}'>hide</c:if>"><a href="javascript:;" id="submitPhotoLink" class="submitPhotoTrigger">Submit a photo</a></p>
                             <p class="<c:if test='${userImage==null}'>hide</c:if>"><a href="javascript:;" id="removePhotoLink">Remove photo</a></p>
                             <p>
                                 <c:choose>
@@ -298,6 +302,7 @@
                             <p><a href="/tc?module=EditNotifications">Email notification</a></p>
                             <p><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Settings">Forums preferences</a></p>
                             <p><a href="/tc?module=EditPaymentPreferences">Payment preferences</a></p>
+                            <p><a href="/tc?module=EditTheme">Theme preference</a></p>
                         </td>
                         <td class="value">
 <!--                            <p><a href="/PactsMemberServlet?module=AffidavitHistory">Affidavits</a></p> -->
@@ -431,6 +436,42 @@
         </div>
     </div>
 </c:if>
+
+<% if(isNewStyle) { %>
+
+<div class="popup-wrapper">
+    <div class="overlay">
+    </div>
+    <section class="popup" id="secondary-email">
+        <span class="close close-popup"></span>
+        <div class="content">
+            <h1>Add Secondary Email</h1>
+            <p>Providing a secondary email is optional, but will help us verify your account if you forget your password.</p>
+            <label>
+                <span class="caption">Secondary Email:</span>
+                <input type="text" name="email">
+            </label>
+            <div class="controls">
+                <a href="javascript:;" class="btn">Submit</a><a href="javascript:;" class="btn btnBlue close-popup">Cancel</a>
+            </div>
+        </div>
+    </section>
+    <section class="popup" id="remove-photo">
+        <span class="close close-popup"></span>
+        <div class="content">
+            <h1>Remove Photo</h1>
+            <span class="memberPhoto"><img src="${pathImage}" alt=""/></span>
+            <div class="controls">
+                <p>Are you sure to remove this photo?</p>
+                <a href="javascript:;" class="btn" id="removePhotoButton">Yes</a><a href="javascript:;" class="btn btnBlue close-popup">No</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<% } %>
+
+
 
 <!-- AJAX preloading indicator -->
 <div id="modal-background"></div>

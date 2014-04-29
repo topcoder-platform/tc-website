@@ -9,6 +9,7 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
@@ -117,7 +118,7 @@ function AllowTabCharacter() {
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
    <tr>
-       <td class="rtbc">
+       <td class="rtbc breadcrumbs">
        <%   ForumCategory crumbCategory = forumCategory;
             if (crumbCategory == null) {
                 crumbCategory = forumFactory.getRootForumCategory();
@@ -135,7 +136,7 @@ function AllowTabCharacter() {
 </table>
 <br><div id="Options">Allowed tags: <%=ForumsUtil.getAllowedTagsDisplay()%>. Allowed attributes: <%=ForumsUtil.getAllowedAttributesDisplay()%>. Syntax highlighting is applied to text within [code][/code], [cpp][/cpp], [java][/java], [c#][/c#], [vb][/vb], and [py][/py] blocks. Usernames within [handle][/handle] and [h][/h] blocks are converted into color-coded links.</div><br>
 
-<table cellpadding="0" cellspacing="0" class="rtTable">
+<table cellpadding="0" cellspacing="0" class="rtTable rtTablePost">
 <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
     <tc-webtag:hiddenInput name="module"/>
     <tc-webtag:hiddenInput name="<%=ForumConstants.CATEGORY_ID%>"/>
@@ -159,21 +160,43 @@ function AllowTabCharacter() {
             <%  if (errors.get(ForumConstants.ANNOUNCEMENT_BODY) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.ANNOUNCEMENT_BODY%>"><%=err%><br/></tc-webtag:errorIterator></span><% } %>
             <b>Body:</b><font color="red"><span align="left" id="Warning" style="display: none"><br/>Warning: one or more &lt;pre&gt; tags is not closed.</span></font>
             <br/><tc-webtag:textArea id="tcPostArea" rows="15" cols="72" name="<%=ForumConstants.ANNOUNCEMENT_BODY%>" onKeyDown="AllowTabCharacter()"/>
+
+
+            <c:if test="${isNewStyle}">
+                <div class="rtFooter">
+                    <a onclick="form1.module.value='PostAnnouncement';form1.submit();" class="btn" href="javascript:;" alt="Post">Post</a>
+
+                    <a onclick="form1.module.value='PreviewAnnouncement';form1.submit();" class="btn btnBlue" href="javascript:;" alt="Preview">Preview</a>
+
+                    <%    String cancelLink = "?module=Main";
+                        if (forum != null) {
+                            cancelLink = "?module=ThreadList&"+ForumConstants.FORUM_ID+"="+forum.getID();
+                        } else if (forumCategory != null) {
+                            cancelLink = "?module=Category&"+ForumConstants.CATEGORY_ID+"="+forumCategory.getID();
+                        } %>
+                    <a href="<%=cancelLink%>" class="btn btnBlue">Cancel</a>
+                </div>
+            </c:if>
+
+
         </td>
     </tr>
-    <tr>
-        <td class="rtFooter">
-            <input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostAnnouncement'"/>
-            <input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewAnnouncement'"/>
-            <%    String cancelLink = "?module=Main"; 
-            if (forum != null) {
-                cancelLink = "?module=ThreadList&"+ForumConstants.FORUM_ID+"="+forum.getID();
-            } else if (forumCategory != null) {
-                cancelLink = "?module=Category&"+ForumConstants.CATEGORY_ID+"="+forumCategory.getID();
-            } %>
-            <a href="<%=cancelLink%>"><img src="/i/interface/btn_cancel.gif" alt="Cancel"/></a>
-        </td>
-    </tr>
+
+    <c:if test="${!isNewStyle}">
+        <tr>
+            <td class="rtFooter">
+                <input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostAnnouncement'"/>
+                <input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewAnnouncement'"/>
+                <%    String cancelLink = "?module=Main";
+                if (forum != null) {
+                    cancelLink = "?module=ThreadList&"+ForumConstants.FORUM_ID+"="+forum.getID();
+                } else if (forumCategory != null) {
+                    cancelLink = "?module=Category&"+ForumConstants.CATEGORY_ID+"="+forumCategory.getID();
+                } %>
+                <a href="<%=cancelLink%>"><img src="/i/interface/btn_cancel.gif" alt="Cancel"/></a>
+            </td>
+        </tr>
+    </c:if>
 </form>
 </table>
 

@@ -247,7 +247,9 @@
                                                 <div class="foto memberPhoto" style="background: url('${pathImage}') no-repeat scroll center center transparent;"></div>
                                             </c:when>
                                             <c:otherwise>
-                                                <div class="foto memberPhoto" style="background: url('/i/m/nophoto_login.gif') no-repeat scroll center center transparent;"></div>
+                                                <a href="javascript:;" id="submitPhotoLink">
+                                                    <div class="foto memberPhoto" style="background: url('/i/m/nophoto_login.gif') no-repeat scroll center center transparent;"></div>
+                                                </a>
                                             </c:otherwise>
                                         </c:choose>
                                         <span class="corner tl"></span>

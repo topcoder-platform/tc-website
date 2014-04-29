@@ -108,7 +108,7 @@
 
     <table cellpadding="0" cellspacing="0" class="rtbcTable">
         <tr>
-            <div class="topLinksL">
+            <div class="topLinksL breadcrumbs">
                 <strong><a href="?module=Main" class="rtbcLink">Forums</a> <img src="/i/interface/exp_w.gif" align="absmiddle"/> Post History:
                     <tc-webtag:handle coderId="<%=historyUser.getID()%>"/>
                     (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>)</strong>

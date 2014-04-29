@@ -337,7 +337,7 @@ This member has not yet been rated in a competition.
       <td class="quoteCell">
         <% if(!"".equals(StringUtils.checkNull(rscCoderData.getStringItem(0,"quote")))) {%>
         <div class="quoteBox"><span class="quoteTitle">Quote:</span><br><br>
-        <div align="center">"<%=StringUtils.htmlEncode(rscCoderData.getStringItem(0, "quote"))%>"</div></div>
+        <div align="center" class="centerControls">"<%=StringUtils.htmlEncode(rscCoderData.getStringItem(0, "quote"))%>"</div></div>
         <%}%>
       </td>
    <tr>

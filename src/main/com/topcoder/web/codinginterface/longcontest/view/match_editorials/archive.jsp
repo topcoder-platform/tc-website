@@ -37,7 +37,7 @@
         <jsp:param name="title" value="Match Editorials"/>
     </jsp:include>
 
-<table class="bodyText" cellpadding="3" cellspacing="0" border="0">
+<table class="bodyText paddingTable3" cellpadding="3" cellspacing="0" border="0">
 <tr><td>06.27.2007</td><td><strong>TCO07 Marathon Match Final</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_tco07">Analysis</A></td></tr>
 <tr><td>05.30.2007</td><td><strong>Marathon Match 17</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_17">Analysis</A></td></tr>
 <tr><td>03.07.2007</td><td><strong>TCO07 Round 1 Analysis / Marathon Match 13</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_13_tco07_rd_1">Analysis</A></td></tr>

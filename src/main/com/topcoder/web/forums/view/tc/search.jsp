@@ -77,13 +77,13 @@ function noenter(e)
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-    <td style="padding-bottom:3px;">
+    <td style="padding-bottom:3px;" class="breadcrumbs">
         <b><a href="?module=Main" class="rtbcLink">Forums</a> <img src="/i/interface/exp_w.gif" align="absmiddle"/> Search</b>
     </td>
 </tr>
 </table>
 
-<table cellpadding="0" cellspacing="0" class="rtTable">
+<table cellpadding="0" cellspacing="0" class="rtTable rtSearch">
 <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
 <tc-webtag:hiddenInput name="module" value="Search"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>" value="search"/>

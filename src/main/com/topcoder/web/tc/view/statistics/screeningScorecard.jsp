@@ -200,7 +200,7 @@ some places, but this should not be a widespread issue.</p></td>
     	
 		    </tbody></table>
 <!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    <table border="0" cellpadding="2"  class="paddingTable2" cellspacing="0" width="100%">
 		    	<tbody><tr>
 		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
@@ -359,7 +359,7 @@ some places, but this should not be a widespread issue.</p></td>
     	
 		    </tbody></table>
 <!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    <table border="0" cellpadding="2"  class="paddingTable2" cellspacing="0" width="100%">
 		    	<tbody><tr>
 		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
@@ -468,7 +468,7 @@ some places, but this should not be a widespread issue.</p></td>
     	
 		    </tbody></table>
 <!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    <table border="0" cellpadding="2"  class="paddingTable2" cellspacing="0" width="100%">
 		    	<tbody><tr>
 		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
@@ -619,7 +619,7 @@ some places, but this should not be a widespread issue.</p></td>
     	
 		    </tbody></table>
 <!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    <table border="0" cellpadding="2"  class="paddingTable2" cellspacing="0" width="100%">
 		    	<tbody><tr>
 		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
@@ -684,7 +684,7 @@ some places, but this should not be a widespread issue.</p></td>
     	
 		    </tbody></table>
 <!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    <table border="0" cellpadding="2"  class="paddingTable2" cellspacing="0" width="100%">
 		    	<tbody><tr>
 		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
@@ -793,7 +793,7 @@ some places, but this should not be a widespread issue.</p></td>
     	
 		    </tbody></table>
 <!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    <table border="0" cellpadding="2"  class="paddingTable2" cellspacing="0" width="100%">
 		    	<tbody><tr>
 		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
@@ -857,7 +857,7 @@ some places, but this should not be a widespread issue.</p></td>
     	
 		    </tbody></table>
 <!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    <table border="0" cellpadding="2"  class="paddingTable2" cellspacing="0" width="100%">
 		    	<tbody><tr>
 		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
@@ -920,7 +920,7 @@ some places, but this should not be a widespread issue.</p></td>
     	
 		    </tbody></table>
 <!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    <table border="0" cellpadding="2"  class="paddingTable2" cellspacing="0" width="100%">
 		    	<tbody><tr>
 		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
@@ -982,7 +982,7 @@ some places, but this should not be a widespread issue.</p></td>
     	
 		    </tbody></table>
 <!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    <table border="0" cellpadding="2"  class="paddingTable2" cellspacing="0" width="100%">
 		    	<tbody><tr>
 		    		<td class="normal"><img src="http://software.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>
@@ -1182,7 +1182,7 @@ some places, but this should not be a widespread issue.</p></td>
     	
 		    </tbody></table>
 <!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    <table border="0" cellpadding="2"  class="paddingTable2" cellspacing="0" width="100%">
 		    	<tbody><tr>
 		    		<td class="normal"><img src="http://www.topcoder.com/i/clear.gif" alt="" border="0" height="5" width="1"></td>
 		    	</tr>

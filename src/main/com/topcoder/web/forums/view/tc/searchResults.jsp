@@ -82,7 +82,7 @@
     <%  } %>
 </table>
 
-<table cellpadding="0" cellspacing="0" class="rtTable" style="margin-bottom:6px;">
+<table cellpadding="0" cellspacing="0" class="rtTable rtTableSearchResult" style="margin-bottom:6px;">
     <tr>
         <td class="rtHeader" width="70%">Message</td>
         <td class="rtHeader" width="10%">Author</td>

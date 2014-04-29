@@ -51,7 +51,7 @@
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="myHome">
     <tbody>
     <tr valign="top">
         <%-- Left Column Begins--%>
@@ -71,7 +71,7 @@
                     <jsp:param name="title" value="Payment Preferences"/>
                 </jsp:include>
 
-                <p align="center">
+                <p align="center" class="note">
                     Set your accrual limit to any amount above $${MINIMUM_PAYMENT_ACCRUAL_AMOUNT}
                     if you want your payments to accrue to some limit before becoming Owed.
                     You can also set the preferred payment method and register with the payment providers here.
@@ -172,6 +172,30 @@
                         </tbody>
                     </table>
 
+
+                <%
+                    Boolean isNewStyle = request.getAttribute("isNewStyle") == null ? false : (Boolean) request.getAttribute("isNewStyle");
+                %>
+
+                <% if(isNewStyle) { %>
+                <div>
+                    <table class="controls">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <a class="btn" href="javascript:submit()">Save</a>
+                            </td>
+                            <td>
+                                <a class="btn btnBlue" href="/tc?module=MyHome">Cancel</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <% } else { %>
+
+
                 <div align="center">
                     <table cellpadding="0" cellspacing="0" style="margin: 20px;">
                         <tbody>
@@ -186,6 +210,8 @@
                         </tbody>
                     </table>
                 </div>
+
+                <% } %>
 
                 <div align="center">Have a question about
                     <A href="/wiki/display/tc/Payment+Methods">Payment Methods</A>?

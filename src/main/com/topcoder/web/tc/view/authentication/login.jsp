@@ -61,7 +61,7 @@
 <tr valign="top">
 
     <!-- Left Column Begins -->
-    <td width="170">
+    <td width="170" style="vertical-align: top">
         <jsp:include page="../includes/global_left.jsp">
             <jsp:param name="node" value=""/>
         </jsp:include>

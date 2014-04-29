@@ -45,7 +45,7 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
     <jsp:param name="title" value="Algorithm Competition Record Book"/>
 </jsp:include>
 
-<div style="float:right; padding-left: 20px;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">back to table of contents</A></div>
+<div style="float:right; padding-left: 20px;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home"  class="bodyText">back to table of contents</A></div>
 <br><br>
 <strong>Record:</strong> This chart represents the members who have made the most impressive debuts.
 
