@@ -23,6 +23,9 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
+    <c:if test="${not empty isNewStyle && isNewStyle}">
+        <link type="text/css" rel="stylesheet" href="/css/reskin/dr.css" />
+    </c:if>
     <script type="text/javascript">
         function changePeriod() {
             var myForm = document.leaderBoardForm;

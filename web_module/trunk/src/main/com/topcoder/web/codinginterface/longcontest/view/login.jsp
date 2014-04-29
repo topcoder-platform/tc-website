@@ -90,7 +90,7 @@
                         <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
                         <input type="hidden" name="module" value="Login">
                         <td class="bodyText" align="center">
-                            <table border="0" cellpadding="3" cellspacing="0">
+                            <table border="0" cellpadding="3" cellspacing="0" class="paddingTable3">
                                 <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0">
                                 </td></tr>
                                 <tr valign="top">

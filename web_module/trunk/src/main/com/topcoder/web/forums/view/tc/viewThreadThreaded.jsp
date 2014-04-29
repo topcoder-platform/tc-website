@@ -15,6 +15,7 @@
 <%@ page import="java.util.Iterator" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
@@ -156,7 +157,7 @@ function displayVotes(messageID, posVotes, negVotes, userRating) {
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-        <td width="100%" align="left" class="bodyColumn">
+        <td width="100%" align="left" class="bodyColumn rtBody">
 
         <jsp:include page="page_title.jsp" >
             <jsp:param name="image" value="forums"/>
@@ -168,8 +169,10 @@ function displayVotes(messageID, posVotes, negVotes, userRating) {
    <td class="categoriesBox" style="padding-right: 20px;">
       <jsp:include page="categoriesHeader.jsp" />
    </td>
-   <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-       <jsp:include page="searchHeader.jsp" />
+   <td nowrap="nowrap" valign="top" style="padding-right: 20px;">
+       <c:if test="${!isNewStyle}">
+           <jsp:include page="searchHeader.jsp" />
+       </c:if>
        <%  if (ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
 	    	<%	ImageData imageData = (ImageData)request.getAttribute("imageData"); %>
 			<%	if (!"".equals(StringUtils.checkNull(imageData.getPhaseIcon()))) { %>
@@ -181,6 +184,10 @@ function displayVotes(messageID, posVotes, negVotes, userRating) {
 		<%	} %>
    </td>
    <td align="right" nowrap="nowrap" valign="top">
+       <c:if test="${isNewStyle}">
+           <a class="rtbcLink search" href="?module=Search">Search</a>
+           <span class="thin-sep">|</span>
+       </c:if>
    <A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.THREAD%>&<%=ForumConstants.WATCH_ID%>=<%=thread.getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>"
    class="rtbcLink"><%=watchMessage%></A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
    View:
@@ -207,7 +214,7 @@ function displayVotes(messageID, posVotes, negVotes, userRating) {
    </td>
 </tr>
 
-<tr><td colspan="3" style="padding-bottom:3px;"><b>
+<tr><td class='breadcrumbs' colspan="3" style="padding-bottom:3px;"><b>
     <%	boolean showComponentLink = "true".equals((String)request.getAttribute("showComponentLink"));
     	Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
     	while (itCategories.hasNext()) {
@@ -234,7 +241,7 @@ function displayVotes(messageID, posVotes, negVotes, userRating) {
       int width=Math.round(Math.min(500,500-((depth-50)*(depth-50))/5)); %>
 <div style="padding-left: <%=width%>px; position: relative;">
 <div style="position: relative; width: 100%;">
-<table cellpadding="0" cellspacing="0" class="rtTable" style="margin-bottom: 6px;">
+<table cellpadding="0" cellspacing="0" class="rtTable rtTablePost" style="margin-bottom: 6px;">
       <tr>
           <td class="rtHeader" colspan="2">
             <%  String msgBodyID = "msgBody" + message.getID();
@@ -318,7 +325,7 @@ function displayVotes(messageID, posVotes, negVotes, userRating) {
 <%-------------POSTS END---------------%>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><td><b>
+<tr><td class='breadcrumbs'><b>
    <%    itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
         while (itCategories.hasNext()) {
             ForumCategory category = (ForumCategory)itCategories.next(); %>

@@ -109,7 +109,7 @@
                </c:forEach>   
             </table>
 
-        <div align="center">
+        <div align="center" class="centerControls">
         <div class="pagingBox" style="width:300px;">
                     <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" /> |
                     <tc-webtag:nextPage servletPath="${sessionInfo.servletPath}" list="${matches}" styleClass="bcLink" />

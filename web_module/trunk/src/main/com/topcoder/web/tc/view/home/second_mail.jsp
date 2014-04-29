@@ -70,7 +70,7 @@
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="myHome">
 <tbody>
     <tr valign="top">
 <%-- Left Column Begins--%>
@@ -127,11 +127,34 @@
                 </tbody>
                 </table>
 
-                </form>            
+                </form>
+
+                <%
+                    Boolean isNewStyle = request.getAttribute("isNewStyle") == null ? false : (Boolean) request.getAttribute("isNewStyle");
+                %>
+
+                <% if(isNewStyle) { %>
+                    <div>
+                        <table class="controls">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <a class="btn" href="javascript:;" onclick="$('#frm').submit();">${button}</a>
+                                </td>
+                                <td>
+                                    <a class="btn btnBlue" href="/tc?module=MyHome">Cancel</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                <% } else { %>
+
 
                 <div align="center">
                     <table cellpadding="0" cellspacing="0" style="margin: 20px;">
-                    <tbody>
+                        <tbody>
                         <tr>
                             <td>
                                 <a href="javascript:$('#frm').submit();" class="button" style="width: 60px; margin-right: 10px;">${button}</a>
@@ -140,9 +163,13 @@
                                 <a href="/tc?module=MyHome" class="button" style="width: 60px;">Cancel</a>
                             </td>
                         </tr>
-                    </tbody>
+                        </tbody>
                     </table>
                 </div>
+
+                <% } %>
+
+
             </div>
         </td>
 <%-- Center Column Ends --%>

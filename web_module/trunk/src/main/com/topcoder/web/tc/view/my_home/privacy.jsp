@@ -38,7 +38,7 @@
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="myHome">
 <tbody>
     <tr valign="top">
 <%-- Left Column Begins--%>
@@ -52,11 +52,15 @@
 <%-- Center Column Begins --%>
         <td width="100%" align="center" class="bodyColumn">
             <div class="maxWidthBody" align="left">
+
+                <section id="privacy">
             
-                <jsp:include page="../page_title.jsp" >
-                    <jsp:param name="image" value="my_tc"/>
-                    <jsp:param name="title" value="Privacy"/>
-                </jsp:include>
+                    <jsp:include page="../page_title.jsp" >
+                        <jsp:param name="image" value="my_tc"/>
+                        <jsp:param name="title" value="Privacy"/>
+                    </jsp:include>
+
+
 
             <form name="f" action="${sessionInfo.servletPath}" method="post">
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditPreferences"/>
@@ -91,7 +95,7 @@
                                 </tc-webtag:errorIterator>
                                 <span style="display: block; padding-top: 4px;">${preference.name}:
                                 <c:if test="${preference.id == memberContactPrefId}">
-                                <br />Edit my <a href="/tc?module=BlackList">black list</a>
+                                <br /> <span class="grayedOut">Edit my <a href="/tc?module=BlackList">black list</a></span>
                                 </c:if>
                                 <c:if test="${preference.id == showEarningsPrefId}">
                                 <br /><span class="grayedOut">(You will still be able to see your own earnings statistics)</span>
@@ -105,11 +109,11 @@
                                     </c:when>
                                     <c:when test="${preference.type.id == 4}">
                                         <tc-webtag:radioButton name="pref_${preference.id}" value="show"/> Show
-                                        <br /><tc-webtag:radioButton name="pref_${preference.id}" value="hide"/> Hide
+                                        <tc-webtag:radioButton name="pref_${preference.id}" value="hide"/> Hide
                                     </c:when>
                                     <c:when test="${preference.type.id == 5}">
                                         <tc-webtag:radioButton name="pref_${preference.id}" value="yes"/> Yes
-                                        <br /><tc-webtag:radioButton name="pref_${preference.id}" value="no"/> No
+                                        <tc-webtag:radioButton name="pref_${preference.id}" value="no"/> No
                                     </c:when>
                                     <c:otherwise>
                                         <tc-webtag:textInput name="pref_${preference.id}"/>
@@ -121,21 +125,52 @@
                 </tbody>
                 </table>
 
-                <div align="center">
-                    <table cellpadding="0" cellspacing="0" style="margin: 20px;">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Save</a>
-                            </td>
-                            <td>
-                                <a href="/tc?module=MyHome" class="button" style="width: 60px;">Cancel</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                    </table>
-                </div>
-                </form>            
+                <%
+                    Boolean isNewStyle = request.getAttribute("isNewStyle") == null ? false : (Boolean) request.getAttribute("isNewStyle");
+                %>
+
+                <% if(isNewStyle) { %>
+                    <div>
+                        <table class="controls">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <a class="btn" href="javascript:submit()">Save</a>
+                                </td>
+                                <td>
+                                    <a class="btn btnBlue" href="/tc?module=MyHome">Cancel</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                <% } else { %>
+
+
+                    <div align="center">
+                        <table cellpadding="0" cellspacing="0" style="margin: 20px;">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Save</a>
+                                </td>
+                                <td>
+                                    <a href="/tc?module=MyHome" class="button" style="width: 60px;">Cancel</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                <% } %>
+
+
+
+
+                </form>
+
+                </section>
 
             </div>
         </td>

@@ -56,6 +56,10 @@
 <head>
 <title>TopCoder - PACTS</title>
 
+    <%
+        Boolean isNewStyle = request.getAttribute("isNewStyle") == null ? false : (Boolean) request.getAttribute("isNewStyle");
+    %>
+
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
@@ -92,7 +96,7 @@
 <jsp:include page="../../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="myHome">
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
@@ -103,7 +107,7 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-<td width="100%" align="left" class="bodyColumn">
+<td width="100%" align="left" class="bodyColumn" id="payments">
 
 <jsp:include page="../../page_title.jsp" >
 <jsp:param name="image" value="pact_s"/>
@@ -111,10 +115,23 @@
 </jsp:include>
 
 <div align="left">
-    <div style="float:right;">
-       <A href="/wiki/display/tc/How+to+Get+Paid+for+Competing"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
+    <% if(isNewStyle) { %>
+    <div style="float:right; padding-top:12px;">
+        <A class="informationLink" href="/wiki/display/tc/How+to+Get+Paid+for+Competing">How to get paid</A>
     </div>
-    <span class="bodySubtitle">Payments > </span><br>
+    <% } else { %>
+    <div style="float:right;">
+        <A href="/wiki/display/tc/How+to+Get+Paid+for+Competing"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
+    </div>
+    <% } %>
+    <c:choose>
+        <c:when test="${not empty isNewStyle && isNewStyle}">
+            <h2>Payments</h2>
+        </c:when>
+        <c:otherwise>
+            <span class="bodySubtitle">Payments > </span><br>
+        </c:otherwise>
+    </c:choose>
     <c:if test="${fullList}" >
         View all | <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false" class="bcLink">View pending</a> | <a href="/PactsMemberServlet?module=PaymentHistory&xls=true" class="bcLink">Export to Excel</a> | <a href="/PactsMemberServlet?module=PaymentStatusSummary" class="bcLink">Payments Summary</a>
     </c:if>
@@ -172,17 +189,17 @@
             Payments
             </td>
         </tr>
-        <tr>
+        <tr class="headerRow">
             <td class="header"><a class="getable" href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>" >Description</a></td>
             <td class="header"><a class="getable" href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true" />" >Type</a></td>
             <td class="headerC"><a class="getable" href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" />" >Create Date</a></td>
             <td class="headerR"><a class="getable" href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"  />" >Net Payment</a></td>
             <td class="header"><a class="getable" href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true" />" >Status</a></td>
             <td class="headerC"><a class="getable" href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true" />" >Release Date</a></td>
-            <td class="headerC">
+            <td class="headerC" style="font-weight: bold">
                 <c:if test="${fullList}" >
-                    <b><a class="getable" href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" />" >Date Paid</a>       
-                </c:if>&nbsp;
+                    <a class="getable" href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" />" >Date Paid</a>
+                </c:if>
             </td>
             <td class="header">&nbsp;</td>
         </tr>
@@ -231,7 +248,7 @@
             <td class="value">${payment.paymentTypeDesc}</td>
             <td class="valueC"><fmt:formatDate value="${payment.createDate}" pattern="MM/dd/yyyy"/></td>
             <td class="valueR"><fmt:formatNumber value="${payment.netAmount}" type="currency" currencySymbol="$"/></td>
-            <td class="value"><strong>${payment.currentStatus.desc}</strong> 
+            <td class="value"><span class="status ${payment.currentStatus.desc}">${payment.currentStatus.desc}</span>
                 <c:forEach items="${payment.currentStatus.reasons}" var="reason">    
                 <br>- ${reason.desc}
                 </c:forEach>
@@ -287,6 +304,13 @@
     </table>
     
         <br/>
+
+        <c:if test="${isNewStyle}">
+            <div>
+                <a id="xls" class="bcLink" href="/PactsMemberServlet?module=PaymentHistory&amp;xls=true">Export to Excel</a>
+            </div>
+        </c:if>
+
        <div align="right">
            <input type="button" value="Pay Me: $0.00" id="payMe" disabled="disabled"/>
        </div> 

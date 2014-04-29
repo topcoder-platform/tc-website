@@ -112,6 +112,9 @@
         <pathelement location="${jars.dir}/asyncservices.jar"/>
         <!-- app side dependencies...get rid of this if possible it's bad long contest design -->
         <pathelement location="${jars.dir}/tc.jar"/>
+
+        <!-- twitter API -->
+        <pathelement location="${jars.dir}/twitter4j-core-3.0.6.jar"/>
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>
@@ -271,6 +274,7 @@ copy in the classpath
         <copy todir="${jboss_conf}" file="${resources}/problem.xsd"/>
         <copy todir="${jboss_conf}" file="${resources}/ProblemParser.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/Problem.properties"/>
+        <copy todir="${jboss_conf}" file="${resources}/twitter4j.properties"/>
 
 
         <copy todir="${jboss_deploy}">

@@ -82,19 +82,19 @@
 
         <h3>Official Rules &amp Regulations</h3>
 
-        <p align="justify">
+        <p align="justify" class="justifyText">
         NO PURCHASE NECESSARY TO ENTER OR WIN, A PURCHASE WILL NOT INCREASE YOUR CHANCE OF WINNING. VOID WHERE PROHIBITED.
         </p>
 
         <div class="sectionHeader">About the Competition</div>
 
-		<p align="justify">
+		<p align="justify" class="justifyText">
             <strong>Entering the Competition</strong><br />
 			The Competition is brought to you by TopCoder, Inc. The Competition is open to all TopCoder members 
 			who meet the criteria described below and who register for the Competition (each, a "Competitor").
         </p>
 		
-        <p align="justify">
+        <p align="justify" class="justifyText">
             <strong>When to start the Competition Round</strong><br />
             TopCoder members must register for the competition round. Registration may occur at any time
             from.
@@ -109,7 +109,7 @@
             <rsc:item name="coding_start_time" row="<%=rsr%>" format="MM.dd.yyyy hh:mm a z"/>
             which is the earliest time that any member will be given access to the problem statement.
         </p>
-        <p align="justify">
+        <p align="justify" class="justifyText">
             <strong>Submission Requirements</strong><br />
             All competitors registered for a specific Marathon Match will see a Submit option 
             for that event. Clicking the Submit link will take you to a page that will 
@@ -126,7 +126,7 @@
             2 hours.  Additionally, if a competitor has a pending submission on the 
             testing queue it must finish testing before they may submit again.
         </p>
-        <p align="justify">
+        <p align="justify" class="justifyText">
             Clicking the Test Examples button will immediately compile and place your 
             submission on a queue for automated testing of just the example test cases. 
             Detailed feedback will be made available when the tests are complete, 
@@ -136,7 +136,7 @@
         </p>
 
 	<% if (round_id == 15520) { %>
-	<p align="justify">
+	<p align="justify" class="justifyText">
 	TopCoder requires assignment of winning submissions in this competition. As a condition of 
 winning and redeeming a cash prize, Competitors will be required to submit, among other things,
 a completed TopCoder Competition Assignment Agreement, if one is not already on file with 
@@ -151,7 +151,7 @@ disqualify the submission.
 	<% } %>
 		
 		<% if (Arrays.binarySearch(ntlRounds, round_id)>=0) { %>
-		<p align="justify">
+		<p align="justify" class="justifyText">
 			In order to receive prize money, after the close of the competition you must fully document the derivation 
 			of all numeric parameters used in your algorithm. If the solution submitted includes parameters that were obtained 
 			from calculations based on the training data set, you will also need to provide the program or technique that you used 
@@ -167,12 +167,12 @@ disqualify the submission.
 			
     <%if(rsr.getIntItem("round_id") == 10834) {%>
         <div class="sectionHeader">Prizes</div>
-        <p align="justify">
+        <p align="justify" class="justifyText">
         There will be $5000 in total prize money. The first and second highest 
         scoring submissions in each of the five languages supported will 
         receive $750 and $250, respectively.
         </p>
-        <p align="justify">
+        <p align="justify" class="justifyText">
         In order to be eligible for prizes, a competitor must be a TopCoder 
         member in good standing, at least 18 years of age, and must not be a 
         resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, 
@@ -184,7 +184,7 @@ disqualify the submission.
     <%if(rsr.getIntItem("round_id") == 13953 || rsr.getIntItem("round_id") == 13934 || rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13569 || 
 	  rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681 ) {%>
 		<div class="sectionHeader">Prizes</div>
-		<p align="justify">There will be up to $5000 in total prize money awarded to the five(5) highest scoring participating members. </p>
+		<p align="justify" class="justifyText">There will be up to $5000 in total prize money awarded to the five(5) highest scoring participating members. </p>
 
 		<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
 		<tr>
@@ -210,7 +210,7 @@ disqualify the submission.
 	     || round_id == 15103 || round_id == 15120 || round_id == 15189 || round_id == 15322 ||
 	round_id == 15327 || round_id == 15458 || round_id == 15618 || round_id == 15637) {%>
 		<div class="sectionHeader">Prizes</div>
-		<p align="justify">There will be $10,000 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
+		<p align="justify" class="justifyText">There will be $10,000 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
 
 		<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
 		<tr>
@@ -261,7 +261,7 @@ disqualify the submission.
 
 <% if (round_id == 15765) { %>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">The prize purse for this challenge is 15,000 USD and a trip to the 2013 TopCoder Open in Washington, DC! The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
+    <p align="justify" class="justifyText">The prize purse for this challenge is 15,000 USD and a trip to the 2013 TopCoder Open in Washington, DC! The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
         <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right" nowrap="nowrap">$7,000 and a trip to the 2013 TopCoder Open</td>
@@ -277,11 +277,11 @@ disqualify the submission.
     </tr>
 </table>
 
-<p align="justify">
+<p align="justify" class="justifyText">
 TopCoder may *offer* to purchase submissions that did not win any prize if the client is interested in using them.
 </p>
 
-<p align="justify">
+<p align="justify" class="justifyText">
 Additionally, there are two $700 USD and $300 USD prizes for unusual and perspective ideas. Only contestants with 5th and lower final scores are eligible for these prizes. The ideas must be described and submitted in a text document. You do not need to implement your idea (though if it is incorporated into your marathon match final submission, it can be a plus). The submission phase for ideas is separate from the marathon match and will open once the match is over. Additional details will be communicated at the match forum. Evaluation of ideas is subjective, but the main evaluation criteria for the winning ideas is: can (and how much) the Top-4 marathon match algorithms benefit from this idea? TopCoder reserves the right not to award this prize if no ideas are considered to be useful enough.
 </p>
 <% } %>
@@ -289,7 +289,7 @@ Additionally, there are two $700 USD and $300 USD prizes for unusual and perspec
 
 <% if (round_id == 15879) { %>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">The prize purse for this challenge is 7,000 USD! The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
+    <p align="justify" class="justifyText">The prize purse for this challenge is 7,000 USD! The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
         <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right" nowrap="nowrap">$3,500</td>
@@ -305,13 +305,13 @@ Additionally, there are two $700 USD and $300 USD prizes for unusual and perspec
     </tr>
 </table>
 
-<p align="justify">
+<p align="justify" class="justifyText">
 </p>
 <% } %>
 
 <% if (round_id == 15876) { %>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">The prize purse for this challenge is 5,000 USD! The 3 highest scorers in this round will receive compensation for their submissions as follows:</p>
+    <p align="justify" class="justifyText">The prize purse for this challenge is 5,000 USD! The 3 highest scorers in this round will receive compensation for their submissions as follows:</p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
         <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right" nowrap="nowrap">$3,000</td>
@@ -324,14 +324,14 @@ Additionally, there are two $700 USD and $300 USD prizes for unusual and perspec
     </tr>
 </table>
 
-<p align="justify">
+<p align="justify" class="justifyText">
 </p>
 <% } %>
 
 
 <% if (round_id == 15761) { %>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">The Marathon Match has $25,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
+    <p align="justify" class="justifyText">The Marathon Match has $25,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
         <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$12,000</td>
@@ -350,20 +350,20 @@ Additionally, there are two $700 USD and $300 USD prizes for unusual and perspec
     </tr>
 </table>
 
-<p align="justify">
+<p align="justify" class="justifyText">
 TopCoder may *offer* to purchase submissions that did not win any prize if the client is interested in using them.
 </p>
 
-<p align="justify">
+<p align="justify" class="justifyText">
 Additionally, there is a $1,000 USD prize for an unusual and perspective idea. Only contestants with 6th and lower final scores are eligible for this prize. The idea must be described and submitted in a text document. You do not need to implement your idea (though if it is incorporated into your marathon match final submission, it can be a plus). The submission phase for ideas is separate from the marathon match and will open once the match is over. Additional details will be communicated at the match forum. Evaluation of ideas is subjective, but the main evaluation criteria for the winning idea is: can (and how much) the Top-5 marathon match algorithms benefit from this idea? TopCoder reserves the right not to award this prize if no ideas are considered to be useful enough.
 </p>
 
 <% } %>
 
 
-<% if (round_id == 15611 || round_id == 15955) { %>
-<div class="sectionHeader">Prizes</div>
-    <p align="justify">The Marathon Match has $10,000 in total prize money.  The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
+<% if (round_id == 15611) { %>
+		<div class="sectionHeader">Prizes</div>
+    <p align="justify" class="justifyText">The Marathon Match has $10,000 in total prize money.  The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
@@ -380,10 +380,9 @@ Additionally, there is a $1,000 USD prize for an unusual and perspective idea. O
     </tr>
 </table>
 
-<% if (round_id == 15611) { %>
-<p align="justify">In order to be eligible for these prizes, your code submission must be written in C++ and must be made before 9 AM, April 22, 2013.</p>
+<p align="justify" class="justifyText">In order to be eligible for these prizes, your code submission must be written in C++ and must be made before 9 AM, April 22, 2013.</p>
 
-<p align="justify">The <a href="http://apps.topcoder.com/forums/?module=Thread&threadID=786874&start=0">additional submission phase</a> has up to $6,000
+<p align="justify" class="justifyText">The <a href="http://apps.topcoder.com/forums/?module=Thread&threadID=786874&start=0">additional submission phase</a> has up to $6,000
 in total prize money:
 <ul>
 <li>All submissions with the final score of at least 800,000 are eligible for a combined prize purse of $1,000. If there are several such submissions, the prize will be divided evenly among them.</li>
@@ -392,40 +391,14 @@ in total prize money:
 </ul>
 </p>  
 
-<p align="justify">
+<p align="justify" class="justifyText">
 TopCoder may *offer* to purchase submissions that did not win any prize if the client is interested in using them.
 </p>
-    
-<% } %>
-
-<% if (round_id == 15955) { %>
-<p>
-After the end of the Marathon Match, we will conduct a follow-up round in which we will welcome all the members (who submitted to this match) to
-participate and provide a scientific explanation and/or support to their solutions. The top three submissions in this contest will be awarded following prizes based on how much scientific relevance the solutions have.
-<p>
-
-<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
-    <tr>
-        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$2,200</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$1,300</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$900</td>
-    </tr>
-</table>
-
-<% } %>
-
-<p align="justify">
-</p>
-
 <% } %>
 
 <%if (round_id == 15520) {%>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">There is a total $30,000 USD cash prize purse for this contest, 100 T-shirts, 5 stickers that have flown in space
+    <p align="justify" class="justifyText">There is a total $30,000 USD cash prize purse for this contest, 100 T-shirts, 5 stickers that have flown in space
 and 5 letters of recommendation. $25,000 USD is allocated for the final prizes and $5,000 are allocated for checkpoint prizes. The contestants with
 the 10 highest non-zero final scores will be awarded the following prizes.</p>
 
@@ -462,7 +435,7 @@ the 10 highest non-zero final scores will be awarded the following prizes.</p>
     </tr>
 </table>
 
-<p align="justify">One week after the start of the challenge the first set of checkpoint prizes will be selected. The contestants with the top 4 highest
+<p align="justify" class="justifyText">One week after the start of the challenge the first set of checkpoint prizes will be selected. The contestants with the top 4 highest
 provisional scores (on the leader board) at that time will receive the prizes listed below. Then two weeks after the start of the contest, the second
 set of checkpoint prizes will be selected for the contestants with the 4 highest provisional scores at that time.
 See below for the exact date and time for the selection of the checkpoint winners. </p>
@@ -485,17 +458,17 @@ See below for the exact date and time for the selection of the checkpoint winner
     </tr>
 </table>
 
-<p align="justify">Each of the contestants with one of the top 100 final non-zero scores will win a NTL ISS Longeron T-Shirt.</p>
+<p align="justify" class="justifyText">Each of the contestants with one of the top 100 final non-zero scores will win a NTL ISS Longeron T-Shirt.</p>
 
-<p align="justify">There will also be final bonus prizes for the top 5 final finishers. The
+<p align="justify" class="justifyText">There will also be final bonus prizes for the top 5 final finishers. The
 1st, 2nd, 3rd, 4th, and 5th place final winners will receive stickers from NASA <b>which have actually orbited the Earth</b>.
 These stickers were flown on Space Shuttle Endeavour, on mission STS-134, May 16, 2011. TopCoder will also provide a letter of reference for
 each of the 1st, 2nd, 3rd, 4th, and 5th place final winners describing their performance in the contest.
 These could be used to aid your job search, for applying for entry into a school or even for your astronaut application.</p>
 
-<p align="justify"> If there are ties for any of the non-cash prizes, the tie will be broken by selecting the earliest submissions. In the event of a tie for a cash prize, the associated prize money will be divided evenly between the tied contestants.</p>
+<p align="justify" class="justifyText"> If there are ties for any of the non-cash prizes, the tie will be broken by selecting the earliest submissions. In the event of a tie for a cash prize, the associated prize money will be divided evenly between the tied contestants.</p>
 
-<p align="justify">Before the contest, this problem was extensively tested by an experienced marathon competitor (but for a shorter time period
+<p align="justify" class="justifyText">Before the contest, this problem was extensively tested by an experienced marathon competitor (but for a shorter time period
 than the actual contest). The tester's pre-contest solution will be submitted at the start of the challenge (using the handle "mm_tester") and
 will not be modified throughout the contest. This will make the tester's provisional score visible throughout the match. The tester will be eligible
 for the final prizes based on his initial submission, but not the tester is eligible for the checkpoint prizes.
@@ -505,7 +478,7 @@ The tester's identity will not be revealed until the challenge is over.</p>
 
     <%if(round_id == 15201 || round_id == 15202) {%>
 		<div class="sectionHeader">Prizes</div>
-		<p align="justify">There will be $5,000 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
+		<p align="justify" class="justifyText">There will be $5,000 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
 
 		<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
 		<tr>
@@ -528,7 +501,7 @@ The tester's identity will not be revealed until the challenge is over.</p>
 
     <%if(round_id==15077 || round_id==15130) {%>
 		<div class="sectionHeader">Prizes</div>
-		<p align="justify">There will be $7,500 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
+		<p align="justify" class="justifyText">There will be $7,500 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
 
 		<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
 		<tr>
@@ -548,13 +521,13 @@ The tester's identity will not be revealed until the challenge is over.</p>
 		</tr>
 		</table>
 
-		<p align="justify">The 10 highest scorers in the round will be allowed to participate in the extra submission phase which will have $2,500 in
+		<p align="justify" class="justifyText">The 10 highest scorers in the round will be allowed to participate in the extra submission phase which will have $2,500 in
 		total prize money. The detailed rules of this phase will be posted to the marathon match forum.</p>
     <%}%>
 
 	<%if (round_id == 15080 || round_id == 15398 || round_id == 15589) {%>
 	<div class="sectionHeader">Prizes</div>
-    	<p align="justify">There will be $1,000 in total prize money.  The 2 highest scorers in this round will receive compensation
+    	<p align="justify" class="justifyText">There will be $1,000 in total prize money.  The 2 highest scorers in this round will receive compensation
 		for their submissions as follows:</p>
 
 		<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
@@ -566,7 +539,7 @@ The tester's identity will not be revealed until the challenge is over.</p>
     	</tr>
 	</table>
 
-	<p align="justify">
+	<p align="justify" class="justifyText">
     
 	</p>
 	<%}%>
@@ -576,7 +549,7 @@ The tester's identity will not be revealed until the challenge is over.</p>
 	<% if (Arrays.binarySearch(nsaRounds, round_id)>=0) { %>
 	
 		<div class="sectionHeader">Prizes</div>
-		<p align="justify">
+		<p align="justify" class="justifyText">
 			There will be up to $3000 in total prize money awarded to the five (5) highest scoring members who
 			are citizens of the United States.
 		</p>
@@ -601,9 +574,9 @@ The tester's identity will not be revealed until the challenge is over.</p>
 	
 	<% } %>
 	
-	<% if (Arrays.binarySearch(ntlRounds, round_id)>=0 || round_id == 15948) { %>
+	<% if (Arrays.binarySearch(ntlRounds, round_id)>=0) { %>
 		<div class="sectionHeader">Prizes</div>
-		<p align="justify">There will be up to $10,000 in total prize money awarded to the five (5) highest scoring members:</p>
+		<p align="justify" class="justifyText">There will be up to $10,000 in total prize money awarded to the five (5) highest scoring members:</p>
 
 		<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
 		<tr>
@@ -624,13 +597,13 @@ The tester's identity will not be revealed until the challenge is over.</p>
 		</table>
 	<% } %>
 
-    <p align="justify">
+    <p align="justify" class="justifyText">
        
     </p>
 
     <div class="sectionHeader">Conditions of Participation</div>
 
-	 <p align="justify">
+	 <p align="justify" class="justifyText">
 		Competitors agree, represent and certify that no portion of any money awarded in connection with this Competition has been or will 
 		be paid, by or on behalf of Competitor, to any person for influencing or attempting to influence an officer or employee of any agency, 
 		a Member of the United States Congress, an officer or employee of the United States Congress, or an employee of a Member of the United 
@@ -639,7 +612,7 @@ The tester's identity will not be revealed until the challenge is over.</p>
 		grant, loan or cooperative agreement.
     </p>
 	
-    <p align="justify">
+    <p align="justify" class="justifyText">
 		Competitors must be registered members of TopCoder, and also register for this Competition. By participating in this Competition, 
 		you agree to be bound by these Rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters. 
 		As a condition of participating in this Competition and by submitting a Submission, each Competitor agrees to permit TopCoder to describe, 
@@ -650,14 +623,14 @@ The tester's identity will not be revealed until the challenge is over.</p>
     </p>
 
 <%	if (round_id == 15087) { %>
-	<p align="justify">
+	<p align="justify" class="justifyText">
 		It is allowed to include certain open source code in the submissions made by competitors. In order to include open source code, the
 		associated open source license must be compatible with the Apache 2 license ( http://www.apache.org/foundation/license-faq.html ) and
 		all open source code within the submission must be clearly delineated. In addition, if open source code is included within a
 		submission, this fact must be clearly marked at the top of the submitted code file listing the open source license and
 		the open source project that has been included.
 	</p>
-	<p align="justify">
+	<p align="justify" class="justifyText">
 		Your solution can reuse code and ideas from certain solutions of the original USPTO Algorithm Challenge. The rules for such reusage
 		are contained in "Reusing code and ideas" section of the problem statement
 		(http://community.topcoder.com/longcontest/?module=ViewProblemStatement&compid=24976&rd=15087).
@@ -665,14 +638,14 @@ The tester's identity will not be revealed until the challenge is over.</p>
 <%	} %>
 
 <%	if (round_id == 15078) { %>
-	<p align="justify">
+	<p align="justify" class="justifyText">
 		You are permitted to use open source code that is licensed under the GPLv2 license or a license that is compatible with the
 		GPLv2 license, provided that the code is clearly identified in comments and that your use does not violate the terms of the applicable license.
 	</p>
 <%	} %>
 
 <%	if (round_id == 15080) { %>
-	<p align="justify">
+	<p align="justify" class="justifyText">
 		You are allowed to use the code and ideas from the source codes located here in your submissions:
 		<ul>
 			<li>http://community.topcoder.com/longcontest/?module=ViewProblemSolution&pm=11747&rd=15034&cr=11789293&subnum=62</li>
@@ -698,30 +671,30 @@ The tester's identity will not be revealed until the challenge is over.</p>
 
 	<p>
 	  IN ORDER TO BE ELIGIBLE, YOU WARRANT THAT (UNLESS OTHERWISE SPECIFIED IN THE PROBLEM STATEMENT) YOUR SUBMISSION FOR THIS COMPETITION:<br>
-       <br>•	Does not include or anticipate the inclusion of any content that is in violation of or infringes third party intellectual 
+       <br>ï¿½	Does not include or anticipate the inclusion of any content that is in violation of or infringes third party intellectual 
 	   property rights including, but not limited to copyrights, including music copyrights, trademarks, and rights of publicity. 
-       <br>•	Is free and clear of all liens, claims, encumbrances or demands of any third parties. 
-       <br>•	Does not include or anticipate the inclusion of any unsuitable or offensive content, including nudity, sexually explicit, 
+       <br>ï¿½	Is free and clear of all liens, claims, encumbrances or demands of any third parties. 
+       <br>ï¿½	Does not include or anticipate the inclusion of any unsuitable or offensive content, including nudity, sexually explicit, 
 	   disparaging, libelous or other inappropriate content. 
-       <br>•	Has not been entered in previous challenges, or won previous awards. 
-       <br>•	Has not been published or distributed previously in any media. 
-       <br>•	Is suitable for a general audience. 
-       <br>•	Does not contain any claims that are not and cannot be substantiated or that would be false and/or misleading to a reasonable consumer. 
+       <br>ï¿½	Has not been entered in previous challenges, or won previous awards. 
+       <br>ï¿½	Has not been published or distributed previously in any media. 
+       <br>ï¿½	Is suitable for a general audience. 
+       <br>ï¿½	Does not contain any claims that are not and cannot be substantiated or that would be false and/or misleading to a reasonable consumer. 
 	</p>
 
-     <p align="justify">		
+     <p align="justify" class="justifyText">		
 		By participating in this competition, Competitor warrants that no impediment exists to Competitor's participating in this 
 		Competition and that participating in this Competition will not interfere with your performance of, or breach, any other agreement 
 		or obligations with any third party, including but not limited to, an employer, if any. 
      </p>
 
-     <p align="justify">
+     <p align="justify" class="justifyText">
         The winner of the competition will be the competitor that scores the most points across all competitors who participate. All decisions 
 		relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the competition shall be within 
 		the sole discretion of TopCoder or its designee and shall be final and binding in all respects.
      </p>
 
-     <p align="justify">
+     <p align="justify" class="justifyText">
         By participating in a Marathon Match, a winner releases and agrees to hold harmless TopCoder, its affiliates, subsidiaries, sponsors, 
 		advertising and promotion agencies, and prize suppliers, and all of their respective directors, officers, employees, representatives 
 		and agents, from and against any and all liability for any loss, property damage or damage to person, including without limitation, 
@@ -729,7 +702,7 @@ The tester's identity will not be revealed until the challenge is over.</p>
 		participation in any competition-related activity, or the receipt, use or misuse of a prize.
      </p>
 	 
-	 <p align="justify">
+	 <p align="justify" class="justifyText">
 		TopCoder, in its sole discretion, reserves the right to disqualify any person tampering with the entry process, the operation of the 
 		Web site, the competition process, or is otherwise in violation of the rules. TopCoder reserves the right at any time to disqualify a 
 		Submission from a Competition where, acting in good faith, it believes there are reasonable grounds to warrant disqualification. 
@@ -739,21 +712,20 @@ The tester's identity will not be revealed until the challenge is over.</p>
 		including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.        
 	 </p>
 	
-     <p align="justify">
+     <p align="justify" class="justifyText">
 	 
 		<% if (Arrays.binarySearch(assignRounds, round_id)>=0 || round_id==14481 || round_id==14525 || round_id == 14584 || 
 		       round_id == 15024 || round_id == 15075 || round_id == 15023 || round_id == 15034 || round_id == 15038 || round_id == 15076
 		       || round_id == 15077 || round_id == 15078 || round_id == 15080 || round_id == 15103 || round_id == 15120
 		       || round_id == 15130 || round_id == 15189 || round_id == 15200 || round_id == 15201 || round_id == 15322
 			|| round_id == 15327 || round_id == 15458 || round_id == 15611 || round_id == 15618 || round_id == 15637 || round_id == 15678 || round_id == 15761
-			|| round_id == 15765 || round_id == 15876 || round_id == 15879 || round_id == 15948 || round_id == 15955) { %>
+			|| round_id == 15765 || round_id == 15876 || round_id == 15879) { %>
 			As a condition of winning and redeeming a cash prize, Competitors will be required to submit, 
 			among other things, a completed TopCoder Competition Assignment Agreement, 
 			if one is not already on file with TopCoder, AND a one to two-page description explaining how the algorithm for the winning submission works.
 			<% if (round_id == 15103 || round_id == 15120 || round_id == 15130 || round_id == 15189 || round_id == 15200 || round_id == 15201
 				|| round_id == 15322 || round_id == 15327 || round_id == 15458 || round_id == 15611 || round_id == 15618 || round_id == 15630 ||
-				round_id == 15637 || round_id == 15678 || round_id == 15761 || round_id == 15765 || round_id == 15876 || round_id == 15879
-                                || round_id == 15948 || round_id == 15955) { %>
+				round_id == 15637 || round_id == 15678 || round_id == 15761 || round_id == 15765 || round_id == 15876 || round_id == 15879) { %>
 			The description must be submitted within 7 days after the challenge results are published.
 			Questions sent by email from TopCoder requesting clarification to the description must be answered within 3 days.
 			If the description or a response to a clarification request is not received, TopCoder reserves the right to disqualify the submission. 
@@ -769,11 +741,6 @@ The tester's identity will not be revealed until the challenge is over.</p>
 			This description may or may not be published in a scientific article, in part or in full and may be substantially altered, at the discretion
 			of TopCoder. If the description is submitted for publication, you may or may not be offered an authorship position on the manuscript.
 			<% } %>
-
-                        <% if (round_id == 15955) { %>
-                        Additionally, Competitors will need to provide the code that was used to obtain the submitted predictions and to show how this code
-obtains exactly (or at least statistically similar) predictions. 
-                        <% } %>
 		<%} else if (round_id != 15520) { %>
 
 			TopCoder does not require assignment of winning submissions in this competition.
@@ -809,9 +776,9 @@ obtains exactly (or at least statistically similar) predictions.
 		|| rsr.getIntItem("round_id") == 15589 || rsr.getIntItem("round_id") == 15611 || rsr.getIntItem("round_id") == 15618
 		|| rsr.getIntItem("round_id") == 15630 || rsr.getIntItem("round_id") == 15637 || rsr.getIntItem("round_id") == 15678
 		|| rsr.getIntItem("round_id") == 15761 || rsr.getIntItem("round_id") == 15765 || rsr.getIntItem("round_id") == 15876
-                || rsr.getIntItem("round_id") == 15879 || rsr.getIntItem("round_id") == 15948 || rsr.getIntItem("round_id") == 15955) {%>
+                || rsr.getIntItem("round_id") == 15879) {%>
 
-		<p align="justify">
+		<p align="justify" class="justifyText">
 			This Competition is open to all members of the TopCoder website, who have agreed to the terms thereof, and who are at least 
 			18 years of age. Competitors must be:<br>
 				<br>(i) a U.S. citizen, 
@@ -820,7 +787,7 @@ obtains exactly (or at least statistically similar) predictions.
 				<br>(iv) a non-U.S. resident authorized in the country in which the member resides while participating in this Competition to perform services as an independent contractor. 
 		</p>
 				
-		<p align="justify">
+		<p align="justify" class="justifyText">
 			A Competitor is not eligible for this Competition if he/she is a resident of the Quebec province of Canada, Iran, Cuba, North Korea, 
 			Sudan or Syria. In addition a Competitor is not eligible for this Competition if the Competitor is on the Specially Designated 
 			National list promulgated and amended, from time to time, by the United States Department of the Treasury.
@@ -828,16 +795,16 @@ obtains exactly (or at least statistically similar) predictions.
 		
 	<%} else if (Arrays.binarySearch(nsaRounds, round_id)>=0) { %>
 	
-		<p align="justify">
+		<p align="justify" class="justifyText">
 			The competition is open to all members who are at least 18 years of age who are U.S. citizens.
 		</p>
-		<p align="justify">
+		<p align="justify" class="justifyText">
 			You are not eligible for this Competition if you are on the Specially Designated National list promulgated and 
 			amended, from time to time, by the United States Department of the Treasury. 
 		</p>
 	
 	<%} else if (Arrays.binarySearch(ntlRounds, round_id)>=0) { %>
-		<p align="justify">
+		<p align="justify" class="justifyText">
 			This Competition is open to all members of the TopCoder website, who have agreed to the terms thereof, and who are at least 
 			18 years of age. Competitors must be:<br>
 				<br>(i) a U.S. citizen, 
@@ -846,7 +813,7 @@ obtains exactly (or at least statistically similar) predictions.
 				<br>(iv) a non-U.S. resident authorized in the country in which the member resides while participating in this Competition to perform services as an independent contractor. 
 		</p>
 				
-		<p align="justify">
+		<p align="justify" class="justifyText">
 			A Competitor is not eligible for this Competition if he/she is a resident of the Quebec province of Canada, Iran, Cuba, North Korea, 
 			Sudan or Syria. In addition a Competitor is not eligible for this Competition if the Competitor is on the Specially Designated 
 			National list promulgated and amended, from time to time, by the United States Department of the Treasury.
@@ -855,20 +822,20 @@ obtains exactly (or at least statistically similar) predictions.
 		
     <%} else { %>
 	
-        <p align="justify">
+        <p align="justify" class="justifyText">
 			The competition is open to all members who are at least 13 years of age.
         </p>
 		
     <%}%>
 	
-    <p align="justify">
+    <p align="justify" class="justifyText">
         All competitors must be registered members of TopCoder, and must have agreed to the rules on this page prior to
         participating in this competition. Competitors must abide by the Terms of Use of TopCoder's website at www.topcoder.com. 
 		Violation of the Terms of Use may result in disqualification from this Competition, and/or further consequences as determined 
 		in TopCoder's sole discretion. 
     </p>
 
-    <p align="justify">
+    <p align="justify" class="justifyText">
         Employees of TopCoder and those involved in the development, production (including 
         prize suppliers and sponsors), implementation and distribution of this competition 
         and their advertising or promotion agencies, parent companies, service providers, 
@@ -886,9 +853,9 @@ obtains exactly (or at least statistically similar) predictions.
 	       || round_id == 15080 || round_id == 15103 || round_id == 15120 || round_id == 15130 || round_id == 15189 || round_id == 15200
 	       || round_id == 15201 || round_id == 15322 || round_id == 15327 || round_id == 15398 || round_id == 15458 || round_id == 15520 || round_id == 15589
 		|| round_id == 15611 || round_id == 15618 || round_id == 15630 || round_id == 15637 || round_id == 15678 || round_id == 15761
-		|| round_id == 15765 || round_id == 15876 || round_id == 15879 || round_id == 15948 || round_id == 15955) { %>
+		|| round_id == 15765 || round_id == 15876 || round_id == 15879) { %>
 		
-		<p align="justify">
+		<p align="justify" class="justifyText">
 			You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property 
 			rights, in and to the information posted on TopCoders website(s). If TopCoder compensates you for your submission, then you agree to irrevocably 
 			and unconditionally transfer and assign to TopCoder all right, title and interest you have, may have or acquire in, such submission, and you agree 
@@ -898,7 +865,7 @@ obtains exactly (or at least statistically similar) predictions.
 			or any other material to TopCoder, you hereby grant a perpetual, royalty-free, irrevocable, non-exclusive right and license to TopCoder to use, reproduce 
 			and publish such documents, materials or source code for commercial and/or non-commercial use. 
 		</p>
-		<p align="justify">
+		<p align="justify" class="justifyText">
 			You further agree that any and all works of authorship created, authored or developed by you hereunder which TopCoder compensates you for shall be deemed 
 			to be "works made for hire" within the meaning of the United States Copyright Law and, as such, all rights therein including copyright shall belong solely 
 			and exclusively to TopCoder from the time of their creation. To the extent any such work of authorship may not be deemed to be a work made for hire, you 
@@ -907,7 +874,7 @@ obtains exactly (or at least statistically similar) predictions.
 		
 	<%} else if (Arrays.binarySearch(ntlRounds, round_id)>=0) { %>
 	
-		<p align="justify">
+		<p align="justify" class="justifyText">
 		All winning submissions shall be assigned to TopCoder.  TopCoder will, in turn, release this software as Open Source software under the 
 		NASA Open Source Agreement, which can be found at http://opensource.arc.nasa.gov/page/nosa-software-agreement, and publish these 
 		submission on the web site.  If TopCoder compensates you for your submission, then you agree to irrevocably and unconditionally transfer 
@@ -917,7 +884,7 @@ obtains exactly (or at least statistically similar) predictions.
 		complete other required paperwork prior to payment.
 		</p>
 		
-		<p align="justify">
+		<p align="justify" class="justifyText">
 		You retain any and all rights to ownership of non-winning submissions submitted to TopCoder. TopCoder will not gain ownership of this 
 		material. However, by submitting any submission or any other material to TopCoder, you hereby grant a perpetual, royalty-free, irrevocable, 
 		non-exclusive right and license to TopCoder to use, reproduce and publish such documents, materials or source code for commercial 
@@ -926,7 +893,7 @@ obtains exactly (or at least statistically similar) predictions.
 
 	<%} else { %>
 
-		<p align="justify">
+		<p align="justify" class="justifyText">
 			You retain any and all rights to ownership of your submissions submitted to TopCoder. 
 			TopCoder will not gain ownership of this material. However, by submitting any submission 
 			or any other material to TopCoder, you hereby grant a perpetual, royalty-free, irrevocable, non-exclusive right and license to TopCoder to use, reproduce 
@@ -935,7 +902,7 @@ obtains exactly (or at least statistically similar) predictions.
 		
 	<%}%>
 	
-    <p align="justify">
+    <p align="justify" class="justifyText">
 		You agree that if TopCoder is unable because of your unavailability, or for any other reason, to secure your signature to apply for 
 		or to pursue any application for any United States or foreign patents, mask work, copyright or trademark registrations covering the 
 		assignments to TopCoder above, then you hereby irrevocably designate and appoint TopCoder and its duly authorized officers and agents 
@@ -943,14 +910,14 @@ obtains exactly (or at least statistically similar) predictions.
 		other lawfully permitted acts to further the prosecution and issuance of patents, copyright, mask work and trademark registrations 
 		thereon with the same legal force and effect as if executed by your authorized agent. 
     </p>
-    <p align="justify">
+    <p align="justify" class="justifyText">
 		Nothing in this Agreement shall be construed as granting you any right or license under any intellectual property right of TopCoder 
 		(including any rights TopCoder may have in any patents, copyrights, trademarks, service marks or any trade secrets), by implication, 
 		estoppel or otherwise, except as expressly set forth herein.
     </p>
 	
     <div class="sectionHeader">Indemnification and Release</div>
-	<p align="justify">
+	<p align="justify" class="justifyText">
 		By submitting source code and/or documentation in response to competitions posted on TopCoders website(s) and/or otherwise 
 		participating in forum and newsgroup discussions on TopCoders customer and developer forums, you agree to indemnify TopCoder 
 		and any parent, subsidiary or affiliated entities, TopCoders officers and employees, and officers and employees of any parent, 
@@ -966,7 +933,7 @@ obtains exactly (or at least statistically similar) predictions.
     </p>
 
     <div class="sectionHeader">DISCLAIMER</div>
-	<p align="justify">
+	<p align="justify" class="justifyText">
 		THE MATERIALS AND SERVICES ON TOPCODERS WEBSITE(S) ARE PROVIDED "AS IS" AND WITHOUT WARRANTIES OF ANY KIND EITHER EXPRESS OR IMPLIED. 
 		TO THE FULLEST EXTENT PERMISSIBLE PURSUANT TO APPLICABLE LAW, TOPCODER DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT 
 		LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. TOPCODER DOES NOT WARRANT THAT THE FUNCTIONS CONTAINED 
@@ -979,19 +946,19 @@ obtains exactly (or at least statistically similar) predictions.
 		YOU ASSUME THE ENTIRE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION. TO THE EXTENT THAT APPLICABLE LAW MAY NOT ALLOW THE EXCLUSION 
 		OF IMPLIED WARRANTIES, THE ABOVE EXCLUSIONS MAY NOT APPLY TO YOU. 
     </p>
-    <p align="justify">
+    <p align="justify" class="justifyText">
 		Documents, graphics and other materials appearing at TopCoders website(s) may include technical inaccuracies, typographical errors, and 
 		out-of-date information and use of such documents, graphics or other materials is at your own risk. 
     </p>
 
     <div class="sectionHeader">LIMITATION OF LIABILITY</div>
 
-    <p align="justify">TO THE FULLEST EXTENT PERMISSIBLE PURSUANT TO APPLICABLE LAW, TOPCODER SHALL NOT BE LIABLE FOR ANY DAMAGES (INCLUDING, BUT NOT LIMITED TO, DIRECT, INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES), INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR LOSS OF WINNINGS, DATA OR OTHER DAMAGE TO ANY OTHER INTANGIBLE PROPERTY, EVEN IF TOPCODER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, RESULTING FROM (i) THE USE OR INABILITY TO USE ITS WEBSITE(S), (ii) THE POSTING OF INFORMATION TO, OR THE RECEIPT OF INFORMATION FROM, ITS WEBSITE(S), (iii) THE DISCLOSURE OF, UNAUTHORIZED ACCESS TO OR ALTERATION OF ANY TRANSMISSION OR DATA, (iv) THE STATEMENTS OR CONDUCT OF ANY THIRD PARTY OR (v) ANY OTHER MATTER RELATING TO TOPCODER. 
+    <p align="justify" class="justifyText">TO THE FULLEST EXTENT PERMISSIBLE PURSUANT TO APPLICABLE LAW, TOPCODER SHALL NOT BE LIABLE FOR ANY DAMAGES (INCLUDING, BUT NOT LIMITED TO, DIRECT, INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES), INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR LOSS OF WINNINGS, DATA OR OTHER DAMAGE TO ANY OTHER INTANGIBLE PROPERTY, EVEN IF TOPCODER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, RESULTING FROM (i) THE USE OR INABILITY TO USE ITS WEBSITE(S), (ii) THE POSTING OF INFORMATION TO, OR THE RECEIPT OF INFORMATION FROM, ITS WEBSITE(S), (iii) THE DISCLOSURE OF, UNAUTHORIZED ACCESS TO OR ALTERATION OF ANY TRANSMISSION OR DATA, (iv) THE STATEMENTS OR CONDUCT OF ANY THIRD PARTY OR (v) ANY OTHER MATTER RELATING TO TOPCODER. 
     </p>
 
     <div class="sectionHeader">Choice of Law and Forum</div>
 
-    <p align="justify">
+    <p align="justify" class="justifyText">
 		These Terms are governed by the laws of the State of Connecticut. You hereby agree to submit to the exclusive jurisdiction 
 		of the courts of the State of Connecticut. To the extent that applicable laws have mandatory application to these Terms or 
 		give you the right to bring action in any other courts, the above limitations may not apply to you. Use of TopCoders website(s) and 
@@ -1001,7 +968,7 @@ obtains exactly (or at least statistically similar) predictions.
 
     <div class="sectionHeader">Severability and Enforceability</div>
 
-    <p align="justify">
+    <p align="justify" class="justifyText">
 		If any provision or portion of these rules and regulations are held illegal, invalid, or unenforceable, in whole or in part, 
 		it shall be modified to the minimum extent necessary to correct any deficiencies or replaced with a provision which is as close as 
 		is legally permissible to the provision found invalid or unenforceable and shall not affect the legality, validity or enforceability 
@@ -1010,7 +977,7 @@ obtains exactly (or at least statistically similar) predictions.
 
     <div class="sectionHeader">Termination/Exclusion</div>
 
-    <p align="justify">
+    <p align="justify" class="justifyText">
 		TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with accessing and/or 
 		participating in the projects posted on its website(s), and to take any other action it deems appropriate including but not 
 		limited to terminating or suspending your use of www.topcoder.com and/or www.topcodersoftware.com for no reason or any reason 
@@ -1021,11 +988,11 @@ obtains exactly (or at least statistically similar) predictions.
 
     <div class="sectionHeader">Other</div>
         
-    <p align="justify">
+    <p align="justify" class="justifyText">
         The competition is void in whole or in part where prohibited by law. 
     </p>
         
-    <p align="justify">
+    <p align="justify" class="justifyText">
         A winners list of coder handles for all competitions will be available on the web site at http://www.topcoder.com
         displayed for at least 3 months after the end of the competition.
     </p>
@@ -1033,17 +1000,17 @@ obtains exactly (or at least statistically similar) predictions.
     <%if(rsr.getIntItem("round_id") == 13953 || rsr.getIntItem("round_id") == 13934 || rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  
 	  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
 
-		<p align="justify">
+		<p align="justify" class="justifyText">
 			TopCoder may assign, novate or subcontract any or all of its rights and obligations under these rules and regulations at any time.
 		</p>
 
     <%}%>
         
-    <p align="justify">
+    <p align="justify" class="justifyText">
         This competition is brought to you by TopCoder, Inc., 95 Glastonbury Blvd, Glastonbury, CT 06033.
     </p>
 
-    <p align="justify">
+    <p align="justify" class="justifyText">
     If you have any questions regarding these Terms, contact us at <a href="mailto:service@topcoder.com">service@topcoder.com</a>
     </p>
 

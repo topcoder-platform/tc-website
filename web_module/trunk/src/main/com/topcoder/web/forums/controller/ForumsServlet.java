@@ -24,6 +24,7 @@ import com.topcoder.web.forums.controller.request.ForumsProcessor;
 import javax.naming.Context;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -99,6 +100,30 @@ public class ForumsServlet extends BaseServlet {
 
     protected void process(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
+
+        if(request.getParameter("legacy") != null) {
+            IS_NEW_STYLE = false;
+        } else {
+            Cookie[] cookies = request.getCookies();
+            boolean foundOldThemeCookie = false;
+            if(cookies != null && cookies.length > 0) {
+                for(Cookie c : cookies) {
+                    if(c.getName().equalsIgnoreCase("oldTheme")) {
+                        foundOldThemeCookie = true;
+                        break;
+                    }
+                }
+            }
+
+            if(foundOldThemeCookie) {
+                IS_NEW_STYLE = false;
+            } else {
+                IS_NEW_STYLE = true;
+            }
+        }
+
+        request.setAttribute("isNewStyle", IS_NEW_STYLE);
+        getTopCoderTweets(request);
 
         RequestProcessor rp = null;
         WebAuthentication authentication = null;

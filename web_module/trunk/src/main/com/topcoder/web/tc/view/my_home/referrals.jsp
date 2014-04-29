@@ -7,7 +7,8 @@
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<jsp:include page="/script.jsp" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
@@ -21,7 +22,7 @@
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="myHome">
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
@@ -35,48 +36,111 @@
          <td class="cardCell" width="100%" align="center">
 
          <div class="myTCBody">
-        <jsp:include page="../page_title.jsp" >
-            <jsp:param name="image" value="referrals"/>
-            <jsp:param name="title" value="&#160;"/>
-        </jsp:include>
 
-        <p>
-        The following is a list of members who have named you as a reference when they registered to become a TopCoder member. Should they earn any money as a competitor on TopCoder Studio, the referring member (you) will receive a referral commission equal to 10% of any amounts earned or won by the referred member during the 12 months following registration!</p>
- 
-<p>As of December 5, 2008, the referral program will award commission based on the winnings of new members of TopCoder Studio only. TopCoder will honor all commission payments due based on non-Studio referrals made before 12/5/08.</p>
-         <br><br>
-         <A href="http://studio.topcoder.com/?module=Static&d1=support&d2=memberRefferalProgram">Referring TopCoder Studio Competitors</a><br>
-        </p>
+             <c:choose>
+                 <c:when test="${not empty isNewStyle && isNewStyle}">
+                 <!-- Referrals -->
+                 <section id="referrals_v2">
+                     <div class="description">
+                         <h2>Referrals</h2>
 
-        <br/>
-        <table width="300" border="0" cellpadding="5" cellspacing="0" align=center>
-            <tr>
-                <td class="header">
-                    Handle
-                </td>
-                <td class="header" align=right>
-                    Member Since
-                </td>
-            </tr>
-            <% if (referralList.isEmpty()) { %>
-              <tr>
-                <td class="formHandleOdd" colspan="2">You have no referrals.</td>
-              </tr>
-            <% } %>
-            <rsc:iterator list="<%=referralList%>" id="info">
-            <tr>
-                <td class="formHandleOdd">
-                    <a href="/tc?module=MemberProfile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
-                </td>
-                <td class="formHandleOdd" align="right">
-                    <rsc:item row="<%=info%>" name="member_since" format="MM.dd.yyyy"/>
-                </td>
-            </tr>
-            </rsc:iterator>
-        </table>
-        </div>
-        <p><br/></p>
-        </td>
+                         <p>
+                             The following is a list of members who have named you as a reference when they registered to become a TopCoder member. Should they earn any money as a competitor on TopCoder Studio, the referring member (you) will receive a referral commission equal to 10% of any amounts earned or won by the referred member during the 12 months following registration!
+                         </p>
+
+                         <p>
+                             As of December 5, 2008, the referral program will award commission based on the winnings of new members of TopCoder Studio only. TopCoder will honor all commission payments due based on non-Studio referrals made before 12/5/08.
+                         </p>
+                         <p>
+                             <a href="http://studio.topcoder.com/?module=Static&amp;d1=support&amp;d2=memberRefferalProgram">Referring TopCoder Studio Competitors</a>
+                         </p>
+                     </div>
+                     <table>
+                         <tbody>
+                         <!-- table row -->
+                         <tr>
+                             <td class="header">
+                                 Handle
+                             </td>
+                             <td class="headerR">
+                                 Member Since
+                             </td>
+                         </tr>
+
+                         <% if (referralList.isEmpty()) { %>
+                         <tr>
+                             <td class="formHandleOdd" colspan="2">You have no referrals.</td>
+                         </tr>
+                         <% } %>
+                         <rsc:iterator list="<%=referralList%>" id="info">
+                             <tr>
+                                 <td class="value">
+                                     <a href="/tc?module=MemberProfile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
+                                 </td>
+                                 <td class="valueR">
+                                     <rsc:item row="<%=info%>" name="member_since" format="MM.dd.yyyy"/>
+                                 </td>
+                             </tr>
+                         </rsc:iterator>
+
+                         <!-- end table row -->
+                         </tbody>
+                     </table>
+
+                 </section>
+                 <!-- End Referrals -->
+         </div>
+             <p><br></p>
+         </td>
+                 </c:when>
+                 <c:otherwise>
+
+                     <jsp:include page="../page_title.jsp" >
+                         <jsp:param name="image" value="referrals"/>
+                         <jsp:param name="title" value="&#160;"/>
+                     </jsp:include>
+
+                     <p>
+                         The following is a list of members who have named you as a reference when they registered to become a TopCoder member. Should they earn any money as a competitor on TopCoder Studio, the referring member (you) will receive a referral commission equal to 10% of any amounts earned or won by the referred member during the 12 months following registration!</p>
+
+                     <p>As of December 5, 2008, the referral program will award commission based on the winnings of new members of TopCoder Studio only. TopCoder will honor all commission payments due based on non-Studio referrals made before 12/5/08.</p>
+                     <br><br>
+                     <A href="http://studio.topcoder.com/?module=Static&d1=support&d2=memberRefferalProgram">Referring TopCoder Studio Competitors</a><br>
+                     </p>
+
+                     <br/>
+                     <table width="300" border="0" cellpadding="5" cellspacing="0" align=center>
+                         <tr>
+                             <td class="header">
+                                 Handle
+                             </td>
+                             <td class="header" align=right>
+                                 Member Since
+                             </td>
+                         </tr>
+                         <% if (referralList.isEmpty()) { %>
+                         <tr>
+                             <td class="formHandleOdd" colspan="2">You have no referrals.</td>
+                         </tr>
+                         <% } %>
+                         <rsc:iterator list="<%=referralList%>" id="info">
+                             <tr>
+                                 <td class="formHandleOdd">
+                                     <a href="/tc?module=MemberProfile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
+                                 </td>
+                                 <td class="formHandleOdd" align="right">
+                                     <rsc:item row="<%=info%>" name="member_since" format="MM.dd.yyyy"/>
+                                 </td>
+                             </tr>
+                         </rsc:iterator>
+                     </table>
+         </div>
+             <p><br/></p>
+         </td>
+                 </c:otherwise>
+             </c:choose>
+
+
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->

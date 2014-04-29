@@ -85,7 +85,7 @@
     <%  } %>
 </table>
 
-<table cellpadding="0" cellspacing="0" class="rtTable">
+<table cellpadding="0" cellspacing="0" class="rtTable rtTableSearchResult">
     <tr>
         <td class="rtHeader" width="100%">Category</td>
         <td class="rtHeader"><div style="width:80px;">T./M.</div></td>

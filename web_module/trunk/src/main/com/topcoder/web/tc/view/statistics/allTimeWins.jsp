@@ -44,7 +44,7 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
     <jsp:param name="title" value="Algorithm Competition Record Book"/>
 </jsp:include>
 
-<div style="float:right;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">back to table of contents</A></div>
+<div style="float:right;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home"  class="bodyText">back to table of contents</A></div>
 Overall
  | <A HREF="/stat?c=all_time_wins_by_div&dn=1">Div I</a>
  | <A HREF="/stat?c=all_time_wins_by_div&dn=2">Div II</a>

@@ -48,7 +48,7 @@ else if (sDivision.equals("2")) romanDivision = "II";
     <jsp:param name="title" value="Algorithm Competition Record Book"/>
 </jsp:include>
 
-<div style="float:right;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">back to table of contents</A></div>
+<div style="float:right;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home"  class="bodyText">back to table of contents</A></div>
 <A HREF="/stat?&c=all_time_wins">Overall</A>
 <% if (sDivision.equals("2")){ %>
  | <A href="/stat?&c=all_time_wins_by_div&dn=1">Div I</A>

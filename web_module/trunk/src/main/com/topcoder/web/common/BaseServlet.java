@@ -1,14 +1,16 @@
 /*
- * Copyright (C) 2001-2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001-2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.Set;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,6 +27,7 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.throttle.Throttle;
+import twitter4j.*;
 
 /**
  * <p>A base implementation for TC servlets.  It should provide all the basic functionality.</p>
@@ -52,6 +55,10 @@ public abstract class BaseServlet extends HttpServlet {
     protected String DEFAULT_PROCESSOR = null;
     protected String LOGIN_PROCESSOR = null;
     protected String LOGIN_SERVLET = null;
+    protected boolean NEW_STYLE_ENABLED = false;
+
+    protected boolean IS_NEW_STYLE = false;
+
     public static final String MESSAGE_KEY = "message";
     public static final String URL_KEY = "url";
     public static final String NEXT_PAGE_KEY = "nextpage";
@@ -80,6 +87,12 @@ public abstract class BaseServlet extends HttpServlet {
         PATH = config.getInitParameter("processor_path");
         DEFAULT_PROCESSOR = config.getInitParameter("default_processor");
         LOGIN_PROCESSOR = config.getInitParameter("login_processor");
+        String styleConfig = config.getInitParameter("is_new_style");
+
+        if(styleConfig != null && styleConfig.equalsIgnoreCase("true")) {
+            NEW_STYLE_ENABLED = true;
+        }
+
         try {
             LOGIN_SERVLET = config.getInitParameter("login_servlet");
         } catch (Exception e) {
@@ -105,6 +118,8 @@ public abstract class BaseServlet extends HttpServlet {
         buf.append("\n");
         buf.append(" LOGIN_SERVLET = ");
         buf.append(LOGIN_SERVLET);
+        buf.append(" IS_NEW_STYLE = ");
+        buf.append(NEW_STYLE_ENABLED);
         log.info(buf);
     }
 
@@ -131,6 +146,38 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        if (!NEW_STYLE_ENABLED) {
+            IS_NEW_STYLE = false;
+        } else {
+
+            if(req.getParameter("legacy") != null) {
+                IS_NEW_STYLE = false;
+            } else {
+                Cookie[] cookies = req.getCookies();
+                boolean foundOldThemeCookie = false;
+                if(cookies != null && cookies.length > 0) {
+                    for(Cookie c : cookies) {
+                        if(c.getName().equalsIgnoreCase("oldTheme")) {
+                            foundOldThemeCookie = true;
+                            break;
+                        }
+                    }
+                }
+
+                if(foundOldThemeCookie) {
+                    IS_NEW_STYLE = false;
+                } else {
+                    IS_NEW_STYLE = true;
+                }
+            }
+
+        }
+
+        req.setAttribute("isNewStyle", IS_NEW_STYLE);
+
+        getTopCoderTweets(req);
+
         if (req.getMethod().equals("GET")) doGet(req, resp);
         else if (req.getMethod().equals("POST")) doPost(req, resp);
         else if (req.getMethod().equals("DELETE")) doDelete(req, resp);
@@ -434,5 +481,21 @@ public abstract class BaseServlet extends HttpServlet {
 
     protected TCSubject getUser(long id) throws Exception {
         return SecurityHelper.getUserSubject(id);
+    }
+
+    protected void getTopCoderTweets(HttpServletRequest request) {
+        if(IS_NEW_STYLE) {
+            try {
+                Twitter twitter = TwitterFactory.getSingleton();
+
+                List<Status> statuses = twitter.getUserTimeline("topcoder");
+                request.setAttribute("tweets", statuses.subList(0, 3));
+            } catch (Throwable t) {
+                // print error
+                t.printStackTrace(System.err);
+                // ignore exception
+            }
+
+        }
     }
 }

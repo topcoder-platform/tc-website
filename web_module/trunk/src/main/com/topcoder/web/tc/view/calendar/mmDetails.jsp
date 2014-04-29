@@ -149,7 +149,7 @@
 </c:if>    
 
 <% if (roundId == 15761) { %>
-<p align="justify">
+<p align="justify" class="justifyText">
 <i>This challenge is brought to you by: NASA's Center of Excellence for Collaborative Innovation and Harvard Business School in association with the Institute of Quantitative Social Sciences.</i>
 </p>
 <% } %>
@@ -159,7 +159,7 @@
 <%-- EXPERIMENTAL SERIES --%>
 <% if (Arrays.binarySearch(experimentalRounds, roundId)>=0) { %>
 
-<p align="justify">
+<p align="justify" class="justifyText">
 This is the second of a series of Experimental Marathon Matches that TopCoder is running in coordination with Professor 
 Karim Lakhani of Harvard Business School and Professor Kevin Boudreau of London Business School/MLab. The structure and 
 rules for these events are a departure from anything that TopCoder has run in the past, in that we are exploring the effects of 
@@ -297,7 +297,7 @@ Please check out the rules link below for more detail.
 <%}%>
 
 <%if(roundId == 10834) {%>
-<p align="justify">
+<p align="justify" class="justifyText">
     This Marathon Match has some new rules and terms.  Please make sure to read
     the rules carefully before competing.  By submitting a solution in this match,
     you are agreeing to license it under the GNU Public License, Version 2.0.
@@ -305,7 +305,7 @@ Please check out the rules link below for more detail.
 <%}%>
 
 <%if(roundId == 10862 || roundId == 13754 || roundId == 13772 || roundId == 13934 || roundId == 13953 ) {%>
-<p align="justify">
+<p align="justify" class="justifyText">
     This Marathon Match has some different rules and terms.  Please make sure to read
     the rules carefully before competing.  <b>You must be eligible to compete in the match 
     as defined in the rules and by winning a prize you agree to transfer ownership of
@@ -319,12 +319,12 @@ Please check out the rules link below for more detail.
      || roundId == 15201 || roundId == 15202 || roundId == 15322 || roundId == 15327 || roundId == 15398
      || roundId == 15458 || roundId == 15520 || roundId == 15589 || roundId == 15611 || roundId == 15618
      || roundId == 15630 || roundId == 15637 || roundId == 15678 || roundId == 15761 || roundId == 15765
-     || roundId == 15876 || roundId == 15879 || roundId == 15948 || roundId == 15955) {%>
-<p align="justify">
+     || roundId == 15876 || roundId == 15879) {%>
+<p align="justify" class="justifyText">
     <b>Please note that this event is being run for a TopCoder customer.  By winning a prize in this event you agree to transfer ownership of
     your submission to TopCoder.
 <p>
-<p align="justify">
+<p align="justify" class="justifyText">
 This is a summary with highlights of the challenge details. Please make sure to read
     all of the rules carefully before competing.
 </p>
@@ -334,7 +334,7 @@ This is a summary with highlights of the challenge details. Please make sure to 
 
 
 <%if(roundId == 13569 ||  roundId == 13570 || roundId == 13679 || roundId == 13680 || roundId == 13681 ) {%>
-<p align="justify">
+<p align="justify" class="justifyText">
     This Marathon Match is an encryption match. Use a known encryption method like DES, Substitution cipher, or Cryptography, 
 	to decipher the problem, and you can be a part of the $5,000 prize purse. 
 	The top five highest scorers will receive prizes with the first place winner receiving $2,500.
@@ -342,7 +342,7 @@ This is a summary with highlights of the challenge details. Please make sure to 
 <%}%>
 
 <%if(roundId == 13754 || roundId == 13934 || roundId == 13953) {%>
-<p align="justify">
+<p align="justify" class="justifyText">
     This Marathon Match is a money match that has a <b>$5,000 prize purse</b>! The top five highest scorers 
 	will receive prizes with the first place winner receiving $2,500!
 </p>
@@ -350,60 +350,54 @@ This is a summary with highlights of the challenge details. Please make sure to 
 
 <%if(roundId == 13772 || roundId == 14525 || roundId == 14584 || roundId == 15024 || roundId == 15075 || roundId == 15023 || 
      roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15078 || roundId == 15103 || roundId == 15120 ||
-     roundId == 15189 || roundId == 15322 || roundId == 15458 || roundId == 15618 || roundId == 15637 || roundId == 15948) {%>
-<p align="justify">
+     roundId == 15189 || roundId == 15322 || roundId == 15458 || roundId == 15618 || roundId == 15637) {%>
+<p align="justify" class="justifyText">
     This Marathon Match is a money match that has a <b>$10,000 prize purse</b>! The top five highest scorers 
 	will receive prizes with the first place winner receiving $5,000!
 </p>
 <%}%>
 
 <% if (roundId == 15678) { %>
-<p align="justify">
+<p align="justify" class="justifyText">
 This Marathon Match is a money match that has a <b>$6,000 prize purse</b>! The first and second place winners will receive $4,000
 and $2,000, respectively!
 </p>
 <% } %>
 
-<% if (roundId == 15611 || roundId == 15955) { %>
-<p align="justify">
+<% if (roundId == 15611) { %>
+<p align="justify" class="justifyText">
 This Marathon Match is a money match that has a <b>$10,000 prize purse</b>! The top four highest scorers
 will receive prizes with the first place winner receiving $4,000!
 </p>
-<% if (roundId == 15611) { %>
 <p>
 The match will be followed with an <a href="http://apps.topcoder.com/forums/?module=Thread&threadID=786874&start=0">additional submission phase</a>
 which offers up to <b>$6,000 in prizes</b>!
 </p>
-<% } 
-   if (roundId == 15955) { %>
-<p>The match will be followed with a qualitative contest that has a <b>$4,400 prize purse</b>! Three
-best submissions will receive prizes with the first place winner receiving $2,200!
-<% } 
-} %>
+<% } %>
 
 <% if (roundId == 15761) { %>
-<p align="justify">
+<p align="justify" class="justifyText">
 This Marathon Match is a money match that has a <b>$25,000 prize purse</b>! The top five highest
 scorers will receive prizes with the first place winner receiving $12,000!
 </p>
 <% } %>
 
 <% if (roundId == 15765) { %>
-<p align="justify">
+<p align="justify" class="justifyText">
 This Marathon Match is a money match that has a <b>$15,000 prize purse</b>! The top four highest
 scorers will receive prizes with the first place winner receiving $7,000!
 </p>
 <% } %>
 
 <% if (roundId == 15876) { %>
-<p align="justify">
+<p align="justify" class="justifyText">
 This Marathon Match is a money match that has a <b>$5,000 prize purse</b>! The top three highest
 scorers will receive prizes with the first place winner receiving $3,000!
 </p>
 <% } %>
 
 <% if (roundId == 15879) { %>
-<p align="justify">
+<p align="justify" class="justifyText">
 This Marathon Match is a money match that has a <b>$7,000 prize purse</b>! The top four highest
 scorers will receive prizes with the first place winner receiving $3,500!
 </p>
@@ -411,7 +405,7 @@ scorers will receive prizes with the first place winner receiving $3,500!
 
 
 <%if (roundId == 15520) {%>
-<p align="justify">
+<p align="justify" class="justifyText">
 This Marathon Match is a money match that has a <b>$30,000 prize purse</b>! The top ten highest scorers
 will receive prizes with the first place winner receiving $10,000!
 </p>
@@ -423,11 +417,11 @@ will receive prizes with the first place winner receiving $10,000!
 <%}%>
 
 <%if(roundId == 15077 || roundId == 15130) {%>
-<p align="justify">
+<p align="justify" class="justifyText">
     This Marathon Match is a money match that has a <b>$7,500 prize purse</b>! The top five highest scorers 
 	will receive prizes with the first place winner receiving $3,750!
 </p>
-<p align="justify">
+<p align="justify" class="justifyText">
 The 10 highest scorers in the Marathon Match will be allowed to participate in the extra submission phase which will have <b>$2,500 in
 total prize money</b>.
 </p>
@@ -435,7 +429,7 @@ total prize money</b>.
 
 <%if (roundId == 15080 || roundId == 15398 || roundId == 15589) 
 {%>
-<p align="justify">
+<p align="justify" class="justifyText">
     This Marathon Match is a money match that has a <b>$1,000 prize purse</b>! The top two highest scorers 
 	will receive prizes with the first place winner receiving $700!
 </p>
@@ -445,7 +439,7 @@ total prize money</b>.
 <%if (Arrays.binarySearch(experimentalRounds, roundId)<0) { %>
 
 <%if(roundId == 13772 ) {%>
-<p align="justify">
+<p align="justify" class="justifyText">
     In TopCoder Marathon Match events, the system will be testing submissions for optimization according to the scoring criteria 
     outlined in the problem statement that is associated with this event.	
     Each event may have a different scoring mechanism. 
@@ -454,7 +448,7 @@ total prize money</b>.
     <b>Participants may submit code written in the following language: C++ </b>
 </p>
 <%}else if(roundId == 15023 || roundId == 15322 || roundId == 15458 || roundId == 15630 || roundId == 15637 || roundId == 15761 || roundId == 15765) {%>
-<p align="justify">
+<p align="justify" class="justifyText">
     In TopCoder Marathon Match events, the system will be testing submissions for optimization according to the scoring criteria 
     outlined in the problem statement that is associated with this event.	
     Each event may have a different scoring mechanism. 
@@ -463,14 +457,12 @@ total prize money</b>.
     <b>Participants may submit code written in the following languages: Java, C++, C#.NET, or VB.NET. </b>
 </p>
 <%} else { %>
-<p align="justify">
+<p align="justify" class="justifyText">
     In TopCoder Marathon Match events, the system will be testing submissions for optimization according to the scoring criteria 
     outlined in the problem statement that is associated with this event.	
     Each event may have a different scoring mechanism. 
     Competitors will have to understand the scoring mechanism in order to effectively compete.
-    <% if (roundId == 15948) { %>
-	Participants may submit code written in one of the following languages: Java, C++. 
-    <% } else if (roundId == 15130 || roundId == 15611) { %>
+    <% if (roundId == 15130 || roundId == 15611) { %>
     <br><br>
     Participants may submit only code written in C++.
 <% if (roundId == 15611) { %>
@@ -484,7 +476,7 @@ allows code submissions in Java, C# and VB.NET.
 <% } %>
 
 
-<p align="justify">
+<p align="justify" class="justifyText">
 <% if (roundId == 13953 ) {%>
     Once the submission phase of a Marathon Match has ended, final testing will run 
 	and may take several days to complete.  Upon completion of final testing, 
@@ -500,7 +492,7 @@ allows code submissions in Java, C# and VB.NET.
     For rated events, the ratings will be adjusted once results are final.
 <%} %>
 </p>
-<p align="justify">
+<p align="justify" class="justifyText">
     For more details on the Marathon Match format, <a href="/longcontest/?module=Static&d1=instructions">click here</a>
 </p>
 
@@ -533,14 +525,14 @@ allows code submissions in Java, C# and VB.NET.
     There will be $5000 in total prize money.  The first and second highest scoring
     submissions in each of the five languages supported will receive $750 and $250,
     respectively.
-<p align="justify">
+<p align="justify" class="justifyText">
 </p>
 <%}%>
 
 <%-- NASA NTL SERIES --%>
 <% if (Arrays.binarySearch(ntlRounds, roundId)>=0) { %>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">There will be $10,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
+    <p align="justify" class="justifyText">There will be $10,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
@@ -560,14 +552,14 @@ allows code submissions in Java, C# and VB.NET.
     </tr>
 </table>
     
-<p align="justify">
+<p align="justify" class="justifyText">
     
 </p>
 <%}%>
 
 <%if(roundId == 10930) {%>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">There will be $15000 in total prize money.  The 10 highest scorers in the round will receive prizes as follows:</p>
+    <p align="justify" class="justifyText">There will be $15000 in total prize money.  The 10 highest scorers in the round will receive prizes as follows:</p>
 
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
@@ -590,13 +582,13 @@ allows code submissions in Java, C# and VB.NET.
     </tr>
 </table>
     
-<p align="justify">
+<p align="justify" class="justifyText">
     
 </p>
 <%}%>
 <%if(roundId == 13754 || roundId == 13934 || roundId == 13953 ) {%>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">There will be $5000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
+    <p align="justify" class="justifyText">There will be $5000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
@@ -619,14 +611,14 @@ allows code submissions in Java, C# and VB.NET.
 <b>* NOTE:</b> All prize winners are required to submit to TopCoder a one-page description, explaining their winning 
 submission, within one week of the announcment of the winners in order to receive their prize.
     
-<p align="justify">
+<p align="justify" class="justifyText">
     
 </p>
 <%}%>
 
 <% if (Arrays.binarySearch(nsaRounds, roundId)>=0) { %>
 	<div class="sectionHeader">Prizes</div>
-    <p align="justify">There will be up to $3000 in total prize money awarded to the five (5) highest scoring members 
+    <p align="justify" class="justifyText">There will be up to $3000 in total prize money awarded to the five (5) highest scoring members 
 	  who are citizens of the United States.</p>
 
 	<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
@@ -649,7 +641,7 @@ submission, within one week of the announcment of the winners in order to receiv
 
 	<br>
     
-<p align="justify">
+<p align="justify" class="justifyText">
     
 </p>
 <%}%>
@@ -657,9 +649,9 @@ submission, within one week of the announcment of the winners in order to receiv
 
 <%if(roundId == 13772 || roundId == 14525 || roundId == 14584 || roundId == 15024 || roundId == 15075 || roundId == 15023 || 
      roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15078 || roundId == 15103 || roundId == 15120 ||
-     roundId == 15189 || roundId == 15322 || roundId == 15458 || roundId == 15618 || roundId == 15637 || roundId == 15948) {%>
+     roundId == 15189 || roundId == 15322 || roundId == 15458 || roundId == 15618 || roundId == 15637) {%>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">There will be $10,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
+    <p align="justify" class="justifyText">There will be $10,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
@@ -680,18 +672,18 @@ submission, within one week of the announcment of the winners in order to receiv
 </table>
     
 
-<p align="justify">
+<p align="justify" class="justifyText">
     
 </p>
     
-<p align="justify">
+<p align="justify" class="justifyText">
     
 </p>
 <%}%>
 
-<% if (roundId == 15611 || roundId == 15955) { %>
+<% if (roundId == 15611) { %>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">The Marathon Match has $10,000 in total prize money.  The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
+    <p align="justify" class="justifyText">The Marathon Match has $10,000 in total prize money.  The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
@@ -708,10 +700,9 @@ submission, within one week of the announcment of the winners in order to receiv
     </tr>
 </table>
 
-<% if (roundId == 15611) { %>
-<p align="justify">In order to be eligible for these prizes, your code submission must be written in C++ and must be made before 9 AM, April 22, 2013.</p>
+<p align="justify" class="justifyText">In order to be eligible for these prizes, your code submission must be written in C++ and must be made before 9 AM, April 22, 2013.</p>
 
-<p align="justify">The <a href="http://apps.topcoder.com/forums/?module=Thread&threadID=786874&start=0">additional submission phase</a> has up to $6,000
+<p align="justify" class="justifyText">The <a href="http://apps.topcoder.com/forums/?module=Thread&threadID=786874&start=0">additional submission phase</a> has up to $6,000
 in total prize money:
 <ul>
 <li>All submissions with the final score of at least 800,000 are eligible for a combined prize purse of $1,000. If there are several such submissions, the prize will be divided evenly among them.</li>
@@ -720,40 +711,17 @@ in total prize money:
 </ul>
 </p>  
 
-<p align="justify">
+<p align="justify" class="justifyText">
 TopCoder may *offer* to purchase submissions that did not win any prize if the client is interested in using them.
 </p>
     
-<% } %>
-
-<% if (roundId == 15955) { %>
-<p>
-After the end of the Marathon Match, we will conduct a follow-up round in which we will welcome all the members (who submitted to this match) to
-participate and provide a scientific explanation and/or support to their solutions. The top three submissions in this contest will be awarded following prizes based on how much scientific relevance the solutions have.
-<p>
-
-<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
-    <tr>
-        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$2,200</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$1,300</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$900</td>
-    </tr>
-</table>
-
-<% } %>
-
-<p align="justify">
+<p align="justify" class="justifyText">
 </p>
-
 <% } %>
 
 <% if (roundId == 15876) { %>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">The prize purse for this challenge is 5,000 USD! The 3 highest scorers in this round will receive compensation for their submissions as follows:</p>
+    <p align="justify" class="justifyText">The prize purse for this challenge is 5,000 USD! The 3 highest scorers in this round will receive compensation for their submissions as follows:</p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
         <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right" nowrap="nowrap">$3,000</td>
@@ -765,13 +733,13 @@ participate and provide a scientific explanation and/or support to their solutio
         <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right" nowrap="nowrap">$500</td>
     </tr>
 </table>
-<p align="justify">
+<p align="justify" class="justifyText">
 </p>
 <% } %>
 
 <% if (roundId == 15879) { %>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">The prize purse for this challenge is 7,000 USD! The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
+    <p align="justify" class="justifyText">The prize purse for this challenge is 7,000 USD! The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
         <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right" nowrap="nowrap">$3,500</td>
@@ -786,14 +754,14 @@ participate and provide a scientific explanation and/or support to their solutio
         <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right" nowrap="nowrap">$500</td>
     </tr>
 </table>
-<p align="justify">
+<p align="justify" class="justifyText">
 </p>
 <% } %>
 
 
 <% if (roundId == 15765) { %>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">The prize purse for this challenge is 15,000 USD and a trip to the 2013 TopCoder Open in Washington, DC! The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
+    <p align="justify" class="justifyText">The prize purse for this challenge is 15,000 USD and a trip to the 2013 TopCoder Open in Washington, DC! The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
         <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right" nowrap="nowrap">$7,000 and a trip to the 2013 TopCoder Open</td>
@@ -809,11 +777,11 @@ participate and provide a scientific explanation and/or support to their solutio
     </tr>
 </table>
 
-<p align="justify">
+<p align="justify" class="justifyText">
 TopCoder may *offer* to purchase submissions that did not win any prize if the client is interested in using them.
 </p>
 
-<p align="justify">
+<p align="justify" class="justifyText">
 Additionally, there are two $700 USD and $300 USD prizes for unusual and perspective ideas. Only contestants with 5th and lower final scores are eligible for these prizes. The ideas must be described and submitted in a text document. You do not need to implement your idea (though if it is incorporated into your marathon match final submission, it can be a plus). The submission phase for ideas is separate from the marathon match and will open once the match is over. Additional details will be communicated at the match forum. Evaluation of ideas is subjective, but the main evaluation criteria for the winning ideas is: can (and how much) the Top-4 marathon match algorithms benefit from this idea? TopCoder reserves the right not to award this prize if no ideas are considered to be useful enough.
 </p>
 <% } %>
@@ -821,7 +789,7 @@ Additionally, there are two $700 USD and $300 USD prizes for unusual and perspec
 
 <% if (roundId == 15761) { %>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">The Marathon Match has $25,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
+    <p align="justify" class="justifyText">The Marathon Match has $25,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
         <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$12,000</td>
@@ -840,11 +808,11 @@ Additionally, there are two $700 USD and $300 USD prizes for unusual and perspec
     </tr>
 </table>
 
-<p align="justify">
+<p align="justify" class="justifyText">
 TopCoder may *offer* to purchase submissions that did not win any prize if the client is interested in using them.
 </p>
 
-<p align="justify">
+<p align="justify" class="justifyText">
 Additionally, there is a $1,000 USD prize for an unusual and perspective idea. Only contestants with 6th and lower final scores are eligible for this prize. The idea must be described and submitted in a text document. You do not need to implement your idea (though if it is incorporated into your marathon match final submission, it can be a plus). The submission phase for ideas is separate from the marathon match and will open once the match is over. Additional details will be communicated at the match forum. Evaluation of ideas is subjective, but the main evaluation criteria for the winning idea is: can (and how much) the Top-5 marathon match algorithms benefit from this idea? TopCoder reserves the right not to award this prize if no ideas are considered to be useful enough.
 </p>
 
@@ -852,7 +820,7 @@ Additionally, there is a $1,000 USD prize for an unusual and perspective idea. O
 
 <%if (roundId == 15520) {%>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">There is a total $30,000 USD cash prize purse for this challenge, 100 T-shirts, 5 stickers that have flown in space
+    <p align="justify" class="justifyText">There is a total $30,000 USD cash prize purse for this challenge, 100 T-shirts, 5 stickers that have flown in space
 and 5 letters of recommendation. $25,000 USD is allocated for the final prizes and $5,000 are allocated for checkpoint prizes. The contestants with
 the 10 highest non-zero final scores will be awarded the following prizes.</p>
 
@@ -889,7 +857,7 @@ the 10 highest non-zero final scores will be awarded the following prizes.</p>
     </tr>
 </table>
 
-<p align="justify">One week after the start of the challenge the first set of checkpoint prizes will be selected. The contestants with the top 4 highest
+<p align="justify" class="justifyText">One week after the start of the challenge the first set of checkpoint prizes will be selected. The contestants with the top 4 highest
 provisional scores (on the leader board) at that time will receive the prizes listed below. Then two weeks after the start of the challenge, the second
 set of checkpoint prizes will be selected for the contestants with the 4 highest provisional scores at that time.
 See below for the exact date and time for the selection of the checkpoint winners. </p>
@@ -912,17 +880,17 @@ See below for the exact date and time for the selection of the checkpoint winner
     </tr>
 </table>
 
-<p align="justify">Each of the contestants with one of the top 100 final non-zero scores will win a NTL ISS Longeron T-Shirt.</p>
+<p align="justify" class="justifyText">Each of the contestants with one of the top 100 final non-zero scores will win a NTL ISS Longeron T-Shirt.</p>
 
-<p align="justify">There will also be final bonus prizes for the top 5 final finishers. The
+<p align="justify" class="justifyText">There will also be final bonus prizes for the top 5 final finishers. The
 1st, 2nd, 3rd, 4th, and 5th place final winners will receive stickers from NASA <b>which have actually orbited the Earth</b>.
 These stickers were flown on Space Shuttle Endeavour, on mission STS-134, May 16, 2011. TopCoder will also provide a letter of reference for
 each of the 1st, 2nd, 3rd, 4th, and 5th place final winners describing their performance in the challenge.
 These could be used to aid your job search, for applying for entry into a school or even for your astronaut application.</p>
 
-<p align="justify"> If there are ties for any of the non-cash prizes, the tie will be broken by selecting the earliest submissions. In the event of a tie for a cash prize, the associated prize money will be divided evenly between the tied contestants.</p>
+<p align="justify" class="justifyText"> If there are ties for any of the non-cash prizes, the tie will be broken by selecting the earliest submissions. In the event of a tie for a cash prize, the associated prize money will be divided evenly between the tied contestants.</p>
 
-<p align="justify">Before the challenge, this problem was extensively tested by an experienced marathon competitor (but for a shorter time period
+<p align="justify" class="justifyText">Before the challenge, this problem was extensively tested by an experienced marathon competitor (but for a shorter time period
 than the actual challenge). The tester's pre-challenge solution will be submitted at the start of the challenge (using the handle "mm_tester") and
 will not be modified throughout the challenge. This will make the tester's provisional score visible throughout the match. The tester will be eligible
 for the final prizes based on his initial submission, but not the tester is eligible for the checkpoint prizes.
@@ -931,7 +899,7 @@ The tester's identity will not be revealed until the challenge is over.</p>
 
 <%if(roundId == 15201 || roundId == 15202 || roundId == 15327) {%>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">There will be $5,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
+    <p align="justify" class="justifyText">There will be $5,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
@@ -952,18 +920,18 @@ The tester's identity will not be revealed until the challenge is over.</p>
 </table>
     
 
-<p align="justify">
+<p align="justify" class="justifyText">
     
 </p>
     
-<p align="justify">
+<p align="justify" class="justifyText">
     
 </p>
 <%}%>
 
 <%if(roundId == 15077 || roundId == 15130) {%>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">There will be $7,500 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
+    <p align="justify" class="justifyText">There will be $7,500 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
@@ -983,13 +951,13 @@ The tester's identity will not be revealed until the challenge is over.</p>
     </tr>
 </table>
 
-<p align="justify">The 10 highest scorers in the round will be allowed to participate in the extra submission phase which will have $2,500 in
+<p align="justify" class="justifyText">The 10 highest scorers in the round will be allowed to participate in the extra submission phase which will have $2,500 in
 total prize money. The detailed rules of this phase will be posted to the marathon match forum.</p>
 <%}%>
 
 <%if (roundId == 15080 || roundId == 15398 || roundId == 15589) {%>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">There will be $1,000 in total prize money.  The 2 highest scorers in this round will receive compensation
+    <p align="justify" class="justifyText">There will be $1,000 in total prize money.  The 2 highest scorers in this round will receive compensation
     for their submissions as follows:</p>
 
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
@@ -1001,14 +969,14 @@ total prize money. The detailed rules of this phase will be posted to the marath
     </tr>
 </table>
 
-<p align="justify">
+<p align="justify" class="justifyText">
     
 </p>
 <%}%>
 
 
 <%if(roundId == 14584 ) {%>
-<p align="justify">
+<p align="justify" class="justifyText">
     <b>There will be an additional bonus prize purse of $5,000 for novel approaches to this particular problem.  All competitors who meet the eligibility critera of the 
 	Marathon Match and who submit a one to two-page description of their algorithm and how it meets the requirements of a novel approach will be 
 	eligible for an award of a portion of the bonus prize purse.  Please review the discussion forum for this marathon match for more information on the bonus prize requirements.</b>
@@ -1022,7 +990,7 @@ total prize money. The detailed rules of this phase will be posted to the marath
 
 <% if (Arrays.binarySearch(eligibilityRounds, roundId)>=0) { %>
 	<div class="sectionHeader">Eligibility</div>
-	<p align="justify">
+	<p align="justify" class="justifyText">
 		You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition,
 		you must fit into one of the following categories.
 		<br><br>
@@ -1044,7 +1012,7 @@ total prize money. The detailed rules of this phase will be posted to the marath
 	</p>
 <%} else if (Arrays.binarySearch(nsaRounds, roundId)>=0) { %>
 	<div class="sectionHeader">Eligibility</div>
-	<p align="justify">
+	<p align="justify" class="justifyText">
 		The competition is open to all members who are at least 18 years of age who are U.S. citizens. 
 		<br><br>
 		You are not eligible for this Competition if you are on the Specially Designated National list 

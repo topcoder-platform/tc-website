@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -5,9 +6,12 @@
 <head>
 <title>TopCoder Statistics</title>
 <script language="JavaScript" type="text/javascript" src="/js/popup.js"></script>
-    <jsp:include page="/style.jsp">
-        <jsp:param name="key" value="tc_stats"/>
-    </jsp:include>
+<jsp:include page="/style.jsp">
+    <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
+<c:if test="${not empty isNewStyle && isNewStyle}">
+    <jsp:include page="/script.jsp" />
+</c:if>
 </head>
 
 <body>

@@ -44,12 +44,31 @@ function menu_goto( menuform )
     <!-- spacer -->
     <div id="pageSpacer">
 
+
+
         <div id="eventLogo">
-            <img src="/i/digital_run/digitalrunlogo20080625.png" alt="The Digital Run" />
+
+            <c:choose>
+                <c:when test="${not empty isNewStyle && isNewStyle}">
+                    <img src="/i/reskin/digital_run/digitalrunlogo20080625.png" alt="The Digital Run" />
+                </c:when>
+                <c:otherwise>
+                    <img src="/i/digital_run/digitalrunlogo20080625.png" alt="The Digital Run" />
+                </c:otherwise>
+            </c:choose>
+
+
         </div>
 
         <div id="eventBannerBox">
-            <img src="/i/digital_run/ban20080625.png" alt="." />
+            <c:choose>
+                <c:when test="${not empty isNewStyle && isNewStyle}">
+                    <img src="/i/reskin/digital_run/ban20080625.png" alt="." />
+                </c:when>
+                <c:otherwise>
+                    <img src="/i/digital_run/ban20080625.png" alt="." />
+                </c:otherwise>
+            </c:choose>
         </div>
 
         <div id="eventDescBox">
@@ -90,7 +109,7 @@ function menu_goto( menuform )
                     <a href="/tc?module=ViewActiveContests&amp;ph=112">Active Challenges</a>
                 </div>
                 <div>
-                    <a href="/dr?module=ViewLeaderBoard&amp;tid=2207">Leaderboards</a>
+                    <a href="/dr?module=ViewLeaderBoard&amp;tid=2198">Leaderboards</a>
                 </div>
                 <div class="prizeLine">
                     <span class="money">
@@ -106,7 +125,10 @@ function menu_goto( menuform )
 
             <div class="developmentColumn">
                 <div>
-                    <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=devOverview"><img src="/i/digital_run/trophyDev.png" alt="" /></a>
+                    <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=devOverview">
+
+                        <img src="/i/digital_run/trophyDev.png" alt="" />
+                    </a>
                 </div>
                 <div>
                     <a href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=devRules">Rules</a>
@@ -115,7 +137,7 @@ function menu_goto( menuform )
                     <a href="/tc?module=ViewActiveContests&amp;ph=113">Active Challenges</a>
                 </div>
                 <div>
-                    <a href="/dr?module=ViewLeaderBoard&amp;tid=2208">Leaderboards</a>
+                    <a href="/dr?module=ViewLeaderBoard&amp;tid=2199">Leaderboards</a>
                 </div>
                 <div class="prizeLine">
                     <span class="money">
@@ -140,7 +162,7 @@ function menu_goto( menuform )
                     <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active Challenges</a>
                 </div>
                 <div>
-                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/dr?module=ViewLeaderBoard&amp;tid=2209">Leaderboards</a>
+                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/dr?module=ViewLeaderBoard&amp;tid=2200">Leaderboards</a>
                 </div>
                 <div class="prizeLine">
                     <span class="money">

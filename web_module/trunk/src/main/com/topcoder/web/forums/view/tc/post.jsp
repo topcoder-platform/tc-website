@@ -12,6 +12,7 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
@@ -131,13 +132,13 @@ function AllowTabCharacter() {
        <td class="categoriesBox" style="padding-right: 20px;">
           <jsp:include page="categoriesHeader.jsp" />
        </td>
-       <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
+       <td nowrap="nowrap" valign="top" style="padding-right: 20px;">
            <jsp:include page="searchHeader.jsp" />
        </td>
     </tr>
     
     <tr>
-        <td colspan="2" style="padding-bottom:3px;"><b>
+        <td colspan="2" style="padding-bottom:3px;" class='breadcrumbs'><b>
            <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
                 <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> <img src="/i/interface/exp_w.gif" align="absmiddle"/>
            </tc-webtag:iterator>
@@ -154,7 +155,7 @@ function AllowTabCharacter() {
 
 <br><div id="Options">Allowed tags: <%=ForumsUtil.getAllowedTagsDisplay()%>. Allowed attributes: <%=ForumsUtil.getAllowedAttributesDisplay()%>. Syntax highlighting is applied to text within [code][/code], [cpp][/cpp], [java][/java], [c#][/c#], [vb][/vb], and [py][/py] blocks. Usernames within [handle][/handle] and [h][/h] blocks are converted into color-coded links.</div>
 <p><b>Please do not cross post, most people read all posts and will not appreciate reading yours twice.</b></p>
-            <table cellpadding="0" cellspacing="0" class="rtTable">
+            <table cellpadding="0" cellspacing="0" class="rtTable rtTablePost">
 <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
 <tc-webtag:hiddenInput name="module"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
@@ -204,14 +205,44 @@ function AllowTabCharacter() {
 <%  if (errors.get(ForumConstants.MESSAGE_BODY) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%><br/></tc-webtag:errorIterator></span><% } %>
 <b>Body:</b><font color="red"><span align="left" id="Warning" style="display: none"><br/>Warning: one or more &lt;pre&gt; tags is not closed.</span></font>
 <br/><tc-webtag:textArea id="tcPostArea" rows="15" cols="72" name="<%=ForumConstants.MESSAGE_BODY%>" onKeyDown="AllowTabCharacter()"/>
+
+    <c:if test="${isNewStyle}">
+        <div class="rtFooter">
+            <a onclick="form1.module.value='PostMessage';form1.submit();" class="btn" href="javascript:;" alt="Post">Post</a>
+
+            <a onclick="form1.module.value='PreviewMessage';form1.submit();" class="btn btnBlue" href="javascript:;" alt="Preview">Preview</a>
+
+            <%    if (forum.isAuthorized(ForumPermissions.CREATE_MESSAGE_ATTACHMENT)) { %>
+            <%    if (postMode.equals("Edit")) { %>
+            <a onclick="form1.module.value='EditAttachments';form1.submit();" class="btn btnBlue" href="javascript:;" alt="Attach Files">Attach Files</a>
+            <%    } else { %>
+            <a onclick="form1.module.value='AttachFiles';form1.submit();" class="btn btnBlue" href="javascript:;" alt="Attach Files">Attach Files</a>
+            <%    } %>
+            <%    } %>
+            <%    String cancelLink = "?module=ThreadList&"+ForumConstants.FORUM_ID+"="+forum.getID();
+                if (message != null) {
+                    cancelLink = "?module=Message&"+ForumConstants.MESSAGE_ID+"="+message.getID();
+                } else if (thread != null) {
+                    cancelLink = "?module=Thread&"+ForumConstants.THREAD_ID+"="+thread.getID();
+                } %>
+            <a href="<%=cancelLink%>" class="btn btnBlue">Cancel</a>
+        </div>
+    </c:if>
+
+
 </td>
+
+
 </tr>
+
+<c:if test="${!isNewStyle}">
 
 <tr>
     <td class="rtFooter">
-        <input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
-        <input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
-        <%    if (forum.isAuthorized(ForumPermissions.CREATE_MESSAGE_ATTACHMENT)) { %>
+
+            <input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/>
+            <input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/>
+            <%    if (forum.isAuthorized(ForumPermissions.CREATE_MESSAGE_ATTACHMENT)) { %>
             <%    if (postMode.equals("Edit")) { %>
                     <input type="image" src="/i/interface/btn_attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='EditAttachments'"/>
             <%    } else { %>
@@ -228,12 +259,15 @@ function AllowTabCharacter() {
     </td>
 </tr>
 
+</c:if>
+
+
 </form>
 </table>
 
 <%  if (postMode.equals("Edit") || postMode.equals("Reply")) { %>
         <span class="bodySubtitle">Original Message</span><br/>
-        <table cellpadding="0" cellspacing="0" class="rtTable">
+        <table cellpadding="0" cellspacing="0" class="rtTable rtTablePost">
         <tr><td class="rtHeader" colspan="2"><a name=<%=message.getID()%>><tc-webtag:format object="${message.modificationDate}" format="MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/> | <%=message.getSubject()%>
         <%  if (message.getParentMessage() != null) { %>
             (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>)
