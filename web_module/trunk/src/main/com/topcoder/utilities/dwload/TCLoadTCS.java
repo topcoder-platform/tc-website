@@ -134,7 +134,7 @@ public class TCLoadTCS extends TCLoad {
      * <p>A <code>String</code> representing all those project categories than should be loaded to the
      * data warehouse.</p>
      */
-    private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25, 26, 29, 35, 16, 17, 18, 20, 21, 30, 31, 32, 34, 22, 36, 9, 39, 38)";
+    private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25, 26, 29, 35, 16, 17, 18, 20, 21, 30, 31, 32, 34, 22, 36, 9, 39, 38, 40)";
 
     /**
      * <p>An <code>int</code> array representing all project categories that are currently being rated.
@@ -946,7 +946,7 @@ public class TCLoadTCS extends TCLoad {
                           "             AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0) " +
                           "   end AS contest_prizes_total " +
                             "   , pib.value AS billing_project_id " +
-                            "   , case when pcl.project_type_id != 3 and p.project_category_id not in (9,29) then  " +
+                            "   , case when pcl.project_type_id != 3 and p.project_category_id not in (9,29,39) then  " +
                             "         (SELECT MAX(ppfr.actual_end_time) " +
                             "          FROM project_phase ppfr " +
                             "           WHERE ppfr.project_id = p.project_id " +
@@ -1186,7 +1186,7 @@ public class TCLoadTCS extends TCLoad {
                         update.setNull(35, Types.DECIMAL);
                     }
                     
-                    update.setLong(36, rs.getLong("project_id"));
+                    update.setLong(36, rs.getLong("project_id"));     System.out.println("------------project id --------------------------"+rs.getLong("project_id"));
 
                     int retVal = update.executeUpdate();
 
@@ -1255,7 +1255,7 @@ public class TCLoadTCS extends TCLoad {
                         insert.setDouble(34, prizeTotal);
                         if (rs.getString("billing_project_id") != null
                                 && !rs.getString("billing_project_id").equals("0"))
-                        {    System.out.println("------------billing id-------------------"+rs.getString("billing_project_id")+"!!!");
+                        {    //System.out.println("------------billing id-------------------"+rs.getString("billing_project_id")+"!!!");
                             insert.setLong(35, rs.getLong("billing_project_id"));
                         }
                         else
