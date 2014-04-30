@@ -112,7 +112,7 @@
 						</div>
 						<div class="forgotPasswordSection">
 							<h3>Forgot your password?</h3>
-							<p>If you cannot remember your password, <a href="/tc?module=FindUser" class="redColor">click here</a> and we can help you restore your account.</p>
+							<p>If you cannot remember your password, <a href="http://www.topcoder.com/password-recovery/" target="_blank" class="redColor">click here</a> and we can help you restore your account.</p>
 						</div>
 						<script>
 							document.frmLogin.username.focus();
