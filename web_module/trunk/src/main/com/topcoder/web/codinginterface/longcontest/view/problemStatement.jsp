@@ -64,8 +64,8 @@
                 <jsp:param name="title" value="Problem Statement"/>
             </jsp:include>
 
-            <div style="float:right;">
-                <div id="printableLink"><A href="Javascript:makeInvisible();" mce_href="Javascript:makeInvisible();">Printable view</A></div>
+            <div style="float:right;font-size: 13px;">
+                <div id="printableLink"><a href="/tc?module=MatchDetails&amp;rd=${infoRow.map['round_id']}">Register & Rules</a>   &nbsp;|&nbsp; <a href="/longcontest/?module=ViewStandings&amp;rd=${infoRow.map['round_id']}">Standings/Registrants</a>   &nbsp;|&nbsp; <a href="https://apps.topcoder.com/forums/?module=ThreadList&amp;forumID=${infoRow.map['forum_id']}">Forum</a>   &nbsp;|&nbsp; <A href="Javascript:makeInvisible();" mce_href="Javascript:makeInvisible();">Printable view</A></div>
                 <div id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();" mce_href="Javascript:makeNavigable();">Normal view</A></div>
             </div>
 

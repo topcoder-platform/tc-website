@@ -134,13 +134,27 @@
             <tbody>
                 <tr>
                     <td style="padding: 0px 5px 10px 0px;" align="center" width="50%">
-                        <a class="bigButton" style="width: 130px;"
+                        <a style="width: 130px; font-weight:bold;"
 						   <% if (Arrays.binarySearch(experimentalRounds, roundId)>=0) { %>
                              href="/longcontest/?module=ViewReg&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}">Register</a>
 						   <%} else { %>
 							 href="/longcontest/?module=ViewReg&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}">Register/Submit</a>
 						   <%}%>
-                        <%--<div class="bigButton" style="width: 100px;">Register</div>--%>
+
+                            &nbsp;|&nbsp;
+
+                        <a style="width: 130px; font-weight:bold;" href="/longcontest/?module=ViewProblemStatement&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}&amp;<%=Constants.COMPONENT_ID%>=${row.map['component_id']}">Problem Statement</a>
+
+                            &nbsp;|&nbsp;
+
+                        <a style="width: 130px; font-weight:bold;" href="/longcontest/?module=ViewStandings&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}">Standings/Registrants</a>
+
+                            &nbsp;|&nbsp;
+
+                        <a style="width: 130px; font-weight:bold;" href="https://apps.topcoder.com/forums/?module=ThreadList&forumID=${row.map['forum_id']}">Forum</a>
+
+
+                    <%--<div class="bigButton" style="width: 100px;">Register</div>--%>
                     </td>
                 </tr>
             </tbody>

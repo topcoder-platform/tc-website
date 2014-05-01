@@ -62,7 +62,22 @@
                 <jsp:param name="title" value="Registrants"/>
             </jsp:include>
 
-            <div style="float:right; padding: 0px 0px 0px 5px;">
+            <div style="float:right; padding: 0px 0px 0px 5px;font-size: 13px">
+
+                <a href="/longcontest/?module=ViewProblemStatement&amp;<%=Constants.ROUND_ID%>=${infoRow.map['round_id']}&amp;<%=Constants.COMPONENT_ID%>=${infoRow.map['component_id']}">Problem Statement</a>
+
+                &nbsp;|&nbsp;
+
+                <a href="/tc?module=MatchDetails&amp;<%=Constants.ROUND_ID%>=${infoRow.map['round_id']}">Register & Rules</a>
+
+                &nbsp;|&nbsp;
+
+                <a href="/longcontest/?module=ViewStandings&amp;<%=Constants.ROUND_ID%>=${infoRow.map['round_id']}">Standings</a>
+
+                &nbsp;|&nbsp;
+
+                <a href="https://apps.topcoder.com/forums/?module=ThreadList&forumID=${infoRow.map['forum_id']}">Forum</a>
+
                <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
             </div>
 
