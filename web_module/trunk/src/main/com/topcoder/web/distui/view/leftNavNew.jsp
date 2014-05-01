@@ -179,7 +179,7 @@
                 <li><a id="mm_tutorials" href="http://help.topcoder.com/data-science/competing-in-algorithm-challenges/marathon-match-tutorials/">Marathon Tutorials</a></li>
             </ul>
         </li>
-        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/forums/" id="forums">Forums</a></li>
+        <li><a href="http:/forums.topcoder.com/" id="forums">Forums</a></li>
         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome" id="my_topcoder">My topcoder</a></li>
     </ul>
 </section>
