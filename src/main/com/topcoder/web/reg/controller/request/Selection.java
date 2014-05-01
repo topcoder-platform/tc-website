@@ -32,7 +32,7 @@ public class Selection extends Base {
             if (userLoggedIn()) {
                 //they're updating their info, and they're logged in, so here we go
                 getRequest().setAttribute("registrationTypeList", getFactory().getRegistrationTypeDAO().getRegistrationTypes());
-                for (RegistrationType rt : new UserDAOHibernate().find(new Long(getUser().getId())).getRegistrationTypes()) {
+                for (RegistrationType rt : u.getRegistrationTypes()) {
                     setDefault(Constants.REGISTRATION_TYPE + rt.getId(), String.valueOf(true));
                 }
                 setNextPage("/selection.jsp");
