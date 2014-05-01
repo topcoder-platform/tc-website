@@ -116,7 +116,7 @@ public class Main extends Base {
                 getRequest().setAttribute("registrationTypeList", getFactory().getRegistrationTypeDAO().getRegistrationTypes());
                 if (userLoggedIn()) {
                     //they're updating their info, and they're logged in, so here we go
-                    for (RegistrationType regType : new UserDAOHibernate().find(getUser().getId()).getRegistrationTypes()) {
+                    for (RegistrationType regType : u.getRegistrationTypes()) {
                         setDefault(Constants.REGISTRATION_TYPE + regType.getId(), String.valueOf(true));
                     }
                 }
