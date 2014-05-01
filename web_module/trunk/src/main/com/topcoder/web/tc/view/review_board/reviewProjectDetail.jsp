@@ -79,9 +79,9 @@
                 $('.reviewApplicationRoleBox').click(function() {
                     var s1 = calcSelection();
                     if (s1 != selection) {
-                        $('.saveReviewApplicationRoles').attr('disabled', '');
+                        $('.saveReviewApplicationRoles').removeAttr('disabled');
                     } else {
-                        $('.saveReviewApplicationRoles').attr('disabled', 'disabled');
+                        $('.saveReviewApplicationRoles').attr('disabled', true);
                     }
                 });
             });
