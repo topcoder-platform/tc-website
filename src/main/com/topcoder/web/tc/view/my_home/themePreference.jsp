@@ -31,7 +31,7 @@
 
         function saveTheme() {
             if($('#oldTheme').is(":checked")) {
-                $.cookie('oldTheme', 'true', { expires: 9999, path: '/' });
+                $.cookie('oldTheme', 'true', { expires: 9999, path: '/', domain: 'topcoder.com' });
             } else {
                 $.removeCookie('oldTheme', { path: '/' });
             }
