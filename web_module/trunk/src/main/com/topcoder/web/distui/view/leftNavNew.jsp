@@ -116,7 +116,7 @@
         <li>
             <a href="javascript:;">Marathon Match<i></i></a>
             <ul class="hide">
-                <li><a id="long_compete" href="http://www.topcoder.com/active-challenges/data/">Challenges</a></li>
+                <li><a id="long_compete" href="/longcontest/?module=ViewActiveContests">Challenges</a></li>
                 <li><a id="long_match_archive" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=MatchList">Match Archive</a></li>
                 <li><a id="long_match_overview" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=ViewOverview">Match Overview</a></li>
                 <li><a id="long_match_winners" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/stats/?module=MatchWinners">Match Winners</a></li>
@@ -179,8 +179,8 @@
                 <li><a id="mm_tutorials" href="http://help.topcoder.com/data-science/competing-in-algorithm-challenges/marathon-match-tutorials/">Marathon Tutorials</a></li>
             </ul>
         </li>
-        <li><a href="http:/forums.topcoder.com/" id="forums">Forums</a></li>
-        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome" id="my_topcoder">My topcoder</a></li>
+        <li><a href="https://apps.topcoder.com/forums/" id="forums">Forums</a></li>
+        <li><a href="https://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome" id="my_topcoder">My topcoder</a></li>
     </ul>
 </section>
 <!-- End .navigation -->

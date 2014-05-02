@@ -143,7 +143,7 @@
 
                             &nbsp;|&nbsp;
 
-                        <a style="width: 130px; font-weight:bold;" href="/longcontest/?module=ViewProblemStatement&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}&amp;<%=Constants.COMPONENT_ID%>=${row.map['component_id']}">Problem Statement</a>
+                        <a style="width: 130px; font-weight:bold;" href="/longcontest/?module=ViewProblemStatement&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}&amp;compid=${row.map['component_id']}">Problem Statement</a>
 
                             &nbsp;|&nbsp;
 
