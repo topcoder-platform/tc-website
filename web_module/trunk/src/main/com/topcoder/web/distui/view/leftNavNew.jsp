@@ -99,7 +99,7 @@
             </ul>
         </li>
         <li>
-            <a href="javascript:;">Data Science<i></i></a>
+            <a href="javascript:;">Algorithm (SRM)<i></i></a>
             <ul class="hide">
                 <li><a href="http://www.topcoder.com/active-challenges/data/">Single Round Matches (SRM)</a></li>
                 <li><a id="algo_match_archive" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MatchList">Match Archive</a></li>
