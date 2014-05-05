@@ -28,8 +28,10 @@ import com.topcoder.web.tc.Constants;
  */
 public class Home extends BaseProcessor {
 
-    private static List<Integer> DESIGN_PROJECT_CATEGORIES = Arrays.asList(1, 7, 13);
-    private static List<Integer> DEVELOPMENT_PROJECT_CATEGORIES = Arrays.asList(2, 5, 14);
+    private static List<Integer> DESIGN_PROJECT_CATEGORIES = Arrays.asList(1,6,7,23,26,35);
+    private static List<Integer> DEVELOPMENT_PROJECT_CATEGORIES = Arrays.asList(2,5,13,14,19,24);
+	private static List<Integer> STUDIO_PROJECT_CATEGORIES = Arrays.asList(16,17,18,19,20,21,22,30,32);
+
     
     private static String[] monthName = {"January", "February",
             "March", "April", "May", "June", "July",
@@ -49,7 +51,8 @@ public class Home extends BaseProcessor {
         ResultSetContainer rsc = getPointsData(DBMS.TCS_OLTP_DATASOURCE_NAME, "dr_pool_detail", month, year);
 
         PoolPrize designPrize = new PoolPrize();
-        PoolPrize developmentPrize = new PoolPrize();        
+        PoolPrize developmentPrize = new PoolPrize();  
+		PoolPrize studioPrize = new PoolPrize();        		
         for (ResultSetRow rsr : rsc) {
             if (DESIGN_PROJECT_CATEGORIES.contains(rsr.getIntItem("category_id"))) {
                 designPrize.addTotal(rsr.getDoubleItem("total_dr_points"));
@@ -57,16 +60,19 @@ public class Home extends BaseProcessor {
             } else  if (DEVELOPMENT_PROJECT_CATEGORIES.contains(rsr.getIntItem("category_id"))) {
                 developmentPrize.addTotal(rsr.getDoubleItem("total_dr_points"));
                 developmentPrize.addToday(rsr.getDoubleItem("total_dr_points_today"));
-            }
+            } else  if (STUDIO_PROJECT_CATEGORIES.contains(rsr.getIntItem("category_id"))) {
+                studioPrize.addTotal(rsr.getDoubleItem("total_dr_points"));
+                studioPrize.addToday(rsr.getDoubleItem("total_dr_points_today"));
+            } 
         }
 
-        PoolPrize studioPrize = new PoolPrize();        
+        /*PoolPrize studioPrize = new PoolPrize();        
         rsc = getPointsData(DBMS.STUDIO_DATASOURCE_NAME, "dr_studio_pool_detail", month, year);
         if (rsc.size() > 0) {
             ResultSetRow rsr = rsc.iterator().next();
             studioPrize.addTotal(rsr.getDoubleItem("total_dr_points"));
             studioPrize.addToday(rsr.getDoubleItem("total_dr_points_today"));            
-        }
+        }*/
         
 
         getRequest().setAttribute("designPrize", designPrize);
