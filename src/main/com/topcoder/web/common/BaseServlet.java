@@ -485,16 +485,16 @@ public abstract class BaseServlet extends HttpServlet {
 
     protected void getTopCoderTweets(HttpServletRequest request) {
         if(IS_NEW_STYLE) {
-            try {
-                Twitter twitter = TwitterFactory.getSingleton();
-
-                List<Status> statuses = twitter.getUserTimeline("topcoder");
-                request.setAttribute("tweets", statuses.subList(0, 3));
-            } catch (Throwable t) {
-                // print error
-                t.printStackTrace(System.err);
-                // ignore exception
-            }
+//            try {
+//                Twitter twitter = TwitterFactory.getSingleton();
+//
+//                List<Status> statuses = twitter.getUserTimeline("topcoder");
+//                request.setAttribute("tweets", statuses.subList(0, 3));
+//            } catch (Throwable t) {
+//                // print error
+//                t.printStackTrace(System.err);
+//                // ignore exception
+//            }
 
         }
     }
