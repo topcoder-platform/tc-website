@@ -15,8 +15,8 @@
     <ul>
         <li><a href="http://www.topcoder.com/active-challenges/design/">Design</a></li>
         <li>
-            <a href="javascript:;">Develop</a>
-            <ul>
+            <a href="javascript:;">Develop<i></i></a>
+            <ul class="hide">
                 <li><a id="conceptualization_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&pt=23">Conceptualization</a></li>
                 <li><a id="specification_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&pt=6">Specification</a></li>
                 <li><a id="architecture_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&pt=7">Architecture</a></li>
