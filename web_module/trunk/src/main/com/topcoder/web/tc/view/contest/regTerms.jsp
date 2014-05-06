@@ -516,7 +516,17 @@ function goBack() {
                         </c:when>
                         <c:otherwise>
                             <c:if test="${empty terms_group and empty terms}">
-                                <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Register</a>
+
+                                <c:choose>
+                                    <c:when test="${not empty isNewStyle && isNewStyle}">
+
+                                        <a class="btn" href="Javascript:document.regForm.submit();">Register</a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Register</a>
+                                    </c:otherwise>
+                                </c:choose> 
+
                             </c:if>
                         </c:otherwise>
                     </c:choose>

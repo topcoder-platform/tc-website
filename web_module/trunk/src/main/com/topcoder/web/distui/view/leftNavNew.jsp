@@ -14,7 +14,25 @@
 <section class="navigation">
     <ul>
         <li><a href="http://www.topcoder.com/active-challenges/design/">Design</a></li>
-        <li><a href="http://www.topcoder.com/active-challenges/develop/">Develop</a></li>
+        <li>
+            <a href="javascript:;">Develop</a>
+            <ul>
+                <li><a id="conceptualization_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&pt=23">Conceptualization</a></li>
+                <li><a id="specification_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&pt=6">Specification</a></li>
+                <li><a id="architecture_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&pt=7">Architecture</a></li>
+                <li><a id="ui_prototype_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&pt=19">UI Prototype</a></li>
+                <li><a id="assembly_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&pt=14">Assembly</a></li>
+                <li><a id="first2finish_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&pt=38">First2Finish</a></li>
+                <li><a id="code_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&pt=39">Code</a></li>
+                <li><a id="des_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=112">Component Design</a></li>
+                <li><a id="dev_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=113">Component Development</a></li>
+                <li><a id="test_suites_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&pt=13">Test Suites</a></li>
+                <li><a id="reporting_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&pt=36">Reporting</a></li>
+                <li><a id="content_creation_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&pt=35">Content Creation</a></li>
+                <li><a id="test_scenarios_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&pt=26">Test Scenarios</a></li>
+                <li><a id="bug_hunt_compete" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&pt=9">Bug Hunt</a></li>
+            </ul>
+        </li>
         <li>
             <a href="javascript:;">Review Opportunities<i></i></a>
             <ul class="hide">
