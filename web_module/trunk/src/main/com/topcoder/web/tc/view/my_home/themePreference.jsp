@@ -33,7 +33,7 @@
             if($('#oldTheme').is(":checked")) {
                 $.cookie('oldTheme', 'true', { expires: 9999, path: '/', domain: 'topcoder.com' });
             } else {
-                $.removeCookie('oldTheme', { path: '/' });
+                $.removeCookie('oldTheme', { path: '/', domain: 'topcoder.com' });
             }
 
             location.reload();
