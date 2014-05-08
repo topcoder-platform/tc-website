@@ -92,35 +92,6 @@
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitFinalSubmission"/>
             <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
-            <div align="center">
-                    <c:if test="${not empty has_hard_copy && !has_hard_copy}">
-                        <%--
-                        <p><strong>Remember that in order to get paid you must send a signed copy of the Assignment document</strong></p>
-                        --%>
-                        <p><strong>Remember that in order to submit your entry you must send a signed copy of the Assignment Document</strong></p>
-                    </c:if>
-                    
-                    <c:if test="${not empty assignment_document}">
-                        <c:choose>
-                            <c:when test="${assignment_document.status.id == PENDING_STATUS_ID}">
-                                <p><a href="${sessionInfo.servletPath}?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">click here for a printer friendly version of the assignment document</a></p>
-                                <p><iframe  width="100%" height="300" marginWidth="5"
-                                    src="${sessionInfo.servletPath}?module=Static&d1=mystudio&d2=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
-                                </p>
-                                <p>
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.ACCEPT_AD_ERROR%>"><span class="bigRed">${err}</span>
-                                <br /></tc-webtag:errorIterator>
-                                <tc-webtag:chkBox name="<%=Constants.ACCEPT_AD%>"/> I accept
-                                </p>                
-                            </c:when>
-                            <c:otherwise>
-                                <tc-webtag:hiddenInput name="<%=Constants.ACCEPT_AD%>" value="on"/>
-                                You have already accepted the Assignment Document.
-                            </c:otherwise>
-                        </c:choose>
-                    </c:if>
-            </div>
-            <br />
             <p>Please use the form below to upload your submission:</p>
     
 <%--
