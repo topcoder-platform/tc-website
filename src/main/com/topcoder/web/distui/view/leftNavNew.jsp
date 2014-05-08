@@ -38,6 +38,34 @@
             <ul class="hide">
                 <li>
                     <dl>
+                        <dt>Conceptualization</dt>
+                        <dd><a id="conceptualization_review" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=23">Review Opportunities</a></dd>
+                        <dd><a id="conceptualization_review_border" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=23">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Specification</dt>
+                        <dd><a id="specification_review" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=6">Review Opportunities</a></dd>
+                        <dd><a id="specification_review_board" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=6">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Architecture</dt>
+                        <dd><a id="architecture_review" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=7">Review Opportunities</a></dd>
+                        <dd><a id="architecture_review_board" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=7">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Component Design</dt>
+                        <dd><a id="des_review" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=1">Review Opportunities</a></dd>
+                        <dd><a id="des_review_board" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=1 ">Meet the review board</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
                         <dt>Component Development</dt>
                         <dd><a id="dev_review" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewReviewAuctions&pt=2">Review Opportunities</a></dd>
                         <dd><a id="dev_review_board" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ReviewBoard&pt=2">Meet the review board</a></dd>
