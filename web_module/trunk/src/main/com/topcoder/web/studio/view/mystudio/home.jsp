@@ -75,14 +75,18 @@
                         <h1>My Studio</h1>
 
                         <div class="leftDiv">
+<!--
                             <p>
                                 <strong>Important Documentation</strong><br/>
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/The+Assignment+Document">Download Assignment Document</a>
                             </p>
+-->
                             <p>
                                 <strong>Tools</strong><br/>
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome">Manage TopCoder Profile</a><br/>
+<!--
                                 <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=AssignmentDocumentHistory">Assignment Document Status</a><br/>
+-->
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/PactsMemberServlet?module=PaymentHistory">My Payments</a>
                             </p>
                             <p>

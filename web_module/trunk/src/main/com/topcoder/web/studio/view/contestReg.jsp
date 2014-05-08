@@ -281,16 +281,8 @@
                                                                 </div>
                                                                 <INPUT TYPE="checkbox" NAME="${TERMS_AGREE}" id="agreechk" onclick="if (this.checked) document.getElementById('conbtn').disabled = ''; else document.getElementById('conbtn').disabled = 'disabled';"/>
                                                                 I Agree to the Terms and Conditions stated above&#160; <br /> <br />
-                                                                    <c:choose>
-                                                                        <c:when test="${not empty has_global_ad and has_global_ad}">
-                                                                            <%-- HAVE AD --%>
-                                                                            <input type="image" src="/i/v2/interface/btnContinue.png" />
-                                                                        </c:when>
-                                                                        <c:otherwise>
-                                                                        <%-- NO AD --%>
-                                                                            <input type="image" src="/i/v2/interface/btnContinue.png" class="show-modal-register"/>
-                                                                        </c:otherwise>
-                                                                    </c:choose>
+
+                                                                    <input type="image" src="/i/v2/interface/btnContinue.png" />
                                                                     <input type="image" src="/i/v2/interface/btnCancel.png" onclick="return goBack()" name="Cancel" value="Cancel"/>
                                                                 <br /><br />
                                                             </c:when>
@@ -320,16 +312,7 @@
                                                     </c:when>
                                                     <c:otherwise>
                                                         <c:if test="${empty terms_group and empty terms}">
-                                                        <c:choose>
-                                                            <c:when test="${not empty has_global_ad and has_global_ad}">
-                                                                <%-- HAVE AD --%>
-                                                                <input type="image" src="/i/v2/interface/btnRegister.png" />
-                                                            </c:when>
-                                                            <c:otherwise>
-                                                            <%-- NO AD --%>
-                                                                <input type="image" src="/i/v2/interface/btnRegister.png" class="show-modal-register"/>
-                                                            </c:otherwise>
-                                                        </c:choose>
+                                                        <input type="image" src="/i/v2/interface/btnRegister.png" />
                                                         <br /><br />
                                                         </c:if>
                                                     </c:otherwise>
