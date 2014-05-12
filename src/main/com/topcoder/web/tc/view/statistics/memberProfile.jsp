@@ -37,8 +37,10 @@
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
 
-    <script type="text/javascript" src="/js/jquery-1.4.1.min.js"></script>
-    <script type="text/javascript" src="/js/jquery-ui-1.8.11.custom.min.js"></script>
+    <c:if test="${empty isNewStyle || !isNewStyle}">
+        <script type="text/javascript" src="/js/jquery-1.4.1.min.js"></script>
+    </c:if>
+
     <script type="text/javascript" src="/js/jquery.form.js"></script>
     <script type="text/javascript" src="/js/jquery.Jcrop.js"></script>
     <script type="text/javascript" src="/js/photo.js"></script>
