@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001-2008 TopCoder Inc.  All Rights Reserved.
+ * Copyright (c) 2001-2014 TopCoder Inc.  All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.dr;
 
@@ -28,11 +28,7 @@ import com.topcoder.web.tc.Constants;
  */
 public class Home extends BaseProcessor {
 
-    private static List<Integer> DESIGN_PROJECT_CATEGORIES = Arrays.asList(1,6,7,23,26,35);
-    private static List<Integer> DEVELOPMENT_PROJECT_CATEGORIES = Arrays.asList(2,5,13,14,19,24);
-	private static List<Integer> STUDIO_PROJECT_CATEGORIES = Arrays.asList(16,17,18,19,20,21,22,30,32);
-
-    
+   
     private static String[] monthName = {"January", "February",
             "March", "April", "May", "June", "July",
             "August", "September", "October", "November",
@@ -50,37 +46,36 @@ public class Home extends BaseProcessor {
 
         ResultSetContainer rsc = getPointsData(DBMS.TCS_OLTP_DATASOURCE_NAME, "dr_pool_detail", month, year);
 
+        int designTrackId=0, developmentTrackId=0, studioTrackId=0;
         PoolPrize designPrize = new PoolPrize();
         PoolPrize developmentPrize = new PoolPrize();  
 		PoolPrize studioPrize = new PoolPrize();        		
         for (ResultSetRow rsr : rsc) {
-            if (DESIGN_PROJECT_CATEGORIES.contains(rsr.getIntItem("category_id"))) {
+            if (rsr.getIntItem("track_type_id") == 1) {
+                designTrackId = rsr.getIntItem("track_id");
                 designPrize.addTotal(rsr.getDoubleItem("total_dr_points"));
                 designPrize.addToday(rsr.getDoubleItem("total_dr_points_today"));
-            } else  if (DEVELOPMENT_PROJECT_CATEGORIES.contains(rsr.getIntItem("category_id"))) {
+            } else if (rsr.getIntItem("track_type_id") == 2) {
+                developmentTrackId = rsr.getIntItem("track_id");
                 developmentPrize.addTotal(rsr.getDoubleItem("total_dr_points"));
                 developmentPrize.addToday(rsr.getDoubleItem("total_dr_points_today"));
-            } else  if (STUDIO_PROJECT_CATEGORIES.contains(rsr.getIntItem("category_id"))) {
+            } else if (rsr.getIntItem("track_type_id") == 3) {
+                studioTrackId = rsr.getIntItem("track_id");
                 studioPrize.addTotal(rsr.getDoubleItem("total_dr_points"));
                 studioPrize.addToday(rsr.getDoubleItem("total_dr_points_today"));
-            } 
+            }
         }
 
-        /*PoolPrize studioPrize = new PoolPrize();        
-        rsc = getPointsData(DBMS.STUDIO_DATASOURCE_NAME, "dr_studio_pool_detail", month, year);
-        if (rsc.size() > 0) {
-            ResultSetRow rsr = rsc.iterator().next();
-            studioPrize.addTotal(rsr.getDoubleItem("total_dr_points"));
-            studioPrize.addToday(rsr.getDoubleItem("total_dr_points_today"));            
-        }*/
-        
+        getRequest().setAttribute("designTrackId", designTrackId);
+        getRequest().setAttribute("developmentTrackId", developmentTrackId);
+        getRequest().setAttribute("studioTrackId", studioTrackId);
 
         getRequest().setAttribute("designPrize", designPrize);
         getRequest().setAttribute("developmentPrize", developmentPrize);
         getRequest().setAttribute("studioPrize", studioPrize);
 
-        getRequest().setAttribute("monthName", monthName[month-1]); 
-        getRequest().setAttribute("pastNDays", Constants.DR_POINTS_LAST_N_DAYS); 
+        getRequest().setAttribute("monthName", monthName[month-1]);
+        getRequest().setAttribute("pastNDays", Constants.DR_POINTS_LAST_N_DAYS);
         
         setNextPage("/digital_run/home.jsp");
         setIsNextPageInContext(true);        
