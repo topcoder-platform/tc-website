@@ -146,7 +146,7 @@ public class CallbackAction extends BaseAction {
                 if (url.length > 1) {
                     String np = URIUtil.decode(url[0]);
 					String[] params = StringUtils.split(url[1], '&');
-					if (params.length > 1) {
+					if (params.length > 1 && params[0].indexOf("sso") != -1) {
 						sso = (StringUtils.split(params[0], '='))[1];
 						sig = (StringUtils.split(params[1], '='))[1];
 						nextPage = np;
