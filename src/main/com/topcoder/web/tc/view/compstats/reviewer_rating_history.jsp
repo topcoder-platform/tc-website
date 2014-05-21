@@ -266,7 +266,6 @@
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=${cr}" class="bcLink">Member Profile</A>
  | <A HREF="/tc?module=CompetitionHistory&pt=${pt}&cr=${cr}" class="bcLink">Competition History</A>
- | <A HREF="/tc?module=OutstandingProjects&pt=${pt}&cr=${cr}" class="bcLink">Current Challenges</A>
  | <A HREF="/tc?module=ReliabilityDetail&pt=${pt}&cr=${cr}" class="bcLink">Reliability Detail</A>
  | Reviewer Rating History
 </span>

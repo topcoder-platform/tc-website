@@ -46,7 +46,6 @@
                         
                         <ul class="masterLink">
                             <li><a href='/tc?module=CompetitionHistory&<%=Constants.PHASE_ID%>=<%=request.getParameter("phase_id")%>&cr=<%=request.getParameter("cr")%>'>Competition History</a></li>
-                            <li><a href='/tc?module=OutstandingProjects&<%=Constants.PHASE_ID%>=<%=request.getParameter("phase_id")%>&cr=<%=request.getParameter("cr")%>'>Current Challenges</a></li>
                             <li><a href='/tc?module=ReliabilityDetail&ph=<%=request.getParameter("phase_id")%>&cr=<%=request.getParameter("cr")%>'>Reliability Detail</a></li>
                         </ul>
                         <!--End masterLink-->
