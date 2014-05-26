@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 - 2013 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2012 - 2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.forums;
 
@@ -103,8 +103,15 @@ import java.util.Map;
  * </ul>
  * </p>
  *
- * @author mtong, duxiaoyang, TCSASSEMBLER
- * @version 1.5
+ * <p>
+ * Version 1.6 (Release Assembly - Port Design Challenge Forum to use Dev Forum)
+ * <ul>
+ *     <li>Added {@link #createStudioForumV2(long, String)}</li>
+ * </ul>
+ * </p>
+ *
+ * @author mtong, duxiaoyang
+ * @version 1.6
  */
 
 public class ForumsBean extends BaseEJB {
@@ -1323,6 +1330,57 @@ public class ForumsBean extends BaseEJB {
             return -1;
         }
     }
+
+    /**
+     * Creates the studio forum
+     *
+     * @param studioForumRootCategoryId the root category id the studio contest forum created in
+     * @param forumName the name of the forum
+     * @return the created forum id.
+     * @since 1.6
+     */
+    public long createStudioForumV2(long studioForumRootCategoryId, String forumName) {
+        try {
+
+            ForumCategory category = forumFactory.getForumCategory(studioForumRootCategoryId);
+
+            Forum forum = forumFactory.createForum(forumName, "", category);
+
+            //TODO, user Applications for now
+            long userId = 22770213;
+            User user = forumFactory.getUserManager().getUser(userId);
+
+            ForumMessage forumMessage = forum.createMessage(user);
+            forumMessage.setBody("Spec Review Discussion");
+            forumMessage.setSubject("Spec Review Discussion");
+            forumMessage.setCreationDate(new Date());
+            forumMessage.setModificationDate(new Date());
+            log.debug("Created ForumMessage with id " + forumMessage.getID() + " with user with id " + userId
+                    + " and comment (message body): ");
+
+
+            // create thread with forumMessage as root message
+            ForumThread thread = forum.createThread(forumMessage);
+            log.debug("Created new thread with id " + thread.getID() + " and root message with id "
+                    + forumMessage.getID() + "!");
+
+            // set creation and modification date of the thread to the date
+            // of the UserComment
+            thread.setCreationDate(new Date());
+            thread.setModificationDate(new Date());
+            forum.addThread(thread);
+            log.debug("Added thread with id " + thread.getID() + " and root message with id "
+                    + forumMessage.getID() + " to forum with id " + forum.getID() + "!");
+
+            long forumID = forum.getID();
+
+            return forumID;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
 
     public void createForumWatch(long userID, long forumID) throws Exception {
         try {

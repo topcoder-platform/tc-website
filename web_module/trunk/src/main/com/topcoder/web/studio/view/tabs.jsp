@@ -1,7 +1,7 @@
 <%--
-  - Author: isv, pvmagacho
-  - Version: 1.2 
-  - Copyright (C) 2010-2013 TopCoder Inc., All Rights Reserved.
+  - Author: isv, pvmagacho, GreatKevin
+  - Version: 1.2.1
+  - Copyright (C) 2010 - 2014 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders the tabs for Studio Contest Detail pages.
   - Version 1.0 (Studio Contest Detail Pages assembly)
@@ -9,6 +9,8 @@
   -     - Updated the logic to use contests hosted in tcs_catalog database
   - Version 1.2 (TC Cockpit - Studio - Final Fixes Integration Part Two Assembly) change notes:
   -     - Added Final Fix tabs.
+  - Version 1.2.1 (Release Assembly - Port Design Challenge Forum to use Dev Forum)
+  -     - Contest forum link based on the project_info - forum type
 --%>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
@@ -29,8 +31,16 @@
 <c:set var="isFinished" value="${contest.reviewClosed}"/>
 
 <div id="thirdNavi">
-    <studio:forumLink forumID="${contest.forumId}" styleClass="contestForum"
-                      message="<span class=\"right\"><span class=\"middle\">Challenge Forum &raquo;</span></span>"/>
+    <c:choose>
+        <c:when test="${contest.newForum}">
+            <a class="contestForum" href="http://apps.topcoder.com/forums?module=ThreadList&amp;forumID=${contest.forumId}"><span class="right"><span class="middle">Challenge Forum &raquo;</span></span></a>
+        </c:when>
+        <c:otherwise>
+            <studio:forumLink forumID="${contest.forumId}" styleClass="contestForum"
+                              message="<span class=\"right\"><span class=\"middle\">Challenge Forum &raquo;</span></span>"/>
+        </c:otherwise>
+    </c:choose>
+
     <ul>
         <li>
             <a ${currentTab eq 'd' ? 'class="current"' : ''}

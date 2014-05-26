@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2013 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.dto;
 
@@ -76,9 +76,17 @@ import java.util.TreeSet;
  *     <li>Added private <code>Project#PhasesComparator</code> class.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ * Version 1.5 (Release Assembly - Port Design Challenge Forum to use Dev Forum)
+ *  <ul>
+ *      <li>Added {@link #INFO_TYPE_FORUM_TYPE}</li>
+ *      <li>Added {@link #isNewForum()}</li>
+ *  </ul>
+ * </p>
  * 
- * @author isv, pvmagacho
- * @version 1.4
+ * @author isv, pvmagacho, GreatKevin
+ * @version 1.5
  */
 public class Project extends Base {
 
@@ -145,6 +153,13 @@ public class Project extends Base {
     public static final Integer INFO_TYPE_DR_ENABLED = 26;
 
     public static final String ELIGIBILITY_OPEN = "Open";
+
+    /**
+     * <p>An <code>Integer</code> providing the ID for <code>Forum Type</code> project info type.</p>
+     *
+     * @since 1.5
+     */
+    public static final Integer INFO_TYPE_FORUM_TYPE = 78;
 
     protected Integer id = null;
     protected Integer statusId = null;
@@ -407,6 +422,21 @@ public class Project extends Base {
         } else {
             return null;
         }
+    }
+
+    /**
+     * Returns whether the contest uses the new forum
+     *
+     * @return whether the contest uses the new forum
+     * @since 1.5
+     */
+    public boolean isNewForum() {
+        String forumType = getInfo(INFO_TYPE_FORUM_TYPE);
+        if((forumType != null) && (forumType.trim().length() > 0)) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
