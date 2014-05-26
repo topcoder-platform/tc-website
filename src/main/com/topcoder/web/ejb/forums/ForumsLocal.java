@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2012 - 2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.forums;
 
@@ -36,9 +36,16 @@ import java.util.Map;
  *     <li>Added {@link #deleteTopCoderDirectProjectForum(long, long)} to delete a direct project forum.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ * Version 1.3 (Release Assembly - Port Design Challenge Forum to use Dev Forum)
+ * <ul>
+ *     <li>Added {@link #createStudioForumV2(long, String)}</li>
+ * </ul>
+ * </p>
  * 
- * @author mtong, TCSASSEMBER, duxiaoyang
- * @version 1.2
+ * @author mtong, duxiaoyang, GreatKevin
+ * @version 1.3
  */
 public interface ForumsLocal extends EJBLocalObject {
 
@@ -115,6 +122,17 @@ public interface ForumsLocal extends EJBLocalObject {
     public long createMarathonForum(long roundID, String name) throws EJBException;
     
     public long createStudioForum(String name) throws EJBException;
+
+    /**
+     * Creates the studio forum
+     *
+     * @param studioForumRootCategoryId the root category id the studio contest forum created in
+     * @param forumName the name of the forum
+     * @return the created forum id.
+     * @throws javax.ejb.EJBException if there is any error.
+     * @since 1.3
+     */
+    public long createStudioForumV2(long studioForumRootCategoryId, String forumName) throws EJBException;
     
     public void createForumWatch(long userID, long forumID) throws EJBException, Exception;
 

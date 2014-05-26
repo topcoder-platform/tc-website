@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2011 - 2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.forums;
 
@@ -55,9 +55,16 @@ import com.jivesoftware.forum.ForumNotFoundException;
  *     {@link #migrateCloudSpokesForumData(long, long, String, ForumThreadData, Long[], Long[], long)}</li>
  * </ul>
  * </p>
+ *
+ * <p>
+ * Version 1.6 (Release Assembly - Port Design Challenge Forum to use Dev Forum)
+ * <ul>
+ *     <li>Added {@link #createStudioForumV2(long, String)}</li>
+ * </ul>
+ * </p>
  * 
- * @author duxiaoyang, TCSASSEMBLER
- * @version 1.5
+ * @author duxiaoyang, GreatKevin
+ * @version 1.6
  */
 public interface Forums extends EJBObject {
     
@@ -110,6 +117,18 @@ public interface Forums extends EJBObject {
     public long createMarathonForum(long roundID, String name) throws EJBException, RemoteException;
     
     public long createStudioForum(String name) throws EJBException, RemoteException;
+
+    /**
+     * Creates the studio forum
+     *
+     * @param studioForumRootCategoryId the root category id the studio contest forum created in
+     * @param forumName the name of the forum
+     * @return the created forum id.
+     * @throws javax.ejb.EJBException
+     * @throws java.rmi.RemoteException
+     * @since 1.6
+     */
+    public long createStudioForumV2(long studioForumRootCategoryId, String forumName) throws EJBException, RemoteException;
     
     public void createForumWatch(long userID, long forumID) throws Exception, EJBException, RemoteException;
 
@@ -118,7 +137,7 @@ public interface Forums extends EJBObject {
     /**
      * Update the studio forum category name.
      *
-     * @param categeoryId the id of the category to update
+     * @param categoryID the id of the category to update
      * @param name the new category name
      */
     public void updateStudioForumName(long categoryID, String name) throws EJBException, RemoteException,Exception;
