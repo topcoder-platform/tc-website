@@ -1,9 +1,18 @@
 /*
- * Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.utilities.dwload;
 
-import java.sql.Connection;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.dwload.CacheClearer;
+import com.topcoder.shared.util.dwload.TCLoad;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.utilities.dwload.contestresult.ContestResult;
+import com.topcoder.utilities.dwload.contestresult.ContestResultCalculator;
+import com.topcoder.utilities.dwload.contestresult.ProjectResult;
+import com.topcoder.utilities.dwload.contestresult.TopPerformersCalculator;
+import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV2;
+
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,16 +31,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.dwload.CacheClearer;
-import com.topcoder.shared.util.dwload.TCLoad;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.utilities.dwload.contestresult.ContestResult;
-import com.topcoder.utilities.dwload.contestresult.ContestResultCalculator;
-import com.topcoder.utilities.dwload.contestresult.ProjectResult;
-import com.topcoder.utilities.dwload.contestresult.TopPerformersCalculator;
-import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV2;
+import java.util.Set;
 
 /**
  * <p><strong>Purpose</strong>:
@@ -125,8 +125,19 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  * </ul>
  * </p>
  *
- * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv, minhu, Blues
- * @version 1.2.2
+ * <p>
+ * Version 1.2.3 (TCS Data Loader Updates Assembly)
+ * <ul>
+ *     <li>Updated {@link #doLoadProjects()} to load data for newly added column in tcs_dw:project
+ *     (1)first_place_prize (2) num_checkpoint_submissions (3) num_valid_checkpoint_submissions </li>
+ *     <li>Added {@link #doLoadProjectPlatforms()} to load project platforms </li>
+ *     <li>Added {@link #doLoadProjectTechnologies()} to load project technologies</li>
+ *     <li>Updated {@link #deleteProject(long)} to delete project tech/platform</li>
+ * </ul>
+ * </p>
+ *
+ * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv, minhu, Blues, TCSASSEMBLER
+ * @version 1.2.3
  */
 public class TCLoadTCS extends TCLoad {
 
@@ -263,6 +274,10 @@ public class TCLoadTCS extends TCLoad {
             doLoadDirectProjectDim();
 
             doLoadProjects();
+
+            doLoadProjectPlatforms();
+
+            doLoadProjectTechnologies();
 
             doLoadSpecReviews();
 
@@ -871,6 +886,11 @@ public class TCLoadTCS extends TCLoad {
                             "   ,(select count(*) from submission sub, upload where sub.submission_type_id = 1 and sub.upload_id = upload.upload_id and project_id = p.project_id and submission_status_id <> 5) as num_submissions " +
                             //todo this should probably use the flag on project result in the dw, not got back to the submission table in transactional
                             "   ,(select count(*) from submission s, upload where s.submission_type_id = 1 and upload.upload_id = s.upload_id and project_id = p.project_id and submission_status_id in (1, 3, 4)) as num_valid_submissions " +
+
+                            "   ,(select count(*) from submission sub, upload where sub.submission_type_id = 3 and sub.upload_id = upload.upload_id and project_id = p.project_id and submission_status_id <> 5) as num_checkpoint_submissions " +
+                            "   ,(select count(*) from submission s, upload where s.submission_type_id = 3 and upload.upload_id = s.upload_id and project_id = p.project_id and submission_status_id in (1, 3, 4, 7)) as num_valid_checkpoint_submissions " +
+                            "   ,(select SUM(prize_amount) from prize pr where pr.prize_type_id = 15 and  pr.project_id = p.project_id and pr.place = 1) as first_place_prize " +
+
                             //todo this should use the flag on project result, not go back to transactional
                             "   ,(select count(*) from submission s, upload u where s.submission_type_id = 1 and u.upload_id = s.upload_id and project_id = p.project_id and submission_status_id in (1, 4)) as num_submissions_passed_review " +
                             //todo again...none of this aggregate data should come from transactional
@@ -945,6 +965,7 @@ public class TCLoadTCS extends TCLoad {
                           "             and pm2.most_recent_detail_id = pmd2.payment_detail_id  " +
                           "             AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0) " +
                           "   end AS contest_prizes_total " +
+                            ", (select NVL( SUM(pr.number_of_submissions * pr.prize_amount) , 0 ) from prize pr where pr.project_id = p.project_id and pr.prize_type_id IN (14, 15)) AS total_prize " +
                             "   , pib.value AS billing_project_id " +
                             "   , case when pcl.project_type_id != 3 and p.project_category_id not in (9,29,39) then  " +
                             "         (SELECT MAX(ppfr.actual_end_time) " +
@@ -1032,7 +1053,8 @@ public class TCLoadTCS extends TCLoad {
                     "rating_date = ?, num_submissions_passed_review=?, winner_id=?, stage_id = ?, digital_run_ind = ?, " +
                     "suspended_ind = ?, project_category_id = ?, project_category_name = ?, " +
                     "tc_direct_project_id = ?, admin_fee = ?, contest_prizes_total = ?, " +
-                    "client_project_id = ?, duration = ? , last_modification_date = current " +
+                    "client_project_id = ?, duration = ? , last_modification_date = current, " +
+                    "first_place_prize = ?, num_checkpoint_submissions = ? , num_valid_checkpoint_submissions = ?, total_prize = ? " +
                     "where project_id = ? ";
 
             final String INSERT = "insert into project (project_id, component_name, num_registrations, num_submissions, " +
@@ -1040,14 +1062,14 @@ public class TCLoadTCS extends TCLoad {
                     "category_id, category_desc, posting_date, submitby_date, complete_date, component_id, " +
                     "review_phase_id, review_phase_name, status_id, status_desc, level_id, viewable_category_ind, version_id, " +
                     "version_text, rating_date, num_submissions_passed_review, winner_id, stage_id, digital_run_ind, suspended_ind, project_category_id, project_category_name, " +
-                    "tc_direct_project_id, admin_fee, contest_prizes_total, client_project_id, duration, last_modification_date) " +
+                    "tc_direct_project_id, admin_fee, contest_prizes_total, client_project_id, duration, last_modification_date, first_place_prize, num_checkpoint_submissions, num_valid_checkpoint_submissions, total_prize) " +
                     "values (?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, ?, ?, ?, ?, " +
-                    "?, ?, current) ";
+                    "?, ?, current, ?, ?, ?, ?) ";
 
             // Statements for updating the duration, fulfillment, start_date_calendar_id fields
             final String UPDATE_AGAIN = "UPDATE project SET " +
@@ -1185,8 +1207,14 @@ public class TCLoadTCS extends TCLoad {
                     } else {
                         update.setNull(35, Types.DECIMAL);
                     }
-                    
-                    update.setLong(36, rs.getLong("project_id"));     System.out.println("------------project id --------------------------"+rs.getLong("project_id"));
+
+                    update.setDouble(36, rs.getDouble("first_place_prize"));
+                    update.setInt(37, rs.getInt("num_checkpoint_submissions"));
+                    update.setInt(38, rs.getInt("num_valid_checkpoint_submissions"));
+                    update.setDouble(39, rs.getDouble("total_prize"));
+
+                    update.setLong(40, rs.getLong("project_id"));
+                    System.out.println("------------project id --------------------------"+rs.getLong("project_id"));
 
                     int retVal = update.executeUpdate();
 
@@ -1268,6 +1296,12 @@ public class TCLoadTCS extends TCLoad {
                             insert.setNull(36, Types.DECIMAL);
                         }
 
+
+                        insert.setDouble(37, rs.getDouble("first_place_prize"));
+                        insert.setInt(38, rs.getInt("num_checkpoint_submissions"));
+                        insert.setInt(39, rs.getInt("num_valid_checkpoint_submissions"));
+                        insert.setDouble(40, rs.getDouble("total_prize"));
+
                         insert.executeUpdate();
                     }
                 } else {
@@ -1297,6 +1331,187 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
+
+    /**
+     * Load the project platforms data
+     *
+     * @throws Exception if any error.
+     * @since 1.2.3
+     */
+    public void doLoadProjectPlatforms() throws Exception {
+        log.info("load project platforms");
+
+        PreparedStatement firstTimeSelect = null;
+        PreparedStatement deletePlatforms = null;
+        PreparedStatement selectPlatforms = null;
+        PreparedStatement insertPlatforms = null;
+        ResultSet rs = null;
+        Set<Long> deletedProjects = new HashSet<Long>();
+
+        try {
+            long start = System.currentTimeMillis();
+
+            firstTimeSelect = prepareStatement("SELECT count(*) from project_platform", TARGET_DB);
+            rs = firstTimeSelect.executeQuery();
+            rs.next();
+
+            // no records, it's the first run of loading platforms
+            boolean firstRun = rs.getInt(1) == 0;
+
+            if(firstRun) log.info("Loading project platform table for the first time. A complete load will be performed");
+
+            final String SELECT = "select pp.project_id, pp.project_platform_id, ppl.name from project_platform pp, project_platform_lu ppl, project p where pp.project_platform_id = ppl.project_platform_id and pp.project_id = p.project_id \n" +
+                    (firstRun ? "" : " and (p.create_date > ? OR p.modify_date > ?);");
+
+            selectPlatforms = prepareStatement(SELECT, SOURCE_DB);
+
+            if(!firstRun) {
+                // no the first time, set last loading time
+                selectPlatforms.setTimestamp(1, fLastLogTime);
+                selectPlatforms.setTimestamp(2, fLastLogTime);
+            }
+
+
+            final String DELETE = "delete from project_platform where project_id = ?";
+            deletePlatforms = prepareStatement(DELETE, TARGET_DB);
+
+            final String INSERT = "insert into project_platform (project_id, project_platform_id, name) VALUES(?, ?, ?)";
+            insertPlatforms = prepareStatement(INSERT, TARGET_DB);
+
+            rs = selectPlatforms.executeQuery();
+
+            int countRecords = 0;
+
+            while (rs.next()) {
+                long projectID = rs.getLong("project_id");
+                long projectPlatformID = rs.getLong("project_platform_id");
+                String name = rs.getString("name");
+
+                if(!firstRun && !deletedProjects.contains(projectID)) {
+                    // the load is not run for the first time && it's not processed in this load, clear the old platforms for the project
+                    deletePlatforms.clearParameters();
+                    deletePlatforms.setLong(1, projectID);
+                    deletePlatforms.executeUpdate();
+                    deletedProjects.add(projectID);
+                }
+
+                insertPlatforms.clearParameters();
+                insertPlatforms.setLong(1, projectID);
+                insertPlatforms.setLong(2, projectPlatformID);
+                insertPlatforms.setString(3, name);
+
+                insertPlatforms.executeUpdate();
+                countRecords ++;
+            }
+
+            log.info("Loaded " + countRecords + " records in "  + (System.currentTimeMillis() - start) / 1000 + " seconds");
+
+        } catch(SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load Project Platforms failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rs);
+            close(firstTimeSelect);
+            close(selectPlatforms);
+            close(deletePlatforms);
+            close(insertPlatforms);
+            deletedProjects.clear();
+            deletedProjects = null;
+        }
+
+    }
+
+    /**
+     * Loads the project technologies.
+     *
+     * @throws Exception if any error.
+     * @since 1.2.3
+     */
+    public void doLoadProjectTechnologies() throws Exception {
+        log.info("load project technologies");
+
+        PreparedStatement firstTimeSelect = null;
+        PreparedStatement deleteTechnologies = null;
+        PreparedStatement selectTechnologies = null;
+        PreparedStatement insertTechnologies = null;
+        ResultSet rs = null;
+        Set<Long> deletedProjects = new HashSet<Long>();
+
+        try {
+            long start = System.currentTimeMillis();
+
+            firstTimeSelect = prepareStatement("SELECT count(*) from project_technology", TARGET_DB);
+            rs = firstTimeSelect.executeQuery();
+            rs.next();
+
+            // no records, it's the first run of loading technologies
+            boolean firstRun = rs.getInt(1) == 0;
+
+            if(firstRun) log.info("Loading project technology table for the first time. A complete load will be performed");
+
+            final String SELECT = "select p.project_id, ct.technology_type_id, ttl.technology_name from project p, project_info pi, comp_technology ct, technology_types ttl \n" +
+                    "where p.project_id = pi.project_id AND pi.project_info_type_id = 1 AND pi.value = ct.comp_vers_id and ct.technology_type_id = ttl.technology_type_id " +
+                    (firstRun ? "" : " AND (p.create_date > ? OR p.modify_date > ?)");
+
+            selectTechnologies = prepareStatement(SELECT, SOURCE_DB);
+
+            if(!firstRun) {
+                // no the first time, set last loading time
+                selectTechnologies.setTimestamp(1, fLastLogTime);
+                selectTechnologies.setTimestamp(2, fLastLogTime);
+            }
+
+
+            final String DELETE = "delete from project_technology where project_id = ?";
+            deleteTechnologies = prepareStatement(DELETE, TARGET_DB);
+
+            final String INSERT = "insert into project_technology (project_id, project_technology_id, name) VALUES(?, ?, ?)";
+            insertTechnologies = prepareStatement(INSERT, TARGET_DB);
+
+            rs = selectTechnologies.executeQuery();
+
+            int countRecords = 0;
+
+            while (rs.next()) {
+                long projectID = rs.getLong("project_id");
+                long projectTechnologyID = rs.getLong("technology_type_id");
+                String name = rs.getString("technology_name");
+
+                if(!firstRun && !deletedProjects.contains(projectID)) {
+                    // the load is not run for the first time && it's not processed in this load, clear the old technologies for the project
+                    deleteTechnologies.clearParameters();
+                    deleteTechnologies.setLong(1, projectID);
+                    deleteTechnologies.executeUpdate();
+                    deletedProjects.add(projectID);
+                }
+
+                insertTechnologies.clearParameters();
+                insertTechnologies.setLong(1, projectID);
+                insertTechnologies.setLong(2, projectTechnologyID);
+                insertTechnologies.setString(3, name);
+
+                insertTechnologies.executeUpdate();
+                countRecords ++;
+            }
+
+            log.info("Loaded " + countRecords + " records in "  + (System.currentTimeMillis() - start) / 1000 + " seconds");
+
+        } catch(SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load Project technologies failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rs);
+            close(firstTimeSelect);
+            close(selectTechnologies);
+            close(deleteTechnologies);
+            close(insertTechnologies);
+            deletedProjects.clear();
+            deletedProjects = null;
+        }
+    }
+
     /**
      * Helper method that deletes all project related objects in the dw.
      *
@@ -1319,6 +1534,8 @@ public class TCLoadTCS extends TCLoad {
         simpleDelete("appeal", "project_id", projectId);
         simpleDelete("project_result", "project_id", projectId);
         simpleDelete("project_spec_review_xref", "project_id", projectId);
+        simpleDelete("project_platform", "project_id", projectId);
+        simpleDelete("project_technology", "project_id", projectId);
         simpleDelete("project", "project_id", projectId);
     }
 
