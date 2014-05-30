@@ -11,7 +11,15 @@
     %>
 <input type="hidden" id="nodeName" value="<%= nodeName %>"/>
 <script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
-<section class="navigation">
+
+    <section class="get-time" style="margin-bottom:15px">
+        <fmt:setLocale value="en_US"/>
+        <span class="date"><fmt:formatDate pattern="MMMM dd, yyyy" value="${now}"/></span>
+        <a href="javascript:tcTime();">Get Time</a>
+    </section>
+    <!-- End .get-time -->
+
+    <section class="navigation">
     <ul>
         <li><a href="http://www.topcoder.com/active-challenges/design/">Design</a></li>
         <li>
@@ -242,10 +250,5 @@
 </section>
 <c:set var="now" value="<%=new java.util.Date()%>" />
 <!-- End .member-search -->
-<section class="get-time">
-    <fmt:setLocale value="en_US" />
-    <span class="date"><fmt:formatDate pattern="MMMM dd, yyyy" value="${now}" /></span>
-    <a href="javascript:tcTime();">Get Time</a>
-</section>
-<!-- End .get-time -->
+
 </div>
