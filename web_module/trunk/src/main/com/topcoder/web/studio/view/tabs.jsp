@@ -33,7 +33,7 @@
 <div id="thirdNavi">
     <c:choose>
         <c:when test="${contest.newForum}">
-            <a class="contestForum" href="http://apps.topcoder.com/forums?module=ThreadList&amp;forumID=${contest.forumId}"><span class="right"><span class="middle">Challenge Forum &raquo;</span></span></a>
+            <a class="contestForum" href="http://apps.topcoder.com/forums/?module=ThreadList&amp;forumID=${contest.forumId}"><span class="right"><span class="middle">Challenge Forum &raquo;</span></span></a>
         </c:when>
         <c:otherwise>
             <studio:forumLink forumID="${contest.forumId}" styleClass="contestForum"
