@@ -62,6 +62,7 @@ New Software Reports
 
 
     <LI><A HREF="<%=baseTCSDWURL+"bonus_first_dev_complete&days=60"%>">Bonus for designer whose components were completed in the first development competition (list 60 days)</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"Challenge_Health_v1&days=60&legacy=true"%>">Challenge_Health_v1 (list 60 days)</a></LI>
 </UL>
 <br/>
 
