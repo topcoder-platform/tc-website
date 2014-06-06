@@ -54,6 +54,9 @@
             <Property name="DOCUSIGN_TEMPLATE_ID_FOR_NDA">
                 <Value>handlerForAppirioNDA</Value>
             </Property>
+			<Property name="DOCUSIGN_TEMPLATE_ID_FOR_NDAv2">
+                <Value>handlerForAppirioNDAv2</Value>
+            </Property>
             <Property name="DOCUSIGN_TEMPLATE_ID_FOR_AFFIDAVIT">
                 <Value>handlerForAffidavit</Value>
             </Property>
@@ -137,6 +140,21 @@
                 </Property>
             </Property>
         </Property>
+		<Property name="handlerForAppirioNDAv2">
+			<Property name="type">
+				<Value>com.topcoder.web.tc.controller.request.docusign.handlers.TermsOfUseHandler</Value>
+			</Property>
+			<Property name="params">
+				<Property name="param1">
+					<Property name="type">
+						<Value>long</Value>
+					</Property>
+					<Property name="value">
+						<Value>21153</Value>
+					</Property>
+				</Property>
+			</Property>
+		</Property>
         <Property name="handlerForAffidavit">
             <Property name="type">
                 <Value>com.topcoder.web.tc.controller.request.docusign.handlers.AffidavitHandler</Value>
