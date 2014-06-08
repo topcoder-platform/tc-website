@@ -79,7 +79,13 @@
           <div class="emblem"><img src="/i/tournament/tco14/emblem.png" alt="TCO14" /></div>
           <strong><A href="http://community.topcoder.com/tco14/algorithm/">Algorithm Round 2B</A></strong><br />
           12:00<br />
-        </div>
+        </div>      
+         <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15995">EPA Cyano Modeling Challenge</a></strong><br />
+         23:00<br />
+         3 weeks<br />
+         $15K Prizes
+         </div>
       </td>
    </tr>
 
