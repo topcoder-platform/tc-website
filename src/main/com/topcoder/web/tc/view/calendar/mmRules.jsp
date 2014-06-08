@@ -309,7 +309,7 @@ Additionally, there are two $700 USD and $300 USD prizes for unusual and perspec
 </p>
 <% } %>
 
-<% if (roundId == 15995) { %>
+<% if (round_id == 15995) { %>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">The prize purse for this challenge is 15,000 USD! The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
