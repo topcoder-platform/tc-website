@@ -97,6 +97,12 @@
       <td class="value">10
       </td>
       <td class="value">11
+         <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=16001">OmegaDetector MM</a></strong><br />
+         14:00<br />
+         3 weeks<br />
+         $15K Prizes
+         </div>
       </td>
       <td class="value">12
         <div class="srm">
