@@ -136,8 +136,20 @@ import java.util.Set;
  * </ul>
  * </p>
  *
+ * <p>
+ * Version 1.2.4 (TC Design Contest Loader)
+ * <ul>
+ *    <li>Added {@link #STUDIO_DR_PERCENTAGE_TABLE}</li>
+ *    <li>Added {@link #CHECKPOINT_SUBMISSION_TYPE_ID}</li>
+ *    <li>Added method {@link #loadDRContestResults(int, java.sql.Timestamp, java.sql.Timestamp, int, int, String, double)}</li>
+ *    <li>Added method {@link #getDesignContestUserDRPoints(double, int, int)}</li>
+ *    <li>Updated {@link #performLoad()} to add calling of new method {@link #doLoadDesignProjectResults()}</li>
+ *    <li>Updated {@link #deleteProject(long)} to delete records in design_project_result for the project to delete</li>
+ * </ul>
+ * </p>
+ *
  * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv, minhu, Blues, TCSASSEMBLER
- * @version 1.2.3
+ * @version 1.2.4
  */
 public class TCLoadTCS extends TCLoad {
 
@@ -154,10 +166,30 @@ public class TCLoadTCS extends TCLoad {
     private static final int[] RATED_CATEGORIES = new int[] {1, 2, 6, 7, 13, 14, 23, 26, 19, 24, 35, 36};
 
     /**
+     * The DR percentage table of the studio contests.
+     *
+     * @since 1.2.4
+     */
+    private static final double[][] STUDIO_DR_PERCENTAGE_TABLE = new double[][]{
+            new double[]{1, 0, 0, 0, 0},
+            new double[]{0.7, 0.3, 0, 0, 0},
+            new double[]{0.65, 0.25, 0.1, 0, 0},
+            new double[]{0.6, 0.22, 0.1, 0.08, 0},
+            new double[]{0.56, 0.2, 0.1, 0.08, 0.06}
+    };
+
+    /**
      * <p>We have too many projects to fit in a single IN statement in a retrieval query any more, so we'll split the
      * project result load into steps of this size.</p>
      */
     private static final int PROJECT_RESULT_LOAD_STEP_SIZE = 500;
+
+    /**
+     * The submission type id of checkpoint submission.
+     *
+     * @since 1.2.4
+     */
+    private static final int CHECKPOINT_SUBMISSION_TYPE_ID = 3;
 
     private static Logger log = Logger.getLogger(TCLoadTCS.class);
 
@@ -179,7 +211,7 @@ public class TCLoadTCS extends TCLoad {
      */
     private static final String ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT =
             " and p.project_id not in (select ce.contest_id from contest_eligibility ce " +
-            " where ce.is_studio = 0) ";
+                    " where ce.is_studio = 0) ";
 
     /**
      * Confirmed status.
@@ -188,6 +220,7 @@ public class TCLoadTCS extends TCLoad {
      */
     //private static final int CONFIRMED = 1;
 
+    public static final int INT1 = 3;
     /**
      * Passed review threshold for being eligible for the ROTY season.
      *
@@ -195,6 +228,7 @@ public class TCLoadTCS extends TCLoad {
      */
     //private static final int PASSED_REVIEW_THRESHOLD = 6;
 
+    public static final int INT = 3;
     /**
      * Potential status.
      *
@@ -290,6 +324,8 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadProjectResults();
 
+            doLoadDesignProjectResults();
+
 //            doLoadRookies();
 
             doLoadSubmissionScreening();
@@ -366,31 +402,31 @@ public class TCLoadTCS extends TCLoad {
 
 
     public void doClearCache() {
-        try {        
+        try {
             String[] keys = new String[]{
-            "member_projects", "project_results_all", "contest_prizes", "contest_projects", "project_details",
-            "tccc05_", "tccc06_", "tco07_", "usdc_", "component_history", "tcs_ratings_history",
-            "member_profile", "Coder_Data", "Coder_Track_Data", "Coder_Dev_Data", "Coder_Des_Data", "Component_",
-            "public_home_data", "top_designers", "top_developers", "tco04",
-            "coder_all_ratings", "tco05", "coder_dev", "coder_des", "coder_algo", "dd_track",
-            "dd_design", "dd_development", "dd_component", "comp_list", "find_projects", "get_review_scorecard",
-            "get_screening_scorecard", "project_info", "reviewers_for_project", "scorecard_details", "submissions",
-            "comp_contest_details", "dr_leader_board", "competition_history", "algo_competition_history",
-            "dr_current_period", "dr_stages", "dr_seasons", "component_color_change", "stage_outstanding_projects",
-            "season_outstanding_projects", "dr_results", "dr_stages", "dr_contests_for_stage",
-            "outstanding_projects", "dr_points_detail", "drv2_results", "dr_track_details", "dr_track_list",
-            "dr_concurrent_track", "event_", "software_"
-        };
+                    "member_projects", "project_results_all", "contest_prizes", "contest_projects", "project_details",
+                    "tccc05_", "tccc06_", "tco07_", "usdc_", "component_history", "tcs_ratings_history",
+                    "member_profile", "Coder_Data", "Coder_Track_Data", "Coder_Dev_Data", "Coder_Des_Data", "Component_",
+                    "public_home_data", "top_designers", "top_developers", "tco04",
+                    "coder_all_ratings", "tco05", "coder_dev", "coder_des", "coder_algo", "dd_track",
+                    "dd_design", "dd_development", "dd_component", "comp_list", "find_projects", "get_review_scorecard",
+                    "get_screening_scorecard", "project_info", "reviewers_for_project", "scorecard_details", "submissions",
+                    "comp_contest_details", "dr_leader_board", "competition_history", "algo_competition_history",
+                    "dr_current_period", "dr_stages", "dr_seasons", "component_color_change", "stage_outstanding_projects",
+                    "season_outstanding_projects", "dr_results", "dr_stages", "dr_contests_for_stage",
+                    "outstanding_projects", "dr_points_detail", "drv2_results", "dr_track_details", "dr_track_list",
+                    "dr_concurrent_track", "event_", "software_"
+            };
 
-        HashSet<String> s = new HashSet<String>();
-        for (String key : keys) {
-            s.add(key);
-        }
-        CacheClearer.removelike(s);
+            HashSet<String> s = new HashSet<String>();
+            for (String key : keys) {
+                s.add(key);
+            }
+            CacheClearer.removelike(s);
         } catch (Exception e) {
             log.error("An error caught while clearing the cache (ignored).", e);
-         }    
-       }
+        }
+    }
 
     protected void getLastUpdateTime() throws Exception {
         Statement stmt = null;
@@ -920,7 +956,7 @@ public class TCLoadTCS extends TCLoad {
                             "   ,p.tc_direct_project_id " +
                             "   ,piaf.value::DECIMAL(10,2) AS admin_fee " +
                             "   ,nvl((select cast (nvl(pi57.value, '0') as DECIMAL (10,2)) from project_info pi57" +
-                            "       where p.project_id = pi57.project_id and pi57.project_info_type_id = 57),0) as contest_fee_percentage " +                         
+                            "       where p.project_id = pi57.project_id and pi57.project_info_type_id = 57),0) as contest_fee_percentage " +
 //                            "   ,(SELECT SUM(value::decimal(10,2)) " +
 //                            "     FROM project_info costs " +
 //                            "     WHERE costs.project_id = p.project_id " +
@@ -930,41 +966,41 @@ public class TCLoadTCS extends TCLoad {
                             "     FROM informixoltp:payment pm INNER JOIN informixoltp:payment_detail pmd ON pm.most_recent_detail_id = pmd.payment_detail_id " +
                             "     WHERE pmd.component_project_id::int = p.project_id " +
                             "     AND NOT pmd.payment_status_id IN (65, 69)) " + */
-                           "   , case when p.project_status_id = 7 then " +
-                           "   NVL((SELECT sum(total_amount) " +
-                           "       FROM  informixoltp:payment_detail pmd, informixoltp:payment pm " +
-                           "        WHERE pmd.component_project_id = p.project_id and pmd.installment_number = 1 " +
-                           "        and pm.most_recent_detail_id = pmd.payment_detail_id  " +
-                           "        AND NOT pmd.payment_status_id IN (65, 68, 69)), 0) " +
-                           "    + " +
-                           "    NVL((SELECT sum(pmd2.total_amount)  " +
-                           "           FROM  informixoltp:payment_detail pmd,   " +
-                           "                 informixoltp:payment pm LEFT OUTER JOIN informixoltp:payment_detail pmd2 on pm.payment_id = pmd2.parent_payment_id,  " +
-                           "                 informixoltp:payment pm2  " +
-                           "            WHERE pmd.component_project_id = p.project_id and pmd2.installment_number = 1  " +
-                           "            and pm.most_recent_detail_id = pmd.payment_detail_id   " +
-                           "            and pm2.most_recent_detail_id = pmd2.payment_detail_id  " +
-                           "            AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0) " +
-                           "     + " +
-                           "    nvl((select nvl(sum (cast (nvl (pi30.value, '0') as DECIMAL (10,2))), 0) from project_info pi30, project_info pi26 " +
-                           "        where pi30.project_info_type_id = 30 and pi26.project_info_type_id = 26 and pi26.project_id = pi30.project_id  " +
-                           "        and pi26.value = 'On' " +
-                           "        and pi26.project_id =  p.project_id ), 0) " +
-                          "   else NVL((SELECT sum(total_amount) " +
-                          "        FROM  informixoltp:payment_detail pmd, informixoltp:payment pm " +
-                          "         WHERE pmd.component_project_id = p.project_id and pmd.installment_number = 1 " +
-                          "         and pm.most_recent_detail_id = pmd.payment_detail_id  " +
-                          "         AND NOT pmd.payment_status_id IN (65, 68, 69)), 0) " +
-                          "     + " +
-                          "     NVL((SELECT sum(pmd2.total_amount)  " +
-                          "            FROM  informixoltp:payment_detail pmd,   " +
-                          "                  informixoltp:payment pm LEFT OUTER JOIN informixoltp:payment_detail pmd2 on pm.payment_id = pmd2.parent_payment_id,  " +
-                          "                  informixoltp:payment pm2  " +
-                          "             WHERE pmd.component_project_id = p.project_id and pmd2.installment_number = 1  " +
-                          "             and pm.most_recent_detail_id = pmd.payment_detail_id   " +
-                          "             and pm2.most_recent_detail_id = pmd2.payment_detail_id  " +
-                          "             AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0) " +
-                          "   end AS contest_prizes_total " +
+                            "   , case when p.project_status_id = 7 then " +
+                            "   NVL((SELECT sum(total_amount) " +
+                            "       FROM  informixoltp:payment_detail pmd, informixoltp:payment pm " +
+                            "        WHERE pmd.component_project_id = p.project_id and pmd.installment_number = 1 " +
+                            "        and pm.most_recent_detail_id = pmd.payment_detail_id  " +
+                            "        AND NOT pmd.payment_status_id IN (65, 68, 69)), 0) " +
+                            "    + " +
+                            "    NVL((SELECT sum(pmd2.total_amount)  " +
+                            "           FROM  informixoltp:payment_detail pmd,   " +
+                            "                 informixoltp:payment pm LEFT OUTER JOIN informixoltp:payment_detail pmd2 on pm.payment_id = pmd2.parent_payment_id,  " +
+                            "                 informixoltp:payment pm2  " +
+                            "            WHERE pmd.component_project_id = p.project_id and pmd2.installment_number = 1  " +
+                            "            and pm.most_recent_detail_id = pmd.payment_detail_id   " +
+                            "            and pm2.most_recent_detail_id = pmd2.payment_detail_id  " +
+                            "            AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0) " +
+                            "     + " +
+                            "    nvl((select nvl(sum (cast (nvl (pi30.value, '0') as DECIMAL (10,2))), 0) from project_info pi30, project_info pi26 " +
+                            "        where pi30.project_info_type_id = 30 and pi26.project_info_type_id = 26 and pi26.project_id = pi30.project_id  " +
+                            "        and pi26.value = 'On' " +
+                            "        and pi26.project_id =  p.project_id ), 0) " +
+                            "   else NVL((SELECT sum(total_amount) " +
+                            "        FROM  informixoltp:payment_detail pmd, informixoltp:payment pm " +
+                            "         WHERE pmd.component_project_id = p.project_id and pmd.installment_number = 1 " +
+                            "         and pm.most_recent_detail_id = pmd.payment_detail_id  " +
+                            "         AND NOT pmd.payment_status_id IN (65, 68, 69)), 0) " +
+                            "     + " +
+                            "     NVL((SELECT sum(pmd2.total_amount)  " +
+                            "            FROM  informixoltp:payment_detail pmd,   " +
+                            "                  informixoltp:payment pm LEFT OUTER JOIN informixoltp:payment_detail pmd2 on pm.payment_id = pmd2.parent_payment_id,  " +
+                            "                  informixoltp:payment pm2  " +
+                            "             WHERE pmd.component_project_id = p.project_id and pmd2.installment_number = 1  " +
+                            "             and pm.most_recent_detail_id = pmd.payment_detail_id   " +
+                            "             and pm2.most_recent_detail_id = pmd2.payment_detail_id  " +
+                            "             AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0) " +
+                            "   end AS contest_prizes_total " +
                             ", (select NVL( SUM(pr.number_of_submissions * pr.prize_amount) , 0 ) from prize pr where pr.project_id = p.project_id and pr.prize_type_id IN (14, 15)) AS total_prize " +
                             "   , pib.value AS billing_project_id " +
                             "   , case when pcl.project_type_id != 3 and p.project_category_id not in (9,29,39) then  " +
@@ -1039,11 +1075,11 @@ public class TCLoadTCS extends TCLoad {
                             "   (u.create_date > ? or u.modify_date > ? or s.create_date > ? or s.modify_date > ?)) " +
                             // add projects who have modified results
                             "   or p.project_id in (select distinct pr.project_id from project_result pr where (pr.create_date > ? or pr.modify_date > ?)) " +
-							"   or p.project_id in (select distinct pi.project_id from project_info pi where project_info_type_id in  (2, 3, 21, 22, 23, 26, 31, 32) and (pi.create_date > ? or pi.modify_date > ?)) " +
+                            "   or p.project_id in (select distinct pi.project_id from project_info pi where project_info_type_id in  (2, 3, 21, 22, 23, 26, 31, 32) and (pi.create_date > ? or pi.modify_date > ?)) " +
                             "   or p.project_id in (select distinct pmd.component_project_id::int " +
                             "      FROM informixoltp:payment pm INNER JOIN informixoltp:payment_detail pmd ON pm.most_recent_detail_id = pmd.payment_detail_id " +
                             "      WHERE NOT pmd.payment_status_id IN (65, 69) AND (pmd.create_date > ? or pmd.date_modified > ? or pm.create_date > ? or pm.modify_date > ?)) " +
-                             (needLoadMovedProject() ? " OR p.modify_user <> 'Converter'  OR pir.modify_user <> 'Converter' )" : ")");
+                            (needLoadMovedProject() ? " OR p.modify_user <> 'Converter'  OR pir.modify_user <> 'Converter' )" : ")");
 
             final String UPDATE = "update project set component_name = ?,  num_registrations = ?, " +
                     "num_submissions = ?, num_valid_submissions = ?, avg_raw_score = ?, avg_final_score = ?, " +
@@ -1073,11 +1109,11 @@ public class TCLoadTCS extends TCLoad {
 
             // Statements for updating the duration, fulfillment, start_date_calendar_id fields
             final String UPDATE_AGAIN = "UPDATE project SET " +
-                                           "fulfillment = (CASE WHEN status_id = 7 THEN 1 ELSE 0 END), " +
-                                           "start_date_calendar_id = (SELECT calendar_id FROM calendar c WHERE YEAR(project.posting_date) = c.year " +
-                                           "                          AND MONTH(project.posting_date) = c.month_numeric " +
-                                           "                          AND DAY(project.posting_date) = c.day_of_month) " +
-                                           "WHERE complete_date IS NOT NULL AND tc_direct_project_id > 0 AND posting_date IS NOT NULL";
+                    "fulfillment = (CASE WHEN status_id = 7 THEN 1 ELSE 0 END), " +
+                    "start_date_calendar_id = (SELECT calendar_id FROM calendar c WHERE YEAR(project.posting_date) = c.year " +
+                    "                          AND MONTH(project.posting_date) = c.month_numeric " +
+                    "                          AND DAY(project.posting_date) = c.day_of_month) " +
+                    "WHERE complete_date IS NOT NULL AND tc_direct_project_id > 0 AND posting_date IS NOT NULL";
 
             select = prepareStatement(SELECT, SOURCE_DB);
             select.setTimestamp(1, fLastLogTime);
@@ -1095,7 +1131,7 @@ public class TCLoadTCS extends TCLoad {
             select.setTimestamp(13, fLastLogTime);
             select.setTimestamp(14, fLastLogTime);
             select.setTimestamp(15, fLastLogTime);
-			select.setTimestamp(16, fLastLogTime);
+            select.setTimestamp(16, fLastLogTime);
             update = prepareStatement(UPDATE, TARGET_DB);
             insert = prepareStatement(INSERT, TARGET_DB);
             updateAgain = prepareStatement(UPDATE_AGAIN, TARGET_DB);
@@ -1109,7 +1145,7 @@ public class TCLoadTCS extends TCLoad {
                         continue;
                         // throw new Exception("component " + rs.getString("component_name") + " has a version > 999");
                     }
-                    
+
                     long duration = -1;
 
                     Timestamp postingDate = rs.getTimestamp("posting_date");
@@ -1137,10 +1173,10 @@ public class TCLoadTCS extends TCLoad {
                     } else {
                         update.setNull(13, Types.TIMESTAMP);
                     }
-                    
+
                     if (actualCompleteDate != null && postingDate != null) {
-                            duration = actualCompleteDate.getTime() - postingDate.getTime();
-                    } 
+                        duration = actualCompleteDate.getTime() - postingDate.getTime();
+                    }
 
                     update.setLong(14, rs.getLong("component_id"));
                     update.setLong(15, rs.getLong("review_phase_id"));
@@ -1181,19 +1217,19 @@ public class TCLoadTCS extends TCLoad {
                     update.setInt(29, rs.getInt("project_category_id"));
                     update.setString(30, rs.getString("name"));
                     update.setLong(31, rs.getLong("tc_direct_project_id"));
-                    
+
                     double prizeTotal = rs.getDouble("contest_prizes_total");
                     double percentage = rs.getDouble("contest_fee_percentage");
-                    double adminFee = rs.getDouble("admin_fee");  
-					long projectStatusId = rs.getLong("project_stat_id");
-					if (projectStatusId == 4 ||  projectStatusId == 5 || projectStatusId == 6 || projectStatusId == 8 || projectStatusId == 11)
-					{
-						adminFee = 0;
-					}
+                    double adminFee = rs.getDouble("admin_fee");
+                    long projectStatusId = rs.getLong("project_stat_id");
+                    if (projectStatusId == 4 ||  projectStatusId == 5 || projectStatusId == 6 || projectStatusId == 8 || projectStatusId == 11)
+                    {
+                        adminFee = 0;
+                    }
                     update.setDouble(32, (percentage < 1e-5 ? adminFee : percentage * prizeTotal));
                     update.setDouble(33, prizeTotal);
                     if (rs.getString("billing_project_id") != null
-                        && !rs.getString("billing_project_id").equals("0"))
+                            && !rs.getString("billing_project_id").equals("0"))
                     {
                         update.setLong(34, rs.getLong("billing_project_id"));
                     }
@@ -1533,6 +1569,7 @@ public class TCLoadTCS extends TCLoad {
         simpleDelete("submission", "project_id", projectId);
         simpleDelete("appeal", "project_id", projectId);
         simpleDelete("project_result", "project_id", projectId);
+        simpleDelete("design_project_result", "project_id", projectId);
         simpleDelete("project_spec_review_xref", "project_id", projectId);
         simpleDelete("project_platform", "project_id", projectId);
         simpleDelete("project_technology", "project_id", projectId);
@@ -1555,7 +1592,7 @@ public class TCLoadTCS extends TCLoad {
         log.info("" + count + " records deleted in " + table + " table");
     }
 
-     /**
+    /**
      * <p/>
      * Load links between projects and spec reviews to the DW.
      * IMPORTANT: This will deprecate with the new spec review process when spec reviews are just phases in the parent
@@ -1841,10 +1878,10 @@ public class TCLoadTCS extends TCLoad {
                         "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         final String DR_POINTS_INSERT =
-            "insert into dr_points (dr_points_id, dr_points_status_id, track_id, dr_points_reference_type_id, "+
-                    " dr_points_operation_id, dr_points_type_id, dr_points_desc, user_id," +
-                    " amount, application_date, award_date, reference_id, is_potential) " +
-                    "values (?, 1, ?, 1, 1, 1, ?, ?, ?, ?, ?, ?, ?)";
+                "insert into dr_points (dr_points_id, dr_points_status_id, track_id, dr_points_reference_type_id, "+
+                        " dr_points_operation_id, dr_points_type_id, dr_points_desc, user_id," +
+                        " amount, application_date, award_date, reference_id, is_potential) " +
+                        "values (?, 1, ?, 1, 1, 1, ?, ?, ?, ?, ?, ?, ?)";
 
         final String DW_DATA_SELECT =
                 "select sum(num_appeals) as num_appeals" +
@@ -1892,289 +1929,289 @@ public class TCLoadTCS extends TCLoad {
             projects = projectSelect.executeQuery();
 
             while (projects.next()) {
-            	long start = System.currentTimeMillis();
+                long start = System.currentTimeMillis();
 
-            	try {
-		            StringBuffer buf = new StringBuffer(1000);
-		            buf.append(RESULT_SELECT);
-		            buf.append(" and p.project_id in (");
+                try {
+                    StringBuffer buf = new StringBuffer(1000);
+                    buf.append(RESULT_SELECT);
+                    buf.append(" and p.project_id in (");
 
-		            StringBuffer delQuery = new StringBuffer(300);
-		            delQuery.append("delete from project_result where project_id in (");
+                    StringBuffer delQuery = new StringBuffer(300);
+                    delQuery.append("delete from project_result where project_id in (");
 
-		            StringBuffer delDrPointsQuery = new StringBuffer(300);
-		            delDrPointsQuery.append("delete from dr_points where dr_points_reference_type_id = 1 and reference_id in (");
+                    StringBuffer delDrPointsQuery = new StringBuffer(300);
+                    delDrPointsQuery.append("delete from dr_points where dr_points_reference_type_id = 1 and reference_id in (");
 
-		            boolean projectsFound = false;
-		            int numProjectsFound = 0;
-		            do {
-		                projectsFound = true;
-		                ++numProjectsFound;
-		                buf.append(projects.getLong("project_id"));
-		                buf.append(",");
-		                delQuery.append(projects.getLong("project_id"));
-		                delQuery.append(",");
-		                delDrPointsQuery.append(projects.getLong("project_id"));
-		                delDrPointsQuery.append(",");
-		            } while (numProjectsFound < PROJECT_RESULT_LOAD_STEP_SIZE && projects.next());
-		            buf.setCharAt(buf.length() - 1, ')');
-		            delQuery.setCharAt(delQuery.length() - 1, ')');
-		            delDrPointsQuery.setCharAt(delDrPointsQuery.length() - 1, ')');
+                    boolean projectsFound = false;
+                    int numProjectsFound = 0;
+                    do {
+                        projectsFound = true;
+                        ++numProjectsFound;
+                        buf.append(projects.getLong("project_id"));
+                        buf.append(",");
+                        delQuery.append(projects.getLong("project_id"));
+                        delQuery.append(",");
+                        delDrPointsQuery.append(projects.getLong("project_id"));
+                        delDrPointsQuery.append(",");
+                    } while (numProjectsFound < PROJECT_RESULT_LOAD_STEP_SIZE && projects.next());
+                    buf.setCharAt(buf.length() - 1, ')');
+                    delQuery.setCharAt(delQuery.length() - 1, ')');
+                    delDrPointsQuery.setCharAt(delDrPointsQuery.length() - 1, ')');
 
-		            if (projectsFound) {
-		            	log.info("Loading next " + numProjectsFound + " projects...");
+                    if (projectsFound) {
+                        log.info("Loading next " + numProjectsFound + " projects...");
 
-		                List<Track> activeTracks = getActiveTracks();
+                        List<Track> activeTracks = getActiveTracks();
 
-		                resultSelect = prepareStatement(buf.toString(), SOURCE_DB);
+                        resultSelect = prepareStatement(buf.toString(), SOURCE_DB);
 
-		                delete = prepareStatement(delQuery.toString(), TARGET_DB);
-		                delete.executeUpdate();
+                        delete = prepareStatement(delQuery.toString(), TARGET_DB);
+                        delete.executeUpdate();
 
-		                // delete dr points for these projects.
-		                deleteDrPoints = prepareStatement(delDrPointsQuery.toString(), SOURCE_DB);
-		                deleteDrPoints.executeUpdate();
+                        // delete dr points for these projects.
+                        deleteDrPoints = prepareStatement(delDrPointsQuery.toString(), SOURCE_DB);
+                        deleteDrPoints.executeUpdate();
 
 
-		                // get max dr points id
-		                long drPointsId = getMaxDrPointsId();
+                        // get max dr points id
+                        long drPointsId = getMaxDrPointsId();
 
-		                int count = 0;
-		                //log.debug("PROCESSING PROJECT RESULTS " + project_id);
+                        int count = 0;
+                        //log.debug("PROCESSING PROJECT RESULTS " + project_id);
 
-		                projectResults = resultSelect.executeQuery();
+                        projectResults = resultSelect.executeQuery();
 
-		                HashMap<Long, Integer> ratingsMap;
-		                while (projectResults.next()) {
-		                    long project_id = projectResults.getLong("project_id");
+                        HashMap<Long, Integer> ratingsMap;
+                        while (projectResults.next()) {
+                            long project_id = projectResults.getLong("project_id");
 
-		                    psNumRatings.clearParameters();
-		                    psNumRatings.setLong(1, project_id);
-		                    numRatings = psNumRatings.executeQuery();
+                            psNumRatings.clearParameters();
+                            psNumRatings.setLong(1, project_id);
+                            numRatings = psNumRatings.executeQuery();
 
-		                    ratingsMap = new HashMap<Long, Integer>();
+                            ratingsMap = new HashMap<Long, Integer>();
 
-		                    while (numRatings.next()) {
-		                        ratingsMap.put(numRatings.getLong("user_id"), numRatings.getInt("count"));
-		                    }
+                            while (numRatings.next()) {
+                                ratingsMap.put(numRatings.getLong("user_id"), numRatings.getInt("count"));
+                            }
 
-		                    boolean passedReview = false;
-		                    try {
-		                        passedReview = projectResults.getInt("passed_review_ind") == 1;
-		                    } catch (Exception e) {
-		                        // do nothing
-		                    }
+                            boolean passedReview = false;
+                            try {
+                                passedReview = projectResults.getInt("passed_review_ind") == 1;
+                            } catch (Exception e) {
+                                // do nothing
+                            }
 
-		                    int placed = 0;
-		                    try {
-		                        placed = projectResults.getInt("placed");
-		                    } catch (Exception e) {
-		                        // do nothing
-		                    }
+                            int placed = 0;
+                            try {
+                                placed = projectResults.getInt("placed");
+                            } catch (Exception e) {
+                                // do nothing
+                            }
 
-		                    int numSubmissionsPassedReview = 0;
-		                    try {
-		                        numSubmissionsPassedReview = projectResults.getInt("num_submissions_passed_review");
-		                    } catch (Exception e) {
-		                        // do nothing
-		                    }
+                            int numSubmissionsPassedReview = 0;
+                            try {
+                                numSubmissionsPassedReview = projectResults.getInt("num_submissions_passed_review");
+                            } catch (Exception e) {
+                                // do nothing
+                            }
 
-		                    count++;
+                            count++;
 
-		                    double pointsAwarded = 0;
-		                    double potentialPoints = 0;
-		                    Integer stage = dRProjects.get(project_id);
+                            double pointsAwarded = 0;
+                            double potentialPoints = 0;
+                            Integer stage = dRProjects.get(project_id);
 
-		                    boolean hasDR = false;
+                            boolean hasDR = false;
 
-		                    if (stage != null &&
-		                            (projectResults.getInt("project_stat_id") == 7 ||  // COMPLETED
-                                             projectResults.getInt("project_stat_id") == 8 ||  // WINNER UNRESPONSIVE
-		                             projectResults.getInt("project_stat_id") == 1) && // ACTIVE
-		                            // Component Testing and RIA Build contests don't need to have the rating flag on to count
-		                            // towards DR.
-		                            (projectResults.getInt("rating_ind") == 1
-		                                    || projectResults.getInt("project_category_id") == 5
-		                                    || projectResults.getInt("project_category_id") == 24) &&
-		                            "On".equals(projectResults.getString("dr_ind"))) {
+                            if (stage != null &&
+                                    (projectResults.getInt("project_stat_id") == 7 ||  // COMPLETED
+                                            projectResults.getInt("project_stat_id") == 8 ||  // WINNER UNRESPONSIVE
+                                            projectResults.getInt("project_stat_id") == 1) && // ACTIVE
+                                    // Component Testing and RIA Build contests don't need to have the rating flag on to count
+                                    // towards DR.
+                                    (projectResults.getInt("rating_ind") == 1
+                                            || projectResults.getInt("project_category_id") == 5
+                                            || projectResults.getInt("project_category_id") == 24) &&
+                                    "On".equals(projectResults.getString("dr_ind"))) {
 
-		                        hasDR = true;
-		                        ContestResultCalculator crc = stageCalculators.get(stage);
-		                        if (crc != null) {
-		                            if (projectResults.getDouble("amount") < 0.01) {
-		                                log.warn("Project " + project_id + " has amount=0! Please check it.");
-		                            }
-		                            ProjectResult pr = new ProjectResult(project_id, projectResults.getInt("project_stat_id"), projectResults.getLong("user_id"),
-		                                    projectResults.getDouble("final_score"), placed,
-		                                    0, projectResults.getDouble("amount"), numSubmissionsPassedReview, passedReview);
+                                hasDR = true;
+                                ContestResultCalculator crc = stageCalculators.get(stage);
+                                if (crc != null) {
+                                    if (projectResults.getDouble("amount") < 0.01) {
+                                        log.warn("Project " + project_id + " has amount=0! Please check it.");
+                                    }
+                                    ProjectResult pr = new ProjectResult(project_id, projectResults.getInt("project_stat_id"), projectResults.getLong("user_id"),
+                                            projectResults.getDouble("final_score"), placed,
+                                            0, projectResults.getDouble("amount"), numSubmissionsPassedReview, passedReview);
 
-		                            if (projectResults.getInt("project_stat_id") == 7 || projectResults.getInt("project_stat_id") == 8) {
-		                                pointsAwarded = crc.calculatePointsAwarded(pr);
-		                            } else if (projectResults.getInt("valid_submission_ind") == 1) {
-		                                potentialPoints = crc.calculatePotentialPoints(pr);
-		                            }
-		                        }
-		                    } else if ((projectResults.getInt("project_stat_id") == 7 ||       // completed
-                                        projectResults.getInt("project_stat_id") == 8 ||       // winner unresponsive
-		                        projectResults.getInt("project_stat_id") == 1) &&       // active
-		                        "On".equals(projectResults.getString("dr_ind")) &&      // counts towards DR
-		                        projectResults.getObject("posting_date") != null &&     // has a posting date
-		                        projectResults.getObject("submission_date") != null) {  // has a submission
+                                    if (projectResults.getInt("project_stat_id") == 7 || projectResults.getInt("project_stat_id") == 8) {
+                                        pointsAwarded = crc.calculatePointsAwarded(pr);
+                                    } else if (projectResults.getInt("valid_submission_ind") == 1) {
+                                        potentialPoints = crc.calculatePotentialPoints(pr);
+                                    }
+                                }
+                            } else if ((projectResults.getInt("project_stat_id") == 7 ||       // completed
+                                    projectResults.getInt("project_stat_id") == 8 ||       // winner unresponsive
+                                    projectResults.getInt("project_stat_id") == 1) &&       // active
+                                    "On".equals(projectResults.getString("dr_ind")) &&      // counts towards DR
+                                    projectResults.getObject("posting_date") != null &&     // has a posting date
+                                    projectResults.getObject("submission_date") != null) {  // has a submission
 
-		                        hasDR = true;
+                                hasDR = true;
 
-		                        // search for tracks where it belongs:
-		                        List<Track> tracks = getTracksForProject(activeTracks, projectResults.getInt("project_category_id"), projectResults.getTimestamp("posting_date"));
+                                // search for tracks where it belongs:
+                                List<Track> tracks = getTracksForProject(activeTracks, projectResults.getInt("project_category_id"), projectResults.getTimestamp("posting_date"));
 
-		                        // calculate points for each track:
-		                        for (Track t : tracks) {
-		                            if (projectResults.getDouble("amount") < 0.01) {
-		                                log.warn("Project " + project_id + " has amount=0! Please check it.");
-		                            }
-		                            ProjectResult pr = new ProjectResult(project_id, projectResults.getInt("project_stat_id"), projectResults.getLong("user_id"),
-		                                    projectResults.getDouble("final_score"), placed,
-		                                    0, projectResults.getDouble("amount"), numSubmissionsPassedReview, passedReview);
+                                // calculate points for each track:
+                                for (Track t : tracks) {
+                                    if (projectResults.getDouble("amount") < 0.01) {
+                                        log.warn("Project " + project_id + " has amount=0! Please check it.");
+                                    }
+                                    ProjectResult pr = new ProjectResult(project_id, projectResults.getInt("project_stat_id"), projectResults.getLong("user_id"),
+                                            projectResults.getDouble("final_score"), placed,
+                                            0, projectResults.getDouble("amount"), numSubmissionsPassedReview, passedReview);
 
-		                            drInsert.clearParameters();
-		                            if (projectResults.getInt("project_stat_id") == 7 || projectResults.getInt("project_stat_id") == 8) {
-		                                pointsAwarded = t.getPointsCalculator().calculatePointsAwarded(pr);
-		                                if (pointsAwarded + projectResults.getInt("point_adjustment") > 0) {
-		                                    drInsert.setLong(1, ++drPointsId);
-		                                    drInsert.setLong(2, t.getTrackId());
-		                                    drInsert.setString(3, "Digital Run Points won for " + projectResults.getString("project_desc"));
-		                                    drInsert.setLong(4, pr.getUserId());
-		                                    drInsert.setDouble(5, pointsAwarded + projectResults.getDouble("point_adjustment"));
-		                                    drInsert.setTimestamp(6, projectResults.getTimestamp("posting_date"));
-		                                    drInsert.setTimestamp(7, projectResults.getTimestamp("winner_announced"));
-		                                    drInsert.setLong(8, pr.getProjectId());
-		                                    drInsert.setBoolean(9, false);
-		                                    log.debug("Inserting DR points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + pointsAwarded + " ("
-		                                              + projectResults.getInt("point_adjustment") + ")");
-		                                    drInsert.executeUpdate();
-		                                } else {
-		                                    log.debug("Awarded 0 points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + pointsAwarded + " ("
-		                                              + projectResults.getInt("point_adjustment") + ")");
-		                                }
-		                            } else if (projectResults.getInt("valid_submission_ind") == 1) {
-		                                potentialPoints = t.getPointsCalculator().calculatePotentialPoints(pr);
+                                    drInsert.clearParameters();
+                                    if (projectResults.getInt("project_stat_id") == 7 || projectResults.getInt("project_stat_id") == 8) {
+                                        pointsAwarded = t.getPointsCalculator().calculatePointsAwarded(pr);
+                                        if (pointsAwarded + projectResults.getInt("point_adjustment") > 0) {
+                                            drInsert.setLong(1, ++drPointsId);
+                                            drInsert.setLong(2, t.getTrackId());
+                                            drInsert.setString(3, "Digital Run Points won for " + projectResults.getString("project_desc"));
+                                            drInsert.setLong(4, pr.getUserId());
+                                            drInsert.setDouble(5, pointsAwarded + projectResults.getDouble("point_adjustment"));
+                                            drInsert.setTimestamp(6, projectResults.getTimestamp("posting_date"));
+                                            drInsert.setTimestamp(7, projectResults.getTimestamp("winner_announced"));
+                                            drInsert.setLong(8, pr.getProjectId());
+                                            drInsert.setBoolean(9, false);
+                                            log.debug("Inserting DR points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + pointsAwarded + " ("
+                                                    + projectResults.getInt("point_adjustment") + ")");
+                                            drInsert.executeUpdate();
+                                        } else {
+                                            log.debug("Awarded 0 points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + pointsAwarded + " ("
+                                                    + projectResults.getInt("point_adjustment") + ")");
+                                        }
+                                    } else if (projectResults.getInt("valid_submission_ind") == 1) {
+                                        potentialPoints = t.getPointsCalculator().calculatePotentialPoints(pr);
 
-		                                if (potentialPoints + projectResults.getInt("point_adjustment") > 0) {
-		                                    drInsert.setLong(1, ++drPointsId);
-		                                    drInsert.setLong(2, t.getTrackId());
-		                                    drInsert.setString(3, "Potential Digital Run Points for " + projectResults.getString("project_desc"));
-		                                    drInsert.setLong(4, pr.getUserId());
-		                                    drInsert.setDouble(5, potentialPoints + projectResults.getDouble("point_adjustment"));
-		                                    drInsert.setTimestamp(6, projectResults.getTimestamp("posting_date"));
-		                                    drInsert.setTimestamp(7, projectResults.getTimestamp("submission_date"));
-		                                    drInsert.setLong(8, pr.getProjectId());
-		                                    drInsert.setBoolean(9, true);
-		                                    log.debug("Inserting DR points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + potentialPoints + " ("
-		                                              + projectResults.getInt("point_adjustment") + ")");
-		                                    drInsert.executeUpdate();
-		                                } else {
-		                                    log.debug("Potential 0 points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + potentialPoints + " ("
-		                                              + projectResults.getInt("point_adjustment") + ")");
-		                                }
-		                            }
-		                        }
-		                    }
-		                    resultInsert.clearParameters();
+                                        if (potentialPoints + projectResults.getInt("point_adjustment") > 0) {
+                                            drInsert.setLong(1, ++drPointsId);
+                                            drInsert.setLong(2, t.getTrackId());
+                                            drInsert.setString(3, "Potential Digital Run Points for " + projectResults.getString("project_desc"));
+                                            drInsert.setLong(4, pr.getUserId());
+                                            drInsert.setDouble(5, potentialPoints + projectResults.getDouble("point_adjustment"));
+                                            drInsert.setTimestamp(6, projectResults.getTimestamp("posting_date"));
+                                            drInsert.setTimestamp(7, projectResults.getTimestamp("submission_date"));
+                                            drInsert.setLong(8, pr.getProjectId());
+                                            drInsert.setBoolean(9, true);
+                                            log.debug("Inserting DR points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + potentialPoints + " ("
+                                                    + projectResults.getInt("point_adjustment") + ")");
+                                            drInsert.executeUpdate();
+                                        } else {
+                                            log.debug("Potential 0 points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + potentialPoints + " ("
+                                                    + projectResults.getInt("point_adjustment") + ")");
+                                        }
+                                    }
+                                }
+                            }
+                            resultInsert.clearParameters();
 
-		                    resultInsert.setLong(1, project_id);
-		                    resultInsert.setLong(2, projectResults.getLong("user_id"));
-		                    resultInsert.setObject(3, projectResults.getObject("submit_ind"));
-		                    resultInsert.setObject(4, projectResults.getObject("valid_submission_ind"));
-		                    resultInsert.setObject(5, projectResults.getObject("raw_score"));
-		                    resultInsert.setObject(6, projectResults.getObject("final_score"));
-		                    if (projectResults.getObject("inquire_timestamp") != null) {
-		                        resultInsert.setObject(7, projectResults.getObject("inquire_timestamp"));
-		                    } else {
-		                        Timestamp regDate = convertToDate(projectResults.getString("registrationd_date"));
-		                        if (regDate != null) {
-		                            resultInsert.setTimestamp(7, regDate);
-		                        } else {
-		                            resultInsert.setNull(7, Types.TIMESTAMP);
-		                        }
-		                    }
-		                    resultInsert.setObject(8, projectResults.getObject("submit_timestamp"));
-		                    resultInsert.setObject(9, projectResults.getObject("review_completed_timestamp"));
-		                    resultInsert.setObject(10, projectResults.getObject("payment"));
-		                    resultInsert.setObject(11, projectResults.getObject("old_rating"));
-		                    resultInsert.setObject(12, projectResults.getObject("new_rating"));
-		                    resultInsert.setObject(13, projectResults.getObject("reliability_before_resolution"));
-		                    resultInsert.setObject(14, projectResults.getObject("reliability_after_resolution"));
-		                    resultInsert.setObject(15, projectResults.getObject("placed"));
-		                    resultInsert.setObject(16, projectResults.getObject("rating_ind"));
-		                    resultInsert.setObject(17, projectResults.getObject("passed_review_ind"));
+                            resultInsert.setLong(1, project_id);
+                            resultInsert.setLong(2, projectResults.getLong("user_id"));
+                            resultInsert.setObject(3, projectResults.getObject("submit_ind"));
+                            resultInsert.setObject(4, projectResults.getObject("valid_submission_ind"));
+                            resultInsert.setObject(5, projectResults.getObject("raw_score"));
+                            resultInsert.setObject(6, projectResults.getObject("final_score"));
+                            if (projectResults.getObject("inquire_timestamp") != null) {
+                                resultInsert.setObject(7, projectResults.getObject("inquire_timestamp"));
+                            } else {
+                                Timestamp regDate = convertToDate(projectResults.getString("registrationd_date"));
+                                if (regDate != null) {
+                                    resultInsert.setTimestamp(7, regDate);
+                                } else {
+                                    resultInsert.setNull(7, Types.TIMESTAMP);
+                                }
+                            }
+                            resultInsert.setObject(8, projectResults.getObject("submit_timestamp"));
+                            resultInsert.setObject(9, projectResults.getObject("review_completed_timestamp"));
+                            resultInsert.setObject(10, projectResults.getObject("payment"));
+                            resultInsert.setObject(11, projectResults.getObject("old_rating"));
+                            resultInsert.setObject(12, projectResults.getObject("new_rating"));
+                            resultInsert.setObject(13, projectResults.getObject("reliability_before_resolution"));
+                            resultInsert.setObject(14, projectResults.getObject("reliability_after_resolution"));
+                            resultInsert.setObject(15, projectResults.getObject("placed"));
+                            resultInsert.setObject(16, projectResults.getObject("rating_ind"));
+                            resultInsert.setObject(17, projectResults.getObject("passed_review_ind"));
 
-		                    if (hasDR) {
-		                        resultInsert.setDouble(18, pointsAwarded);
-		                        resultInsert.setDouble(19, pointsAwarded + projectResults.getInt("point_adjustment"));
-		                    } else {
-		                        resultInsert.setNull(18, Types.DECIMAL);
-		                        resultInsert.setNull(19, Types.DECIMAL);
-		                    }
-		                    resultInsert.setInt(20, projectResults.getInt("reliable_ind"));
+                            if (hasDR) {
+                                resultInsert.setDouble(18, pointsAwarded);
+                                resultInsert.setDouble(19, pointsAwarded + projectResults.getInt("point_adjustment"));
+                            } else {
+                                resultInsert.setNull(18, Types.DECIMAL);
+                                resultInsert.setNull(19, Types.DECIMAL);
+                            }
+                            resultInsert.setInt(20, projectResults.getInt("reliable_ind"));
 
-		                    resultInsert.setInt(21, projectResults.getString("old_rating") == null ? -2 : projectResults.getInt("old_rating"));
-		                    resultInsert.setInt(22, projectResults.getString("new_rating") == null ? -2 : projectResults.getInt("new_rating"));
-		                    Long tempUserId = new Long(projectResults.getLong("user_id"));
-		                    int currNumRatings = 0;
-		                    if (ratingsMap.containsKey(tempUserId)) {
-		                        currNumRatings = ratingsMap.get(tempUserId);
-		                    }
-		                    resultInsert.setInt(23, projectResults.getInt("rating_ind") == 1 ? currNumRatings + 1 : currNumRatings);
-		                    resultInsert.setObject(24, projectResults.getObject("rating_order"));
+                            resultInsert.setInt(21, projectResults.getString("old_rating") == null ? -2 : projectResults.getInt("old_rating"));
+                            resultInsert.setInt(22, projectResults.getString("new_rating") == null ? -2 : projectResults.getInt("new_rating"));
+                            Long tempUserId = new Long(projectResults.getLong("user_id"));
+                            int currNumRatings = 0;
+                            if (ratingsMap.containsKey(tempUserId)) {
+                                currNumRatings = ratingsMap.get(tempUserId);
+                            }
+                            resultInsert.setInt(23, projectResults.getInt("rating_ind") == 1 ? currNumRatings + 1 : currNumRatings);
+                            resultInsert.setObject(24, projectResults.getObject("rating_order"));
 
-		                    if (hasDR) {
-		                        resultInsert.setDouble(25, potentialPoints);
-		                    } else {
-		                        resultInsert.setNull(25, Types.DECIMAL);
-		                    }
+                            if (hasDR) {
+                                resultInsert.setDouble(25, potentialPoints);
+                            } else {
+                                resultInsert.setNull(25, Types.DECIMAL);
+                            }
 
-		                    //log.debug("before result insert");
-		                    try {
-		                        resultInsert.executeUpdate();
-		                    } catch(Exception e) {
-		                    // Notes: it seems same user will appear in resource table twice
-		                        log.debug("project_id: " + project_id + " user_id: " + projectResults.getLong("user_id"));
-		                        throw(e);
-		                    }
-		                    //log.debug("after result insert");
+                            //log.debug("before result insert");
+                            try {
+                                resultInsert.executeUpdate();
+                            } catch(Exception e) {
+                                // Notes: it seems same user will appear in resource table twice
+                                log.debug("project_id: " + project_id + " user_id: " + projectResults.getLong("user_id"));
+                                throw(e);
+                            }
+                            //log.debug("after result insert");
 
-		                    //printLoadProgress(count, "project result");
+                            //printLoadProgress(count, "project result");
 
-		                    dwDataSelect.clearParameters();
-		                    dwDataSelect.setLong(1, project_id);
-		                    dwDataSelect.setLong(2, projectResults.getLong("user_id"));
-		                    dwData = dwDataSelect.executeQuery();
-		                    if (dwData.next()) {
-		                        dwDataUpdate.clearParameters();
-		                        if (dwData.getString("num_appeals") == null) {
-		                            dwDataUpdate.setNull(1, Types.DECIMAL);
-		                        } else {
-		                            dwDataUpdate.setInt(1, dwData.getInt("num_appeals"));
-		                        }
-		                        if (dwData.getString("num_successful_appeals") == null) {
-		                            dwDataUpdate.setNull(2, Types.DECIMAL);
-		                        } else {
-		                            dwDataUpdate.setInt(2, dwData.getInt("num_successful_appeals"));
-		                        }
-		                        dwDataUpdate.setLong(3, project_id);
-		                        dwDataUpdate.setLong(4, projectResults.getLong("user_id"));
-		                        dwDataUpdate.executeUpdate();
-		                    }
+                            dwDataSelect.clearParameters();
+                            dwDataSelect.setLong(1, project_id);
+                            dwDataSelect.setLong(2, projectResults.getLong("user_id"));
+                            dwData = dwDataSelect.executeQuery();
+                            if (dwData.next()) {
+                                dwDataUpdate.clearParameters();
+                                if (dwData.getString("num_appeals") == null) {
+                                    dwDataUpdate.setNull(1, Types.DECIMAL);
+                                } else {
+                                    dwDataUpdate.setInt(1, dwData.getInt("num_appeals"));
+                                }
+                                if (dwData.getString("num_successful_appeals") == null) {
+                                    dwDataUpdate.setNull(2, Types.DECIMAL);
+                                } else {
+                                    dwDataUpdate.setInt(2, dwData.getInt("num_successful_appeals"));
+                                }
+                                dwDataUpdate.setLong(3, project_id);
+                                dwDataUpdate.setLong(4, projectResults.getLong("user_id"));
+                                dwDataUpdate.executeUpdate();
+                            }
 
-		                }
-		                log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
-		            } else {
-		                log.info("loaded " + 0 + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
-		            }
-            	} finally {
-            		close(delete);
-            		close(deleteDrPoints);
-            		close(resultSelect);
-            	}
+                        }
+                        log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
+                    } else {
+                        log.info("loaded " + 0 + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
+                    }
+                } finally {
+                    close(delete);
+                    close(deleteDrPoints);
+                    close(resultSelect);
+                }
             }
 
         } catch (SQLException sqle) {
@@ -2190,6 +2227,287 @@ public class TCLoadTCS extends TCLoad {
             close(dwDataUpdate);
             close(dwData);
         }
+    }
+
+    /**
+     * Loads design project result
+     *
+     * @throws Exception if any error.
+     *
+     * @since 1.2.4
+     */
+    public void doLoadDesignProjectResults() throws Exception {
+        log.info("load design project results");
+
+        PreparedStatement firstTimeSelect = null;
+        PreparedStatement projectSelect = null;
+        PreparedStatement resultSelect = null;
+        PreparedStatement resultInsert = null;
+        PreparedStatement delete = null;
+
+        ResultSet rs = null;
+        ResultSet projects = null;
+        ResultSet projectResults = null;
+
+
+        try {
+
+            firstTimeSelect = prepareStatement("SELECT count(*) from design_project_result", TARGET_DB);
+            rs = firstTimeSelect.executeQuery();
+            rs.next();
+
+            // no records, it's the first run of loading design project result
+            boolean firstRun = rs.getInt(1) == 0;
+
+            final String PROJECTS_SELECT =
+                    "select distinct p.project_id " +
+                            "from project p, " +
+                            "project_info pi, " +
+                            "comp_versions cv, " +
+                            "comp_catalog cc, " +
+                            "project_category_lu pcl " +
+                            "where " +
+                            " p.project_id = pi.project_id " +
+                            " and p.project_category_id = pcl.project_category_id " +
+                            " and pcl.project_type_id = 3 " +
+                            "and p.project_status_id NOT IN (1, 2, 3, 9, 10, 11)" +
+                            "and pi.project_info_type_id = 1 " +
+                            "and cv.comp_vers_id= pi.value " +
+                            "and cc.component_id = cv.component_id " +
+                            ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+                            (!firstRun ?
+                                    ("and (p.modify_date > ? " +
+                                            "   OR cv.modify_date > ? " +
+                                            "   OR pi.modify_date > ? " +
+                                            "   OR cc.modify_date > ? " +
+                                            (needLoadMovedProject() ? " OR p.modify_user <> 'Converter' " +
+                                                    " OR pi.modify_user <> 'Converter' " +
+                                                    ")"
+                                                    : ")")) : "");
+
+            final String RESULT_SELECT = "SELECT  u.project_id       , " +
+                    "        s.submission_id    , " +
+                    "        s.submission_type_id, " +
+                    "        u.upload_id        , " +
+                    "        u.create_date as submit_date, " +
+                    "        r.user_id          , " +
+                    "        p.prize_id         , " +
+                    "        p.prize_amount     , " +
+                    "        p.prize_type_id    , " +
+                    "        p.place            , " +
+                    "        s.placement        , " +
+                    "        s.mark_for_purchase, " +
+                    "        (SELECT MAX(rev.modify_date) " +
+                    "        FROM    review rev " +
+                    "        WHERE   rev.submission_id = s.submission_id " +
+                    "            AND rev.committed     = 1 " +
+                    "        ) AS review_date, " +
+                    "        (SELECT NVL(pi30.value::DECIMAL(10,2), 0) " +
+                    "        FROM    project_info pi30, " +
+                    "                project_info pi26 " +
+                    "        WHERE   pi30.project_id           = pj.project_id " +
+                    "            AND pi30.project_info_type_id = 30 " +
+                    "            AND pi26.project_id           = pj.project_id " +
+                    "            AND pi26.project_info_type_id = 26 " +
+                    "            AND pi26.value                = 'On' " +
+                    "        ) AS total_dr_points, " +
+                    "        (SELECT COUNT(submission_id) " +
+                    "        FROM    submission sub, " +
+                    "                prize pri     , " +
+                    "                upload upl " +
+                    "        WHERE   upl.project_id        = pj.project_id " +
+                    "            AND sub.upload_id         = upl.upload_id " +
+                    "            AND sub.prize_id          = pri.prize_id " +
+                    "            AND sub.submission_type_id = 1 " +
+                    "            AND (sub.mark_for_purchase = 'f' OR sub.mark_for_purchase is NULL) " +
+                    "        ) AS total_placements " +
+                    "FROM    project pj, " +
+                    "        upload u  , " +
+                    "        resource r, " +
+                    "        submission s " +
+                    "        LEFT OUTER JOIN prize p " +
+                    "        ON      s.prize_id    = p.prize_id " +
+                    "WHERE   pj.project_id         = u.project_id " +
+                    "    AND s.upload_id           = u.upload_id " +
+                    "    AND u.resource_id         = r.resource_id " +
+                    "    AND upload_status_id      = 1 " +
+                    "    AND upload_type_id        = 1 " +
+                    "    AND submission_status_id <> 5 " +
+                    "    AND submission_type_id   IN (1, 3)";
+
+            final String RESULT_INSERT =
+                    "INSERT INTO design_project_result (project_id, user_id, submission_id, upload_id, prize_id, prize_amount, placement, dr_points, is_checkpoint, client_selection, submit_timestamp, review_complete_timestamp) " +
+                            " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+
+
+            projectSelect = prepareStatement(PROJECTS_SELECT, SOURCE_DB);
+            resultInsert = prepareStatement(RESULT_INSERT, TARGET_DB);
+
+
+            if (!firstRun) {
+                projectSelect.setTimestamp(1, fLastLogTime);
+                projectSelect.setTimestamp(2, fLastLogTime);
+                projectSelect.setTimestamp(3, fLastLogTime);
+                projectSelect.setTimestamp(4, fLastLogTime);
+            }
+
+            projects = projectSelect.executeQuery();
+
+
+            while(projects.next()) {
+
+                long start = System.currentTimeMillis();
+
+                try {
+                    StringBuffer buf = new StringBuffer(1000);
+                    buf.append(RESULT_SELECT);
+                    buf.append(" and p.project_id in (");
+
+
+                    StringBuffer delQuery = new StringBuffer(300);
+                    delQuery.append("delete from design_project_result where project_id in (");
+
+
+                    boolean projectsFound = false;
+                    int numProjectsFound = 0;
+                    do {
+                        projectsFound = true;
+                        ++numProjectsFound;
+                        buf.append(projects.getLong("project_id"));
+                        buf.append(",");
+                        delQuery.append(projects.getLong("project_id"));
+                        delQuery.append(",");
+                    } while (numProjectsFound < PROJECT_RESULT_LOAD_STEP_SIZE && projects.next());
+
+
+                    buf.setCharAt(buf.length() - 1, ')');
+                    delQuery.setCharAt(delQuery.length() - 1, ')');
+
+
+                    if(projectsFound) {
+                        log.info("Loading results of next " + numProjectsFound + " design projects...");
+
+                        resultSelect = prepareStatement(buf.toString(), SOURCE_DB);
+
+                        delete = prepareStatement(delQuery.toString(), TARGET_DB);
+                        delete.executeUpdate();
+
+
+                        int count = 0;
+
+
+                        projectResults = resultSelect.executeQuery();
+
+                        while(projectResults.next()) {
+                            boolean isCheckPointSubmission = (projectResults.getLong("submission_type_id") ==
+                                    CHECKPOINT_SUBMISSION_TYPE_ID);
+                            boolean markForPurchase = projectResults.getBoolean("mark_for_purchase");
+                            int placement = projectResults.getInt("placement");
+                            int totalPlacement = projectResults.getInt("total_placements");
+                            double totalDRPoints = 0;
+
+                            if(projectResults.getObject("total_dr_points") != null) {
+                                totalDRPoints = projectResults.getDouble("total_dr_points");
+                            }
+
+                            Double userDRPoints = null;
+
+                            if (!markForPurchase && !isCheckPointSubmission) {
+                                userDRPoints =
+                                        getDesignContestUserDRPoints(totalDRPoints, totalPlacement,
+                                                placement);
+                            }
+
+                            resultInsert.clearParameters();
+
+                            int index = 0;
+                            resultInsert.setLong(++index, projectResults.getLong("project_id"));
+                            resultInsert.setLong(++index, projectResults.getLong("user_id"));
+                            resultInsert.setLong(++index, projectResults.getLong("submission_id"));
+                            resultInsert.setLong(++index, projectResults.getLong("upload_id"));
+
+                            if(projectResults.getObject("prize_id") != null) {
+                                resultInsert.setLong(++index, projectResults.getLong("prize_id"));
+                            } else {
+                                resultInsert.setNull(++index, Types.DECIMAL);
+                            }
+
+                            if(projectResults.getObject("prize_amount") != null) {
+                                resultInsert.setDouble(++index, projectResults.getDouble("prize_amount"));
+                            } else {
+                                resultInsert.setNull(++index, Types.DECIMAL);
+                            }
+
+                            if(!isCheckPointSubmission && !markForPurchase) {
+                                // checkpoint submission and client extra purchase does not count placement
+                                resultInsert.setLong(++index, placement);
+                            } else {
+                                resultInsert.setNull(++index, Types.DECIMAL);
+                            }
+
+                            if(userDRPoints != null) {
+                                resultInsert.setDouble(++index, userDRPoints);
+                            } else {
+                                resultInsert.setNull(++index, Types.DECIMAL);
+                            }
+
+                            resultInsert.setInt(++index, isCheckPointSubmission ? 1 : 0);
+                            resultInsert.setInt(++index, markForPurchase ? 1 : 0);
+
+                            resultInsert.setTimestamp(++index, projectResults.getTimestamp("submit_date"));
+                            resultInsert.setTimestamp(++index, projectResults.getTimestamp("review_date"));
+
+                            resultInsert.executeUpdate();
+
+                            count++;
+                        }
+
+                        log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
+                    }
+
+                }  finally {
+                    close(delete);
+                    close(resultSelect);
+                }
+            }
+
+
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'design_project_result' table failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rs);
+            close(projects);
+            close(projectResults);
+            close(firstTimeSelect);
+            close(projectSelect);
+            close(resultInsert);
+        }
+
+    }
+
+
+    /**
+     * Helper method to calculate the DR points for each design project result
+     *
+     * @param totalDRPoints the total DR points.
+     * @param totalPlacements the number of placement submission
+     * @param userPlacement the placement to calculation
+     * @return the calcualted DR points.
+     * @since 1.2.4
+     */
+    private static double getDesignContestUserDRPoints(double totalDRPoints, int totalPlacements, int userPlacement) {
+        if(totalDRPoints <= 0 || userPlacement > 5 || userPlacement <= 0 || totalPlacements <= 0) {
+            return 0;
+        }
+
+        if(totalPlacements > 5) {
+            totalPlacements = 5;
+        }
+
+        return Math.round(totalDRPoints * STUDIO_DR_PERCENTAGE_TABLE[totalPlacements - 1][userPlacement - 1] * 100.0) / 100.0;
     }
 
     // private helper method to get maximum dr_points id.
@@ -2231,10 +2549,10 @@ public class TCLoadTCS extends TCLoad {
         try {
             //get data from source DB
             final String SELECT = "select t.track_id, tpcx.project_category_id, t.track_start_date, t.track_end_date, pcl.class_name" +
-                " from track t, track_project_category_xref tpcx, points_calculator_lu pcl" +
-                " where t.track_id = tpcx.track_id" +
-                " and t.points_calculator_id = pcl.points_calculator_id" +
-                " and t.track_status_id = 1"; // Active
+                    " from track t, track_project_category_xref tpcx, points_calculator_lu pcl" +
+                    " where t.track_id = tpcx.track_id" +
+                    " and t.points_calculator_id = pcl.points_calculator_id" +
+                    " and t.track_status_id = 1"; // Active
 
             select = prepareStatement(SELECT, SOURCE_DB);
 
@@ -2261,7 +2579,7 @@ public class TCLoadTCS extends TCLoad {
 
     // private helper method to get active tracks for a particular project type.
     private List<Track> getTracksForProject(List<Track> activeTracks, int projectCategoryId,
-            Timestamp applicationDate) {
+                                            Timestamp applicationDate) {
 
 //        log.debug("getTracksForProject: " + projectCategoryId);
 //        log.debug("applicationDate: " + applicationDate);
@@ -4857,7 +5175,7 @@ public class TCLoadTCS extends TCLoad {
                 count++;
             }
 
-        log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
+            log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
 
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
@@ -4987,52 +5305,52 @@ public class TCLoadTCS extends TCLoad {
     }
 
     /**
-    *
-    * @throws Exception
-    */
-   public void doLoadDRTracks() throws Exception {
-       log.debug("load digital run tracks");
+     *
+     * @throws Exception
+     */
+    public void doLoadDRTracks() throws Exception {
+        log.debug("load digital run tracks");
 
-       final String SELECT_TRACKS =
-           " select t.track_id, ttl.track_type_id, ttl.track_type_desc, tsl.track_status_id, tsl.track_status_desc, " +
-           " t.track_desc, t.track_start_date, t.track_end_date " +
-           " from track t, track_status_lu tsl, track_type_lu ttl " +
-           " where t.track_status_id = tsl.track_status_id " +
-           " and t.track_type_id = ttl.track_type_id " +
-           " and t.create_date > ?";
+        final String SELECT_TRACKS =
+                " select t.track_id, ttl.track_type_id, ttl.track_type_desc, tsl.track_status_id, tsl.track_status_desc, " +
+                        " t.track_desc, t.track_start_date, t.track_end_date " +
+                        " from track t, track_status_lu tsl, track_type_lu ttl " +
+                        " where t.track_status_id = tsl.track_status_id " +
+                        " and t.track_type_id = ttl.track_type_id " +
+                        " and t.create_date > ?";
 
-       final String UPDATE =
-           "update track set track_type_id = ?, track_type_desc = ?, track_status_id = ?, track_status_desc = ?, track_desc = ?, track_start_date = ?, track_end_date = ? " +
-                   " where track_id = ?";
+        final String UPDATE =
+                "update track set track_type_id = ?, track_type_desc = ?, track_status_id = ?, track_status_desc = ?, track_desc = ?, track_start_date = ?, track_end_date = ? " +
+                        " where track_id = ?";
 
-       final String INSERT =
-           "insert into track (track_id, track_type_id, track_type_desc, track_status_id, track_status_desc, track_desc, track_start_date, track_end_date) " +
-                   " values (?,?,?,?,?,?,?,?)";
+        final String INSERT =
+                "insert into track (track_id, track_type_id, track_type_desc, track_status_id, track_status_desc, track_desc, track_start_date, track_end_date) " +
+                        " values (?,?,?,?,?,?,?,?)";
 
-       PreparedStatement selectTracks = prepareStatement(SELECT_TRACKS, SOURCE_DB);
-       PreparedStatement update = prepareStatement(UPDATE, TARGET_DB);
-       PreparedStatement insert = prepareStatement(INSERT, TARGET_DB);
-       ResultSet rsTracks = null;
+        PreparedStatement selectTracks = prepareStatement(SELECT_TRACKS, SOURCE_DB);
+        PreparedStatement update = prepareStatement(UPDATE, TARGET_DB);
+        PreparedStatement insert = prepareStatement(INSERT, TARGET_DB);
+        ResultSet rsTracks = null;
 
-       int count = 0;
+        int count = 0;
 
-       try {
-           long start = System.currentTimeMillis();
+        try {
+            long start = System.currentTimeMillis();
 
-           selectTracks.setTimestamp(1, fLastLogTime);
+            selectTracks.setTimestamp(1, fLastLogTime);
 
-           rsTracks = selectTracks.executeQuery();
-           while (rsTracks.next()) {
+            rsTracks = selectTracks.executeQuery();
+            while (rsTracks.next()) {
 
-               update.clearParameters();
-               update.setInt(1, rsTracks.getInt("track_type_id"));
-               update.setString(2, rsTracks.getString("track_type_desc"));
-               update.setInt(3, rsTracks.getInt("track_status_id"));
-               update.setString(4, rsTracks.getString("track_status_desc"));
-               update.setString(5, rsTracks.getString("track_desc"));
-               update.setDate(6, rsTracks.getDate("track_start_date"));
-               update.setDate(7, rsTracks.getDate("track_end_date"));
-               update.setInt(8, rsTracks.getInt("track_id"));
+                update.clearParameters();
+                update.setInt(1, rsTracks.getInt("track_type_id"));
+                update.setString(2, rsTracks.getString("track_type_desc"));
+                update.setInt(3, rsTracks.getInt("track_status_id"));
+                update.setString(4, rsTracks.getString("track_status_desc"));
+                update.setString(5, rsTracks.getString("track_desc"));
+                update.setDate(6, rsTracks.getDate("track_start_date"));
+                update.setDate(7, rsTracks.getDate("track_end_date"));
+                update.setInt(8, rsTracks.getInt("track_id"));
 
                 int retVal = update.executeUpdate();
                 if (retVal == 0) {
@@ -5049,298 +5367,298 @@ public class TCLoadTCS extends TCLoad {
                     insert.executeUpdate();
                 }
 
-               count++;
-           }
-           log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
+                count++;
+            }
+            log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
 
-       } catch (SQLException sqle) {
-           DBMS.printSqlException(true, sqle);
-           throw new Exception("Load of 'tracks' failed.\n" +
-                   sqle.getMessage());
-       } finally {
-           close(rsTracks);
-           close(insert);
-           close(update);
-           close(selectTracks);
-       }
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'tracks' failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rsTracks);
+            close(insert);
+            close(update);
+            close(selectTracks);
+        }
 
-   }
-
-
-
-   /**
-   *
-   * @throws Exception
-   */
-  public void doLoadDRTrackContests() throws Exception {
-      log.debug("load digital run track contests");
-
-      final String SELECT_CONTESTS =
-          " select tc.track_contest_id, tc.track_id, tc.track_contest_desc, tctl.track_contest_type_id, tctl.track_contest_type_desc " +
-          " from track_contest tc, track_contest_type_lu tctl " +
-          " where tc.track_contest_type_id = tctl.track_contest_type_id " +
-          " and tc.create_date > ?";
-
-      final String UPDATE =
-          "update track_contest set track_id = ?, track_contest_desc = ?, track_contest_type_id = ?, track_contest_type_desc = ? " +
-                  " where track_contest_id = ?";
-
-      final String INSERT =
-          "insert into track_contest (track_contest_id, track_id, track_contest_desc, track_contest_type_id, track_contest_type_desc) " +
-                  " values (?,?,?,?,?)";
-
-      PreparedStatement selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
-      PreparedStatement update = prepareStatement(UPDATE, TARGET_DB);
-      PreparedStatement insert = prepareStatement(INSERT, TARGET_DB);
-      ResultSet rsContests = null;
-
-      int count = 0;
-
-      try {
-          long start = System.currentTimeMillis();
-
-          selectContests.setTimestamp(1, fLastLogTime);
-
-          rsContests = selectContests.executeQuery();
-          while (rsContests.next()) {
-              update.clearParameters();
-              update.setInt(1, rsContests.getInt("track_id"));
-              update.setString(2, rsContests.getString("track_contest_desc"));
-              update.setInt(3, rsContests.getInt("track_contest_type_id"));
-              update.setString(4, rsContests.getString("track_contest_type_desc"));
-              update.setInt(5, rsContests.getInt("track_contest_id"));
-
-              int retVal = update.executeUpdate();
-              if (retVal == 0) {
-                  insert.clearParameters();
-                  insert.setInt(1, rsContests.getInt("track_contest_id"));
-                  insert.setInt(2, rsContests.getInt("track_id"));
-                  insert.setString(3, rsContests.getString("track_contest_desc"));
-                  insert.setInt(4, rsContests.getInt("track_contest_type_id"));
-                  insert.setString(5, rsContests.getString("track_contest_type_desc"));
-
-                  insert.executeUpdate();
-              }
-
-              count++;
-          }
-          log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
-
-      } catch (SQLException sqle) {
-          DBMS.printSqlException(true, sqle);
-          throw new Exception("Load of 'track contests' failed.\n" +
-                  sqle.getMessage());
-      } finally {
-          close(rsContests);
-          close(update);
-          close(insert);
-          close(selectContests);
-      }
-
-  }
+    }
 
 
 
     /**
-    *
-    * @throws Exception
-    */
-   public void doLoadDRTrackPoints() throws Exception {
-       log.debug("load digital run track points");
+     *
+     * @throws Exception
+     */
+    public void doLoadDRTrackContests() throws Exception {
+        log.debug("load digital run track contests");
 
-       StringBuffer selectPointsQuery = new StringBuffer(300);
-       selectPointsQuery.append(" select dp.dr_points_id, dp.track_id, dprtl.dr_points_reference_type_id, dprtl.dr_points_reference_type_desc, dpol.dr_points_operation_id, " +
-           " dpol.dr_points_operation_desc, dptl.dr_points_type_id, dptl.dr_points_type_desc, dpsl.dr_points_status_id, dpsl.dr_points_status_desc, " +
-           " dp.dr_points_desc, dp.user_id, dp.amount, dp.application_date, dp.award_date, dp.reference_id, dp.is_potential, " +
-           " (case when dp.dr_points_reference_type_id = 2 then (select dp2.amount from dr_points dp2 where dp2.dr_points_id = dp.reference_id) else 0 end) as parent_amount  " +
-           " from dr_points dp, dr_points_status_lu dpsl, dr_points_type_lu dptl, dr_points_operation_lu dpol, dr_points_reference_type_lu dprtl " +
-           " where dp.dr_points_status_id = dpsl.dr_points_status_id " +
-           " and dp.dr_points_type_id = dptl.dr_points_type_id " +
-           " and dp.dr_points_operation_id = dpol.dr_points_operation_id " +
-           " and dp.dr_points_reference_type_id = dprtl.dr_points_reference_type_id " +
-           " and dp.track_id in (");
+        final String SELECT_CONTESTS =
+                " select tc.track_contest_id, tc.track_id, tc.track_contest_desc, tctl.track_contest_type_id, tctl.track_contest_type_desc " +
+                        " from track_contest tc, track_contest_type_lu tctl " +
+                        " where tc.track_contest_type_id = tctl.track_contest_type_id " +
+                        " and tc.create_date > ?";
 
-       final String INSERT =
-           "insert into dr_points (dr_points_id, track_id, dr_points_reference_type_id, dr_points_reference_type_desc, dr_points_operation_id, dr_points_operation_desc, dr_points_type_id, dr_points_type_desc, dr_points_status_id, dr_points_status_desc, dr_points_desc, user_id, amount, application_date, award_date, reference_id, is_potential) " +
-                   " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        final String UPDATE =
+                "update track_contest set track_id = ?, track_contest_desc = ?, track_contest_type_id = ?, track_contest_type_desc = ? " +
+                        " where track_contest_id = ?";
 
-       final String SELECT_TRACKS =
-           " select distinct track_id " +
-                   " from dr_points " +
-                   " where (modify_date > ? " +
-                   "     OR create_date > ?) ";
+        final String INSERT =
+                "insert into track_contest (track_contest_id, track_id, track_contest_desc, track_contest_type_id, track_contest_type_desc) " +
+                        " values (?,?,?,?,?)";
 
-       PreparedStatement selectPoints= null;
-       PreparedStatement insert = prepareStatement(INSERT, TARGET_DB);
-       PreparedStatement tracksSelect= prepareStatement(SELECT_TRACKS, SOURCE_DB);;
-       PreparedStatement delete= null;
-       ResultSet rsPoints = null;
-       ResultSet tracks = null;
+        PreparedStatement selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
+        PreparedStatement update = prepareStatement(UPDATE, TARGET_DB);
+        PreparedStatement insert = prepareStatement(INSERT, TARGET_DB);
+        ResultSet rsContests = null;
 
-       int count = 0;
+        int count = 0;
 
-       try {
-           long start = System.currentTimeMillis();
+        try {
+            long start = System.currentTimeMillis();
 
-           StringBuffer delQuery = new StringBuffer(300);
-           delQuery.append("delete from dr_points where track_id in (");
+            selectContests.setTimestamp(1, fLastLogTime);
 
-           tracksSelect.setTimestamp(1, fLastLogTime);
-           tracksSelect.setTimestamp(2, fLastLogTime);
+            rsContests = selectContests.executeQuery();
+            while (rsContests.next()) {
+                update.clearParameters();
+                update.setInt(1, rsContests.getInt("track_id"));
+                update.setString(2, rsContests.getString("track_contest_desc"));
+                update.setInt(3, rsContests.getInt("track_contest_type_id"));
+                update.setString(4, rsContests.getString("track_contest_type_desc"));
+                update.setInt(5, rsContests.getInt("track_contest_id"));
 
-           tracks = tracksSelect.executeQuery();
-           boolean tracksFound = false;
-           while (tracks.next()) {
-               tracksFound = true;
-               delQuery.append(tracks.getLong("track_id"));
-               delQuery.append(",");
-               selectPointsQuery.append(tracks.getLong("track_id"));
-               selectPointsQuery.append(",");
-           }
-           delQuery.setCharAt(delQuery.length() - 1, ')');
-           selectPointsQuery.setCharAt(selectPointsQuery.length() - 1, ')');
+                int retVal = update.executeUpdate();
+                if (retVal == 0) {
+                    insert.clearParameters();
+                    insert.setInt(1, rsContests.getInt("track_contest_id"));
+                    insert.setInt(2, rsContests.getInt("track_id"));
+                    insert.setString(3, rsContests.getString("track_contest_desc"));
+                    insert.setInt(4, rsContests.getInt("track_contest_type_id"));
+                    insert.setString(5, rsContests.getString("track_contest_type_desc"));
 
-           if (tracksFound) {
-               log.debug("clean up: "+ delQuery.toString());
-               delete = prepareStatement(delQuery.toString(), TARGET_DB);
-               delete.executeUpdate();
+                    insert.executeUpdate();
+                }
 
-               selectPoints = prepareStatement(selectPointsQuery.toString(), SOURCE_DB);
+                count++;
+            }
+            log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
 
-               rsPoints = selectPoints.executeQuery();
-               while (rsPoints.next()) {
-                   int j = 1;
-                   insert.setInt(j++, rsPoints.getInt("dr_points_id"));
-                   insert.setInt(j++, rsPoints.getInt("track_id"));
-                   insert.setInt(j++, rsPoints.getInt("dr_points_reference_type_id"));
-                   insert.setString(j++, rsPoints.getString("dr_points_reference_type_desc"));
-                   insert.setInt(j++, rsPoints.getInt("dr_points_operation_id"));
-                   insert.setString(j++, rsPoints.getString("dr_points_operation_desc"));
-                   insert.setInt(j++, rsPoints.getInt("dr_points_type_id"));
-                   insert.setString(j++, rsPoints.getString("dr_points_type_desc"));
-                   insert.setInt(j++, rsPoints.getInt("dr_points_status_id"));
-                   insert.setString(j++, rsPoints.getString("dr_points_status_desc"));
-                   insert.setString(j++, rsPoints.getString("dr_points_desc"));
-                   insert.setLong(j++, rsPoints.getLong("user_id"));
-                   insert.setDouble(j++, calculatePointsAmount(rsPoints.getInt("dr_points_operation_id"),
-                           rsPoints.getDouble("amount"),
-                           rsPoints.getDouble("parent_amount")));
-                   insert.setDate(j++, rsPoints.getDate("application_date"));
-                   insert.setDate(j++, rsPoints.getDate("award_date"));
-                   insert.setInt(j++, rsPoints.getInt("reference_id"));
-                   insert.setBoolean(j++, rsPoints.getBoolean("is_potential"));
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'track contests' failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rsContests);
+            close(update);
+            close(insert);
+            close(selectContests);
+        }
 
-                   insert.executeUpdate();
-                   count++;
-               }
-           }
-           log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
-
-       } catch (SQLException sqle) {
-           DBMS.printSqlException(true, sqle);
-           throw new Exception("Load of 'track points' failed.\n" +
-                   sqle.getMessage());
-       } finally {
-           close(rsPoints);
-           close(tracks);
-           close(delete);
-           close(tracksSelect);
-           close(insert);
-           close(selectPoints);
-       }
-
-   }
-
-
-   private double calculatePointsAmount(int operationType, double amount, double parentAmount) {
-       if (operationType == 2) {
-           return ((parentAmount * amount) / 100);
-       }
-       return amount;
     }
 
-  /**
-   *
-   * @throws Exception
-   */
-  public void doLoadDRTrackResults() throws Exception {
-      log.debug("load digital run track results");
-
-      final String SELECT_TRACKS =
-              " select distinct track_id " +
-                      " from dr_points " +
-                      " where (modify_date > ? " +
-                      "     OR create_date > ?) ";
-
-      final String SELECT_CONTESTS =
-              " select tc.track_contest_id, tctl.track_contest_type_id, tcrcl.class_name " +
-                      " from track_contest tc " +
-                      " ,track_contest_type_lu tctl " +
-                      " ,track_contest_result_calculator_lu tcrcl " +
-                      " where tc.track_contest_type_id = tctl.track_contest_type_id " +
-                      " and tc.track_contest_result_calculator_id = tcrcl.track_contest_result_calculator_id " +
-                      " and tc.track_id = ? ";
 
 
-      PreparedStatement selectTracks = null;
-      PreparedStatement selectContests = null;
-      ResultSet rsTracks = null;
-      ResultSet rsContests = null;
+    /**
+     *
+     * @throws Exception
+     */
+    public void doLoadDRTrackPoints() throws Exception {
+        log.debug("load digital run track points");
 
-      try {
-          selectTracks = prepareStatement(SELECT_TRACKS, SOURCE_DB);
-          selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
+        StringBuffer selectPointsQuery = new StringBuffer(300);
+        selectPointsQuery.append(" select dp.dr_points_id, dp.track_id, dprtl.dr_points_reference_type_id, dprtl.dr_points_reference_type_desc, dpol.dr_points_operation_id, " +
+                " dpol.dr_points_operation_desc, dptl.dr_points_type_id, dptl.dr_points_type_desc, dpsl.dr_points_status_id, dpsl.dr_points_status_desc, " +
+                " dp.dr_points_desc, dp.user_id, dp.amount, dp.application_date, dp.award_date, dp.reference_id, dp.is_potential, " +
+                " (case when dp.dr_points_reference_type_id = 2 then (select dp2.amount from dr_points dp2 where dp2.dr_points_id = dp.reference_id) else 0 end) as parent_amount  " +
+                " from dr_points dp, dr_points_status_lu dpsl, dr_points_type_lu dptl, dr_points_operation_lu dpol, dr_points_reference_type_lu dprtl " +
+                " where dp.dr_points_status_id = dpsl.dr_points_status_id " +
+                " and dp.dr_points_type_id = dptl.dr_points_type_id " +
+                " and dp.dr_points_operation_id = dpol.dr_points_operation_id " +
+                " and dp.dr_points_reference_type_id = dprtl.dr_points_reference_type_id " +
+                " and dp.track_id in (");
 
-          selectTracks.setTimestamp(1, fLastLogTime);
-          selectTracks.setTimestamp(2, fLastLogTime);
+        final String INSERT =
+                "insert into dr_points (dr_points_id, track_id, dr_points_reference_type_id, dr_points_reference_type_desc, dr_points_operation_id, dr_points_operation_desc, dr_points_type_id, dr_points_type_desc, dr_points_status_id, dr_points_status_desc, dr_points_desc, user_id, amount, application_date, award_date, reference_id, is_potential) " +
+                        " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-          rsTracks = selectTracks.executeQuery();
-          int trackId = 0;
-          while (rsTracks.next()) {
-              trackId = rsTracks.getInt("track_id");
-              selectContests.clearParameters();
-              selectContests.setInt(1, trackId);
-              rsContests = selectContests.executeQuery();
+        final String SELECT_TRACKS =
+                " select distinct track_id " +
+                        " from dr_points " +
+                        " where (modify_date > ? " +
+                        "     OR create_date > ?) ";
 
-              while (rsContests.next()) {
-                  loadTrackContestResults(trackId,
-                          rsContests.getInt("track_contest_id"),
-                          rsContests.getInt("track_contest_type_id"),
-                          rsContests.getString("class_name"));
-              }
+        PreparedStatement selectPoints= null;
+        PreparedStatement insert = prepareStatement(INSERT, TARGET_DB);
+        PreparedStatement tracksSelect= prepareStatement(SELECT_TRACKS, SOURCE_DB);;
+        PreparedStatement delete= null;
+        ResultSet rsPoints = null;
+        ResultSet tracks = null;
 
-          }
+        int count = 0;
 
-      } catch (SQLException sqle) {
-          DBMS.printSqlException(true, sqle);
-          throw new Exception("Load of 'track results' failed.\n" +
-                  sqle.getMessage());
-      } finally {
-          close(rsContests);
-          close(rsTracks);
-          close(selectContests);
-          close(selectTracks);
-      }
+        try {
+            long start = System.currentTimeMillis();
 
-  }
+            StringBuffer delQuery = new StringBuffer(300);
+            delQuery.append("delete from dr_points where track_id in (");
+
+            tracksSelect.setTimestamp(1, fLastLogTime);
+            tracksSelect.setTimestamp(2, fLastLogTime);
+
+            tracks = tracksSelect.executeQuery();
+            boolean tracksFound = false;
+            while (tracks.next()) {
+                tracksFound = true;
+                delQuery.append(tracks.getLong("track_id"));
+                delQuery.append(",");
+                selectPointsQuery.append(tracks.getLong("track_id"));
+                selectPointsQuery.append(",");
+            }
+            delQuery.setCharAt(delQuery.length() - 1, ')');
+            selectPointsQuery.setCharAt(selectPointsQuery.length() - 1, ')');
+
+            if (tracksFound) {
+                log.debug("clean up: "+ delQuery.toString());
+                delete = prepareStatement(delQuery.toString(), TARGET_DB);
+                delete.executeUpdate();
+
+                selectPoints = prepareStatement(selectPointsQuery.toString(), SOURCE_DB);
+
+                rsPoints = selectPoints.executeQuery();
+                while (rsPoints.next()) {
+                    int j = 1;
+                    insert.setInt(j++, rsPoints.getInt("dr_points_id"));
+                    insert.setInt(j++, rsPoints.getInt("track_id"));
+                    insert.setInt(j++, rsPoints.getInt("dr_points_reference_type_id"));
+                    insert.setString(j++, rsPoints.getString("dr_points_reference_type_desc"));
+                    insert.setInt(j++, rsPoints.getInt("dr_points_operation_id"));
+                    insert.setString(j++, rsPoints.getString("dr_points_operation_desc"));
+                    insert.setInt(j++, rsPoints.getInt("dr_points_type_id"));
+                    insert.setString(j++, rsPoints.getString("dr_points_type_desc"));
+                    insert.setInt(j++, rsPoints.getInt("dr_points_status_id"));
+                    insert.setString(j++, rsPoints.getString("dr_points_status_desc"));
+                    insert.setString(j++, rsPoints.getString("dr_points_desc"));
+                    insert.setLong(j++, rsPoints.getLong("user_id"));
+                    insert.setDouble(j++, calculatePointsAmount(rsPoints.getInt("dr_points_operation_id"),
+                            rsPoints.getDouble("amount"),
+                            rsPoints.getDouble("parent_amount")));
+                    insert.setDate(j++, rsPoints.getDate("application_date"));
+                    insert.setDate(j++, rsPoints.getDate("award_date"));
+                    insert.setInt(j++, rsPoints.getInt("reference_id"));
+                    insert.setBoolean(j++, rsPoints.getBoolean("is_potential"));
+
+                    insert.executeUpdate();
+                    count++;
+                }
+            }
+            log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
+
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'track points' failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rsPoints);
+            close(tracks);
+            close(delete);
+            close(tracksSelect);
+            close(insert);
+            close(selectPoints);
+        }
+
+    }
+
+
+    private double calculatePointsAmount(int operationType, double amount, double parentAmount) {
+        if (operationType == 2) {
+            return ((parentAmount * amount) / 100);
+        }
+        return amount;
+    }
+
+    /**
+     *
+     * @throws Exception
+     */
+    public void doLoadDRTrackResults() throws Exception {
+        log.debug("load digital run track results");
+
+        final String SELECT_TRACKS =
+                " select distinct track_id " +
+                        " from dr_points " +
+                        " where (modify_date > ? " +
+                        "     OR create_date > ?) ";
+
+        final String SELECT_CONTESTS =
+                " select tc.track_contest_id, tctl.track_contest_type_id, tcrcl.class_name " +
+                        " from track_contest tc " +
+                        " ,track_contest_type_lu tctl " +
+                        " ,track_contest_result_calculator_lu tcrcl " +
+                        " where tc.track_contest_type_id = tctl.track_contest_type_id " +
+                        " and tc.track_contest_result_calculator_id = tcrcl.track_contest_result_calculator_id " +
+                        " and tc.track_id = ? ";
+
+
+        PreparedStatement selectTracks = null;
+        PreparedStatement selectContests = null;
+        ResultSet rsTracks = null;
+        ResultSet rsContests = null;
+
+        try {
+            selectTracks = prepareStatement(SELECT_TRACKS, SOURCE_DB);
+            selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
+
+            selectTracks.setTimestamp(1, fLastLogTime);
+            selectTracks.setTimestamp(2, fLastLogTime);
+
+            rsTracks = selectTracks.executeQuery();
+            int trackId = 0;
+            while (rsTracks.next()) {
+                trackId = rsTracks.getInt("track_id");
+                selectContests.clearParameters();
+                selectContests.setInt(1, trackId);
+                rsContests = selectContests.executeQuery();
+
+                while (rsContests.next()) {
+                    loadTrackContestResults(trackId,
+                            rsContests.getInt("track_contest_id"),
+                            rsContests.getInt("track_contest_type_id"),
+                            rsContests.getString("class_name"));
+                }
+
+            }
+
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'track results' failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rsContests);
+            close(rsTracks);
+            close(selectContests);
+            close(selectTracks);
+        }
+
+    }
 
 
 
     private void loadTrackContestResults(int trackId, int trackContestId, int trackContestTypeId,
-            String calculatorClassName) throws Exception {
+                                         String calculatorClassName) throws Exception {
         log.debug("loading track results for track =" + trackId + ", contest=" + trackContestId + ", trackContestTypeId=" + trackContestTypeId);
 
         final String SELECT_POINTS =
                 " select dp.user_id, dp.amount, dp.is_potential, " +
-                " (case when dp.dr_points_reference_type_id = 1 then (select pr.placed from project_result pr where pr.user_id = dp.user_id and pr.project_id = dp.reference_id) else 0 end) as placed, " +
-                " (case when dp.dr_points_reference_type_id = 1 then (select pr.final_score from project_result pr where pr.user_id = dp.user_id and pr.project_id = dp.reference_id) else 0 end) as final_score, " +
-                " (case when dp.dr_points_reference_type_id = 1 then (select (case when pr.payment is null or pr.payment=0 then 't' else 'f' end) from project_result pr where " +
-                " pr.user_id = dp.user_id and pr.project_id = dp.reference_id) else 'f' end) as taxable " +
-                " from dr_points dp where dp.track_id = ? ";
+                        " (case when dp.dr_points_reference_type_id = 1 then (select pr.placed from project_result pr where pr.user_id = dp.user_id and pr.project_id = dp.reference_id) else 0 end) as placed, " +
+                        " (case when dp.dr_points_reference_type_id = 1 then (select pr.final_score from project_result pr where pr.user_id = dp.user_id and pr.project_id = dp.reference_id) else 0 end) as final_score, " +
+                        " (case when dp.dr_points_reference_type_id = 1 then (select (case when pr.payment is null or pr.payment=0 then 't' else 'f' end) from project_result pr where " +
+                        " pr.user_id = dp.user_id and pr.project_id = dp.reference_id) else 'f' end) as taxable " +
+                        " from dr_points dp where dp.track_id = ? ";
 
         final String INSERT =
-            "insert into track_contest_results (track_contest_id, user_id, track_contest_placement, track_contest_prize, taxable_track_contest_prize) " +
-                    " values (?,?,?,?,?)";
+                "insert into track_contest_results (track_contest_id, user_id, track_contest_placement, track_contest_prize, taxable_track_contest_prize) " +
+                        " values (?,?,?,?,?)";
 
         PreparedStatement insert = prepareStatement(INSERT, TARGET_DB);
 
@@ -5673,23 +5991,23 @@ public class TCLoadTCS extends TCLoad {
 
         // Statement for selecting the records from time_oltp table in source database
         final String SELECT
-            = "SELECT a.client_id, a.name as client_name, a.creation_date as client_create_date, a.modification_date as client_modification_date, " +
-              " b.project_id as billing_project_id, b.name as project_name, b.creation_date as project_create_date, b.modification_date as project_modification_date, " +
-              " b.po_box_number as billing_account_code, a.cmc_account_id, a.customer_number " +
-              " FROM time_oltp:client a, time_oltp:project b, time_oltp:client_project c" +
-              " WHERE c.client_id = a.client_id AND c.project_id = b.project_id" +
-              "  AND (a.modification_date > ? OR b.modification_date > ? OR c.modification_date > ?)";
+                = "SELECT a.client_id, a.name as client_name, a.creation_date as client_create_date, a.modification_date as client_modification_date, " +
+                " b.project_id as billing_project_id, b.name as project_name, b.creation_date as project_create_date, b.modification_date as project_modification_date, " +
+                " b.po_box_number as billing_account_code, a.cmc_account_id, a.customer_number " +
+                " FROM time_oltp:client a, time_oltp:project b, time_oltp:client_project c" +
+                " WHERE c.client_id = a.client_id AND c.project_id = b.project_id" +
+                "  AND (a.modification_date > ? OR b.modification_date > ? OR c.modification_date > ?)";
 
         // Statement for updating the records in tcs_dw.client_project_dim table
         final String UPDATE = "UPDATE client_project_dim SET client_name = ?, client_create_date = ?, client_modification_date = ?, " +
-                        "project_name = ?, project_create_date = ?, project_modification_date = ?, billing_account_code = ? , client_id = ?, cmc_account_id = ?, customer_number = ? " +
-                        "WHERE billing_project_id = ?";
+                "project_name = ?, project_create_date = ?, project_modification_date = ?, billing_account_code = ? , client_id = ?, cmc_account_id = ?, customer_number = ? " +
+                "WHERE billing_project_id = ?";
 
         // Statement for inserting the records to tcs_dw.client_project_dim table in target database
         final String INSERT
-            = "INSERT INTO client_project_dim (client_id, client_name, client_create_date, client_modification_date," +
-              "                                billing_project_id, project_name, project_create_date, project_modification_date, billing_account_code, client_project_id, cmc_account_id, customer_number)" +
-              "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                = "INSERT INTO client_project_dim (client_id, client_name, client_create_date, client_modification_date," +
+                "                                billing_project_id, project_name, project_create_date, project_modification_date, billing_account_code, client_project_id, cmc_account_id, customer_number)" +
+                "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
         PreparedStatement select = null;
         PreparedStatement insert = null;
@@ -5708,7 +6026,7 @@ public class TCLoadTCS extends TCLoad {
             insert = prepareStatement(INSERT, TARGET_DB);
             update = prepareStatement(UPDATE, TARGET_DB);
             rs = select.executeQuery();
-			
+
 
             while (rs.next()) {
                 update.clearParameters();
@@ -5728,14 +6046,14 @@ public class TCLoadTCS extends TCLoad {
                 update.setString(7, rs.getString("billing_account_code"));
                 // client id
                 update.setLong(8, rs.getLong("client_id"));
-				// cmc account id
-				update.setString(9, rs.getString("cmc_account_id"));
-				// customer number
-				update.setString(10, rs.getString("customer_number"));
-				
+                // cmc account id
+                update.setString(9, rs.getString("cmc_account_id"));
+                // customer number
+                update.setString(10, rs.getString("customer_number"));
+
                 // billing project id
                 update.setLong(11, rs.getLong("billing_project_id"));
-				
+
                 int retVal = update.executeUpdate();
 
                 if (retVal == 0) {
@@ -5761,9 +6079,9 @@ public class TCLoadTCS extends TCLoad {
                     insert.setString(9, rs.getString("billing_account_code"));
                     // billing project id as client project id
                     insert.setLong(10, rs.getLong("billing_project_id"));
-					// billing account code
-                    insert.setString(11, rs.getString("cmc_account_id"));		
-					// customer number
+                    // billing account code
+                    insert.setString(11, rs.getString("cmc_account_id"));
+                    // customer number
                     insert.setString(12, rs.getString("customer_number"));     System.out.println("------billing_project_id--------"+rs.getLong("billing_project_id"));
                     insert.executeUpdate();
                 }
@@ -5797,21 +6115,21 @@ public class TCLoadTCS extends TCLoad {
 
         // Statement for selecting the records from time_oltp table in source database
         final String SELECT
-            = "SELECT project_id, name, description, project_status_id, create_date, modify_date,"  +
-              "(SELECT max(dpa.billing_account_id) from corporate_oltp:direct_project_account dpa where dpa.project_id = tdp.project_id) as billing_project_id" +
-              " FROM tc_direct_project tdp" +
-              " WHERE tdp.modify_date > ? ";
+                = "SELECT project_id, name, description, project_status_id, create_date, modify_date,"  +
+                "(SELECT max(dpa.billing_account_id) from corporate_oltp:direct_project_account dpa where dpa.project_id = tdp.project_id) as billing_project_id" +
+                " FROM tc_direct_project tdp" +
+                " WHERE tdp.modify_date > ? ";
 
         // Statement for updating the records in tcs_dw.client_project_dim table
         final String UPDATE = "UPDATE direct_project_dim SET name = ?, description = ?, project_status_id = ?," +
-                        " project_create_date = ?, project_modification_date = ?, billing_project_id = ?" +
-                        " WHERE direct_project_id = ?";
+                " project_create_date = ?, project_modification_date = ?, billing_project_id = ?" +
+                " WHERE direct_project_id = ?";
 
         // Statement for inserting the records to tcs_dw.client_project_dim table in target database
         final String INSERT
-            = "INSERT INTO direct_project_dim (direct_project_id, name, description, project_status_id," +
-              "                                project_create_date, project_modification_date, billing_project_id)" +
-              "VALUES (?,?,?,?,?,?,?)";
+                = "INSERT INTO direct_project_dim (direct_project_id, name, description, project_status_id," +
+                "                                project_create_date, project_modification_date, billing_project_id)" +
+                "VALUES (?,?,?,?,?,?,?)";
 
         PreparedStatement select = null;
         PreparedStatement insert = null;
@@ -5841,11 +6159,11 @@ public class TCLoadTCS extends TCLoad {
                 update.setDate(4, rs.getDate("create_date"));
                 // project_modification_date
                 update.setDate(5, rs.getDate("modify_date"));
-				// billing_project_id
+                // billing_project_id
                 update.setLong(6, rs.getLong("billing_project_id"));
                 // direct project id
                 update.setLong(7, rs.getLong("project_id"));
-                
+
 
                 int retVal = update.executeUpdate();
 
@@ -5896,16 +6214,16 @@ public class TCLoadTCS extends TCLoad {
 
         // Statement for inserting the records from tcs_dw.project table into tcs_dw.tcd_project_stat table
         final String INSERT
-            = "INSERT INTO tcd_project_stat (tcd_project_id, project_category_id, stat_date, cost, duration, fulfillment, total_project, create_user, create_date, modify_user, modify_date) " +
-              "SELECT tc_direct_project_id, project_category_id, DATE(p.complete_date), " +
-              "       SUM(p.admin_fee + p.contest_prizes_total), " +
-              "       SUM((p.complete_date - p.posting_date)::interval minute(9) to minute::char(20)::decimal(10,2)), " +
-              "       SUM(CASE WHEN status_id = 7 THEN 1 ELSE 0 END), " +
-              "       COUNT(p.project_id), " +
-              "       'TCLoadTCS', CURRENT, 'TCLoadTCS', CURRENT " +
-              "FROM project p " +
-              "WHERE p.complete_date IS NOT NULL and p.tc_direct_project_id > 0 and p.posting_date IS NOT NULL  " +
-              "GROUP BY 1, 2, 3";
+                = "INSERT INTO tcd_project_stat (tcd_project_id, project_category_id, stat_date, cost, duration, fulfillment, total_project, create_user, create_date, modify_user, modify_date) " +
+                "SELECT tc_direct_project_id, project_category_id, DATE(p.complete_date), " +
+                "       SUM(p.admin_fee + p.contest_prizes_total), " +
+                "       SUM((p.complete_date - p.posting_date)::interval minute(9) to minute::char(20)::decimal(10,2)), " +
+                "       SUM(CASE WHEN status_id = 7 THEN 1 ELSE 0 END), " +
+                "       COUNT(p.project_id), " +
+                "       'TCLoadTCS', CURRENT, 'TCLoadTCS', CURRENT " +
+                "FROM project p " +
+                "WHERE p.complete_date IS NOT NULL and p.tc_direct_project_id > 0 and p.posting_date IS NOT NULL  " +
+                "GROUP BY 1, 2, 3";
 
         // Statement for inserting new records into tcs_dw.tcd_project_stat table
         final String TRUNCATE_STAT_TABLE = "TRUNCATE TABLE tcd_project_stat";
@@ -6104,8 +6422,8 @@ public class TCLoadTCS extends TCLoad {
 
                 if (rs.getInt("valid_submission_ind") == 1 || rs.getInt("project_status_id") == 7) {
                     ProjectResult res = new ProjectResult(rs.getLong("project_id"), rs.getInt("project_status_id"), rs.getLong("user_id"),
-                        rs.getDouble("final_score"), rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"),
-                        rs.getInt("num_submissions_passed_review"), rs.getBoolean("passed_review_ind"));
+                            rs.getDouble("final_score"), rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"),
+                            rs.getInt("num_submissions_passed_review"), rs.getBoolean("passed_review_ind"));
 
                     pr.add(res);
                 }
