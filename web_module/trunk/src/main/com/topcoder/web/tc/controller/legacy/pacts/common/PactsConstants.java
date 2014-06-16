@@ -84,7 +84,9 @@ public interface PactsConstants extends Constants {
     /**
      * <p>A <code>int[]</code> storing types of payment that pay to referrals.</p>
      */
-    public static final int[] PAY_REFFERAL_TYPES = {CONTEST_PAYMENT};
+    public static final int[] PAY_REFFERAL_TYPES = {
+        ALGORITHM_CONTEST_PAYMENT, MARATHON_MATCH_PAYMENT, MARATHON_MATCH_NON_TAXABLE_PAYMENT,
+        CONTEST_CHECKPOINT_PAYMENT, CONTEST_PAYMENT};
 
     // Contract type codes
     public static final int DEVELOPMENT_CONTRACT = 1;

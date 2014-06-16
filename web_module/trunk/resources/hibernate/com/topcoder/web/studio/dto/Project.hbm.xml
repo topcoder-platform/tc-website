@@ -12,7 +12,7 @@
                   formula="(SELECT pi.value FROM project_info pi WHERE pi.project_info_type_id = 1 AND pi.project_id = project_id)"/>
         
         <property name="eventId" 
-                  formula="(SELECT c.event_id FROM contest_project_xref cpx, contest c WHERE cpx.project_id = project_id and cpx.contest_id = c.contest_id)"/>
+                  formula="(SELECT distinct c.event_id FROM contest_project_xref cpx, contest c WHERE cpx.project_id = project_id and cpx.contest_id = c.contest_id)"/>
         
         <property name="statusId" column="project_status_id" access="field"/>
         <many-to-one name="category" column="project_category_id" class="ProjectCategory"/>
