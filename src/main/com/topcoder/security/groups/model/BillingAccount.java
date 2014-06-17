@@ -56,6 +56,13 @@ public class BillingAccount extends IdentifiableEntity {
      * </p>
      */
     private boolean deleted;
+	
+	 /**
+     * <p>
+     * Represents the flag whether the account is active
+     * </p>
+     */
+    private boolean active;
 
     /**
      * <p>
@@ -178,5 +185,28 @@ public class BillingAccount extends IdentifiableEntity {
      */
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
+    }
+	
+	/**
+     * <p>
+     * Getter of the active field.
+     * </p>
+     * 
+     * @return the active
+     */
+    public boolean isActive() {
+        return active;
+    }
+
+    /**
+     * <p>
+     * Setter of the active field.
+     * </p>
+     * 
+     * @param active
+     *            the active to set
+     */
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
