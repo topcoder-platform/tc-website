@@ -129,7 +129,7 @@
         <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=15858">SRM 625</A></strong><br />
          07:00<br/>
-         dedicated to <a class="coderTextRed" href="//www.topcoder.com/tc?module=MemberProfile&cr=15179224">humblefool</A><br/>
+         dedicated to <a href="//www.topcoder.com/tc?module=MemberProfile&cr=15179224">humblefool</A><br/>
          $5K prizes
         </div>
       </td>
