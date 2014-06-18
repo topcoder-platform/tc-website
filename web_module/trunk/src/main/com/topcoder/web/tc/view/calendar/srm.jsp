@@ -31,6 +31,7 @@
     <TITLE>Single Round Match (SRM) Schedule at TopCoder</TITLE>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <link type="text/css" rel="stylesheet" href="/css/coders.css" />
     
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
@@ -389,15 +390,16 @@ if (roundId == 15858) {
 %>
 <p>
 This match is dedicated to [topcoder] member Harsha Suryanarayana known under his
-handle <a class="coderTexRed" href="http://community.topcoder.com/tc?module=MemberProfile&cr=15179224">humblefool</a>. He tragically died after being hit by a
-car on June 15, 2014. <a class="coderTexRed" href="http://community.topcoder.com/tc?module=MemberProfile&cr=15179224">humblefool</a> was a [topcoder] member
+handle <a class="coderTextRed" href="http://community.topcoder.com/tc?module=MemberProfile&cr=15179224">humblefool</a>. He tragically died after being hit by a
+car on June 15, 2014. <a class="coderTextRed" href="http://community.topcoder.com/tc?module=MemberProfile&cr=15179224">humblefool</a> was a [topcoder] member
 since October, 2005. During his more than 8 years with [topcoder], he competed in 238 algorithm matches where he reached red rating in October, 2007. At the
 current moment, Harsha is the highest rated [topcoder] member in algorithm track among all 2281 active coders from India. He was also very active in
 component design track, submitting in 86 competitions and winning 45 of them.
 </p>
 <p>
-The match will award $5,000 in prizes in honor of humblefool. The prizes of $200 will be awarded to best 20 performers in Div-1 and the prizes
-of $100 will be awarded to best 10 performers in Div-2. All members will be given an option to donate their prizes to Harsha's wife.
+The match will award $5,000 in prizes in honor of <a class="coderTextRed" href="http://community.topcoder.com/tc?module=MemberProfile&cr=15179224">humblefool</a>.
+The prizes of $200 will be awarded to best 20 performers in Div-1 and the prizes of $100 will be awarded to best 10 performers in Div-2. All members
+will be given an option to donate their prizes to Harsha's wife.
 </p>
 <p>&nbsp;</p>
 <% } %>
