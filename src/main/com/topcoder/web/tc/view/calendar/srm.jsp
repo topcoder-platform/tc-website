@@ -382,6 +382,25 @@ if (roundId == 15712) {
 * Only competitors with a positive score can be awarded with a t-shirt. In the event of a tie for a t-shirt, the t-shirts will be awarded to randomly selected competitors out of all tied ones.
 <br/><br/>
 <% } %>
+
+// SRM 625
+<%
+if (roundId == 15868) {
+%>
+<p>
+This match is dedicated to [topcoder] member Harsha Suryanarayana known under his
+handle <a class="coderTexRed" href="http://community.topcoder.com/tc?module=MemberProfile&cr=15179224">humblefool</a>. He tragically died after being hit by a
+car on June 15, 2014. <a class="coderTexRed" href="http://community.topcoder.com/tc?module=MemberProfile&cr=15179224">humblefool</a> was a [topcoder] member
+since October, 2005. During his more than 8 years with [topcoder], he competed in 238 algorithm matches where he reached red rating in October, 2007. At the
+current moment, Harsha is the highest rated [topcoder] member in algorithm track among all 2281 active coders from India. He was also very active in
+component design track, submitting in 86 competitions and winning 45 of them.
+</p>
+<p>
+The match will award $5,000 in prizes in honor of humblefool. The prizes of $200 will be awarded to best 20 performers in Div-1 and the prizes
+of $100 will be awarded to best 10 performers in Div-2. All members will be given an option to donate their prizes to Harsha's wife.
+</p>
+<p>&nbsp;</p>
+<% } %>
 <%
 // SRM 600.5
 if (roundId == 15828) {
