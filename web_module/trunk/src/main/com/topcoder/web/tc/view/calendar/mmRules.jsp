@@ -329,7 +329,7 @@ Additionally, there are two $700 USD and $300 USD prizes for unusual and perspec
         <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right" nowrap="nowrap">$750</td>
     </tr>
 </table>
-<% if (roundId == 16001) { %>
+<% if (round_id == 16001) { %>
 <p>&nbsp;</p>
 <p>Additionaly:
 <ul>
