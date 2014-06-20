@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2013-2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.reg.services;
 
@@ -18,8 +18,16 @@ import com.topcoder.web.common.model.User;
  * <li>Add a method to obtain password.</li>
  * <ol>
  * </p>
- * @author leo_lol, ecnu_haozi
- * @version 1.1
+ *
+ * <p>
+ *     Version 1.2 (F2F Record User Last Login in Reg2 Callback) changes:
+ *     <ul>
+ *         <li>Add {@link #updateLastLogin(long)} to support update user login timestamp</li>
+ *     </ul>
+ * </p>
+ *
+ * @author leo_lol, ecnu_haozi, TCSASSEMBLER
+ * @version 1.2
  * @since 1.0
  */
 public interface UserService {
@@ -122,4 +130,16 @@ public interface UserService {
      * @since 1.1
      */
     public String getPasswordByUserId(long userId) throws PersistenceException;
+
+    /**
+     * Update user's <code>last_login</code> information of given user id
+     *
+     * @param userId User Id of user
+     * @throws PersistenceException
+     *              if there is any database related error.
+     *
+     * @since 1.2
+     */
+    public void updateLastLogin(long userId) throws PersistenceException;
+
 }

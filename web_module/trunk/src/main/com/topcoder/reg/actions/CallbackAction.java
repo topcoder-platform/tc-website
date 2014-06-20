@@ -44,11 +44,18 @@ import java.util.List;
  *     </ul>
  * </p>
  *
+ * <p>
+ *     Version 1.3 (F2F Record User Last Login in Reg2 Callback) changes:
+ *     <ul>
+ *         <li> Change on {@link #execute()} to update last user login</li>
+ *     </ul>
+ * </p>
+ *
  * <strong>Thread Safety:</strong> Technically speaking, this class is mutable and not thread-safe. But Struts only
  * uses this class in thread-safe manner.
  *
  * @author ecnu_haozi, TCSASSEMBLER
- * @version 1.2
+ * @version 1.3
  * @since 1.0 (Release Assembly - TopCoder Website Social Login)
  */
 public class CallbackAction extends BaseAction {
@@ -178,6 +185,9 @@ public class CallbackAction extends BaseAction {
                 //LoggingWrapperUtility.logExit(logger, signature, new String[] {LOGIN});
 
                 setSSONextPageIfNeeded(session, user, sso, sig);
+
+                userService.updateLastLogin(user.getUserId());
+
                 return LOGIN;
             }            
             
@@ -195,6 +205,9 @@ public class CallbackAction extends BaseAction {
                 //LoggingWrapperUtility.logExit(logger, signature, new String[] {LOGIN});
 
                 setSSONextPageIfNeeded(session, user, sso, sig);
+
+                userService.updateLastLogin(user.getUserId());
+
                 return LOGIN;
             }
 
