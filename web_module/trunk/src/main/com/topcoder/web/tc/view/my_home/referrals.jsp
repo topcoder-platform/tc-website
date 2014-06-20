@@ -45,14 +45,14 @@
                          <h2>Referrals</h2>
 
                          <p>
-                             The following is a list of members who have named you as a reference when they registered to become a TopCoder member. Should they earn any money as a competitor on TopCoder Studio, the referring member (you) will receive a referral commission equal to 10% of any amounts earned or won by the referred member during the 12 months following registration!
+                             The following list shows members who have used your unique referral URL during registration. The referral program gives you the chance to earn more just by referring your friends! You'll get 10% of their challenge winnings for their entire first year. 
                          </p>
 
                          <p>
-                             As of December 5, 2008, the referral program will award commission based on the winnings of new members of TopCoder Studio only. TopCoder will honor all commission payments due based on non-Studio referrals made before 12/5/08.
+                             Keep referring! <a href=”http://www.topcoder.com/community/member-programs/referral-program/”>Your unique URL can be found on the program page here</a>.
                          </p>
                          <p>
-                             <a href="http://studio.topcoder.com/?module=Static&amp;d1=support&amp;d2=memberRefferalProgram">Referring TopCoder Studio Competitors</a>
+                             Be sure to read the <a href="http://help.topcoder.com/general-help/member-bonuses/2014-referral-program/" target="_blank">official rules and details about the referral program here</a>.
                          </p>
                      </div>
                      <table>
