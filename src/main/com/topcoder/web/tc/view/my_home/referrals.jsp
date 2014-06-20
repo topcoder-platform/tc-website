@@ -49,7 +49,7 @@
                          </p>
 
                          <p>
-                             Keep referring! <a href=”http://www.topcoder.com/community/member-programs/referral-program/”>Your unique URL can be found on the program page here</a>.
+                             Keep referring! <a href="http://www.topcoder.com/community/member-programs/referral-program/">Your unique URL can be found on the program page here</a>.
                          </p>
                          <p>
                              Be sure to read the <a href="http://help.topcoder.com/general-help/member-bonuses/2014-referral-program/" target="_blank">official rules and details about the referral program here</a>.
