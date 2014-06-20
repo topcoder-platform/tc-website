@@ -51,7 +51,15 @@ import java.util.Map;
  *         <li>Modify {@link #SQL_INSERT_USER} to persist utm_source, utm_medium and utm_campaign if present.</li>
  *     </ol>
  * </p>
- * @author sampath01, leo_lol, Urmass ,ecnu_haozi, KeSyren
+ *
+ * <p>
+ *     Version 1.4 (F2F Record User Last Login in Reg2 Callback) changes:
+ *     <ul>
+ *         <li>Add {@link #updateLastLogin(long)} to support update user login timestamp</li>
+ *     </ul>
+ * </p>
+ *
+ * @author sampath01, leo_lol, Urmass ,ecnu_haozi, KeSyren, TCSASSEMBLER
  * @version 1.3
  * @since 1.0
  */
@@ -183,6 +191,13 @@ public class UserServiceImpl extends BaseImpl implements UserService {
      * Users group id.
      */
     private static final long USERS_GROUP_ID = 2;
+
+    /**
+     * Query update user last login
+     * @since 1.4
+     */
+    private static final String SQL_UPDATE_LAST_LOGIN =
+            "UPDATE user set last_login = CURRENT WHERE user_id = ?";
 
     /**
      * This method saves user to database.
@@ -586,6 +601,30 @@ public class UserServiceImpl extends BaseImpl implements UserService {
         } catch (Exception e) {
             logger.error(signature+e);
             throw new PersistenceException("Error while decrypting password.", e);
+        }
+    }
+
+    /**
+     * Update user's <code>last_login</code> information of given user id
+     *
+     * @param userId User Id of user
+     * @throws PersistenceException
+     *              if there is any database related error.
+     * @since 1.4
+     */
+    public void updateLastLogin(long userId) throws PersistenceException{
+        final String signature = CLASS_NAME + "#updateLastLogin(long userId)";
+        logger.info(signature);
+
+        if (userId < 1){
+            throw new IllegalArgumentException("SocialAccount can not be null");
+        }
+
+        try{
+            jdbcTemplate.update(SQL_UPDATE_LAST_LOGIN, userId);
+
+        }catch (DataAccessException e) {
+            throw new PersistenceException("Error while updating last user login", e);
         }
     }
 }
