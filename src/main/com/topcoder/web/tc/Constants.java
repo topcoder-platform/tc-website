@@ -237,8 +237,22 @@ import java.util.MissingResourceException;
  * </ol>
  * </p>
  *
- * @author pulky, isv, VolodymyrK, TrePe, gevak, ecnu_haozi, tangzx, gonia_119, TCSASSEMBLER
- * @version 1.9.15
+ * <p>
+ * Changes in version 1.9.16 (Release Assembly - Member Report Improvements):
+ * <ol>
+ *      <li>Add {@link #NEW_HANDLE} field.</li>
+ *      <li>Add {@link #NEW_HANDLE_INPUT} field.</li>
+ *      <li>Add {@link #NEW_STATUS} field.</li>
+ *      <li>Add {@link #NEW_STATUS_SELECT} field.</li>
+ *      <li>Add {@link #OLD_STATUS_SELECT_VALUE} field.</li>
+ *      <li>Add {@link #NEW_STATUS_COMMENT} field.</li>
+ *      <li>Add {@link #USER_HANDLE_CHANGE} field.</li>
+ *      <li>Add {@link #USER_STATUS_CHANGE} field.</li>
+ * </ol>
+ * </p>
+ *
+ * @author pulky, isv, VolodymyrK, TrePe, gevak, ecnu_haozi, tangzx, gonia_119, frozenfx
+ * @version 1.9.16
  */
 public class Constants implements WebConstants {
 
@@ -1901,6 +1915,62 @@ public class Constants implements WebConstants {
 	 * The redirect url for when unactivated user login
 	 */
     public static String UNACTIVATED_USER_REDIRECT_URL;
+
+    /**
+     * For changing user handle page's validation.
+     *
+     * @since 1.9.16
+     */
+    public static final String NEW_HANDLE = "new_handle";
+
+    /**
+     * For new handle input control.
+     *
+     * @since 1.9.16
+     */
+    public static final String NEW_HANDLE_INPUT = "new_handle_input";
+
+    /**
+     * For status page input validation.
+     *
+     * @since 1.9.16
+     */
+    public static final String NEW_STATUS = "new_status";
+
+    /**
+     * For new status select input.
+     *
+     * @since 1.9.16
+     */
+    public static final String NEW_STATUS_SELECT = "new_status_select";
+
+    /**
+     * For old status value.
+     *
+     * @since 1.9.16
+     */
+    public static final String OLD_STATUS_SELECT_VALUE = "old_status_select_value";
+
+    /**
+     * For new status comment input.
+     *
+     * @since 1.9.16
+     */
+    public static final String NEW_STATUS_COMMENT = "new_status_comment";
+
+    /**
+     * For change user handle jsp page name, and the real name was defined in the corresponding properties file.
+     *
+     * @since 1.9.16
+     */
+    public static String USER_HANDLE_CHANGE;
+
+    /**
+     * for status change jsp page name, and the real name was defined in the corresponding properties file.
+     *
+     * @since 1.9.16
+     */
+    public static String USER_STATUS_CHANGE;
 
     static {
         initialize();
