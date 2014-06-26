@@ -68,7 +68,9 @@
             </tr>
             <tr>
                 <td align=center>
-                    <tc-webtag:textArea name="<%=com.topcoder.web.tc.Constants.NEW_STATUS_COMMENT%>" rows="20" cols="100"/>
+                    <br/>
+                    Comment (optional):<br/>
+                    <tc-webtag:textArea name="<%=com.topcoder.web.tc.Constants.NEW_STATUS_COMMENT%>" rows="3" cols="60"/>
                 </td>
             </tr>
             <tr>
