@@ -184,7 +184,6 @@
         Send Now</a> )  <br>
     Account Status:  <rsc:item name="user_status_desc" row="<%=p%>"/> <br>
     Phone:  <rsc:item name="home_phone" row="<%=p%>"/> <br>
-    Account Status:  <rsc:item name="user_status_desc" row="<%=p%>"/> <br>
     Activation Link: <rsc:item name="activation_link" row="<%=p%>"/> <br>
     <a href=/tc?module=DownloadVCard&<%=Constants.USER_ID%>=<rsc:item name="user_id" row="<%=p%>"/> >Download contact as vCard</a>
 
@@ -213,6 +212,19 @@
         <% } else { %>
         <a href="/tc?module=EditGovernmentID&uid=<rsc:item name="user_id" row="<%=p%>"/>">Add Government ID</a>
         <% } %>
+    </td>
+    <td>
+    </td>
+</tr>
+<%-- added for Release Assembly - Member Report Improvements --%>
+<tr>
+    <td>
+        <A HREF="/tc?module=ChangeUserHandle&uid=<rsc:item name="user_id" row="<%=p%>"/>">Change Handle</A>
+    </td>
+    <td>
+        <A HREF="/tc?module=ChangeUserStatus&uid=<rsc:item name="user_id" row="<%=p%>"/>">Change Status</A>
+    </td>
+    <td>
     </td>
     <td>
     </td>
