@@ -353,7 +353,8 @@ public abstract class BaseTermsOfUse extends ShortHibernateProcessor {
         // Get the terms of use group for all roles
         for (int roleId : roleIds) {
             Map<Integer, List<TermsOfUse>> tous = projectTermsOfUseDao.getTermsOfUse(Integer.parseInt(projectId), roleId,
-                    new int[] {Constants.NON_AGREEABLE_TERMS_TYPE_ID, Constants.NON_ELEC_AGREEABLE_TERMS_TYPE_ID, Constants.ELEC_AGREEABLE_TERMS_TYPE_ID});
+                    new int[] {Constants.NON_AGREEABLE_TERMS_TYPE_ID, Constants.NON_ELEC_AGREEABLE_TERMS_TYPE_ID,
+                               Constants.ELEC_AGREEABLE_TERMS_TYPE_ID, Constants.DOCUSIGNABLE_TERMS_TYPE_ID});
             if (tous.size() > 0) {
                 newRoleIds.add(roleId);
                 roleTOUs.add(tous);

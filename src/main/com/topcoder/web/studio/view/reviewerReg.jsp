@@ -7,6 +7,7 @@
 <c:set value="<%=Constants.CONTEST_ID%>" var="CONTEST_ID"/>
 <c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="TERMS_OF_USE_ID"/>
 <c:set value="<%=Constants.TERMS_AGREE%>" var="TERMS_AGREE"/>
+<c:set var="ELEC_AGREEABLE_TERMS_TYPE_ID" value="<%=new Integer(Constants.ELEC_AGREEABLE_TERMS_TYPE_ID)%>"/>
 <c:set var="NON_ELEC_AGREEABLE_TERMS_TYPE_ID" value="<%=new Integer(Constants.NON_ELEC_AGREEABLE_TERMS_TYPE_ID)%>"/>
 <c:if test="${isSpecReview}">
     <c:set var="REGISTER_REVIEW_KEY" value="SpecReviewRegistration"/>
@@ -128,7 +129,7 @@
                                                                 </td>
                                                             </tr>
                                                             <c:choose>
-                                                                <c:when test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId != NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
+                                                                <c:when test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId == ELEC_AGREEABLE_TERMS_TYPE_ID}">
                                                                     <tr>
                                                                         <td class="errorText">
                                                                             <font color="red"><tc-webtag:errorIterator id="err" name="${TERMS_AGREE}">${err}
@@ -142,7 +143,7 @@
                                                                         </td>
                                                                     </tr>
                                                                 </c:when>
-                                                                <c:otherwise>
+                                                                <c:when test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId == NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
                                                                     <tr><td>
                                                                     <p>
                                                                         You cannot agree to these terms electronically.
@@ -164,7 +165,7 @@
                                                                         CT 06033.
                                                                     </p>
                                                                     </td></tr>
-                                                                </c:otherwise>
+                                                                </c:when>
                                                             </c:choose>
                                                         </c:when>
                                                         <c:otherwise>
@@ -290,7 +291,7 @@
                                                 <tr>
                                                     <td style="text-align:center;">
                                                         <c:set value="Go back" var="returnMessage"/>
-                                                        <c:if test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId != NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
+                                                        <c:if test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId == ELEC_AGREEABLE_TERMS_TYPE_ID}">
                                                             <input type="image" src="/i/v2/interface/btnContinue.png"/>
                                                             <c:set value="Cancel" var="returnMessage"/>
                                                         </c:if>
