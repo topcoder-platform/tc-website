@@ -24,6 +24,7 @@
 <c:set value="<%=Constants.CONTEST_ID%>" var="CONTEST_ID"/>
 <c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="TERMS_OF_USE_ID"/>
 <c:set value="<%=Constants.TERMS_AGREE%>" var="TERMS_AGREE"/>
+<c:set var="ELEC_AGREEABLE_TERMS_TYPE_ID" value="<%=new Integer(Constants.ELEC_AGREEABLE_TERMS_TYPE_ID)%>"/>
 <c:set var="NON_ELEC_AGREEABLE_TERMS_TYPE_ID" value="<%=new Integer(Constants.NON_ELEC_AGREEABLE_TERMS_TYPE_ID)%>"/>
 <c:set var="contest" value="${requestScope.contest}"/>
 
@@ -127,7 +128,7 @@
                                                     <c:choose>
                                                         <c:when test="${empty dependenciesTermsPending}">
                                                             <tc-webtag:hiddenInput name="${TERMS_OF_USE_ID}" value="${terms.termsOfUseId}"/>
-                                                            <c:if test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId != NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
+                                                            <c:if test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId == ELEC_AGREEABLE_TERMS_TYPE_ID}">
                                                                 <div align="center" style="padding-top: 20px;">
                                                                     Please read through the following terms and then click
                                                                     <strong>"I Agree"</strong> when you're done.
@@ -271,7 +272,7 @@
                                                 <c:choose>
                                                     <c:when test="${not empty terms and empty dependenciesTermsPending}">
                                                         <c:choose>
-                                                            <c:when test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId != NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
+                                                            <c:when test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId == ELEC_AGREEABLE_TERMS_TYPE_ID}">
                                                                 <div align="center" class="bigRed"
                                                                     style="width: 590px">
                                                                     <tc-webtag:errorIterator
@@ -286,7 +287,7 @@
                                                                     <input type="image" src="/i/v2/interface/btnCancel.png" onclick="return goBack()" name="Cancel" value="Cancel"/>
                                                                 <br /><br />
                                                             </c:when>
-                                                            <c:otherwise>
+                                                            <c:when test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId == NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
                                                                 <p>
                                                                     You cannot agree to these terms electronically.
                                                                     You must print the terms and send a signed hard copy
@@ -306,6 +307,9 @@
                                                                     TopCoder, Inc., 95 Glastonbury Blvd., Glastonbury,
                                                                     CT 06033.
                                                                 </p>
+                                                                <input type="image" src="/i/v2/interface/btnCancel.png" onclick="return goBack()" name="Cancel" value="Cancel"/>
+                                                            </c:when>
+                                                            <c:otherwise>
                                                                 <input type="image" src="/i/v2/interface/btnCancel.png" onclick="return goBack()" name="Cancel" value="Cancel"/>
                                                             </c:otherwise>
                                                         </c:choose>
