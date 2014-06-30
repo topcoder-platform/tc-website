@@ -893,6 +893,13 @@ public class Constants implements WebConstants {
      */
     public static int ELEC_AGREEABLE_TERMS_TYPE_ID;
 
+    /**
+     * <p>
+     * The id of the docusignable terms type.
+     * </p>
+     */
+    public static int DOCUSIGNABLE_TERMS_TYPE_ID;
+
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;
 

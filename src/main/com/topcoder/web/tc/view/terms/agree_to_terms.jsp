@@ -109,11 +109,11 @@ function goBack() {
                                 I Agree to the Terms and Conditions stated above&#160;
                                 <input name="<%=Constants.TERMS_AGREE%>" type="checkbox" id="agreechk" onclick="if (this.checked) document.getElementById('conbtn').disabled = ''; else document.getElementById('conbtn').disabled = 'disabled';"/>
                             </c:when>
-                            <c:otherwise>
+                            <c:when test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId == NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
                                 <jsp:include page="/terms/paper_terms.jsp">
                                     <jsp:param name="terms.url" value="terms.url"/>
                                 </jsp:include>
-                            </c:otherwise>
+                            </c:when>
                         </c:choose>
                         </c:if>
                     </p>

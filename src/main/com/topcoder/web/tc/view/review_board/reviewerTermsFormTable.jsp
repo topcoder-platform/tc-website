@@ -10,6 +10,7 @@
 <%@  page language="java"  %>
 
 
+<c:set var="ELEC_AGREEABLE_TERMS_TYPE_ID" value="<%=Constants.ELEC_AGREEABLE_TERMS_TYPE_ID%>"/>
 <c:set var="NON_ELEC_AGREEABLE_TERMS_TYPE_ID" value="<%=Constants.NON_ELEC_AGREEABLE_TERMS_TYPE_ID%>"/>
 <c:set var="REVIEW_APPLICATION_ROLE_ID" value="<%=Constants.REVIEW_APPLICATION_ROLE_ID%>" scope="request"/>
 <c:set var="REVIEW_AUCTION_ID" value="<%=Constants.REVIEW_AUCTION_ID%>" scope="request"/>
@@ -69,7 +70,7 @@ function goBack() {
                         </td>
                     </tr>
                     <c:choose>
-                        <c:when test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId != NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
+                        <c:when test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId == ELEC_AGREEABLE_TERMS_TYPE_ID}">
                             <tr>
                                 <td class="errorText" colspan="2">
                                     <tc-webtag:errorIterator id="err" name="${TERMS_AGREE}">${err}
@@ -83,13 +84,13 @@ function goBack() {
                                 </td>
                             </tr>
                         </c:when>
-                        <c:otherwise>
+                        <c:when test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId == NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
                             <tr><td colspan="2">
                             <jsp:include page="/terms/paper_terms.jsp">
                                 <jsp:param name="terms.url" value="terms.url"/>
                             </jsp:include>
                             </td></tr>
-                        </c:otherwise>
+                        </c:when>
                     </c:choose>
                 </c:when>
                 <c:otherwise>
@@ -246,7 +247,7 @@ function goBack() {
         <tr>
             <td style="text-align:center;" colspan="2">
                 <c:set value="Go back" var="returnMessage"/>
-                <c:if test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId != NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
+                <c:if test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId == ELEC_AGREEABLE_TERMS_TYPE_ID}">
                     <input id="conbtn" type="submit" onClick="" name="submit" value=" Continue" disabled/>
                     <c:set value="Cancel" var="returnMessage"/>
                 </c:if>

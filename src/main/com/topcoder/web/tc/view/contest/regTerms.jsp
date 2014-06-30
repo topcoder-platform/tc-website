@@ -79,6 +79,7 @@
 <c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="TERMS_OF_USE_ID"/>
 <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=Constants.PROJECT_ID%>" var="PROJECT_ID"/>
+<c:set var="ELEC_AGREEABLE_TERMS_TYPE_ID" value="<%=Constants.ELEC_AGREEABLE_TERMS_TYPE_ID%>"/>
 <c:set var="NON_ELEC_AGREEABLE_TERMS_TYPE_ID" value="<%=Constants.NON_ELEC_AGREEABLE_TERMS_TYPE_ID%>"/>
 
 <c:set value="Register" var="registrationModule"/>
@@ -480,18 +481,18 @@ function goBack() {
                 <p style="width: 510px;">
                     <c:if test="${not empty terms and empty dependenciesTermsPending}">
                         <c:choose>
-                            <c:when test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId != NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
+                            <c:when test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId == ELEC_AGREEABLE_TERMS_TYPE_ID}">
                                 <span class="errorText"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%>
                                     <br /></tc-webtag:errorIterator></span>
 
                                     I Agree to the Terms and Conditions stated above&#160;
                                     <input name="<%=Constants.TERMS_AGREE%>" type="checkbox" id="agreechk" onclick="if (this.checked) document.getElementById('conbtn').disabled = ''; else document.getElementById('conbtn').disabled = 'disabled';"/>
                             </c:when>
-                            <c:otherwise>
+                            <c:when test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId == NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
                                 <jsp:include page="/terms/paper_terms.jsp">
                                     <jsp:param name="terms.url" value="terms.url"/>
                                 </jsp:include>
-                            </c:otherwise>
+                            </c:when>
                         </c:choose>
                     </c:if>
                 </p>
@@ -502,7 +503,7 @@ function goBack() {
                             <table>
                             <tr>
                             <c:set value="Go back" var="returnMessage"/>
-                            <c:if test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId != NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
+                            <c:if test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId == ELEC_AGREEABLE_TERMS_TYPE_ID}">
                                 <td>
                                 <input id="conbtn" type="submit" onClick="" name="submit" value=" Continue" disabled/>
                                 </td>
