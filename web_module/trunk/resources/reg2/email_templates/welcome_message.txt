@@ -1,42 +1,84 @@
-
 <img src="http://www.topcoder.com/wp-content/themes/tcs-responsive/i/logo.png" alt="" width="330" height="58" />
-<h1>Welcome to [topcoder], <span style="color: #ff0000;">%USER_HANDLE%</span>!</h1>
+<h2>Welcome to [topcoder], <span style="color: #ff0000;">%USER_HANDLE%</span>!</h2>
 
-<p>Thank you for registering for [topcoder]! You've joined a unique community of design, development and data science specialists! <a href="http://www.topcoder.com/challenges">Start competing today</a> for money, special prizes, badges and bragging rights!</p>
+<p>Thank you joining [topcoder]! You're now a member of a unique community of design, development and data science specialists. <br>
+<a href="http://www.topcoder.com/challenges/">Start competing today</a> for prize money, bonuses, and bragging rights!</p>
 
-<h2>Getting Started</h2>
 
-<p>Take a look at our <a href="http://www.topcoder.com/challenges">list of open challenges</a> and find one that interests you. Before you dive in you may want to check out our <a href="http://www.topcoder.com/community/getting-started/">getting started</a> page to see how the process works.</p>
+<h3>Get Started</h3>
+<p>Pick a [topcoder] competition track, or <a href="http://www.topcoder.com/challenges/">try all three</a>! </p>
 
-<h2>Things to do</h2>
+<table size="675" border="0" cellpadding="2" cellspacing ="2">
+<tr>
+<td width="225">
+<center><a href="http://www.topcoder.com/community/design/getting-started-in-design/"><img src="http://3a72mb4dqcfnkgfimp04jgyyd.wpengine.netdna-cdn.com/wp-content/uploads/2014/05/graphic-design.png" border="0"></a></center>
+</td>
+<td width="225">
+<center><a href="http://www.topcoder.com/community/development/getting-started-in-development/"><img src="http://3a72mb4dqcfnkgfimp04jgyyd.wpengine.netdna-cdn.com/wp-content/uploads/2014/05/development.png" border="0"></a></center>
+</td>
+<td width="225">
+<center><a href="http://www.topcoder.com/community/data-science/getting-started-in-data-science/"><img src="http://3a72mb4dqcfnkgfimp04jgyyd.wpengine.netdna-cdn.com/wp-content/uploads/2014/05/data-science.png" border="0"></a></center>
+</td>
+</tr>
+<tr>
+<td width="225">
+- <a href="http://www.topcoder.com/community/design/">Visit the Design Homepage</a><br>
+- <a href="http://www.topcoder.com/community/design/getting-started-in-design/">Getting started in Design</a>
+</td>
+<td width="225">
+- <a href="http://www.topcoder.com/community/development/">Visit the Development Homepage</a><br>
+- <a href="http://www.topcoder.com/community/development/getting-started-in-development/">Getting started in Development</a>
+</td>
+<td width="225">
+- <a href="http://www.topcoder.com/community/data-science/">Visit the Data Science Homepage</a><br>
+- <a href="http://www.topcoder.com/community/data-science/getting-started-in-data-science/">Getting started in Data Science</a>
+</td>
+</tr>
+</table>
+
+<p>Need more info on how to compete? Check out [topcoder]'s comprehensive <a href="http://help.topcoder.com">Help Center</a>. <br>
+Have questions? Ask <a href="mailto:support@topcoder.com">support@topcoder.com</a>.</p>
+
+<h3>Get Involved &amp; Explore</h3>
 
 <ul>
-<li>Fill in your profile</li>
-<li>Check out the <a href="http://help.topcoder.com/">Help Center</a></li>
-<li>Look at a previous challenges or try a practice one!</li>
-<li>Register for your <a href="http://www.topcoder.com/challenges">first challenge</a></li>
-<li>Check out the <a href="http://forums.topcoder.com/">forums</a></li>
+<li>Introduce yourself in the "<a href="http://apps.topcoder.com/forums/?module=ThreadList&forumID=327735">Getting Started in [topcoder]</a>" forum.
+<li>Subscribe to the RSS feed for all <a href="http://www.topcoder.com/challenges/feed/?list=active&amp;contestType=">new, open challenges on [topcoder]</a>.</li>
+<li>Watch the <a href="http://topcoder.com/blog">[topcoder] Blog</a> for the latest recaps, tech news, member stories and more!</li>
+<li>Learn about <a href="http://topcoder.com/tco14">TCO14</a>: the yearly [topcoder] onsite tournament in San Francisco.</li>
 </ul>
 
-<p>&nbsp;</p>
-
-<h2>Stay up to date on our latest development challenges for money, special prizes and badges:</h2>
-
-<ul>
-<li><a href="http://mandrillapp.com/track/click.php?u=4521742&amp;id=76c917caf5cc4102a84bb136eea4bac3&amp;url=http%3A%2F%2Ffeedburner.google.com%2Ffb%2Fa%2Fmailverify%3Furi%3Dcloudspokes%2Fcontests%2Fall&amp;url_id=c77e28f60632dbcf65d4f711cdbb62444661dcaa">Subscribe to our email list</a> to receive a summary of our latest challenges</li>
-<li>Subscribe to our RSS feed for <a href="http://www.topcoder.com/challenges/feed/?list=active&amp;contestType=">new, open challenges</a></li>
-<li>Watch the <a href="http://www.topcoder.com/blog">topcoder Blog</a> for the latest info, submission results and videos</li>
-<li>Chat with our members on our <a href="http://forums.topcoder.com/">discussion forums</a></li>
-</ul>
-
-<p>Regards, <br /> The [topcoder] Team <br /> <em>...where the rubber meets the code!<span style="font-size: 1.5em;">&nbsp;</span></em></p>
+<p>Regards, <br>
+The [topcoder] Team <br>
+<i>...where the rubber meets the code!</i>
 
 <h2>Follow Us!</h2>
 
 <h2>
-  <a class="fb" href="https://www.facebook.com/topcoder"><img src="http://www.topcoder.com/i/social_icons/facebook.png"/></a>
-  <a class="tw" href="https://www.twitter.com/topcoder"><img src="http://www.topcoder.com/i/social_icons/twitter.png"/></a>
-  <a class="gp" href="https://plus.google.com/+topcoder"><img src="http://www.topcoder.com/i/social_icons/google.png"/></a>
-  <a class="in" href="https://www.linkedin.com/company/topcoder"><img src="http://www.topcoder.com/i/social_icons/linkedin.png"/></a>
+ <a class="fb" href="https://www.facebook.com/topcoder"><img src="http://www.topcoder.com/i/social_icons/facebook.png"/></a>
+ <a class="tw" href="https://www.twitter.com/topcoder"><img src="http://www.topcoder.com/i/social_icons/twitter.png"/></a>
+ <a class="gp" href="https://plus.google.com/+topcoder"><img src="http://www.topcoder.com/i/social_icons/google.png"/></a>
+ <a class="in" href="https://www.linkedin.com/company/topcoder"><img src="http://www.topcoder.com/i/social_icons/linkedin.png"/></a>
 </h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
