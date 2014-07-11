@@ -24,12 +24,20 @@ Iterating over the dynamic list above became very slow with the large number of 
 So it has been replaced by this static list until the performance problem is solved.
 --%>
 
-<A class="rtLinkOld" href="?module=Category&categoryID=13">Round Tables</A><br>
-<A class="rtLinkOld" href="?module=Category&categoryID=8">News Discussions</A><br>
-<A class="rtLinkOld" href="?module=Category&categoryID=14">Algorithm Matches</A><br>
-<A class="rtLinkOld" href="?module=Category&categoryID=17">Marathon Matches</A><br>
-<A class="rtLinkOld" href="?module=Category&categoryID=9169">NASA Tournament Lab</A><br>
-<A class="rtLinkOld" href="?module=Category&categoryID=22">Software Forums</A><br>
-<A class="rtLinkOld" href="?module=Category&categoryID=4532">TopCoder Cookbook</A><br>
-<A class="rtLinkOld" href="?module=Category&categoryID=21">High School Matches</A><br>
-<A class="rtLinkOld" href="?module=Category&categoryID=6">Sponsor Discussions</A><br>
+<form name="jumpForum">
+    <select name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;" value="GO">
+        <option selected="selected">Select a Forum &nbsp;&nbsp;&nbsp;</option>
+        <option value="?module=Category&categoryID=13">Round Tables</option>
+        <option value="?module=Category&categoryID=8">News Discussions</option>
+        <option value="?module=Category&categoryID=14">Algorithm Matches</option>
+        <option value="?module=Category&categoryID=17">Marathon Matches</option>
+        <option value="?module=Category&categoryID=9169">NASA Tournament Lab</option>
+        <option value="?module=Category&categoryID=4532">TopCoder Cookbook</option>
+        <option value="?module=Category&categoryID=21">High School Matches</option>
+        <option value="?module=Category&categoryID=6">Sponsor Discussions</option>
+        <optgroup label="Challenges Forum">
+            <option value="?module=Category&categoryID=22">Development Forums</option>
+            <option value="?module=Category&categoryID=23250">Design Forums</option>
+        </optgroup>
+    </select>
+</form>
