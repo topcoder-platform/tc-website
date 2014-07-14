@@ -333,7 +333,7 @@ Please check out the rules link below for more detail.
      || roundId == 15201 || roundId == 15202 || roundId == 15322 || roundId == 15327 || roundId == 15398
      || roundId == 15458 || roundId == 15520 || roundId == 15589 || roundId == 15611 || roundId == 15618
      || roundId == 15630 || roundId == 15637 || roundId == 15678 || roundId == 15761 || roundId == 15765
-     || roundId == 15876 || roundId == 15879 || roundId == 15995 || roundId == 16001) {%>
+     || roundId == 15876 || roundId == 15879 || roundId == 15995 || roundId == 16001 || roundId == 16040) {%>
 <p align="justify" class="justifyText">
     <b>Please note that this event is being run for a TopCoder customer.  By winning a prize in this event you agree to transfer ownership of
     your submission to TopCoder.
@@ -403,7 +403,7 @@ scorers will receive prizes with the first place winner receiving $7,000!
 </p>
 <% } %>
 
-<% if (roundId == 15995 || roundId == 16001) { %>
+<% if (roundId == 15995 || roundId == 16001 || roundId == 16040) { %>
 <p align="justify">
 This Marathon Match is a money match that has a <b>$15,000 prize purse</b>! The top five highest
 scorers will receive prizes with the first place winner receiving $6,000!
@@ -807,7 +807,7 @@ Additionally, there are two $700 USD and $300 USD prizes for unusual and perspec
 </p>
 <% } %>
 
-<% if (roundId == 15995 || roundId == 16001) { %>
+<% if (roundId == 15995 || roundId == 16001 || roundId == 16040) { %>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">The prize purse for this challenge is 15,000 USD! The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
