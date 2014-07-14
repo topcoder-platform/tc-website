@@ -309,7 +309,7 @@ Additionally, there are two $700 USD and $300 USD prizes for unusual and perspec
 </p>
 <% } %>
 
-<% if (round_id == 15995 || round_id == 16001 || round_id == 16040) { %>
+<% if (round_id == 15995 || round_id == 16001) { %>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">The prize purse for this challenge is 15,000 USD! The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
@@ -338,6 +338,28 @@ Additionally, there are two $700 USD and $300 USD prizes for unusual and perspec
 </ul>
 </p>
 <% } %>
+<% } %>
+
+<% if (round_id == 16040) { %>
+<div class="sectionHeader">Prizes</div>
+    <p align="justify">The prize purse for this challenge is 20,000 USD! The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right" nowrap="nowrap">$8,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right" nowrap="nowrap">$5,500</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right" nowrap="nowrap">$3,500</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right" nowrap="nowrap">$2,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right" nowrap="nowrap">$1,000</td>
+    </tr>
+</table>
 <% } %>
 
 <% if (round_id == 15876) { %>
