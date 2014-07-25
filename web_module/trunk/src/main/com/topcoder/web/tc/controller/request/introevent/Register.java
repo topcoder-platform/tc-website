@@ -40,6 +40,7 @@ public class Register extends RegistrationBase {
 
         user.addEventRegistration(event, null, Boolean.TRUE);
         userDAO.saveOrUpdate(user);
+        setNextIntroEventPage("registerSuccess.jsp");
 
 
         
