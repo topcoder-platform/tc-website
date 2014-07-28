@@ -28,6 +28,7 @@ So it has been replaced by this static list until the performance problem is sol
     <select name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;" value="GO">
         <option selected="selected">Select a Forum &nbsp;&nbsp;&nbsp;</option>
         <option value="?module=Category&categoryID=13">Round Tables</option>
+        <option value="?module=Category&categoryID=24020">New Member Discussions</option>
         <option value="?module=Category&categoryID=8">News Discussions</option>
         <option value="?module=Category&categoryID=14">Algorithm Matches</option>
         <option value="?module=Category&categoryID=17">Marathon Matches</option>
