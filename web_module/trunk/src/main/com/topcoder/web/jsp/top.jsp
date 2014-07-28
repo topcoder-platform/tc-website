@@ -113,6 +113,8 @@
                                                                 class="13036"><i></i>Events</a></li>
                                 <li id="nav-menu-item-13514"><a href="http://community.topcoder.com/tco14"
                                                                 class="topcoder-open"><i></i>TopCoder Open</a></li>
+                                <li><a href="http://www.topcoder.com/community/member-programs/">
+                                                                <i></i>Member Programs</a></li>
                                 <li id="nav-menu-item-13038"><a href="http://www.topcoder.com/community/stories/"
                                                                 class="13038"><i></i>Stories</a></li>
                             </ul>
