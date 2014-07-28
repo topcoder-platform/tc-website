@@ -86,7 +86,6 @@
     <br /><br />
     
     <h3>Participating Universities</h3>
-Beijing Institute of Technology School of software<br/>
 Beihang University<br/>
 Beijing Forestry University<br/>
 Beijing Information Science and Technology University<br/>
@@ -192,7 +191,7 @@ Zhejiang Gongshang University<br/>
 Zhejiang Normal University<br/>
 Zhejiang posts and telecommunications at Career Technical College<br/>
 Zhejiang Sci-Tech University<br/>
-Zhejiang University Ningbo College of science and Engineering<br/>
+Ningbo Institute of Technology, Zhejiang University<br/>
 Zhejiang University of Finance and Economics<br/>
 Zhejiang University of Media and Communications<br/>
 Zhejiang University of Science and Technology<br/>
