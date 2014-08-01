@@ -103,6 +103,9 @@ public class Register extends BaseTermsOfUse {
                 // comment this line if not needed
 //                bother = !CoderType.PROFESSIONAL.equals(u.getCoder().getCoderType().getId());
   //              log.debug("Coder type: " + u.getCoder().getCoderType().getDescription());
+
+                // Starting with TCO15 members do not have to explicitly register for TCO, so I'm setting bother to false
+                bother=false;
                 log.debug("Bother: " + bother);
 				log.debug("User id :" + u.getId());
 				log.debug("User handle : " + u.getHandle());
