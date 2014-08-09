@@ -340,7 +340,29 @@ Additionally, there are two $700 USD and $300 USD prizes for unusual and perspec
 <% } %>
 <% } %>
 
-<% if (round_id == 16040) { %>
+<% if (round_id == 16051) { %>
+<div class="sectionHeader">Prizes</div>
+    <p align="justify">The prize purse for this challenge is 15,000 USD! The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right" nowrap="nowrap">$6,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right" nowrap="nowrap">$4,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right" nowrap="nowrap">$2,750</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right" nowrap="nowrap">$1,500</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right" nowrap="nowrap">$750</td>
+    </tr>
+</table>
+<% } %>
+
+<% if (round_id == 16040 || round_id == 16065) { %>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">The prize purse for this challenge is 20,000 USD! The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
@@ -772,14 +794,14 @@ The tester's identity will not be revealed until the challenge is over.</p>
 		       || round_id == 15077 || round_id == 15078 || round_id == 15080 || round_id == 15103 || round_id == 15120
 		       || round_id == 15130 || round_id == 15189 || round_id == 15200 || round_id == 15201 || round_id == 15322
 			|| round_id == 15327 || round_id == 15458 || round_id == 15611 || round_id == 15618 || round_id == 15637 || round_id == 15678 || round_id == 15761
-			|| round_id == 15765 || round_id == 15876 || round_id == 15879 || round_id == 15995 || round_id == 16001 || round_id == 16040) { %>
+			|| round_id == 15765 || round_id == 15876 || round_id == 15879 || round_id == 15995 || round_id == 16001 || round_id == 16040 || round_id == 16051 || round_id == 16065) { %>
 			As a condition of winning and redeeming a cash prize, Competitors will be required to submit, 
 			among other things, a completed TopCoder Competition Assignment Agreement, 
 			if one is not already on file with TopCoder, AND a one to two-page description explaining how the algorithm for the winning submission works.
 			<% if (round_id == 15103 || round_id == 15120 || round_id == 15130 || round_id == 15189 || round_id == 15200 || round_id == 15201
 				|| round_id == 15322 || round_id == 15327 || round_id == 15458 || round_id == 15611 || round_id == 15618 || round_id == 15630 ||
 				round_id == 15637 || round_id == 15678 || round_id == 15761 || round_id == 15765 || round_id == 15876 || round_id == 15879 || round_id == 15995
-				|| round_id == 16001 || round_id == 16040) { %>
+				|| round_id == 16001 || round_id == 16040 || round_id == 16051 || round_id == 16065) { %>
 			The description must be submitted within 7 days after the challenge results are published.
 			Questions sent by email from TopCoder requesting clarification to the description must be answered within 3 days.
 			If the description or a response to a clarification request is not received, TopCoder reserves the right to disqualify the submission. 
@@ -830,7 +852,8 @@ The tester's identity will not be revealed until the challenge is over.</p>
 		|| rsr.getIntItem("round_id") == 15589 || rsr.getIntItem("round_id") == 15611 || rsr.getIntItem("round_id") == 15618
 		|| rsr.getIntItem("round_id") == 15630 || rsr.getIntItem("round_id") == 15637 || rsr.getIntItem("round_id") == 15678
 		|| rsr.getIntItem("round_id") == 15761 || rsr.getIntItem("round_id") == 15765 || rsr.getIntItem("round_id") == 15876
-                || rsr.getIntItem("round_id") == 15879 || rsr.getIntItem("round_id") == 15995 || rsr.getIntItem("round_id") == 16001 || round_id == 16040) {%>
+        || rsr.getIntItem("round_id") == 15879 || rsr.getIntItem("round_id") == 15995 || rsr.getIntItem("round_id") == 16001
+		|| round_id == 16040 || round_id == 16051 || round_id == 16065) {%>
 
 		<p align="justify" class="justifyText">
 			This Competition is open to all members of the TopCoder website, who have agreed to the terms thereof, and who are at least 
@@ -907,7 +930,8 @@ The tester's identity will not be revealed until the challenge is over.</p>
 	       || round_id == 15080 || round_id == 15103 || round_id == 15120 || round_id == 15130 || round_id == 15189 || round_id == 15200
 	       || round_id == 15201 || round_id == 15322 || round_id == 15327 || round_id == 15398 || round_id == 15458 || round_id == 15520 || round_id == 15589
 		|| round_id == 15611 || round_id == 15618 || round_id == 15630 || round_id == 15637 || round_id == 15678 || round_id == 15761
-		|| round_id == 15765 || round_id == 15876 || round_id == 15879 || round_id == 15995 || round_id == 16001 || round_id == 16040) { %>
+		|| round_id == 15765 || round_id == 15876 || round_id == 15879 || round_id == 15995 || round_id == 16001 || round_id == 16040
+		|| round_id == 16051 || round_id == 16065) { %>
 		
 		<p align="justify" class="justifyText">
 			You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property 

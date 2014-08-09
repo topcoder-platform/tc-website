@@ -333,7 +333,8 @@ Please check out the rules link below for more detail.
      || roundId == 15201 || roundId == 15202 || roundId == 15322 || roundId == 15327 || roundId == 15398
      || roundId == 15458 || roundId == 15520 || roundId == 15589 || roundId == 15611 || roundId == 15618
      || roundId == 15630 || roundId == 15637 || roundId == 15678 || roundId == 15761 || roundId == 15765
-     || roundId == 15876 || roundId == 15879 || roundId == 15995 || roundId == 16001 || roundId == 16040) {%>
+     || roundId == 15876 || roundId == 15879 || roundId == 15995 || roundId == 16001 || roundId == 16040
+	 || roundId == 16051 || roundId == 16065) {%>
 <p align="justify" class="justifyText">
     <b>Please note that this event is being run for a TopCoder customer.  By winning a prize in this event you agree to transfer ownership of
     your submission to TopCoder.
@@ -410,10 +411,17 @@ scorers will receive prizes with the first place winner receiving $6,000!
 </p>
 <% } %>
 
-<% if (roundId == 16040) { %>
+<% if (roundId == 16040 || roundId == 16065) { %>
 <p align="justify">
 This Marathon Match is a money match that has a <b>$20,000 prize purse</b>! The top five highest
 scorers will receive prizes with the first place winner receiving $8,000!
+</p>
+<% } %>
+
+<% if (roundId == 16051) { %>
+<p align="justify">
+This Marathon Match is a money match that has a <b>$15,000 prize purse</b>! The top five highest
+scorers will receive prizes with the first place winner receiving $6,000!
 </p>
 <% } %>
 
@@ -846,7 +854,29 @@ Additionally, there are two $700 USD and $300 USD prizes for unusual and perspec
 <% } %>
 <% } %>
 
-<% if (roundId == 16040) { %>
+<% if (roundId == 16051) { %>
+<div class="sectionHeader">Prizes</div>
+    <p align="justify">The prize purse for this challenge is 15,000 USD! The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right" nowrap="nowrap">$6,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right" nowrap="nowrap">$4,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right" nowrap="nowrap">$2,750</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right" nowrap="nowrap">$1,500</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right" nowrap="nowrap">$750</td>
+    </tr>
+</table>
+<% } %>
+
+<% if (roundId == 16040 || roundId == 16065) { %>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">The prize purse for this challenge is 20,000 USD! The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
