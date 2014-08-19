@@ -334,7 +334,7 @@ Please check out the rules link below for more detail.
      || roundId == 15458 || roundId == 15520 || roundId == 15589 || roundId == 15611 || roundId == 15618
      || roundId == 15630 || roundId == 15637 || roundId == 15678 || roundId == 15761 || roundId == 15765
      || roundId == 15876 || roundId == 15879 || roundId == 15995 || roundId == 16001 || roundId == 16040
-	 || roundId == 16051 || roundId == 16065) {%>
+	 || roundId == 16051 || roundId == 16065 || roundId == 16069) {%>
 <p align="justify" class="justifyText">
     <b>Please note that this event is being run for a TopCoder customer.  By winning a prize in this event you agree to transfer ownership of
     your submission to TopCoder.

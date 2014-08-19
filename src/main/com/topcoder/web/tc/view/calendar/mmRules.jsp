@@ -745,16 +745,18 @@ The tester's identity will not be revealed until the challenge is over.</p>
 <%	}%>
 
 	<p>
-	  IN ORDER TO BE ELIGIBLE, YOU WARRANT THAT (UNLESS OTHERWISE SPECIFIED IN THE PROBLEM STATEMENT) YOUR SUBMISSION FOR THIS COMPETITION:<br>
-       <br>�	Does not include or anticipate the inclusion of any content that is in violation of or infringes third party intellectual 
-	   property rights including, but not limited to copyrights, including music copyrights, trademarks, and rights of publicity. 
-       <br>�	Is free and clear of all liens, claims, encumbrances or demands of any third parties. 
-       <br>�	Does not include or anticipate the inclusion of any unsuitable or offensive content, including nudity, sexually explicit, 
-	   disparaging, libelous or other inappropriate content. 
-       <br>�	Has not been entered in previous challenges, or won previous awards. 
-       <br>�	Has not been published or distributed previously in any media. 
-       <br>�	Is suitable for a general audience. 
-       <br>�	Does not contain any claims that are not and cannot be substantiated or that would be false and/or misleading to a reasonable consumer. 
+	  IN ORDER TO BE ELIGIBLE, YOU WARRANT THAT (UNLESS OTHERWISE SPECIFIED IN THE PROBLEM STATEMENT) YOUR SUBMISSION FOR THIS COMPETITION:
+	    <ul>
+         <li>Does not include or anticipate the inclusion of any content that is in violation of or infringes third party intellectual 
+	     property rights including, but not limited to copyrights, including music copyrights, trademarks, and rights of publicity.</li>
+         <li>Is free and clear of all liens, claims, encumbrances or demands of any third parties.</li>
+         <li>Does not include or anticipate the inclusion of any unsuitable or offensive content, including nudity, sexually explicit, 
+	     disparaging, libelous or other inappropriate content.</li>
+         <li>Has not been entered in previous challenges, or won previous awards.</li>
+         <li>Has not been published or distributed previously in any media.</li>
+         <li>Is suitable for a general audience.</li>
+         <li>Does not contain any claims that are not and cannot be substantiated or that would be false and/or misleading to a reasonable consumer.</li>
+	   </ul>
 	</p>
 
      <p align="justify" class="justifyText">		
@@ -794,14 +796,14 @@ The tester's identity will not be revealed until the challenge is over.</p>
 		       || round_id == 15077 || round_id == 15078 || round_id == 15080 || round_id == 15103 || round_id == 15120
 		       || round_id == 15130 || round_id == 15189 || round_id == 15200 || round_id == 15201 || round_id == 15322
 			|| round_id == 15327 || round_id == 15458 || round_id == 15611 || round_id == 15618 || round_id == 15637 || round_id == 15678 || round_id == 15761
-			|| round_id == 15765 || round_id == 15876 || round_id == 15879 || round_id == 15995 || round_id == 16001 || round_id == 16040 || round_id == 16051 || round_id == 16065) { %>
+			|| round_id == 15765 || round_id == 15876 || round_id == 15879 || round_id == 15995 || round_id == 16001 || round_id == 16040 || round_id == 16051 || round_id == 16065 || round_id == 16069) { %>
 			As a condition of winning and redeeming a cash prize, Competitors will be required to submit, 
 			among other things, a completed TopCoder Competition Assignment Agreement, 
 			if one is not already on file with TopCoder, AND a one to two-page description explaining how the algorithm for the winning submission works.
 			<% if (round_id == 15103 || round_id == 15120 || round_id == 15130 || round_id == 15189 || round_id == 15200 || round_id == 15201
 				|| round_id == 15322 || round_id == 15327 || round_id == 15458 || round_id == 15611 || round_id == 15618 || round_id == 15630 ||
 				round_id == 15637 || round_id == 15678 || round_id == 15761 || round_id == 15765 || round_id == 15876 || round_id == 15879 || round_id == 15995
-				|| round_id == 16001 || round_id == 16040 || round_id == 16051 || round_id == 16065) { %>
+				|| round_id == 16001 || round_id == 16040 || round_id == 16051 || round_id == 16065 || round_id == 16069) { %>
 			The description must be submitted within 7 days after the challenge results are published.
 			Questions sent by email from TopCoder requesting clarification to the description must be answered within 3 days.
 			If the description or a response to a clarification request is not received, TopCoder reserves the right to disqualify the submission. 
@@ -853,7 +855,7 @@ The tester's identity will not be revealed until the challenge is over.</p>
 		|| rsr.getIntItem("round_id") == 15630 || rsr.getIntItem("round_id") == 15637 || rsr.getIntItem("round_id") == 15678
 		|| rsr.getIntItem("round_id") == 15761 || rsr.getIntItem("round_id") == 15765 || rsr.getIntItem("round_id") == 15876
         || rsr.getIntItem("round_id") == 15879 || rsr.getIntItem("round_id") == 15995 || rsr.getIntItem("round_id") == 16001
-		|| round_id == 16040 || round_id == 16051 || round_id == 16065) {%>
+		|| round_id == 16040 || round_id == 16051 || round_id == 16065 || round_id == 16069) {%>
 
 		<p align="justify" class="justifyText">
 			This Competition is open to all members of the TopCoder website, who have agreed to the terms thereof, and who are at least 
@@ -931,7 +933,7 @@ The tester's identity will not be revealed until the challenge is over.</p>
 	       || round_id == 15201 || round_id == 15322 || round_id == 15327 || round_id == 15398 || round_id == 15458 || round_id == 15520 || round_id == 15589
 		|| round_id == 15611 || round_id == 15618 || round_id == 15630 || round_id == 15637 || round_id == 15678 || round_id == 15761
 		|| round_id == 15765 || round_id == 15876 || round_id == 15879 || round_id == 15995 || round_id == 16001 || round_id == 16040
-		|| round_id == 16051 || round_id == 16065) { %>
+		|| round_id == 16051 || round_id == 16065 || round_id == 16069) { %>
 		
 		<p align="justify" class="justifyText">
 			You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property 
