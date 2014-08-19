@@ -110,6 +110,10 @@
 		<img src="http://www.topcoder.com/i/sponsor/nasa/ntl_patch.png" alt="NASA Tournament Lab" border="0">
 	</a>
 	</div>
+
+<%} else if (roundId == 16069) { %>
+	
+	<h2>HP IDOL OnDemand Marathon: OCR deskewed and de-lovely</h2>
 	
 <%} else { %>
 	<%-- BRANDING --%>
@@ -685,7 +689,7 @@ submission, within one week of the announcment of the winners in order to receiv
 
 <%if(roundId == 13772 || roundId == 14525 || roundId == 14584 || roundId == 15024 || roundId == 15075 || roundId == 15023 || 
      roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15078 || roundId == 15103 || roundId == 15120 ||
-     roundId == 15189 || roundId == 15322 || roundId == 15458 || roundId == 15618 || roundId == 15637) {%>
+     roundId == 15189 || roundId == 15322 || roundId == 15458 || roundId == 15618 || roundId == 15637 || roundId == 16069) {%>
 <div class="sectionHeader">Prizes</div>
     <p align="justify" class="justifyText">There will be $10,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 

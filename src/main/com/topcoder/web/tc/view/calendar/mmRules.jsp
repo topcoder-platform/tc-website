@@ -78,7 +78,11 @@
 
 
         <%-- BRANDING --%>
+		<% if (round_id == 16069) { %>
+        <h2>HP IDOL OnDemand Marathon: OCR deskewed and de-lovely</h2>
+		<% } else { %>
         <h2>${row.map['contest_name']} &gt; ${row.map['round_name']}</h2>
+		<% } %>
 
         <h3>Official Rules &amp Regulations</h3>
 
@@ -122,7 +126,7 @@
             you will receive an email indicating such and your place in the standings will 
             be adjusted accordingly. During the submission phase, overall ranking and 
             provisional score are the only pieces of information that will be made 
-            available. A given competitor will only be allowed to submit once every 
+            available. A given competitor will only be allowed to submit once every 7
             2 hours.  Additionally, if a competitor has a pending submission on the 
             testing queue it must finish testing before they may submit again.
         </p>
@@ -208,7 +212,7 @@ disqualify the submission.
     <%if(round_id == 13772 || round_id == 14525 || round_id == 14584 || round_id == 15024 || round_id == 15075 || 
 	     round_id == 15023 || round_id == 15034 || round_id == 15038 || round_id == 15076 || round_id == 15078
 	     || round_id == 15103 || round_id == 15120 || round_id == 15189 || round_id == 15322 ||
-	round_id == 15327 || round_id == 15458 || round_id == 15618 || round_id == 15637) {%>
+	round_id == 15327 || round_id == 15458 || round_id == 15618 || round_id == 15637 || round_id == 16069) {%>
 		<div class="sectionHeader">Prizes</div>
 		<p align="justify" class="justifyText">There will be $10,000 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
 
