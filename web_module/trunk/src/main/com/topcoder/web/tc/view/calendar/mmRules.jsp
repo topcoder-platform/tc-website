@@ -928,7 +928,14 @@ The tester's identity will not be revealed until the challenge is over.</p>
         enter the competition. 
     </p>
 
+	<% if (round_id == 16069) { %>
+		<p><strong>“Employees and direct and indirect subcontractors of Hewlett-Packard Company and its subsidiaries and other
+		affiliates (“HP”), and employees and direct and indirect subcontractors of HP’s partners (including TopCoder and its
+		affiliates) are not eligible to participate in the challenge.”</strong></p>
+	<% } %>
 
+	
+	
     <div class="sectionHeader">Ownership and Rights</div>
     
 	<% if (Arrays.binarySearch(assignRounds, round_id)>=0 || round_id==14525 || round_id == 14584 || round_id == 15024 || round_id == 15075 ||
