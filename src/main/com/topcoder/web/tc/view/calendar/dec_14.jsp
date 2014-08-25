@@ -33,7 +33,7 @@
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="calendar"/>
-<jsp:param name="title" value="August 2014"/>
+<jsp:param name="title" value="December 2014"/>
 </jsp:include>
 
 <div style="float:right;white-space:nowrap;" align="right">
@@ -41,9 +41,9 @@
     Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Contests page</a> or subscribe to the RSS feed
     <a href="/tc?module=BasicRSS&amp;c=rss_Pipeline&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
 </div>
-<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=jul_14" class="prevNext">&lt; prev</a> | <a href="/tc?module=Static&amp;d1=calendar&amp;d2=sep_14" class="prevNext">next &gt;</a></strong>
+<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=nov_14" class="prevNext">&lt; prev</a> <!-- | <a href="/tc?module=Static&amp;d1=calendar&amp;d2=jan_15" class="prevNext">next &gt;</a> --></strong>
 <jsp:include page="dropdown.jsp" >
-<jsp:param name="currMonth" value="aug_14"/>
+<jsp:param name="currMonth" value="dec_14"/>
 </jsp:include>
 
 <table cellspacing="0" cellpadding="0" class="calendar" width="100%">
@@ -60,22 +60,19 @@
    <tr>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
-      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
-      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
-      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="value">1
       </td>
       <td class="value">2
       </td>
-   </tr>
-
-   <tr>
       <td class="value">3
       </td>
       <td class="value">4
       </td>
       <td class="value">5
       </td>
+   </tr>
+
+   <tr>
       <td class="value">6
       </td>
       <td class="value">7
@@ -83,25 +80,16 @@
       <td class="value">8
       </td>
       <td class="value">9
-        <div class="tco14">
-          <div class="emblem"><img src="/i/tournament/tco14/emblem.png" alt="TCO14" /></div>
-          <strong><A href="http://community.topcoder.com/tco14/algorithm/">Algorithm Round 3B</A></strong><br />
-          12:00<br />
-        </div>
       </td>
-   </tr>
-
-   <tr>
       <td class="value">10
       </td>
       <td class="value">11
       </td>
       <td class="value">12
-      <div class="srm">
-               <strong><A href="/tc?module=MatchDetails&rd=16060">SRM 629</A></strong><br />
-               11:00
-        </div>
       </td>
+   </tr>
+
+   <tr>
       <td class="value">13
       </td>
       <td class="value">14
@@ -110,36 +98,32 @@
       </td>
       <td class="value">16
       </td>
-   </tr>
-
-   <tr>
       <td class="value">17
       </td>
       <td class="value">18
       </td>
       <td class="value">19
       </td>
+   </tr>
+
+   <tr>
       <td class="value">20
       </td>
       <td class="value">21
-       <div class="srm">
-                     <strong><A href="/tc?module=MatchDetails&rd=16061">SRM 630</A></strong><br />
-                     21:00
-        </div>
       </td>
       <td class="value">22
       </td>
       <td class="value">23
       </td>
-   </tr>
-
-   <tr>
       <td class="value">24
       </td>
       <td class="value">25
       </td>
       <td class="value">26
       </td>
+   </tr>
+
+   <tr>
       <td class="value">27
       </td>
       <td class="value">28
@@ -147,23 +131,13 @@
       <td class="value">29
       </td>
       <td class="value">30
-       <div class="srm">
-                     <strong><A href="/tc?module=MatchDetails&rd=16062">SRM 631</A></strong><br />
-                     12:00
-        </div>
       </td>
-   </tr>
-
-   <tr>
       <td class="value">31
       </td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
-      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
-      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
-      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
-      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
    </tr>
+
 </table>
 
 </div>
