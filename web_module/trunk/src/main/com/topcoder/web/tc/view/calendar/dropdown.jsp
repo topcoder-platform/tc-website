@@ -13,6 +13,10 @@
    <option value="jun_14"<% if (currMonth.equals("jun_14")) { %> selected<% } %>>June</option>
    <option value="jul_14"<% if (currMonth.equals("jul_14")) { %> selected<% } %>>July</option>
    <option value="aug_14"<% if (currMonth.equals("aug_14")) { %> selected<% } %>>August</option>
+   <option value="sep_14"<% if (currMonth.equals("sep_14")) { %> selected<% } %>>September</option>
+   <option value="oct_14"<% if (currMonth.equals("oct_14")) { %> selected<% } %>>October</option>
+   <option value="nov_14"<% if (currMonth.equals("nov_14")) { %> selected<% } %>>November</option>
+   <option value="dec_14"<% if (currMonth.equals("dec_14")) { %> selected<% } %>>December</option>
 
 
   
