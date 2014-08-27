@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2013-2014 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.reg.services.impl;
 
@@ -59,8 +59,17 @@ import java.util.Map;
  *     </ul>
  * </p>
  *
+ * <p>
+ *     Version 1.5 (topcoder reg2 - enable notification for new users) changes:
+ *     <ul>
+ *         <li>Add {@link #SQL_GET_ACTIVE_NOTIFICATIONS}</li>
+ *         <li>Add {@link #SQL_ADD_NOTIFICATION_FOR_USER}</li>
+ *         <li>Add {@link #addActiveNotifications(long)}</li>
+ *         <li>Modify {@link #activate(String)}</li>
+ *     </ul>
+ * </p>
  * @author sampath01, leo_lol, Urmass ,ecnu_haozi, KeSyren, TCSASSEMBLER
- * @version 1.3
+ * @version 1.5
  * @since 1.0
  */
 public class UserServiceImpl extends BaseImpl implements UserService {
@@ -198,6 +207,20 @@ public class UserServiceImpl extends BaseImpl implements UserService {
      */
     private static final String SQL_UPDATE_LAST_LOGIN =
             "UPDATE user set last_login = CURRENT WHERE user_id = ?";
+
+    /**
+     * Query for getting all default active notifications
+     * @since 1.5
+     */
+    private static final String SQL_GET_ACTIVE_NOTIFICATIONS = "SELECT notify_id FROM notify_lu WHERE status = 'A' AND notify_id NOT IN " +
+                                                                 "(SELECT notify_id FROM user_notify_xref WHERE user_id = ?)";
+
+    /**
+     * Query for add notification of user
+     * @since 1.5
+     */
+    private static final String SQL_ADD_NOTIFICATION_FOR_USER = "INSERT INTO user_notify_xref(user_id, notify_id) " +
+            "VALUES(?, ?)";
 
     /**
      * This method saves user to database.
@@ -533,6 +556,7 @@ public class UserServiceImpl extends BaseImpl implements UserService {
             }
             jdbcTemplate.update(SQL_ACTIVATE_USER, userId);
             jdbcTemplate.update(SQL_ACTIVATE_EMAIL, userId);
+            addActiveNotifications(userId);
             activateLDAPEntry(userId);
         } catch (InvalidResultSetAccessException e) {
             logger.error(signature+ e);
@@ -625,6 +649,27 @@ public class UserServiceImpl extends BaseImpl implements UserService {
 
         }catch (DataAccessException e) {
             throw new PersistenceException("Error while updating last user login", e);
+        }
+    }
+
+    /**
+     * Add all active notifications for a user
+     *
+     * @param userId User Id of user
+     * @throws PersistenceException if there is any database related error.
+     * @since 1.5
+     */
+    private void addActiveNotifications(long userId) throws PersistenceException{
+        final String signature = CLASS_NAME + "#addActiveNotifications(long userId)";
+        logger.info(signature);
+        try{
+            SqlRowSet activeNotifications = jdbcTemplate.queryForRowSet(SQL_GET_ACTIVE_NOTIFICATIONS, userId);
+            while (activeNotifications.next()){
+                jdbcTemplate.update(SQL_ADD_NOTIFICATION_FOR_USER, userId, activeNotifications.getLong(1));
+            }
+        }catch (Exception e){
+            logger.error(signature+e);
+            throw new PersistenceException("Error while setting user's notification.", e);
         }
     }
 }
