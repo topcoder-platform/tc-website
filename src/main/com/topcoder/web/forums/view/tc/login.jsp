@@ -11,7 +11,7 @@
 <script>  
 
     function redirect() {
-       window.location = "http://tcqa1.topcoder.com/?action=showlogin";
+       window.location = "http://www.topcoder.com/?action=showlogin";
     }
     
 </script>
