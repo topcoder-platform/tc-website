@@ -122,8 +122,8 @@ import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
  * @author dok, isv, Vitta, orange_cloud, pvmagacho
  * @version 1.4
  */
-public class Submit extends BaseSubmissionDataProcessor {	
-	private static final Logger log = Logger.getLogger(Submit.class);
+public class Submit extends BaseSubmissionDataProcessor {    
+    private static final Logger log = Logger.getLogger(Submit.class);
 
     /**
      * Error message parts go below. I'm not responsible for this, reviewers forced me!
@@ -189,76 +189,80 @@ public class Submit extends BaseSubmissionDataProcessor {
      */
     private static final long STOCK_ART_CONTENT_ID = 2;
 
-	/**
-	 * <p>
-	 * A <code>File</code> referencing the uploaded submission as stored in the
-	 * local file system.
-	 * </p>
-	 */
-	private File f = null;
+    /**
+     * <p>
+     * A <code>File</code> referencing the uploaded submission as stored in the
+     * local file system.
+     * </p>
+     */
+    private File f = null;
 
-	/**
-	 * <p>
-	 * A <code>List</code> combining the threads currently running by this
-	 * controller.
-	 * </p>
-	 */
-	private transient List<Thread> generatorThreads = new ArrayList<Thread>();
+    /**
+     * <p>
+     * A <code>List</code> combining the threads currently running by this
+     * controller.
+     * </p>
+     */
+    private transient List<Thread> generatorThreads = new ArrayList<Thread>();
 
-	/**
-	 * <p>
-	 * Implements the business logic for request processing.
-	 * </p>
-	 * <p/>
-	 * <p>
-	 * Validates the submission submitted by the user to server and stores it in
-	 * local file system. Launches a separate thread for generating the
-	 * alternate presentations of the submission. Also for submissions from
-	 * <code>
+    /**
+     * <p>
+     * Implements the business logic for request processing.
+     * </p>
+     * <p/>
+     * <p>
+     * Validates the submission submitted by the user to server and stores it in
+     * local file system. Launches a separate thread for generating the
+     * alternate presentations of the submission. Also for submissions from
+     * <code>
      * TopCoder Direct</code> contests generates the passing review.
-	 * </p>
-	 *
-	 * @throws Exception if an unexpected error occurs.
-	 */
-	protected void dbProcessing() throws Exception {
-		if (userLoggedIn()) {			
-			Integer contestId;
+     * </p>
+     *
+     * @throws Exception if an unexpected error occurs.
+     */
+    protected void dbProcessing() throws Exception {
+        if (userLoggedIn()) {            
+            Integer contestId;
 
-			try {
-				contestId = new Integer(getRequest().getParameter(Constants.CONTEST_ID));
-			} catch (NumberFormatException e) {
-				throw new NavigationException("Invalid contest specified.");
-			}
+            try {
+                contestId = new Integer(getRequest().getParameter(Constants.CONTEST_ID));
+            } catch (NumberFormatException e) {
+                throw new NavigationException("Invalid contest specified.");
+            }
 
-			DAOFactory factory = DAOUtil.getFactory();
-			SubmissionDAO submissionDAO = factory.getSubmissionDAO();
-			UploadDAO uploadDAO = factory.getUploadDAO();
-			UserDAO userDAO = factory.getUserDAO();
+            DAOFactory factory = DAOUtil.getFactory();
+            SubmissionDAO submissionDAO = factory.getSubmissionDAO();
+            UploadDAO uploadDAO = factory.getUploadDAO();
+            UserDAO userDAO = factory.getUserDAO();
 
-			Project c = factory.getProjectDAO().find(contestId);
-			Date now = new Date();
+            Project c = factory.getProjectDAO().find(contestId);
+            Date now = new Date();
             if (getUploadTypeId() == Upload.SUBMISSION) {
-			    if (now.before(c.getStartTime()) || now.after(c.getEndTime()) || 
-					!Project.STATUS_ACTIVE.equals(c.getStatusId())) {
-				    throw new NavigationException("Inactive contest specified.");
-			    }
+                if (now.before(c.getStartTime()) || now.after(c.getEndTime()) || 
+                    !Project.STATUS_ACTIVE.equals(c.getStatusId())) {
+                    throw new NavigationException("Inactive contest specified.");
+                }
             } else {
                 if (!Project.STATUS_ACTIVE.equals(c.getStatusId())) {
                     throw new NavigationException("Inactive contest specified.");
                 }
             }
-			User u = userDAO.find(getUser().getId());
-			
-			Resource resource = RegistrationHelper.getSubmitterResource(c, u.getId());
+            User u = userDAO.find(getUser().getId());
+            
+            Resource resource = RegistrationHelper.getSubmitterResource(c, u.getId());
             if (!hasPermission(c, u, resource)) {
                 return;
-			} else {
-				// registered
-				MultipartRequest r = (MultipartRequest) getRequest();
+            } else {
+                // registered
+                MultipartRequest r = (MultipartRequest) getRequest();
 
-				UploadedFile submissionFile = r.getUploadedFile(Constants.SUBMISSION);
-				UploadedFile sourceFile = r.getUploadedFile(Constants.SUBMISSION_SOURCE);
-				UploadedFile previewFile = r.getUploadedFile(Constants.SUBMISSION_PREVIEW);
+                log.debug("debug output 1: user " + getUser().getId());
+                UploadedFile submissionFile = r.getUploadedFile(Constants.SUBMISSION);
+                log.debug("debug output 2: user " + getUser().getId());
+                UploadedFile sourceFile = r.getUploadedFile(Constants.SUBMISSION_SOURCE);
+                log.debug("debug output 3: user " + getUser().getId());
+                UploadedFile previewFile = r.getUploadedFile(Constants.SUBMISSION_PREVIEW);
+                log.debug("debug output 4: user " + getUser().getId());
 
                 SubmissionDeclaration submissionDeclaration = new SubmissionDeclaration();
                 List<ExternalContent> externalContents = new ArrayList<ExternalContent>();
@@ -268,69 +272,74 @@ public class Submit extends BaseSubmissionDataProcessor {
                 fontType.setId(FONT_CONTENT_ID);
                 ExternalContentType saType = new ExternalContentType();
                 saType.setId(STOCK_ART_CONTENT_ID);
+                log.debug("debug output 5: user " + getUser().getId());
                 
                 // read fonts
                 String[] fonts = r.getParameterValues(Constants.FONT);
                 
                 boolean noNewFonts = false;
-		for(int i = 0; i<fonts.length; i++) {
-		  if(fonts[i] == "I did not introduce any new fonts") {
-                    // create ExternalContent object
-                    ExternalContent font = new ExternalContent();
-                    font.setContentType(fontType);
-                    font.setDeclaration(submissionDeclaration);
-                    font.setDisplayPosition(i);
-                    addProperty(font,"Name","I did not introduce any new fonts");
-                    externalContents.add(font);
-                    noNewFonts = true;
-		  }
-		}
-		if(!noNewFonts){
-		  String[] fontNames = r.getParameterValues(Constants.FONT_NAME);
-		  String[] fontUrls = r.getParameterValues(Constants.FONT_URL);
-		  for (int i = 0; i < fontNames.length; ++i) {
-		      String name = fontNames[i];
-		      String stdFont = fonts[i];
-		      String url = fontUrls[i];
-		      if (blank(name, "Font's Name") && blank(stdFont, "") && blank(url, "Font's URL Source")) {
-			  // if both name and url are missing, just skip it
-			  continue;
-		      }
 
-		      // validate font data
-		      String error = "";
-		      if (blank(name, "Font's Name")) {
-			  error = MISSING_NAME_DOT;
-		      } else if (blank(stdFont, "")) {
-			  error = MISSING_SOURCE_DOT;
-		      } else if (!blank(stdFont, "Studio Standard Fonts list") && blank(url, "Font's URL Source")) {
-			  error = MISSING_NAME_DOT;
-		      }
+                for(int i = 0; i<fonts.length; i++) {
+                    if (fonts[i] == "I did not introduce any new fonts") {
+                        // create ExternalContent object
+                        ExternalContent font = new ExternalContent();
+                        font.setContentType(fontType);
+                        font.setDeclaration(submissionDeclaration);
+                        font.setDisplayPosition(i);
+                        addProperty(font,"Name","I did not introduce any new fonts");
+                        externalContents.add(font);
+                        noNewFonts = true;
+                    }
+                }
+                log.debug("debug output 6: user " + getUser().getId());
 
-		      fontsData.add(new String[] {name, stdFont, url, error});
-		      if (!blank(error)) {
-			  addError(Constants.SUBMISSION_SOURCE + '.' + i, error);
-		      }
+                if (!noNewFonts) {
+                    String[] fontNames = r.getParameterValues(Constants.FONT_NAME);
+                    String[] fontUrls = r.getParameterValues(Constants.FONT_URL);
+                    for (int i = 0; i < fontNames.length; ++i) {
+                        String name = fontNames[i];
+                        String stdFont = fonts[i];
+                        String url = fontUrls[i];
+                        if (blank(name, "Font's Name") && blank(stdFont, "") && blank(url, "Font's URL Source")) {
+                        // if both name and url are missing, just skip it
+                        continue;
+                        }
 
-		      // If stdFont is "Studio Standard Fonts List" then submitter probably did not provide a url
-		      // so we set a URL link to TopCoder Studio font policy page
-		      if (blank(url, "Font's URL Source")) {
-			  url = TC_STUDIO_FONT_POLICY_LINK;
-		      } else if (!url.startsWith("http://")) {
-			  url = "http://" + url;
-		      }
+                        // validate font data
+                        String error = "";
+                        if (blank(name, "Font's Name")) {
+                            error = MISSING_NAME_DOT;
+                        } else if (blank(stdFont, "")) {
+                            error = MISSING_SOURCE_DOT;
+                        } else if (!blank(stdFont, "Studio Standard Fonts list") && blank(url, "Font's URL Source")) {
+                            error = MISSING_NAME_DOT;
+                        }
 
-		      // create ExternalContent object
-		      ExternalContent font = new ExternalContent();
-		      font.setContentType(fontType);
-		      font.setDeclaration(submissionDeclaration);
-		      font.setDisplayPosition(i);
-		      addProperty(font, "Name", name + " (" + stdFont + ")");
-		      addProperty(font, "Url", url);
-		      externalContents.add(font);
-		  }
+                        fontsData.add(new String[] {name, stdFont, url, error});
+                        if (!blank(error)) {
+                            addError(Constants.SUBMISSION_SOURCE + '.' + i, error);
+                        }
+
+                        // If stdFont is "Studio Standard Fonts List" then submitter probably did not provide a url
+                        // so we set a URL link to TopCoder Studio font policy page
+                        if (blank(url, "Font's URL Source")) {
+                            url = TC_STUDIO_FONT_POLICY_LINK;
+                        } else if (!url.startsWith("http://")) {
+                            url = "http://" + url;
+                        }
+
+                        // create ExternalContent object
+                        ExternalContent font = new ExternalContent();
+                        font.setContentType(fontType);
+                        font.setDeclaration(submissionDeclaration);
+                        font.setDisplayPosition(i);
+                        addProperty(font, "Name", name + " (" + stdFont + ")");
+                        addProperty(font, "Url", url);
+                        externalContents.add(font);
+                    }
                 }
 
+                log.debug("debug output 7: user " + getUser().getId());
                 // read stock art
                 String[] saNames = r.getParameterValues(Constants.STOCK_ART_NAME);
                 String[] saUrls = r.getParameterValues(Constants.STOCK_ART_URL);
@@ -388,45 +397,52 @@ public class Submit extends BaseSubmissionDataProcessor {
                     externalContents.add(font);
                 }
 
+                log.debug("debug output 8: user " + getUser().getId());
                 submissionDeclaration.setExternalContents(externalContents);
                 submissionDeclaration.setHasExternalContent(externalContents.size() > 0);
                 String submissionComment = r.getParameter(Constants.SUBMISSION_COMMENT);
                 submissionDeclaration.setComment(submissionComment == null ? "" : (submissionComment.trim().equals("Comments") ? "" : submissionComment));
 
-				log.debug("submission: " + submissionFile.getRemoteFileName());
-				log.debug("submission content type: " + submissionFile.getContentType());
-				log.debug("submission file id: " + submissionFile.getFileId());
+                log.debug("debug output 9: user " + getUser().getId());
+                log.debug("submission: " + submissionFile.getRemoteFileName());
+                log.debug("submission content type: " + submissionFile.getContentType());
+                log.debug("submission file id: " + submissionFile.getFileId());
 
-				// Source submission is always required
-				ValidationResult submissionValidationResult = new SourceSubmissionValidator(c).validate(new ObjectInput(sourceFile));
-				if (!submissionValidationResult.isValid()) {
-					addError(Constants.SUBMISSION_SOURCE, submissionValidationResult.getMessage());
-				}
+                // Source submission is always required
+                ValidationResult submissionValidationResult = new SourceSubmissionValidator(c).validate(new ObjectInput(sourceFile));
+                if (!submissionValidationResult.isValid()) {
+                    addError(Constants.SUBMISSION_SOURCE, submissionValidationResult.getMessage());
+                }
 
-				// Submission preview bundled file is always required
+                log.debug("debug output 10: user " + getUser().getId());
+                // Submission preview bundled file is always required
                 submissionValidationResult = new SourceSubmissionValidator(c).validate(new ObjectInput(submissionFile));
                 if (!submissionValidationResult.isValid()) {
                     addError(Constants.SUBMISSION, submissionValidationResult.getMessage());
                 }
 
+                log.debug("debug output 11: user " + getUser().getId());
                 // Preview image is always required
                 submissionValidationResult = new ImageSubmissionValidator(c).validate(new ObjectInput(previewFile));
                 if (!submissionValidationResult.isValid()) {
                     addError(Constants.SUBMISSION_PREVIEW, submissionValidationResult.getMessage());
                 }
+                log.debug("debug output 12: user " + getUser().getId());
 
                 boolean rankUsed = (getUploadTypeId() == Upload.SUBMISSION);
                 String rank = null;
                 if (rankUsed) {
                     rank = getRequest().getParameter(Constants.SUBMISSION_RANK);
                     StringInput rankInput = new StringInput(rank);
-				    ValidationResult rankResult = new IntegerValidator("Valid integer expected.").validate(rankInput);
-				    if (!rankResult.isValid()) {
-					    addError(Constants.SUBMISSION_RANK, rankResult.getMessage());
-				    }
+                    ValidationResult rankResult = new IntegerValidator("Valid integer expected.").validate(rankInput);
+                    if (!rankResult.isValid()) {
+                        addError(Constants.SUBMISSION_RANK, rankResult.getMessage());
+                    }
                 }
 
-				if (hasErrors()) {
+                log.debug("debug output 13: user " + getUser().getId());
+
+                if (hasErrors()) {
                     r.setAttribute("fonts_data", fontsData);
                     r.setAttribute("stock_art_data", stockArtData);
                     r.setAttribute("submission_comment", submissionComment);
@@ -435,12 +451,12 @@ public class Submit extends BaseSubmissionDataProcessor {
                         setDefault(Constants.SUBMISSION_RANK, rank);
                     }
 
-					setDefault(Constants.CONTEST_ID, contestId.toString());
-					loadSubmissionData(u, c, submissionDAO, uploadDAO);
-					getRequest().setAttribute("contest", c);
-					setNextPage("/submit.jsp");
-					setIsNextPageInContext(true);
-				} else {
+                    setDefault(Constants.CONTEST_ID, contestId.toString());
+                    loadSubmissionData(u, c, submissionDAO, uploadDAO);
+                    getRequest().setAttribute("contest", c);
+                    setNextPage("/submit.jsp");
+                    setIsNextPageInContext(true);
+                } else {
                     // build data for document generator
                     StringBuilder declarationData = new StringBuilder();
                     declarationData.append("<DATA>");
@@ -456,7 +472,6 @@ public class Submit extends BaseSubmissionDataProcessor {
                             append("</url></font>");
                     }
 
-
                     for (int i = 0; i < stockArtData.size(); ++i) {
                         String[] sa = stockArtData.get(i);
                         declarationData.append("<stockArt><index>").append(i + 1).append("</index><name>").
@@ -466,138 +481,142 @@ public class Submit extends BaseSubmissionDataProcessor {
                     declarationData.append("</DATA>");
 
                     String path = Util.createSubmissionPath(c, u);
-					File directory = new File(path);					
-					if (!directory.exists()) {
-						directory.mkdirs();
-					}
+                    File directory = new File(path);                    
+                    if (!directory.exists()) {
+                        directory.mkdirs();
+                    }
 
+                    log.debug("debug output 14: user " + getUser().getId());
                     String declaration = generateDeclarationFile(declarationData.toString());
-					submissionFile = generateUnifiedSubmissionFile(submissionFile, sourceFile, previewFile, u, declaration);
+                    log.debug("debug output 15: user " + getUser().getId());
+                    submissionFile = generateUnifiedSubmissionFile(submissionFile, sourceFile, previewFile, u, declaration);
+                    log.debug("debug output 16: user " + getUser().getId());
 
-					String remoteFileName = submissionFile.getRemoteFileName();
+                    String remoteFileName = submissionFile.getRemoteFileName();
 
-					log.debug("unified submission: " + submissionFile.getRemoteFileName());
+                    log.debug("unified submission: " + submissionFile.getRemoteFileName());
 
-					// do thorough validation
-					ValidationResult thoroughValidationResult = new UnifiedSubmissionValidator(c).validate(new ObjectInput(submissionFile));
-					if (!thoroughValidationResult.isValid()) {
-						throw new TCException(thoroughValidationResult.getMessage());
-					}
+                    // do thorough validation
+                    ValidationResult thoroughValidationResult = new UnifiedSubmissionValidator(c).validate(new ObjectInput(submissionFile));
+                    if (!thoroughValidationResult.isValid()) {
+                        throw new TCException(thoroughValidationResult.getMessage());
+                    }
+                    log.debug("debug output 17: user " + getUser().getId());
 
 
                     Submission s = new Submission();
-					s.setCreateUser(u.getId().toString());
-					s.setCreateDate(new Timestamp(now.getTime()));
-					s.setModifyUser(u.getId().toString());
-					s.setModifyDate(new Timestamp(now.getTime()));
-					s.setStatusId(Submission.STATUS_ACTIVE);
-					s.setTypeId(getSubmissionTypeId(c));
-					s.setFileSize(submissionFile.getSize());
-					s.setViewCount(0L);
-					
+                    s.setCreateUser(u.getId().toString());
+                    s.setCreateDate(new Timestamp(now.getTime()));
+                    s.setModifyUser(u.getId().toString());
+                    s.setModifyDate(new Timestamp(now.getTime()));
+                    s.setStatusId(Submission.STATUS_ACTIVE);
+                    s.setTypeId(getSubmissionTypeId(c));
+                    s.setFileSize(submissionFile.getSize());
+                    s.setViewCount(0L);
+                   
 
                     String systemFileName = createSystemFileName(s, remoteFileName);
-					
-					Upload upload = new Upload();
-					upload.setCreateUser(u.getId().toString());
-					upload.setCreateDate(new Timestamp(now.getTime()));
-					upload.setModifyUser(u.getId().toString());
-					upload.setModifyDate(new Timestamp(now.getTime()));
-					upload.setContest(c);
-					upload.setResource(resource);
-					upload.setParameter(systemFileName);
-					upload.setTypeId(getUploadTypeId());
-					upload.setStatusId(Upload.STATUS_ACTIVE);
-					upload.setProjectPhase(getSubmissionPhase(c, s));
-					
-					
-					s.setUpload(upload);
+                    
+                    Upload upload = new Upload();
+                    upload.setCreateUser(u.getId().toString());
+                    upload.setCreateDate(new Timestamp(now.getTime()));
+                    upload.setModifyUser(u.getId().toString());
+                    upload.setModifyDate(new Timestamp(now.getTime()));
+                    upload.setContest(c);
+                    upload.setResource(resource);
+                    upload.setParameter(systemFileName);
+                    upload.setTypeId(getUploadTypeId());
+                    upload.setStatusId(Upload.STATUS_ACTIVE);
+                    upload.setProjectPhase(getSubmissionPhase(c, s));
+                    
+                    
+                    s.setUpload(upload);
 
                     s.setDeclaration(submissionDeclaration);
                     submissionDeclaration.setSubmission(s);
                    
-					if (log.isDebugEnabled()) {
-						log.debug("creating file: " + path + System.getProperty("file.separator") + systemFileName);
-					}
-					f = new File(path, systemFileName);
+                    if (log.isDebugEnabled()) {
+                        log.debug("creating file: " + path + System.getProperty("file.separator") + systemFileName);
+                    }
+                    f = new File(path, systemFileName);
 
- 					FileOutputStream fos = new FileOutputStream(f);
-					byte[] fileBytes = new byte[512];
-					InputStream ios = submissionFile.getInputStream();
-					int read;
-					while ((read=ios.read(fileBytes))!=-1) {
-						fos.write(fileBytes,0,read);
-					}
-					ios.close();
-					fos.close(); 
+                    FileOutputStream fos = new FileOutputStream(f);
+                    byte[] fileBytes = new byte[512];
+                    InputStream ios = submissionFile.getInputStream();
+                    int read;
+                    while ((read=ios.read(fileBytes))!=-1) {
+                        fos.write(fileBytes,0,read);
+                    }
+                    ios.close();
+                    fos.close(); 
                     
 
                     if (rankUsed) {
                         List<Upload> uploads =
                                 uploadDAO.getUploads(c, resource, Upload.STATUS_ACTIVE, Upload.SUBMISSION);
-					    Integer maxRank = submissionDAO.getMaxRank(uploads);
-					    Integer one = 1;
-					    getRequest().setAttribute("maxRank", maxRank);
-					    if (maxRank == null) {
-						    s.setRank(one);
-						    submissionDAO.saveOrUpdate(s);
-					    } else {
-						    Integer newRank = new Integer(rank);
-						    if (newRank.compareTo(maxRank) > 0) {
-							    s.setRank(maxRank + 1);
-							    submissionDAO.saveOrUpdate(s);
-						    } else if (newRank.compareTo(one) < 0) {
-							    submissionDAO.changeRank(one, s, uploads);
-						    } else {
-							    submissionDAO.changeRank(newRank, s, uploads);
-						    }
-					    }
+                        Integer maxRank = submissionDAO.getMaxRank(uploads);
+                         Integer one = 1;
+                         getRequest().setAttribute("maxRank", maxRank);
+                        if (maxRank == null) {
+                            s.setRank(one);
+                            submissionDAO.saveOrUpdate(s);
+                        } else {
+                            Integer newRank = new Integer(rank);
+                            if (newRank.compareTo(maxRank) > 0) {
+                                s.setRank(maxRank + 1);
+                                submissionDAO.saveOrUpdate(s);
+                            } else if (newRank.compareTo(one) < 0) {
+                                submissionDAO.changeRank(one, s, uploads);
+                            } else {
+                                submissionDAO.changeRank(newRank, s, uploads);
+                            }
+                        }
                     } else {
                         submissionDAO.saveOrUpdate(s);
                     }
-								
-					closeConversation();
-					// have to wrap up the last stuff, and get into
-					// new stuff
-					beginCommunication();
+                                
+                    closeConversation();
+                    // have to wrap up the last stuff, and get into
+                    // new stuff
+                    beginCommunication();
 
-					// Since TopCoder Studio Modifications Assembly -
-					// generate alternate representations for the
-					// submission. Req# 5.7
-					u = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
-					generateAlternateRepresentations(c, s, submissionFile, u);
+                    // Since TopCoder Studio Modifications Assembly -
+                    // generate alternate representations for the
+                    // submission. Req# 5.7
+                    u = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
+                    generateAlternateRepresentations(c, s, submissionFile, u);
 
-					// Create resource_submission entry 
-					ResourceSubmission resourceSubmission = new ResourceSubmission();
-					resourceSubmission.setSubmission(s);
-					resourceSubmission.setResource(resource);
-					resourceSubmission.setCreateUser(u.getId().toString());
-					resourceSubmission.setCreateDate(new Timestamp(now.getTime()));
-					resourceSubmission.setModifyUser(u.getId().toString());
-					resourceSubmission.setModifyDate(new Timestamp(now.getTime()));
-					s.addResource(resourceSubmission);
-					
-					submissionDAO = factory.getSubmissionDAO();
-					submissionDAO.saveOrUpdate(s);		
-					
-					StringBuffer nextPage = new StringBuffer(50);
-					nextPage.append(getSessionInfo().getServletPath());
-					nextPage.append("?" + Constants.MODULE_KEY + "=ViewSubmissionSuccess&");
-					nextPage.append(Constants.SUBMISSION_ID + "=").append(s.getId());
+                    // Create resource_submission entry 
+                    ResourceSubmission resourceSubmission = new ResourceSubmission();
+                    resourceSubmission.setSubmission(s);
+                    resourceSubmission.setResource(resource);
+                    resourceSubmission.setCreateUser(u.getId().toString());
+                    resourceSubmission.setCreateDate(new Timestamp(now.getTime()));
+                    resourceSubmission.setModifyUser(u.getId().toString());
+                    resourceSubmission.setModifyDate(new Timestamp(now.getTime()));
+                    s.addResource(resourceSubmission);
+                    
+                    submissionDAO = factory.getSubmissionDAO();
+                    submissionDAO.saveOrUpdate(s);        
+                    
+                    StringBuffer nextPage = new StringBuffer(50);
+                    nextPage.append(getSessionInfo().getServletPath());
+                    nextPage.append("?" + Constants.MODULE_KEY + "=ViewSubmissionSuccess&");
+                    nextPage.append(Constants.SUBMISSION_ID + "=").append(s.getId());
                     String queryString = getRequest().getQueryString();
                     int pos = queryString.lastIndexOf(Constants.UPLOAD_ID + "=");
                     String uploadId = queryString.substring(pos + (Constants.UPLOAD_ID + "=").length());
                     nextPage.append("&").append(Constants.UPLOAD_ID + "=").append(uploadId);
                     setNextPage(nextPage.toString());
-					setIsNextPageInContext(false);
+                    setIsNextPageInContext(false);
                     
                     getRequest().setAttribute("success", true);
-				}
-			}
-		} else {
-			throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-		}
-	}
+                }
+            }
+        } else {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
+    }
 
 
     /**
@@ -611,22 +630,22 @@ public class Submit extends BaseSubmissionDataProcessor {
     }
 
 
-	private UploadedFile generateUnifiedSubmissionFile(
-			UploadedFile submissionFile, UploadedFile sourceFile,
-			UploadedFile previewFile, User u, String declaration) throws IOException, PersistenceException,
-			FileDoesNotExistException {
-		// Get request
-		MultipartRequest request = (MultipartRequest) getRequest();
-		
-		// Create ZIP file
-		File zipFile = new File(Constants.TEMPORARY_STORAGE_PATH + "/" + "generated_" + System.currentTimeMillis() + "_" + u.getId() + "_unifiedSubmission.zip");
-		log.debug("Saving zip file to " + zipFile.getAbsolutePath());
-		
-		FileOutputStream out = new FileOutputStream(zipFile);
-		ZipOutputStream archiveFile = new ZipOutputStream(out);
+    private UploadedFile generateUnifiedSubmissionFile(
+            UploadedFile submissionFile, UploadedFile sourceFile,
+            UploadedFile previewFile, User u, String declaration) throws IOException, PersistenceException,
+            FileDoesNotExistException {
+        // Get request
+        MultipartRequest request = (MultipartRequest) getRequest();
+        
+        // Create ZIP file
+        File zipFile = new File(Constants.TEMPORARY_STORAGE_PATH + "/" + "generated_" + System.currentTimeMillis() + "_" + u.getId() + "_unifiedSubmission.zip");
+        log.debug("Saving zip file to " + zipFile.getAbsolutePath());
+        
+        FileOutputStream out = new FileOutputStream(zipFile);
+        ZipOutputStream archiveFile = new ZipOutputStream(out);
 
-		// submission
-		InputStream input = submissionFile.getInputStream();
+        // submission
+        InputStream input = submissionFile.getInputStream();
         String name = Constants.SUBMISSION_PATH + "/" + submissionFile.getRemoteFileName();
 
         // add declaration file to submission archive
@@ -655,21 +674,21 @@ public class Submit extends BaseSubmissionDataProcessor {
         submissionOutput.finish();
         zin.close();
 
-		// source
-		input = sourceFile.getInputStream();
-		name = Constants.SUBMISSION_SOURCE_PATH + "/" + sourceFile.getRemoteFileName();
-		addFileToZip(archiveFile, input, name);
+        // source
+        input = sourceFile.getInputStream();
+        name = Constants.SUBMISSION_SOURCE_PATH + "/" + sourceFile.getRemoteFileName();
+        addFileToZip(archiveFile, input, name);
 
-		// preview
-		input = previewFile.getInputStream();
-		name = Constants.SUBMISSION_PATH + "/" + previewFile.getRemoteFileName();
-		addFileToZip(archiveFile, input, name);
+        // preview
+        input = previewFile.getInputStream();
+        name = Constants.SUBMISSION_PATH + "/" + previewFile.getRemoteFileName();
+        addFileToZip(archiveFile, input, name);
 
-		archiveFile.flush();
-		archiveFile.close();
+        archiveFile.flush();
+        archiveFile.close();
 
-		return new MockUploadedFile(zipFile, "application/x-zip");
-	}
+        return new MockUploadedFile(zipFile, "application/x-zip");
+    }
 
     /**
      * Buffer for copyStream method.
@@ -695,72 +714,72 @@ public class Submit extends BaseSubmissionDataProcessor {
     }
 
 
-	private void addFileToZip(ZipOutputStream zipFile, InputStream fileData, String fileName) throws IOException {
-		ZipEntry zipEntry = new ZipEntry(fileName);
-		zipFile.putNextEntry(zipEntry);
-		byte[] buffer = new byte[512];
-		int byteRead;
-		while ((byteRead = fileData.read(buffer)) > 0) {
-			zipFile.write(buffer, 0, byteRead);
-		}
-		zipFile.closeEntry();
-		fileData.close();
-	}
+    private void addFileToZip(ZipOutputStream zipFile, InputStream fileData, String fileName) throws IOException {
+        ZipEntry zipEntry = new ZipEntry(fileName);
+        zipFile.putNextEntry(zipEntry);
+        byte[] buffer = new byte[512];
+        int byteRead;
+        while ((byteRead = fileData.read(buffer)) > 0) {
+            zipFile.write(buffer, 0, byteRead);
+        }
+        zipFile.closeEntry();
+        fileData.close();
+    }
 
-	/**
-	 * <p>
-	 * Handles the case when an exception has been raised while processing the
-	 * request. Attempts to delete the uploaded file with submission from the
-	 * local file system.
-	 * </p>
-	 */
-	protected void exceptionCallBack() {
-		if (f != null) {
-			try {
-				f.delete();
-			} catch (Throwable e) {
-				log.error("Error attempting to remove file (" + f.getPath() + f.getName() + ") after exception: " + e.getMessage());
-			}
-		}
-	}
+    /**
+     * <p>
+     * Handles the case when an exception has been raised while processing the
+     * request. Attempts to delete the uploaded file with submission from the
+     * local file system.
+     * </p>
+     */
+    protected void exceptionCallBack() {
+        if (f != null) {
+            try {
+                f.delete();
+            } catch (Throwable e) {
+                log.error("Error attempting to remove file (" + f.getPath() + f.getName() + ") after exception: " + e.getMessage());
+            }
+        }
+    }
 
-	/**
-	 * <p>
-	 * Generates the alternate representations for the submission submitted by
-	 * the specified user for specified contest.
-	 * </p>
-	 *
-	 * @param contest
-	 *            a <code>Contest</code> representing the contest which the
-	 *            submission belongs to.
-	 * @param submission
-	 *            a <code>Submission</code> providing the details for the
-	 *            submission.
-	 * @param submissionFile
-	 *            an <code>UploadedFile</code> representing the submission.
-	 * @param submitter
-	 *            a <code>User</code> representing the submitter.
-	 * @since TopCoder Studio Modifications Assembly (Req# 5.7)
-	 */
-	private void generateAlternateRepresentations(Project contest, Submission submission, UploadedFile submissionFile, User submitter) {
-		FileGenerator fileGenerator = null;
-		fileGenerator = new FileGenerator(contest, submission, submissionFile, submitter);
-		Thread thread = new Thread(fileGenerator);
-		thread.start();
-		this.generatorThreads.add(thread);
-	}
+    /**
+     * <p>
+     * Generates the alternate representations for the submission submitted by
+     * the specified user for specified contest.
+     * </p>
+     *
+     * @param contest
+     *            a <code>Contest</code> representing the contest which the
+     *            submission belongs to.
+     * @param submission
+     *            a <code>Submission</code> providing the details for the
+     *            submission.
+     * @param submissionFile
+     *            an <code>UploadedFile</code> representing the submission.
+     * @param submitter
+     *            a <code>User</code> representing the submitter.
+     * @since TopCoder Studio Modifications Assembly (Req# 5.7)
+     */
+    private void generateAlternateRepresentations(Project contest, Submission submission, UploadedFile submissionFile, User submitter) {
+        FileGenerator fileGenerator = null;
+        fileGenerator = new FileGenerator(contest, submission, submissionFile, submitter);
+        Thread thread = new Thread(fileGenerator);
+        thread.start();
+        this.generatorThreads.add(thread);
+    }
 
-	/**
-	 * <p>
-	 * Gets the list of threads currently running by this controller.
-	 * </p>
-	 *
-	 * @return a <code>List</code> combining the threads running by this
-	 *         controller.
-	 */
-	protected List<Thread> getGeneratorThreads() {
-		return this.generatorThreads;
-	}
+    /**
+     * <p>
+     * Gets the list of threads currently running by this controller.
+     * </p>
+     *
+     * @return a <code>List</code> combining the threads running by this
+     *         controller.
+     */
+    protected List<Thread> getGeneratorThreads() {
+        return this.generatorThreads;
+    }
 
     /**
      * <p>Gets the type of the upload serviced by this controlller.</p>
@@ -815,16 +834,16 @@ public class Submit extends BaseSubmissionDataProcessor {
         return s == null || s.trim().length() == 0;
     }
 
-	/**
+    /**
      * Checks whether string is null or empty (String is considered as empty string if it equlas to a provided string).
      *
      * @param s string to test
-	 * @param emptyStr the provided string
+     * @param emptyStr the provided string
      * @return whether string is null or empty (String is considered as empty string if it equlas to a provided string).
      */
     private static boolean blank(String s, String emptyStr) {
-		return blank(s) || s.trim().equals(emptyStr);
-	}
+        return blank(s) || s.trim().equals(emptyStr);
+    }
 
     /**
      * Adds property to ExternalContent instance.
