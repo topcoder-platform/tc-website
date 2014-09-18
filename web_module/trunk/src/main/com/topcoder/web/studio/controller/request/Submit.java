@@ -256,13 +256,9 @@ public class Submit extends BaseSubmissionDataProcessor {
                 // registered
                 MultipartRequest r = (MultipartRequest) getRequest();
 
-                log.debug("debug output 1: user " + getUser().getId());
                 UploadedFile submissionFile = r.getUploadedFile(Constants.SUBMISSION);
-                log.debug("debug output 2: user " + getUser().getId());
                 UploadedFile sourceFile = r.getUploadedFile(Constants.SUBMISSION_SOURCE);
-                log.debug("debug output 3: user " + getUser().getId());
                 UploadedFile previewFile = r.getUploadedFile(Constants.SUBMISSION_PREVIEW);
-                log.debug("debug output 4: user " + getUser().getId());
 
                 SubmissionDeclaration submissionDeclaration = new SubmissionDeclaration();
                 List<ExternalContent> externalContents = new ArrayList<ExternalContent>();
@@ -272,7 +268,6 @@ public class Submit extends BaseSubmissionDataProcessor {
                 fontType.setId(FONT_CONTENT_ID);
                 ExternalContentType saType = new ExternalContentType();
                 saType.setId(STOCK_ART_CONTENT_ID);
-                log.debug("debug output 5: user " + getUser().getId());
                 
                 // read fonts
                 String[] fonts = r.getParameterValues(Constants.FONT);
@@ -291,7 +286,6 @@ public class Submit extends BaseSubmissionDataProcessor {
                         noNewFonts = true;
                     }
                 }
-                log.debug("debug output 6: user " + getUser().getId());
 
                 if (!noNewFonts) {
                     String[] fontNames = r.getParameterValues(Constants.FONT_NAME);
@@ -339,7 +333,6 @@ public class Submit extends BaseSubmissionDataProcessor {
                     }
                 }
 
-                log.debug("debug output 7: user " + getUser().getId());
                 // read stock art
                 String[] saNames = r.getParameterValues(Constants.STOCK_ART_NAME);
                 String[] saUrls = r.getParameterValues(Constants.STOCK_ART_URL);
@@ -397,13 +390,11 @@ public class Submit extends BaseSubmissionDataProcessor {
                     externalContents.add(font);
                 }
 
-                log.debug("debug output 8: user " + getUser().getId());
                 submissionDeclaration.setExternalContents(externalContents);
                 submissionDeclaration.setHasExternalContent(externalContents.size() > 0);
                 String submissionComment = r.getParameter(Constants.SUBMISSION_COMMENT);
                 submissionDeclaration.setComment(submissionComment == null ? "" : (submissionComment.trim().equals("Comments") ? "" : submissionComment));
 
-                log.debug("debug output 9: user " + getUser().getId());
                 log.debug("submission: " + submissionFile.getRemoteFileName());
                 log.debug("submission content type: " + submissionFile.getContentType());
                 log.debug("submission file id: " + submissionFile.getFileId());
@@ -414,20 +405,17 @@ public class Submit extends BaseSubmissionDataProcessor {
                     addError(Constants.SUBMISSION_SOURCE, submissionValidationResult.getMessage());
                 }
 
-                log.debug("debug output 10: user " + getUser().getId());
                 // Submission preview bundled file is always required
                 submissionValidationResult = new SourceSubmissionValidator(c).validate(new ObjectInput(submissionFile));
                 if (!submissionValidationResult.isValid()) {
                     addError(Constants.SUBMISSION, submissionValidationResult.getMessage());
                 }
 
-                log.debug("debug output 11: user " + getUser().getId());
                 // Preview image is always required
                 submissionValidationResult = new ImageSubmissionValidator(c).validate(new ObjectInput(previewFile));
                 if (!submissionValidationResult.isValid()) {
                     addError(Constants.SUBMISSION_PREVIEW, submissionValidationResult.getMessage());
                 }
-                log.debug("debug output 12: user " + getUser().getId());
 
                 boolean rankUsed = (getUploadTypeId() == Upload.SUBMISSION);
                 String rank = null;
@@ -439,8 +427,6 @@ public class Submit extends BaseSubmissionDataProcessor {
                         addError(Constants.SUBMISSION_RANK, rankResult.getMessage());
                     }
                 }
-
-                log.debug("debug output 13: user " + getUser().getId());
 
                 if (hasErrors()) {
                     r.setAttribute("fonts_data", fontsData);
@@ -486,11 +472,8 @@ public class Submit extends BaseSubmissionDataProcessor {
                         directory.mkdirs();
                     }
 
-                    log.debug("debug output 14: user " + getUser().getId());
                     String declaration = generateDeclarationFile(declarationData.toString());
-                    log.debug("debug output 15: user " + getUser().getId());
                     submissionFile = generateUnifiedSubmissionFile(submissionFile, sourceFile, previewFile, u, declaration);
-                    log.debug("debug output 16: user " + getUser().getId());
 
                     String remoteFileName = submissionFile.getRemoteFileName();
 
@@ -501,7 +484,6 @@ public class Submit extends BaseSubmissionDataProcessor {
                     if (!thoroughValidationResult.isValid()) {
                         throw new TCException(thoroughValidationResult.getMessage());
                     }
-                    log.debug("debug output 17: user " + getUser().getId());
 
 
                     Submission s = new Submission();

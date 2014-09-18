@@ -110,6 +110,9 @@ public class SourceSubmissionValidator implements Validator {
         } else if (!ft.getBundled()) {
             return new BasicResult(false, "Invalid file type submitted: " + submission.getContentType());
         } else {
+
+        // Commenting this out for now because it works too slow on zip files that contain many files.
+        /*
             BundledFileAnalyzer fileParser;
             try {
                 fileParser = UnifiedSubmissionValidator.getBundledFileParser(submission.getRemoteFileName());
@@ -131,6 +134,7 @@ public class SourceSubmissionValidator implements Validator {
                 log.error("Could not validate the input due to I/O error", e);
                 return new BasicResult(false, "Communication error when receiving submission.");
             }
+        */
         }
 
         return ValidationResult.SUCCESS;
