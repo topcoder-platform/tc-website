@@ -1,12 +1,12 @@
 <img src="http://www.topcoder.com/wp-content/themes/tcs-responsive/i/logo.png" alt="" width="330" height="58" />
-<h2>Welcome to [topcoder], <span style="color: #ff0000;">%USER_HANDLE%</span>!</h2>
+<h2>Welcome to topcoder, <span style="color: #ff0000;">%USER_HANDLE%</span>!</h2>
 
-<p>Thank you joining [topcoder]! You're now a member of a unique community of design, development and data science specialists. <br>
+<p>Thank you joining topcoder! You're now a member of a unique community of design, development and data science specialists. <br>
 <a href="http://www.topcoder.com/challenges/">Start competing today</a> for prize money, bonuses, and bragging rights!</p>
 
 
 <h3>Get Started</h3>
-<p>Pick a [topcoder] competition track, or <a href="http://www.topcoder.com/challenges/">try all three</a>! </p>
+<p>Pick a topcoder competition track, or <a href="http://www.topcoder.com/challenges/">try all three</a>! </p>
 
 <table size="675" border="0" cellpadding="2" cellspacing ="2">
 <tr>
@@ -36,20 +36,20 @@
 </tr>
 </table>
 
-<p>Need more info on how to compete? Check out [topcoder]'s comprehensive <a href="http://help.topcoder.com">Help Center</a>. <br>
+<p>Need more info on how to compete? Check out topcoder's comprehensive <a href="http://help.topcoder.com">Help Center</a>. <br>
 Have questions? Ask <a href="mailto:support@topcoder.com">support@topcoder.com</a>.</p>
 
 <h3>Get Involved &amp; Explore</h3>
 
 <ul>
-<li>Introduce yourself in the "<a href="http://apps.topcoder.com/forums/?module=ThreadList&forumID=327735">Getting Started in [topcoder]</a>" forum.
-<li>Subscribe to the RSS feed for all <a href="http://www.topcoder.com/challenges/feed/?list=active&amp;contestType=">new, open challenges on [topcoder]</a>.</li>
-<li>Watch the <a href="http://topcoder.com/blog">[topcoder] Blog</a> for the latest recaps, tech news, member stories and more!</li>
-<li>Learn about <a href="http://topcoder.com/tco14">TCO14</a>: the yearly [topcoder] onsite tournament in San Francisco.</li>
+<li>Introduce yourself in the "<a href="http://apps.topcoder.com/forums/?module=ThreadList&forumID=327735">Getting Started in topcoder</a>" forum.
+<li>Subscribe to the RSS feed for all <a href="http://www.topcoder.com/challenges/feed/?list=active&amp;contestType=">new, open challenges on topcoder</a>.</li>
+<li>Watch the <a href="http://topcoder.com/blog">topcoder Blog</a> for the latest recaps, tech news, member stories and more!</li>
+<li>Learn about <a href="http://topcoder.com/tco14">TCO14</a>: the yearly topcoder onsite tournament in San Francisco.</li>
 </ul>
 
 <p>Regards, <br>
-The [topcoder] Team <br>
+The topcoder Team <br>
 <i>...where the rubber meets the code!</i>
 
 <h2>Follow Us!</h2>

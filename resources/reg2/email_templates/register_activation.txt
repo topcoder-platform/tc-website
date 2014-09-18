@@ -1,6 +1,6 @@
-Thank you for registering with [topcoder]!
+Thank you for registering with Topcoder!
 
-Your [topcoder] activation code is %ACTIVATION_CODE%
+Your topcoder activation code is %ACTIVATION_CODE%
 
 To activate your account, navigate to the following WWW URL:
 
