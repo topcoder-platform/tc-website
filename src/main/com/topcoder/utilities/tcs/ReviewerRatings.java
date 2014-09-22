@@ -38,9 +38,15 @@ public class ReviewerRatings extends DBUtility {
     private static final String SQL_QUERY_PROJECT_CATEGORIES = "SELECT project_category_id " +
             "FROM project_category_lu WHERE project_type_id in (1,2)";
 
-    private static final String SQL_DELETE_RATING = "DELETE FROM reviewer_rating where project_id = ?";
+    private static final String SQL_DELETE_RATING_FOR_PROJECT = "DELETE FROM reviewer_rating where project_id = ?";
     
     private static final String SQL_INSERT_RATING = "INSERT INTO reviewer_rating values (?,?,?,?)";
+
+    private static final String SQL_DELETE_RATING_FOR_PROJECTS_WITHOUT_FEEDBACK = "delete from reviewer_rating where project_id in " +
+            "(select rf.project_id FROM review_feedback rf " +
+            "WHERE rf.comment is not null and " +
+            "not exists (select 1 from review_feedback_detail rfd where rf.review_feedback_id=rfd.review_feedback_id))";
+
     /**
      * This variable tells if only an analysis is wanted.
      */
@@ -158,6 +164,10 @@ public class ReviewerRatings extends DBUtility {
                 log.info("User: " + userID + ", rating: " + getRating(userID));
                 userCount++;
             }
+        }
+
+        if (!onlyAnalyze) {
+            deleteRatingForProjectsWithoutFeedback();
         }
 
         log.info("-----------------------------------------------");
@@ -292,7 +302,7 @@ public class ReviewerRatings extends DBUtility {
         PreparedStatement psDelete = null;
         PreparedStatement psInsert = null;
         try {
-            psDelete = prepareStatement("tcs_catalog", SQL_DELETE_RATING);
+            psDelete = prepareStatement("tcs_catalog", SQL_DELETE_RATING_FOR_PROJECT);
             psDelete.clearParameters();
             psDelete.setLong(1, project.id);
             psDelete.executeUpdate();
@@ -313,6 +323,18 @@ public class ReviewerRatings extends DBUtility {
         } finally {
             DBMS.close(psDelete);
             DBMS.close(psInsert);
+        }
+    }
+
+    private void deleteRatingForProjectsWithoutFeedback() throws Exception {
+        PreparedStatement psDelete = null;
+        try {
+            psDelete = prepareStatement("tcs_catalog", SQL_DELETE_RATING_FOR_PROJECTS_WITHOUT_FEEDBACK);
+            psDelete.executeUpdate();
+        } catch (SQLException sqle) {
+            throw new Exception("Failed to delete reviewer rating due to SQLException.", sqle);
+        } finally {
+            DBMS.close(psDelete);
         }
     }
 
