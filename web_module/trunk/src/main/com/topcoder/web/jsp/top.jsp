@@ -111,8 +111,10 @@
                                                                 class="forums"><i></i>Forums</a></li>
                                 <li id="nav-menu-item-13036"><a href="http://www.topcoder.com/community/events/"
                                                                 class="13036"><i></i>Events</a></li>
-                                <li id="nav-menu-item-13514"><a href="http://community.topcoder.com/tco14"
-                                                                class="topcoder-open"><i></i>TopCoder Open</a></li>
+                                <li id="nav-menu-item-15095"><a href="http://community.topcoder.com/tco14"  
+                                    class="topcoder-open-2"><i></i>Topcoder Open 2014</a></li>
+                                <li id="nav-menu-item-15218"><a href="http://tco15.topcoder.com/"  
+                                    class="topcoder-open-2015"><i></i>Topcoder Open 2015</a></li>
                                 <li><a href="http://www.topcoder.com/community/member-programs/">
                                                                 <i></i>Member Programs</a></li>
                                 <li id="nav-menu-item-13038"><a href="http://www.topcoder.com/community/stories/"
