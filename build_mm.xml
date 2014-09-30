@@ -177,6 +177,7 @@
                 <include name="com/topcoder/web/codinginterface/model/**"/>
                 <include name="problem.xsd"/>
             </classes>
+	    <classes dir="${resources}" includes="TC.properties"/>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
                 <include name="codinginterface.tld"/>
