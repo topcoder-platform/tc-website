@@ -34,26 +34,26 @@
 <%@ page import="java.sql.Timestamp" %>
 <%@ page import="java.util.*" %>
 <%@ page import="com.topcoder.web.common.TCRequest" %>
-<%@ page import="com.topcoder.web.common.TCResponse"%>
+<%@ page import="com.topcoder.web.common.TCResponse" %>
 <%@ page import="com.topcoder.web.common.HttpObjectFactory" %>
 <%@  page
-  language="java"
-  import="com.topcoder.shared.util.ApplicationServer,
-          com.topcoder.web.common.BaseServlet,
-          com.topcoder.web.common.StringUtils,
-          com.topcoder.web.tc.Constants" %>
-<%@ page import="com.topcoder.web.common.SessionInfo"%>
-<%@ page import="com.topcoder.web.common.security.WebAuthentication"%>
-<%@ page import="com.topcoder.web.common.security.SessionPersistor"%>
-<%@ page import="com.topcoder.web.common.security.BasicAuthentication"%>
+        language="java"
+        import="com.topcoder.shared.util.ApplicationServer,
+                com.topcoder.web.common.BaseServlet,
+                com.topcoder.web.common.StringUtils,
+                com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.common.SessionInfo" %>
+<%@ page import="com.topcoder.web.common.security.WebAuthentication" %>
+<%@ page import="com.topcoder.web.common.security.SessionPersistor" %>
+<%@ page import="com.topcoder.web.common.security.BasicAuthentication" %>
 
 
-<%@ page import="java.text.DecimalFormat"%>
+<%@ page import="java.text.DecimalFormat" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-        
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
@@ -63,8 +63,8 @@
     <link rel="stylesheet" href="/css/direct/homepage.css?v=203310" media="all" type="text/css"/>
     <link rel="stylesheet" href="/css/direct/jquery.jcarousel.css?v=176771" media="all" type="text/css"/>
     <link rel="stylesheet" href="/css/direct/thickbox.css?v=192822" media="all" type="text/css"/>
-	
-	    <script type="text/javascript" src="/scripts/jquery-1.4.1.min.js?v=176771"></script>
+
+    <script type="text/javascript" src="/scripts/jquery-1.4.1.min.js?v=176771"></script>
     <script type="text/javascript" src="/scripts/jquery.jcarousel.pack.js?v=176771"></script>
     <script type="text/javascript" src="/scripts/thickbox-compressed.js?v=186145"></script>
     <script type="text/javascript" src="/scripts/jquery.validate.js?v=179836"></script>
@@ -74,73 +74,102 @@
     <script type="text/javascript" src="/scripts/FeedLoader.js?v=213163"></script>
     <script type="text/javascript" src="/scripts/loadHelps.js?v=215005"></script>
 
-    
+    <style>
+        .logo {
+            width: 330px !important;
+            height: 58px !important;
+            margin: 25px auto !important;
+            background: url(/i/reskin/logo.png) 0 0 no-repeat !important;
+        }
+
+        .logo a {
+            display: block !important;
+            height: 52px !important;
+            -moz-transition-duration: 0s;
+            -webkit-transition-duration: 0s;
+            transition-duration: 0s;
+        }
+    </style>
+
 </head>
 
 <body class="homePage" id="page">
 
 
-
-		<% String qdl = request.getParameter("SID") ; 
-			String tcid = request.getParameter("tcid") ; 
-			String linksrc = request.getParameter("linksrc") ; 
-		
-	
-			
-			TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
-            WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()), tcRequest, tcResponse); 
-			
-            // if user not logged in
-            if(authentication.getActiveUser().isAnonymous()) {
-				response.sendRedirect("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Login"); 
-				return;
-			}
-			 
-			long uid = authentication.getActiveUser().getId();
-			 
-			 
-			 Request r = new Request();
-				r.setContentHandle("first_reg");
-				r.setProperty("uid", String.valueOf(uid));
-				
-				String year = "";
-				String month = "";
-				String day = "";
-				
-				DataAccessInt dataAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
-				Map map = dataAccess.getData(r);
-				ResultSetContainer rsc = (ResultSetContainer) map.get("first_reg");
-
-				if (rsc != null && !rsc.isEmpty()) {
-					year = rsc.getRow(0).getStringItem("reg_year");
-					month = rsc.getRow(0).getStringItem("reg_month");
-					day = rsc.getRow(0).getStringItem("reg_day");
-				} 
-		
-		%>
-			<div id="landingPage">
-		<div id="header">
-			
-			<div class="headerInner">
-				<a href="http://www.topcoder.com" class="logo"><img src="/images/logo.png" alt="TopCoder"/></a>
-			</div><!-- End .headerInner -->
-				
-		</div><!-- End #header -->
-		
-		<div id="wrapper">
-			<div class="wrapperTop">
-				
-					<div class="content">
-					
-							<iframe src="https://harvard.qualtrics.com/SE/?SID=<%=qdl%>&tcid=<%=uid%>&join-month=<%=month%>&join-year=<%=year%>&join-day=<%=day%>&linksrc=<%=linksrc%>" height="700px" width="1000px"></iframe>
-				
-						</div><!-- end .content --> 
-				</div></div>
-			
-	</div><!-- End #landingPage -->
+<% String qdl = request.getParameter("SID");
+    String tcid = request.getParameter("tcid");
+    String linksrc = request.getParameter("linksrc");
 
 
-</body><!-- End #page -->
+    TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+    WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()), tcRequest,
+                                                               tcResponse);
+
+    // if user not logged in
+    if (authentication.getActiveUser().isAnonymous()) {
+        response.sendRedirect("http://" + ApplicationServer.SERVER_NAME + "/tc?module=Login");
+        return;
+    }
+
+    long uid = authentication.getActiveUser().getId();
+
+
+    Request r = new Request();
+    r.setContentHandle("first_reg");
+    r.setProperty("uid", String.valueOf(uid));
+
+    String year = "";
+    String month = "";
+    String day = "";
+
+    DataAccessInt dataAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+    Map map = dataAccess.getData(r);
+    ResultSetContainer rsc = (ResultSetContainer) map.get("first_reg");
+
+    if (rsc != null && !rsc.isEmpty()) {
+        year = rsc.getRow(0).getStringItem("reg_year");
+        month = rsc.getRow(0).getStringItem("reg_month");
+        day = rsc.getRow(0).getStringItem("reg_day");
+    }
+
+%>
+
+<div>
+
+    <h1 class="logo">
+        <a href="http://www.topcoder.com" title="topcoder"></a>
+    </h1>
+    <!-- End .headerInner -->
+
+</div>
+
+<div id="landingPage" style="margin:30px auto; width:1005px">
+
+    <!-- End #header -->
+
+    <div>
+        <div class="wrapperTop">
+
+            <div class="content">
+
+                <iframe src="https://harvard.qualtrics.com/SE/?SID=<%=qdl%>&tcid=<%=uid%>&join-month=<%=month%>&join-year=<%=year%>&join-day=<%=day%>&linksrc=<%=linksrc%>"
+                        height="700px" width="1000px" frameBorder="0"></iframe>
+
+            </div>
+            <!-- end .content -->
+        </div>
+    </div>
+
+</div>
+<!-- End #landingPage -->
+
+<div style="text-align:center;font-size:13px;margin-bottom:20px">
+    Brought to you by the Harvard-NASA Tournament Lab
+</div>
+
+
+</body>
+<!-- End #page -->
 
 </html>
