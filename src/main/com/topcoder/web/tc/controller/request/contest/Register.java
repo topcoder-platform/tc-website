@@ -257,41 +257,6 @@ public class Register extends ViewRegistration {
             ComponentManager componentManager = componentManagerHome.create(componentId);
             String project = componentManager.getComponentInfo().getName();
 
-
-            if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.DESIGN_PROJECT_TYPE))) {
-                project += " Design";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.DEVELOPMENT_PROJECT_TYPE))) {
-                project += " Development";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.ASSEMBLY_PROJECT_TYPE))) {
-                project += " Assembly Project";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.ARCHITECTURE_PROJECT_TYPE))) {
-                project += " Architecture Project";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.SPECIFICATION_PROJECT_TYPE))) {
-                project += " Specification Project";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.CONCEPTUALIZATION_PROJECT_TYPE))) {
-                project += " Conceptualization Project";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.TEST_SUITES_PROJECT_TYPE))) {
-                project += " Test Suites Project";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.TEST_SCENARIOS_PROJECT_TYPE))) {
-                project += " Test Scenarios Project";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.UI_PROTOTYPE_PROJECT_TYPE))) {
-                project += " UI Prototype Project";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_BUILD_PROJECT_TYPE))) {
-                project += " RIA Build Project";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_COMPONENT_PROJECT_TYPE))) {
-                project += " RIA Component Project";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.CONTENT_CREATION_PROJECT_TYPE))) {
-                project += " Content Creation Project";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.REPORTING_PROJECT_TYPE))) {
-                project += " Reporting Project";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.BUG_HUNT_PROJECT_TYPE))) {
-                project += " Bug Hunt Project";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.FIRST2FINISH_PROJECT_TYPE))) {
-                project += " First2Finish Project";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.CODE_PROJECT_TYPE))) {
-                project += " Code Project";
-            }
-
             long activeForumCategoryId = componentManager.getActiveForumCategory() != null ? componentManager.getActiveForumCategory().getId() : 0;
 
             if (log.isDebugEnabled()) {
@@ -320,7 +285,7 @@ public class Register extends ViewRegistration {
             mail.addToAddress(e.getAddress(e.getPrimaryEmailId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME),
                     DBMS.OLTP_DATASOURCE_NAME), TCSEmailMessage.TO);
             mail.setFromAddress("do_not_reply@topcoder.com");
-            mail.setSubject(project);
+            mail.setSubject(project + " Challenge");
 
             Request r = new Request();
             r.setContentHandle("project_detail");
@@ -337,33 +302,17 @@ public class Register extends ViewRegistration {
                     new CalendarDateFormatMethod("MM.dd.yyyy HH:mm a z"), true);
             String date = formatter.format(cal);
 
-            if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.DESIGN_PROJECT_TYPE))) {
-                mail.setBody(getUser().getUserName() + ", \n\nRegistration Complete. \n\n" +
-                        "Thank you, for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=" + activeForumCategoryId + " ) which can be used to obtain design documentation (see the Design Phase Documents thread), as well as to ask questions regarding the component design. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\n\n" +
-                        "The deadline for submitting a solution is " + date + ". Please upload your design using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review.  If you encounter any problems, please contact us at support@topcoder.com.  All late submissions will be ignored.\n\n" +
-                        "If you have any questions please contact support@topcoder.com\n\n" +
-
-                        "You can read more about our UML tool and download it at\n" +
-                        "http://www.topcoder.com/tc?module=Static&d1=dev&d2=umltool&d3=description\n\n" +
-
+                mail.setBody("Hi " + getUser().getUserName() + ", \n\n" +
+                        "Congratulations! You are now registered for " + project + " Challenge.\n\n" +
+                        "You now have access to the challenge discussion forum ( https://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=" + activeForumCategoryId + " ) which may have important information or documentation about the challenge. It is also the place to ask questions regarding the challenge. Please post your questions at any time and the challenge holder will respond within 24 hours. Any questions asked within a few hours of the submission deadline may not be answered in time, so get your questions in early!\n\n" +
+                        "The deadline for submitting a solution is " + date + ". Please upload your submission here: http://www.topcoder.com/challenge-details/"+projectId+".\n\n" +
+                        "If you encounter any problems, please contact us at support@topcoder.com. All late submissions will be ignored.\n\n" +
+                        "Additional tasks for this challenge can be accessed in Online Review. This is where you can unregister, contact a manager, view your review scorecard, submit appeals and final fixes, and other important tasks. https://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review/actions/ViewProjectDetails?pid="+projectId+"\n\n" +
+                        "Need more information about competing? Visit the Help Center at http://help.topcoder.com\n\n" +
+                        "Do you have questions or technical problems? Please contact support@topcoder.com\n\n" +
+                        
+                        "Good luck!\n" +
                         "TopCoder Software Team");
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.DEVELOPMENT_PROJECT_TYPE))) {
-                mail.setBody(getUser().getUserName() + ", \n\nRegistration Complete. \n\n" +
-                        "Thank you, for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=" + activeForumCategoryId + " ) which can be used to obtain the component design (See \"Development Phase Documents\" thread), as well as to ask questions regarding the development process or the component design. Please post your questions at any time and the component designer will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!\n\n" +
-                        "The deadline for submitting a solution is " + date + ". Please upload your solution using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review. If you encounter any problems, please contact us at support@topcoder.com.  Any late submissions will be ignored. \n\n" +
-                        "If you have any questions please contact support@topcoder.com\n\n" +
-
-                        "You can read more about our UML tool and download it at\n" +
-                        "http://www.topcoder.com/tc?module=Static&d1=dev&d2=umltool&d3=description\n\n" +
-
-                        "TopCoder Software Team");
-            } else {
-                mail.setBody(getUser().getUserName() + ", \n\nRegistration Complete. \n\n" +
-                        "Thank you, for your interest in the " + project + ". You now have access to the Discussion Forum ( http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=" + activeForumCategoryId + " ) which can be used to obtain documentation, as well as to ask questions regarding the project. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\n\n" +
-                        "The deadline for submitting a solution is " + date + ". Please upload your submission using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review.  If you encounter any problems, please contact us at support@topcoder.com.  All late submissions will be ignored.\n\n" +
-                        "If you have any questions please contact support@topcoder.com\n\n" +
-                        "TopCoder Software Team");
-            }
 
             EmailEngine.send(mail);
 
