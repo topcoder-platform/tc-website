@@ -91,7 +91,7 @@ public class JiraDataLoadUtility extends DBUtility {
      * Update in version 1.2 - add join to customfield 10190 which is Cockpit Project ID
      * </p>
      */
-    private static final String SQL_QUERY_JIRA = "SELECT i.pkey AS ticket_id, i.reporter, i.assignee, i.summary, "
+    private static final String SQL_QUERY_JIRA_FIRST = "SELECT i.pkey AS ticket_id, i.reporter, i.assignee, i.summary, "
             + "i.description, i.created, i.updated, i.duedate AS due_date, i.resolutiondate AS resolution_date, i.votes, "
             + "IFNULL(TRIM(payee.stringvalue),'N/A') AS winner, payment.numbervalue AS payment_amount, "
             + "IFNULL(payment_status.stringvalue, 'Not Paid') AS payment_status, CAST(IFNULL(tcopoints.STRINGVALUE, '0') AS SIGNED INTEGER) AS  tco_points,"
@@ -104,10 +104,9 @@ public class JiraDataLoadUtility extends DBUtility {
             + "LEFT JOIN customfieldvalue payment ON payment.customfield = 10012 AND payment.issue = i.id "
             + "LEFT JOIN customfieldvalue payee ON payee.customfield = 10040 AND payee.issue = i.id "
             + "LEFT JOIN customfieldvalue payment_status ON payment_status.customfield = 10030 AND payment_status.issue = i.id "
-            + "LEFT JOIN customfieldvalue tcopoints ON tcopoints.customfield = 10080 AND tcopoints.issue = i.id "
+            + "LEFT JOIN customfieldvalue tcopoints ON tcopoints.customfield = 10080 AND tcopoints.issue = i.id ";
 			
-			+ " UNION ALL "
-			
+   private static final String SQL_QUERY_JIRA_LAST = " UNION ALL "		
 			+ " SELECT i.pkey AS ticket_id, i.reporter, i.assignee, i.summary, "
             + "i.description, i.created, i.updated, i.duedate AS due_date, i.resolutiondate AS resolution_date, i.votes, "
             + "IFNULL(TRIM(payee.stringvalue),'N/A') AS winner, payment.numbervalue AS payment_amount, "
@@ -261,6 +260,7 @@ public class JiraDataLoadUtility extends DBUtility {
             boolean needDeleteBeforeEachInsertion = true;
             if (null == fLastLogTime) {
                 log.debug("It seems this is the first time to load JIRA, all JIRA Tickets would be loaded");
+                String SQL_QUERY_JIRA = SQL_QUERY_JIRA_FIRST + SQL_QUERY_JIRA_LAST;
                 logSQL(SQL_QUERY_JIRA);
                 mySQLPST = prepareStatement(JIRA, SQL_QUERY_JIRA);
                 deleteExistingJiraTickets();
@@ -268,11 +268,14 @@ public class JiraDataLoadUtility extends DBUtility {
             } else {
                 log.debug("Incremental load would be performed, JIRA Tickets that updated later than " + fLastLogTime
                         + " would be loaded");
-                StringBuilder sb = new StringBuilder(SQL_QUERY_JIRA);
+                StringBuilder sb = new StringBuilder(SQL_QUERY_JIRA_FIRST);
                 sb.append("WHERE i.updated >= ?");
+                sb.append(SQL_QUERY_JIRA_LAST);
+                sb.append("and i.updated >= ?");
                 logSQL(sb.toString());
                 mySQLPST = prepareStatement(JIRA, sb.toString());
                 mySQLPST.setTimestamp(1, fLastLogTime);
+                mySQLPST.setTimestamp(2, fLastLogTime);
             }
             rs = mySQLPST.executeQuery();
             logSQL(SQL_INSERT_JIRA_ISSUE);
@@ -544,6 +547,14 @@ public class JiraDataLoadUtility extends DBUtility {
             sErrorMsg.append(". Cannot continue.");
             fatal_error();
         }
+    }
+    
+    
+    public static void main(String args[]) {
+    	JiraDataLoadUtility u = new JiraDataLoadUtility ();
+    	u.loadJiraData();
+    	
+    	
     }
 
 }
