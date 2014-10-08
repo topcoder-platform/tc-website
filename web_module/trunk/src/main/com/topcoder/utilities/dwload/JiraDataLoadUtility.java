@@ -548,13 +548,5 @@ public class JiraDataLoadUtility extends DBUtility {
             fatal_error();
         }
     }
-    
-    
-    public static void main(String args[]) {
-    	JiraDataLoadUtility u = new JiraDataLoadUtility ();
-    	u.loadJiraData();
-    	
-    	
-    }
 
 }
