@@ -308,8 +308,8 @@ public class Register extends ViewRegistration {
                         "The deadline for submitting a solution is " + date + ". Please upload your submission here: http://www.topcoder.com/challenge-details/"+projectId+".\n\n" +
                         "If you encounter any problems, please contact us at support@topcoder.com. All late submissions will be ignored.\n\n" +
                         "Additional tasks for this challenge can be accessed in Online Review. This is where you can unregister, contact a manager, view your review scorecard, submit appeals and final fixes, and other important tasks. https://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review/actions/ViewProjectDetails?pid="+projectId+"\n\n" +
-                        "Need more information about competing? Visit the Help Center at http://help.topcoder.com\n\n" +
-                        "Do you have questions or technical problems? Please contact support@topcoder.com\n\n" +
+                        "Need more information about competing? Visit the Help Center at http://help.topcoder.com.\n\n" +
+                        "Do you have questions or technical problems? Please contact support@topcoder.com.\n\n" +
                         
                         "Good luck!\n" +
                         "TopCoder Software Team");
