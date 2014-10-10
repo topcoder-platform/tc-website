@@ -99,6 +99,7 @@
 <% String qdl = request.getParameter("SID");
     String tcid = request.getParameter("tcid");
     String linksrc = request.getParameter("linksrc");
+    String refsrc = request.getParameter("refsrc");
 
 
     TCRequest tcRequest = HttpObjectFactory.createRequest(request);
@@ -153,7 +154,7 @@
 
             <div class="content">
 
-                <iframe src="https://harvard.qualtrics.com/SE/?SID=<%=qdl%>&tcid=<%=uid%>&join-month=<%=month%>&join-year=<%=year%>&join-day=<%=day%>&linksrc=<%=linksrc%>"
+                <iframe src="https://harvard.qualtrics.com/SE/?SID=<%=qdl%>&tcid=<%=uid%>&join-month=<%=month%>&join-year=<%=year%>&join-day=<%=day%>&linksrc=<%=linksrc%>&refsrc=<%=refsrc%>"
                         height="700px" width="1000px" frameBorder="0"></iframe>
 
             </div>
