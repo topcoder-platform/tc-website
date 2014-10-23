@@ -5,6 +5,7 @@ package com.topcoder.reg.actions;
 
 import com.topcoder.security.login.UserUnactivatedException;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.reg.dto.UserDTO;
 import org.apache.struts2.ServletActionContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -124,6 +125,9 @@ public class LoginAction extends BaseAction {
             if (null != nextPage) {
                 session.removeAttribute(RegistrationHelper.NEXT_PAGE_SESSION_KEY);
             }
+
+            UserDTO user = userService.getUserByHandle(handle);
+            userService.updateLastLogin(user.getUserId());
             return SUCCESS;
         } else {
             return ERROR;
