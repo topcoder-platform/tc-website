@@ -297,7 +297,8 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
                 restTemplate.getForObject("https://" + Constants.DOMAIN_AUTH0 + "/userinfo?access_token="
                     + accessToken, String.class);
         } catch (RestClientException e) { 
-            throw new SocialAccountException("Fail to obtain current social account info from Auth0.", e);
+			System.out.println("----Fail to obtain current social account info from Auth0--"+e);
+            throw new SocialAccountException("Fail to obtain current social account info from Auth0." + e, e);
         }
         JSONObject rootNode = getJsonNode(jsonString);
 
@@ -387,8 +388,9 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
             jsonString =
                 restTemplate.postForObject("https://" + Constants.DOMAIN_AUTH0 + "/oauth/token", parts, String.class);
         } catch (RestClientException e) {
+		System.out.println("----Fail to obtain current social account info from Auth0--"+e);
             throw new SocialAccountException(
-                "Fail to obtain access token according the given authorization code from Auth0.", e);
+                "Fail to obtain access token according the given authorization code from Auth0." + e, e);
         }
 
         JSONObject rootNode = getJsonNode(jsonString);
