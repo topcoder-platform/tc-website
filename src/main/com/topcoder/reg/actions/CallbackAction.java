@@ -186,8 +186,6 @@ public class CallbackAction extends BaseAction {
 
                 setSSONextPageIfNeeded(session, user, sso, sig);
 
-                userService.updateLastLogin(user.getUserId());
-
                 return LOGIN;
             }            
             
@@ -205,8 +203,6 @@ public class CallbackAction extends BaseAction {
                 //LoggingWrapperUtility.logExit(logger, signature, new String[] {LOGIN});
 
                 setSSONextPageIfNeeded(session, user, sso, sig);
-
-                userService.updateLastLogin(user.getUserId());
 
                 return LOGIN;
             }
