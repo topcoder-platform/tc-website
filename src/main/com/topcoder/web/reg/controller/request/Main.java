@@ -129,10 +129,7 @@ public class Main extends Base {
                     Contact c = new Contact();
                     u.setContact(c);
                 }
-                if (u.getCoder() == null && (getRequestedTypes().contains(regTypeDAO.getCompetitionType()) ||
-                        getRequestedTypes().contains(regTypeDAO.getStudioType()) ||
-                        getRequestedTypes().contains(regTypeDAO.getOpenAIMType()) ||
-                        getRequestedTypes().contains(regTypeDAO.getTruveoType()))) {
+                if (u.getCoder() == null) {
                     //we'll make a coder record for creative people..at least for now.  perhaps in the future
                     //we'll have competitor table rather than a coder table
                     Coder c = new Coder();
