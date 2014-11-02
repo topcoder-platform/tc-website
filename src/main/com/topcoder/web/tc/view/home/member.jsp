@@ -237,9 +237,10 @@
                                 </div>
                                 <script type="text/javascript" language="javascript">
 
-                                    $(document).ready(
-                                            function() {
-                                                $("#replaced").load("/news/index.php #replacercode");
+                                    $(document).ready(function () { 
+                                                $.get("/blog/", function (data) {
+                                                    $("#replaced").html($(data + '').find(".grid-2-3").html());
+                                                });
                                             }
                                     );
 
