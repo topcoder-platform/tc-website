@@ -62,7 +62,7 @@ public class HomeHelper {
         ret.put(Home.STUDIO, getStudioSummary());
         ret.put(Home.BUGS, getBugRaceSummary());
         ret.put(Home.MM, getMMSummary());
-        ret.put(Home.CLOUDSPOKES, getCloudSpokesSummary());
+        //ret.put(Home.CLOUDSPOKES, getCloudSpokesSummary());
         return ret;
     }
 
@@ -213,7 +213,7 @@ public class HomeHelper {
 
     }
 
-    public static ActiveContestsSummary getCloudSpokesSummary() throws Exception {
+    /*public static ActiveContestsSummary getCloudSpokesSummary() throws Exception {
         ActiveContestsSummary ret = new ActiveContestsSummary();
         NameValuePair[] queries = new NameValuePair[]{new NameValuePair("limit",
                 String.valueOf(CloudSpokesConstants.ACTIVE_CONTESTS_MAX_LIMIT))};
@@ -231,7 +231,7 @@ public class HomeHelper {
         ret.setPrizeTotal(prize);
 
         return ret;
-    }
+    }*/
 
     public static ActiveContestsSummary getBugRaceSummary() throws Exception {
         try {
