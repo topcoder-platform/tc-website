@@ -334,7 +334,7 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadProjectResults();
 
-            doLoadDesignProjectResults();
+     //       doLoadDesignProjectResults();
 
 //            doLoadRookies();
 
@@ -1519,7 +1519,7 @@ public class TCLoadTCS extends TCLoad {
                             "  AND psl.project_status_id = p.project_status_id\n" +
                             "  AND pcl.project_category_id = p.project_category_id\n" +
                             "  AND p.project_category_id = 37 -- marathon match only\n" +
-                            "AND p.project_status_id = 7 -- completed only\n" + (firstRun ?
+                            "AND p.project_status_id = 7 -- completed only\n" + (!firstRun ?
                             "AND (\n" +
                             "    p.modify_date > ?\n" +
                             "    OR cv.modify_date > ?\n" +
@@ -1591,7 +1591,7 @@ public class TCLoadTCS extends TCLoad {
 
             select = prepareStatement(SELECT, SOURCE_DB);
 
-            if(firstRun) {
+            if(!firstRun) {
                 select.setTimestamp(1, fLastLogTime);
                 select.setTimestamp(2, fLastLogTime);
                 select.setTimestamp(3, fLastLogTime);
