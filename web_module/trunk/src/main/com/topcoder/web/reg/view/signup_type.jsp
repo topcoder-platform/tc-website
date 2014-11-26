@@ -34,7 +34,7 @@
 				<div class="leftSide">
 					<p>Check all that apply.</p>
 					<p>Before registering, please read our <a href="javascript:popUp('message.jsp');" title="Message from the TopCoder Founder">Message from the TopCoder Founder</a>.</p>
-					<p>Please read the <a href="privacy_policy.jsp">Privacy Policy</a> </p>
+					<p>Please read the <a href="https://www.topcoder.com/community/how-it-works/privacy-policy/">Privacy Policy</a> </p>
 					<p>All registered TopCoder members have the ability to read and post in our forums, as well as browse sections of the site that require login, such as detailed competition statistics. </p>
 					<p>You can always add to your registered capabilities later by clicking &quot;Update My Profile&quot;.</p>
 				</div>

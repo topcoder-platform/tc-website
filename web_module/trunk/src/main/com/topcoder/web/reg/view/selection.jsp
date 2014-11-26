@@ -95,7 +95,7 @@
 				</c:if>
 				<p>All registered TopCoder members have the ability to read and post in our forums, as well as browse sections of both TopCoder and TopCoder Studio that require login, such as competition details and statistics.</p>
 				<p>You can always add to your registered capabilities later by clicking "Update My Profile".</p>
-				<p>Please read the <a href="Javascript:openWin('/reg/privacy_policy.jsp','',1200,600);">Privacy Policy</a> </p>
+				<p>Please read the <a href="Javascript:openWin('https://www.topcoder.com/community/how-it-works/privacy-policy/','',1200,600);">Privacy Policy</a> </p>
 				<div class="accessLogos">
 					<a href="/"><img src="/i/logo-topcoder.png" width="136" height="21" alt="TopCoder"></a><br>
 					<a href="http://studio.topcoder.com/"><img src="/i/logo-tc-studio.png" width="135" height="45" alt="TopCoder Studio"></a><br>

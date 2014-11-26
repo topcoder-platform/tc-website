@@ -24,7 +24,7 @@
 			<p>Throughout these Terms of Use, the words &quot;we,&quot; &quot;us,&quot; &quot;our,&quot; and TopCoder refer to TopCoder and its parent, subsidiaries, and affiliates collectively. </p>
 			<p>We may revise these Terms of Use at any time without prior notice by updating this page and such revisions will be effective upon posting to this page. Please check this page periodically for any changes. Your continued use of this Web site following the posting of any revisions to these Terms of Use will mean you accept those changes. We reserve the right to alter, suspend or discontinue any aspect of www.topcoder.com, including your access to it. Unless explicitly stated, any new features will be subject to these Terms of Use. </p>
 			<h4>Privacy</h4>
-			<p><a href="privacy_policy.jsp">See our complete privacy policy</a>. </p>
+			<p><a href="https://www.topcoder.com/community/how-it-works/privacy-policy/">See our complete privacy policy</a>. </p>
 			<h4>Provisions Applicable to Chinese Citizens and Expatriates Residing in China</h4>
 			<p>TopCoder hereby incorporates into these Terms of Use and Privacy Policy the provisions of China's Decision on Safeguarding the Security of the Internet (the &quot;Decision&quot;). </p>
 			<p>According to Section 1 of the Decision &quot;to ensure operational security of the Internet, the person or organization perpetrating any of the following acts in violation of the criminal law shall be penalized according to the criminal code:</p>

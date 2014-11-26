@@ -127,7 +127,7 @@
 			<div id="content" class="registrationForm">
 				<div class="leftSide">
 					<p>We use this information in order to communicate with you, so please make sure it's up-to-date and accurate.</p>
-					<p>Your information will be used only as specified in our <a href="Javascript:openWin('/reg/privacy_policy.jsp','',1200,600);" title="Privacy Policy">privacy policy</a>.</p>
+					<p>Your information will be used only as specified in our <a href="Javascript:openWin('https://www.topcoder.com/community/how-it-works/privacy-policy/','',1200,600);" title="Privacy Policy">privacy policy</a>.</p>
 					<p><span class="required">*</span> = required information</p>
 				</div>
 				
