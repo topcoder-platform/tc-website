@@ -240,7 +240,15 @@ public abstract class BaseServlet extends HttpServlet {
                 loginfo.append("[* ");
                 loginfo.append(info.getHandle());
                 loginfo.append(" * ");
-                loginfo.append(request.getRemoteAddr());
+
+		//I-137967(https://appirio.my.salesforce.com/a3v50000000D2Lt)
+		//loginfo.append(request.getRemoteAddr());
+		String remoteAddr = request.getHeader("X-Forwarded-For");
+		if(remoteAddr == null || remoteAddr.trim().length()==0) {
+			remoteAddr = request.getRemoteAddr();
+		}
+		loginfo.append(remoteAddr);
+
                 loginfo.append(" * ");
                 loginfo.append(request.getMethod());
                 loginfo.append(" ");
