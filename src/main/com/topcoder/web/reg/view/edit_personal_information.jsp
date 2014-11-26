@@ -26,7 +26,7 @@
 			<div id="content" class="registrationForm">
 				<div class="leftSide">
 					<p>We use this information in order to communicate with you, so please make sure it's up-to-date and accurate.</p>
-					<p>Your information will be used only as specified in our <a href="javascript:popUp('privacy_policy.jsp');" title="Privacy Policy">privacy</a><a href="javascript:popUp('privacy_policy.jsp');" title="Privacy Policy">policy</a>.</p>
+					<p>Your information will be used only as specified in our <a href="javascript:popUp('https://www.topcoder.com/community/how-it-works/privacy-policy/');" title="Privacy Policy">privacy policy</a>.</p>
 					<p> * = required</p>
 				</div>
 				<div class="information rightSide">

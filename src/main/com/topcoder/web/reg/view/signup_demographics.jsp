@@ -43,12 +43,6 @@
 					<div class="content-body">
 						<ul class="form">
 							<li class="row">
-								<label for="age">* Age:</label>
-								<select name="age" id="age">
-									<option>Decline To Answer</option>
-								</select>
-							</li>
-							<li class="row">
 								<label for="gender">* Gender:</label>
 								<select name="gender" id="gender">
 									<option value="male" selected="selected">male</option>

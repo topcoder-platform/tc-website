@@ -70,10 +70,6 @@
                         <div class="content-body">
                             <table width="100%" class="plain">
                                 <tr>
-                                    <td class="field-name">Age:</td>
-                                    <td class="field-value">Decline To Answer</td>
-                                </tr>
-                                <tr>
                                     <td class="field-name">Gender:</td>
                                     <td class="field-value">male</td>
                                 </tr>
