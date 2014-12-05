@@ -1,3 +1,8 @@
+<%--
+  - Author: savon_cn
+  - Version 1.1 (Return Peak Memory Usage for Marathon Match Cpp v1.0)
+  - - Update the peak memory used shown in example page.
+  --%>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -78,6 +83,18 @@
                 <h2><%=i%>) Score: <rsc:item name="score" row="<%=resultRow%>"/>
                     <% if (resultRow.getItem("processing_time").getResultData()!=null) { %>
                     Run Time: <rsc:item name="processing_time" row="<%=resultRow%>"/> ms
+                    <% } %>
+                    <% 
+                        String peakMemoryUsed = "N/A";
+                        if (resultRow.getItem("peak_memory_used").getResultData()!=null) {
+                            long peakMU = resultRow.getLongItem("peak_memory_used");
+                            if (peakMU >= 0) {
+                                double d = ((double)peakMU) / 1024;
+                                java.text.DecimalFormat df = new java.text.DecimalFormat("0.000");
+                                peakMemoryUsed = df.format(d) + "MB";
+                            }
+                    %>
+                    Peak Memory Used: <%=peakMemoryUsed %>
                     <% } %>
                 </h2>
                 <p>
