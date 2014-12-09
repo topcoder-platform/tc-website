@@ -178,6 +178,7 @@
             <xs:element ref="constraints"/>
             <xs:element ref="test-cases"/>
             <xs:element ref="memlimit" minOccurs="0"/>
+            <xs:element ref="stacklimit" minOccurs="0"/>
             <xs:element ref="roundType" minOccurs="0"/>
         </xs:all>
         <xs:attribute name="name" type="xs:token"/>
@@ -310,5 +311,6 @@
 </xs:element>
 
 <xs:element name="memlimit" type="flow"/>
+<xs:element name="stacklimit" type="flow"/>
 <xs:element name="roundType" type="flow"/>
 </xs:schema>
