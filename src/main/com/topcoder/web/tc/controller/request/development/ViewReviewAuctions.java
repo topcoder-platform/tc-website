@@ -65,8 +65,13 @@ public class ViewReviewAuctions extends ReviewAuctionDetails {
 
         ReviewAuctionManager reviewAuctionManager = ReviewAuctionHelper.createReviewAuctionManager();
 
+        String remoteAddr = request.getHeader("X-Forwarded-For");
+        if(remoteAddr == null || remoteAddr.trim().length()==0) {
+            remoteAddr = request.getRemoteAddr();
+        }
+
         try {
-            if (longThrottle.throttle(getRequest().getRemoteAddr())) {
+            if (longThrottle.throttle(remoteAddr) {
                 throw new RequestRateExceededException(getRequest().getSession().getId(), getUser().getUserName());
             }
             
