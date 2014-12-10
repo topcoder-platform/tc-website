@@ -71,7 +71,7 @@ public class ViewReviewAuctions extends ReviewAuctionDetails {
         }
 
         try {
-            if (longThrottle.throttle(remoteAddr) {
+            if (longThrottle.throttle(remoteAddr)) {
                 throw new RequestRateExceededException(getRequest().getSession().getId(), getUser().getUserName());
             }
             
