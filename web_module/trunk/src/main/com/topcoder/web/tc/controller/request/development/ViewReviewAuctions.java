@@ -65,9 +65,9 @@ public class ViewReviewAuctions extends ReviewAuctionDetails {
 
         ReviewAuctionManager reviewAuctionManager = ReviewAuctionHelper.createReviewAuctionManager();
 
-        String remoteAddr = request.getHeader("X-Forwarded-For");
+        String remoteAddr = getRequest().getHeader("X-Forwarded-For");
         if(remoteAddr == null || remoteAddr.trim().length()==0) {
-            remoteAddr = request.getRemoteAddr();
+            remoteAddr = getRequest().getRemoteAddr();
         }
 
         try {
