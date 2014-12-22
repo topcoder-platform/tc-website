@@ -479,29 +479,6 @@
 							</li>
 							</c:if>
 
-							<c:set value="<%=Constants.NOTIFICATION%>" var="notification"/>
-							<c:if test="${cf:contains(fields, notification)}">
-							<% int i = 0;%>
-							<c:forEach items="${notifications}" var="notif">
-							<% pageContext.setAttribute("isFirst", new Boolean(i==0)); %>
-							<li class="row">
-								<tc-webtag:errorIterator id="err" name="<%=Constants.NOTIFICATION%>"></tc-webtag:errorIterator>
-								
-								<label for="<%=Constants.NOTIFICATION%>">
-								<c:if test="${isFirst}">
-									<c:if test="${cf:contains(reqFields, notification)}"><span class="required">*</span></c:if>
-									Email Notifications:
-								</c:if>
-								</label>
-								
-								<tc-webtag:chkBox name="${notification}${notif.id}"/>
-								<c:out value="${notif.name}"/>        
-							
-							</li>
-							<% i++; %>
-							</c:forEach>
-							</c:if>
-
 							<c:set value="<%=Constants.MEMBER_CONTACT%>" var="memberContact"/>
 							<c:if test="${cf:contains(fields, memberContact)}">
 							<li class="row" id="<%=Constants.MEMBER_CONTACT%>_row">

@@ -96,7 +96,6 @@ public class RegFieldHelper {
         mainCompFields.add(Constants.EMAIL);
         mainCompFields.add(Constants.EMAIL_CONFIRM);
         mainCompFields.add(Constants.QUOTE);
-        mainCompFields.add(Constants.NOTIFICATION);
         mainCompFields.add(Constants.MEMBER_CONTACT);
         mainCompFields.add(Constants.SHOW_EARNINGS);
         mainCompFields.add(Constants.COMP_COUNTRY_CODE);
@@ -173,7 +172,6 @@ public class RegFieldHelper {
         mainHSFields.add(Constants.EMAIL);
         mainHSFields.add(Constants.EMAIL_CONFIRM);
         mainHSFields.add(Constants.QUOTE);
-        mainHSFields.add(Constants.NOTIFICATION);
         mainHSFields.add(Constants.TIMEZONE);
 
         requiredMainHSFields.add(Constants.GIVEN_NAME);
@@ -268,7 +266,6 @@ public class RegFieldHelper {
         mainSoftwareFields.add(Constants.SECURITY_KEY);
         mainSoftwareFields.add(Constants.EMAIL);
         mainSoftwareFields.add(Constants.EMAIL_CONFIRM);
-        mainSoftwareFields.add(Constants.NOTIFICATION);
         mainSoftwareFields.add(Constants.TIMEZONE);
         mainSoftwareFields.add(Constants.TITLE);
         mainSoftwareFields.add(Constants.COMPANY_NAME);
@@ -324,7 +321,6 @@ public class RegFieldHelper {
         mainStudioFields.add(Constants.SECURITY_KEY);
         mainStudioFields.add(Constants.EMAIL);
         mainStudioFields.add(Constants.EMAIL_CONFIRM);
-        mainStudioFields.add(Constants.NOTIFICATION);
         mainStudioFields.add(Constants.COMP_COUNTRY_CODE);
         mainStudioFields.add(Constants.CODER_TYPE);
         mainStudioFields.add(Constants.TIMEZONE);
@@ -399,7 +395,6 @@ public class RegFieldHelper {
         mainTeacherFields.add(Constants.SECURITY_KEY);
         mainTeacherFields.add(Constants.EMAIL);
         mainTeacherFields.add(Constants.EMAIL_CONFIRM);
-        mainTeacherFields.add(Constants.NOTIFICATION);
         mainTeacherFields.add(Constants.TIMEZONE);
 
         requiredMainTeacherFields.add(Constants.GIVEN_NAME);
@@ -457,7 +452,6 @@ public class RegFieldHelper {
         mainOpenAIMFields.add(Constants.SECURITY_KEY);
         mainOpenAIMFields.add(Constants.EMAIL);
         mainOpenAIMFields.add(Constants.EMAIL_CONFIRM);
-        mainOpenAIMFields.add(Constants.NOTIFICATION);
         mainOpenAIMFields.add(Constants.COMP_COUNTRY_CODE);
         mainOpenAIMFields.add(Constants.CODER_TYPE);
         mainOpenAIMFields.add(Constants.TIMEZONE);
@@ -532,7 +526,6 @@ public class RegFieldHelper {
         mainTruveoFields.add(Constants.SECURITY_KEY);
         mainTruveoFields.add(Constants.EMAIL);
         mainTruveoFields.add(Constants.EMAIL_CONFIRM);
-        mainTruveoFields.add(Constants.NOTIFICATION);
         mainTruveoFields.add(Constants.COMP_COUNTRY_CODE);
         mainTruveoFields.add(Constants.CODER_TYPE);
         mainTruveoFields.add(Constants.TIMEZONE);

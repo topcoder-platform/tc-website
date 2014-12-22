@@ -45,7 +45,6 @@ public class Constants implements WebConstants {
 
     public static final String REGISTRATION_TYPE = "rt";
     public static final String QUOTE = "qu";
-    public static final String NOTIFICATION = "not_";
     public static final String COMPANY_NAME = "cpnm";
     public static final String GPA = "gpa";
     public static final String GPA_SCALE = "gpas";
