@@ -1104,13 +1104,6 @@
 								<label for="email_confirm">* Confirm Email Address:</label>
 								<input type="text" name="email_confirm" id="email_confirm" size="40" value="ralph@mycompany.com" />
 							</li>
-							 <li class="row">
-								<label for="email_notify">Email Notifications:</label>
-								  <input type="checkbox" name="TC_studio" id="TC_studio" />TopCoder Studio Competitions</li>
-							<li class="row">
-								<label for="email_notify"></label>
-								<input type="checkbox" name="TC_news" id="TC_news" />TopCoder News &amp; Events
-							</li>
 							<li class="row">
 							  <label for="enable_contact">Enable Member Contact:</label>
 								<input type="radio" name="radio" id="radio" value="radio" />Yes        

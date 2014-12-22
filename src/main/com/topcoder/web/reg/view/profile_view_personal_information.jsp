@@ -117,36 +117,7 @@
 							  <td class="field-name">Email Address:</td>
 							  <td class="field-value">ralph@mycomany.com</td>
 						  </tr>
-							<tr>
-							  <td class="field-name">Email Notifications:</td>
-							  <td class="field-value"><input name="checkbox" type="checkbox" id="checkbox" checked="checked" />
-								Algorithm Competitions</td>
-						  </tr>
-							<tr>
-							  <td class="field-name">&nbsp;</td>
-							  <td class="field-value"><input type="checkbox" name="checkbox" id="checkbox" />
-								Software Development Opportunities</td>
-						  </tr>
-							<tr>
-							  <td class="field-name">&nbsp;</td>
-							  <td class="field-value"><input name="checkbox" type="checkbox" id="checkbox" checked="checked" />
-								TopCoder Studio Competitions</td>
-						  </tr>
-							<tr>
-							  <td class="field-name">&nbsp;</td>
-							  <td class="field-value"><input type="checkbox" name="checkbox" id="checkbox" />
-								Open AIM Competition Announcements</td>
-						  </tr>
-							<tr>
-							  <td class="field-name">&nbsp;</td>
-							  <td class="field-value"><input type="checkbox" name="checkbox" id="checkbox" />
-								Employment Opportunities</td>
-						  </tr>
-							<tr>
-							  <td class="field-name">&nbsp;</td>
-							  <td class="field-value"><input type="checkbox" name="checkbox" id="checkbox" />
-								TopCoder News &amp; Events</td>
-						  </tr>
+
 							<tr>
 							  <td class="field-name">Enable Member Contact:</td>
 							  <td class="field-value">Yes</td>

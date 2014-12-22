@@ -160,11 +160,6 @@ public class Main extends Base {
                 getRequest().setAttribute("hasPayments", getFactory().getPaymentDAO().hasPayments(u.getId()));
                 getRequest().setAttribute("isNameInAnotherLanguageEmpty", u.getNameInAnotherLanguage() == null || u.getNameInAnotherLanguage().trim().length() == 0);
 
-                List nots = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
-                if (nots != null) {
-                    getRequest().setAttribute("notifications", nots);
-                }
-
                 Season season = getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON);
                 if (season != null && season.getEvent() != null && season.getEvent().getSurvey() != null) {
                     getRequest().setAttribute("questions", new ArrayList(season.getEvent().getSurvey().getQuestions()));

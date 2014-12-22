@@ -263,21 +263,6 @@ public abstract class Base extends LongHibernateProcessor {
         ret.put(Constants.TERMS_OF_USE_ID, getTrimmedParameter(Constants.TERMS_OF_USE_ID));
         ret.put(Constants.HS_REG_QUESTIONS, getTrimmedParameter(Constants.HS_REG_QUESTIONS));
 
-        //iterate through the notifications, we're essentially validating here
-        //since we're only looking for valid notifications.
-        List notifications = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
-        int size = notifications.size();
-        ArrayList nSelections = new ArrayList(size);
-        Notification n;
-        for (int i = 0; i < size; i++) {
-            n = (Notification) notifications.get(i);
-            String val = getTrimmedParameter(Constants.NOTIFICATION + n.getId());
-            if (val != null && !"".equals(val)) {
-                nSelections.add(n);
-            }
-        }
-        ret.put(Constants.NOTIFICATION, nSelections);
-
         return ret;
 
     }
@@ -373,13 +358,7 @@ public abstract class Base extends LongHibernateProcessor {
                 }
             }
         }
-        if (fields.contains(Constants.NOTIFICATION)) {
-            ValidationResult notificationResult =
-                    new NotificationValidator().validate(new ListInput((List) params.get(Constants.NOTIFICATION)));
-            if (!notificationResult.isValid()) {
-                addError(Constants.NOTIFICATION, notificationResult.getMessage());
-            }
-        }
+
         if (fields.contains(Constants.MEMBER_CONTACT)) {
             ValidationResult nonEmptyResult =
                     new NonEmptyValidator("Please enter your preference.").validate(
@@ -388,6 +367,7 @@ public abstract class Base extends LongHibernateProcessor {
                 addError(Constants.MEMBER_CONTACT, nonEmptyResult.getMessage());
             }
         }
+
         if (fields.contains(Constants.SHOW_EARNINGS)) {
             ValidationResult nonEmptyResult =
                     new NonEmptyValidator("Please enter your preference.").validate(
@@ -451,9 +431,6 @@ public abstract class Base extends LongHibernateProcessor {
 
         if (u.getTimeZone() != null) {
             setDefault(Constants.TIMEZONE, u.getTimeZone().getId());
-        }
-        for (Iterator it = u.getNotifications().iterator(); it.hasNext();) {
-            setDefault(Constants.NOTIFICATION + ((Notification) it.next()).getId(), String.valueOf(true));
         }
 
         setDefault(Constants.MEMBER_CONTACT, u.isMemberContactEnabled() ? "yes" : "no");
@@ -808,14 +785,7 @@ public abstract class Base extends LongHibernateProcessor {
         Map.Entry me;
         for (Iterator it = params.entrySet().iterator(); it.hasNext();) {
             me = (Map.Entry) it.next();
-            if (me.getKey().equals(Constants.NOTIFICATION)) {
-                List a = (List) me.getValue();
-                for (Iterator it1 = a.iterator(); it1.hasNext();) {
-                    setDefault(Constants.NOTIFICATION + ((Notification) it1.next()).getId(), String.valueOf(true));
-                }
-            } else {
-                setDefault((String) me.getKey(), me.getValue());
-            }
+            setDefault((String) me.getKey(), me.getValue());
         }
 
         setDefault(Constants.MEMBER_CONTACT, String.valueOf(params.get(Constants.MEMBER_CONTACT) != null));
@@ -837,11 +807,6 @@ public abstract class Base extends LongHibernateProcessor {
         getRequest().setAttribute("hasPayments", getFactory().getPaymentDAO().hasPayments(u.getId()));
         getRequest().setAttribute("isNameInAnotherLanguageEmpty", u.getNameInAnotherLanguage() == null || u.getNameInAnotherLanguage().trim().length() == 0);
 
-
-        List nots = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
-        if (nots != null) {
-            getRequest().setAttribute("notifications", nots);
-        }
 
         Season season = getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON);
         if (season != null && season.getEvent() != null && season.getEvent().getSurvey() != null) {

@@ -318,20 +318,6 @@
 								</tr>
 							</c:if>
 
-							<c:set value="<%=Constants.NOTIFICATION%>" var="notification"/>
-							<c:if test="${cf:contains(fields, notification)}">
-								<c:forEach items="${regUser.notifications}" var="notif">
-									<tr>
-										<td class="field-name">
-											Email Notifications:
-										</td>
-										<td class="field-value">
-												${notif.name}
-										</td>
-									</tr>
-								</c:forEach>
-							</c:if>
-
 							<c:set value="<%=Constants.MEMBER_CONTACT%>" var="memberContact"/>
 							<c:if test="${cf:contains(fields, memberContact)}">
 								<tr>

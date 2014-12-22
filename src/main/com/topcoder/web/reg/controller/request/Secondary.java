@@ -337,10 +337,6 @@ public class Secondary extends Base {
             p.setNumber((String) params.get(Constants.PHONE_NUMBER));
         }
 
-        if (fields.contains(Constants.NOTIFICATION)) {
-            u.setNotifications(new HashSet((List) params.get(Constants.NOTIFICATION)));
-        }
-
         if (fields.contains(Constants.MEMBER_CONTACT)) {
             UserPreference up = u.getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
             String value = StringUtils.checkNull(String.valueOf(params.get(Constants.MEMBER_CONTACT)));
