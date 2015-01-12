@@ -71,6 +71,9 @@ public class ActivateAction extends BaseAction {
      */
     private String code;
 
+
+    private String destination;
+
     /**
      * Represents the Welcome email messages settings.
      * @since 1.1
@@ -134,8 +137,12 @@ public class ActivateAction extends BaseAction {
             addActionError(e.getMessage());
             logger.error(e);
         }
-        //LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
-        return SUCCESS;
+
+        if (getDestination() != null && getDestination().trim().length() > 0) {
+            return "redirect";
+        } else {
+            return SUCCESS;
+        }
     }
 
     /**
@@ -175,4 +182,12 @@ public class ActivateAction extends BaseAction {
             emailSetting.getSenderName(), ConfigurationException.class);
     }
 
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
 }

@@ -39,6 +39,7 @@
         
         <action name="activate" class="activateAction">
             <result>/activate-success.jsp</result>
+            <result name="redirect" type="redirect">${destination}</result>
         </action>
         
         <action name="callback" class="callbackAction">
