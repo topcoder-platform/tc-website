@@ -35,6 +35,8 @@
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
     <script type="text/javascript" src="/js/print.js" ></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
 </head>
 
 <body>
@@ -95,6 +97,59 @@
 <div id="onBottom">
 <jsp:include page="foot.jsp" />
 </div>
+
+<script async="" src="//www.google-analytics.com/analytics.js"></script>
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
+
+__gaTracker('create', 'UA-6340959-1', 'auto');
+
+</script>
+<!-- End Google Analytics -->
+<script type="text/javascript">
+var naame;
+window.onload = function() {
+  var getHandle = function(callback) {
+    var self = this;
+    var tcjwt = $.cookie('tcjwt');
+
+
+    if (typeof tcjwt === 'undefined') {
+      callback(self.handle);
+    }
+    else if (typeof tcjwt !== 'undefined') {
+      $.ajax({
+        type: "GET",
+        url: 'https://api.topcoder.com/v2' + '/user/identity',
+        dataType: 'json',
+        headers: {
+          'Authorization': 'Bearer ' + tcjwt
+        },
+        success: function(data) {
+          self.handle = data.handle;
+          callback(self.handle);
+        }
+      }).fail(function() {
+        document.cookie = 'tcsso=; path=/; domain=.topcoder.com; expires=' + new Date(0).toUTCString();
+        document.cookie = 'tcjwt=; path=/; domain=.topcoder.com; expires=' + new Date(0).toUTCString();
+        location.reload();
+      });
+    }
+  };
+  var probName = '${infoRow.map['class_name']}';
+  var roundId = ${infoRow.map['round_id']};
+  getHandle(function(handle) {
+    __gaTracker('send', 'event', 'mmViewProblem', roundId + ': ' + probName, handle || 'anonymous', roundId);
+  });
+  __gaTracker('send', 'pageview');
+};
+</script>
+
+
 
 </body>
 
