@@ -64,7 +64,7 @@ By&#160;<tc-webtag:handle coderId="15664457" context="development"/><br />
 
 
 <p>
-This <a href="/i/downloads/xmi_documenter_ui.zip">package</a> contains the source code for the demo described below, as well as a build file to compile and run it. 
+This <a href="/i/downloads/xmi_documenter_ui.zip">package</a> contains the source code for the demo described below, as well as a build file to compile and run it.
 <br><br>
 Click <A href="/i/development/downloads/xmi_documenter_ui.jnlp">here</A> to run the XMI Documenter demo as a Java Web Start application (you will need a Java 1.5 Runtime Environment, or a Java 1.4 Runtime Environemnt with JAXP 1.3 installed as explained in section 4.3 of this document).
 <br><br>
@@ -85,17 +85,17 @@ This chapter will describe the main parts of the XMI Documenter API and show how
 The starting point for all XMI documentation editing is the class <tt>XMIDocumentFactory</tt>. This class provides two factory methods (both named <tt>createDocument</tt>, one takes a <tt>java.io.InputStream</tt>, the other one an <tt>org.w3c.dom.Document</tt>) for parsing an XMI input into an <tt>XMIDocument</tt> instance (see <tt>XMIDocumenterUIDemo#load()</tt>):
 
 <pre class="code">
-FileInputStream xmiStream = <b>new</b> FileInputStream(selectedFile); 
+FileInputStream xmiStream = <b>new</b> FileInputStream(selectedFile);
  <b>try</b> {
-    // load the XMI document 
-    currentDocument = factory.createDocument(xmiStream); 
+    // load the XMI document
+    currentDocument = factory.createDocument(xmiStream);
     // update the tree
-    treeModel.setRoot(<b>new</b> XMIDocumentNode(currentDocument)); 
-    treeModel.reload(); 
-    saveButton.setEnabled(<b>true</b>); 
-} <b>finally</b> { 
-    xmiStream.close(); 
-} 
+    treeModel.setRoot(<b>new</b> XMIDocumentNode(currentDocument));
+    treeModel.reload();
+    saveButton.setEnabled(<b>true</b>);
+} <b>finally</b> {
+    xmiStream.close();
+}
 </pre>
 
 An <tt>XMIDocument</tt> represents the structure of the parsed XMI file. The instance itself, and all of its members, does not contain all the information that was in the XMI file &mdash; it doesn't even contain enough information to reconstruct a valid XMI file from an <tt>XMIDocument</tt> instance. Instead the <tt>XMIDocument</tt> and all of its <tt>ModelElement</tt>s are backed by a DOM tree of the parsed XMI file. The read and write of documentation for elements actually occurs by accessing the backing DOM nodes of the corresponding <tt>ModelElement</tt>s.
@@ -104,29 +104,29 @@ An <tt>XMIDocument</tt> instance is mainly a holder for all classes and interfac
 
 <pre class="code">
 // get classes defined in document
-<b>final</b> ClassElement[] ownedElements = document.getClasses(); 
-<b>for</b> (<b>int</b> i = 0; i &lt; ownedElements.length; i++) { 
-    <b>final</b> ClassElement classElement = ownedElements[i]; 
-    <b>final</b> String packageName = classElement.getPackageName(); 
+<b>final</b> ClassElement[] ownedElements = document.getClasses();
+<b>for</b> (<b>int</b> i = 0; i &lt; ownedElements.length; i++) {
+    <b>final</b> ClassElement classElement = ownedElements[i];
+    <b>final</b> String packageName = classElement.getPackageName();
   // find or create the package node containing the class node
-    <b>final</b> PackageNode packageNode = findPackageNode(packageName); 
+    <b>final</b> PackageNode packageNode = findPackageNode(packageName);
     // create the class node and add it to the parent package node
-    packageNode.addChildNode(<b>new</b> ModelElementTreeNode(classElement, 
-	packageNode)); 
-} 
+    packageNode.addChildNode(<b>new</b> ModelElementTreeNode(classElement,
+	packageNode));
+}
 </pre>
 
 A <tt>ClassElement</tt> contains <tt>AttributeElement</tt>s for all fields defined in the class and <tt>OperationElement</tt>s for all methods defined in the class. <tt>OperationElement</tt>s consist of <tt>ParameterElement</tt>s, an optional <tt>ReturnValueElement</tt> and <tt>ExceptionElement</tt>s. The whole documentation tree of an XMI document is described by these Elements. The UI editor itself can even abstract the differences between all of these instances and treat all of the instances as <tt>ModelElement</tt> instances. This way all of the instances can be by handled in a generic way &mdash; see <tt>XMIDocumenterUIDemo.ModelElementTreeNode</tt> which abstracts the editing and handling of <tt>ModelElement</tt>s, e.g. in the constructor:
 
 <pre class="code">
-ModelElementTreeNode(<b>final</b> ModelElement element, <b>final</b> TreeNode parent) { 
-     <b>super</b>(parent); 
-     <b>this</b>.element = element; 
-     <b>final</b> ModelElement[] ownedElements = element.getOwnedElements(); 
-     <b>for</b> (<b>int</b> i = 0; i &lt; ownedElements.length; i++) { 
-         <b>final</b> ModelElement ownedElement = ownedElements[i]; 
-         getChildren().add(<b>new</b> ModelElementTreeNode(ownedElement,  <b>this</b>)); 
-     } 
+ModelElementTreeNode(<b>final</b> ModelElement element, <b>final</b> TreeNode parent) {
+     <b>super</b>(parent);
+     <b>this</b>.element = element;
+     <b>final</b> ModelElement[] ownedElements = element.getOwnedElements();
+     <b>for</b> (<b>int</b> i = 0; i &lt; ownedElements.length; i++) {
+         <b>final</b> ModelElement ownedElement = ownedElements[i];
+         getChildren().add(<b>new</b> ModelElementTreeNode(ownedElement,  <b>this</b>));
+     }
 }
 </pre>
 
@@ -135,27 +135,27 @@ All of the modification logic inside <tt>XMIDocumenterUIDemo</tt> also relies on
 Upon selection of a tree node that represents a <tt>ModelElement</tt>, any previously started editing of a <tt>ModelElement</tt> instance is ended by writing the current editor value back to the <tt>ModelElement</tt> instance &mdash; see <tt>XMIDocumenterUIDemo#endElementEditing()</tt>:
 
 <pre class="code">
-<b>if</b> (currentlyEditedModelElement != <b>null</b>) { 
-    <b>final</b> String text = editingArea.getText(); 
-    <b>if</b> (!text.equals(currentlyEditedModelElement.getDocumentationText())) { 
-        currentlyEditedModelElement.setDocumentationText(text); 
-    } 
-    currentlyEditedModelElement = <b>null</b>; 
-    editingArea.setText(""); 
-    editingArea.setEnabled(<b>false</b>); 
-} 
+<b>if</b> (currentlyEditedModelElement != <b>null</b>) {
+    <b>final</b> String text = editingArea.getText();
+    <b>if</b> (!text.equals(currentlyEditedModelElement.getDocumentationText())) {
+        currentlyEditedModelElement.setDocumentationText(text);
+    }
+    currentlyEditedModelElement = <b>null</b>;
+    editingArea.setText("");
+    editingArea.setEnabled(<b>false</b>);
+}
 </pre>
 
 Afterwards the <tt>ModelElement</tt> represented by the selected node becomes the currently edited element and its current documentation text is written to the documentation editor pane &mdash; see <tt>XMIDocumenterUIDemo#editModelEelement()</tt>:
 
 <pre class="code">
-<b>private void</b> editModelElement(<b>final</b> ModelElement modelElement, 
-                              <b>final</b> ModelElementTreeNode modelElementTreeNode) { 
-    endElementEditing(); 
-    currentlyEditedTreeNode = modelElementTreeNode; 
-    currentlyEditedModelElement = modelElement; 
-    editingArea.setText(currentlyEditedModelElement.getDocumentationText()); 
-    editingArea.setEnabled(<b>true</b>); 
+<b>private void</b> editModelElement(<b>final</b> ModelElement modelElement,
+                              <b>final</b> ModelElementTreeNode modelElementTreeNode) {
+    endElementEditing();
+    currentlyEditedTreeNode = modelElementTreeNode;
+    currentlyEditedModelElement = modelElement;
+    editingArea.setText(currentlyEditedModelElement.getDocumentationText());
+    editingArea.setEnabled(<b>true</b>);
 }
 </pre>
 
@@ -164,14 +164,14 @@ The only point at which this generic handling of <tt>ModelElement</tt>s is broke
 When editing of the XMI document has been finished, the document instance can be written into an <tt>java.io.OutputStream</tt> using <tt>XMIDocument#writeTo()</tt> &mdash; see <tt>XMIDocumenterUIDemo#save()</tt> for an example on this:
 
 <pre class="code">
-<b>final</b> FileOutputStream out = <b>new</b> FileOutputStream(selectedFile); 
-<b>try</b> { 
-    currentDocument.writeTo(out); 
-    treeModel.setRoot(<b>new</b> XMIDocumentNode(currentDocument)); 
-    treeModel.reload(); 
-} <b>finally</b> { 
-    out.close(); 
-} 
+<b>final</b> FileOutputStream out = <b>new</b> FileOutputStream(selectedFile);
+<b>try</b> {
+    currentDocument.writeTo(out);
+    treeModel.setRoot(<b>new</b> XMIDocumentNode(currentDocument));
+    treeModel.reload();
+} <b>finally</b> {
+    out.close();
+}
 </pre>
 
 After describing all of the core elements of the XMI Documenter API, this article has hopefully helped illustrate how to load, modify and save XMI files using XMI Documenter component.
@@ -179,7 +179,7 @@ After describing all of the core elements of the XMI Documenter API, this articl
 
 <a name="chap3"></a>
 <span class="bodySubtitle">3. Implementation details of XMI documenter that are worth noting</span><br>
-This chapter describes some of the XMI Documenter implementation details that are not suitable to be mentioned in the API documentation or CS of a component. 
+This chapter describes some of the XMI Documenter implementation details that are not suitable to be mentioned in the API documentation or CS of a component.
 <br><br>
 The most interesting aspect of the XMI Documenter for designers who want to use this editor might be what is necessary to exist in the XMI document before staring editing of documentation. As the XMI Documenter does not provide any functionality for the creation of model elements, all elements that need to be documented must exist before loading the document. This basically means that all classes have to be declared, all methods and fields to be documented must be created inside Poseidon and all parameters need to be modeled.  Special care must be taken of any exception documentation. In the XMI document created by Poseidon, there is no real structural model element that represents a throws declaration of a method. Instead, a method can have multiple throws-documentation elements (which in general are XML elements, that contain the all text after a throws tag). When documenting exceptions in methods, you must first create throws documentation for each of the exceptions that will be documented for the method, and the throws documentation must contain at least one word (which will be interpreted as the exception class name) or it will be ignored during XMI examination of the XMIDocumentFactory. So basically, before documenting, create all classes, fields and methods (including arguments, return value and throws documentation) as the XMI Documenter is unable to create model elements, it can only modify existing ones.
 <br><br>
@@ -192,7 +192,7 @@ The third detail that is worth noticing is that when the XMIDocument instance is
 
 <a name="chap4"></a>
 <span class="bodySubtitle">4. How to setup and run the XMI Documenter UI demo</span><br>
-The demo provided along with this article contains the class mentioned in the article and a build script to compile and run the editor. This demo can either be used as-is or as a starting point for your own modifications and improvements to the XMI editor. Most of this chapter describes the setup of dependencies of XMI Documenter.	
+The demo provided along with this article contains the class mentioned in the article and a build script to compile and run the editor. This demo can either be used as-is or as a starting point for your own modifications and improvements to the XMI editor. Most of this chapter describes the setup of dependencies of XMI Documenter.
 <br><br>
 <b>4.1 TopCoder Software Components used</b>
 <ul>
