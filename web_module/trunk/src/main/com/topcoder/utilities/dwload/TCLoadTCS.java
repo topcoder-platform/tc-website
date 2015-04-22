@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2014 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2015 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.utilities.dwload;
 
@@ -156,8 +156,16 @@ import java.util.Set;
  * </ul>
  * </p>
  *
- * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv, minhu, Blues, Veve
- * @version 1.2.5
+ * <p>
+ * Version 1.3 (TopCoder Data Warehouse Loading Update 1)
+ * <ul>
+ *     <li>Update {@link #doLoadProjects()} to load data for new columns: challenge_manager,
+ *     challenge_creator, challenge_launcher, copilot, checkpoint_start_date, checkpiont_end_date</li>
+ * </ul>
+ * </p>
+ *
+ * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv, minhu, Blues, Veve, TCSCODER
+ * @version 1.3
  */
 public class TCLoadTCS extends TCLoad {
 
@@ -905,6 +913,174 @@ public class TCLoadTCS extends TCLoad {
     }
 
     /**
+     * Loads the new columns (challenge_manager, challenge_creator, challenge_launcher, copilot, checkpoint_start_date,
+     * checkpoint_end_date) data for the existing tcs_dw:project records.
+     *
+     * @throws Exception if any error.
+     * @since 1.3
+     */
+    private void loadNewColumnsForProjectFirstTime() throws Exception {
+        PreparedStatement countChallengeCreatorPS = null;
+        PreparedStatement selectExistingProjectToUpdatePS = null;
+        PreparedStatement selectNewColumnsDataPS = null;
+        PreparedStatement updateProjectPS = null;
+
+
+        ResultSet rs = null;
+        ResultSet projectDataRS = null;
+
+        StringBuffer query = null;
+        int totalCount = 0;
+        long projectId = -1;
+
+
+        try {
+
+            query = new StringBuffer(100);
+            // check if there're existing any records in tcs_dw:project which have challenge_creator populated
+            query.append("SELECT count(*) from project WHERE challenge_creator IS NOT NULL");
+            countChallengeCreatorPS = prepareStatement(query.toString(), TARGET_DB);
+
+            rs = countChallengeCreatorPS.executeQuery();
+            rs.next();
+
+            boolean firstRun = (rs.getInt(1) == 0);
+
+            if(firstRun) {
+
+                log.info("Start to do the first full load of challenge_manager, challenge_creator, challenge_launcher, copilot, checkpoint_start_date and checkpoint_end_date for the existing DW project records");
+
+                // load project_id for the existing project records in tcs_dw
+                query.delete(0, query.length());
+                query.append("SELECT project_id FROM project");
+                selectExistingProjectToUpdatePS = prepareStatement(query.toString(), TARGET_DB);
+                rs = selectExistingProjectToUpdatePS.executeQuery();
+
+                // query to get challenge_manager, challenge_creator, challenge_launcher, copilot,
+                // checkpoint_start_date and checkpoint_end_date data to update from source DB
+                String selectNewColumnsDataSQL = "SELECT (SELECT handle\n" +
+                        "    FROM resource r,\n" +
+                        "      resource_info ri,\n" +
+                        "      user u\n" +
+                        "    WHERE r.project_id = p.project_id AND r.\n" +
+                        "      resource_id = ri.resource_id AND ri.\n" +
+                        "      resource_info_type_id = 1 AND r.\n" +
+                        "      resource_role_id = 13 AND ri.value = u.\n" +
+                        "      user_id AND r.resource_id = (\n" +
+                        "        SELECT min(r2.resource_id)\n" +
+                        "        FROM resource_info ri2,\n" +
+                        "          resource r2\n" +
+                        "        WHERE r2.project_id = p.project_id AND \n" +
+                        "          r2.resource_id = ri2.resource_id \n" +
+                        "          AND ri2.resource_info_type_id = 1 \n" +
+                        "          AND r2.resource_role_id = 13 AND \n" +
+                        "          ri2.value NOT IN (22770213, 22719217\n" +
+                        "            )\n" +
+                        "        )\n" +
+                        "    )::lvarchar AS challenge_manager,\n" +
+                        "  (\n" +
+                        "    SELECT handle\n" +
+                        "    FROM project p2,\n" +
+                        "      user u\n" +
+                        "    WHERE p2.create_user = u.user_id AND p2.\n" +
+                        "      project_id = p.project_id\n" +
+                        "    ) AS challenge_creator,\n" +
+                        "  (\n" +
+                        "    SELECT handle\n" +
+                        "    FROM project_info pi58,\n" +
+                        "      user u\n" +
+                        "    WHERE pi58.project_id = p.project_id AND pi58.\n" +
+                        "      project_info_type_id = 58 AND pi58.value::\n" +
+                        "      INT = u.user_id\n" +
+                        "    ) AS challenge_launcher,\n" +
+                        "  (\n" +
+                        "    SELECT handle\n" +
+                        "    FROM resource r,\n" +
+                        "      user u\n" +
+                        "    WHERE r.project_id = p.project_id AND r.user_id \n" +
+                        "      = u.user_id AND r.resource_role_id = 14 AND r\n" +
+                        "      .resource_id = (\n" +
+                        "        SELECT min(r2.resource_id)\n" +
+                        "        FROM resource r2\n" +
+                        "        WHERE r2.project_id = p.project_id AND \n" +
+                        "          r2.resource_role_id = 14\n" +
+                        "        )\n" +
+                        "    ) AS copilot,\n" +
+                        "  CASE WHEN pcsd.actual_start_time IS NOT NULL THEN \n" +
+                        "        pcsd.actual_start_time ELSE pcsd.\n" +
+                        "      scheduled_start_time END AS \n" +
+                        "  checkpoint_start_date,\n" +
+                        "  CASE WHEN pced.actual_end_time IS NOT NULL THEN pced.\n" +
+                        "        actual_end_time ELSE pced.\n" +
+                        "      scheduled_end_time END AS \n" +
+                        "  checkpoint_end_date\n" +
+                        "from project p, OUTER project_phase pcsd, OUTER project_phase pced\n" +
+                        "WHERE pcsd.project_id = p.project_id and pcsd.phase_type_id = 15 and pced.project_id = p.project_id and pced.phase_type_id = 17\n" +
+                        "and p.project_id = ?";
+                selectNewColumnsDataPS = prepareStatement(selectNewColumnsDataSQL, SOURCE_DB);
+
+                // query to update the existing payment records in topcoder_dw
+                query.delete(0, query.length());
+                query.append("UPDATE project SET challenge_manager = ?, challenge_creator = ?, challenge_launcher = ?, copilot = ?, checkpoint_start_date = ?, checkpoint_end_date = ?  WHERE project_id = ?");
+                updateProjectPS = prepareStatement(query.toString(), TARGET_DB);
+
+                while (rs.next()) {
+                    projectId = rs.getLong(1);
+
+                    selectNewColumnsDataPS.clearParameters();
+                    selectNewColumnsDataPS.setLong(1, projectId);
+                    projectDataRS = selectNewColumnsDataPS.executeQuery();
+                    projectDataRS.next();
+
+                    updateProjectPS.clearParameters();
+                    updateProjectPS.setString(1, projectDataRS.getString("challenge_manager"));
+                    updateProjectPS.setString(2, projectDataRS.getString("challenge_creator"));
+                    updateProjectPS.setString(3, projectDataRS.getString("challenge_launcher"));
+                    updateProjectPS.setString(4, projectDataRS.getString("copilot"));
+
+
+                    Timestamp checkpointStartDate = projectDataRS.getTimestamp("checkpoint_start_date");
+                    Timestamp checkpointEndDate = projectDataRS.getTimestamp("checkpoint_end_date");
+
+                    if (checkpointStartDate != null) {
+                        updateProjectPS.setTimestamp(5, checkpointStartDate);
+                    } else {
+                        updateProjectPS.setNull(5, Types.TIMESTAMP);
+                    }
+
+                    if (checkpointEndDate != null) {
+                        updateProjectPS.setTimestamp(6, checkpointEndDate);
+                    } else {
+                        updateProjectPS.setNull(6, Types.TIMESTAMP);
+                    }
+
+                    updateProjectPS.setLong(7, projectId);
+
+                    int countUpdated = updateProjectPS.executeUpdate();
+
+                    if (countUpdated == 1) {
+                        log.info(String.format("Update Project %s with new columns data", projectId));
+                        totalCount++;
+                    }
+                }
+            }
+
+            log.info("total project records updated with new columns data = " + totalCount);
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Full Load of new columns data for existing records in 'project' table failed.\n"
+                    + "project_id = " + projectId + "\n" + sqle.getMessage());
+        } finally {
+            DBMS.close(projectDataRS);
+            DBMS.close(rs);
+            DBMS.close(countChallengeCreatorPS);
+            DBMS.close(selectExistingProjectToUpdatePS);
+            DBMS.close(selectNewColumnsDataPS);
+            DBMS.close(updateProjectPS);
+        }
+    }
+
+    /**
      * <p/>
      * Load projects to the DW.
      * </p>
@@ -922,6 +1098,8 @@ public class TCLoadTCS extends TCLoad {
         try {
             //log.debug("PROCESSING PROJECT " + project_id);
             long start = System.currentTimeMillis();
+
+            loadNewColumnsForProjectFirstTime();
 
             //get data from source DB
             final String SELECT =
@@ -1026,6 +1204,28 @@ public class TCLoadTCS extends TCLoad {
                             "     else (select actual_end_time from project_phase ph3 " +
                             "           where ph3.project_id = p.project_id and ph3.phase_type_id = 4 and ph3.phase_status_id = 3) " +
                             "     end as actual_complete_date  " +
+                            "   , (SELECT handle " +
+                            "                FROM resource r, resource_info ri, user  u " +
+                            "                    WHERE r.project_id = p.project_id and r.resource_id = ri.resource_id  " +
+                            "                        and ri.resource_info_type_id = 1 and r.resource_role_id = 13 and ri.value=u.user_id " +
+                            "                        and r.resource_id = " +
+                            "                            (select min(r2.resource_id) from resource_info ri2, resource r2  " +
+                            "                                 where  r2.project_id = p.project_id and r2.resource_id = ri2.resource_id  " +
+                            "                                       and ri2.resource_info_type_id = 1 and r2.resource_role_id = 13 " +
+                            "   and ri2.value not in (22770213,22719217)))::lvarchar " +
+                            "         AS challenge_manager  " +
+                            ", (SELECT handle FROM project p2, user u WHERE p2.create_user = u.user_id and p2.project_id = p.project_id) AS challenge_creator " +
+                            "        , (SELECT handle FROM project_info pi58, user u WHERE pi58.project_id = p.project_id and pi58.project_info_type_id = 58 and pi58.value::integer = u.user_id) AS challenge_launcher " +
+                            "        , (SELECT handle " +
+                            "                FROM resource r, user  u " +
+                            "                    WHERE r.project_id = p.project_id and r.user_id = u.user_id " +
+                            "                        and r.resource_role_id = 14  " +
+                            "                        and r.resource_id = " +
+                            "                            (select min(r2.resource_id) from resource r2  " +
+                            "                                 where  r2.project_id = p.project_id   " +
+                            "                                       and r2.resource_role_id = 14)) as copilot" +
+                            ", CASE WHEN pcsd.actual_start_time IS NOT NULL THEN pcsd.actual_start_time ELSE pcsd.scheduled_start_time END as checkpoint_start_date" +
+                            ", CASE WHEN pced.actual_end_time   IS NOT NULL THEN pced.actual_end_time ELSE pced.scheduled_end_time END as checkpoint_end_date" +
                             "   from project p , " +
                             "   project_info pir, " +
                             "   project_info pivers, " +
@@ -1042,6 +1242,8 @@ public class TCLoadTCS extends TCLoad {
                             "   project_status_lu psl, " +
                             "   OUTER project_phase psd, " +
                             "   OUTER project_phase ppd, " +
+                            "   OUTER project_phase pcsd, " +
+                            "   OUTER project_phase pced, " +
                             "   project_category_lu pcl " +
                             " where pir.project_id = p.project_id " +
                             "   and pir.project_info_type_id = 2 " +
@@ -1071,6 +1273,10 @@ public class TCLoadTCS extends TCLoad {
                             "   and psd.phase_type_id = 2 " +
                             "   and ppd.project_id = p.project_id " +
                             "   and ppd.phase_type_id = 1 " +
+                            "   and pcsd.project_id = p.project_id " +
+                            "   and pcsd.phase_type_id = 15 " +
+                            "   and pced.project_id = p.project_id " +
+                            "   and pced.phase_type_id = 17 " +
                             // we need to process deleted project, otherwise there's a possibility
                             // they will keep living in the DW.
                             //" and p.project_status_id <> 3 " +
@@ -1100,7 +1306,8 @@ public class TCLoadTCS extends TCLoad {
                     "suspended_ind = ?, project_category_id = ?, project_category_name = ?, " +
                     "tc_direct_project_id = ?, admin_fee = ?, contest_prizes_total = ?, " +
                     "client_project_id = ?, duration = ? , last_modification_date = current, " +
-                    "first_place_prize = ?, num_checkpoint_submissions = ? , num_valid_checkpoint_submissions = ?, total_prize = ? " +
+                    "first_place_prize = ?, num_checkpoint_submissions = ? , num_valid_checkpoint_submissions = ?, total_prize = ?, " +
+                    "challenge_manager = ?, challenge_creator = ?, challenge_launcher = ?, copilot = ?, checkpoint_start_date = ?, checkpoint_end_date = ? " +
                     "where project_id = ? ";
 
             final String INSERT = "insert into project (project_id, component_name, num_registrations, num_submissions, " +
@@ -1108,14 +1315,16 @@ public class TCLoadTCS extends TCLoad {
                     "category_id, category_desc, posting_date, submitby_date, complete_date, component_id, " +
                     "review_phase_id, review_phase_name, status_id, status_desc, level_id, viewable_category_ind, version_id, " +
                     "version_text, rating_date, num_submissions_passed_review, winner_id, stage_id, digital_run_ind, suspended_ind, project_category_id, project_category_name, " +
-                    "tc_direct_project_id, admin_fee, contest_prizes_total, client_project_id, duration, last_modification_date, first_place_prize, num_checkpoint_submissions, num_valid_checkpoint_submissions, total_prize) " +
+                    "tc_direct_project_id, admin_fee, contest_prizes_total, client_project_id, duration, " +
+                    "last_modification_date, first_place_prize, num_checkpoint_submissions, num_valid_checkpoint_submissions, total_prize, " +
+                    "challenge_manager, challenge_creator, challenge_launcher, copilot, checkpoint_start_date, checkpoint_end_date)" +
                     "values (?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, ?, ?, ?, ?, " +
-                    "?, ?, current, ?, ?, ?, ?) ";
+                    "?, ?, current, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
             // Statements for updating the duration, fulfillment, start_date_calendar_id fields
             final String UPDATE_AGAIN = "UPDATE project SET " +
@@ -1259,7 +1468,28 @@ public class TCLoadTCS extends TCLoad {
                     update.setInt(38, rs.getInt("num_valid_checkpoint_submissions"));
                     update.setDouble(39, rs.getDouble("total_prize"));
 
-                    update.setLong(40, rs.getLong("project_id"));
+                    update.setString(40, rs.getString("challenge_manager"));
+                    update.setString(41, rs.getString("challenge_creator"));
+                    update.setString(42, rs.getString("challenge_launcher"));
+                    update.setString(43, rs.getString("copilot"));
+
+
+                    Timestamp checkpointStartDate = rs.getTimestamp("checkpoint_start_date");
+                    Timestamp checkpointEndDate = rs.getTimestamp("checkpoint_end_date");
+
+                    if (checkpointStartDate != null) {
+                        update.setTimestamp(44, checkpointStartDate);
+                    } else {
+                        update.setNull(44, Types.TIMESTAMP);
+                    }
+
+                    if (checkpointEndDate != null) {
+                        update.setTimestamp(45, checkpointEndDate);
+                    } else {
+                        update.setNull(45, Types.TIMESTAMP);
+                    }
+
+                    update.setLong(46, rs.getLong("project_id"));
                     System.out.println("------------project id --------------------------"+rs.getLong("project_id"));
 
                     int retVal = update.executeUpdate();
@@ -1347,6 +1577,23 @@ public class TCLoadTCS extends TCLoad {
                         insert.setInt(38, rs.getInt("num_checkpoint_submissions"));
                         insert.setInt(39, rs.getInt("num_valid_checkpoint_submissions"));
                         insert.setDouble(40, rs.getDouble("total_prize"));
+
+                        insert.setString(41, rs.getString("challenge_manager"));
+                        insert.setString(42, rs.getString("challenge_creator"));
+                        insert.setString(43, rs.getString("challenge_launcher"));
+                        insert.setString(44, rs.getString("copilot"));
+
+                        if (checkpointStartDate != null) {
+                            insert.setTimestamp(45, checkpointStartDate);
+                        } else {
+                            insert.setNull(45, Types.TIMESTAMP);
+                        }
+
+                        if (checkpointEndDate != null) {
+                            insert.setTimestamp(46, checkpointEndDate);
+                        } else {
+                            insert.setNull(46, Types.TIMESTAMP);
+                        }
 
                         insert.executeUpdate();
                     }

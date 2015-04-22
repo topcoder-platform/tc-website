@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2011 - 2015 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.utilities.dwload;
 
@@ -28,7 +28,6 @@ import com.topcoder.shared.util.sql.DBUtility;
  * parallel.
  * </p>
  * 
- * @author TCSASSEMBLER
  * @version 1.1 (Module Assembly - JIRA issues loading update and report creation)
  *
  * <p>
@@ -39,7 +38,17 @@ import com.topcoder.shared.util.sql.DBUtility;
  *         <li>Updated {@link #loadJiraData()} to load project level issues</li>
  *     </ul>
  * </p>
- * @since 1.2
+ *
+ *
+ * <p>
+ *     Version 1.3 (TopCoder Data Warehouse Loading Update 1)
+ *     <ul>
+ *         <li>Updated the JiraDataLoadUtility to load data
+ *         for new column jira_issue:payment_status and issue_type.</li>
+ *     </ul>
+ * </p>
+ *
+ * @author Veve
  */
 public class JiraDataLoadUtility extends DBUtility {
 
@@ -90,12 +99,16 @@ public class JiraDataLoadUtility extends DBUtility {
      * <p>
      * Update in version 1.2 - add join to customfield 10190 which is Cockpit Project ID
      * </p>
+     *
+     * <p>
+     * Update in version 1.3 - add payment_status and issue_type data
+     * </p>
      */
     private static final String SQL_QUERY_JIRA_FIRST = "SELECT i.pkey AS ticket_id, i.reporter, i.assignee, i.summary, "
             + "i.description, i.created, i.updated, i.duedate AS due_date, i.resolutiondate AS resolution_date, i.votes, "
             + "IFNULL(TRIM(payee.stringvalue),'N/A') AS winner, payment.numbervalue AS payment_amount, "
             + "IFNULL(payment_status.stringvalue, 'Not Paid') AS payment_status, CAST(IFNULL(tcopoints.STRINGVALUE, '0') AS SIGNED INTEGER) AS  tco_points,"
-            + "CAST(contest.stringvalue AS SIGNED INTEGER) AS contest_id, contest.numbervalue as project_id, st.pname as status "
+            + "CAST(contest.stringvalue AS SIGNED INTEGER) AS contest_id, contest.numbervalue as project_id, st.pname as status, payment_status.stringvalue as payment_status, i.issuetype AS issue_type "
             + "FROM jiraissue AS i "
             + "JOIN customfieldvalue contest ON contest.customfield = 10093  AND contest.issue = i.id " 
             + "and contest.ID = IF(contest.customfield=10093,(select max(id) from customfieldvalue where customfield = 10093 AND issue = i.id),"
@@ -111,7 +124,7 @@ public class JiraDataLoadUtility extends DBUtility {
             + "i.description, i.created, i.updated, i.duedate AS due_date, i.resolutiondate AS resolution_date, i.votes, "
             + "IFNULL(TRIM(payee.stringvalue),'N/A') AS winner, payment.numbervalue AS payment_amount, "
             + "IFNULL(payment_status.stringvalue, 'Not Paid') AS payment_status, CAST(IFNULL(tcopoints.STRINGVALUE, '0') AS SIGNED INTEGER) AS  tco_points,"
-            + "CAST(contest.stringvalue AS SIGNED INTEGER) AS contest_id, contest.numbervalue as project_id, st.pname as status "
+            + "CAST(contest.stringvalue AS SIGNED INTEGER) AS contest_id, contest.numbervalue as project_id, st.pname as status, payment_status.stringvalue as payment_status, i.issuetype AS issue_type "
             + "FROM jiraissue AS i "
             + "JOIN customfieldvalue contest ON contest.customfield = 10190  AND contest.issue = i.id " 
             + "and contest.ID = IF(contest.customfield=10093,(select max(id) from customfieldvalue where customfield = 10093 AND issue = i.id),"
@@ -129,10 +142,14 @@ public class JiraDataLoadUtility extends DBUtility {
      * <p>
      * Update in version 1.2 - add column project_id into INSERT statement
      * </p>
+     *
+     * <p>
+     * Update in version 1.3 - add columns payment_status and issue_type into INSERT statement
+     * </p>
      */
     private static final String SQL_INSERT_JIRA_ISSUE = "INSERT INTO 'informix'.jira_issue(jira_issue_id, ticket_id, "
             + "reporter, assignee, summary, description, created, updated, due_date, resolution_date, votes, winner, "
-            + "payment_amount, tco_points, contest_id, project_id, status) VALUES(jira_issue_seq.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+            + "payment_amount, tco_points, contest_id, project_id, status, payment_status, issue_type) VALUES(jira_issue_seq.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     /**
      * SQL to delete existing JIRA Tickets.
@@ -242,10 +259,108 @@ public class JiraDataLoadUtility extends DBUtility {
     }
 
     /**
+     * Load new columns (issue_type, payment_status) data for the existing jira_issue records in tcs_dw.
+     *
+     * @throws SQLException if any error occurs.
+     * @since 1.3
+     */
+    private void loadNewColumnsDataFirstTime() throws SQLException {
+        PreparedStatement countIssueTypeColumnPS = null;
+        PreparedStatement selectExistingJiraIssueToUpdatePS = null;
+        PreparedStatement selectNewColumnsDataPS = null;
+        PreparedStatement updateJiraIssuePS = null;
+
+
+        ResultSet rs = null;
+        ResultSet newDataRS = null;
+
+        StringBuffer query = null;
+        int totalCount = 0;
+        String ticketID = "";
+
+
+        try {
+
+            query = new StringBuffer(100);
+            // check if there existing any records with value set for column issue_type in tcs_dw:issue_type
+            query.append("SELECT count(*) from jira_issue WHERE issue_type IS NOT NULL");
+            countIssueTypeColumnPS = prepareStatement(TCS_DW, query.toString());
+
+            rs = countIssueTypeColumnPS.executeQuery();
+            rs.next();
+
+            boolean firstRun = (rs.getInt(1) == 0);
+
+            if(firstRun) {
+
+                log.info("Start to do the first full load of payment_status and issue_type for the existing DW jira_issue records");
+
+                // load ticket_id for the existing jira_issue records in tcs_dw
+                query.delete(0, query.length());
+                query.append("SELECT ticket_id FROM jira_issue");
+                selectExistingJiraIssueToUpdatePS = prepareStatement(TCS_DW, query.toString());
+                rs = selectExistingJiraIssueToUpdatePS.executeQuery();
+
+                // query to get issue type and payment status data from jiraissue in mysql db
+                String selectDataSQL = "SELECT i.issuetype as issue_type, payment_status.stringvalue as payment_status FROM jiraissue AS i\n" +
+                        "LEFT JOIN customfieldvalue payment_status ON payment_status.customfield = 10030 AND payment_status.issue = i.id\n" +
+                        "WHERE i.pkey = ?";
+                selectNewColumnsDataPS = prepareStatement(JIRA, selectDataSQL);
+
+                // query to update the existing jira_issue records in tcs_dw
+                query.delete(0, query.length());
+                query.append("UPDATE jira_issue SET issue_type = ?, payment_status = ? WHERE ticket_id = ?");
+                updateJiraIssuePS = prepareStatement(TCS_DW, query.toString());
+
+                while (rs.next()) {
+                    ticketID = rs.getString(1);
+
+                    selectNewColumnsDataPS.clearParameters();
+                    selectNewColumnsDataPS.setString(1, ticketID);
+                    newDataRS = selectNewColumnsDataPS.executeQuery();
+                    newDataRS.next();
+
+                    updateJiraIssuePS.clearParameters();
+                    updateJiraIssuePS.setString(1, newDataRS.getString("issue_type"));
+                    updateJiraIssuePS.setString(2, newDataRS.getString("payment_status"));
+                    updateJiraIssuePS.setString(3, ticketID);
+
+                    int count = updateJiraIssuePS.executeUpdate();
+
+                    if (count == 1) {
+                        log.info(String.format("Update jira_ticket:%s with new columns data", ticketID));
+                        totalCount++;
+                    }
+
+                }
+            }
+
+            log.info("total jira_issue records updated with issue_type and payment_status = " + totalCount);
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new SQLException("Full Load of issue_type and payment_status data for existing records in 'jira_issue' table failed.\n"
+                    + "ticket_id = " + ticketID + "\n" + sqle.getMessage());
+        } finally {
+            DBMS.close(newDataRS);
+            DBMS.close(rs);
+            DBMS.close(countIssueTypeColumnPS);
+            DBMS.close(selectExistingJiraIssueToUpdatePS);
+            DBMS.close(selectNewColumnsDataPS);
+            DBMS.close(updateJiraIssuePS);
+        }
+    }
+
+
+    /**
      * This is the method that would do the real loading work.
      *
      * <p>
      * Update in version 1.1 - insert tco points to the jira_issue int tcs_dw
+     * </p>
+     *
+     * <p>
+     * Update in version 1.3 - insert new columns (issue_type, payment_status) data for the
+     * jira_issue records in tcs_dw.
      * </p>
      */
     private void loadJiraData() throws SQLException {
@@ -257,6 +372,9 @@ public class JiraDataLoadUtility extends DBUtility {
         PreparedStatement pst = null;
 
         try {
+
+            loadNewColumnsDataFirstTime();
+
             boolean needDeleteBeforeEachInsertion = true;
             if (null == fLastLogTime) {
                 log.debug("It seems this is the first time to load JIRA, all JIRA Tickets would be loaded");
@@ -311,6 +429,8 @@ public class JiraDataLoadUtility extends DBUtility {
                     pst.setLong(15, rs.getLong("project_id"));
                 }
                 pst.setString(16, rs.getString("status"));
+                pst.setString(17, rs.getString("payment_status"));
+                pst.setString(18, rs.getString("issue_type"));
                 pst.executeUpdate();
             }
             log.debug(row + " row(s) loaded into tcs_dw:jira_issue");
