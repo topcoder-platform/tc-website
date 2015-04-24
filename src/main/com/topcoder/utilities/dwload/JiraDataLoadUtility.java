@@ -318,7 +318,9 @@ public class JiraDataLoadUtility extends DBUtility {
                     selectNewColumnsDataPS.clearParameters();
                     selectNewColumnsDataPS.setString(1, ticketID);
                     newDataRS = selectNewColumnsDataPS.executeQuery();
-                    newDataRS.next();
+                    boolean hasNext = newDataRS.next();
+
+                    if(!hasNext) continue;
 
                     updateJiraIssuePS.clearParameters();
                     updateJiraIssuePS.setString(1, newDataRS.getString("issue_type"));
