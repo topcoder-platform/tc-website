@@ -1030,7 +1030,9 @@ public class TCLoadTCS extends TCLoad {
                     selectNewColumnsDataPS.clearParameters();
                     selectNewColumnsDataPS.setLong(1, projectId);
                     projectDataRS = selectNewColumnsDataPS.executeQuery();
-                    projectDataRS.next();
+                    boolean hasNext = projectDataRS.next();
+
+                    if(!hasNext) continue;
 
                     updateProjectPS.clearParameters();
                     updateProjectPS.setString(1, projectDataRS.getString("challenge_manager"));
