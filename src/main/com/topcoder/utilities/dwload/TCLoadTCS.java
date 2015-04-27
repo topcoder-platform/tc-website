@@ -912,6 +912,16 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
+
+    private void setLongParameter(ResultSet rs, PreparedStatement statement, String name, int index) throws SQLException {
+        if (rs.getObject(name) != null) {
+            statement.setLong(index, rs.getLong(name));
+        } else {
+            statement.setNull(index, Types.DECIMAL);
+        }
+    }
+
+
     /**
      * Loads the new columns (challenge_manager, challenge_creator, challenge_launcher, copilot, checkpoint_start_date,
      * checkpoint_end_date) data for the existing tcs_dw:project records.
@@ -958,7 +968,7 @@ public class TCLoadTCS extends TCLoad {
 
                 // query to get challenge_manager, challenge_creator, challenge_launcher, copilot,
                 // checkpoint_start_date and checkpoint_end_date data to update from source DB
-                String selectNewColumnsDataSQL = "SELECT (SELECT handle\n" +
+                String selectNewColumnsDataSQL = "SELECT (SELECT u.user_id\n" +
                         "    FROM resource r,\n" +
                         "      resource_info ri,\n" +
                         "      user u\n" +
@@ -979,14 +989,14 @@ public class TCLoadTCS extends TCLoad {
                         "        )\n" +
                         "    )::lvarchar AS challenge_manager,\n" +
                         "  (\n" +
-                        "    SELECT handle\n" +
+                        "    SELECT u.user_id\n" +
                         "    FROM project p2,\n" +
                         "      user u\n" +
                         "    WHERE p2.create_user = u.user_id AND p2.\n" +
                         "      project_id = p.project_id\n" +
                         "    ) AS challenge_creator,\n" +
                         "  (\n" +
-                        "    SELECT handle\n" +
+                        "    SELECT u.user_id\n" +
                         "    FROM project_info pi58,\n" +
                         "      user u\n" +
                         "    WHERE pi58.project_id = p.project_id AND pi58.\n" +
@@ -994,7 +1004,7 @@ public class TCLoadTCS extends TCLoad {
                         "      INT = u.user_id\n" +
                         "    ) AS challenge_launcher,\n" +
                         "  (\n" +
-                        "    SELECT handle\n" +
+                        "    SELECT u.user_id\n" +
                         "    FROM resource r,\n" +
                         "      user u\n" +
                         "    WHERE r.project_id = p.project_id AND r.user_id \n" +
@@ -1035,11 +1045,11 @@ public class TCLoadTCS extends TCLoad {
                     if(!hasNext) continue;
 
                     updateProjectPS.clearParameters();
-                    updateProjectPS.setString(1, projectDataRS.getString("challenge_manager"));
-                    updateProjectPS.setString(2, projectDataRS.getString("challenge_creator"));
-                    updateProjectPS.setString(3, projectDataRS.getString("challenge_launcher"));
-                    updateProjectPS.setString(4, projectDataRS.getString("copilot"));
 
+                    setLongParameter(projectDataRS, updateProjectPS, "challenge_manager", 1);
+                    setLongParameter(projectDataRS, updateProjectPS, "challenge_creator", 2);
+                    setLongParameter(projectDataRS, updateProjectPS, "challenge_launcher", 3);
+                    setLongParameter(projectDataRS, updateProjectPS, "copilot", 4);
 
                     Timestamp checkpointStartDate = projectDataRS.getTimestamp("checkpoint_start_date");
                     Timestamp checkpointEndDate = projectDataRS.getTimestamp("checkpoint_end_date");
@@ -1206,7 +1216,7 @@ public class TCLoadTCS extends TCLoad {
                             "     else (select actual_end_time from project_phase ph3 " +
                             "           where ph3.project_id = p.project_id and ph3.phase_type_id = 4 and ph3.phase_status_id = 3) " +
                             "     end as actual_complete_date  " +
-                            "   , (SELECT handle " +
+                            "   , (SELECT u.user_id " +
                             "                FROM resource r, resource_info ri, user  u " +
                             "                    WHERE r.project_id = p.project_id and r.resource_id = ri.resource_id  " +
                             "                        and ri.resource_info_type_id = 1 and r.resource_role_id = 13 and ri.value=u.user_id " +
@@ -1216,9 +1226,9 @@ public class TCLoadTCS extends TCLoad {
                             "                                       and ri2.resource_info_type_id = 1 and r2.resource_role_id = 13 " +
                             "   and ri2.value not in (22770213,22719217)))::lvarchar " +
                             "         AS challenge_manager  " +
-                            ", (SELECT handle FROM project p2, user u WHERE p2.create_user = u.user_id and p2.project_id = p.project_id) AS challenge_creator " +
-                            "        , (SELECT handle FROM project_info pi58, user u WHERE pi58.project_id = p.project_id and pi58.project_info_type_id = 58 and pi58.value::integer = u.user_id) AS challenge_launcher " +
-                            "        , (SELECT handle " +
+                            ", (SELECT u.user_id FROM project p2, user u WHERE p2.create_user = u.user_id and p2.project_id = p.project_id) AS challenge_creator " +
+                            "        , (SELECT u.user_id FROM project_info pi58, user u WHERE pi58.project_id = p.project_id and pi58.project_info_type_id = 58 and pi58.value::integer = u.user_id) AS challenge_launcher " +
+                            "        , (SELECT u.user_id " +
                             "                FROM resource r, user  u " +
                             "                    WHERE r.project_id = p.project_id and r.user_id = u.user_id " +
                             "                        and r.resource_role_id = 14  " +
@@ -1470,10 +1480,10 @@ public class TCLoadTCS extends TCLoad {
                     update.setInt(38, rs.getInt("num_valid_checkpoint_submissions"));
                     update.setDouble(39, rs.getDouble("total_prize"));
 
-                    update.setString(40, rs.getString("challenge_manager"));
-                    update.setString(41, rs.getString("challenge_creator"));
-                    update.setString(42, rs.getString("challenge_launcher"));
-                    update.setString(43, rs.getString("copilot"));
+                    setLongParameter(rs, update, "challenge_manager", 40);
+                    setLongParameter(rs, update, "challenge_creator", 41);
+                    setLongParameter(rs, update, "challenge_launcher", 42);
+                    setLongParameter(rs, update, "copilot", 43);
 
 
                     Timestamp checkpointStartDate = rs.getTimestamp("checkpoint_start_date");
@@ -1580,10 +1590,12 @@ public class TCLoadTCS extends TCLoad {
                         insert.setInt(39, rs.getInt("num_valid_checkpoint_submissions"));
                         insert.setDouble(40, rs.getDouble("total_prize"));
 
-                        insert.setString(41, rs.getString("challenge_manager"));
-                        insert.setString(42, rs.getString("challenge_creator"));
-                        insert.setString(43, rs.getString("challenge_launcher"));
-                        insert.setString(44, rs.getString("copilot"));
+
+                        setLongParameter(rs, insert, "challenge_manager", 41);
+                        setLongParameter(rs, insert, "challenge_creator", 42);
+                        setLongParameter(rs, insert, "challenge_launcher", 43);
+                        setLongParameter(rs, insert, "copilot", 44);
+
 
                         if (checkpointStartDate != null) {
                             insert.setTimestamp(45, checkpointStartDate);
