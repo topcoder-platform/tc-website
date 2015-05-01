@@ -342,7 +342,7 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadProjectResults();
 
-     //       doLoadDesignProjectResults();
+            doLoadDesignProjectResults();
 
 //            doLoadRookies();
 
