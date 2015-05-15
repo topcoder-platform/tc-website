@@ -164,8 +164,17 @@ import java.util.Set;
  * </ul>
  * </p>
  *
- * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv, minhu, Blues, Veve, TCSCODER
- * @version 1.3
+ * <p>
+ * Version 1.4 (TopCoder Data Warehouse Loading Update 2)
+ * <ul>
+ *     <li>Update {@link #doLoadProjects()} to load data for new columns: (registration_end_date, scheduled_end_date,
+ *     checkpoint_prize_amount, checkpoint_prize_number, dr_points, reliability_cost,
+ *     review_cost, forum_id, submission_viewable, is_private)</li>
+ * </ul>
+ * </p>
+ *
+ * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv, minhu, Blues, Veve, Veve
+ * @version 1.4
  */
 public class TCLoadTCS extends TCLoad {
 
@@ -921,6 +930,14 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
+    private void setTimestampParameter(ResultSet rs, PreparedStatement statement, String name, int index) throws SQLException {
+        if (rs.getObject(name) != null) {
+            statement.setTimestamp(index, rs.getTimestamp(name));
+        } else {
+            statement.setNull(index, Types.TIMESTAMP);
+        }
+    }
+
 
     /**
      * Loads the new columns (challenge_manager, challenge_creator, challenge_launcher, copilot, checkpoint_start_date,
@@ -1093,6 +1110,150 @@ public class TCLoadTCS extends TCLoad {
     }
 
     /**
+     * Loads the new columns (registration_end_date, scheduled_end_date, checkpoint_prize_amount,
+     * checkpoint_prize_number, dr_points, reliability_cost, review_cost, forum_id,
+     * submission_viewable, is_private) data for the existing tcs_dw:project records.
+     *
+     * @throws Exception if any error.
+     * @since 1.4
+     */
+    private void loadNewColumns2ForProjectFirstTime() throws Exception {
+        PreparedStatement countChallengeCreatorPS = null;
+        PreparedStatement selectExistingProjectToUpdatePS = null;
+        PreparedStatement selectNewColumnsDataPS = null;
+        PreparedStatement updateProjectPS = null;
+
+
+        ResultSet rs = null;
+        ResultSet projectDataRS = null;
+
+        StringBuffer query = null;
+        int totalCount = 0;
+        long projectId = -1;
+
+
+        try {
+
+            query = new StringBuffer(100);
+            // check if there're existing any records in tcs_dw:project which have review_cost populated
+            query.append("SELECT count(*) from project WHERE review_cost IS NOT NULL");
+            countChallengeCreatorPS = prepareStatement(query.toString(), TARGET_DB);
+
+            rs = countChallengeCreatorPS.executeQuery();
+            rs.next();
+
+            boolean firstRun = (rs.getInt(1) == 0);
+
+            if(firstRun) {
+
+                log.info("Start to do the first full load of (registration_end_date, scheduled_end_date, " +
+                        "checkpoint_prize_amount, checkpoint_prize_number, dr_points, " +
+                        "reliability_cost, review_cost, forum_id, submission_viewable, is_private)" +
+                        "for the existing DW project records");
+
+                // load project_id for the existing project records in tcs_dw
+                query.delete(0, query.length());
+                query.append("SELECT project_id FROM project");
+                selectExistingProjectToUpdatePS = prepareStatement(query.toString(), TARGET_DB);
+                rs = selectExistingProjectToUpdatePS.executeQuery();
+
+                // query to get (registration_end_date, scheduled_end_date, checkpoint_prize_amount, checkpoint_prize_number,
+                // dr_points, reliability_cost, review_cost, forum_id, submission_viewable, is_private)  data to update from source DB
+                String selectNewColumnsDataSQL = "SELECT (select CASE when pi53.value == 'true' THEN 1 ELSE 0 END FROM project_info pi53 where pi53.project_info_type_id = 53 and pi53.project_id = p.project_id) as submission_viewable\n" +
+                        ", NVL(ppd.actual_end_time, ppd.scheduled_end_time) as registration_end_date\n" +
+                        ",(SELECT MAX(scheduled_end_time) FROM project_phase phet WHERE phet.project_id = p.project_id) as scheduled_end_date\n" +
+                        ", NVL((SELECT SUM(pr.number_of_submissions) FROM prize pr WHERE pr.project_id = p.project_id AND pr.prize_type_id = 14), 0) AS checkpoint_prize_number\n" +
+                        ", (SELECT NVL(MAX(prize_amount), 0) FROM prize pr WHERE pr.project_id = p.project_id AND pr.prize_type_id = 14) AS checkpoint_prize_amount\n" +
+                        ",(CASE WHEN pict.value = 'On' THEN NVL((SELECT value::decimal FROM project_info pidr WHERE pidr.project_id = p.project_id AND pidr.project_info_type_id = 30), 0) ELSE 0 END) as dr_points\n" +
+                        ",(NVL((SELECT sum(total_amount)         FROM  informixoltp:payment_detail pmd, informixoltp:payment pm          \n" +
+                        "WHERE pmd.component_project_id = p.project_id and pmd.installment_number = 1         \n" +
+                        " and pm.most_recent_detail_id = pmd.payment_detail_id and pmd.payment_type_id = 24         \n" +
+                        " AND NOT pmd.payment_status_id IN (65, 68, 69)), 0)  +    NVL((SELECT sum(pmd2.total_amount)            \n" +
+                        "  FROM  informixoltp:payment_detail pmd,   \n" +
+                        "informixoltp:payment pm LEFT OUTER JOIN informixoltp:payment_detail pmd2 on pm.payment_id = pmd2.parent_payment_id,    \n" +
+                        "informixoltp:payment pm2  \n" +
+                        "WHERE pmd.component_project_id = p.project_id and pmd2.installment_number = 1  \n" +
+                        "  and pm.most_recent_detail_id = pmd.payment_detail_id   \n" +
+                        "and pm2.most_recent_detail_id = pmd2.payment_detail_id and pmd2.payment_type_id = 24 \n" +
+                        "AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0)) as reliability_cost\n" +
+                        ",(NVL((SELECT sum(total_amount)         FROM  informixoltp:payment_detail pmd, informixoltp:payment pm  \n" +
+                        " WHERE pmd.component_project_id = p.project_id and pmd.installment_number = 1  \n" +
+                        "and pm.most_recent_detail_id = pmd.payment_detail_id and pmd.payment_type_id IN (7,26,28,36)\n" +
+                        " AND NOT pmd.payment_status_id IN (65, 68, 69)), 0)  +    NVL((SELECT sum(pmd2.total_amount)  \n" +
+                        "  FROM  informixoltp:payment_detail pmd,   \n" +
+                        "informixoltp:payment pm LEFT OUTER JOIN informixoltp:payment_detail pmd2 on pm.payment_id = pmd2.parent_payment_id,   \n" +
+                        " informixoltp:payment pm2               WHERE pmd.component_project_id = p.project_id and pmd2.installment_number = 1  \n" +
+                        "and pm.most_recent_detail_id = pmd.payment_detail_id   \n" +
+                        " and pm2.most_recent_detail_id = pmd2.payment_detail_id and pmd2.payment_type_id IN (7,26,28,36)  \n" +
+                        " AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0)) as review_cost\n" +
+                        ",(SELECT value::INTEGER FROM project_info piforum WHERE piforum.project_id = p.project_id and piforum.project_info_type_id = 4) as forum_id\n" +
+                        ", (select CASE when pi53.value == 'true' THEN 1 ELSE 0 END FROM project_info pi53 where pi53.project_info_type_id = 53 and pi53.project_id = p.project_id) as submission_viewable\n" +
+                        ", NVL((SELECT 1 FROM contest_eligibility WHERE contest_id = p.project_id), 0) AS is_private\n" +
+                        "FROM project p,\n" +
+                        "OUTER project_phase ppd,\n" +
+                        "OUTER project_info pict\n" +
+                        "WHERE ppd.project_id = p.project_id and ppd.phase_type_id = 1 and p.project_status_id = 7\n" +
+                        "AND pict.project_id = p.project_id and pict.project_info_type_id = 26 and p.project_id = ?";
+
+                selectNewColumnsDataPS = prepareStatement(selectNewColumnsDataSQL, SOURCE_DB);
+
+                // query to update the existing payment records in topcoder_dw
+                query.delete(0, query.length());
+                query.append("UPDATE project SET registration_end_date = ?, scheduled_end_date = ?, checkpoint_prize_amount = ?, checkpoint_prize_number = ?, dr_points = ?, " +
+                        "reliability_cost = ?, review_cost = ?, forum_id = ?, submission_viewable = ?, is_private = ?  WHERE project_id = ?");
+                updateProjectPS = prepareStatement(query.toString(), TARGET_DB);
+
+                while (rs.next()) {
+                    projectId = rs.getLong(1);
+
+                    selectNewColumnsDataPS.clearParameters();
+                    selectNewColumnsDataPS.setLong(1, projectId);
+                    projectDataRS = selectNewColumnsDataPS.executeQuery();
+                    boolean hasNext = projectDataRS.next();
+
+                    if(!hasNext) continue;
+
+                    updateProjectPS.clearParameters();
+
+                    setTimestampParameter(projectDataRS,   updateProjectPS, "registration_end_date", 1);
+                    setTimestampParameter(projectDataRS,   updateProjectPS, "scheduled_end_date", 2);
+                    updateProjectPS.setDouble(3, projectDataRS.getDouble("checkpoint_prize_amount"));
+                    updateProjectPS.setDouble(4, projectDataRS.getDouble("checkpoint_prize_number"));
+                    updateProjectPS.setDouble(5, projectDataRS.getDouble("dr_points"));
+                    updateProjectPS.setDouble(6, projectDataRS.getDouble("reliability_cost"));
+                    updateProjectPS.setDouble(7, projectDataRS.getDouble("review_cost"));
+
+                    setLongParameter(projectDataRS,   updateProjectPS, "forum_id", 8);
+                    setLongParameter(projectDataRS,   updateProjectPS, "submission_viewable", 9);
+                    setLongParameter(projectDataRS,   updateProjectPS, "is_private", 10);
+
+                    updateProjectPS.setLong(11, projectId);
+
+                    int countUpdated = updateProjectPS.executeUpdate();
+
+                    if (countUpdated == 1) {
+                        log.info(String.format("Update Project %s with new columns data", projectId));
+                        totalCount++;
+                    }
+                }
+            }
+
+            log.info("total project records updated with new columns data = " + totalCount);
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Full Load of new columns data for existing records in 'project' table failed.\n"
+                    + "project_id = " + projectId + "\n" + sqle.getMessage());
+        } finally {
+            DBMS.close(projectDataRS);
+            DBMS.close(rs);
+            DBMS.close(countChallengeCreatorPS);
+            DBMS.close(selectExistingProjectToUpdatePS);
+            DBMS.close(selectNewColumnsDataPS);
+            DBMS.close(updateProjectPS);
+        }
+    }
+
+    /**
      * <p/>
      * Load projects to the DW.
      * </p>
@@ -1112,6 +1273,8 @@ public class TCLoadTCS extends TCLoad {
             long start = System.currentTimeMillis();
 
             loadNewColumnsForProjectFirstTime();
+
+            loadNewColumns2ForProjectFirstTime();
 
             //get data from source DB
             final String SELECT =
@@ -1238,6 +1401,40 @@ public class TCLoadTCS extends TCLoad {
                             "                                       and r2.resource_role_id = 14)) as copilot" +
                             ", CASE WHEN pcsd.actual_start_time IS NOT NULL THEN pcsd.actual_start_time ELSE pcsd.scheduled_start_time END as checkpoint_start_date" +
                             ", CASE WHEN pced.actual_end_time   IS NOT NULL THEN pced.actual_end_time ELSE pced.scheduled_end_time END as checkpoint_end_date" +
+                            ", NVL(ppd.actual_end_time, ppd.scheduled_end_time) as registration_end_date" +
+                            ", (SELECT MAX(scheduled_end_time) FROM project_phase phet WHERE phet.project_id = p.project_id) as scheduled_end_date" +
+                            ", NVL((SELECT SUM(pr.number_of_submissions) FROM prize pr WHERE pr.project_id = p.project_id AND pr.prize_type_id = 14), 0) AS checkpoint_prize_number" +
+                            ", (SELECT NVL(MAX(prize_amount), 0) FROM prize pr WHERE pr.project_id = p.project_id AND pr.prize_type_id = 14) AS checkpoint_prize_amount" +
+                            ",(CASE WHEN pict.value = 'On' THEN NVL((SELECT value::decimal FROM project_info pidr WHERE pidr.project_id = p.project_id AND pidr.project_info_type_id = 30), 0) ELSE 0 END) as dr_points" +
+                            ",(NVL((SELECT sum(total_amount)  " +
+                            "       FROM  informixoltp:payment_detail pmd, informixoltp:payment pm  " +
+                            "        WHERE pmd.component_project_id = p.project_id and pmd.installment_number = 1  " +
+                            "        and pm.most_recent_detail_id = pmd.payment_detail_id and pmd.payment_type_id = 24  " +
+                            "        AND NOT pmd.payment_status_id IN (65, 68, 69)), 0)  +" +
+                            "    NVL((SELECT sum(pmd2.total_amount)   " +
+                            "           FROM  informixoltp:payment_detail pmd,    " +
+                            "                 informixoltp:payment pm LEFT OUTER JOIN informixoltp:payment_detail pmd2 on pm.payment_id = pmd2.parent_payment_id,   " +
+                            "                 informixoltp:payment pm2   " +
+                            "            WHERE pmd.component_project_id = p.project_id and pmd2.installment_number = 1   " +
+                            "            and pm.most_recent_detail_id = pmd.payment_detail_id    " +
+                            "            and pm2.most_recent_detail_id = pmd2.payment_detail_id and pmd2.payment_type_id = 24  " +
+                            "            AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0)) as reliability_cost" +
+                            ",(NVL((SELECT sum(total_amount)  " +
+                            "       FROM  informixoltp:payment_detail pmd, informixoltp:payment pm  " +
+                            "        WHERE pmd.component_project_id = p.project_id and pmd.installment_number = 1  " +
+                            "        and pm.most_recent_detail_id = pmd.payment_detail_id and pmd.payment_type_id IN (7,26,28,36)  " +
+                            "        AND NOT pmd.payment_status_id IN (65, 68, 69)), 0)  +" +
+                            "    NVL((SELECT sum(pmd2.total_amount)   " +
+                            "           FROM  informixoltp:payment_detail pmd,    " +
+                            "                 informixoltp:payment pm LEFT OUTER JOIN informixoltp:payment_detail pmd2 on pm.payment_id = pmd2.parent_payment_id,   " +
+                            "                 informixoltp:payment pm2   " +
+                            "            WHERE pmd.component_project_id = p.project_id and pmd2.installment_number = 1   " +
+                            "            and pm.most_recent_detail_id = pmd.payment_detail_id    " +
+                            "            and pm2.most_recent_detail_id = pmd2.payment_detail_id and pmd2.payment_type_id IN (7,26,28,36)  " +
+                            "            AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0)) as review_cost" +
+                            ", (SELECT value::INTEGER FROM project_info piforum WHERE piforum.project_id = p.project_id and piforum.project_info_type_id = 4) as forum_id" +
+                            ", (select CASE when pi53.value == 'true' THEN 1 ELSE 0 END FROM project_info pi53 where pi53.project_info_type_id = 53 and pi53.project_id = p.project_id) as submission_viewable" +
+                            ", NVL((SELECT 1 FROM contest_eligibility WHERE contest_id = p.project_id), 0) AS is_private" +
                             "   from project p , " +
                             "   project_info pir, " +
                             "   project_info pivers, " +
@@ -1319,7 +1516,9 @@ public class TCLoadTCS extends TCLoad {
                     "tc_direct_project_id = ?, admin_fee = ?, contest_prizes_total = ?, " +
                     "client_project_id = ?, duration = ? , last_modification_date = current, " +
                     "first_place_prize = ?, num_checkpoint_submissions = ? , num_valid_checkpoint_submissions = ?, total_prize = ?, " +
-                    "challenge_manager = ?, challenge_creator = ?, challenge_launcher = ?, copilot = ?, checkpoint_start_date = ?, checkpoint_end_date = ? " +
+                    "challenge_manager = ?, challenge_creator = ?, challenge_launcher = ?, copilot = ?, checkpoint_start_date = ?, checkpoint_end_date = ?, " +
+                    "registration_end_date = ?, scheduled_end_date = ?, checkpoint_prize_amount = ?, checkpoint_prize_number = ?, dr_points = ?, " +
+                    "reliability_cost = ?, review_cost = ?, forum_id = ?, submission_viewable = ?, is_private = ?" +
                     "where project_id = ? ";
 
             final String INSERT = "insert into project (project_id, component_name, num_registrations, num_submissions, " +
@@ -1329,14 +1528,16 @@ public class TCLoadTCS extends TCLoad {
                     "version_text, rating_date, num_submissions_passed_review, winner_id, stage_id, digital_run_ind, suspended_ind, project_category_id, project_category_name, " +
                     "tc_direct_project_id, admin_fee, contest_prizes_total, client_project_id, duration, " +
                     "last_modification_date, first_place_prize, num_checkpoint_submissions, num_valid_checkpoint_submissions, total_prize, " +
-                    "challenge_manager, challenge_creator, challenge_launcher, copilot, checkpoint_start_date, checkpoint_end_date)" +
+                    "challenge_manager, challenge_creator, challenge_launcher, copilot, checkpoint_start_date, checkpoint_end_date," +
+                    "registration_end_date, scheduled_end_date, checkpoint_prize_amount, checkpoint_prize_number, dr_points," +
+                    "reliability_cost, review_cost, forum_id, submission_viewable, is_private)" +
                     "values (?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, ?, ?, ?, ?, " +
-                    "?, ?, current, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+                    "?, ?, current, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
             // Statements for updating the duration, fulfillment, start_date_calendar_id fields
             final String UPDATE_AGAIN = "UPDATE project SET " +
@@ -1501,7 +1702,19 @@ public class TCLoadTCS extends TCLoad {
                         update.setNull(45, Types.TIMESTAMP);
                     }
 
-                    update.setLong(46, rs.getLong("project_id"));
+                    setTimestampParameter(rs, update, "registration_end_date", 46);
+                    setTimestampParameter(rs, update, "scheduled_end_date", 47);
+                    update.setDouble(48, rs.getDouble("checkpoint_prize_amount"));
+                    update.setDouble(49, rs.getDouble("checkpoint_prize_number"));
+                    update.setDouble(50, rs.getDouble("dr_points"));
+                    update.setDouble(51, rs.getDouble("reliability_cost"));
+                    update.setDouble(52, rs.getDouble("review_cost"));
+
+                    setLongParameter(rs, update, "forum_id", 53);
+                    setLongParameter(rs, update, "submission_viewable", 54);
+                    setLongParameter(rs, update, "is_private", 55);
+
+                    update.setLong(56, rs.getLong("project_id"));
                     System.out.println("------------project id --------------------------"+rs.getLong("project_id"));
 
                     int retVal = update.executeUpdate();
@@ -1608,6 +1821,18 @@ public class TCLoadTCS extends TCLoad {
                         } else {
                             insert.setNull(46, Types.TIMESTAMP);
                         }
+
+                        setTimestampParameter(rs, insert, "registration_end_date", 47);
+                        setTimestampParameter(rs, insert, "scheduled_end_date", 48);
+                        insert.setDouble(49, rs.getDouble("checkpoint_prize_amount"));
+                        insert.setDouble(50, rs.getDouble("checkpoint_prize_number"));
+                        insert.setDouble(51, rs.getDouble("dr_points"));
+                        insert.setDouble(52, rs.getDouble("reliability_cost"));
+                        insert.setDouble(53, rs.getDouble("review_cost"));
+
+                        setLongParameter(rs, insert, "forum_id", 54);
+                        setLongParameter(rs, insert, "submission_viewable", 55);
+                        setLongParameter(rs, insert, "is_private", 56);
 
                         insert.executeUpdate();
                     }
