@@ -1188,7 +1188,7 @@ public class TCLoadTCS extends TCLoad {
                         " AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0)) as review_cost\n" +
                         ",(SELECT value::INTEGER FROM project_info piforum WHERE piforum.project_id = p.project_id and piforum.project_info_type_id = 4) as forum_id\n" +
                         ", (select CASE when pi53.value == 'true' THEN 1 ELSE 0 END FROM project_info pi53 where pi53.project_info_type_id = 53 and pi53.project_id = p.project_id) as submission_viewable\n" +
-                        ", NVL((SELECT 1 FROM contest_eligibility WHERE contest_id = p.project_id), 0) AS is_private\n" +
+                        ", NVL((SELECT MAX(1) FROM contest_eligibility WHERE contest_id = p.project_id), 0) AS is_private\n" +
                         "FROM project p,\n" +
                         "OUTER project_phase ppd,\n" +
                         "OUTER project_info pict\n" +
