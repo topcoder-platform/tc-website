@@ -34,7 +34,7 @@
 </head>
 <body>
   <%
-          String redirectURL = "http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=maxflowPushRelabel";
+          String redirectURL = "https://www.topcoder.com/community/data-science/data-science-tutorials/push-relabel-approach-to-the-maximum-flow-problem/";
           response.sendRedirect(redirectURL);
       %>
 </body>

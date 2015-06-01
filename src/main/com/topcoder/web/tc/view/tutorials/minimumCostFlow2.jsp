@@ -31,7 +31,7 @@
 </head>
 <body>
   <%
-          String redirectURL = "";
+          String redirectURL = "https://www.topcoder.com/community/data-science/data-science-tutorials/minimum-cost-flow-part-two-algorithms/";
           response.sendRedirect(redirectURL);
       %>
 </body>

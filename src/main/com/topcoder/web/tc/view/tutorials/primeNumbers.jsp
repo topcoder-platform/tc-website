@@ -27,7 +27,7 @@
 </head>
 <body>
   <%
-          String redirectURL = "";
+          String redirectURL = "https://www.topcoder.com/community/data-science/data-science-tutorials/prime-numbers-factorization-and-euler-function/";
           response.sendRedirect(redirectURL);
       %>
 </body>
