@@ -34,7 +34,7 @@
 </head>
 <body>
   <%
-          String redirectURL = "";
+          String redirectURL = "https://www.topcoder.com/community/data-science/data-science-tutorials/maximum-flow-section-2/";
           response.sendRedirect(redirectURL);
       %>
 </body>

@@ -34,7 +34,7 @@
 </head>
 <body>
   <%
-          String redirectURL = "";
+          String redirectURL = "http://www.topcoder.com";
           response.sendRedirect(redirectURL);
       %>
 </body>

@@ -34,7 +34,7 @@
 </head>
 <body>
   <%
-          String redirectURL = "http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=bitManipulation";
+          String redirectURL = "https://www.topcoder.com/community/data-science/data-science-tutorials/assignment-problem-and-hungarian-algorithm/";
           response.sendRedirect(redirectURL);
       %>
 </body>

@@ -35,7 +35,7 @@
 <body>
 
   <%
-          String redirectURL = "http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=combinatorics";
+          String redirectURL = "https://www.topcoder.com/community/data-science/data-science-tutorials/basics-of-combinatorics/";
           response.sendRedirect(redirectURL);
       %>
 </body>

@@ -27,7 +27,7 @@
 </head>
 <body>
   <%
-          String redirectURL = "";
+          String redirectURL = "https://www.topcoder.com/community/data-science/data-science-tutorials/an-introduction-to-recursion-part-1/";
           response.sendRedirect(redirectURL);
       %>
 </body>
