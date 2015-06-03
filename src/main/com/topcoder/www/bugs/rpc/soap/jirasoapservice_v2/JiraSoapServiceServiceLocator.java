@@ -22,7 +22,7 @@ public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Servic
     }
 
     // Use to get a proxy class for JirasoapserviceV2
-    private java.lang.String JirasoapserviceV2_address = "http://apps.topcoder.com/bugs/rpc/soap/jirasoapservice-v2";
+    private java.lang.String JirasoapserviceV2_address = "https://apps.topcoder.com/bugs/rpc/soap/jirasoapservice-v2";
 
     public java.lang.String getJirasoapserviceV2Address() {
         return JirasoapserviceV2_address;
@@ -105,7 +105,7 @@ public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Servic
     }
 
     public javax.xml.namespace.QName getServiceName() {
-        return new javax.xml.namespace.QName("http://apps.topcoder.com/bugs/rpc/soap/jirasoapservice-v2", "JiraSoapServiceService");
+        return new javax.xml.namespace.QName("https://apps.topcoder.com/bugs/rpc/soap/jirasoapservice-v2", "JiraSoapServiceService");
     }
 
     private java.util.HashSet ports = null;
@@ -113,7 +113,7 @@ public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Servic
     public java.util.Iterator getPorts() {
         if (ports == null) {
             ports = new java.util.HashSet();
-            ports.add(new javax.xml.namespace.QName("http://apps.topcoder.com/bugs/rpc/soap/jirasoapservice-v2", "jirasoapservice-v2"));
+            ports.add(new javax.xml.namespace.QName("https://apps.topcoder.com/bugs/rpc/soap/jirasoapservice-v2", "jirasoapservice-v2"));
         }
         return ports.iterator();
     }
