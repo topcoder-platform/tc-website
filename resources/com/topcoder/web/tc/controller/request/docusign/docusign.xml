@@ -60,6 +60,9 @@
             <Property name="DOCUSIGN_TEMPLATE_ID_FOR_AFFIDAVIT">
                 <Value>handlerForAffidavit</Value>
             </Property>
+            <Property name="DOCUSIGN_TEMPLATE_ID_FOR_MEMBER_INDEPENDENCE">
+                <Value>handlerForMemberIndependenceAgreement</Value>
+            </Property>
         </Property>
     </Config>
     <Config name="com.topcoder.web.tc.controller.request.docusign.DocuSignCallback.handlers">
@@ -166,6 +169,21 @@
                     </Property>
                     <Property name="value">
                         <Value>affidavitId</Value>
+                    </Property>
+                </Property>
+            </Property>
+        </Property>
+        <Property name="handlerForMemberIndependenceAgreement">
+            <Property name="type">
+                <Value>com.topcoder.web.tc.controller.request.docusign.handlers.TermsOfUseHandler</Value>
+            </Property>
+            <Property name="params">
+                <Property name="param1">
+                    <Property name="type">
+                        <Value>long</Value>
+                    </Property>
+                    <Property name="value">
+                        <Value>21203</Value>
                     </Property>
                 </Property>
             </Property>
