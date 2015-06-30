@@ -8,7 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.sql.DBUtility;
@@ -48,6 +50,15 @@ import com.topcoder.shared.util.sql.DBUtility;
  *     </ul>
  * </p>
  *
+ * <p>
+ * Version 1.4 (TC Data Warehouse - Load admin fee for jira tickets - 30050545)
+ * <ul>
+ *     <li>Updated the JiraDataLoadUtility to load data for the new column admin_fee</li>
+ * </ul>
+ *
+ * </p>
+ *
+ *
  * @author Veve
  */
 public class JiraDataLoadUtility extends DBUtility {
@@ -73,6 +84,13 @@ public class JiraDataLoadUtility extends DBUtility {
      * The TCS Warehouse DB name.
      */
     private static final String TCS_DW = "tcs_dw";
+
+    /**
+     * The TCS_CATALOG DB name.
+     *
+     * @since 1.4
+     */
+    private static final String TCS_CATALOG = "tcs_catalog";
 
     /**
      * The JIRA database connection name.
@@ -354,6 +372,200 @@ public class JiraDataLoadUtility extends DBUtility {
 
 
     /**
+     *  Load new columns (admin_fee) data for the jira_issue records in tcs_dw.
+     *
+     * @param ticketIds the list of ticket ids to load admin fee
+     * @param contestIds the contest id of each ticket in ticketIds, if no contest ID, it has value 0
+     * @param projectIds the project id of each ticket in ticketIds, if no project ID, it has value 0
+     * @throws SQLException if any db error
+     *
+     * @since 1.4
+     */
+    private void loadAdminFeeForIssues(List<String> ticketIds, List<Long> contestIds, List<Long> projectIds) throws SQLException {
+        PreparedStatement countIssueTypeColumnPS = null;
+        PreparedStatement selectExistingJiraIssueToUpdatePS = null;
+        PreparedStatement selectActualPaymentPS = null;
+        PreparedStatement selectContestPercentageFeePS = null;
+        PreparedStatement selectProjectFeePS = null;
+        PreparedStatement updateJiraIssuePS = null;
+
+
+        ResultSet rs = null;
+        ResultSet paymentRS = null;
+        ResultSet contestFeeRS = null;
+        ResultSet projectFeeRS = null;
+
+        StringBuffer query = null;
+        String ticketID = "";
+        int totalCount = 0;
+        long projectId = 0;
+        long contestId = 0;
+
+
+        try {
+
+            query = new StringBuffer(100);
+            // check if there existing any records with value set for column admin_fee in tcs_dw:jira_issue
+            query.append("SELECT count(*) from jira_issue WHERE admin_fee IS NOT NULL");
+            countIssueTypeColumnPS = prepareStatement(TCS_DW, query.toString());
+
+            rs = countIssueTypeColumnPS.executeQuery();
+            rs.next();
+
+            boolean firstRun = (rs.getInt(1) == 0);
+
+            if (firstRun) {
+                // load ticket_id for the existing jira_issue records in tcs_dw
+                query.delete(0, query.length());
+                query.append("SELECT ticket_id, project_id, contest_id FROM jira_issue");
+                selectExistingJiraIssueToUpdatePS = prepareStatement(TCS_DW, query.toString());
+                ticketIds = new ArrayList<String>();
+                projectIds = new ArrayList<Long>();
+                contestIds = new ArrayList<Long>();
+                rs = selectExistingJiraIssueToUpdatePS.executeQuery();
+
+                while (rs.next()) {
+                    ticketID = rs.getString(1);
+                    ticketIds.add(ticketID);
+                    // see if the issue has the positive project ID
+                    if (rs.getObject(2) != null) {
+                        projectId = rs.getLong(2);
+                        log.info(ticketID + " has the direct project ID:" + projectId);
+                        projectIds.add(projectId);
+                        contestIds.add(0L);
+                    }
+
+                    // if project ID does not exist, try getting the contest ID
+                    if (projectId <= 0 && rs.getObject(3) != null) {
+                        contestId = rs.getLong(3);
+                        log.info(ticketID + " has the contest ID:" + contestId);
+                        contestIds.add(contestId);
+                        projectIds.add(projectId);
+                    }
+                }
+
+                log.info("Start to do the first full load of admin_fee for the DW jira_issue records");
+            }
+
+
+            // query to get issue type and payment status data from jiraissue in mysql db
+            String selectActualPaymentSQL =
+                    "select SUM(pd.total_amount) from informixoltp:payment p, informixoltp:payment_detail pd \n" +
+                            "where p.most_recent_detail_id = pd.payment_detail_id \n" +
+                            "and jira_issue_id = ?\n" +
+                            "and pd.payment_type_id IN (23,37,46,47,45,57) \n" +
+                            "and payment_status_id NOT IN (65,68,69);";
+            String selectContestPercentageFeeSQL = "select pi57.value from project_info pi57 where pi57.project_info_type_id = 57 and pi57.project_id = ?";
+            String selectProjectBugFeeSQL = "select fixed_bug_contest_fee, percentage_bug_contest_fee from tc_direct_project where project_id = ?";
+
+            selectActualPaymentPS = prepareStatement(TCS_CATALOG, selectActualPaymentSQL);
+            selectContestPercentageFeePS = prepareStatement(TCS_CATALOG, selectContestPercentageFeeSQL);
+            selectProjectFeePS = prepareStatement(TCS_CATALOG, selectProjectBugFeeSQL);
+
+            // query to update the existing jira_issue records in tcs_dw
+            query.delete(0, query.length());
+            query.append("UPDATE jira_issue SET admin_fee = ? WHERE ticket_id = ?");
+            updateJiraIssuePS = prepareStatement(TCS_DW, query.toString());
+
+            if(ticketIds != null && ticketIds.size() > 0) {
+
+                log.info("start loading admin_fee for ticket:" + ticketID);
+
+                for (int i = 0, n = ticketIds.size(); i < n; ++i) {
+                    ticketID = ticketIds.get(i);
+
+                    projectId = projectIds.get(i);
+                    contestId = contestIds.get(i);
+
+                    selectActualPaymentPS.clearParameters();
+                    selectActualPaymentPS.setString(1, ticketID);
+                    paymentRS = selectActualPaymentPS.executeQuery();
+                    boolean hasNext = paymentRS.next();
+
+                    if (!hasNext || paymentRS.getObject(1) == null) continue;
+
+                    double totalPayment = paymentRS.getDouble(1);
+
+                    log.info(ticketID + " has the total payment:" + totalPayment);
+
+                    Double adminFee = null;
+
+                    // calculate the admin fee of the jira issue
+                    if (contestId > 0) {
+                        // contest ID exists, use the contest percentage fee if exists
+                        selectContestPercentageFeePS.clearParameters();
+                        selectContestPercentageFeePS.setLong(1, contestId);
+                        contestFeeRS = selectContestPercentageFeePS.executeQuery();
+                        if (contestFeeRS.next() && contestFeeRS.getObject(1) != null) {
+                            adminFee = totalPayment * Double.parseDouble(contestFeeRS.getString(1));
+
+                            log.info(ticketID + " has the contest percentage admin fee:" + adminFee);
+
+                        } else {
+                            // no percentage fee set
+                            continue;
+                        }
+                    } else if (projectId > 0) {
+                        // project ID exists but no contest ID, use the project bug fee
+                        // project bug fee has two types 1) fixed bug contest fee 2) percentage bug contest fee
+
+                        selectProjectFeePS.clearParameters();
+                        selectProjectFeePS.setLong(1, projectId);
+                        projectFeeRS = selectProjectFeePS.executeQuery();
+
+                        if (projectFeeRS.next()) {
+                            if (projectFeeRS.getObject(1) != null && totalPayment > 0) {
+                                adminFee = projectFeeRS.getDouble(1);
+                                log.info(ticketID + " has the project fixed admin fee:" + adminFee);
+
+                            } else if (projectFeeRS.getObject(2) != null) {
+                                adminFee = totalPayment * projectFeeRS.getDouble(2);
+
+                                log.info(ticketID + " has the project percentage admin fee:" + adminFee);
+
+                            }
+                        }
+                    }
+
+                    if (adminFee != null) {
+                        // admin fee exists, update the admin_fee column
+                        updateJiraIssuePS.clearParameters();
+                        updateJiraIssuePS.setDouble(1, adminFee);
+                        updateJiraIssuePS.setString(2, ticketID);
+                    }
+
+
+                    int count = updateJiraIssuePS.executeUpdate();
+
+                    if (count == 1) {
+                        log.info(String.format("Update jira_ticket:%s with new column data: admin_fee", ticketID));
+                        totalCount++;
+                    }
+
+                }
+            }
+
+            log.info("total jira_issue records updated with admin_fee = " + totalCount);
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new SQLException("Full Load of admin_fee data for existing records in 'jira_issue' table failed.\n"
+                    + "ticket_id = " + ticketID + "\n" + sqle.getMessage());
+        } finally {
+            DBMS.close(paymentRS);
+            DBMS.close(contestFeeRS);
+            DBMS.close(projectFeeRS);
+            DBMS.close(rs);
+            DBMS.close(countIssueTypeColumnPS);
+            DBMS.close(selectExistingJiraIssueToUpdatePS);
+            DBMS.close(selectActualPaymentPS);
+            DBMS.close(selectContestPercentageFeePS);
+            DBMS.close(selectProjectFeePS);
+            DBMS.close(updateJiraIssuePS);
+        }
+    }
+
+
+    /**
      * This is the method that would do the real loading work.
      *
      * <p>
@@ -376,6 +588,9 @@ public class JiraDataLoadUtility extends DBUtility {
         try {
 
             loadNewColumnsDataFirstTime();
+
+            // load the admin_fee column for the first time
+            loadAdminFeeForIssues(null, null, null);
 
             boolean needDeleteBeforeEachInsertion = true;
             if (null == fLastLogTime) {
@@ -401,9 +616,12 @@ public class JiraDataLoadUtility extends DBUtility {
             logSQL(SQL_INSERT_JIRA_ISSUE);
             pst = prepareStatement(TCS_DW, SQL_INSERT_JIRA_ISSUE);
             int row = 0;
+            List<String> loadedTicketIds = new ArrayList<String>();
+            List<Long> contestIds = new ArrayList<Long>();
+            List<Long> projectIds = new ArrayList<Long>();
             while (rs.next()) {
                 row++;
-                String ticketId = rs.getString("ticket_id");  
+                String ticketId = rs.getString("ticket_id");
 
                 if (needDeleteBeforeEachInsertion) {
                     deleteSingleTicket(ticketId);
@@ -423,19 +641,28 @@ public class JiraDataLoadUtility extends DBUtility {
                 pst.setDouble(12, rs.getDouble("payment_amount"));
                 pst.setInt(13, rs.getInt("tco_points"));
                 Long contest_id = rs.getLong("contest_id");
-                if (!rs.wasNull() && contest_id > 0){
+                if (!rs.wasNull() && contest_id > 0) {
                     pst.setLong(14, contest_id);
                     pst.setNull(15, java.sql.Types.INTEGER);
-                }else{
+                    contestIds.add(contest_id);
+                    projectIds.add(0L);
+                } else {
                     pst.setNull(14, java.sql.Types.INTEGER);
                     pst.setLong(15, rs.getLong("project_id"));
+                    projectIds.add(rs.getLong("project_id"));
+                    contestIds.add(0L);
                 }
                 pst.setString(16, rs.getString("status"));
                 pst.setString(17, rs.getString("payment_status"));
                 pst.setString(18, rs.getString("issue_type"));
                 pst.executeUpdate();
+
+                loadedTicketIds.add(ticketId);
             }
             log.debug(row + " row(s) loaded into tcs_dw:jira_issue");
+
+            loadAdminFeeForIssues(loadedTicketIds, contestIds, projectIds);
+
         } catch (SQLException e) {
             log.error(e.getMessage(), e);
             DBMS.printSqlException(true, e);
