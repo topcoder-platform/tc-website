@@ -114,12 +114,12 @@ function menu_goto( menuform )
                 <div class="prizeLine">
                     <span class="money">
                         <fmt:formatNumber value="${designPrize.total}" type="currency" currencySymbol="$"/>
-                    </span> 
+                    </span>
                     <span class="month">bonus pool in ${monthName}</span>
                     <span class="month">(+<fmt:formatNumber value="${designPrize.today}" type="currency" currencySymbol="$"/> in the past ${pastNDays} days)</span>
                 </div>
                 <div class="prizeGuarantee">
-                    <span class="money">$10,000</span> <span class="month">Guaranteed Monthly Bonus</span>
+                    <span class="money"></span> <span class="month"></span>
                 </div>
             </div>
 
