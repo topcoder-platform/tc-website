@@ -519,13 +519,13 @@
                              class="upload-image-sign upload-completed hide">
                         <span class="state">Uploading....</span>
                         <span class="note">Please don’t close the browser until the file is uploaded</span>
-                    </div>
-                    <div class="progress-bar">
+                    </div><!--
+                     <div class="progress-bar">
                         <span class="left-corner"></span>
                         <span class="right-corner"></span>
 
                         <div class="progress-bar-inner"><span></span></div>
-                    </div>
+                    </div> -->
                     <!--End .progress-bar-->
                     <div class="button-line">
                         <a class="btn-write" id="abort-upload" href="javascript:;"><span class="right-side"><span
