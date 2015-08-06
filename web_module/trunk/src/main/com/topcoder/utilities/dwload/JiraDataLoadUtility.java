@@ -427,20 +427,28 @@ public class JiraDataLoadUtility extends DBUtility {
                 while (rs.next()) {
                     ticketID = rs.getString(1);
                     ticketIds.add(ticketID);
-                    // see if the issue has the positive project ID
+
+                    // initialize to 0 first
+                    projectId = 0;
+                    contestId = 0;
+
                     if (rs.getObject(2) != null) {
+                        // see if the issue has the positive project ID
                         projectId = rs.getLong(2);
                         log.info(ticketID + " has the direct project ID:" + projectId);
                         projectIds.add(projectId);
                         contestIds.add(0L);
-                    }
-
-                    // if project ID does not exist, try getting the contest ID
-                    if (projectId <= 0 && rs.getObject(3) != null) {
+                    } else if (projectId <= 0 && rs.getObject(3) != null) {
+                        // if project ID does not exist, try getting the contest ID
                         contestId = rs.getLong(3);
                         log.info(ticketID + " has the contest ID:" + contestId);
                         contestIds.add(contestId);
-                        projectIds.add(projectId);
+                        projectIds.add(0L);
+                    } else {
+                        // no project ID and contest ID, set both to 0
+                        log.info(ticketID + " has no contest ID and project ID");
+                        contestIds.add(0L);
+                        projectIds.add(0L);
                     }
                 }
 
@@ -469,10 +477,11 @@ public class JiraDataLoadUtility extends DBUtility {
 
             if(ticketIds != null && ticketIds.size() > 0) {
 
-                log.info("start loading admin_fee for ticket:" + ticketID);
-
                 for (int i = 0, n = ticketIds.size(); i < n; ++i) {
+
                     ticketID = ticketIds.get(i);
+
+                    log.info("---\nstart loading admin_fee for ticket:" + ticketID);
 
                     projectId = projectIds.get(i);
                     contestId = contestIds.get(i);
@@ -482,7 +491,10 @@ public class JiraDataLoadUtility extends DBUtility {
                     paymentRS = selectActualPaymentPS.executeQuery();
                     boolean hasNext = paymentRS.next();
 
-                    if (!hasNext || paymentRS.getObject(1) == null) continue;
+                    if (!hasNext || paymentRS.getObject(1) == null) {
+                        log.info(String.format("No payment information found for ticket:%s", ticketID));
+                        continue;
+                    }
 
                     double totalPayment = paymentRS.getDouble(1);
 
@@ -532,15 +544,17 @@ public class JiraDataLoadUtility extends DBUtility {
                         updateJiraIssuePS.clearParameters();
                         updateJiraIssuePS.setDouble(1, adminFee);
                         updateJiraIssuePS.setString(2, ticketID);
+
+                        int count = updateJiraIssuePS.executeUpdate();
+
+                        if (count == 1) {
+                            log.info(String.format("Update jira_ticket:%s with new column data: admin_fee", ticketID));
+                            totalCount++;
+                        }
+                    } else {
+                        log.info(String.format("No contest ID and project ID for calculating the admin fee for the ticket:%s", ticketID));
                     }
 
-
-                    int count = updateJiraIssuePS.executeUpdate();
-
-                    if (count == 1) {
-                        log.info(String.format("Update jira_ticket:%s with new column data: admin_fee", ticketID));
-                        totalCount++;
-                    }
 
                 }
             }
