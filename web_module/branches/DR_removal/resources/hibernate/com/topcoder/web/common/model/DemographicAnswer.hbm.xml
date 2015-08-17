@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="DemographicAnswer" table="demographic_answer" mutable="false">
+        <id name="id" column="demographic_answer_id" access="field"/>
+        <many-to-one name="question" column="demographic_question_id" class="DemographicQuestion" access="field"
+                     cascade="none"/>
+        <property name="text" column="demographic_answer_text" access="field"/>
+        <property name="sort" access="field"/>
+        <property name="status" access="field"/>
+    </class>
+
+</hibernate-mapping>

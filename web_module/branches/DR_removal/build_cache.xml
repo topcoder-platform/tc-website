@@ -1,0 +1,120 @@
+<project name="topcoder" default="main" basedir=".">
+    <property environment="env"/>
+    <property name="Name" value="TopCoder"/>
+    <property name="build" value="build"/>
+    <property name="war.dir" value="${build}/wars"/>
+    <property name="ear.dir" value="${build}/ears"/>
+    <property name="sar.dir" value="${build}/sars"/>
+    <property name="ejb_jars" value="${build}/ejb_jars"/>
+    <property name="classes" value="${build}/classes"/>
+    <property name="testclasses" value="${build}/testcases"/>
+    <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
+    <property name="build.javadocs" value="${build}/javadocs"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="jars.dir" value="${lib.dir}/jars"/>
+    <property name="bin" value="lib/bin"/>
+    <property name="src.dir" value="src"/>
+    <property name="java" value="${src.dir}/main"/>
+    <property name="shared.build" value="${basedir}/../shared"/>
+    <property name="shared" value="../shared/src/main"/>
+    <property name="testjava" value="${src.dir}/testcases"/>
+    <property name="resources" value="resources"/>
+    <property name="conf" value="conf"/>
+    <property name="shared.jar" value="${bin}/shared.jar"/>
+    <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+    <property name="web" value="src/main/com/topcoder/web"/>
+    <property name="jboss_home" value="${env.JBOSS_HOME}"/>
+    <property name="jboss_deploy" value="${jboss_home}/server/cache/deploy"/>
+    <property name="jboss_lib" value="${jboss_home}/server/cache/lib"/>
+    <property name="jboss_conf" value="${jboss_home}/server/cache/conf"/>
+
+    <property name="deprecation" value="true"/>
+    <property name="debug" value="true"/>
+    <property name="junitsummary" value="on"/>
+
+    <target name="main" depends="compile">
+    </target>
+
+
+    <path id="class.path">
+        <pathelement location="${classes}"/>
+        <pathelement location="${shared.jar}"/>
+        <pathelement location="${resources}"/>
+
+    </path>
+    <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
+    <property name="class.path" refid="class.path"/>
+
+    <target name="init">
+        <mkdir dir="${classes}"/>
+        <mkdir dir="${testclasses}"/>
+        <mkdir dir="${bin}"/>
+        <mkdir dir="${ejb_jars}"/>
+        <mkdir dir="${war.dir}"/>
+        <mkdir dir="${ear.dir}"/>
+        <mkdir dir="${sar.dir}"/>
+    </target>
+
+
+    <target name="compile_common" depends="init" unless="compile_common_set">
+        <ant antfile="build_common.xml" target="build-dist"/>
+        <property name="compile_common_set" value="true"/>
+    </target>
+
+    <target name="compile" depends="init,compile_common" unless="compile_set">
+        
+        <depend srcdir="${java}" destdir="${classes}" cache="${build}/cache"/>
+        <javac
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.5"
+                target="1.5" memoryMaximumSize="380m" memoryInitialSize="380m" fork="true">
+            <include name="com/topcoder/common/cache/admin/**"/>
+        </javac>
+        <property name="compile_set" value="true"/>
+    </target>
+
+    <target name="clean">
+        <!-- kill the entire build dir -->
+        <delete dir="${build}"/>
+        <delete dir="${bin}"/>
+        <ant dir="${shared.build}" target="clean"/>
+    </target>
+
+    <target name="build-cache-admin" depends="compile">
+        <jar jarfile="${sar.dir}/cacheadmin.sar" basedir="${classes}"
+             includes="com/topcoder/web/common/cache/admin/*">
+            <metainf dir="${java}/com/topcoder/web/common/cache/admin/" includes="*.xml"/>
+        </jar>
+    </target>
+
+    <target name="deploy" depends="build-cache-admin">
+         <ant antfile="build_security.xml" target="build-security"/>
+
+        <copy todir="${jboss_deploy}" file="${sar.dir}/cacheadmin.sar"/>
+        <copy todir="${jboss_lib}">
+            <fileset dir="${bin}">
+                <include name="tcwebcommon.jar"/>
+                <include name="tc.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss_lib}" file="${shared.jar}"/>
+        <copy todir="${jboss_lib}" file="${ejb_jars}/security.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/jboss/jgroups.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/jboss/jboss-cache.jar"/>
+        
+
+
+        <copy todir="${jboss_conf}">
+            <fileset dir="${resources}">
+                <include name="cache.properties"/>
+                <include name="ApplicationServer.properties"/>
+            </fileset>
+        </copy>
+
+
+    </target>
+</project>

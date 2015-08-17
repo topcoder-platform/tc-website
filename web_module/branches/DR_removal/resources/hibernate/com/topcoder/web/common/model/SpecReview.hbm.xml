@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+  - Author: TCSDEVELOPER
+  - Version: 1.0
+  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: Hibernate mapping file for spec_review table
+  -
+  - Since: Studio Release Assembly - Spec Review Sign up page v1.0
+-->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+    <class name="SpecReview" table="spec_review">
+        <id name="id" column="spec_review_id" type="long" unsaved-value="-1">
+            <generator class="sequence">
+                <param name="sequence">SPEC_REVIEW_SEQ</param>
+            </generator>
+        </id>
+
+        <property name="contestId" column="contest_id" not-null="true" access="field"/>
+        <property name="isStudio" column="is_studio" not-null="true" access="field"/>
+        <many-to-one name="reviewStatus" column="review_status_type_id" access="field" class="SpecReviewStatus" fetch="select"/>
+        <property name="creationTime" column="creation_time" />
+        <property name="creationUser" column="creation_user" />
+        <property name="modificationTime" column="modification_time" />
+        <property name="modificationUser" column="modification_user" />
+        <property name="readyForReviewTime" column="ready_for_review_time" />
+        <property name="reviewDoneTime" column="review_done_time" />
+
+        <set name="specReviewers" cascade="save-update" inverse="true">
+            <key column="spec_review_id" not-null="true"/>
+            <one-to-many class="SpecReviewReviewer"/>
+        </set>
+    </class>
+</hibernate-mapping>
+

@@ -1,0 +1,1 @@
+runfix.sh fixscorecards.xml
