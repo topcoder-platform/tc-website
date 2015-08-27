@@ -180,7 +180,7 @@
                 <li><a id="long_queue" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewQueue">Queue Status</a></li>
             </ul>
         </li>
-        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/dr">The Digital Run</a></li>
+        <%--<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/dr">The Digital Run</a></li>--%>
         <li><a href="http://software.topcoder.com/review">Submit &amp; Review</a></li>
         <li>
             <a href="javascript:;">topcoder Networks<i></i></a>

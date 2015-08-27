@@ -276,7 +276,7 @@
                     nav.search("m_hs_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=hs&d2=spotlightSessions", "Spotlight Sessions", "hs_spotlight"));
                     nav.search("m_hs_competitions").addChild(new NavNode("javascript:arena();", "Launch Arena", "hs_compete"));
 
-            nav.search("m_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/dr", "The Digital Run", "digital_run"));
+//            nav.search("m_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/dr", "The Digital Run", "digital_run"));
             nav.search("m_competitions").addChild(new NavNode("http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/review", "Submit &amp; Review", "online_review"));
 
        nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_topcoder_networks')", "TopCoder Networks", "m_topcoder_networks"));
