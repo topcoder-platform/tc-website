@@ -118,7 +118,7 @@ public class ActiveContests extends ActiveContestsBase {
 
     @Override
     protected Boolean hasDR() {
-        return Boolean.TRUE;
+        return Boolean.FALSE;
     }
 
     private static boolean isValidProjectType(int projectType) {

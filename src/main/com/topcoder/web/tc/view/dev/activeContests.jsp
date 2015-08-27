@@ -67,9 +67,9 @@
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
     <tr>
-        <td>
-            <a href="/dr"><img src="/i/development/digitalRun.gif" alt="The Digital Run" border="0"/></a>
-        </td>
+        <%--<td>--%>
+            <%--<a href="/dr"><img src="/i/development/digitalRun.gif" alt="The Digital Run" border="0"/></a>--%>
+        <%--</td>--%>
         <td align="right">
             <a href="/wiki/display/tc/Getting+Started+in+Component+Design+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
         </td>
@@ -107,14 +107,14 @@
         <td class="headerC" width="10%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="99" includeParams="true"/>">Reliability Bonus</a>
         </td>
-        <td class="headerC" width="10%">
-            <div align="center">
-                <a href="/dr"><img src="/i/interface/emblem/digitalrun.png" alt="" onmouseover="postPopUpText('globalPopupText','The Digital Run'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
-            </div>
-            <div align="center">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="15" includeParams="true"/>">Points</a>
-            </div>
-        </td>
+        <%--<td class="headerC" width="10%">--%>
+            <%--<div align="center">--%>
+                <%--<a href="/dr"><img src="/i/interface/emblem/digitalrun.png" alt="" onmouseover="postPopUpText('globalPopupText','The Digital Run'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>--%>
+            <%--</div>--%>
+            <%--<div align="center">--%>
+                <%--<a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="15" includeParams="true"/>">Points</a>--%>
+            <%--</div>--%>
+        <%--</td>--%>
         <td class="headerC" width="10%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Registrants</a><br />
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Rated</a>/
@@ -179,9 +179,9 @@
             <td class="valueC">
                 <rsc:item name="reliability_bonus" row="<%=resultRow%>" format="$###,###.00"/>
             </td>
-            <td class="valueC">
-                <rsc:item name="dr_points" row="<%=resultRow%>" format="######"/>
-            </td>
+            <%--<td class="valueC">--%>
+                <%--<rsc:item name="dr_points" row="<%=resultRow%>" format="######"/>--%>
+            <%--</td>--%>
             <td class="valueC">
                 <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
                 <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
@@ -210,9 +210,9 @@
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
     <tr>
-        <td>
-            <a href="/dr"><img src="/i/development/digitalRun.gif" alt="The Digital Run" border="0"/></a>
-        </td>
+        <%--<td>--%>
+            <%--<a href="/dr"><img src="/i/development/digitalRun.gif" alt="The Digital Run" border="0"/></a>--%>
+        <%--</td>--%>
         <td align="right">
             <a href="/wiki/display/tc/Getting+Started+in+Component+Development+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
         </td>
@@ -250,14 +250,14 @@
         <td class="headerC" width="10%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="99" includeParams="true"/>">Reliability Bonus</a>
         </td>
-        <td class="headerC" width="10%">
-            <div align="center">
-                <a href="/dr"><img src="/i/interface/emblem/digitalrun.png" alt="" onmouseover="postPopUpText('globalPopupText','The Digital Run'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
-            </div>
-            <div align="center">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="15" includeParams="true"/>">Points</a>
-            </div>
-        </td>
+        <%--<td class="headerC" width="10%">--%>
+            <%--<div align="center">--%>
+                <%--<a href="/dr"><img src="/i/interface/emblem/digitalrun.png" alt="" onmouseover="postPopUpText('globalPopupText','The Digital Run'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>--%>
+            <%--</div>--%>
+            <%--<div align="center">--%>
+                <%--<a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="15" includeParams="true"/>">Points</a>--%>
+            <%--</div>--%>
+        <%--</td>--%>
         <td class="headerC" width="10%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Registrants</a><br />
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Rated</a>/
@@ -322,9 +322,9 @@
             <td class="valueC">
                 <rsc:item name="reliability_bonus" row="<%=resultRow%>" format="$###,###.00"/>
             </td>
-            <td class="valueC">
-                <rsc:item name="dr_points" row="<%=resultRow%>" format="######"/>
-            </td>
+            <%--<td class="valueC">--%>
+                <%--<rsc:item name="dr_points" row="<%=resultRow%>" format="######"/>--%>
+            <%--</td>--%>
             <td class="valueC">
                 <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
                 <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
