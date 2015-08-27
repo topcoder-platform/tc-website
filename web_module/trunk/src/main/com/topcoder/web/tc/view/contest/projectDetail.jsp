@@ -154,17 +154,17 @@
                                                         </c:otherwise>
                                                     </c:choose>
                                                 </li>
-                                                <li class="drPoints">
-                                                    <span>DR Points</span>
-                                                    <c:choose>
-                                                        <c:when test="${hasDR}">
-                                                            <strong class="point"><rsc:item set="<%=projectDetail%>" name="dr_points" format="#,##0"/></strong>
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            <strong class="point">N/A</strong>
-                                                        </c:otherwise>
-                                                    </c:choose>
-                                                </li>
+                                                <%--<li class="drPoints">--%>
+                                                    <%--<span>DR Points</span>--%>
+                                                    <%--<c:choose>--%>
+                                                        <%--<c:when test="${hasDR}">--%>
+                                                            <%--<strong class="point"><rsc:item set="<%=projectDetail%>" name="dr_points" format="#,##0"/></strong>--%>
+                                                        <%--</c:when>--%>
+                                                        <%--<c:otherwise>--%>
+                                                            <%--<strong class="point">N/A</strong>--%>
+                                                        <%--</c:otherwise>--%>
+                                                    <%--</c:choose>--%>
+                                                <%--</li>--%>
                                             </ul>
                                         </div>
                                     </c:if>
