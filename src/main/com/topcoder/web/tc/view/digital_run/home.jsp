@@ -111,16 +111,16 @@ function menu_goto( menuform )
                 <div>
                     <a href="/dr?module=ViewLeaderBoard&amp;tid=${designTrackId}">Leaderboards</a>
                 </div>
-                <div class="prizeLine">
-                    <span class="money">
-                        <fmt:formatNumber value="${designPrize.total}" type="currency" currencySymbol="$"/>
-                    </span>
-                    <span class="month">bonus pool in ${monthName}</span>
-                    <span class="month">(+<fmt:formatNumber value="${designPrize.today}" type="currency" currencySymbol="$"/> in the past ${pastNDays} days)</span>
-                </div>
-                <div class="prizeGuarantee">
-                    <span class="money"></span> <span class="month"></span>
-                </div>
+                <%--<div class="prizeLine">--%>
+                    <%--<span class="money">--%>
+                        <%--<fmt:formatNumber value="${designPrize.total}" type="currency" currencySymbol="$"/>--%>
+                    <%--</span>--%>
+                    <%--<span class="month">bonus pool in ${monthName}</span>--%>
+                    <%--<span class="month">(+<fmt:formatNumber value="${designPrize.today}" type="currency" currencySymbol="$"/> in the past ${pastNDays} days)</span>--%>
+                <%--</div>--%>
+                <%--<div class="prizeGuarantee">--%>
+                    <%--<span class="money"></span> <span class="month"></span>--%>
+                <%--</div>--%>
             </div>
 
             <div class="developmentColumn">
@@ -139,16 +139,16 @@ function menu_goto( menuform )
                 <div>
                     <a href="/dr?module=ViewLeaderBoard&amp;tid=${developmentTrackId}">Leaderboards</a>
                 </div>
-                <div class="prizeLine">
-                    <span class="money">
-                        <fmt:formatNumber value="${developmentPrize.total}" type="currency" currencySymbol="$"/>
-                    </span>
-                    <span class="month">bonus pool in ${monthName}</span>
-                    <span class="month">(+<fmt:formatNumber value="${developmentPrize.today}" type="currency" currencySymbol="$"/> in the past ${pastNDays} days)</span>
-                </div>
-                <div class="prizeGuarantee">
-                    <span class="money">$10,000</span> <span class="month">Guaranteed Monthly Bonus</span>
-                </div>
+                <%--<div class="prizeLine">--%>
+                    <%--<span class="money">--%>
+                        <%--<fmt:formatNumber value="${developmentPrize.total}" type="currency" currencySymbol="$"/>--%>
+                    <%--</span>--%>
+                    <%--<span class="month">bonus pool in ${monthName}</span>--%>
+                    <%--<span class="month">(+<fmt:formatNumber value="${developmentPrize.today}" type="currency" currencySymbol="$"/> in the past ${pastNDays} days)</span>--%>
+                <%--</div>--%>
+                <%--<div class="prizeGuarantee">--%>
+                    <%--<span class="money">$10,000</span> <span class="month">Guaranteed Monthly Bonus</span>--%>
+                <%--</div>--%>
             </div>
 
             <div class="studioColumn">
@@ -164,16 +164,16 @@ function menu_goto( menuform )
                 <div>
                     <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/dr?module=ViewLeaderBoard&amp;tid=${studioTrackId}">Leaderboards</a>
                 </div>
-                <div class="prizeLine">
-                    <span class="money">
-                        <fmt:formatNumber value="${studioPrize.total}" type="currency" currencySymbol="$"/>
-                    </span>
-                    <span class="month">bonus pool in ${monthName}</span>
-                    <span class="month">(+<fmt:formatNumber value="${studioPrize.today}" type="currency" currencySymbol="$"/> in the past ${pastNDays} days)</span>
-                </div>
-                <div class="prizeGuarantee">
-                    <span class="money">$5,000</span> <span class="month">Guaranteed Monthly Bonus</span>
-                </div>
+                <%--<div class="prizeLine">--%>
+                    <%--<span class="money">--%>
+                        <%--<fmt:formatNumber value="${studioPrize.total}" type="currency" currencySymbol="$"/>--%>
+                    <%--</span>--%>
+                    <%--<span class="month">bonus pool in ${monthName}</span>--%>
+                    <%--<span class="month">(+<fmt:formatNumber value="${studioPrize.today}" type="currency" currencySymbol="$"/> in the past ${pastNDays} days)</span>--%>
+                <%--</div>--%>
+                <%--<div class="prizeGuarantee">--%>
+                    <%--<span class="money">$5,000</span> <span class="month">Guaranteed Monthly Bonus</span>--%>
+                <%--</div>--%>
             </div>
 
         </div>
