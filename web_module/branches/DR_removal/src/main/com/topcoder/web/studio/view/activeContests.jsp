@@ -183,9 +183,9 @@
                                 <th class="<%=((Boolean) sortDirection.get(Integer.valueOf(contests.getColumnIndex("prize_total")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("" + contests.getColumnIndex("prize_total")) ? "hover" : ""%>">
                                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests&sc=<%=contests.getColumnIndex("prize_total")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Purse</span></a>
                                 </th>
-                                <th class="<%=((Boolean) sortDirection.get(Integer.valueOf(contests.getColumnIndex("dr_points")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("" + contests.getColumnIndex("dr_points")) ? "hover" : ""%>">
-                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests&sc=<%=contests.getColumnIndex("dr_points")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Points</span></a>
-                                </th>
+                                <%--<th class="<%=((Boolean) sortDirection.get(Integer.valueOf(contests.getColumnIndex("dr_points")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("" + contests.getColumnIndex("dr_points")) ? "hover" : ""%>">--%>
+                                    <%--<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests&sc=<%=contests.getColumnIndex("dr_points")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Points</span></a>--%>
+                                <%--</th>--%>
                                 <th class="<%=((Boolean) sortDirection.get(Integer.valueOf(contests.getColumnIndex("registrants")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("" + contests.getColumnIndex("registrants")) ? "hover" : ""%>">
                                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests&sc=<%=contests.getColumnIndex("registrants")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Registrants</span></a>
                                 </th>
@@ -266,9 +266,9 @@
                                 <td class="purse">
                                     <rsc:item name="prize_total" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>
                                 </td>
-                                <td>
-                                    <rsc:item name="dr_points" row="<%=resultRow%>" format="######" ifNull="&nbsp;"/>
-                                </td>
+                                <%--<td>--%>
+                                    <%--<rsc:item name="dr_points" row="<%=resultRow%>" format="######" ifNull="&nbsp;"/>--%>
+                                <%--</td>--%>
                                 <td>
                                     <rsc:item name="registrants" row="<%=resultRow%>"/>
                                 </td>
