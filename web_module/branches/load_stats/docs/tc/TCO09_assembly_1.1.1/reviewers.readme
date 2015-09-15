@@ -1,0 +1,93 @@
+Steps to prepare the VM for testing: (these steps assume a fresh working VM)
+1) Run test scripts:
+    1.1) copy /test_files/scripts/* to informix account. (it must be informix)
+    1.2) chmod dump.sh for execution if needed.
+    1.3) ./dump.sh (run it once)
+2) Update apache:
+    2.1) unpack distributed TCO09 apache content (http://forums.topcoder.com/?module=Thread&threadID=636033) 
+         and copy it to cloud's apache:
+        2.1.1) updated_apache.zip/css/* --> /mnt/apache/tcdocs/css/tournaments/
+        2.1.2) updated_apache.zip/i/*   --> /mnt/apache/tcdocs/i/tournament/tco09/
+        2.1.3) updated_apache.zip/js/*  --> /mnt/apache/tcdocs/js/tournaments/tco09/
+    2.2) copy /apache/tco09.css to /mnt/apache/tcdocs/css/tournaments/tco09.css (it contains a couple minor
+         changes not included in the distributed apache content)
+    2.3) copy /apache/*.png to /mnt/apache/tcdocs/i/tournament/tco09/    
+3) Login as tc to perform the following steps:
+4) Update source files. (via submitter's branch or the included files in /web_module/)
+    Source files follow SVN hierarchy. root directory is /tc/home/web)
+5) kill running jboss instance.
+6) Update deployed studio datasource:
+    6.1) Copy /test_files/conf/tc_informix-ds.xml to /home/tc/jboss-4.0.4.GA/server/all/deploy
+    (The change makes studio datasource (JTS_STUDIO_OLTP) point to existing informixoltp database)
+7) Build and restart TC:
+    7.1) cd web
+    7.2) ant -f build_tc.xml deploy
+    7.3) jbb
+    7.4) ./start.sh
+8) Create the following query tool queries: (informixoltp database: DB:java:OLTP - "Transactional")
+    8.1) event_leaderboard (command and query with the same name)
+            select * from event_leaderboard
+            order by contest_id asc, placed asc
+    8.2) event_user_results (command and query with the same name)
+            select * from event_user_results
+            order by contest_id asc, placed asc
+
+    Note: if you are not familiar with query tool, check "Steps to create new queries in Query Tool"    
+            
+9) Once all items are completed, you are all set for testing.
+
+-------------------------------
+
+Issues to consider while reviewing:
+- A significant amount of effort was dedicated to improve and refactor used JSPS. Where applicable, page templates 
+  were built (for instance, "In progress" and "Completed" contests leaderboards details) instead of the existing 
+  duplicated code.
+- JSP code was revisited and scriptlets removed. Unnecessary includes and taglibs were also removed and the format 
+  was improved. Existing logic was translated to use JSTL.
+- Java code was also refactored and cleaned.
+- Since testing of this assembly is very hard (probably as hard as development) the strategy used for testing was to
+  make query tool the system's interface. I've asked for some queries results from PMs (production database) and all 
+  necessary queries were mocked so that the whole site contain realistic data making testing a much easier job.
+
+-------------------------------
+
+Notes about the VM: 
+
+1) If you get errors regarding Constants.java class, this is because of classloading issues. Constants.java is 
+   included in several archives so if there is an old version it might conflict. I haven't determined exactly 
+   which is the conflicting archive but I fixed this issue deleting the following from jboss: 
+   (these files can be deleted, they will be recreated by a full deploy)
+ 
+   /deploy/
+     - tc.war
+     - admin.war
+     - corp.war
+     - reg.war
+     - ep.war
+     - privatelabel.war
+     - PactsServices.jar
+   /lib/
+     - shared.jar
+     - tcwebcommon.jar
+     - user.jar
+   
+   Also delete /work/ and /tmp/ before restarting jboss.
+   
+   
+Thank you!
+
+-------------------------------
+
+Steps to create new queries in Query Tool:
+1) Go to http://tc.cloud.topcoder.com/query/query
+2) login as heffan/password (check remember me) -> this is important
+3) Select the corresponding Datasource as required.
+4) Click on left menu "New Query" link.
+5) Complete query name and text, click save
+6) if there are query inputs:
+    6.1) click on "edit query input" link
+    6.2) select the corresponding query input from the list, then click add
+7) Click on left menu "New Command" link.
+8) Complete command name and group (tournament), click save
+9) Click on "edit command query" link
+10) select the corresponding query from the list, then click add
