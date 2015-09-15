@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-  <termsOfUseMigrationTool>
-    <sourcesList>
-        <source name = "common_oltp" value = "jdbc:informix-sqli://env.topcoder.com:2021/common_oltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=c0d3r4T"/>
-    </sourcesList>
-  </termsOfUseMigrationTool>
