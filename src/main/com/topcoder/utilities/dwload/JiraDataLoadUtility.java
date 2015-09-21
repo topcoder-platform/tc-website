@@ -461,7 +461,7 @@ public class JiraDataLoadUtility extends DBUtility {
                     "select SUM(pd.total_amount) from informixoltp:payment p, informixoltp:payment_detail pd \n" +
                             "where p.most_recent_detail_id = pd.payment_detail_id \n" +
                             "and jira_issue_id = ?\n" +
-                            "and pd.payment_type_id IN (23,37,46,47,45,57,68) \n" +
+                            "and pd.payment_type_id IN (23,37,46,47,45,57,68,69,70,71) \n" +
                             "and payment_status_id NOT IN (65,68,69);";
             String selectContestPercentageFeeSQL = "select pi57.value from project_info pi57 where pi57.project_info_type_id = 57 and pi57.project_id = ?";
             String selectProjectBugFeeSQL = "select fixed_bug_contest_fee, percentage_bug_contest_fee from tc_direct_project where project_id = ?";
