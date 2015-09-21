@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.winformula.model">
+
+    <class name="ContestRegistration" table="contest_registration">
+        <composite-id name="id" class="ContestRegistration$Identifier">
+            <key-many-to-one name="user" class="com.topcoder.web.common.model.User" column="user_id"/>
+            <key-many-to-one name="contest" class="Contest" column="contest_id"/>
+        </composite-id>
+
+        <many-to-one name="terms" column="terms_of_use_id" class="com.topcoder.web.common.model.TermsOfUse"
+                     cascade="none"/>
+
+        <many-to-one name="contest" column="contest_id" class="Contest"
+                     cascade="none" insert="false" update="false"/>
+
+        <many-to-one name="user" column="user_id" class="com.topcoder.web.common.model.User" cascade="none" insert="false"
+                     update="false"/>
+    </class>
+
+</hibernate-mapping>

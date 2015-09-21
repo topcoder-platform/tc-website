@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+    <class name="Response" table="response">
+        <id name="id" column="response_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">RESPONSE_SEQ</param>
+            </generator>
+        </id>
+        
+        <property name="text" column="response" access="field"/>
+        <many-to-one name="user" column="user_id" access="field" class="User"/>
+        <many-to-one name="question" column="question_id" access="field" class="Question"/>
+        <many-to-one name="answer" column="answer_id" access="field" class="Answer"/>
+
+    </class>
+
+</hibernate-mapping>

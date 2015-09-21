@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="Survey" table="survey">
+        <id name="id" column="survey_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">SURVEY_SEQ</param>
+            </generator>
+        </id>
+
+        <property name="name" access="field"/>
+        <property name="start" column="start_date" access="field"/>
+        <property name="end" column="end_date" access="field"/>
+        <property name="statusId" column="status_id" access="field"/>
+        <property name="text" access="field"/>
+        <property name="resultsViewable" column="results_viewable" type="boolean" access="field"/>
+
+        <set name="questions" table="survey_question" cascade="save-update" order-by="question_id" access="field">
+            <key column="survey_id" not-null="true"/>
+            <many-to-many column="question_id" class="Question"/>
+        </set>
+    </class>
+
+
+</hibernate-mapping>
