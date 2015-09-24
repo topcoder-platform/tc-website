@@ -42,11 +42,6 @@
 
         <div class="grid-3">
 
-        <aside class="grid-a">
-            <jsp:include page="../includes/global_left.jsp"/>
-        </aside>
-        <!-- End Aside -->
-
         <div class="grid-b">
 
             <section class="top-brand">
