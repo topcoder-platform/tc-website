@@ -1,6 +1,10 @@
+/*
+ * Copyright (C) 2015 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common;
 
 import com.topcoder.security.RolePrincipal;
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.SimpleUser;
@@ -38,10 +42,33 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 
+/**
+ * <p>
+ *  Represents the information stored in session, most data are for the logged-in user.
+ * </p>
+ *
+ * <p>
+ *     Updates in (TC Community Site - Header Footer UX Update) version 1.1
+ *     <ul>
+ *         <li>Add {@link #getImagePath()} to get the user's avatar image path. If no image, return the default</li>
+ *     </ul>
+ * </p>
+ *
+ * @author TCSASSEMBLER
+ * @version 1.1 (TC Community Site - Header Footer UX Update)
+ */
 public class SessionInfo implements Serializable {
     private static Logger log = Logger.getLogger(SessionInfo.class);
 
     private static final String GROUP_PREFIX = "group_";
+
+    /**
+     * The default image path for user who does not have avatar uploaded.
+     *
+     * @since 1.1
+     */
+    private static final String NO_USER_IMAGE_PATH = "/i/m/nophoto_submit.gif";
+
     private String handle = null;
     private long userid = SimpleUser.createGuest().getId();
     private String serverName = null;
@@ -54,6 +81,13 @@ public class SessionInfo implements Serializable {
     private int memberCount = -1;
     private boolean knownUser = false;
     protected String timezone = null;
+
+    /**
+     * The imagePath filed to hold the retrieved image path for user in session.
+     *
+     * @since 1.1
+     */
+    private String imagePath = null;
 
     /**
      * group may be:
@@ -200,7 +234,56 @@ public class SessionInfo implements Serializable {
 		//mc = mc + loadCSMemberCount();
 		return mc;
     }
-	
+
+    /**
+     * Helper method to retrieve the avatar image path for current user in session.
+     *
+     * @return image path of the user's avatar. Return constant NO_USER_IMAGE_PATH if user does not have avatar uploaded.
+     * @throws Exception if any error.
+     * @since 1.1
+     */
+    private String loadImage() throws Exception {
+        Request r = new Request();
+        r.setContentHandle("member_image");
+        r.setProperty("cr", String.valueOf(getUserId()));
+        ResultSetContainer imageResult = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("coder_image_data");
+
+        Integer image = null;
+
+        if ((imageResult.size() > 0) && (imageResult.getItem(0, "image_id").getResultData() != null) && (imageResult.getIntItem(0, "image_id") != 0)) {
+            image = imageResult.getIntItem(0, "image_id");
+            if(image != null && image > 0) {
+                String image_path = imageResult.getStringItem(0, "image_path");
+                String fileName = imageResult.getStringItem(0, "file_name");
+                imagePath = image_path + fileName;
+            }
+        }
+
+        if (imagePath == null) {
+            imagePath = NO_USER_IMAGE_PATH;
+        }
+
+        return imagePath;
+    }
+
+    /**
+     * Gets the image path of the user.
+     *
+     * @return the image path of the user.
+     * @since 1.1
+     */
+    public String getImagePath() {
+        if (imagePath == null) {
+            try {
+                imagePath = loadImage();
+            } catch (Exception e) {
+                imagePath = NO_USER_IMAGE_PATH;
+                log.error("Could not load user avatar image from db, using : " + imagePath);
+            }
+        }
+        return imagePath;
+    }
+
 	private int loadCSMemberCount()  {
 	
 		try {
