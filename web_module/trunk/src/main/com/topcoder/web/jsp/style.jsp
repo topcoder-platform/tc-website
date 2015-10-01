@@ -1,3 +1,14 @@
+<%--
+ * Copyright (C) 2004 - 2015 TopCoder Inc., All Rights Reserved.
+ *
+ * Author: TCSASSEMBLER
+ * Version: 1.1
+ *
+ * This JSP links the stylesheets and js files.
+ *
+ * Chaneges in (TC Community Site - Header Footer UX Update) 1.1
+ * Update to use semi-bold 600 instead of bold 700 for Source Sans Pro
+--%>
 <%@ page contentType="text/html" %>
 
 <%
@@ -115,7 +126,7 @@
 <% } %>
 
 <% if (isNewStyle) { %>
-<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'/>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,300' rel='stylesheet' type='text/css'/>
     <% if (key.equals("tc_old")) { %>
     <link type="text/css" rel="stylesheet" href="/css/style.css" />
     <link type="text/css" rel="stylesheet" href="/css/coders.css" />

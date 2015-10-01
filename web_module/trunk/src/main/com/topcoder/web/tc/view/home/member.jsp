@@ -44,13 +44,7 @@
 
                             <div class="grid-3">
 
-                                <aside class="grid-a">
-                                    <jsp:include page="../includes/global_left.jsp"/>
-                                </aside>
-                                <!-- End Aside -->
-
                                 <div class="grid-b">
-
 
                                     <jsp:include page="my_stats_right.jsp" />
 

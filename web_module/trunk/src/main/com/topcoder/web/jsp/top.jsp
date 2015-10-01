@@ -1,8 +1,8 @@
 <%--
- * Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2015 TopCoder Inc., All Rights Reserved.
  *
  * Author: TCSASSEMBLER
- * Version: 1.2
+ * Version: 1.3
  *
  * This JSP renders TopCoder web site's shortcut bar.
  *
@@ -18,6 +18,9 @@
  *
  * Changes in ( Release Assembly - Social Login Linking for Existing User ) 1.2
  * Only load auth0 script when user is anonymous.
+ *
+ * Chaneges in (TC Community Site - Header Footer UX Update) 1.3
+ * Update to use the new header
 --%>
 <%@  page
   language="java"
@@ -43,117 +46,137 @@
 
 <c:choose>
     <c:when test="${not empty isNewStyle && isNewStyle}">
-        <header id="navigation" class="newUser">
-            <div class="container">
-                <div class="headerTopRightMenu">
-                    <% if ( !sessionInfo.isAnonymous() ) { %>
-                        <div class="headerTopRightMenuLink logIn">
-                            <div class="text"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout" class="actionLogin">Log Out</a></div>
-                            <div class="clear"></div>
-                        </div>
+
+        <!-- new theme -->
+
+        <div class="header-wrapper">
+            <!-- Main header element-->
+            <header class="top-header">
+                <!-- Header content visible on small screens-->
+                <div class="show-small mobile-heading"><span class="tc-text-logo">[ topcoder ]</span>
+                    <button type="button" class="btn-open-menu">Menu</button>
+                    <button type="button" class="btn-close-menu"></button>
+
+                    <% if ( sessionInfo.isAnonymous() ) { %>
+                        <a href="https://<%=ApplicationServer.SERVER_NAME%>/register/" class="user-link">
+                            <span class="btn-link join-link">JOIN</span>
+                        </a>
                     <% } else { %>
-                        <div class="headerTopRightMenuLink logIn">
-                            <div class="text"><a href="http://www.topcoder.com/?action=showlogin" class="actionLogin">Log In</a></div>
-                            <div class="clear"></div>
-                        </div>
+
+                     <!-- for logged in user-->
+
+                        <a href="javascript:;" class="user-link">
+                            <img src="<%=sessionInfo.getImagePath()%>" alt="User Avatar" class="user-avatar">
+                        </a>
                     <%}%>
 
-                    <div class="separator"></div>
-                    <div class="headerTopRightMenuLink contact">
-                        <div class="text"><a href="http://www.topcoder.com/contact-us/">Contact</a></div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="separator"></div>
-                    <div class="headerTopRightMenuLink help">
-                        <div class="text"><a href="http://help.topcoder.com">Help Center</a></div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="separator beforeSearch"></div>
-                    <div class="headerTopRightMenuLink search last">
-                        <div class="icon"></div>
-                        <div class="text"><a href="http://www.topcoder.com/search">Search</a></div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="clear"></div>
-                <h1 class="logo">
-                    <a href="http://www.topcoder.com" title="topcoder"></a>
-                </h1>
-                <nav id="mainNav" class="mainNav">
-                    <ul class="root">
-                        <li id="nav-menu-item-13018"><a href="http://www.topcoder.com/challenges/" class="13018"><i></i>Challenges</a>
-                            <ul class="child">
-                                <li id="nav-menu-item-13510"><a href="http://www.topcoder.com/challenges/"
-                                                                class="all"><i></i>All</a></li>
-                                <li id="nav-menu-item-13511"><a href="http://www.topcoder.com/active-challenges/design/"
-                                                                class="design"><i></i>Design</a></li>
-                                <li id="nav-menu-item-13512"><a
-                                        href="http://www.topcoder.com/active-challenges/develop/"
-                                        class="develop"><i></i>Development</a></li>
-                                <li id="nav-menu-item-13513"><a href="http://www.topcoder.com/active-challenges/data/"
-                                                                class="data"><i></i>Data Science</a></li>
-                                <li id="nav-menu-item-13529"><a
-                                        href="http://community.topcoder.com/contest/arena/ContestAppletProd.jnlp"
-                                        class="topcoder-arena"><i></i>topcoder Arena</a></li>
-                            </ul>
-                        </li>
-                        <li id="nav-menu-item-13129"><a href="http://www.topcoder.com/community/" class="13129"><i></i>Community</a>
-                            <ul class="child">
-                                <li id="nav-menu-item-13509"><a href="http://www.topcoder.com/community/"
-                                                                class="welcome"><i></i>Home</a></li>
-                                <li id="nav-menu-item-13034"><a
-                                        href="http://www.topcoder.com/community/getting-started/" class="13034"><i></i>Getting
-                                    Started</a></li>
-                                <li id="nav-menu-item-12983"><a href="http://www.topcoder.com/community/how-it-works/"
-                                                                class="customer-solutions"><i></i>How It Works</a></li>
-                                <li id="nav-menu-item-13105"><a href="http://apps.topcoder.com/forums/"
-                                                                class="forums"><i></i>Forums</a></li>
-                                <li id="nav-menu-item-13036"><a href="http://www.topcoder.com/community/events/"
-                                                                class="13036"><i></i>Events</a></li>
-                                <li id="nav-menu-item-15095"><a href="http://community.topcoder.com/tco14"  
-                                    class="topcoder-open-2"><i></i>Topcoder Open 2014</a></li>
-                                <li id="nav-menu-item-15218"><a href="http://tco15.topcoder.com/"  
-                                    class="topcoder-open-2015"><i></i>Topcoder Open 2015</a></li>
-                                <li><a href="http://www.topcoder.com/community/member-programs/">
-                                                                <i></i>Member Programs</a></li>
-                                <li id="nav-menu-item-13038"><a href="http://www.topcoder.com/community/stories/"
-                                                                class="13038"><i></i>Stories</a></li>
-                            </ul>
-                        </li>
-                        <li id="nav-menu-item-13469"><a href="/mission" class="about-us"><i></i>About topcoder</a>
-                            <ul class="child">
-                                <li id="nav-menu-item-13516"><a href="http://www.topcoder.com/mission/"
-                                                                class="13516"><i></i>Mission</a></li>
-                                <li id="nav-menu-item-13032"><a href="http://www.topcoder.com/research/"
-                                                                class="13032"><i></i>Research</a></li>
-                                <li id="nav-menu-item-13450"><a href="http://www.topcoder.com/case-studies/"
-                                                                class="case-studies"><i></i>Case Studies</a></li>
-                                <li id="nav-menu-item-13045"><a href="http://www.topcoder.com/press/"
-                                                                class="13045"><i></i>Press</a></li>
-                            </ul>
-                        </li>
-                        <li id="nav-menu-item-13379"><a href="http://www.topcoder.com/blog/"
-                                                        class="13379"><i></i>Blog</a></li>
-                        <!--
-                        <li class="noReg logoutLink 	hide"><a href="http://www.topcoder.com?auth=logout" class="actionLogout">Log Out</a></li>
-                        <li class="noReg loginLink"><a href="javascript:;" class="actionLogin">Log In</a></li>
-                        -->
-                    </ul>
-                </nav>
-                <!--
-                <a href="http://www.topcoder.com?auth=logout" class="onMobi noReg linkLogout actionLogout hide">Log Out</a>
-                  <a href="javascript:;" class="onMobi noReg linkLogin actionLogin">Log In</a>
-                -->
-                <% if ( !sessionInfo.isAnonymous() ) { %>
-                    <span class="btnRegWrap noReg"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome" class="btn btnMyHome">My Home</a></span>
-                <% } else { %>
-                    <span class="btnRegWrap noReg"><a href="http://www.topcoder.com/?action=callback" class="btn btnRegister">Register</a></span>
-                <%}%>
 
-                <!-- /.userWidget -->
-            </div>
-        </header>
+
+                </div>
+                <!-- main menu -->
+                <ul class="main-menu">
+                    <!-- search container-->
+                    <li class="menu-item search-wrapper">
+                        <div class="menu-item-header search-header show-large">
+                            <button type="button" class="btn-expand-search search-icon"></button>
+                        </div>
+                        <div class="submenu">
+                            <form action="/search" method="get">
+                                <input type="text" id="searchBox" placeholder="Find member" name="s">
+                                <input type="hidden" name="scope" value="member"/>
+                                <input type="submit"
+                                       style="position: absolute; left: -9999px; width: 1px; height: 1px;"
+                                       tabindex="-1" />
+                             </form>
+                            <!-- Suggestion list container-->
+                            <ul class="suggestion-list"></ul>
+                        </div>
+                    </li>
+
+
+
+                    <% if ( sessionInfo.isAnonymous() ) { %>
+                        <!-- for anonymous user-->
+                        <li class="menu-item link-group user-menu anonymous-menu"><!-- links for logged in user-->
+
+                            <div class="menu-item-header anonymous-options">
+                                <a class="btn-link" href="https://<%=ApplicationServer.SERVER_NAME%>/register/">REGISTER</a>
+                                <a class="btn-link secondary-link btn-login" href="https://<%=ApplicationServer.SERVER_NAME%>/?action=showlogin/">LOG IN</a>
+                            </div>
+                        </li>
+
+                    <% } else { %>
+
+                        <!-- for logged in user-->
+
+                        <li class="menu-item link-group user-menu">
+                            <div class="authenticated-options">
+                                <div class="menu-item-header">
+                                    <img class="user-avatar" alt="User Avatar" src="<%=sessionInfo.getImagePath()%>">
+                                    <span class="username"><%=sessionInfo.getHandle()%></span>
+                                </div>
+                                <a class="btn-link btn-edit-profile show-small" href="https://<%=ApplicationServer.SERVER_NAME%>/settings/profile/">EDIT</a>
+                                <ul class="submenu">
+                                    <li class="submenu-item"><a class="menu-link" href="https://<%=ApplicationServer.SERVER_NAME%>//my-dashboard/">DASHBOARD</a></li>
+                                    <li class="submenu-item"><a class="menu-link" href="https://<%=ApplicationServer.SERVER_NAME%>//tc?module=MemberProfile&cr=<%=sessionInfo.getUserId()%>">MY PROFILE</a></li>
+                                    <li class="submenu-item"><a class="menu-link" target="_blank" href="https://<%=ApplicationServer.SERVER_NAME%>/PactsMemberServlet?module=PaymentHistory&full_list=false">PAYMENTS</a></li>
+                                    <li class="submenu-item"><a class="menu-link" href="https://<%=ApplicationServer.SERVER_NAME%>/settings/profile/">SETTINGS</a></li>
+                                    <li class="submenu-item"><a class="menu-link btn-logout" href="/tc?module=Logout">LOG OUT</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                    <%}%>
+
+                    <li class="menu-item link-group">
+                        <div class="menu-item-header">COMPETE</div>
+                        <ul class="submenu">
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/challenges/design/active" class="menu-link">DESIGN</a>
+                            </li>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/challenges/develop/active" class="menu-link">DEVELOPMENT</a>
+                            </li>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/challenges/data/active" class="menu-link">DATA SCIENCE</a>
+                            </li>
+                            <li class="submenu-item"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MatchList" class="menu-link">SINGLE ROUND MATCHES</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- 'LEARN' link group-->
+                    <li class="menu-item link-group">
+                        <div class="menu-item-header">LEARN</div>
+                        <ul class="submenu">
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/design/" class="menu-link">DESIGN</a>
+                            </li>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/development/" class="menu-link">DEVELOPMENT</a>
+                            </li>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/data-science/" class="menu-link">DATA SCIENCE</a>
+                            </li>
+                            <li class="submenu-item"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MatchList" class="menu-link">SINGLE ROUND MATCHES</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <!-- 'COMMUNITY' link group-->
+                    <li class="menu-item link-group">
+                        <div class="menu-item-header">COMMUNITY</div>
+                        <ul class="submenu">
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/members/" class="menu-link">PROGRAMS</a>
+                            </li>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/member-programs/" class="menu-link">FORUMS</a>
+                            </li>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/statistics/" class="menu-link">STATISTICS</a>
+                            </li>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/events/" class="menu-link">EVENTS</a>
+                            </li>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/blog/" class="menu-link">BLOG</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </header>
+        </div>
     </c:when>
     <c:otherwise>
         <script type="text/javascript" src="/js/popup.js"></script>
