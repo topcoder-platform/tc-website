@@ -173,18 +173,8 @@ import java.util.Set;
  * </ul>
  * </p>
  *
- * <p>
- * Version 1.4.1 (TopCoder Data Warehouse - Update Design Project Results and Add User Stats Update Time Log)
- * <ul>
- *     <li>Update {@link #doLoadDesignProjectResults()} to load new data fields: (inquire_timestamp, submit_ind,
- *     valid_submission_ind)</li>
- *     <li>Fixed bug in the {@link #doLoadDesignProjectResults()} method that caused submissions with no prize
- *     being skipped.</li>
- * </ul>
- * </p>
- *
  * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv, minhu, Blues, Veve, Veve
- * @version 1.4.1
+ * @version 1.4
  */
 public class TCLoadTCS extends TCLoad {
 
@@ -3189,12 +3179,10 @@ public class TCLoadTCS extends TCLoad {
                                                     ")"
                                                     : ")")) : "");
 
-            final String RESULT_SELECT = "SELECT  pj.project_id       , " +
+            final String RESULT_SELECT = "SELECT  u.project_id       , " +
                     "        s.submission_id    , " +
                     "        s.submission_type_id, " +
-                    "        s.submission_status_id, " +
                     "        u.upload_id        , " +
-                    "        r.create_date as inquire_date, " +
                     "        u.create_date as submit_date, " +
                     "        r.user_id          , " +
                     "        p.prize_id         , " +
@@ -3227,15 +3215,23 @@ public class TCLoadTCS extends TCLoad {
                     "            AND sub.submission_type_id = 1 " +
                     "            AND (sub.mark_for_purchase = 'f' OR sub.mark_for_purchase is NULL) " +
                     "        ) AS total_placements " +
-                    "FROM    project pj " +
-                    "INNER JOIN resource r ON r.project_id = pj.project_id and r.resource_role_id = 1 " +
-                    "LEFT OUTER JOIN upload u ON pj.project_id = u.project_id and u.resource_id = r.resource_id and u.upload_status_id = 1 and u.upload_type_id = 1 " +
-                    "LEFT OUTER JOIN submission s ON s.upload_id = u.upload_id and s.submission_status_id != 5 and s.submission_type_id in (1, 3) " +
-                    "LEFT OUTER JOIN prize p ON s.prize_id = p.prize_id ";
+                    "FROM    project pj, " +
+                    "        upload u  , " +
+                    "        resource r, " +
+                    "        submission s " +
+                    "        LEFT OUTER JOIN prize p " +
+                    "        ON      s.prize_id    = p.prize_id " +
+                    "WHERE   pj.project_id         = u.project_id " +
+                    "    AND s.upload_id           = u.upload_id " +
+                    "    AND u.resource_id         = r.resource_id " +
+                    "    AND upload_status_id      = 1 " +
+                    "    AND upload_type_id        = 1 " +
+                    "    AND submission_status_id <> 5 " +
+                    "    AND submission_type_id   IN (1, 3)";
 
             final String RESULT_INSERT =
-                    "INSERT INTO design_project_result (project_id, user_id, submission_id, upload_id, prize_id, prize_amount, placement, dr_points, is_checkpoint, client_selection, submit_timestamp, review_complete_timestamp, inquire_timestamp, submit_ind, valid_submission_ind) " +
-                            " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
+                    "INSERT INTO design_project_result (project_id, user_id, submission_id, upload_id, prize_id, prize_amount, placement, dr_points, is_checkpoint, client_selection, submit_timestamp, review_complete_timestamp) " +
+                            " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 
 
@@ -3260,7 +3256,7 @@ public class TCLoadTCS extends TCLoad {
                 try {
                     StringBuffer buf = new StringBuffer(1000);
                     buf.append(RESULT_SELECT);
-                    buf.append(" WHERE pj.project_id in (");
+                    buf.append(" and p.project_id in (");
 
 
                     StringBuffer delQuery = new StringBuffer(300);
@@ -3294,96 +3290,70 @@ public class TCLoadTCS extends TCLoad {
 
                         int count = 0;
 
+
                         projectResults = resultSelect.executeQuery();
 
                         while(projectResults.next()) {
+                            boolean isCheckPointSubmission = (projectResults.getLong("submission_type_id") ==
+                                    CHECKPOINT_SUBMISSION_TYPE_ID);
+                            boolean markForPurchase = projectResults.getBoolean("mark_for_purchase");
+                            int placement = projectResults.getInt("placement");
+                            int totalPlacement = projectResults.getInt("total_placements");
+                            double totalDRPoints = 0;
 
-                            int index = 0;
-                            resultInsert.clearParameters();
-
-                            if (projectResults.getObject("submission_id") != null) { // if submitted
-                                boolean isCheckPointSubmission = (projectResults.getLong("submission_type_id") ==
-                                        CHECKPOINT_SUBMISSION_TYPE_ID);
-                                boolean markForPurchase = projectResults.getBoolean("mark_for_purchase");
-                                int placement = projectResults.getInt("placement");
-                                int totalPlacement = projectResults.getInt("total_placements");
-                                double totalDRPoints = 0;
-
-                                if(projectResults.getObject("total_dr_points") != null) {
-                                    totalDRPoints = projectResults.getDouble("total_dr_points");
-                                }
-
-                                Double userDRPoints = null;
-
-                                if (!markForPurchase && !isCheckPointSubmission) {
-                                    userDRPoints =
-                                            getDesignContestUserDRPoints(totalDRPoints, totalPlacement,
-                                                    placement);
-                                }
-
-                                resultInsert.setLong(++index, projectResults.getLong("project_id"));
-                                resultInsert.setLong(++index, projectResults.getLong("user_id"));
-                                resultInsert.setLong(++index, projectResults.getLong("submission_id"));
-                                resultInsert.setLong(++index, projectResults.getLong("upload_id"));
-
-                                if(projectResults.getObject("prize_id") != null) {
-                                    resultInsert.setLong(++index, projectResults.getLong("prize_id"));
-                                } else {
-                                    resultInsert.setNull(++index, Types.DECIMAL);
-                                }
-
-                                if(projectResults.getObject("prize_amount") != null) {
-                                    resultInsert.setDouble(++index, projectResults.getDouble("prize_amount"));
-                                } else {
-                                    resultInsert.setNull(++index, Types.DECIMAL);
-                                }
-
-                                if(!isCheckPointSubmission && !markForPurchase) {
-                                    // checkpoint submission and client extra purchase does not count placement
-                                    resultInsert.setLong(++index, placement);
-                                } else {
-                                    resultInsert.setNull(++index, Types.DECIMAL);
-                                }
-
-                                if(userDRPoints != null && projectResults.getObject("prize_id") != null) {
-                                    resultInsert.setDouble(++index, userDRPoints);
-                                } else {
-                                    resultInsert.setNull(++index, Types.DECIMAL);
-                                }
-
-                                resultInsert.setInt(++index, isCheckPointSubmission ? 1 : 0);
-                                resultInsert.setInt(++index, markForPurchase ? 1 : 0);
-
-                                resultInsert.setTimestamp(++index, projectResults.getTimestamp("submit_date"));
-                                resultInsert.setTimestamp(++index, projectResults.getTimestamp("review_date"));
-                                resultInsert.setTimestamp(++index, projectResults.getTimestamp("inquire_date"));
-                                resultInsert.setLong(++index, 1);
-
-                                long submission_status_id = projectResults.getLong("submission_status_id");
-                                long submission_valid_ind = (submission_status_id == 1 || submission_status_id == 4) ? 1 : 0;
-                                resultInsert.setLong(++index, submission_valid_ind);
-                            } else { // if not submitted
-                                resultInsert.setLong(++index, projectResults.getLong("project_id"));
-                                resultInsert.setLong(++index, projectResults.getLong("user_id"));
-                                resultInsert.setLong(++index, 0);
-                                resultInsert.setNull(++index, Types.DECIMAL);
-                                resultInsert.setNull(++index, Types.DECIMAL);
-                                resultInsert.setNull(++index, Types.DECIMAL);
-                                resultInsert.setNull(++index, Types.DECIMAL);
-                                resultInsert.setNull(++index, Types.FLOAT);
-
-                                resultInsert.setNull(++index, Types.INTEGER);
-                                resultInsert.setNull(++index, Types.INTEGER);
-
-                                resultInsert.setNull(++index, Types.TIMESTAMP);
-                                resultInsert.setNull(++index, Types.TIMESTAMP);
-
-                                resultInsert.setTimestamp(++index, projectResults.getTimestamp("inquire_date"));
-                                resultInsert.setLong(++index, 0);
-                                resultInsert.setLong(++index, 0);
+                            if(projectResults.getObject("total_dr_points") != null) {
+                                totalDRPoints = projectResults.getDouble("total_dr_points");
                             }
 
+                            Double userDRPoints = null;
+
+                            if (!markForPurchase && !isCheckPointSubmission) {
+                                userDRPoints =
+                                        getDesignContestUserDRPoints(totalDRPoints, totalPlacement,
+                                                placement);
+                            }
+
+                            resultInsert.clearParameters();
+
+                            int index = 0;
+                            resultInsert.setLong(++index, projectResults.getLong("project_id"));
+                            resultInsert.setLong(++index, projectResults.getLong("user_id"));
+                            resultInsert.setLong(++index, projectResults.getLong("submission_id"));
+                            resultInsert.setLong(++index, projectResults.getLong("upload_id"));
+
+                            if(projectResults.getObject("prize_id") != null) {
+                                resultInsert.setLong(++index, projectResults.getLong("prize_id"));
+                            } else {
+                                resultInsert.setNull(++index, Types.DECIMAL);
+                            }
+
+                            if(projectResults.getObject("prize_amount") != null) {
+                                resultInsert.setDouble(++index, projectResults.getDouble("prize_amount"));
+                            } else {
+                                resultInsert.setNull(++index, Types.DECIMAL);
+                            }
+
+                            if(!isCheckPointSubmission && !markForPurchase) {
+                                // checkpoint submission and client extra purchase does not count placement
+                                resultInsert.setLong(++index, placement);
+                            } else {
+                                resultInsert.setNull(++index, Types.DECIMAL);
+                            }
+
+                            if(userDRPoints != null) {
+                                resultInsert.setDouble(++index, userDRPoints);
+                            } else {
+                                resultInsert.setNull(++index, Types.DECIMAL);
+                            }
+
+                            resultInsert.setInt(++index, isCheckPointSubmission ? 1 : 0);
+                            resultInsert.setInt(++index, markForPurchase ? 1 : 0);
+
+                            resultInsert.setTimestamp(++index, projectResults.getTimestamp("submit_date"));
+                            resultInsert.setTimestamp(++index, projectResults.getTimestamp("review_date"));
+
                             resultInsert.executeUpdate();
+
                             count++;
                         }
 
