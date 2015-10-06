@@ -73,7 +73,9 @@
 
         <div class="grid-c">
 
+            <%--
             <jsp:include page="big_promo.jsp" />
+            --%>
             <!-- End .banner -->
 
             <div class="post-container">
