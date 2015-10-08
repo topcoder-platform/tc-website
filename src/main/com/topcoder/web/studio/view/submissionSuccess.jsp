@@ -138,7 +138,7 @@
                 Your submission will be screened after the Submission Phase has ended. You will receive an email with a link to your scorecard results. 
                 Be sure to view your scorecard even if you've passed screening because it may contain very important comments or instructions.
 
-                Learn more about screening here: <a href="http://community.topcoder.com/studio/the-process/screening/">http://community.topcoder.com/studio/the-process/screening/</a>
+                Learn more about screening here: <a href="http://help.topcoder.com/design/the-screening-process-for-design-challenges/">http://help.topcoder.com/design/the-screening-process-for-design-challenges/</a>
                 <br /><br />
                 Thank you.
                 <br /><br />
