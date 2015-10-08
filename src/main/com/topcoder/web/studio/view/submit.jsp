@@ -130,7 +130,7 @@
 
 <div class="upload-content upload-pane-1">
     <div class="top-info">
-        <a class="btn-help" target="_blank" href="http://topcoder.com/home/studio/the-process/"></a>
+        <a class="btn-help" target="_blank" href="http://help.topcoder.com/design/submitting-to-a-design-challenge/formatting-your-submission-for-design-challenges/"></a>
     </div>
     <c:choose>
         <c:when test="${not isFinalFixUpload}">
@@ -141,7 +141,7 @@
             Please be sure to double-check that you have submitted the correct files and that your
             JPG files (if applicable) are in RGB color mode. </p>
             
-        <p><a href="http://topcoder.com/home/studio/the-process/how-to-submit-to-a-contest/" target="_blank">
+        <p><a href="http://help.topcoder.com/design/submitting-to-a-design-challenge/formatting-your-submission-for-design-challenges/" target="_blank">
             Learn more about formatting your submission file
         </a></p>
     </div>
