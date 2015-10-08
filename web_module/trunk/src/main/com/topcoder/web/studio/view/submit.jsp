@@ -328,14 +328,14 @@
                                 <span class="select-list-title">Font</span>
                             </div>
                             <div class="clear"></div>
-                            <p class="normaltext">Check to see if your font is on the <a href="http://community.topcoder.com/studio/the-process/font-policy/" target="_blank">Studio Standard Fonts list</a>. If it is, leave the URL field blank.</p>
+                            <p class="normaltext">Check to see if your font is on the <a href="http://help.topcoder.com/design/design-copyright-and-font-policies/design-challenges-standard-font-list/" target="_blank">Studio Standard Fonts list</a>. If it is, leave the URL field blank.</p>
                             <p>If you only used fonts that came with the client files, choose "I did not introduce any new fonts" from the dropdown box.</p>
                             <p>If your font is not on the list, you must provide the URL to the font page (not file) from one of the approved font websites in the dropdown box.</p>
                             <h5>Please list ALL fonts you have used in your design below.</h5>
                             <!--End .caption-->
 
                             <div class="policy">
-                                <a href="http://topcoder.com/home/studio/the-process/font-policy/" target="_blank">
+                                <a href="http://help.topcoder.com/design/design-copyright-and-font-policies/font-policy-for-design-challenges/" target="_blank">
                                     Read Studio's Font Policy.
                                 </a>
                             </div>
