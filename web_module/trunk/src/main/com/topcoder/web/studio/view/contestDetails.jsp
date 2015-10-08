@@ -151,7 +151,7 @@
                         screening for a small mistake in Round 1, you may still be eligible to submit to Round 2.</li>
                     <li>Every competitor with a passing Round 1 submission can submit to Round 2, even if they didn't
                         win a Checkpoint prize. </li>
-                    <li><a href="http://community.topcoder.com/studio/types-of-competitions/multi-round-competitions-mini-tournaments/">Learn more here</a>.</li>
+                    <li><a href="http://help.topcoder.com/design/submitting-to-a-design-challenge/multi-round-checkpoint-design-challenges/">Learn more here</a>.</li>
                 </ul>
         </c:if>
         <c:if test="${not empty contestDescription}">
