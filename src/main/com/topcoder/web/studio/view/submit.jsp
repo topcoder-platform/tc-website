@@ -269,7 +269,7 @@
 <div class="upload-content upload-pane-2" style="display:none;">
 
     <div class="top-info">
-        <a class="btn-help" target="_blank" href="http://topcoder.com/home/studio/the-process/"></a>
+        <a class="btn-help" target="_blank" href="http://help.topcoder.com/design/submitting-to-a-design-challenge/formatting-your-submission-for-design-challenges/"></a>
     </div>
 
     <div class="upload-content-description">
