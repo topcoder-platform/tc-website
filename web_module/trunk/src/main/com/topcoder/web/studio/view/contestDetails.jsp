@@ -201,7 +201,7 @@
          <p class="paragraph">
             Watermarked comp photography from istockphoto.com is allowed in this challenge. You must follow these instructions or your submission will fail screening:
         <br><br>
-            1) You must declare your stock photos when submitting. <a href="http://topcoder.com/home/studio/the-process/how-to-submit-to-a-contest/" target="_blank">See how here.</a><br>
+            1) You must declare your stock photos when submitting. <a href="http://help.topcoder.com/design/submitting-to-a-design-challenge/formatting-your-submission-for-design-challenges/" target="_blank">See how here.</a><br>
             2) Only use photos, and only use them from iStockPhoto.com. Other iStockPhoto artwork (illustrations, icons, etc.) are not allowed.<br>
             3) Be sure to keep the watermark intact. If the photo is cropped in such a way that the watermark is not visible, please be sure to include the entire watermarked image in your source files so screeners can see that it is a comp image from iStockphoto.com.
          </p>
