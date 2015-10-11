@@ -6,8 +6,8 @@
 
     <!-- COMPONENT PARAMETERS -->
     <property name="component" value="tcs_dw_loader"/>
-    <property name="package" value="com.topcoder.utilities"/>
-    <property name="packagedir" value="com/topcoder/utilities"/>
+    <property name="package" value="com.topcoder.utilities.dwload"/>
+    <property name="packagedir" value="com/topcoder/utilities/dwload"/>
     <property name="distfilename" value="tcs_dw_loader"/>
     <property name="component_version" value="1.0"/>
     <property name="component_path" value="${distfilename}/${component_version}"/>
@@ -15,10 +15,13 @@
 
     <!-- DIRECTORY SETUP -->
     <property name="srcdir" value="src"/>
-    <property name="tcs_libdir" value="lib/tcs"/>
+    <property name="lib.dir" location="lib/jars"/>
+    <property name="tcs_libdir" value="lib/jars/tcs"/>
     <property name="ext_libdir" location="lib/jars"/>
+    <property name="jive.dir" value="lib/jars/jive"/>
+    <property name="poi.dir" value="${ext_libdir}/poi-3.9"/>
     <property name="shared_libdir" value="/mnt/shared/shared/build/artifacts"/>
-    <property name="jar_tcs_libdir" value="lib/tcs"/>
+    <property name="jar_tcs_libdir" value="lib/jars/tcs"/>
     <property name="jar_ext_libdir" location="lib/third_party"/>
     <property name="jar_shared_libdir" location="lib/shared"/>
     <property name="docsdir" value="docs"/>
@@ -55,9 +58,7 @@
     <property name="jbossall-client.jar" value="${ext_libdir}/jboss/jbossall-client.jar"/>
 
     <path id="buildlibs">
-        <pathelement location="${ifxjdbc.jar}"/>
-        <pathelement location="${log4j.jar}"/>
-        <pathelement location="${jbossall-client.jar}"/>
+        <fileset dir="${lib.dir}" includes="**/*.jar" excludes="**/shared.jar"/>
         <pathelement location="${shared.jar}"/>
     </path>
 
@@ -77,11 +78,10 @@
         <javac srcdir="${javamain}"
                destdir="${build_classdir}"
                includes="${packagedir}/**/*.java"
+               excludes="${packagedir}/**/SiteCrawler.java,${packagedir}/dwload/cloudspokes/**/*.java,${packagedir}/**/ProcessJiraPayments.java"
                debug="true"
-               verbose="${verbose}"
-               source="1.5"
-               target="1.5"
-                >
+               nowarn="true"
+               verbose="${verbose}">
             <classpath refid="buildlibs"/>
         </javac>
     </target>
