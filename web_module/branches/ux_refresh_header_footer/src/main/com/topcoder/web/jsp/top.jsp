@@ -85,7 +85,7 @@
                             <button type="button" class="btn-expand-search search-icon"></button>
                         </div>
                         <div class="submenu">
-                            <form action="/search" method="get">
+                            <form action="https://<%=ApplicationServer.SERVER_NAME%>/search" method="get">
                                 <input type="text" id="searchBox" placeholder="Find member" name="s">
                                 <input type="hidden" name="scope" value="member"/>
                                 <input type="submit"
