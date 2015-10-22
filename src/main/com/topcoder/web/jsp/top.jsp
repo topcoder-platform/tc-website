@@ -142,7 +142,7 @@
                             </li>
                             <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/challenges/data/active" class="menu-link menu-link-data">DATA SCIENCE CHALLENGES</a>
                             </li>
-                            <li class="submenu-item"><a href="https://arena.<%=domainName%>" class="menu-link menu-link-arena">THE ARENA</a>
+                            <li class="submenu-item"><a href="https://arena.<%=domainName%>" class="menu-link menu-link-arena">COMPETITIVE PROGRAMMING</a>
                             </li>
                         </ul>
                     </li>
