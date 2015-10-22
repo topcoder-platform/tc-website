@@ -23,6 +23,8 @@
         handle = sessionInfo.getHandle();
     }
 
+    String domainName = ApplicationServer.SERVER_NAME.replace("www.", "");
+
 %>
 
 <c:choose>
@@ -110,12 +112,12 @@
             <nav class="menu-item">
                 <div class="menu-item-header show-small">OTHERS</div>
                 <ul class="submenu">
-                    <li class="submenu-item"><a class="menu-link" href="javascript:;">SITEMAP</a></li>
-                    <li class="submenu-item"><a class="menu-link" href="https://www.topcoder.com/about/">ABOUT US</a></li>
-                    <li class="submenu-item"><a class="menu-link" href="https://www.topcoder.com/contact-us/">CONTACT US</a></li>
-                    <li class="submenu-item"><a class="menu-link" href="http://help.topcoder.com/">HELP CENTER</a></li>
-                    <li class="submenu-item"><a class="menu-link" href="http://www.topcoder.com/community/how-it-works/privacy-policy/">PRIVACY POLICY</a></li>
-                    <li class="submenu-item"><a class="menu-link" href="http://www.topcoder.com/community/how-it-works/terms/">TERMS</a></li>
+                    <li class="submenu-item"><a class="menu-link" href="https://<%=ApplicationServer.SERVER_NAME%>/sitemap">SITEMAP</a></li>
+                    <li class="submenu-item"><a class="menu-link" href="https://<%=ApplicationServer.SERVER_NAME%>/about/">ABOUT US</a></li>
+                    <li class="submenu-item"><a class="menu-link" href="https://<%=ApplicationServer.SERVER_NAME%>/contact-us/">CONTACT US</a></li>
+                    <li class="submenu-item"><a class="menu-link" href="https://help.<%=domainName%>/">HELP CENTER</a></li>
+                    <li class="submenu-item"><a class="menu-link" href="https://<%=ApplicationServer.SERVER_NAME%>/community/how-it-works/privacy-policy/">PRIVACY POLICY</a></li>
+                    <li class="submenu-item"><a class="menu-link" href="https://<%=ApplicationServer.SERVER_NAME%>/community/how-it-works/terms/">TERMS</a></li>
                 </ul>
             </nav>
             <!-- Social links-->
