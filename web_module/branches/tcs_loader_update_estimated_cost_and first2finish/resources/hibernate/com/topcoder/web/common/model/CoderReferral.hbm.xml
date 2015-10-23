@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+    <class name="CoderReferral" table="coder_referral">
+        <id name="id" column="coder_id" access="field">
+            <generator class="foreign">
+                <param name="property">coder</param>
+            </generator>
+        </id>
+        <one-to-one name="coder" class="Coder" constrained="true"/>
+        <many-to-one name="referral" column="referral_id" class="Referral"/>
+        <many-to-one name="referenceCoder" column="reference_id" class="Coder"/>
+        <property name="other"/>
+    </class>
+
+</hibernate-mapping>
+
+

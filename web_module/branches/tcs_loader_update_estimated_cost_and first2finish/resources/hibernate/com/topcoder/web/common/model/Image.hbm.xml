@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="Image" table="image">
+        <id name="id" column="image_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">IMAGE_SEQ</param>
+            </generator>
+        </id>
+        <property name="fileName" column="file_name" access="field"/>
+        <property name="imageTypeId" column="image_type_id" access="field"/>
+        <many-to-one name="path" column="path_id" class="Path"/>
+        <property name="link" access="field"/>
+        <property name="height" access="field"/>
+        <property name="width" access="field"/>
+        <set name="coders" table="coder_image_xref" inverse="true" access="field">
+            <key column="image_id"/>
+            <many-to-many column="coder_id" class="Coder"/>
+        </set>
+        <property name="originalFileName" column="original_file_name" access="field"/>
+    </class>
+</hibernate-mapping>

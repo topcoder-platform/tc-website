@@ -1,0 +1,15 @@
+.form{margin-bottom: 20px;}
+.form .noLabel{margin-bottom: 20px;}
+.modal .columnRight{height:40px;}
+.btnGroup a{margin-right: 3px; }
+.contentBtns.noMargin a{float: right;}
+.contentBtns.noMargin a.btnDiscard{position: relative; top: 3px;}
+#header nav ul.submenu{left:-23px;}
+#header .titleLine nav ul.sec > li{height:91px;}
+
+#header .titleLine nav{z-index:10;}
+#header .titleLine nav ul.sec
+{
+	position: absolute;
+	right: 0;
+}
