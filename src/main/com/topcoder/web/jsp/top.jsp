@@ -44,9 +44,15 @@
 
     String domainName = ApplicationServer.SERVER_NAME.replace("www.", "");
 
-    String currentPageURL = request.getAttribute("javax.servlet.forward.request_uri").toString();
+//    String currentPageURL = request.getRequestURL().toString() + (request.getQueryString() == null ? "" : ("?" + request.getQueryString().toString()));
     
 %>
+
+<script>
+    $(document).ready(function(){
+        $("a.new-btn-login").attr('href', $("a.new-btn-login").attr('href') + "?next=" + window.location.href);
+    })
+</script>
 
 <c:choose>
     <c:when test="${not empty isNewStyle && isNewStyle}">
@@ -105,7 +111,7 @@
 
                             <div class="menu-item-header anonymous-options">
                                 <a class="btn-link" href="https://<%=ApplicationServer.SERVER_NAME%>/register/">REGISTER</a>
-                                <a class="btn-link secondary-link btn-login" href="https://<%=ApplicationServer.SERVER_NAME%>/login/?next=<%=currentPageURL%>">LOG IN</a>
+                                <a class="btn-link secondary-link btn-login new-btn-login" href="https://<%=ApplicationServer.SERVER_NAME%>/login/">LOG IN</a>
                             </div>
                         </li>
 
