@@ -41,6 +41,10 @@
     if (nextpage == null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
     if (nextpage == null) nextpage = request.getHeader("Referer");
     if (nextpage == null) nextpage = "http://" + request.getServerName();
+
+    String domainName = ApplicationServer.SERVER_NAME.replace("www.", "");
+
+    String currentPageURL = request.getAttribute("javax.servlet.forward.request_uri").toString();
     
 %>
 
@@ -51,7 +55,7 @@
 
         <div class="header-wrapper">
             <!-- Main header element-->
-            <header class="top-header">
+            <header class="top-header new-topcoder-header">
                 <!-- Header content visible on small screens-->
                 <div class="show-small mobile-heading"><span class="tc-text-logo">[ topcoder ]</span>
                     <button type="button" class="btn-open-menu">Menu</button>
@@ -81,7 +85,7 @@
                             <button type="button" class="btn-expand-search search-icon"></button>
                         </div>
                         <div class="submenu">
-                            <form action="/search" method="get">
+                            <form action="https://<%=ApplicationServer.SERVER_NAME%>/search" method="get">
                                 <input type="text" id="searchBox" placeholder="Find member" name="s">
                                 <input type="hidden" name="scope" value="member"/>
                                 <input type="submit"
@@ -101,7 +105,7 @@
 
                             <div class="menu-item-header anonymous-options">
                                 <a class="btn-link" href="https://<%=ApplicationServer.SERVER_NAME%>/register/">REGISTER</a>
-                                <a class="btn-link secondary-link btn-login" href="https://<%=ApplicationServer.SERVER_NAME%>/?action=showlogin/">LOG IN</a>
+                                <a class="btn-link secondary-link btn-login" href="https://<%=ApplicationServer.SERVER_NAME%>/login/?next=<%=currentPageURL%>">LOG IN</a>
                             </div>
                         </li>
 
@@ -117,11 +121,11 @@
                                 </div>
                                 <a class="btn-link btn-edit-profile show-small" href="https://<%=ApplicationServer.SERVER_NAME%>/settings/profile/">EDIT</a>
                                 <ul class="submenu">
-                                    <li class="submenu-item"><a class="menu-link" href="https://<%=ApplicationServer.SERVER_NAME%>//my-dashboard/">DASHBOARD</a></li>
-                                    <li class="submenu-item"><a class="menu-link" href="https://<%=ApplicationServer.SERVER_NAME%>//tc?module=MemberProfile&cr=<%=sessionInfo.getUserId()%>">MY PROFILE</a></li>
-                                    <li class="submenu-item"><a class="menu-link" target="_blank" href="https://<%=ApplicationServer.SERVER_NAME%>/PactsMemberServlet?module=PaymentHistory&full_list=false">PAYMENTS</a></li>
-                                    <li class="submenu-item"><a class="menu-link" href="https://<%=ApplicationServer.SERVER_NAME%>/settings/profile/">SETTINGS</a></li>
-                                    <li class="submenu-item"><a class="menu-link btn-logout" href="/tc?module=Logout">LOG OUT</a>
+                                    <li class="submenu-item"><a class="menu-link menu-link-dashboard" href="https://<%=ApplicationServer.SERVER_NAME%>//my-dashboard/">DASHBOARD</a></li>
+                                    <li class="submenu-item"><a class="menu-link menu-link-profile" href="https://<%=ApplicationServer.SERVER_NAME%>/members/<%=sessionInfo.getHandle()%>/">MY PROFILE</a></li>
+                                    <li class="submenu-item"><a class="menu-link menu-link-payments" target="_blank" href="https://community.<%=domainName%>/PactsMemberServlet?module=PaymentHistory&full_list=false">PAYMENTS</a></li>
+                                    <li class="submenu-item"><a class="menu-link menu-link-settings" href="https://<%=ApplicationServer.SERVER_NAME%>/settings/profile/" target="_blank">SETTINGS</a></li>
+                                    <li class="submenu-item"><a class="menu-link menu-link-logout" href="https://<%=ApplicationServer.SERVER_NAME%>/logout">LOG OUT</a>
                                     </li>
                                 </ul>
                             </div>
@@ -132,13 +136,13 @@
                     <li class="menu-item link-group">
                         <div class="menu-item-header">COMPETE</div>
                         <ul class="submenu">
-                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/challenges/design/active" class="menu-link">DESIGN</a>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/challenges/design/active" class="menu-link menu-link-design">DESIGN CHALLENGES</a>
                             </li>
-                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/challenges/develop/active" class="menu-link">DEVELOPMENT</a>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/challenges/develop/active" class="menu-link menu-link-dev">DEVELOPMENT CHALLENGES</a>
                             </li>
-                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/challenges/data/active" class="menu-link">DATA SCIENCE</a>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/challenges/data/active" class="menu-link menu-link-data">DATA SCIENCE CHALLENGES</a>
                             </li>
-                            <li class="submenu-item"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MatchList" class="menu-link">SINGLE ROUND MATCHES</a>
+                            <li class="submenu-item"><a href="https://arena.<%=domainName%>" class="menu-link menu-link-arena">COMPETITIVE PROGRAMMING</a>
                             </li>
                         </ul>
                     </li>
@@ -147,13 +151,13 @@
                     <li class="menu-item link-group">
                         <div class="menu-item-header">LEARN</div>
                         <ul class="submenu">
-                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/design/" class="menu-link">DESIGN</a>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/design/" class="menu-link menu-link-learn-design">DESIGN</a>
                             </li>
-                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/development/" class="menu-link">DEVELOPMENT</a>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/development/" class="menu-link menu-link-learn-dev">DEVELOPMENT</a>
                             </li>
-                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/data-science/" class="menu-link">DATA SCIENCE</a>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/data-science/" class="menu-link menu-link-learn-data">DATA SCIENCE</a>
                             </li>
-                            <li class="submenu-item"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MatchList" class="menu-link">SINGLE ROUND MATCHES</a>
+                            <li class="submenu-item"><a href="http://<%=ApplicationServer.SERVER_NAME%>/community/competitive%20programming/" class="menu-link menu-link-learn-competition">COMPETITIVE PROGRAMMING</a>
                             </li>
 
                         </ul>
@@ -162,15 +166,17 @@
                     <li class="menu-item link-group">
                         <div class="menu-item-header">COMMUNITY</div>
                         <ul class="submenu">
-                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/members/" class="menu-link">PROGRAMS</a>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/members/" class="menu-link menu-link-community-members">MEMBERS</a>
                             </li>
-                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/member-programs/" class="menu-link">FORUMS</a>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/member-programs/" class="menu-link menu-link-community-programs">PROGRAMS</a>
                             </li>
-                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/statistics/" class="menu-link">STATISTICS</a>
+                            <li class="submenu-item"><a href="https://apps.<%=domainName%>/forums/" class="menu-link menu-link-community-forums" target="_blank">FORUMS</a>
                             </li>
-                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/events/" class="menu-link">EVENTS</a>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/statistics/" class="menu-link menu-link-community-stats">STATISTICS</a>
                             </li>
-                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/blog/" class="menu-link">BLOG</a>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/events/" class="menu-link menu-link-community-events">EVENTS</a>
+                            </li>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/blog/" class="menu-link menu-link-community-blog">BLOG</a>
                             </li>
                         </ul>
                     </li>
