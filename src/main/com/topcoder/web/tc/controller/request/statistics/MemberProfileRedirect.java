@@ -47,7 +47,7 @@ public class MemberProfileRedirect extends Base {
 
             if (rsc.size() > 0) {
                 String userHandle = rsc.get(0).getStringItem("handle");
-                setNextPage("http://" + com.topcoder.shared.util.ApplicationServer.SERVER_NAME + "/member-profile/" +
+                setNextPage("http://" + com.topcoder.shared.util.ApplicationServer.SERVER_NAME + "/members/" +
                         userHandle);
                 setIsNextPageInContext(false);
             } else {
