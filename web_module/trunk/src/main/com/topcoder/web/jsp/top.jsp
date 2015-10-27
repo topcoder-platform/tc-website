@@ -131,7 +131,7 @@
                                     <li class="submenu-item"><a class="menu-link menu-link-profile" href="https://<%=ApplicationServer.SERVER_NAME%>/members/<%=sessionInfo.getHandle()%>/">MY PROFILE</a></li>
                                     <li class="submenu-item"><a class="menu-link menu-link-payments" target="_blank" href="https://community.<%=domainName%>/PactsMemberServlet?module=PaymentHistory&full_list=false">PAYMENTS</a></li>
                                     <li class="submenu-item"><a class="menu-link menu-link-settings" href="https://<%=ApplicationServer.SERVER_NAME%>/settings/profile/" target="_blank">SETTINGS</a></li>
-                                    <li class="submenu-item"><a class="menu-link menu-link-logout" href="https://<%=ApplicationServer.SERVER_NAME%>/logout">LOG OUT</a>
+                                    <li class="submenu-item"><a class="menu-link menu-link-logout" href="javascript:doLogOutTC();">LOG OUT</a>
                                     </li>
                                 </ul>
                             </div>
@@ -157,6 +157,8 @@
                     <li class="menu-item link-group">
                         <div class="menu-item-header">LEARN</div>
                         <ul class="submenu">
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/member-onboarding/" class="menu-link menu-link-learn-started">GET STARTED</a>
+                            </li>
                             <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/design/" class="menu-link menu-link-learn-design">DESIGN</a>
                             </li>
                             <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/development/" class="menu-link menu-link-learn-dev">DEVELOPMENT</a>
