@@ -27,8 +27,10 @@
  * 
 --%>
 <% StringBuffer sbHREF = new StringBuffer();
- 	sbHREF.append(request.getScheme());
- 	sbHREF.append("://");
+//      sbHREF.append(request.getScheme()); // Updated to support https or http.
+//      sbHREF.append("://");
+        sbHREF.append("//");
+
 //
 // Need to use the server name from the client, not the server.
 //
