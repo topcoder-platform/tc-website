@@ -183,8 +183,22 @@ import java.util.Set;
  * </ul>
  * </p>
  *
+ * <p>
+ * Version 1.4.2 (TCS Loader Project Load - Add Cost Estimation Load)
+ * <ul>
+ *     <li>Update {@link #doLoadProjects()} to load data for new columns: estimated_reliability_cost, estimated_review_cost,
+ *     estimated_copilot_cost, estimated_admin_fee, actual_total_prize,  copilot_cost</li>
+ *     <li>Added method {@link #loadNewColumns3ForProjectFirstTime()} to load new columns data for existing project records</li>
+ * </ul>
+ * </p>
+ *
+ * <p>
+ * Version 1.4.3 (TCS Loader Project Result Load - Update For First2Finish )
+ * <li>Update {#link #doLoadProjectResults} to load the correct results for First2Finish</li>
+ * </p>
+ *
  * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv, minhu, Blues, Veve, Veve
- * @version 1.4.1
+ * @version 1.4.3
  */
 public class TCLoadTCS extends TCLoad {
 
@@ -1264,6 +1278,222 @@ public class TCLoadTCS extends TCLoad {
     }
 
     /**
+     * Loads the new columns (estimated_reliability_cost, estimated_review_cost, estimated_copilot_cost, estimated_admin_fee, actual_total_prize,  copilot_cost)
+     * data for the existing tcs_dw:project records.
+     *
+     * @throws Exception if any error.
+     * @since 1.4.2
+     */
+    private void loadNewColumns3ForProjectFirstTime() throws Exception {
+        PreparedStatement countEstimatedReviewCostPS = null;
+        PreparedStatement selectExistingProjectToUpdatePS = null;
+        PreparedStatement selectNewColumnsDataPS = null;
+        PreparedStatement updateProjectPS = null;
+
+
+        ResultSet rs = null;
+        ResultSet projectDataRS = null;
+
+        StringBuffer query = null;
+        int totalCount = 0;
+        long projectId = -1;
+
+
+        try {
+
+            query = new StringBuffer(100);
+            // check if there're existing any records in tcs_dw:project which have estimated_review_cost populated
+            query.append("SELECT count(*) from project WHERE estimated_review_cost IS NOT NULL");
+            countEstimatedReviewCostPS = prepareStatement(query.toString(), TARGET_DB);
+
+            rs = countEstimatedReviewCostPS.executeQuery();
+            rs.next();
+
+            boolean firstRun = (rs.getInt(1) == 0);
+
+            if(firstRun) {
+
+                log.info("Start to do the first full load of (estimated_reliability_cost, estimated_review_cost, " +
+                        " estimated_copilot_cost, estimated_admin_fee, actual_total_prize,  copilot_cost)");
+
+                // load project_id for the existing project records in tcs_dw
+                query.delete(0, query.length());
+                query.append("SELECT project_id FROM project WHERE project_category_id IN " + LOAD_CATEGORIES);
+                selectExistingProjectToUpdatePS = prepareStatement(query.toString(), TARGET_DB);
+                rs = selectExistingProjectToUpdatePS.executeQuery();
+
+                // query to get (estimated_reliability_cost, estimated_review_cost, estimated_copilot_cost,
+                // estimated_admin_fee, actual_total_prize,  copilot_cost)  data to update from source DB
+                String selectNewColumnsDataSQL = "SELECT (\n" +
+                        "    CASE WHEN pire.value = 'true' THEN NVL((\n" +
+                        "              SELECT value::DECIMAL\n" +
+                        "              FROM project_info pi38\n" +
+                        "              WHERE pi38.project_id = p\n" +
+                        "                .project_id AND pi38\n" +
+                        "                .\n" +
+                        "                project_info_type_id \n" +
+                        "                = 38\n" +
+                        "              ), 0) ELSE 0 END\n" +
+                        "    ) AS estimated_reliability_cost,\n" +
+                        "  NVL((\n" +
+                        "      SELECT value::DECIMAL\n" +
+                        "      FROM project_info pi33\n" +
+                        "      WHERE pi33.project_id = p.project_id AND \n" +
+                        "        pi33.project_info_type_id = 33\n" +
+                        "      ), 0) AS estimated_review_cost,\n" +
+                        "  NVL((\n" +
+                        "      SELECT value::DECIMAL\n" +
+                        "      FROM project_info pi49\n" +
+                        "      WHERE pi49.project_id = p.project_id AND \n" +
+                        "        pi49.project_info_type_id = 49\n" +
+                        "      ), 0) AS estimated_copilot_cost,\n" +
+                        "  NVL((\n" +
+                        "      SELECT value::DECIMAL\n" +
+                        "      FROM project_info pi31\n" +
+                        "      WHERE pi31.project_id = p.project_id AND \n" +
+                        "        pi31.project_info_type_id = 31\n" +
+                        "      ), 0) AS estimated_admin_fee,\n" +
+                        "  (\n" +
+                        "    NVL((\n" +
+                        "        SELECT sum(total_amount)\n" +
+                        "        FROM informixoltp: payment_detail pmd\n" +
+                        "          ,\n" +
+                        "          informixoltp: payment pm\n" +
+                        "        WHERE pmd.component_project_id = p.\n" +
+                        "          project_id AND pmd.\n" +
+                        "          installment_number = 1 AND pm.\n" +
+                        "          most_recent_detail_id = pmd.\n" +
+                        "          payment_detail_id AND pmd.\n" +
+                        "          payment_type_id IN (\n" +
+                        "            6, 29, 10, 42, 43, 44, 49, 50, 51, \n" +
+                        "            55, 61, 64, 65, 60, 13, 21\n" +
+                        "            ) AND NOT pmd.\n" +
+                        "          payment_status_id IN (65, 68, 69\n" +
+                        "            )\n" +
+                        "        ), 0) + NVL((\n" +
+                        "        SELECT sum(pmd2.total_amount)\n" +
+                        "        FROM informixoltp: payment_detail pmd\n" +
+                        "          ,\n" +
+                        "          informixoltp: payment pm\n" +
+                        "        LEFT JOIN informixoltp: \n" +
+                        "          payment_detail pmd2 ON pm.\n" +
+                        "          payment_id = pmd2.\n" +
+                        "          parent_payment_id,\n" +
+                        "          informixoltp: payment pm2\n" +
+                        "        WHERE pmd.component_project_id = p.\n" +
+                        "          project_id AND pmd2.\n" +
+                        "          installment_number = 1 AND pm.\n" +
+                        "          most_recent_detail_id = pmd.\n" +
+                        "          payment_detail_id AND pm2.\n" +
+                        "          most_recent_detail_id = pmd2.\n" +
+                        "          payment_detail_id AND pmd2.\n" +
+                        "          payment_type_id IN (\n" +
+                        "            6, 29, 10, 42, 43, 44, 49, 50, 51, \n" +
+                        "            55, 61, 64, 65, 60, 13, 21\n" +
+                        "            ) AND NOT pmd2.\n" +
+                        "          payment_status_id IN (65, 68, 69\n" +
+                        "            )\n" +
+                        "        ), 0)\n" +
+                        "    ) AS actual_total_prize,\n" +
+                        "  (\n" +
+                        "    NVL((\n" +
+                        "        SELECT sum(total_amount)\n" +
+                        "        FROM informixoltp: payment_detail pmd\n" +
+                        "          ,\n" +
+                        "          informixoltp: payment pm\n" +
+                        "        WHERE pmd.component_project_id = p.\n" +
+                        "          project_id AND pmd.\n" +
+                        "          installment_number = 1 AND pm.\n" +
+                        "          most_recent_detail_id = pmd.\n" +
+                        "          payment_detail_id AND pmd.\n" +
+                        "          payment_type_id IN (45, 57\n" +
+                        "            ) AND NOT pmd.\n" +
+                        "          payment_status_id IN (65, 68, 69\n" +
+                        "            )\n" +
+                        "        ), 0) + NVL((\n" +
+                        "        SELECT sum(pmd2.total_amount)\n" +
+                        "        FROM informixoltp: payment_detail pmd\n" +
+                        "          ,\n" +
+                        "          informixoltp: payment pm\n" +
+                        "        LEFT JOIN informixoltp: \n" +
+                        "          payment_detail pmd2 ON pm.\n" +
+                        "          payment_id = pmd2.\n" +
+                        "          parent_payment_id,\n" +
+                        "          informixoltp: payment pm2\n" +
+                        "        WHERE pmd.component_project_id = p.\n" +
+                        "          project_id AND pmd2.\n" +
+                        "          installment_number = 1 AND pm.\n" +
+                        "          most_recent_detail_id = pmd.\n" +
+                        "          payment_detail_id AND pm2.\n" +
+                        "          most_recent_detail_id = pmd2.\n" +
+                        "          payment_detail_id AND pmd2.\n" +
+                        "          payment_type_id IN (45, 57\n" +
+                        "            ) AND NOT pmd2.\n" +
+                        "          payment_status_id IN (65, 68, 69\n" +
+                        "            )\n" +
+                        "        ), 0)\n" +
+                        "    ) AS copilot_cost\n" +
+                        "FROM project p, \n" +
+                        "OUTER project_info pire\n" +
+                        "WHERE \n" +
+                        "pire.project_id = p.project_id\n" +
+                        "AND pire.project_info_type_id = 45\n" +
+                        "AND p.project_id = ?";
+
+                selectNewColumnsDataPS = prepareStatement(selectNewColumnsDataSQL, SOURCE_DB);
+
+                // query to update the existing payment records in topcoder_dw
+                query.delete(0, query.length());
+                query.append("UPDATE project SET estimated_reliability_cost = ?, estimated_review_cost = ?, estimated_copilot_cost = ?, estimated_admin_fee = ?, actual_total_prize = ?, " +
+                        "copilot_cost = ? WHERE project_id = ?");
+                updateProjectPS = prepareStatement(query.toString(), TARGET_DB);
+
+                while (rs.next()) {
+                    projectId = rs.getLong(1);
+
+                    selectNewColumnsDataPS.clearParameters();
+                    selectNewColumnsDataPS.setLong(1, projectId);
+                    projectDataRS = selectNewColumnsDataPS.executeQuery();
+                    boolean hasNext = projectDataRS.next();
+
+                    if(!hasNext) continue;
+
+                    updateProjectPS.clearParameters();
+
+                    updateProjectPS.setDouble(1, projectDataRS.getDouble("estimated_reliability_cost"));
+                    updateProjectPS.setDouble(2, projectDataRS.getDouble("estimated_review_cost"));
+                    updateProjectPS.setDouble(3, projectDataRS.getDouble("estimated_copilot_cost"));
+                    updateProjectPS.setDouble(4, projectDataRS.getDouble("estimated_admin_fee"));
+                    updateProjectPS.setDouble(5, projectDataRS.getDouble("actual_total_prize"));
+                    updateProjectPS.setDouble(6, projectDataRS.getDouble("copilot_cost"));
+
+                    updateProjectPS.setLong(7, projectId);
+
+                    int countUpdated = updateProjectPS.executeUpdate();
+
+                    if (countUpdated == 1) {
+                        log.info(String.format("Update Project %s with new columns data", projectId));
+                        totalCount++;
+                    }
+                }
+            }
+
+            log.info("total project records updated with new columns data = " + totalCount);
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Full Load of new columns data for existing records in 'project' table failed.\n"
+                    + "project_id = " + projectId + "\n" + sqle.getMessage());
+        } finally {
+            DBMS.close(projectDataRS);
+            DBMS.close(rs);
+            DBMS.close(countEstimatedReviewCostPS);
+            DBMS.close(selectExistingProjectToUpdatePS);
+            DBMS.close(selectNewColumnsDataPS);
+            DBMS.close(updateProjectPS);
+        }
+    }
+
+    /**
      * <p/>
      * Load projects to the DW.
      * </p>
@@ -1285,6 +1515,8 @@ public class TCLoadTCS extends TCLoad {
             loadNewColumnsForProjectFirstTime();
 
             loadNewColumns2ForProjectFirstTime();
+
+            loadNewColumns3ForProjectFirstTime();
 
             //get data from source DB
             final String SELECT =
@@ -1445,12 +1677,56 @@ public class TCLoadTCS extends TCLoad {
                             ", (SELECT value::INTEGER FROM project_info piforum WHERE piforum.project_id = p.project_id and piforum.project_info_type_id = 4) as forum_id" +
                             ", (select CASE when pi53.value == 'true' THEN 1 ELSE 0 END FROM project_info pi53 where pi53.project_info_type_id = 53 and pi53.project_id = p.project_id) as submission_viewable" +
                             ", NVL((SELECT 1 FROM contest_eligibility WHERE contest_id = p.project_id), 0) AS is_private" +
+
+                            // estimated_reliability_cost
+                            ",(CASE WHEN pire.value = 'true' THEN NVL((SELECT value::decimal FROM project_info pi38 WHERE pi38.project_id = p.project_id AND pi38.project_info_type_id = 38), 0) ELSE 0 END) as estimated_reliability_cost" +
+
+                            // estimated_review_cost
+                            ",NVL((SELECT value::decimal FROM project_info pi33 WHERE pi33.project_id = p.project_id AND pi33.project_info_type_id = 33), 0) as estimated_review_cost" +
+
+                            // estimated_copilot_cost
+                            ",NVL((SELECT value::decimal FROM project_info pi49 WHERE pi49.project_id = p.project_id AND pi49.project_info_type_id = 49), 0) as estimated_copilot_cost" +
+
+                            // estimated_admin_fee
+                            ",NVL((SELECT value::decimal FROM project_info pi31 WHERE pi31.project_id = p.project_id AND pi31.project_info_type_id = 31), 0) as estimated_admin_fee" +
+
+                            // actual_total_prize
+                            ",(NVL((SELECT sum(total_amount)  " +
+                            "       FROM  informixoltp:payment_detail pmd, informixoltp:payment pm  " +
+                            "        WHERE pmd.component_project_id = p.project_id and pmd.installment_number = 1  " +
+                            "        and pm.most_recent_detail_id = pmd.payment_detail_id and pmd.payment_type_id IN (6, 29, 10, 42, 43, 44, 49, 50, 51, 55, 61, 64, 65, 60, 13, 21)  " +
+                            "        AND NOT pmd.payment_status_id IN (65, 68, 69)), 0)  +" +
+                            "    NVL((SELECT sum(pmd2.total_amount)   " +
+                            "           FROM  informixoltp:payment_detail pmd,    " +
+                            "                 informixoltp:payment pm LEFT OUTER JOIN informixoltp:payment_detail pmd2 on pm.payment_id = pmd2.parent_payment_id,   " +
+                            "                 informixoltp:payment pm2   " +
+                            "            WHERE pmd.component_project_id = p.project_id and pmd2.installment_number = 1   " +
+                            "            and pm.most_recent_detail_id = pmd.payment_detail_id    " +
+                            "            and pm2.most_recent_detail_id = pmd2.payment_detail_id and pmd2.payment_type_id IN (6, 29, 10, 42, 43, 44, 49, 50, 51, 55, 61, 64, 65, 60, 13, 21)  " +
+                            "            AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0)) as actual_total_prize" +
+
+                            // copilot_cost
+                            ",(NVL((SELECT sum(total_amount)  " +
+                            "       FROM  informixoltp:payment_detail pmd, informixoltp:payment pm  " +
+                            "        WHERE pmd.component_project_id = p.project_id and pmd.installment_number = 1  " +
+                            "        and pm.most_recent_detail_id = pmd.payment_detail_id and pmd.payment_type_id IN (45, 57)  " +
+                            "        AND NOT pmd.payment_status_id IN (65, 68, 69)), 0)  +" +
+                            "    NVL((SELECT sum(pmd2.total_amount)   " +
+                            "           FROM  informixoltp:payment_detail pmd,    " +
+                            "                 informixoltp:payment pm LEFT OUTER JOIN informixoltp:payment_detail pmd2 on pm.payment_id = pmd2.parent_payment_id,   " +
+                            "                 informixoltp:payment pm2   " +
+                            "            WHERE pmd.component_project_id = p.project_id and pmd2.installment_number = 1   " +
+                            "            and pm.most_recent_detail_id = pmd.payment_detail_id    " +
+                            "            and pm2.most_recent_detail_id = pmd2.payment_detail_id and pmd2.payment_type_id IN (45, 57)  " +
+                            "            AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0)) as copilot_cost" +
+
                             "   from project p , " +
                             "   project_info pir, " +
                             "   project_info pivers, " +
                             "   outer project_info pivi," +
                             "   outer project_info pivt," +
                             "   outer project_info pict," +
+                            "   outer project_info pire," +
                             "   outer project_info pi1," +
                             "   outer project_info pi2," +
                             "   outer project_info piaf," +
@@ -1475,6 +1751,8 @@ public class TCLoadTCS extends TCLoad {
                             "   and pivt.project_info_type_id = 23 " +
                             "   and pict.project_id = p.project_id " +
                             "   and pict.project_info_type_id = 26 " +
+                            "   and pire.project_id = p.project_id " +
+                            "   and pire.project_info_type_id = 45 " +
                             "   and pi1.project_id = p.project_id " +
                             "   and pi1.project_info_type_id = 21 " +
                             "   and pi2.project_id = p.project_id " +
@@ -1510,7 +1788,7 @@ public class TCLoadTCS extends TCLoad {
                             "   (u.create_date > ? or u.modify_date > ? or s.create_date > ? or s.modify_date > ?)) " +
                             // add projects who have modified results
                             "   or p.project_id in (select distinct pr.project_id from project_result pr where (pr.create_date > ? or pr.modify_date > ?)) " +
-                            "   or p.project_id in (select distinct pi.project_id from project_info pi where project_info_type_id in  (2, 3, 21, 22, 23, 26, 31, 32) and (pi.create_date > ? or pi.modify_date > ?)) " +
+                            "   or p.project_id in (select distinct pi.project_id from project_info pi where project_info_type_id in  (2, 3, 21, 22, 23, 26, 31, 32, 33, 38, 45, 49) and (pi.create_date > ? or pi.modify_date > ?)) " +
                             "   or p.project_id in (select distinct pmd.component_project_id::int " +
                             "      FROM informixoltp:payment pm INNER JOIN informixoltp:payment_detail pmd ON pm.most_recent_detail_id = pmd.payment_detail_id " +
                             "      WHERE NOT pmd.payment_status_id IN (65, 69) AND (pmd.create_date > ? or pmd.date_modified > ? or pm.create_date > ? or pm.modify_date > ?)) " +
@@ -1528,7 +1806,8 @@ public class TCLoadTCS extends TCLoad {
                     "first_place_prize = ?, num_checkpoint_submissions = ? , num_valid_checkpoint_submissions = ?, total_prize = ?, " +
                     "challenge_manager = ?, challenge_creator = ?, challenge_launcher = ?, copilot = ?, checkpoint_start_date = ?, checkpoint_end_date = ?, " +
                     "registration_end_date = ?, scheduled_end_date = ?, checkpoint_prize_amount = ?, checkpoint_prize_number = ?, dr_points = ?, " +
-                    "reliability_cost = ?, review_cost = ?, forum_id = ?, submission_viewable = ?, is_private = ?" +
+                    "reliability_cost = ?, review_cost = ?, forum_id = ?, submission_viewable = ?, is_private = ?," +
+                    "estimated_reliability_cost = ?, estimated_review_cost = ?, estimated_copilot_cost = ?, estimated_admin_fee = ?, actual_total_prize = ?, copilot_cost = ?" +
                     "where project_id = ? ";
 
             final String INSERT = "insert into project (project_id, component_name, num_registrations, num_submissions, " +
@@ -1540,14 +1819,15 @@ public class TCLoadTCS extends TCLoad {
                     "last_modification_date, first_place_prize, num_checkpoint_submissions, num_valid_checkpoint_submissions, total_prize, " +
                     "challenge_manager, challenge_creator, challenge_launcher, copilot, checkpoint_start_date, checkpoint_end_date," +
                     "registration_end_date, scheduled_end_date, checkpoint_prize_amount, checkpoint_prize_number, dr_points," +
-                    "reliability_cost, review_cost, forum_id, submission_viewable, is_private)" +
+                    "reliability_cost, review_cost, forum_id, submission_viewable, is_private," +
+                    "estimated_reliability_cost, estimated_review_cost, estimated_copilot_cost, estimated_admin_fee, actual_total_prize, copilot_cost)" +
                     "values (?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, ?, ?, ?, ?, " +
-                    "?, ?, current, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+                    "?, ?, current, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
             // Statements for updating the duration, fulfillment, start_date_calendar_id fields
             final String UPDATE_AGAIN = "UPDATE project SET " +
@@ -1724,7 +2004,16 @@ public class TCLoadTCS extends TCLoad {
                     setLongParameter(rs, update, "submission_viewable", 54);
                     setLongParameter(rs, update, "is_private", 55);
 
-                    update.setLong(56, rs.getLong("project_id"));
+
+                    update.setDouble(56, rs.getDouble("estimated_reliability_cost"));
+                    update.setDouble(57, rs.getDouble("estimated_review_cost"));
+                    update.setDouble(58, rs.getDouble("estimated_copilot_cost"));
+                    update.setDouble(59, rs.getDouble("estimated_admin_fee"));
+                    update.setDouble(60, rs.getDouble("actual_total_prize"));
+                    update.setDouble(61, rs.getDouble("copilot_cost"));
+
+
+                    update.setLong(62, rs.getLong("project_id"));
                     System.out.println("------------project id --------------------------"+rs.getLong("project_id"));
 
                     int retVal = update.executeUpdate();
@@ -1843,6 +2132,13 @@ public class TCLoadTCS extends TCLoad {
                         setLongParameter(rs, insert, "forum_id", 54);
                         setLongParameter(rs, insert, "submission_viewable", 55);
                         setLongParameter(rs, insert, "is_private", 56);
+
+                        insert.setDouble(57, rs.getDouble("estimated_reliability_cost"));
+                        insert.setDouble(58, rs.getDouble("estimated_review_cost"));
+                        insert.setDouble(59, rs.getDouble("estimated_copilot_cost"));
+                        insert.setDouble(60, rs.getDouble("estimated_admin_fee"));
+                        insert.setDouble(61, rs.getDouble("actual_total_prize"));
+                        insert.setDouble(62, rs.getDouble("copilot_cost"));
 
                         insert.executeUpdate();
                     }
@@ -2680,99 +2976,264 @@ public class TCLoadTCS extends TCLoad {
                                 ")"
                                 : ")");
 
-        final String RESULT_SELECT =
-                " select distinct pr.project_id " +
-                        "    ,pr.user_id " +
-                        "    ,case when exists(select '1' from submission s,upload u  " +
-                        "           where s.submission_type_id = 1 and u.resource_id = r.resource_id " +
-                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and s.submission_status_id in (1,2,3,4))  " +
-                        "    then 1 else 0 end as submit_ind " +
-                        "    ,case when exists(select '1' from submission s,upload u " +
-                        "           where s.submission_type_id = 1 and u.resource_id = r.resource_id  " +
-                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and submission_status_id in (1,2,3,4)) then pr.valid_submission_ind  " +
-                        "    else 0 end as valid_submission_ind " +
-                        "    ,pr.raw_score " +
-                        "    ,pr.final_score " +
-                        "    ,(select max(create_time) from component_inquiry where project_id = p.project_id and user_id = pr.user_id)  as inquire_timestamp " +
-                        "    ,r2.value registrationd_date" +
-                        //todo improve this data in transactional.  many records are 11/2/2006 which isn't correct.
-                        "    ,(select max(u.create_date) from submission s,upload u " +
-                        "           where s.submission_type_id = 1 and r.resource_id = u.resource_id " +
-                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and submission_status_id <> 5) as submit_timestamp " +
-                        //todo this is no good, modify date shouldn't be used in this way.  it could be updated for any reason, so it's misleading.  perhaps we should
-                        //todo use the actual review phase end (or the most recent one) instead
-                        "    ,(select max(rev.modify_date) from review rev,scorecard s,submission sub, upload u  " +
-                        "           where sub.submission_type_id = 1 and r.resource_id = u.resource_id  " +
-                        "           and u.upload_id = sub.upload_id and sub.submission_id = rev.submission_id and rev.scorecard_id = s.scorecard_id  " +
-                        "           and s.scorecard_type_id = 2 and rev.committed = 1 and u.project_id = pr.project_id and sub.submission_status_id <> 5) as review_completed_timestamp " +
-//                        "    ,(select count(*) from project_result pr where project_id = p.project_id and pr.passed_review_ind = 1) as num_submissions_passed_review " +
-                        "       ,(select count(*) from submission s, upload u  " +
-                        "         where s.submission_type_id = 1 and u.upload_id = s.upload_id and project_id = p.project_id  " +
-                        "         and submission_status_id in (1, 4) " +
-                        "        ) as num_submissions_passed_review  " +
-                        "    , pr.payment " +
-                        "    , pr.old_rating " +
-                        "    , pr.new_rating " +
-                        "    , pre.reliability_before_resolution " +
-                        "    , pre.reliability_after_resolution " +
-                        "    , pr.placed " +
-                        "    , pr.rating_ind " +
-                        "    , pr.passed_review_ind " +
-                        "    , p.project_status_id as project_stat_id " +
-                        "    , pr.point_adjustment" +
-                        "    , pre.reliable_ind " +
-                        "    , pr.rating_order " +
-                        // first we try get the awarded points from project_info (DR points type)
-                        // then, we try to get it from comp_version_dates
-                        // finally, we get it from project_info (Payments type)
-                        // note: changing this affects loadDRContestResults method's query.
-                        "    , NVL((select value from project_info pi_dr where pi_dr.project_info_type_id = 30 and pi_dr.project_id = p.project_id), " +
-                        "          (select value from project_info pi_am where pi_am.project_info_type_id = 16 and pi_am.project_id = p.project_id)) as amount " +
-                        "     , (select value from project_info where project_id = p.project_id and project_info_type_id = 26) as dr_ind " +
-                        "     , p.project_category_id " +
-                        "     ,case when ppd.actual_start_time is not null then ppd.actual_start_time else psd.actual_start_time end as posting_date " +
-                        "     ,(cc.component_name || ' - ' || cv.version_text) as project_desc" +
-                        "     ,nvl(pwa.actual_end_time, pwa.scheduled_end_time) as winner_announced" +
-                        "     ,(select max(s.create_date) as submission_date from submission s, upload u where s.submission_type_id = 1 and s.upload_id = u.upload_id" +
-                        "             and u.project_id = p.project_id" +
-                        "             and u.resource_id = r.resource_id" +
-                        "             and u.upload_status_id = 1" +
-                        "             and u.upload_type_id = 1) as submission_date" +
-                        "    from project_result pr" +
-                        "       ,project p" +
-                        "       ,project_info pi" +
-                        "       ,comp_catalog cc " +
-                        "       ,resource r " +
-                        "       ,resource_info r1 " +
-                        "       ,project_info pivers " +
-                        "       ,comp_versions cv " +
-                        "       ,outer resource_info r2 " +
-                        "       ,outer project_phase psd " +
-                        "       ,outer project_phase ppd " +
-                        "       ,outer project_phase pwa " +
-                        "       ,outer project_reliability pre " +
-                        "    where p.project_id = pr.project_id " +
-                        "   and p.project_id = pi.project_id " +
-                        "   and pi.project_info_type_id = 2 " +
-                        "   and r.project_id = p.project_id " +
-                        "   and r.resource_role_id = 1 " + // make sure only submitter is joined
-                        "   and r.resource_id = r1.resource_id " +
-                        "   and r1.resource_info_type_id = 1 " +
-                        "   and r1.value = pr.user_id " +
-                        "   and r.resource_id = r2.resource_id " +
-                        "   and r2.resource_info_type_id = 6 " +
-                        "   and cc.component_id = pi.value " +
-                        "   and pivers.project_id = p.project_id " +
-                        "   and pivers.project_info_type_id = 1 " +
-                        "   and pivers.value = cv.comp_vers_id " +
-                        "   and pwa.project_id = p.project_id " +
-                        "   and pwa.phase_type_id in  (6, 21)" + // winner announcement (appeals response end)
-                        "   and psd.project_id = p.project_id " +
-                        "   and psd.phase_type_id = 2 " +
-                        "   and ppd.project_id = p.project_id " +
-                        "   and ppd.phase_type_id = 1 " +
-                        "   and pre.project_id = pr.project_id" +
-                        "   and pre.user_id = pr.user_id";
+        final String RESULT_SELECT = "SELECT DISTINCT pr.project_id,  " +
+                " pr.user_id,  " +
+                " CASE WHEN EXISTS (  " +
+                "    SELECT '1'  " +
+                "    FROM submission s,  " +
+                "     upload u  " +
+                "    WHERE s.submission_type_id = 1 AND u.resource_id = r.resource_id AND u.upload_id = s.upload_id AND u.project_id = pr.project_id AND s  " +
+                "     .submission_status_id IN (1, 2, 3, 4)  " +
+                "    ) THEN 1 ELSE 0 END AS submit_ind,  " +
+                " CASE WHEN p.project_category_id = 38 THEN (  " +
+                "    CASE WHEN EXISTS (  " +
+                "       SELECT '1'  " +
+                "       FROM submission s,  " +
+                "        upload u  " +
+                "       WHERE s.submission_type_id = 1 AND u.resource_id = r.resource_id AND u.upload_id = s.upload_id AND u.project_id = pr.project_id and s.placement = 1 and s.final_score = 100  " +
+                "        AND submission_status_id IN (1, 2, 3, 4)  " +
+                "       ) THEN 1 ELSE 0 END    " +
+                "    " +
+                " ) ELSE (  " +
+                "    CASE WHEN EXISTS (  " +
+                "       SELECT '1'  " +
+                "       FROM submission s,  " +
+                "        upload u  " +
+                "       WHERE s.submission_type_id = 1 AND u.resource_id = r.resource_id AND u.upload_id = s.upload_id AND u.project_id = pr.project_id   " +
+                "        AND submission_status_id IN (1, 2, 3, 4)  " +
+                "       ) THEN pr.valid_submission_ind ELSE 0 END  " +
+                "    ) END AS valid_submission_ind,  " +
+                "      " +
+                "CASE WHEN p.project_category_id = 38 THEN (  " +
+                "       SELECT MAX(s.initial_score)  " +
+                "       FROM submission s,  " +
+                "        upload u  " +
+                "       WHERE s.submission_type_id = 1 AND u.resource_id = r.resource_id AND u.upload_id = s.upload_id AND u.project_id = pr.project_id and s.placement = 1  " +
+                "       AND submission_status_id IN (1, 2, 3, 4)  " +
+                "    " +
+                " ) ELSE (  " +
+                "   " +
+                "    pr.raw_score  " +
+                "     " +
+                ") END AS raw_score,      " +
+                "  " +
+                "CASE WHEN p.project_category_id = 38 THEN (  " +
+                "     SELECT MAX(s.final_score)  " +
+                "       FROM submission s,  " +
+                "        upload u  " +
+                "       WHERE s.submission_type_id = 1 AND u.resource_id = r.resource_id AND u.upload_id = s.upload_id AND u.project_id = pr.project_id and s.placement = 1  " +
+                "       AND submission_status_id IN (1, 2, 3, 4)  " +
+                "    " +
+                " ) ELSE (  " +
+                "   " +
+                "    pr.final_score  " +
+                "     " +
+                ") END AS final_score,       " +
+                "  " +
+                " (  " +
+                "  SELECT max(create_time)  " +
+                "  FROM component_inquiry  " +
+                "  WHERE project_id = p.project_id AND user_id = pr.user_id  " +
+                "  ) AS inquire_timestamp,  " +
+                " r2.value registrationd_date,  " +
+                " (  " +
+                "  SELECT max(u.create_date)  " +
+                "  FROM submission s,  " +
+                "   upload u  " +
+                "  WHERE s.submission_type_id = 1 AND r.resource_id = u.resource_id AND u.upload_id = s.upload_id AND u.project_id = pr.project_id AND   " +
+                "   submission_status_id <> 5  " +
+                "  ) AS submit_timestamp,  " +
+                " (  " +
+                "  SELECT max(rev.modify_date)  " +
+                "  FROM review rev,  " +
+                "   scorecard s,  " +
+                "   submission sub,  " +
+                "   upload u  " +
+                "  WHERE sub.submission_type_id = 1 AND r.resource_id = u.resource_id AND u.upload_id = sub.upload_id AND sub.submission_id = rev.  " +
+                "   submission_id AND rev.scorecard_id = s.scorecard_id AND s.scorecard_type_id IN (2,8) AND rev.COMMITTED = 1 AND u.project_id = pr.  " +
+                "   project_id AND sub.submission_status_id <> 5  " +
+                "  ) AS review_completed_timestamp,  " +
+                " (  " +
+                "  SELECT count(*)  " +
+                "  FROM submission s,  " +
+                "   upload u  " +
+                "  WHERE s.submission_type_id = 1 AND u.upload_id = s.upload_id AND project_id = p.project_id AND submission_status_id IN (1, 4)  " +
+                "  ) AS num_submissions_passed_review,  " +
+                "   " +
+                " CASE WHEN p.project_category_id = 38 THEN (  " +
+                "    " +
+                "       SELECT prz.prize_amount  " +
+                "       FROM submission s,  " +
+                "        upload u, prize prz  " +
+                "       WHERE s.submission_type_id = 1 AND u.resource_id = r.resource_id AND u.upload_id = s.upload_id AND u.project_id = pr.project_id and s.placement = 1 and s.final_score = 100  " +
+                "        AND submission_status_id IN (1, 2, 3, 4) and s.prize_id = prz.prize_id  " +
+                "      " +
+                "    " +
+                " ) ELSE (  " +
+                "     pr.payment  " +
+                "    ) END AS payment,  " +
+                "   " +
+                " pr.old_rating,  " +
+                " pr.new_rating,  " +
+                " pre.reliability_before_resolution,  " +
+                " pre.reliability_after_resolution,  " +
+                " pr.placed,  " +
+                " pr.rating_ind,  " +
+                "  " +
+                "   " +
+                " CASE WHEN p.project_category_id = 38 THEN (  " +
+                "    CASE WHEN EXISTS (  " +
+                "       SELECT '1'  " +
+                "       FROM submission s,  " +
+                "        upload u  " +
+                "       WHERE s.submission_type_id = 1 AND u.resource_id = r.resource_id AND u.upload_id = s.upload_id AND u.project_id = pr.project_id and s.placement = 1 and s.final_score = 100  " +
+                "        AND submission_status_id IN (1, 2, 3, 4)  " +
+                "       ) THEN 1 ELSE 0 END    " +
+                "    " +
+                " ) ELSE (  " +
+                "     pr.passed_review_ind  " +
+                "    ) END AS passed_review_ind,  " +
+                "   " +
+                " p.project_status_id AS project_stat_id,  " +
+                " pr.point_adjustment,  " +
+                " pre.reliable_ind,  " +
+                " pr.rating_order,  " +
+                " NVL((  " +
+                "   SELECT value  " +
+                "   FROM project_info pi_dr  " +
+                "   WHERE pi_dr.project_info_type_id = 30 AND pi_dr.project_id = p.project_id  " +
+                "   ), (  " +
+                "   SELECT value  " +
+                "   FROM project_info pi_am  " +
+                "   WHERE pi_am.project_info_type_id = 16 AND pi_am.project_id = p.project_id  " +
+                "   )) AS amount,  " +
+                " (  " +
+                "  SELECT value  " +
+                "  FROM project_info  " +
+                "  WHERE project_id = p.project_id AND project_info_type_id = 26  " +
+                "  ) AS dr_ind,  " +
+                " p.project_category_id,  " +
+                " CASE WHEN ppd.actual_start_time IS NOT NULL THEN ppd.actual_start_time ELSE psd.actual_start_time END AS posting_date,  " +
+                " (cc.component_name || ' - ' || cv.version_text) AS project_desc,  " +
+                " nvl(pwa.actual_end_time, pwa.scheduled_end_time) AS winner_announced,  " +
+                " (  " +
+                "  SELECT max(s.create_date) AS submission_date  " +
+                "  FROM submission s,  " +
+                "   upload u  " +
+                "  WHERE s.submission_type_id = 1 AND s.upload_id = u.upload_id AND u.project_id = p.project_id AND u.resource_id = r.resource_id AND u.  " +
+                "   upload_status_id = 1 AND u.upload_type_id = 1  " +
+                "  ) AS submission_date  " +
+                "FROM project_result pr,  " +
+                " project p,  " +
+                " project_info pi,  " +
+                " comp_catalog cc,  " +
+                " resource r,  " +
+                " resource_info r1,  " +
+                " project_info pivers,  " +
+                " comp_versions cv,  " +
+                " OUTER resource_info r2,  " +
+                " OUTER project_phase psd,  " +
+                " OUTER project_phase ppd,  " +
+                " OUTER project_phase pwa,  " +
+                " OUTER project_reliability pre  " +
+                "WHERE p.project_id = pr.project_id AND p.project_id = pi.project_id AND pi.project_info_type_id = 2 AND r.project_id = p.project_id AND r  " +
+                " .resource_role_id = 1 AND r.resource_id = r1.resource_id AND r1.resource_info_type_id = 1 AND r1.value = pr.user_id AND r.resource_id =   " +
+                " r2.resource_id AND r2.resource_info_type_id = 6 AND cc.component_id = pi.value AND pivers.project_id = p.project_id AND pivers.  " +
+                " project_info_type_id = 1 AND pivers.value = cv.comp_vers_id AND pwa.project_id = p.project_id AND pwa.phase_type_id IN (6, 21) AND psd  " +
+                " .project_id = p.project_id AND psd.phase_type_id = 2 AND ppd.project_id = p.project_id AND ppd.phase_type_id = 1 AND pre.project_id = pr.  " +
+                " project_id AND pre.user_id = pr.user_id";
+//                " select distinct pr.project_id " +
+//                        "    ,pr.user_id " +
+//                        "    ,case when exists(select '1' from submission s,upload u  " +
+//                        "           where s.submission_type_id = 1 and u.resource_id = r.resource_id " +
+//                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and s.submission_status_id in (1,2,3,4))  " +
+//                        "    then 1 else 0 end as submit_ind " +
+//                        "    ,case when exists(select '1' from submission s,upload u " +
+//                        "           where s.submission_type_id = 1 and u.resource_id = r.resource_id  " +
+//                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and submission_status_id in (1,2,3,4)) then pr.valid_submission_ind  " +
+//                        "    else 0 end as valid_submission_ind " +
+//                        "    ,pr.raw_score " +
+//                        "    ,pr.final_score " +
+//                        "    ,(select max(create_time) from component_inquiry where project_id = p.project_id and user_id = pr.user_id)  as inquire_timestamp " +
+//                        "    ,r2.value registrationd_date" +
+//                        //todo improve this data in transactional.  many records are 11/2/2006 which isn't correct.
+//                        "    ,(select max(u.create_date) from submission s,upload u " +
+//                        "           where s.submission_type_id = 1 and r.resource_id = u.resource_id " +
+//                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and submission_status_id <> 5) as submit_timestamp " +
+//                        //todo this is no good, modify date shouldn't be used in this way.  it could be updated for any reason, so it's misleading.  perhaps we should
+//                        //todo use the actual review phase end (or the most recent one) instead
+//                        "    ,(select max(rev.modify_date) from review rev,scorecard s,submission sub, upload u  " +
+//                        "           where sub.submission_type_id = 1 and r.resource_id = u.resource_id  " +
+//                        "           and u.upload_id = sub.upload_id and sub.submission_id = rev.submission_id and rev.scorecard_id = s.scorecard_id  " +
+//                        "           and s.scorecard_type_id = 2 and rev.committed = 1 and u.project_id = pr.project_id and sub.submission_status_id <> 5) as review_completed_timestamp " +
+////                        "    ,(select count(*) from project_result pr where project_id = p.project_id and pr.passed_review_ind = 1) as num_submissions_passed_review " +
+//                        "       ,(select count(*) from submission s, upload u  " +
+//                        "         where s.submission_type_id = 1 and u.upload_id = s.upload_id and project_id = p.project_id  " +
+//                        "         and submission_status_id in (1, 4) " +
+//                        "        ) as num_submissions_passed_review  " +
+//                        "    , pr.payment " +
+//                        "    , pr.old_rating " +
+//                        "    , pr.new_rating " +
+//                        "    , pre.reliability_before_resolution " +
+//                        "    , pre.reliability_after_resolution " +
+//                        "    , pr.placed " +
+//                        "    , pr.rating_ind " +
+//                        "    , pr.passed_review_ind " +
+//                        "    , p.project_status_id as project_stat_id " +
+//                        "    , pr.point_adjustment" +
+//                        "    , pre.reliable_ind " +
+//                        "    , pr.rating_order " +
+//                        // first we try get the awarded points from project_info (DR points type)
+//                        // then, we try to get it from comp_version_dates
+//                        // finally, we get it from project_info (Payments type)
+//                        // note: changing this affects loadDRContestResults method's query.
+//                        "    , NVL((select value from project_info pi_dr where pi_dr.project_info_type_id = 30 and pi_dr.project_id = p.project_id), " +
+//                        "          (select value from project_info pi_am where pi_am.project_info_type_id = 16 and pi_am.project_id = p.project_id)) as amount " +
+//                        "     , (select value from project_info where project_id = p.project_id and project_info_type_id = 26) as dr_ind " +
+//                        "     , p.project_category_id " +
+//                        "     ,case when ppd.actual_start_time is not null then ppd.actual_start_time else psd.actual_start_time end as posting_date " +
+//                        "     ,(cc.component_name || ' - ' || cv.version_text) as project_desc" +
+//                        "     ,nvl(pwa.actual_end_time, pwa.scheduled_end_time) as winner_announced" +
+//                        "     ,(select max(s.create_date) as submission_date from submission s, upload u where s.submission_type_id = 1 and s.upload_id = u.upload_id" +
+//                        "             and u.project_id = p.project_id" +
+//                        "             and u.resource_id = r.resource_id" +
+//                        "             and u.upload_status_id = 1" +
+//                        "             and u.upload_type_id = 1) as submission_date" +
+//                        "    from project_result pr" +
+//                        "       ,project p" +
+//                        "       ,project_info pi" +
+//                        "       ,comp_catalog cc " +
+//                        "       ,resource r " +
+//                        "       ,resource_info r1 " +
+//                        "       ,project_info pivers " +
+//                        "       ,comp_versions cv " +
+//                        "       ,outer resource_info r2 " +
+//                        "       ,outer project_phase psd " +
+//                        "       ,outer project_phase ppd " +
+//                        "       ,outer project_phase pwa " +
+//                        "       ,outer project_reliability pre " +
+//                        "    where p.project_id = pr.project_id " +
+//                        "   and p.project_id = pi.project_id " +
+//                        "   and pi.project_info_type_id = 2 " +
+//                        "   and r.project_id = p.project_id " +
+//                        "   and r.resource_role_id = 1 " + // make sure only submitter is joined
+//                        "   and r.resource_id = r1.resource_id " +
+//                        "   and r1.resource_info_type_id = 1 " +
+//                        "   and r1.value = pr.user_id " +
+//                        "   and r.resource_id = r2.resource_id " +
+//                        "   and r2.resource_info_type_id = 6 " +
+//                        "   and cc.component_id = pi.value " +
+//                        "   and pivers.project_id = p.project_id " +
+//                        "   and pivers.project_info_type_id = 1 " +
+//                        "   and pivers.value = cv.comp_vers_id " +
+//                        "   and pwa.project_id = p.project_id " +
+//                        "   and pwa.phase_type_id in  (6, 21)" + // winner announcement (appeals response end)
+//                        "   and psd.project_id = p.project_id " +
+//                        "   and psd.phase_type_id = 2 " +
+//                        "   and ppd.project_id = p.project_id " +
+//                        "   and ppd.phase_type_id = 1 " +
+//                        "   and pre.project_id = pr.project_id" +
+//                        "   and pre.user_id = pr.user_id";
 
         final String RESULT_INSERT =
                 "insert into project_result (project_id, user_id, submit_ind, valid_submission_ind, raw_score, final_score, inquire_timestamp," +
