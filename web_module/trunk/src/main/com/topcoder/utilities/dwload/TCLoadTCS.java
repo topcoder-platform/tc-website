@@ -1682,7 +1682,9 @@ public class TCLoadTCS extends TCLoad {
                             ",(CASE WHEN pire.value = 'true' THEN NVL((SELECT value::decimal FROM project_info pi38 WHERE pi38.project_id = p.project_id AND pi38.project_info_type_id = 38), 0) ELSE 0 END) as estimated_reliability_cost" +
 
                             // estimated_review_cost
-                            ",NVL((SELECT value::decimal FROM project_info pi33 WHERE pi33.project_id = p.project_id AND pi33.project_info_type_id = 33), 0) as estimated_review_cost" +
+                            ",(NVL((SELECT value::decimal FROM project_info pi33 WHERE pi33.project_id = p.project_id AND pi33.project_info_type_id = 33), 0) " +
+
+                            "+ NVL((SELECT value::decimal FROM project_info pi35 WHERE pi35.project_id = p.project_id AND pi35.project_info_type_id = 35), 0)) as estimated_review_cost" +
 
                             // estimated_copilot_cost
                             ",NVL((SELECT value::decimal FROM project_info pi49 WHERE pi49.project_id = p.project_id AND pi49.project_info_type_id = 49), 0) as estimated_copilot_cost" +
