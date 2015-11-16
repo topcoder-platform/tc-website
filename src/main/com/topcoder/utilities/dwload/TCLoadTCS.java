@@ -3507,9 +3507,18 @@ public class TCLoadTCS extends TCLoad {
                             resultInsert.setObject(12, projectResults.getObject("new_rating"));
                             resultInsert.setObject(13, projectResults.getObject("reliability_before_resolution"));
                             resultInsert.setObject(14, projectResults.getObject("reliability_after_resolution"));
-                            resultInsert.setObject(15, projectResults.getObject("placed"));
+
+                            Object placement = projectResults.getObject("placed");
+                            Object passedReviewInd = projectResults.getObject("passed_review_ind");
+
+                            if (placement == null && projectResults.getInt("project_category_id") == 38 &&
+                                    passedReviewInd != null && projectResults.getInt("passed_review_ind") == 1) {
+                                placement = new Integer(1);
+                            }
+
+                            resultInsert.setObject(15, placement);
                             resultInsert.setObject(16, projectResults.getObject("rating_ind"));
-                            resultInsert.setObject(17, projectResults.getObject("passed_review_ind"));
+                            resultInsert.setObject(17, passedReviewInd);
 
                             if (hasDR) {
                                 resultInsert.setDouble(18, pointsAwarded);
