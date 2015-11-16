@@ -518,7 +518,7 @@
                         <img alt="loading" src="i/loading-complete-icon.gif"
                              class="upload-image-sign upload-completed hide">
                         <span class="state">Uploading....</span>
-                        <span class="note">Please don’t close the browser until the file is uploaded</span>
+                        <span class="note">Please donï¿½t close the browser until the file is uploaded</span>
                     </div><!--
                      <div class="progress-bar">
                         <span class="left-corner"></span>
@@ -548,6 +548,14 @@
 <c:if test="${not isFinalFixUpload}">
 <div class="rank-submission-wrapper">
     <div class="rank-submission-note">
+
+        <c:if test="${demandWorkId != null}">
+            <h4>Submission Collaboration</h4>
+
+            <p>View feedback on your submissions and collaborate with the client.</p>
+            <p>Click <a href="https://work.${topLevelServerDomain}/projects/${demandWorkId}/submissions">here</a> to view feedback on your submissions and collaborate with the client.</p>
+            <br><br>
+        </c:if>
         <h4>Rank Your Submissions</h4>
 
         <p>In the table below you can rank your submissions.</p>

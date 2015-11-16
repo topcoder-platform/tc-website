@@ -5,7 +5,13 @@ package com.topcoder.web.studio.controller.request;
 
 import java.util.Date;
 
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.model.User;
@@ -80,6 +86,29 @@ public class ViewSubmission extends BaseSubmissionDataProcessor {
                 getRequest().setAttribute("has_global_ad", PactsServicesLocator.getService().
                     hasGlobalAD(getUser().getId()));
             }
+
+            DataAccess da = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+            Request r = new Request();
+            r.setContentHandle("project_name");
+            r.setProperty("tcdirectid", String.valueOf(contest.getTcDirectProjectId()));
+
+            ResultSetContainer directProjectResult = da.getData(r).get("project_name");
+
+            ResultSetContainer.ResultSetRow resultRow = directProjectResult.get(0);
+
+            if (resultRow != null && resultRow.getItem("demand_work_id") != null) {
+                getRequest().setAttribute("demandWorkId", resultRow.getStringItem("demand_work_id"));
+            }
+
+            String[] splits = ApplicationServer.SERVER_NAME.split(".");
+
+            String topLevelDomain = "topcoder.com";
+
+            if (splits != null && splits.length > 2) {
+                topLevelDomain = splits[splits.length - 2] + "." + splits[splits.length - 1];
+            }
+
+            getRequest().setAttribute("topLevelServerDomain", topLevelDomain);
 
             setDefault(Constants.CONTEST_ID, contestId.toString());
             setDefault(Constants.SUBMISSION_RANK, "1");
