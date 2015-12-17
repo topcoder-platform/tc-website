@@ -18,6 +18,10 @@
 
 <body>
 
+<script>
+        window.location = "https://www.topcoder.com/community/how-it-works/privacy-policy/";
+</script>
+
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
