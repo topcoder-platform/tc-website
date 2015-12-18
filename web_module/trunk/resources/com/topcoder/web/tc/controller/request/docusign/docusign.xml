@@ -204,6 +204,21 @@
                         <Value>long</Value>
                     </Property>
                     <Property name="value">
+                        <Value>21213</Value>
+                    </Property>
+                </Property>
+            </Property>
+        </Property>
+        <Property name="handlerForPfizerAgreement">
+            <Property name="type">
+                <Value>com.topcoder.web.tc.controller.request.docusign.handlers.TermsOfUseHandler</Value>
+            </Property>
+            <Property name="params">
+                <Property name="param1">
+                    <Property name="type">
+                        <Value>long</Value>
+                    </Property>
+                    <Property name="value">
                         <Value>21223</Value>
                     </Property>
                 </Property>
