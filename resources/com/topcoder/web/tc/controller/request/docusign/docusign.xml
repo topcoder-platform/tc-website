@@ -66,6 +66,9 @@
             <Property name="DOCUSIGN_TEMPLATE_ID_FOR_MEMBER_INDEPENDENCE_UK">
                 <Value>handlerForMemberIndependenceUKAgreement</Value>
             </Property>
+            <Property name="DOCUSIGN_TEMPLATE_ID_FOR_PFIZER">
+                <Value>handlerForPfizerAgreement</Value>
+            </Property>
         </Property>
     </Config>
     <Config name="com.topcoder.web.tc.controller.request.docusign.DocuSignCallback.handlers">
@@ -201,7 +204,7 @@
                         <Value>long</Value>
                     </Property>
                     <Property name="value">
-                        <Value>21213</Value>
+                        <Value>21223</Value>
                     </Property>
                 </Property>
             </Property>
