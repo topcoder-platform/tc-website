@@ -35,6 +35,10 @@ $(document).ready(function () {
 </head>
 
 <body>
+<script>
+        document.location = "https://www.topcoder.com/reset-password/"
+</script>
+
 	<div align="center" style="padding: 6px 0px 6px;">
 		<A href="/"><img src="/i/registration/tc-new-logo.png" alt="TopCoder" border="0" /> </A>
 	</div>
