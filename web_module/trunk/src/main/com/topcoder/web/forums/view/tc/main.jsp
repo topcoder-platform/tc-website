@@ -88,9 +88,6 @@
             <A href="?module=History" class="rtbcLink">My Post
                 History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User
             Settings</A><br/>
-            <div style="float:right; margin: 30px 0px 10px 10px;">
-                <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums"><img src="/i/roundTables/studioForums.png" alt="TopCoder Studio Forums" /></A>
-            </div>
         </td>
     </tr>
 </table>
