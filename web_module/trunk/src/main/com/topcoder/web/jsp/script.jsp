@@ -26,7 +26,6 @@
 <![endif]-->
 <script type="text/javascript" src="/js/reskin/jquery.jfeed.pack.js"></script>
 <script type="text/javascript" src="/js/reskin/newTCScript.js"></script>
-<% } %>
 
 <%-- KissMetrics Analytics --%>
 <script type="text/javascript">var _kmq = _kmq || [];
