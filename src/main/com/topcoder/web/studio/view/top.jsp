@@ -29,7 +29,7 @@ String section = request.getParameter("section") == null ? "" : request.getParam
 <!-- #header -->
 <div id="header">
     <div class="headerInner">
-        <h1><a href="http://studio.topcoder.com" title="Topcoder Studio"><img src="/i/v4/logo-topcoder-studio.png" alt="Topcoder Studio" /></a></h1>
+        <h1><a href="http://studio.topcoder.com" title="Topcoder Studio"><img src="/i/v4/new-logo-topcoder-studio.png" alt="Topcoder Studio" /></a></h1>
         <!-- #userPanel -->
         <div id="userPanel">
             <div class="userPanelR">
