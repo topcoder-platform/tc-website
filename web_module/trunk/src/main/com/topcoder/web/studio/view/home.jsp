@@ -260,19 +260,18 @@
                                         </div>
                                         <div id="member_stats">
                                             <span class="member_content special">won $10,525 in 15 challenges</span><br/><br/>
-                                            <span class="member_content special"><!--<a href="http://www.topcoder.com/news/2010/11/15/meet-the-october-coders-and-designers-of-the-month-2/">Read the interviews here.</a>--></span><br/><br/>
+                                            <span class="member_content special"> </span><br/><br/>
                                         </div>
                                     </div>
-								
-                                    <!-- member_content -->
+								 
                                     <div class="clear"></div>
                                 </div>
                             </div>
                             </div>
                         </div>
                         <br class="clear"/>
-                    </div><%-- end of home_content of bottom --%>
-                </div><%-- end of bottom_wrapper --%>
+                    </div> 
+                </div> 
                 -->
                 
             </div>

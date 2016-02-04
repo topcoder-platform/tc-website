@@ -67,7 +67,7 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                             Hello, <strong>Guest</strong> | <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Login">login</a> |<a class="redBtn social-login" href="javascript:;">Social login</a> |<a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a> | <a href="http://community.topcoder.com/studio/members/">Members</a> | <a href="http://community.topcoder.com/studio/help/">Studio Help</a> | <a href="http://www.topcoder.com/">About TopCoder</a>
                         </c:when>
                         <c:otherwise>
-                            Hello, <studio:handle coderId="${sessionInfo.userId}" styleClass="userLink" /> | <a href="http://community.topcoder.com/studio/help/">Studio Help</a> | <a href="/?module=MyStudioHome">My Studio</a> | <a href="https://community.topcoder.com/studio/members/">Members</a> | <a href="http://www.topcoder.com/">About TopCoder</a> | <a href="/?module=Logout">Log out</a>
+                            Hello, <studio:handle coderId="${sessionInfo.userId}" styleClass="userLink" /><!--| <a href="http://community.topcoder.com/studio/help/">Studio Help</a>--> | <a href="/?module=MyStudioHome">My Studio</a> | <!--<a href="https://community.topcoder.com/studio/members/">Members</a> |--> <a href="http://www.topcoder.com/">About TopCoder</a> | <a href="/?module=Logout">Log out</a>
                         </c:otherwise>
                     </c:choose>
                 </div>
@@ -92,6 +92,7 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                     <a href="/forums">Forums</a>
                 </span></span>
             </li>
+            <!--
             <li <% if (section.equals("howitworks")) {%> class="current"<% } %>>
                 <span class="navMenuR"><span class="navMenuC">
                     <a href="javascript:;">How it works</a>
@@ -159,16 +160,19 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                     </div>
                 </div>
             </li>
+            -->
             <li <% if (section.equals("blog")) {%> class="current"<% } %>>
                 <span class="navMenuR"><span class="navMenuC">
                     <a href="http://community.topcoder.com/studio/">Blog</a>
                 </span></span>
             </li>
+            <!--
             <li <% if (section.equals("portfolio")) {%> class="current"<% } %>>
                 <span class="navMenuR"><span class="navMenuC">
                     <a href="/?module=Static&amp;d1=portfolio&amp;d2=portfolio">Portfolio</a>
                 </span></span>
             </li>
+            -->
             <li <% if (section.equals("contact")) {%> class="current"<% } %>>
                 <span class="navMenuR"><span class="navMenuC">
                     <a href="/?module=Static&amp;d1=contactUs">Contact Studio</a>
