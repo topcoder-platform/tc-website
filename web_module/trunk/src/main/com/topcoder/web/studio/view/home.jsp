@@ -216,15 +216,20 @@
                             </div><%-- End of #active_contest --%>
                         </div>
                         </c:if>
+                        <%--
                         <div id="showcase">
                             <div id="showcase_head">
                                 <h1>DESIGN SHOWCASE</h1>
                             </div>
                             <div id="showcase_content">
-                            </div><%-- End of #showcase_content --%>
-                        </div><%-- End of showcase --%>
+                            </div> 
+                        </div>
+                        --%>
+                        
                     </div><%-- End of center_content --%>
                 </div><%-- End of .home_content --%>
+                
+                <!--
                 <div id="bottom_wrapper">
                     <div class="home_content">
                         <div id="bottom_part">
@@ -268,6 +273,8 @@
                         <br class="clear"/>
                     </div><%-- end of home_content of bottom --%>
                 </div><%-- end of bottom_wrapper --%>
+                -->
+                
             </div>
 
         </div><%-- #page-wrap ends --%>
