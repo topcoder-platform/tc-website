@@ -44,13 +44,12 @@
             </a>
         </div>
         <div class="nav">
-            <span class="copyright">Copyright TopCoder, Inc. 2001-2013</span>
-            <span class="line"></span><a href="http://studio.topcoder.com/?module=Static&d1=contactUs">Contact Us</a>
-            <span class="line"></span><a href="http://www.topcoder.com/home/studio/what-is-studio/">About TopCoder Studio</a>
-            <span class="line"></span><a href="http://www.topcoder.com/home/what-is-topcoder/">About TopCoder</a>
+            <span class="copyright">Copyright TopCoder, Inc. 2001-2016</span>
+            <span class="line"></span><a href="https://www.topcoder.com/contact-us">Contact Us</a> 
+            <span class="line"></span><a href="https://www.topcoder.com/about">About Us</a>
             <span class="line"></span><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=index">News</a>
-            <span class="line"></span><a href="http://community.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=privacy">Privacy Policy</a>
-            <span class="line"></span><a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=terms">Terms &amp; Conditions</a>
+            <span class="line"></span><a href="https://www.topcoder.com/community/how-it-works/privacy-policy/">Privacy Policy</a>
+            <span class="line"></span><a href="https://www.topcoder.com/community/how-it-works/terms/">Terms</a>
         </div>
 
     </div>
