@@ -12,6 +12,7 @@
 
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="java.util.Arrays" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -162,6 +163,14 @@
         <!--End .submission-list_bottom-->
     </div>
     <!--End .submission-list-wrapper-->
+    
+    <br class="clear"/>
+    <div class="button-line">
+        <a class="btn-blue btn-next" id="upload-browser-submit" href="https://<%=ApplicationServer.SERVER_NAME%>/challenges/${contest.id}/submit/file">
+        <span class="right-side"><span class="text">Submit Another</span></span>
+        </a>
+    </div>
+    
 
 </div>
 <!--End .rank-submission-wrapper-->
