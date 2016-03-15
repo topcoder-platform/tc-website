@@ -176,6 +176,8 @@
                         <ul class="submenu">
                             <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/members/" class="menu-link menu-link-community-members">OVERVIEW</a>
                             </li>
+                            <li class="submenu-item"><a href="http://tco16.topcoder.com" class="menu-link menu-link-community-tco16">TCO16</a>
+                            </li>
                             <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/member-programs/" class="menu-link menu-link-community-programs">PROGRAMS</a>
                             </li>
                             <li class="submenu-item"><a href="https://apps.<%=domainName%>/forums/" class="menu-link menu-link-community-forums" target="_blank">FORUMS</a>
