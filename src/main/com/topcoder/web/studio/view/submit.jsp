@@ -560,7 +560,7 @@
             <h4>Submission Collaboration</h4>
 
             <p>View feedback on your submissions and collaborate with the client.</p>
-            <p>Click <a href="https://work.${topLevelServerDomain}/projects/${demandWorkId}/submissions">here</a> to view feedback on your submissions and collaborate with the client.</p>
+            <p>Click <a href="https://connect.${topLevelServerDomain}/projects/${demandWorkId}/current-step">here</a> to view feedback on your submissions and collaborate with the client.</p>
             <br><br>
         </c:if>
         <h4>Rank Your Submissions</h4>
