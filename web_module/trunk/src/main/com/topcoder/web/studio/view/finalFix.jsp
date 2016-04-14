@@ -185,7 +185,7 @@
                                                 class="btnIcon">Upload Final Fixes</span></span></span></a>
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="${servletPath}?module=ViewUploadFinalFix&amp;${CONTEST_ID}=${contest.id}" 
+                                    <a href="${servletPath}?module=ViewUploadFinalFix&amp;${CONTEST_ID}=${contest.id}&amp;legacy=true" 
                                        class="btnStudioUploadFinalFixes">
                                         <span class="btnR"><span class="btnC"><span
                                                 class="btnIcon">Upload Final Fixes</span></span></span></a>
