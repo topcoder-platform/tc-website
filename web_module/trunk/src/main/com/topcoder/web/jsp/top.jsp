@@ -92,7 +92,7 @@
                         </div>
                         <div class="submenu">
                             <form action="https://<%=ApplicationServer.SERVER_NAME%>/search/members/" method="get">
-                                <input type="text" id="searchBox" placeholder="FIND MEMBERS BY USERNAME OR SKILL" name="q">
+                                <input type="text" id="searchBox" style="font-size: 12px"  placeholder="FIND MEMBERS BY USERNAME OR SKILL" name="q">
                                 <input type="submit"
                                        style="position: absolute; left: -9999px; width: 1px; height: 1px;"
                                        tabindex="-1" />
