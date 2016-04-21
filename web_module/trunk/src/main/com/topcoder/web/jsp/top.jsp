@@ -91,9 +91,9 @@
                             <button type="button" class="btn-expand-search search-icon"></button>
                         </div>
                         <div class="submenu">
-                            <form action="https://<%=ApplicationServer.SERVER_NAME%>/search" method="get">
-                                <input type="text" id="searchBox" placeholder="Find members" name="s">
-                                <input type="hidden" name="scope" value="member"/>
+                            <form action="https://<%=ApplicationServer.SERVER_NAME%>/search/members/" method="get">
+                                <input type="text" id="searchBox" placeholder="FIND MEMBERS BY USERNAME OR SKILL" name="q">
+                                <!-- <input type="hidden" name="scope" value="member"/> -->
                                 <input type="submit"
                                        style="position: absolute; left: -9999px; width: 1px; height: 1px;"
                                        tabindex="-1" />
