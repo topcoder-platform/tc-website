@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
 <loadDefinition>
     <parameterList>
-        <parameter name="path" value="/home/tc/web/scripts/sql/"/>
+        <parameter name="path" value="scripts/sql/"/>
     </parameterList>
     
     <sourcesList>
-    	<parameter name="tcs_catalog" value="jdbc:informix-sqli://env.topcoder.com:2021/tcs_catalog:INFORMIXSERVER=informixoltp_tcp;user=informix;password=1nf0rm1x" />
-      	<parameter name="tcs_dw" value="jdbc:informix-sqli://env.topcoder.com:2021/tcs_dw:INFORMIXSERVER=informixoltp_tcp;user=informix;password=1nf0rm1x" />
-    	<parameter name="topcoder_dw" value="jdbc:informix-sqli://env.topcoder.com:2021/topcoder_dw:INFORMIXSERVER=informixoltp_tcp;user=informix;password=1nf0rm1x" />
+        <parameter name="tcs_catalog" value="jdbc:informix-sqli://env.topcoder.com:2021/tcs_catalog:INFORMIXSERVER=informixoltp_tcp;user=informix;password=1nf0rm1x" />
+        <parameter name="tcs_dw" value="jdbc:informix-sqli://env.topcoder.com:2021/tcs_dw:INFORMIXSERVER=informixoltp_tcp;user=informix;password=1nf0rm1x" />
+        <parameter name="topcoder_dw" value="jdbc:informix-sqli://env.topcoder.com:2021/topcoder_dw:INFORMIXSERVER=informixoltp_tcp;user=informix;password=1nf0rm1x" />
+        <parameter name="common_oltp" value="jdbc:informix-sqli://env.topcoder.com:2021/common_oltp:INFORMIXSERVER=informixoltp_tcp;user=informix;password=1nf0rm1x" />
     </sourcesList>
 
 </loadDefinition>

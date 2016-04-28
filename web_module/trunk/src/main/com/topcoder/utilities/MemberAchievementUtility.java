@@ -56,9 +56,17 @@ import com.topcoder.shared.util.sql.DBUtility;
  * <li>Added computeEarnedDate method.</li>
  * </ul>
  * </p>
+ * 
+ * <p>
+ * Change log for version 1.4
+ * (TCS LOADER - IOS BADGES LOAD)
+ * <ul>
+ * <li>Added support for the rules in common_oltp database</li>
+ * </ul>
+ * </p>
  *
- * @author leo_lol, GreatKevin, TrePe
- * @version 1.3
+ * @author leo_lol, GreatKevin, TrePe, TCSDEVELOPER
+ * @version 1.4
  * @since 1.0 (Release Assembly - TopCoder Achievement System)
  */
 public class MemberAchievementUtility extends DBUtility {
@@ -118,6 +126,12 @@ public class MemberAchievementUtility extends DBUtility {
      * </p>
      */
     public static final String TOPCODER_DW = "topcoder_dw";
+    
+    /**
+     * Constants to define common_oltp database schema to operate on.
+     * @since 1.4
+     */
+    public static final String COMMON_OLTP = "common_oltp";
 
     /**
      * <p>
@@ -245,7 +259,8 @@ public class MemberAchievementUtility extends DBUtility {
                 // check schema validity
                 if (!TCS_CATALOG.equals(row.getDbSchema()) &&
                         !TCS_DW.equals(row.getDbSchema()) &&
-                        !TOPCODER_DW.equals(row.getDbSchema())) {
+                        !TOPCODER_DW.equals(row.getDbSchema()) &&
+                        !COMMON_OLTP.equals(row.getDbSchema())) {
                     throw new Exception("MemberAchievementUtility failed!\n" + 
                             "Unknown DB schema (" + row.getDbSchema() + ") used in user_achievement_rule table id " + row.getId());
                 }
