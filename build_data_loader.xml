@@ -68,7 +68,8 @@
     	<pathelement location="${log4j.jar}"/>
     	<pathelement location="${shared.jar}"/>
     	<pathelement location="${data.loader.dist}"/>
-        <pathelement location="resources"/>
+        <pathelement location="${build_classdir}"/>
+		<pathelement location="resources"/>
         <pathelement location="."/>
     </path>
 
@@ -77,7 +78,7 @@
         <echo message="${shared.jar}"/>
         <javac srcdir="${javamain}"
                destdir="${build_classdir}"
-               includes="${packagedir}/**/*.java"
+               includes="${packagedir}/**/*.java,com/topcoder/utilities/MemberAchievementUtility.java"
                excludes="${packagedir}/**/SiteCrawler.java,${packagedir}/dwload/cloudspokes/**/*.java,${packagedir}/**/ProcessJiraPayments.java"
                debug="true"
                nowarn="true"
@@ -164,7 +165,7 @@
             <arg value="-xmlfile"/>
             <arg value="scripts/dwload/loadAchievement.xml"/>
 			<arg value="-path"/>
-			<arg value="/home/tc/web/scripts/sql/"/>
+			<arg value="scripts/sql/"/>
 			<arg value="-number_of_records_to_populate_earned_date"/>
 			<arg value="-1"/>
 			<classpath refid="runtime.classpath" />
