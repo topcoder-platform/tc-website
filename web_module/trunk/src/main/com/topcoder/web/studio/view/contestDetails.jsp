@@ -151,7 +151,7 @@
                         screening for a small mistake in Round 1, you may still be eligible to submit to Round 2.</li>
                     <li>Every competitor with a passing Round 1 submission can submit to Round 2, even if they didn't
                         win a Checkpoint prize. </li>
-                    <li><a href="http://help.topcoder.com/design/submitting-to-a-design-challenge/multi-round-checkpoint-design-challenges/">Learn more here</a>.</li>
+                    <li><a href="http://help.topcoder.com/hc/en-us/categories/202610437-DESIGN">Learn more here</a>.</li>
                 </ul>
         </c:if>
         <c:if test="${not empty contestDescription}">
@@ -201,7 +201,7 @@
          <p class="paragraph">
             Watermarked comp photography from istockphoto.com is allowed in this challenge. You must follow these instructions or your submission will fail screening:
         <br><br>
-            1) You must declare your stock photos when submitting. <a href="http://help.topcoder.com/design/submitting-to-a-design-challenge/formatting-your-submission-for-design-challenges/" target="_blank">See how here.</a><br>
+            1) You must declare your stock photos when submitting. <a href="http://help.topcoder.com/hc/en-us/articles/219122667-Formatting-Your-Submission-for-Design-Challenges" target="_blank">See how here.</a><br>
             2) Only use photos, and only use them from iStockPhoto.com. Other iStockPhoto artwork (illustrations, icons, etc.) are not allowed.<br>
             3) Be sure to keep the watermark intact. If the photo is cropped in such a way that the watermark is not visible, please be sure to include the entire watermarked image in your source files so screeners can see that it is a comp image from iStockphoto.com.
          </p>
@@ -210,7 +210,7 @@
      <c:if test="${!contest.allowStockArt}">
          <p class="paragraph">
             Stock photography is not allowed in this challenge. All submitted elements must be designed solely by you.<br>
-            <a href="http://help.topcoder.com/design/design-copyright-and-font-policies/policy-for-stock-photos-in-design-submissions/">See this page for more details.</a>
+            <a href="http://help.topcoder.com/hc/en-us/articles/217481408-Policy-for-Stock-Artwork-in-Design-Submissions">See this page for more details.</a>
          </p>
         </c:if>
 
@@ -218,16 +218,16 @@
         <h5 class="contentTitle">How to Submit</h5>
         <p class="paragraph">
             <ul class="howToSubmit">
-                <li>New to Studio? <a href="http://help.topcoder.com/design/submitting-to-a-design-challenge/getting-started-in-design-challenges/" target="_blank">Learn how to compete
+                <li>New to Studio? <a href="http://help.topcoder.com/hc/en-us/articles/217481388-Choosing-a-Design-Challenge" target="_blank">Learn how to compete
                     here</a>.
                 </li>
                 <li>Upload your submission in three parts (<a
-                        href="http://help.topcoder.com/design/submitting-to-a-design-challenge/formatting-your-submission-for-design-challenges/" target="_blank">see this FAQs for
+                        href="http://help.topcoder.com/hc/en-us/articles/219122667-Formatting-Your-Submission-for-Design-Challenges" target="_blank">see this FAQs for
                     more information</a>). Your design should be finalized and should contain only a single design
                     concept (do not include multiple designs in a single submission).
                 </li>
                 <li>If your submission wins, your source files must be correct and
-                    "<a href="http://help.topcoder.com/design/submitting-to-a-design-challenge/design-final-fixes-policies/" target="_blank">Final Fixes</a>" (if
+                    "<a href="http://help.topcoder.com/hc/en-us/categories/202610437-DESIGN" target="_blank">Final Fixes</a>" (if
                     applicable) must be completed before payment can be released.
                 </li>
                 <li>You may submit as many times as you'd like during the submission phase, but only the number of files
@@ -352,13 +352,13 @@
                 </ul>
 
                 <p>Trouble formatting your submission or want to learn more?
-                    <a href="http://help.topcoder.com/design/submitting-to-a-design-challenge/formatting-your-submission-for-design-challenges/">Read this FAQs</a>.</p>
-		
-		<p><strong>Fonts:</strong><br> All fonts within your design must be declared when you submit. DO NOT <a style="white-space:nowrap;">include any font files in your submission</a><a style="white-space:nowrap;"> <br>or source files. </a><a href="http://help.topcoder.com/design/design-copyright-and-font-policies/font-policy-for-design-challenges/" style="white-space:nowrap;">Read the font policy here</a>.
+                    <a href="http://help.topcoder.com/hc/en-us/articles/219122667-Formatting-Your-Submission-for-Design-Challenges">Read this FAQs</a>.</p>
+
+                <p><strong>Fonts:</strong><br> All fonts within your design must be declared when you submit. DO NOT <a style="white-space:nowrap;">include any font files in your submission</a><a style="white-space:nowrap;"> <br>or source files. </a><a href="http://help.topcoder.com/hc/en-us/articles/217959447-Font-Policy-for-Design-Challenges" style="white-space:nowrap;">Read the font policy here</a>.
                 </p>
 
-		<p><strong>Screening:</strong><br>All submissions are screened for eligibility before the challenge holder picks winners. Don't let your hard work go to waste.<br> <a href="http://help.topcoder.com/design/the-screening-process-for-design-challenges/">Learn more about how to pass screening here</a>.
-		</p>
+                <p><strong>Screening:</strong><br>All submissions are screened for eligibility before the challenge holder picks winners. Don't let your hard work go to waste.<br> <a href="http://help.topcoder.com/hc/en-us/articles/217959577-How-to-Pass-Screening-in-Design-Challenges">Learn more about how to pass screening here</a>.
+                </p>
 
 		<p>Questions? <a href="http://studio.topcoder.com/forums?module=ThreadList&forumID=6">Ask in the Forums</a>.
 		</p>
