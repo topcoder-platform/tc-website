@@ -114,7 +114,7 @@
                 <ul class="submenu">
                     <li class="submenu-item"><a class="menu-link" href="https://<%=ApplicationServer.SERVER_NAME%>/sitemap">SITEMAP</a></li>
                     <li class="submenu-item"><a class="menu-link" href="https://<%=ApplicationServer.SERVER_NAME%>/about/">ABOUT US</a></li>
-                    <li class="submenu-item"><a class="menu-link" href="https://<%=ApplicationServer.SERVER_NAME%>/contact-us/">CONTACT US</a></li>
+                    <li class="submenu-item"><a class="menu-link" href="https://help.<%=domainName%>/hc/en-us/articles/219069687-Contact-Support">CONTACT US</a></li>
                     <li class="submenu-item"><a class="menu-link" href="https://help.<%=domainName%>/">HELP CENTER</a></li>
                     <li class="submenu-item"><a class="menu-link" href="https://<%=ApplicationServer.SERVER_NAME%>/community/how-it-works/privacy-policy/">PRIVACY POLICY</a></li>
                     <li class="submenu-item"><a class="menu-link" href="https://<%=ApplicationServer.SERVER_NAME%>/community/how-it-works/terms/">TERMS</a></li>
