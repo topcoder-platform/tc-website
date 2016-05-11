@@ -274,6 +274,7 @@
 							   <p class="<c:if test='${userImage!=null}'>hide</c:if>"><a href="javascript:;" id="submitPhotoLink" class="submitPhotoTrigger">Submit a photo</a></p>
                             <p class="<c:if test='${userImage==null}'>hide</c:if>"><a href="javascript:;" id="removePhotoLink">Remove photo</a></p>
                             <p>
+<%--
                                 <c:choose>
                                 <c:when test="${ regUser.secondEmailAddress == null }">
                                     <a href="/tc?module=AddSecondEmail">Add Secondary Email</a>
@@ -285,6 +286,7 @@
                                     <a href="#" onclick="javascript:$('#addfrm').submit();">Update Secondary Email</a>
                                 </c:otherwise>
                                 </c:choose>
+--%>
                             </p>
                             <p>
                                 <c:choose>
