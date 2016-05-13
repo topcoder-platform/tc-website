@@ -1,19 +1,25 @@
 package com.topcoder.web.common;
 
-import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.TCException;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.security.synchronizerToken.SynchronizerTokenPattern;
+import com.topcoder.web.common.security.synchronizerToken.SynchronizerTokenPatternConfig;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
+
+import static com.topcoder.web.common.security.synchronizerToken.SynchronizerTokenPatternConfig
+    .CONTEXT_ATTR_PATTERN_IMPL;
 
 public abstract class BaseProcessor implements RequestProcessor {
 
@@ -312,6 +318,101 @@ public abstract class BaseProcessor implements RequestProcessor {
      */
     public void rollback() {
  
+    }
+
+    /**
+     * <p>Verifies that the current request does not represent a potential CSRF attack. Checks if request follows the
+     * <code>Synchronizer Token Pattern</code> and provides appropriate synchronizer token which is valid for current
+     * session and requested type of operation.</p>
+     * 
+     * @param operationType a <code>String</code> specifying the type of "protected" operation mapped to current
+     *        request.
+     * @throws TCException if request presents a potential CSRF attack. 
+     * @throws IllegalStateException if there is no active session.       
+     */
+    protected void preventCSRFAttack(String operationType) throws TCException {
+        HttpSession session = getRequest().getSession(false);
+        if (session == null) {
+            throw new IllegalStateException("There is no active session");
+        } else {
+            TCRequest request = getRequest();
+            if (SynchronizerTokenPatternConfig.checkReferrer()) {
+                String referrer = request.getHeader("Referer");
+                if (referrer != null) {
+                    String expectedReferrer = request.getScheme() + "://" + request.getServerName() +
+                        (request.getServerPort() == 80 ? "" : ":" + request.getServerPort()) + "/";
+                    if (!referrer.startsWith(expectedReferrer)) {
+                        handlePotentialCSRFAttack("Wrong 'Referer' header: " + referrer, operationType);
+                    }
+                }
+            }
+            if (SynchronizerTokenPatternConfig.checkOrigin()) {
+                String origin = request.getHeader("Origin");
+                if (origin != null) {
+                    String expectedOrigin = request.getScheme() + "://" + request.getServerName() +
+                        (request.getServerPort() == 80 ? "" : ":" + request.getServerPort());
+                    if (!origin.equals(expectedOrigin)) {
+                        handlePotentialCSRFAttack("Wrong 'Origin' header: " + origin, operationType);
+                    }
+                }
+            }
+
+            ServletContext servletContext = session.getServletContext();
+            SynchronizerTokenPattern synchronizerTokenPattern
+                = (SynchronizerTokenPattern) servletContext.getAttribute(CONTEXT_ATTR_PATTERN_IMPL);
+            boolean valid = synchronizerTokenPattern.validateSynchronizerToken(getRequest(), operationType);
+            if (!valid) {
+                handlePotentialCSRFAttack("Wrong synchronizer token", operationType);
+            }
+        }
+    }
+
+    /**
+     * <p>Handles the case when potential CSRF attack is detected. Logs the details on current request and invalidates
+     * the current session.</p>
+     * 
+     * @param details a <code>String</code> providing the details.
+     * @param operationType a <code>String</code> specifying the type of "protected" operation mapped to current
+     *        request.
+     * @throws TCException always.
+     */
+    private void handlePotentialCSRFAttack(String details, String operationType) throws TCException {
+        TCRequest request = getRequest();
+        StringBuilder requestDetails = new StringBuilder();
+        
+        requestDetails.append("\n");
+        requestDetails.append("METHOD: ").append(request.getMethod()).append("\n");
+        requestDetails.append("URL: ").append(request.getRequestURL()).append("\n");
+        requestDetails.append("Remote User: ").append(request.getRemoteUser()).append("\n");
+        requestDetails.append("Remote Host: ").append(request.getRemoteHost()).append("\n");
+        requestDetails.append("Remote Port: ").append(request.getRemotePort()).append("\n");
+        requestDetails.append("Remote Addr: ").append(request.getRemoteAddr()).append("\n");
+        Enumeration headerNames = request.getHeaderNames();
+        if (headerNames != null) {
+            requestDetails.append("HEADERS: ").append("\n");
+            while (headerNames.hasMoreElements()) {
+                String headerName = (String) headerNames.nextElement();
+                requestDetails.append("    ").append(headerName).append(": ").append(request.getHeader(headerName)).append("\n");
+            }
+        } 
+        
+        Enumeration parameterNames = request.getParameterNames();
+        if (parameterNames != null) {
+            requestDetails.append("PARAMETERS: ").append("\n");
+            while (parameterNames.hasMoreElements()) {
+                String paramName = (String) parameterNames.nextElement();
+                requestDetails.append("    ").append(paramName).append(": ").append(request.getParameter(
+                    paramName)).append("\n");
+            }
+        }
+
+        log.error("Potential CSRF attack detected for " + operationType + " operation. Details: " + details
+            + ". Request: " + requestDetails);
+        
+        HttpSession session = getRequest().getSession(false);
+        session.invalidate();
+        
+        throw new TCException("Invalid request. Potential CSRF attack.");
     }
 }
 
