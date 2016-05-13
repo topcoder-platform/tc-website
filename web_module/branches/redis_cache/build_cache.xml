@@ -22,6 +22,7 @@
     <property name="conf" value="conf"/>
     <property name="shared.jar" value="${bin}/shared.jar"/>
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+    <property name="tccache.jar" value="${jars.dir}/tcs/tc_cache/1.0.0/tc_cache.jar"/>
     <property name="web" value="src/main/com/topcoder/web"/>
     <property name="jboss_home" value="${env.JBOSS_HOME}"/>
     <property name="jboss_deploy" value="${jboss_home}/server/cache/deploy"/>
@@ -105,6 +106,9 @@
         <copy todir="${jboss_lib}" file="${ejb_jars}/security.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/jboss/jgroups.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/jboss/jboss-cache.jar"/>
+        <copy todir="${jboss_lib}" file="${tccache.jar}"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/jedis-2.8.1.jar" />
+        <copy todir="${jboss_lib}" file="${jars.dir}/commons-pool2-2.4.2.jar" />
         
 
 

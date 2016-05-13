@@ -26,6 +26,7 @@
     <property name="jboss_conf" value="${jboss_home}/server/winformula/conf"/>
     <property name="testjava" value="${src.dir}/testcases"/>
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+    <property name="tccache.jar" value="${jars.dir}/tcs/tc_cache/1.0.0/tc_cache.jar"/>
     <property name="build.javadocs" value="${build}/javadocs"/>
 
     <property name="deprecation" value="true"/>
@@ -42,6 +43,7 @@
         <pathelement location="${resources}"/>
         <pathelement location="${resources}/hibernate"/>
         <pathelement location="${shared.jar}"/>
+        <pathelement location="${tccache.jar}"/>
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
         <pathelement location="${jars.dir}/activation.jar"/>
@@ -262,6 +264,9 @@
             </copy>
             <copy todir="${tools.dir}/lib" file="${bin}/shared.jar"/>
             <copy todir="${tools.dir}/lib" file="${bin}/tcwebcommon.jar"/>
+            <copy todir="${tools.dir}/lib" file="${tccache.jar}"/>
+            <copy todir="${tools.dir}/lib" file="${jars.dir}/jedis-2.8.1.jar" />
+            <copy todir="${tools.dir}/lib" file="${jars.dir}/commons-pool2-2.4.2.jar" />
         
             <copy todir="${tools.dir}/lib" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
             <copy todir="${tools.dir}/lib" file="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
@@ -298,6 +303,10 @@
     <target name="expand">
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
+        <copy todir="${jboss_lib}" file="${tccache.jar}"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/jedis-2.8.1.jar" />
+        <copy todir="${jboss_lib}" file="${jars.dir}/commons-pool2-2.4.2.jar" />
+
         <copy todir="${jboss_lib}" file="${bin}/tcjive.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/winformula.jar"/>
         <copy todir="${jboss_lib}">

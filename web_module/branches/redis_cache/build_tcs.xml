@@ -25,6 +25,7 @@
     <property name="shared.src.dir" value="../shared/src/main"/>
     <property name="shared.jar" value="${bin.dir}/shared.jar"/>
     <property name="common.jar" value="${bin.dir}/tcwebcommon.jar"/>
+    <property name="tccache.jar" value="${jars.dir}/tcs/tc_cache/1.0.0/tc_cache.jar"/>
     <property name="struts.lib.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
     <property name="shared.build" value="${basedir}/../shared"/>
     <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
@@ -42,6 +43,7 @@
 
     <path id="class.path">
         <pathelement location="${shared.jar}"/>
+        <pathelement location="${tccache.jar}"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
         <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
@@ -191,6 +193,11 @@
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
+                <include name="jedis-2.8.1.jar" />
+                <include name="commons-pool2-2.4.2.jar" />
+            </lib>
+            <lib dir="${jars.dir}/tcs/tc_cache/1.0.0">
+                <include name="tc_cache.jar"/>
             </lib>
             <!-- temp fix until we figure out why the war isn't finding these classes from the jboss lib dir -->
             <lib dir="${bin.dir}">
@@ -459,6 +466,15 @@
                 <include name="tcwebcommon.jar"/>
             </fileset>
         </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/tc_cache/1.0.0">
+                <include name="tc_cache.jar"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/jedis-2.8.1.jar" />
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/commons-pool2-2.4.2.jar" />
+
         <copy todir="${jboss.lib.dir}" file="${jars.dir}/jboss/jgroups.jar"/>
         <copy todir="${jboss.lib.dir}" file="${jars.dir}/jboss/jboss-cache.jar"/>
 
@@ -565,6 +581,14 @@
             <lib dir="${bin.dir}">
                 <include name="shared.jar"/>
                 <include name="tcwebcommon.jar"/>
+            </lib>
+            <lib dir="${jars.dir}/tcs/tc_cache/1.0.0">
+                <include name="tc_cache.jar"/>
+            </lib>
+
+            <lib dir="${jars.dir}">
+                <include name="jedis-2.8.1.jar" />
+                <include name="commons-pool2-2.4.2.jar" />
             </lib>
 
         </war>
