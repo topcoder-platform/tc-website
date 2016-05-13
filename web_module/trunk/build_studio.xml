@@ -27,6 +27,7 @@
     <property name="jboss_conf" value="${jboss_home}/server/default/conf"/>
     <property name="testjava" value="${src.dir}/testcases"/>
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+    <property name="tccache.jar" value="${jars.dir}/tcs/tc_cache/1.0.0/tc_cache.jar"/>
     <property name="build.javadocs" value="${build}/javadocs"/>
 
     <property name="deprecation" value="false"/>
@@ -75,6 +76,7 @@
         <pathelement location="${resources}"/>
         <pathelement location="${resources}/hibernate"/>
         <pathelement location="${shared.jar}"/>
+        <pathelement location="${tccache.jar}"/>
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
         <pathelement location="${jars.dir}/activation.jar"/>
@@ -408,7 +410,11 @@
         <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/default/deploy/studio.war/" overwrite="yes"/>
         <delete dir="${jboss_home}/server/default/deploy/studio.war/META-INF"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
-<!--        <copy todir="${jboss_deploy}" file="${ejb_jars}/Project.jar"/>
+        <copy todir="${jboss_lib}" file="${tccache.jar}"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/jedis-2.8.1.jar" />
+        <copy todir="${jboss_lib}" file="${jars.dir}/commons-pool2-2.4.2.jar" />
+
+        <!--        <copy todir="${jboss_deploy}" file="${ejb_jars}/Project.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/User.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/TermsOfUse.jar"/>-->
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
@@ -430,6 +436,10 @@
     <target name="expand-studio">
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
+        <copy todir="${jboss_lib}" file="${tccache.jar}"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/jedis-2.8.1.jar" />
+        <copy todir="${jboss_lib}" file="${jars.dir}/commons-pool2-2.4.2.jar" />
+
         <copy todir="${jboss_lib}" file="${bin}/tcjive.jar"/>
         <copy todir="${jboss_lib}" file="${ejb_jars}/security.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>

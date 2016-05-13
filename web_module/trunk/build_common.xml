@@ -18,6 +18,7 @@
     <property name="resources" value="resources"/>
     <property name="shared.jar" value="${bin}/shared.jar"/>
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+    <property name="tccache.jar" value="${jars.dir}/tcs/tc_cache/1.0.0/tc_cache.jar"/>
     <property name="web" value="src/main/com/topcoder/web"/>
 
     <property name="deprecation" value="false"/>
@@ -42,6 +43,7 @@
 
     <path id="class.path">
         <pathelement location="${shared.jar}"/>
+        <pathelement location="${tccache.jar}"/>
         <pathelement location="${external.jars.dir}/hibernate-3.2.5.jar"/>
         <pathelement location="${external.jars.dir}/hibernate-commons-annotations-3.3.0.jar"/>
         <pathelement location="${external.jars.dir}/hibernate-annotations-3.3.0.jar"/>
@@ -72,6 +74,9 @@
 		<pathelement location="${jars.dir}/commons-collections-3.2.jar"/>
 		<pathelement location="${jars.dir}/commons-beanutils-1.8.0.jar"/>
 		<pathelement location="${jars.dir}/super-csv-2.1.0.jar"/>
+
+		<pathelement location="${jars.dir}/jedis-2.8.1.jar" />
+		<pathelement location="${jars.dir}/commons-pool2-2.4.2.jar" />
 		
     	<path refid="openid4java.path" />
         <pathelement location="${jars.dir}/tcs/terms_of_use/1.1.0/terms_of_use.jar"/>
