@@ -21,6 +21,7 @@
     <property name="jboss_conf" value="${jboss_home}/server/default/conf"/>
     <property name="testjava" value="${src.dir}/testcases"/>
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+    <property name="tccache.jar" value="${jars.dir}/tcs/tc_cache/1.0.0/tc_cache.jar"/>
     <property name="build.javadocs" value="${build}/javadocs"/>
     <property name="shared.build" value="${basedir}/../shared"/>
     <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
@@ -245,6 +246,10 @@
     <target name="expand-csf">
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
+        <copy todir="${jboss_lib}" file="${tccache.jar}"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/jedis-2.8.1.jar" />
+        <copy todir="${jboss_lib}" file="${jars.dir}/commons-pool2-2.4.2.jar" />
+
         <copy todir="${jboss_lib}" file="${bin}/tcjive.jar"/>
         <copy todir="${jboss_lib}" file="${ejb_jars}/security.jar"/>
         <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>

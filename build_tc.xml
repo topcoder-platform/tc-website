@@ -29,6 +29,7 @@
     <property name="images" value="images"/>
     <property name="shared.jar" value="${bin}/shared.jar"/>
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+    <property name="tccache.jar" value="${jars.dir}/tcs/tc_cache/1.0.0/tc_cache.jar"/>
     <property name="long.jar" value="${bin}/long.jar"/>
     <property name="web" value="src/main/com/topcoder/web"/>
     <property name="jboss_home" value="${env.JBOSS_HOME}"/>
@@ -91,6 +92,7 @@
     <path id="class.path">
         <pathelement location="${classes}"/>
         <pathelement location="${shared.jar}"/>
+        <pathelement location="${tccache.jar}"/>
         <pathelement location="${testclasses}"/>
         <pathelement location="${resources}"/>
         <pathelement location="${resources}/hibernate"/>
@@ -811,6 +813,8 @@
             </fileset>
         </copy>
         <copy todir="${jboss_lib}" file="${shared.jar}"/>
+        <copy todir="${jboss_lib}" file="${tccache.jar}"/>
+
         <copy todir="${jboss_lib}">
             <fileset dir="${jars.dir}">
                 <include name="ifxjdbc.jar"/>
@@ -820,6 +824,8 @@
                 <include name="fileconvert.jar"/>
                 <include name="httpunit.jar"/>
                 <include name="itext-1.1.jar"/>
+                <include name="jedis-2.8.1.jar" />
+                <include name="commons-pool2-2.4.2.jar" />
                 <!-- don't deploy this on the main site anymore
                 <include name="tc.jar"/>
                 <include name="TestServices.jar"/>

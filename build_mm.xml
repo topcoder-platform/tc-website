@@ -27,6 +27,7 @@
     <property name="images" value="images"/>
     <property name="shared.jar" value="${bin}/shared.jar"/>
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+    <property name="tccache.jar" value="${jars.dir}/tcs/tc_cache/1.0.0/tc_cache.jar"/>
     <property name="long.jar" value="${bin}/long.jar"/>
     <property name="web" value="src/main/com/topcoder/web"/>
     <property name="jboss_home" value="${env.JBOSS_HOME}"/>
@@ -45,6 +46,7 @@
     <path id="class.path">
         <pathelement location="${classes}"/>
         <pathelement location="${shared.jar}"/>
+        <pathelement location="${tccache.jar}"/>
         <pathelement location="${testclasses}"/>
         <pathelement location="${resources}"/>
         <pathelement location="${resources}/hibernate"/>
@@ -203,6 +205,8 @@
                 <include name="tc.jar"/>
                 <include name="TestServices.jar"/>
                 <include name="asyncservices.jar"/>
+                <include name="jedis-2.8.1.jar" />
+                <include name="commons-pool2-2.4.2.jar" />
             </lib>
 
             <lib dir="${bin}">
@@ -211,6 +215,9 @@
 copy in the classpath
                 <include name="shared.jar"/>
 -->
+            </lib>
+            <lib dir="${jars.dir}//tcs/tc_cache/1.0.0">
+                <include name="tc_cache.jar"/>
             </lib>
             <lib dir="${external.jars.dir}">
                 <include name="object_formatter-1.0.jar"/>
@@ -257,6 +264,9 @@ copy in the classpath
         <!-- these jars are needed by the ejb's.  really we should build a web app that contains these libs -->
         <copy todir="${jboss_lib}" file="${shared.jar}"/>
         <copy todir="${jboss_lib}" file="${common.jar}"/>
+        <copy todir="${jboss_lib}" file="${tccache.jar}"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/jedis-2.8.1.jar" />
+        <copy todir="${jboss_lib}" file="${jars.dir}/commons-pool2-2.4.2.jar" />
         <copy todir="${jboss_lib}" file="${external.jars.dir}/id_generator-3.0.0.jar"/>
         <copy todir="${jboss_lib}" file="${external.jars.dir}/base_exception-2.0.0.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/jackson/1.9.7/jackson-core-asl.jar"/>

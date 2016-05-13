@@ -21,6 +21,7 @@
     <property name="images" value="images"/>
     <property name="shared.jar" value="${bin}/shared.jar"/>
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+    <property name="tccache.jar" value="${jars.dir}/tcs/tc_cache/1.0.0/tc_cache.jar"/>
     <property name="web" value="src/main/com/topcoder/web"/>
     <property name="jboss_home" value="/home/distui/jboss-4.2.0.GA"/>
     <property name="jboss_deploy" value="${jboss_home}/server/distui/deploy"/>
@@ -167,10 +168,16 @@
                 <include name="standard.jar"/>
                 <include name="taconite.jar"/>
                 <include name="object_formatter.jar"/>
+                <include name="jedis-2.8.1.jar" />
+                <include name="commons-pool2-2.4.2.jar" />
+
             </lib>
             <lib dir="${bin}">
                 <include name="shared.jar"/>
                 <include name="tcwebcommon.jar"/>
+            </lib>
+            <lib dir="${jars.dir}//tcs/tc_cache/1.0.0">
+                <include name="tc_cache.jar"/>
             </lib>
 <!--
             <lib dir="${ejb_jars}">

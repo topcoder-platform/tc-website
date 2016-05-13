@@ -23,6 +23,7 @@
     <property name="images" value="images"/>
     <property name="shared.jar" value="${bin}/shared.jar"/>
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+    <property name="tccache.jar" value="${jars.dir}/tcs/tc_cache/1.0.0/tc_cache.jar"/>
     <property name="shared.build" value="${basedir}/../shared"/>
     <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
     <property name="web" value="src/main/com/topcoder/web"/>
@@ -46,6 +47,7 @@
         <pathelement location="${resources}"/>
         <pathelement location="${resources}/hibernate"/>
         <pathelement location="${shared.jar}"/>
+        <pathelement location="${tccache.jar}"/>
         <pathelement location="${images}"/>
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
@@ -417,6 +419,9 @@
 
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${common.jar}"/>
+        <copy todir="${jboss_lib}" file="${tccache.jar}"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/jedis-2.8.1.jar" />
+        <copy todir="${jboss_lib}" file="${jars.dir}/commons-pool2-2.4.2.jar" />
         <copy todir="${jboss_lib}" file="${jars.dir}/tcjive.jar"/>
 
     </target>
