@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="DocuSignEnvelope" table="docusign_envelope">
+        <id name="envelopeId" column="docusign_envelope_id" access="field"/>
+        <property name="templateId" column="docusign_template_id" access="field"/>
+        <property name="userId" column="user_id" access="field"/>
+        <property name="completed" type="boolean" column="is_completed" access="field"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<CMConfig>
+    <Config name="com.topcoder.web.tc.controller.request.contest.ActiveContests">
+        <Property name="ValidProjectTypes">
+            <!--Value>1</Value--> <!-- DESIGN_PROJECT_TYPE -->
+            <!--Value>2</Value--> <!-- DEVELOPMENT_PROJECT_TYPE -->
+            <!--Value>5</Value--> <!-- COMPONENT_TESTING_PROJECT_TYPE -->
+            <Value>7</Value> <!-- ARCHITECTURE_PROJECT_TYPE -->
+            <Value>23</Value> <!-- CONCEPTUALIZATION_PROJECT_TYPE -->
+            <Value>6</Value> <!-- SPECIFICATION_PROJECT_TYPE -->
+            <Value>13</Value> <!-- TEST_SUITES_PROJECT_TYPE -->
+            <Value>14</Value> <!-- ASSEMBLY_PROJECT_TYPE -->
+            <Value>19</Value> <!-- UI_PROTOTYPE_PROJECT_TYPE -->
+            <Value>24</Value> <!-- RIA_BUILD_PROJECT_TYPE -->
+            <Value>25</Value> <!-- RIA_COMPONENT_PROJECT_TYPE -->
+            <Value>26</Value> <!-- TEST_SCENARIOS_PROJECT_TYPE -->
+            <Value>29</Value> <!-- COPILOT_POSTING_PROJECT_TYPE -->
+        </Property>
+    </Config>
+</CMConfig>

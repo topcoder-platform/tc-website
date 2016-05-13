@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jboss PUBLIC "-//JBoss//DTD JBOSS 4.0//EN"
+   "http://www.jboss.org/j2ee/dtd/jboss_4_0.dtd">
+
+<jboss>
+    <enterprise-beans>
+        <session>
+            <ejb-name>Company</ejb-name>
+            <jndi-name>com.topcoder.web.ejb.company.CompanyHome</jndi-name>
+            <resource-ref>
+                <res-ref-name>jts_datasource_name</res-ref-name>
+                <resource-name>jts_datasource_name</resource-name>
+            </resource-ref>
+            <resource-ref>
+                <res-ref-name>datasource_name</res-ref-name>
+                <resource-name>datasource_name</resource-name>
+            </resource-ref>
+        </session>
+    </enterprise-beans>
+    <resource-managers>
+        <resource-manager res-class="">
+            <res-name>jts_datasource_name</res-name>
+            <res-jndi-name>java:JTS_CORP_DS</res-jndi-name>
+        </resource-manager>
+        <resource-manager res-class="">
+            <res-name>datasource_name</res-name>
+            <res-jndi-name>java:CORP_DS</res-jndi-name>
+        </resource-manager>
+    </resource-managers>
+
+</jboss>

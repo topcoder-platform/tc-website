@@ -1,0 +1,21 @@
+<server>
+    <!--
+     Configuration for schedulable task to be run for synchronizing the entries in LDAP
+     directory and records in user database table.
+
+     depends - this element must list the MBean managing the data source for target database
+     SchedulableArguments - this element must provide the JNDI name for datasource to be used for
+                            obtaining connections to target database
+     SchedulePeriod - interval in milliseconds between the taks repetitions
+    -->
+    <mbean code="org.jboss.varia.scheduler.Scheduler" name="jboss.ldap.db.synchronization:service=Scheduler">
+        <depends>jboss.jca:service=DataSourceBinding,name=DS</depends>
+        <attribute name="StartAtStartup">true</attribute>
+        <attribute name="SchedulableClass">com.topcoder.security.ldap.sync.LDAPDBUserDataSynchronizationTask</attribute>
+        <attribute name="SchedulableArguments">java:DS</attribute>
+        <attribute name="SchedulableArgumentTypes">java.lang.String</attribute>
+        <attribute name="InitialStartDate">NOW</attribute>
+        <attribute name="SchedulePeriod">300000</attribute>
+        <attribute name="InitialRepetitions">-1</attribute>
+    </mbean>
+</server>
