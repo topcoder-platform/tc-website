@@ -1,0 +1,4 @@
+database studio_oltp; 
+
+insert into contest (contest_id, name, start_time, end_time, contest_status_id, forum_id, event_id, project_id, contest_channel_id, contest_type_id, tc_direct_project_id, create_user_id, winner_announcement_time, contest_detailed_status_id, launch_immediately, deleted)
+values (2041, "TopCoder The Digital Run Logo", current - 10 units day, current - 5 units day, 2, 18, null, null, 3, 3, null, 22656806, null, null, null, null);

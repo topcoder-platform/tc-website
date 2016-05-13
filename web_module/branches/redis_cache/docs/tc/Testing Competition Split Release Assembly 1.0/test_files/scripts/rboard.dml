@@ -1,0 +1,18 @@
+database tcs_catalog;
+
+-- Test review boards setup:
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (124764, 13, 4, 100, 1); -- Hung, Test Suites
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (132458, 13, 4, 100, 1); -- user, Test Suites
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (124772, 13, 4, 100, 1); -- Partha, Test Suites
+
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (124764, 26, 4, 100, 1); -- Hung, Test Scenarios
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (132458, 26, 4, 100, 1); -- user, Test Scenarios
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (124766, 26, 4, 100, 1); -- twight, Test Scenarios
+
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (124776, 13, 4, 100, 1); -- sandking, Test Suites
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (124776, 26, 4, 100, 1); -- sandking, Test Scenarios
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (124861, 13, 4, 100, 1); -- ksmith, Test Suites
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (124861, 26, 4, 100, 1); -- ksmith, Test Scenarios
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (124916, 13, 4, 100, 1); -- Yoshi, Test Suites
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (124916, 26, 4, 100, 1); -- Yoshi, Test Scenarios
+
