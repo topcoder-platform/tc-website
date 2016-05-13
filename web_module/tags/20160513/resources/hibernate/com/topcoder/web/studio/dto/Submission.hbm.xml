@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.studio.dto" auto-import="false">
+
+    <class name="Submission" table="submission" >
+        <id name="id" column="submission_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">submission_id_seq</param>
+                <param name="return_class">java.lang.Integer</param>
+            </generator>
+        </id>
+		<property name="statusId" column="submission_status_id" access="field"/>
+		<property name="typeId" column="submission_type_id" access="field"/>
+		<property name="createDate" column="create_date" />
+		<property name="createUser" column="create_user" />
+		<property name="modifyDate" column="modify_date" />
+		<property name="modifyUser" column="modify_user" />			
+		<property name="fileSize" column="file_size" />
+		<property name="viewCount" column="view_count" />
+		<property name="rank" column="user_rank" />
+		<property name="finalScore" column="final_score" />
+		<property name="placement" />
+
+		<many-to-one name="upload" column="upload_id" class="Upload" cascade="all" />
+		<many-to-one name="prize" column="prize_id" class="Prize" cascade="none" />
+
+		<set name="resourceSubmission" inverse="true" cascade="all">
+            <key column="submission_id" not-null="true"/>
+            <one-to-many class="ResourceSubmission"/>
+        </set>
+                       
+		<set name="images" sort="natural" inverse="true" cascade="all">
+            <key column="submission_id" not-null="true"/>
+            <one-to-many class="SubmissionImage"/>
+        </set>
+
+		<one-to-one name="declaration" class="SubmissionDeclaration" cascade="all" property-ref="submission"/>
+    </class>
+</hibernate-mapping>

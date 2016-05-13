@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<userDataLDAPMigrationTool>
+    <sourcesList>
+        <source name="MemberData"
+                value="jdbc:informix-sqli://env.topcoder.com:2021/common_oltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=c0d3r4T"/>
+    </sourcesList>
+    <parameterList>
+    </parameterList>
+</userDataLDAPMigrationTool>

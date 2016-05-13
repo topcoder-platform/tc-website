@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<applyRBoardRules>
+    <sourcesList>
+        <source name = "tcs_catalog" value = "jdbc:informix-sqli://192.168.14.53:2020/tcs_catalog:INFORMIXSERVER=informixoltp_tcp;user=coder;password=password"/>
+    </sourcesList>
+
+    <onlyAnalyze>false</onlyAnalyze>
+
+    <minEvents>4</minEvents>
+
+    <K1>6</K1>
+
+    <K2>1</K2>
+
+    <defaultRating>100</defaultRating>
+
+    <parameterList>
+    </parameterList>
+</applyRBoardRules>
