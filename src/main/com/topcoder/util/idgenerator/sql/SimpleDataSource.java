@@ -5,12 +5,20 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 /**
  * The <code>DataSource</code> implementation that uses <code>DriverManager</code>.
  *
- * @version     1.0
- * @author      Timur Zambalayev
+ *
+ * <p>
+ * Version 1.1 (TOPCODER - UPDATE BUILD SCRIPTS TO USE TOPCODER CACHE CLIENT MODULE) Change notes:
+ *   <ol>
+ *     <li>Added default implementation for methods introduced with JRE 1.7</li>
+ *   </ol>
+ * </p>
+ * @version     1.1
+ * @author      Timur Zambalayev, isv
  */
 public class SimpleDataSource implements DataSource {
 
@@ -59,4 +67,37 @@ public class SimpleDataSource implements DataSource {
         DriverManager.setLoginTimeout(seconds);
     }
 
+    // for jdk 1.7
+
+    /**
+     * <p>Return the parent Logger of all the Loggers used by this data source.</p>
+     *
+     * @return the parent Logger for this data source.
+     * @since 1.1
+     */
+    public final Logger getParentLogger() {
+        return Logger.getLogger(SimpleDataSource.class.getName());
+    }
+
+    /**
+     * <p>Returns true if this either implements the interface argument or is directly or indirectly a wrapper for an
+     * object that does. Returns false otherwise.</p>
+     *
+     * @return true always.
+     * @since 1.1
+     */
+    public boolean isWrapperFor(Class<?> ignored) {
+        return true;
+    }
+
+    /**
+     * <p>Returns an object that implements the given interface to allow access to
+     * non-standard methods, or standard methods not exposed by the proxy.</p>
+     * 
+     * @return null always.
+     * @since 1.1
+     */
+    public <T> T unwrap(Class<T> ignored) {
+        return (T) null;
+    }
 }
