@@ -392,7 +392,9 @@ public abstract class BaseProcessor implements RequestProcessor {
             requestDetails.append("HEADERS: ").append("\n");
             while (headerNames.hasMoreElements()) {
                 String headerName = (String) headerNames.nextElement();
-                requestDetails.append("    ").append(headerName).append(": ").append(request.getHeader(headerName)).append("\n");
+                if (!"cookie".equalsIgnoreCase(headerName)) {
+                    requestDetails.append("    ").append(headerName).append(": ").append(request.getHeader(headerName)).append("\n");
+                }
             }
         } 
         
