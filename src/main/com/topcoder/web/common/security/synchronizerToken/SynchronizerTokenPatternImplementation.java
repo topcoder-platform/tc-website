@@ -3,6 +3,7 @@
  */
 package com.topcoder.web.common.security.synchronizerToken;
 
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.TCRequest;
 
 import javax.servlet.http.HttpSession;
@@ -111,6 +112,8 @@ public class SynchronizerTokenPatternImplementation implements SynchronizerToken
         return UUID.randomUUID().toString();
     }
 
+    protected static final Logger log = Logger.getLogger(SynchronizerTokenPatternImplementation.class);
+
     /**
      * <p>Verifies that specified request corresponding to specified "protected" operation provides valid synchronizer
      * token.</p>
@@ -120,14 +123,21 @@ public class SynchronizerTokenPatternImplementation implements SynchronizerToken
      * @return <code>true</code> if specified request provided valid synchronizer token; <code>false</code> otherwise.
      */
     public boolean validateSynchronizerToken(TCRequest request, String operationType) {
+
         HttpSession session = request.getSession(false);
         if (session == null) {
+            log.error("YYYYYY: session was null");
             return false;
         } else {
             String parameterName = getParameterName(session, operationType);
             String expectedToken = getExpectedToken(session, operationType);
             String tokenFromRequest = request.getParameter(parameterName);
-            
+            log.error("YYYYYY: " + session.getId() + " : parameterName = " + parameterName);
+            log.error("YYYYYY: " + session.getId() + " : expectedToken = " + expectedToken);
+            log.error("YYYYYY: " + session.getId() + " : tokenFromRequest = " + tokenFromRequest);
+            log.error("YYYYYY: " + session.getId() + " : (tokenFromRequest != null) && (tokenFromRequest.equals" +
+                "(expectedToken) = " + ((tokenFromRequest != null) && (tokenFromRequest.equals(expectedToken))));
+
             return (tokenFromRequest != null) && (tokenFromRequest.equals(expectedToken));
         }
     }
