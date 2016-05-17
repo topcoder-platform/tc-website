@@ -339,9 +339,10 @@ public abstract class BaseProcessor implements RequestProcessor {
             if (SynchronizerTokenPatternConfig.checkReferrer()) {
                 String referrer = request.getHeader("Referer");
                 if (referrer != null) {
-                    String expectedReferrer = request.getScheme() + "://" + request.getServerName() +
+                    String referrerCut = removeProtocol(referrer);
+                    String expectedReferrer = request.getServerName() +
                         (request.getServerPort() == 80 ? "" : ":" + request.getServerPort()) + "/";
-                    if (!referrer.startsWith(expectedReferrer)) {
+                    if (!referrerCut.startsWith(expectedReferrer)) {
                         handlePotentialCSRFAttack("Wrong 'Referer' header: " + referrer, operationType);
                     }
                 }
@@ -349,9 +350,10 @@ public abstract class BaseProcessor implements RequestProcessor {
             if (SynchronizerTokenPatternConfig.checkOrigin()) {
                 String origin = request.getHeader("Origin");
                 if (origin != null) {
-                    String expectedOrigin = request.getScheme() + "://" + request.getServerName() +
+                    String originCut = removeProtocol(origin);
+                    String expectedOrigin = request.getServerName() +
                         (request.getServerPort() == 80 ? "" : ":" + request.getServerPort());
-                    if (!origin.equals(expectedOrigin)) {
+                    if (!originCut.equals(expectedOrigin)) {
                         handlePotentialCSRFAttack("Wrong 'Origin' header: " + origin, operationType);
                     }
                 }
@@ -415,6 +417,21 @@ public abstract class BaseProcessor implements RequestProcessor {
         session.invalidate();
         
         throw new TCException("Invalid request. Potential CSRF attack.");
+    }
+
+    /**
+     * <p>Removes the protocol from the specified URL.</p>
+     * 
+     * @param url a <code>String</code> providing the URL to remove protocol from.
+     * @return a <code>String</code> providing the specified URL with removed protocol.
+     */
+    private static String removeProtocol(String url) {
+        int pos = url.indexOf("://");
+        if (pos >= 0) {
+            return url.substring(pos + 3);
+        } else {
+            return url;
+        }
     }
 }
 
