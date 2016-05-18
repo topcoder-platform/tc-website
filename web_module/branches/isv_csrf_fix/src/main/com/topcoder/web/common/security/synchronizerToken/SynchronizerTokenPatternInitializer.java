@@ -9,13 +9,10 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.topcoder.web.common.security.synchronizerToken.SynchronizerTokenPatternConfig.SESSION_ATTR_OPERATION_TYPE_PARAM_NAMES;
 import static com.topcoder.web.common.security.synchronizerToken.SynchronizerTokenPatternConfig.SESSION_ATTR_OPERATION_TYPE_TOKENS;
 import static com.topcoder.web.common.security.synchronizerToken.SynchronizerTokenPatternConfig.CONTEXT_ATTR_PATTERN_IMPL;
-import static com.topcoder.web.common.security.synchronizerToken.SynchronizerTokenPatternConfig.SUPPORTED_OPERATION_TYPES;
 
 /**
  * <p>An HTTP session and servlet context listener which is responsible to setup several artifacts </p>
@@ -61,23 +58,6 @@ public class SynchronizerTokenPatternInitializer implements HttpSessionListener,
      * @param httpSessionEvent an <code>HttpSessionEvent</code> specifying the session context.
      */
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {
-        HttpSession session = httpSessionEvent.getSession();
-        SynchronizerTokenPattern synchronizerTokenPattern
-            = (SynchronizerTokenPattern) session.getServletContext().getAttribute(CONTEXT_ATTR_PATTERN_IMPL);
-        
-        // For each of the "protected" operation types define the name of the request parameter which will carry the
-        // synchronizer token for all requests in context of this session and a synchronizer token to be used for all
-        // such requests
-        // TODO : ISV : Check if it is better to store tokens and parameter names as char[]
-        Map<String, String> parameterNames = new HashMap<String, String>();
-        Map<String, String> operationTypeTokens = new HashMap<String, String>();
-        for (String operationType : SUPPORTED_OPERATION_TYPES) {
-            parameterNames.put(operationType, synchronizerTokenPattern.generateParameterName());
-            operationTypeTokens.put(operationType, synchronizerTokenPattern.generateToken());
-        }
-        
-        session.setAttribute(SESSION_ATTR_OPERATION_TYPE_PARAM_NAMES, parameterNames);
-        session.setAttribute(SESSION_ATTR_OPERATION_TYPE_TOKENS, operationTypeTokens);
     }
 
     /**

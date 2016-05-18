@@ -7,6 +7,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.TCRequest;
 
 import javax.servlet.http.HttpSession;
+import java.io.Serializable;
 import java.util.Map;
 import java.util.UUID;
 
@@ -17,7 +18,7 @@ import java.util.UUID;
  *
  * @author isv
  */
-public class SynchronizerTokenPatternImplementation implements SynchronizerTokenPattern {
+public class SynchronizerTokenPatternImplementation implements SynchronizerTokenPattern, Serializable {
 
     /**
      * <p>Constructs new <code>SynchronizerTokenPatternImplementation</code> instance. This implementation does
