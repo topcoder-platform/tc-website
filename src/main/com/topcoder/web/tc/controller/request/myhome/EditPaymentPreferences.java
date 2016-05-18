@@ -129,6 +129,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
             }
         } else {
             // GET request is treated as request for displaying the Payment Preferences form
+            setSynchronizerTokens();
             DataInterfaceBean dataBean = new DataInterfaceBean();
             int currentPaymentAccrualAmount = (int) dataBean.getUserAccrualThreshold(getUser().getId());
             if (currentPaymentAccrualAmount == 0) {

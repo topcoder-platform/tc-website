@@ -25,20 +25,20 @@ public class SynchronizerTokenPatternConfig {
      * <p>A <code>String</code> array listing the operation types which are currently "protected" by implementation of
      * <code>Synchronizer Token Pattern</code>.</p>
      */
-    static final List<String> SUPPORTED_OPERATION_TYPES = Arrays.asList("SavePaymentPreferences");
+    public static final List<String> SUPPORTED_OPERATION_TYPES = Arrays.asList("SavePaymentPreferences");
 
     /**
      * <p>A <code>String</code> providing the name of session attribute to hold the mappings from supported operation
      * types to synchronizer tokens for current session.</p>
      */
-    static final String SESSION_ATTR_OPERATION_TYPE_TOKENS = "XiwrvFksfuyo";
+    public static final String SESSION_ATTR_OPERATION_TYPE_TOKENS = "XiwrvFksfuyo";
 
     /**
      * <p>A <code>String</code> providing the name of session attribute to hold the mappings from supported operation
      * types to names of request parameters for current session which will carry the synchronizer token from the client
      * side.</p>
      */
-    static final String SESSION_ATTR_OPERATION_TYPE_PARAM_NAMES = "OfhCieroUsPqkf";
+    public static final String SESSION_ATTR_OPERATION_TYPE_PARAM_NAMES = "OfhCieroUsPqkf";
 
     /**
      * <p>A <code>String</code> providing the name of servlet context attribute to hold the current implementation of
