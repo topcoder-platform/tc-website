@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2010-2016 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.myhome;
 
@@ -42,8 +42,16 @@ import java.util.*;
  *   </ol>
  * </p>
  *
+ * <p>
+ * Version 1.3 Change notes:
+ *   <ol>
+ *     <li>Updated {@link #dbProcessing()} method to take measures for preventing possible <code>Cross-Site Request 
+ *     Forgery</code> attacks.</li>
+ *   </ol>
+ * </p>
+ *
  * @author isv, VolodymyrK
- * @version 1.2
+ * @version 1.3
  */
 public class EditPaymentPreferences extends ShortHibernateProcessor {
 
@@ -106,6 +114,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
         // Analyze the type of request.
         if ("POST".equalsIgnoreCase(getRequest().getMethod())) {
             // POST request is treated as submission of Payment Preferences form
+            preventCSRFAttack("SavePaymentPreferences");
             savePaymentPreferences();
             if (!hasErrors()) {
                 // There were no validation errors - do redirect after POST to My TopCoder page
@@ -120,6 +129,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
             }
         } else {
             // GET request is treated as request for displaying the Payment Preferences form
+            setSynchronizerTokens();
             DataInterfaceBean dataBean = new DataInterfaceBean();
             int currentPaymentAccrualAmount = (int) dataBean.getUserAccrualThreshold(getUser().getId());
             if (currentPaymentAccrualAmount == 0) {
