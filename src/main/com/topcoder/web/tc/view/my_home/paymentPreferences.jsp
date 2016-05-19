@@ -1,10 +1,11 @@
 <%--
   - Author: isv
-  - Version: 1.0 (Member Payment Improvements Release assembly v1.0)
-  - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
+  - Version: 1.1 (Member Payment Improvements Release assembly v1.0)
+  - Copyright (C) 2010-2016 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page provides a web form for managing user payment preferences. Such a form includes input
   - field for setting the payment accrual amount for now.
+  - v1.1 changes: implemented Synchronizer Token Pattern for web form.
 --%>
 
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -79,6 +80,8 @@
 
                 <form name="f" action="${sessionInfo.servletPath}" method="post">
                     <tc-webtag:hiddenInput name="${MODULE}" value="EditPaymentPreferences"/>
+                    <tc-webtag:synchronizerToken operationType="SavePaymentPreferences"/>
+                    
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tbody>
                         <tr>
