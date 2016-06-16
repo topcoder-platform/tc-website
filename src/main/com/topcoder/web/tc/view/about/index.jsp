@@ -14,6 +14,9 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
+  response.sendRedirect("https://www.topcoder.com");
+%>
+<%
     SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
     String level1 = request.getParameter("level1")==null?"competition":request.getParameter("level1");
      String handle = null;
