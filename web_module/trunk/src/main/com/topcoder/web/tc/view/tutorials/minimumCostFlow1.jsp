@@ -2,6 +2,10 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%
+  String redirectURL = "https://www.topcoder.com/community/data-science/data-science-tutorials/minimum-cost-flow-part-one-key-concepts/";
+  response.sendRedirect(redirectURL);
+%>
 <html>
 <head>
 <title>Algorithm Tutorials</title>
@@ -21,10 +25,6 @@
 </style>
 </head>
 <body>
-  <%
-          String redirectURL = "https://www.topcoder.com/community/data-science/data-science-tutorials/minimum-cost-flow-part-one-key-concepts/";
-          response.sendRedirect(redirectURL);
-      %>
 </body>
 
 </html>

@@ -1,5 +1,9 @@
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%
+  String redirectURL = "http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=hungarianAlgorithm";
+  response.sendRedirect(redirectURL);
+%>
 <html>
 <head>
 <title>TopCoder Algorithm Tutorials</title>
@@ -25,10 +29,6 @@
 </head>
 
 <body>
-  <%
-          String redirectURL = "http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=hungarianAlgorithm";
-          response.sendRedirect(redirectURL);
-      %>
 </body>
 
 </html>

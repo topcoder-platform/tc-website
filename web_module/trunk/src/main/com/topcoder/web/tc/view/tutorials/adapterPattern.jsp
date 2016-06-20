@@ -2,6 +2,10 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%
+  String redirectURL = "";
+  response.sendRedirect(redirectURL);
+%>
 <html>
 <head>
 <title>Component Tutorials</title>
@@ -14,10 +18,6 @@
 </head>
 
 <body>
-  <%
-          String redirectURL = "";
-          response.sendRedirect(redirectURL);
-      %>
 </body>
 
 </html>
