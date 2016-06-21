@@ -1,0 +1,17 @@
+database tcs_catalog;
+
+-- terms of use id are different, restore to 20703 and 20704.
+update terms_of_use set terms_of_use_id = 20703 where terms_of_use_id = 20623;
+update terms_of_use set terms_of_use_id = 20704 where terms_of_use_id = 17; -- I tested this in a new VM and it seems it's there. I'm adding this just in case.
+
+-- specification review board
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (124764, 6, 1, 100, 1); -- Hung
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (132458, 6, 1, 100, 1); -- user
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (124772, 6, 1, 100, 1); -- Partha
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (124766, 6, 1, 100, 1); -- twight
+
+-- architecture review board
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (124764, 7, 1, 100, 1); -- Hung
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (132458, 7, 1, 100, 1); -- user
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (124772, 7, 1, 100, 1); -- Partha
+INSERT INTO tcs_catalog:rboard_user (user_id, project_type_id, catalog_id, status_id, immune_ind) VALUES (124766, 7, 1, 100, 1); -- twight

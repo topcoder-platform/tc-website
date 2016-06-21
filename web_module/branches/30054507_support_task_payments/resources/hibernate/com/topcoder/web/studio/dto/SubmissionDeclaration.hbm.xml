@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<!--
+  - Author: pvmagacho
+  - Version: 1.0
+  - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: Hibernate mapping file for submission_declaration table
+-->
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.studio.dto" auto-import="false">
+    <class name="SubmissionDeclaration" table="submission_declaration">
+		<id name="id" column="submission_declaration_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">STUDIO_PRIZE_SEQ</param>
+            </generator>
+        </id>
+        <property name="comment"/>
+        <property name="hasExternalContent" column="has_external_content"/>
+
+        <many-to-one name="submission" column="submission_id" class="Submission" unique="true"/>
+
+		<bag name="externalContents" inverse="true" cascade="all" order-by="display_position asc">
+            <key>
+				<column name="submission_declaration_id" not-null="true"/>
+			</key>
+
+			<one-to-many class="ExternalContent"/>
+        </bag>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+  <loadDefinition>
+    <sourcedb>jdbc:informix-sqli://172.16.20.25:1526/coderdevdw:INFORMIXSERVER=tc_memeber_dev_tcp;user=coder;password=catalyst</sourcedb>
+    <targetdb>jdbc:informix-sqli://172.16.20.25:1526/coderdevdw:INFORMIXSERVER=tc_memeber_dev_tcp;user=coder;password=catalyst</targetdb>
+    <load>
+      <classname>com.topcoder.utilities.pldwload.TCLoadAggregate</classname>
+      <parameterList>
+        <parameter name="roundid" value="6001"/>
+        <parameter name="fullload" value="false"/>
+      </parameterList>
+    </load>
+  </loadDefinition>
