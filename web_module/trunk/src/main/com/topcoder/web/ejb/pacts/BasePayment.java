@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2016 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.pacts;
 
@@ -81,10 +81,19 @@ import java.util.Date;
  *   <ol>
  *     <li>Added taxable DR payment types.</li>
  *   </ol>
- * </p> 
+ * </p>
+ * 
+ * <p>
+ * Version 1.9 (Topcoder - Support Payments For Tasks) Change notes:
+ *   <ol>
+ *     <li>Updated getReferenceTypeId to support the new task payments</li>
+ *     <li>Updated createPayment to support the new task payments</li>
+ *     <li>Updated getPaymentTypeDesc to support the new task payments</li>
+ *   </ol>
+ * </p>
  *
- * @author cucu, pulky, Vitta, FireIce, VolodymyrK
- * @version 1.8
+ * @author cucu, pulky, Vitta, FireIce, VolodymyrK, StandLove
+ * @version 1.9
  */
 public abstract class BasePayment implements Constants, java.io.Serializable {
     private static Logger log = Logger.getLogger(BasePayment.class);
@@ -287,6 +296,12 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             return REFERENCE_COMPONENT_PROJECT_ID;
         case STUDIO_SPECIFICATION_WRITING_PAYMENT:
             return REFERENCE_STUDIO_CONTEST_ID;
+
+        case TASK_PAYMENT:
+        case TASK_REVIEW_PAYMENT:
+        case TASK_COPILOT_PAYMENT:
+            return REFERENCE_TASK_ID;
+
         default:
             return NO_REFERENCE;
         }
@@ -363,6 +378,9 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case PROJECT_COPILOT_PAYMENT: return new ProjectCopilotPayment(coderId, grossAmount, referenceId);
         case PROJECT_DEPLOYMENT_TASK_PAYMENT: return new ProjectDeploymentTaskPayment(coderId, grossAmount, referenceId);
         case PROJECT_ENHANCEMENTS_PAYMENT: return new ProjectEnhancementsPayment(coderId, grossAmount, referenceId);
+        case TASK_PAYMENT: return new TaskPayment(coderId, grossAmount, referenceId, placed);
+        case TASK_REVIEW_PAYMENT: return new TaskReviewPayment(coderId, grossAmount, referenceId, placed);
+        case TASK_COPILOT_PAYMENT: return new TaskCopilotPayment(coderId, grossAmount, referenceId, placed);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
     }
@@ -504,6 +522,9 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case PROJECT_COPILOT_PAYMENT: return "Project Copilot Payment";
             case PROJECT_DEPLOYMENT_TASK_PAYMENT: return "Project Deployment Task Payment";
             case PROJECT_ENHANCEMENTS_PAYMENT: return "Project Enhancements Payment";
+            case TASK_PAYMENT: return "Task Payment";
+            case TASK_REVIEW_PAYMENT: return "Task Review Payment";
+            case TASK_COPILOT_PAYMENT: return "Task Copilot Payment";
 
             default: return "Other Payment";
         }
