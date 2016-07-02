@@ -1,19 +1,6 @@
-/******************************************************************************\
- *
- * File:          PaymentHeader.java
- * Creation date: March 05, 2002 10:19
- * Author:        Matt Murphy
- * Purpose:       Store the more commonly requested information of a payment
- * See:           UserProfileHeader.java
- *                ResultSetContainer.java
- *
- * DBP 3/26 - Implement serializable
- *
- * Copyright 2002, TopCoder, Inc
- * All rights are reserved. Reproduction in whole or part is prohibited
- * without the written consent of the copyright owner.
- *
- \******************************************************************************/
+/*
+ * Copyright (C) 2002 - 2016 TopCoder Inc., All Rights Reserved.
+ */
 
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
@@ -29,7 +16,21 @@ import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
 
 /**
+ * The payment header.
+ *
+ * <p>
+ * Version 1.1 (Topcoder - Support Payments For Tasks) Change notes:
+ *   <ol>
+ *     <li>Added taskId instance variable, as well as corresponding getter and setter.</li>
+ *     <li>Updated constructor to get taskId from resultset</li>
+ *     <li>Updated getReferenceId to return the task id for task reference type</li>
+ *   </ol>
+ * </p>
+ *
  * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * 
+ * @author Matt Murphy, Standlove
+ * @version 1.1
  */
 public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
@@ -80,6 +81,12 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private long digitalRunSeasonId;
     private long parentPaymentId;
     private long digitalRunTrackId;
+
+    /**
+     * The task id
+     * @since 1.1
+     */
+    private long taskId;
 
     private String modifyDate;
     private String createDate;
@@ -202,6 +209,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         digitalRunSeasonId = TCData.getTCLong(rsr, "digital_run_season_id", 0, false);
         parentPaymentId = TCData.getTCLong(rsr, "parent_payment_id", 0, false);
         digitalRunTrackId = TCData.getTCLong(rsr, "digital_run_track_id", 0, false);
+        taskId = TCData.getTCLong(rsr, "task_id", 0, false);
 
         createDate = TCData.getTCDate(rsr, "create_date", "", false);
         modifyDate = TCData.getTCDate(rsr, "modify_date", "", false);
@@ -407,6 +415,26 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         this.studioContestId = studioContestId;
     }
 
+    /**
+     * Get task id
+     *
+     * Return the task id
+     * @since 1.1
+     */
+    public long getTaskId() {
+        return taskId;
+    }
+
+    /**
+     * Set the task id.
+     * 
+     * @param taskId the task id
+     * @since 1.1
+     */
+    public void setTaskId(long taskId) {
+        this.taskId = taskId;
+    }
+
     public long getParentPaymentId() {
         return parentPaymentId;
     }
@@ -415,6 +443,11 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         this.parentPaymentId = parentReferenceId;
     }
 
+    /**
+     * Get reference id.
+     *
+     * @return the reference id
+     */
     public long getReferenceId() {
         switch(BasePayment.getReferenceTypeId(typeId)) {
         case REFERENCE_ALGORITHM_ROUND_ID : return algorithmRoundId;
@@ -427,6 +460,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         case REFERENCE_DIGITAL_RUN_SEASON_ID : return digitalRunSeasonId;
         case REFERENCE_PARENT_PAYMENT_ID : return parentPaymentId;
         case REFERENCE_DIGITAL_RUN_TRACK_ID : return digitalRunTrackId;
+        case REFERENCE_TASK_ID: return taskId;
         }
         return 0;
     }
