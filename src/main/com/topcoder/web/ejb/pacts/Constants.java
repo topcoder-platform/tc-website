@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2016 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.pacts;
 
@@ -83,19 +83,9 @@ package com.topcoder.web.ejb.pacts;
  *     <li>Added {@link WESTERN_UNION_PAYMENT_METHOD_ID} constant.</li>
  *   </ol>
  * </p>
- * 
- * <p>
- * Version 1.11 (Topcoder - Support Payments For Tasks) Change notes:
- *   <ol>
- *     <li>Added {@link REFERENCE_TASK_ID} constant.</li>
- *     <li>Added {@link TASK_PAYMENT} constant.</li>
- *     <li>Added {@link TASK_REVIEW_PAYMENT} constant.</li>
- *     <li>Added {@link TASK_COPILOT_PAYMENT} constant.</li>
- *   </ol>
- * </p>
  *
- * @author pulky, VolodymyrK, isv, Standlove
- * @version 1.11
+ * @author pulky, VolodymyrK, isv
+ * @version 1.10
  */
 public interface Constants {
 
@@ -256,12 +246,6 @@ public interface Constants {
     public static final int REFERENCE_DIGITAL_RUN_TRACK_ID = 9;
     public static final int REFERENCE_COCKPIT_PROJECT_ID = 10;
 
-    /**
-     * The task id reference type used for the new Task system.
-     * @since 1.11
-     */
-    public static final int REFERENCE_TASK_ID = 11;
-
     // Modification rationale codes
     public static final int MODIFICATION_NEW = 1;
     public static final int MODIFICATION_ADDRESS = 2;
@@ -370,23 +354,4 @@ public interface Constants {
     public static final int PROJECT_COPILOT_PAYMENT = 69;
     public static final int PROJECT_DEPLOYMENT_TASK_PAYMENT = 70;
     public static final int PROJECT_ENHANCEMENTS_PAYMENT = 71;
-
-    /**
-     * The task payment type used for the new Task system.
-     * @since 1.11
-     */
-    public static final int TASK_PAYMENT = 72;
-
-    /**
-     * The task review payment type used for the new Task system.
-     * @since 1.11
-     */
-    public static final int TASK_REVIEW_PAYMENT = 73;
-
-    /**
-     * The task copilot payment type used for the new Task system.
-     * @since 1.11
-     */
-    public static final int TASK_COPILOT_PAYMENT = 74;
-
 }
