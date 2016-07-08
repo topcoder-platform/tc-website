@@ -224,5 +224,20 @@
                 </Property>
             </Property>
         </Property>
+        <Property name="handlerForEYAgreement">
+            <Property name="type">
+                <Value>com.topcoder.web.tc.controller.request.docusign.handlers.TermsOfUseHandler</Value>
+            </Property>
+            <Property name="params">
+                <Property name="param1">
+                    <Property name="type">
+                        <Value>long</Value>
+                    </Property>
+                    <Property name="value">
+                        <Value>21243</Value>
+                    </Property>
+                </Property>
+            </Property>
+        </Property>
     </Config>
 </CMConfig>
