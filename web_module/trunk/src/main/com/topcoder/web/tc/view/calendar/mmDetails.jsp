@@ -14,23 +14,23 @@
     ResultSetContainer.ResultSetRow rsr = (ResultSetContainer.ResultSetRow) (((ResultSetContainer) request.getAttribute("rsc")).get(0));
     String time = StringUtils.checkNull((String) request.getAttribute("time"));
 	long roundId = rsr.getLongItem("round_id");
-	
+
 	long[] experimentalRounds = {13793, 13796, 13797, 13798, 13799, 13800, 13801, 13992};
 	Arrays.sort(experimentalRounds);
-	
+
 	long[] eligibilityRounds = {13754, 13772, 13793, 13796, 13797, 13798, 13799, 13800, 13801, 13934, 13953, 13992};
 	Arrays.sort(eligibilityRounds);
-	
+
 	long[] nsaRounds = {14176, 14196, 14207, 14208};
 	Arrays.sort(nsaRounds);
-	                                                         
+
 	long[] ntlRounds = {14481, 14570, 15087};
 	Arrays.sort(ntlRounds);
-	
+
 
 %>
 <c:set var="row" value="<%=rsr%>" />
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html>
@@ -82,7 +82,7 @@
 	<div align="center">
 	<img src="http://www.topcoder.com/i/srm/srm_banner/nasa_banner.jpg" alt="Sponsor" border="0">
 	</div>
-	
+
 <%} else if (Arrays.binarySearch(nsaRounds, roundId)>=0) { %>
 
 	<%-- BRANDING --%>
@@ -96,7 +96,7 @@
 		<img src="http://www.topcoder.com/i/sponsor/nsa/mm-banner-NSA.png" alt="NSA Marathon Match Events" border="0">
 	</a>
 	</div>
-	
+
 <%} else if (Arrays.binarySearch(ntlRounds, roundId)>=0) { %>
 
 	<%-- BRANDING --%>
@@ -112,9 +112,9 @@
 	</div>
 
 <%} else if (roundId == 16069) { %>
-	
+
 	<h2>HP IDOL OnDemand Marathon: OCR deskewed and de-lovely</h2>
-	
+
 <%} else { %>
 	<%-- BRANDING --%>
 		<c:if test="${row.map['mm_image_path']!=null}">
@@ -164,7 +164,7 @@
             </tbody>
         </table>
     </div>
-</c:if>    
+</c:if>
 
 <% if (roundId == 15761) { %>
 <p align="justify" class="justifyText">
@@ -178,65 +178,65 @@
 <% if (Arrays.binarySearch(experimentalRounds, roundId)>=0) { %>
 
 <p align="justify" class="justifyText">
-This is the second of a series of Experimental Marathon Matches that TopCoder is running in coordination with Professor 
-Karim Lakhani of Harvard Business School and Professor Kevin Boudreau of London Business School/MLab. The structure and 
-rules for these events are a departure from anything that TopCoder has run in the past, in that we are exploring the effects of 
+This is the second of a series of Experimental Marathon Matches that TopCoder is running in coordination with Professor
+Karim Lakhani of Harvard Business School and Professor Kevin Boudreau of London Business School/MLab. The structure and
+rules for these events are a departure from anything that TopCoder has run in the past, in that we are exploring the effects of
 collaboration and information sharing during competition.
 <br><br>
-The second Experimental Marathon Match will include an algorithm problem provided by the Integrated Medical Model Team at NASA . 
-In this challenge programmers will be asked to help NASA optimize a space flight medical kit  for astronauts. We believe that the 
-TopCoder community may have an interesting take on this problem and could potentially come up with a breakthrough that will help 
-NASA explore our universe.  
+The second Experimental Marathon Match will include an algorithm problem provided by the Integrated Medical Model Team at NASA .
+In this challenge programmers will be asked to help NASA optimize a space flight medical kit  for astronauts. We believe that the
+TopCoder community may have an interesting take on this problem and could potentially come up with a breakthrough that will help
+NASA explore our universe.
 <br><br>
-This Experimental Marathon Match event has over <b>$25,000</b> in prizes! In addition, 10 participants will get <b>VIP access</b> 
-to one of the few remaining NASA shuttle launches and all contestants who actively participate will receive a limited edition, 
+This Experimental Marathon Match event has over <b>$25,000</b> in prizes! In addition, 10 participants will get <b>VIP access</b>
+to one of the few remaining NASA shuttle launches and all contestants who actively participate will receive a limited edition,
 personalized <b>TopCoder/NASA T-shirt</b>.
 <br><br>
-In this Experimental Marathon Match, members who register for the event will be assigned to a Group, and within the Group 
-will compete in sets of 20 individuals.  The total prize for each set will be $1,000.  In one Group, contestants will 
-compete as members of teams of 5 against 3 other teams and in the other Group, contestants will compete individually against 
-19 other individuals. 
+In this Experimental Marathon Match, members who register for the event will be assigned to a Group, and within the Group
+will compete in sets of 20 individuals.  The total prize for each set will be $1,000.  In one Group, contestants will
+compete as members of teams of 5 against 3 other teams and in the other Group, contestants will compete individually against
+19 other individuals.
 <br><br>
 <ul>
 
 <li>
-<b>Group A</b> - <i>Traditional Marathon Match</i> - Individuals in this group will be assigned to work on the problem individually 
-- i.e. no information sharing at all. Winners in each set of 20 competitors will be declared based on the best performing 
-code according to the problem statement's scoring forumla. 
+<b>Group A</b> - <i>Traditional Marathon Match</i> - Individuals in this group will be assigned to work on the problem individually
+- i.e. no information sharing at all. Winners in each set of 20 competitors will be declared based on the best performing
+code according to the problem statement's scoring forumla.
 </li>
 
 <li>
-<b>Group B</b> - <i>Teams</i> - Individuals in this group will be split into sets of 4 Rooms of 5 individuals, with Rooms 
-competing against the other designated Rooms to win the $1000 prize.  Room members will allowed to share code and ideas during 
-the entire length of the competition. Winners will be chosen based on the best score for each room.  The Room score is equal to the 
-highest individual score in the Room.  Prizes will be allocated among the Contestants in the winning Room according to their 
-contribution, as judged by the others in their Room.    
+<b>Group B</b> - <i>Teams</i> - Individuals in this group will be split into sets of 4 Rooms of 5 individuals, with Rooms
+competing against the other designated Rooms to win the $1000 prize.  Room members will allowed to share code and ideas during
+the entire length of the competition. Winners will be chosen based on the best score for each room.  The Room score is equal to the
+highest individual score in the Room.  Prizes will be allocated among the Contestants in the winning Room according to their
+contribution, as judged by the others in their Room.
 </li>
 
 </ul>
 <br>
 Participants in all groups may submit code written in any of the following languages: Java, C++, C#.NET, VB.NET, or Python.
-All sets of 20 will be isolated from one another so that there are no spillovers of information, discussions, or code amongst the groups. 
+All sets of 20 will be isolated from one another so that there are no spillovers of information, discussions, or code amongst the groups.
 In addition, each team will be placed into a private competition with their own forum and standings information.  Competitors will need
 to use the web-based interface for participating in the competition - no experimental rounds will be accessible from within the TopCoder Arena.
 <br><br>
-Keep in mind that there is no actual problem statement associated with the "registration" round.  
+Keep in mind that there is no actual problem statement associated with the "registration" round.
 <br><br>
-<b>After the registration period closes on October 28th, 2009, we may ask you some brief questions to help us us determine the groupings of 20. 
+<b>After the registration period closes on October 28th, 2009, we may ask you some brief questions to help us us determine the groupings of 20.
 The email with the link to the brief questions will come from TopCoder and we request that you respond to it within 12 hours.</b>
 <br><br>
-<b>We ask that 
-you register only if you plan to dedicate significant effort and time to this competition</b> that begins on November 4, 2009 and 
-will last for ten days, and you are willing to complete the contribution list (if applicable) and the Post-Competition Survey following the 
-competition. In addition, the number of available spaces for competitors is limited and we will only allow 480 competitors into 
-the competition with preference given to competitors who have demonstrated a high likelihood of participating in challenges after 
-they register.  Once registration is closed, and prior to the start of the competition, you will receive an email with your Group 
-and Room assignment. 
+<b>We ask that
+you register only if you plan to dedicate significant effort and time to this competition</b> that begins on November 4, 2009 and
+will last for ten days, and you are willing to complete the contribution list (if applicable) and the Post-Competition Survey following the
+competition. In addition, the number of available spaces for competitors is limited and we will only allow 480 competitors into
+the competition with preference given to competitors who have demonstrated a high likelihood of participating in challenges after
+they register.  Once registration is closed, and prior to the start of the competition, you will receive an email with your Group
+and Room assignment.
 <br><br>
-Harvard's Professor Lakhani has been active in the forums discussing this Experimental Marathon Series. His handle is 
-<a href="http://www.topcoder.com/tc?module=MemberProfile&cr=22681631">karimlakhani</a> 
-and you can find further discussion here in the TopCoder 
-<a href="http://forums.topcoder.com/?module=Thread&threadID=653101">forum discussions</a>. 
+Harvard's Professor Lakhani has been active in the forums discussing this Experimental Marathon Series. His handle is
+<a href="http://www.topcoder.com/tc?module=MemberProfile&cr=22681631">karimlakhani</a>
+and you can find further discussion here in the TopCoder
+<a href="http://forums.topcoder.com/?module=Thread&threadID=653101">forum discussions</a>.
 <br><br>
 Please check out the rules link below for more detail.
 <br><br>
@@ -247,7 +247,7 @@ Please check out the rules link below for more detail.
 
 <div class="sectionHeader">Prize Structure</div>
 
-		Cash prizes, an Invitation to View a NASA Launch, and T-shirts will be awarded as follows: 
+		Cash prizes, an Invitation to View a NASA Launch, and T-shirts will be awarded as follows:
 		<br><br>
 
 		<table class="bodyText" cellspacing="0" cellpadding="0" border="1">
@@ -260,17 +260,17 @@ Please check out the rules link below for more detail.
 				<td class="bodyText" nowrap="nowrap" align="left" valign="top">Group A <br>(Traditional Format)</td>
 				<td class="bodyText" align="left" valign="top">Performance Prizes will be awarded in each Room to the highest individually scoring competitors</td>
 				<td class="bodyText" align="left" valign="top">
-					
+
 					$500 to highest scoring submission.<br>
 					$200 to the second highest scoring submission.<br>
 					$125 to the third highest scoring submission.<br>
 					$100 to the fourth highest scoring submission.<br>
 					$75 to the fifth highest scoring submission.<br>
 					<br>
-					NASA Launch Invitation:  Each of the 5 individuals in Group A with the highest scores will be eligible 
+					NASA Launch Invitation:  Each of the 5 individuals in Group A with the highest scores will be eligible
 					to receive an invitation from NASA to view a NASA launch as described above.
 					<br><br>
-					T-Shirts: All Contestants who are assigned to a Room and who actively participate are eligible to receive 
+					T-Shirts: All Contestants who are assigned to a Room and who actively participate are eligible to receive
 					a challenge T-shirt.
 					<br><br>
 					All prizes are contingent upon fully completing a survey from TopCoder and our academic research partners.
@@ -283,32 +283,32 @@ Please check out the rules link below for more detail.
 				<td class="bodyText" nowrap="nowrap" align="left" valign="top">Group B <br>(Team Format)</td>
 				<td class="bodyText" align="left" valign="top">Performance Prizes will be awarded to members of the winning teams based on team member feedback</td>
 				<td class="bodyText" align="left" valign="top">
-					
-					A total of $1,000 will be divided among the members of the highest-scoring Room group according to the contribution 
+
+					A total of $1,000 will be divided among the members of the highest-scoring Room group according to the contribution
 					list submitted by the members of the Group. <br><br>
 
-					NASA Launch Invitation: Each of the 5 members of the highest-scoring Room team, if actively engaged in the competition,  
+					NASA Launch Invitation: Each of the 5 members of the highest-scoring Room team, if actively engaged in the competition,
 					will be eligible to receive an invitation from NASA to view a NASA launch as described above.
 					<br><br>
 					T-Shirts: All Contestants who are assigned to a Room and who actively participate are eligible to receive a challenge T-shirt.
 					<br><br>
 					All prizes are contingent upon fully completing a survey from TopCoder and our academic research partners.
 					<br>
-					
+
 				</td>
 
 			</tr>
 
 		</table>
 		<br><br>
-		In addition, one $1,000 cash prize will be awarded to either the individual in Group A or the Room in Group B with the highest score.  
-		If this prize is awarded to a Room in Group B it will be divided according to the contribution lists for that Room. 
+		In addition, one $1,000 cash prize will be awarded to either the individual in Group A or the Room in Group B with the highest score.
+		If this prize is awarded to a Room in Group B it will be divided according to the contribution lists for that Room.
 		<br><br>
-		Contestants must be active participants in order to be eligible to receive any prize.  In both Groups A and B, active 
-		participation means working on the problem and submitting a reasonable attempt at a solution, including all required 
-		parts (e.g., solution description, contribution list in Group B), responding to any email inquiries, and completing all 
-		competition-related surveys, including the Post-Competition Survey.  In Group B, active participation includes providing 
-		a contribution list as requested (including the final contribution list) whether or not a Contestants has submitted code 
+		Contestants must be active participants in order to be eligible to receive any prize.  In both Groups A and B, active
+		participation means working on the problem and submitting a reasonable attempt at a solution, including all required
+		parts (e.g., solution description, contribution list in Group B), responding to any email inquiries, and completing all
+		competition-related surveys, including the Post-Competition Survey.  In Group B, active participation includes providing
+		a contribution list as requested (including the final contribution list) whether or not a Contestants has submitted code
 		during the competition, and may include, instead of code submission, productive participation in the Room forums.
 
 </p>
@@ -325,13 +325,13 @@ Please check out the rules link below for more detail.
 <%if(roundId == 10862 || roundId == 13754 || roundId == 13772 || roundId == 13934 || roundId == 13953 ) {%>
 <p align="justify" class="justifyText">
     This Marathon Match has some different rules and terms.  Please make sure to read
-    the rules carefully before competing.  <b>You must be eligible to compete in the match 
+    the rules carefully before competing.  <b>You must be eligible to compete in the match
     as defined in the rules and by winning a prize you agree to transfer ownership of
     your submission to TopCoder.</b>
 </p>
 <%}%>
 
-<%if(roundId == 14525 || roundId == 14584 || roundId == 15024 || roundId == 15075 || roundId == 15023 || 
+<%if(roundId == 14525 || roundId == 14584 || roundId == 15024 || roundId == 15075 || roundId == 15023 ||
      roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15077 || roundId == 15078
      || roundId == 15080 || roundId == 15103 || roundId == 15120 || roundId == 15130 || roundId == 15189
      || roundId == 15201 || roundId == 15202 || roundId == 15322 || roundId == 15327 || roundId == 15398
@@ -354,24 +354,24 @@ This is a summary with highlights of the challenge details. Please make sure to 
 
 <%if(roundId == 13569 ||  roundId == 13570 || roundId == 13679 || roundId == 13680 || roundId == 13681 ) {%>
 <p align="justify" class="justifyText">
-    This Marathon Match is an encryption match. Use a known encryption method like DES, Substitution cipher, or Cryptography, 
-	to decipher the problem, and you can be a part of the $5,000 prize purse. 
+    This Marathon Match is an encryption match. Use a known encryption method like DES, Substitution cipher, or Cryptography,
+	to decipher the problem, and you can be a part of the $5,000 prize purse.
 	The top five highest scorers will receive prizes with the first place winner receiving $2,500.
 </p>
 <%}%>
 
 <%if(roundId == 13754 || roundId == 13934 || roundId == 13953) {%>
 <p align="justify" class="justifyText">
-    This Marathon Match is a money match that has a <b>$5,000 prize purse</b>! The top five highest scorers 
+    This Marathon Match is a money match that has a <b>$5,000 prize purse</b>! The top five highest scorers
 	will receive prizes with the first place winner receiving $2,500!
 </p>
 <%}%>
 
-<%if(roundId == 13772 || roundId == 14525 || roundId == 14584 || roundId == 15024 || roundId == 15075 || roundId == 15023 || 
+<%if(roundId == 13772 || roundId == 14525 || roundId == 14584 || roundId == 15024 || roundId == 15075 || roundId == 15023 ||
      roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15078 || roundId == 15103 || roundId == 15120 ||
      roundId == 15189 || roundId == 15322 || roundId == 15458 || roundId == 15618 || roundId == 15637) {%>
 <p align="justify" class="justifyText">
-    This Marathon Match is a money match that has a <b>$10,000 prize purse</b>! The top five highest scorers 
+    This Marathon Match is a money match that has a <b>$10,000 prize purse</b>! The top five highest scorers
 	will receive prizes with the first place winner receiving $5,000!
 </p>
 <%}%>
@@ -452,13 +452,13 @@ will receive prizes with the first place winner receiving $10,000!
 <%}%>
 
 <%if (roundId == 15201 || roundId == 15202 || roundId == 15327) {%>
-    This Marathon Match is a money match that has a <b>$5,000 prize purse</b>! The top five highest scorers 
+    This Marathon Match is a money match that has a <b>$5,000 prize purse</b>! The top five highest scorers
 	will receive prizes with the first place winner receiving $2,500!
 <%}%>
 
 <%if(roundId == 15077 || roundId == 15130) {%>
 <p align="justify" class="justifyText">
-    This Marathon Match is a money match that has a <b>$7,500 prize purse</b>! The top five highest scorers 
+    This Marathon Match is a money match that has a <b>$7,500 prize purse</b>! The top five highest scorers
 	will receive prizes with the first place winner receiving $3,750!
 </p>
 <p align="justify" class="justifyText">
@@ -467,10 +467,10 @@ total prize money</b>.
 </p>
 <%}%>
 
-<%if (roundId == 15080 || roundId == 15398 || roundId == 15589) 
+<%if (roundId == 15080 || roundId == 15398 || roundId == 15589)
 {%>
 <p align="justify" class="justifyText">
-    This Marathon Match is a money match that has a <b>$1,000 prize purse</b>! The top two highest scorers 
+    This Marathon Match is a money match that has a <b>$1,000 prize purse</b>! The top two highest scorers
 	will receive prizes with the first place winner receiving $700!
 </p>
 <%}%>
@@ -480,27 +480,27 @@ total prize money</b>.
 
 <%if(roundId == 13772 ) {%>
 <p align="justify" class="justifyText">
-    In TopCoder Marathon Match events, the system will be testing submissions for optimization according to the scoring criteria 
-    outlined in the problem statement that is associated with this event.	
-    Each event may have a different scoring mechanism. 
-    Competitors will have to understand the scoring mechanism in order to effectively compete.  
+    In TopCoder Marathon Match events, the system will be testing submissions for optimization according to the scoring criteria
+    outlined in the problem statement that is associated with this event.
+    Each event may have a different scoring mechanism.
+    Competitors will have to understand the scoring mechanism in order to effectively compete.
     <br>
     <b>Participants may submit code written in the following language: C++ </b>
 </p>
 <%}else if(roundId == 15023 || roundId == 15322 || roundId == 15458 || roundId == 15630 || roundId == 15637 || roundId == 15761 || roundId == 15765) {%>
 <p align="justify" class="justifyText">
-    In TopCoder Marathon Match events, the system will be testing submissions for optimization according to the scoring criteria 
-    outlined in the problem statement that is associated with this event.	
-    Each event may have a different scoring mechanism. 
-    Competitors will have to understand the scoring mechanism in order to effectively compete.  
+    In TopCoder Marathon Match events, the system will be testing submissions for optimization according to the scoring criteria
+    outlined in the problem statement that is associated with this event.
+    Each event may have a different scoring mechanism.
+    Competitors will have to understand the scoring mechanism in order to effectively compete.
     <br><br>
     <b>Participants may submit code written in the following languages: Java, C++, C#.NET, or VB.NET. </b>
 </p>
 <%} else { %>
 <p align="justify" class="justifyText">
-    In TopCoder Marathon Match events, the system will be testing submissions for optimization according to the scoring criteria 
-    outlined in the problem statement that is associated with this event.	
-    Each event may have a different scoring mechanism. 
+    In TopCoder Marathon Match events, the system will be testing submissions for optimization according to the scoring criteria
+    outlined in the problem statement that is associated with this event.
+    Each event may have a different scoring mechanism.
     Competitors will have to understand the scoring mechanism in order to effectively compete.
     <% if (roundId == 15130 || roundId == 15611 || roundId == 16001) { %>
     <br><br>
@@ -510,7 +510,7 @@ The <a href="http://apps.topcoder.com/forums/?module=Thread&threadID=786874&star
 allows code submissions in Java, C# and VB.NET.
 <% } %>
 	<% } else { %>
-	Participants may submit code written in one of the following languages: Java, C++, C#.NET, VB.NET, or Python. 
+	Participants may submit code written in one of the following languages: Java, C++, C#.NET, VB.NET, or Python.
 	<% } %>
 </p>
 <% } %>
@@ -518,16 +518,16 @@ allows code submissions in Java, C# and VB.NET.
 
 <p align="justify" class="justifyText">
 <% if (roundId == 13953 ) {%>
-    Once the submission phase of a Marathon Match has ended, final testing will run 
-	and may take several days to complete.  Upon completion of final testing, 
-    the final results will become available in the Marathon Match Archive on the web site. 
+    Once the submission phase of a Marathon Match has ended, final testing will run
+	and may take several days to complete.  Upon completion of final testing,
+    the final results will become available in the Marathon Match Archive on the web site.
     Competitors will be able to see the test case details, other competitors' submissions, and all final results.
 	<br>
     <b>Ratings will NOT be adjusted as a result of participation in this competition.</b>
 <%} else { %>
-    Once the submission phase of a Marathon Match has ended, final testing will run 
-	and may take several days to complete.  Upon completion of final testing, 
-    the final results will become available in the Marathon Match Archive on the web site. 
+    Once the submission phase of a Marathon Match has ended, final testing will run
+	and may take several days to complete.  Upon completion of final testing,
+    the final results will become available in the Marathon Match Archive on the web site.
     Competitors will be able to see the test case details, other competitors' submissions, and all final results.
     For rated events, the ratings will be adjusted once results are final.
 <%} %>
@@ -560,7 +560,7 @@ allows code submissions in Java, C# and VB.NET.
 <%}%>
 
 
-<%if(roundId == 10834) {%>                                                   
+<%if(roundId == 10834) {%>
 <div class="sectionHeader">Prizes</div>
     There will be $5000 in total prize money.  The first and second highest scoring
     submissions in each of the five languages supported will receive $750 and $250,
@@ -591,9 +591,9 @@ allows code submissions in Java, C# and VB.NET.
         <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$500</td>
     </tr>
 </table>
-    
+
 <p align="justify" class="justifyText">
-    
+
 </p>
 <%}%>
 
@@ -621,9 +621,9 @@ allows code submissions in Java, C# and VB.NET.
         <td class="bodyText" nowrap="nowrap">7th-10th</td><td class="bodyText" align="right">$250</td>
     </tr>
 </table>
-    
+
 <p align="justify" class="justifyText">
-    
+
 </p>
 <%}%>
 <%if(roundId == 13754 || roundId == 13934 || roundId == 13953 ) {%>
@@ -648,17 +648,17 @@ allows code submissions in Java, C# and VB.NET.
     </tr>
 </table>
 <br>
-<b>* NOTE:</b> All prize winners are required to submit to TopCoder a one-page description, explaining their winning 
+<b>* NOTE:</b> All prize winners are required to submit to TopCoder a one-page description, explaining their winning
 submission, within one week of the announcment of the winners in order to receive their prize.
-    
+
 <p align="justify" class="justifyText">
-    
+
 </p>
 <%}%>
 
 <% if (Arrays.binarySearch(nsaRounds, roundId)>=0) { %>
 	<div class="sectionHeader">Prizes</div>
-    <p align="justify" class="justifyText">There will be up to $3000 in total prize money awarded to the five (5) highest scoring members 
+    <p align="justify" class="justifyText">There will be up to $3000 in total prize money awarded to the five (5) highest scoring members
 	  who are citizens of the United States.</p>
 
 	<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
@@ -680,14 +680,14 @@ submission, within one week of the announcment of the winners in order to receiv
 	</table>
 
 	<br>
-    
+
 <p align="justify" class="justifyText">
-    
+
 </p>
 <%}%>
 
 
-<%if(roundId == 13772 || roundId == 14525 || roundId == 14584 || roundId == 15024 || roundId == 15075 || roundId == 15023 || 
+<%if(roundId == 13772 || roundId == 14525 || roundId == 14584 || roundId == 15024 || roundId == 15075 || roundId == 15023 ||
      roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15078 || roundId == 15103 || roundId == 15120 ||
      roundId == 15189 || roundId == 15322 || roundId == 15458 || roundId == 15618 || roundId == 15637 || roundId == 16069) {%>
 <div class="sectionHeader">Prizes</div>
@@ -710,14 +710,14 @@ submission, within one week of the announcment of the winners in order to receiv
         <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$500</td>
     </tr>
 </table>
-    
+
 
 <p align="justify" class="justifyText">
-    
+
 </p>
-    
+
 <p align="justify" class="justifyText">
-    
+
 </p>
 <%}%>
 
@@ -749,12 +749,12 @@ in total prize money:
 <li>All submissions with the final score of at least 850,000 are eligible for a combined prize purse of $2,000. If there are several such submissions, the prize will be divided evenly among them.</li>
 <li>All submissions with the final score of at least 900,000 are eligible for a combined prize purse of $3,000. If there are several such submissions, the prize will be divided evenly among them.</li>
 </ul>
-</p>  
+</p>
 
 <p align="justify" class="justifyText">
 TopCoder may *offer* to purchase submissions that did not win any prize if the client is interested in using them.
 </p>
-    
+
 <p align="justify" class="justifyText">
 </p>
 <% } %>
@@ -1033,14 +1033,14 @@ The tester's identity will not be revealed until the challenge is over.</p>
         <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$250</td>
     </tr>
 </table>
-    
+
 
 <p align="justify" class="justifyText">
-    
+
 </p>
-    
+
 <p align="justify" class="justifyText">
-    
+
 </p>
 <%}%>
 
@@ -1085,15 +1085,15 @@ total prize money. The detailed rules of this phase will be posted to the marath
 </table>
 
 <p align="justify" class="justifyText">
-    
+
 </p>
 <%}%>
 
 
 <%if(roundId == 14584 ) {%>
 <p align="justify" class="justifyText">
-    <b>There will be an additional bonus prize purse of $5,000 for novel approaches to this particular problem.  All competitors who meet the eligibility critera of the 
-	Marathon Match and who submit a one to two-page description of their algorithm and how it meets the requirements of a novel approach will be 
+    <b>There will be an additional bonus prize purse of $5,000 for novel approaches to this particular problem.  All competitors who meet the eligibility critera of the
+	Marathon Match and who submit a one to two-page description of their algorithm and how it meets the requirements of a novel approach will be
 	eligible for an award of a portion of the bonus prize purse.  Please review the discussion forum for this marathon match for more information on the bonus prize requirements.</b>
 </p>
 <%}%>
@@ -1119,7 +1119,7 @@ total prize money. The detailed rules of this phase will be posted to the marath
 		</ul>
 		If you do not reside in the United States:
 		<ul>
-			<li>You must be authorized to perform services in the country from which you are located while participating 
+			<li>You must be authorized to perform services in the country from which you are located while participating
 			in the competition as an independent contractor. (Note: In most cases you will not
             need to do anything to become authorized)</li>
 
@@ -1128,10 +1128,10 @@ total prize money. The detailed rules of this phase will be posted to the marath
 <%} else if (Arrays.binarySearch(nsaRounds, roundId)>=0) { %>
 	<div class="sectionHeader">Eligibility</div>
 	<p align="justify" class="justifyText">
-		The competition is open to all members who are at least 18 years of age who are U.S. citizens. 
+		The competition is open to all members who are at least 18 years of age who are U.S. citizens.
 		<br><br>
-		You are not eligible for this Competition if you are on the Specially Designated National list 
-		promulgated and amended, from time to time, by the United States Department of the Treasury. 
+		You are not eligible for this Competition if you are on the Specially Designated National list
+		promulgated and amended, from time to time, by the United States Department of the Treasury.
 		<br>
 	</p>
 <%}%>
@@ -1147,13 +1147,13 @@ total prize money. The detailed rules of this phase will be posted to the marath
         <tbody>
             <tr>
                 <td align="center" colspan="2" style="border-bottom: 1px solid #999999;">
-				   
+
 				   <% if (Arrays.binarySearch(experimentalRounds, roundId)>=0) { %>
                      <strong>Registration</strong>
                    <%} else { %>
                      <strong>Registration &amp; Submission</strong>
                     <%}%>
-                    
+
                 </td>
             </tr>
             <tr>
@@ -1193,17 +1193,17 @@ total prize money. The detailed rules of this phase will be posted to the marath
         </tbody>
     </table>
 </div>
-
+<!--
 <h2 align="center">
     <a href="?<%=Constants.MODULE_KEY%>=MatchRules&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}" class="bcLink">Rules & Regulations</a>
 </h2>
-
+-->
 
 
             </div>
         </td>
 <%-- Center Column Ends --%>
-        
+
 <%-- Right Column Begins --%>
         <td width="170">
             <jsp:include page="../public_right.jsp">
@@ -1211,7 +1211,7 @@ total prize money. The detailed rules of this phase will be posted to the marath
             </jsp:include>
         </td>
 <%-- Right Column Ends --%>
-        
+
     </tr>
 </tbody>
 </table>
