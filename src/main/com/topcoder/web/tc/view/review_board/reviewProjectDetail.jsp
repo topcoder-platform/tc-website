@@ -375,15 +375,6 @@
                         <tbody>
                         <tr>
                             <td class="bodyText">
-                                <c:set var="now" value="<%=new Date()%>"/>
-                                <c:choose>
-                                    <c:when test="${reviewAuction.assignmentDate > now}">
-                                        Reviewers will be assigned on <fmt:formatDate value="${reviewAuction.assignmentDate}" pattern="${DATE_FORMAT}"/>
-                                    </c:when>
-                                    <c:otherwise>
-                                        Reviewers will be assigned immediately on signup.
-                                    </c:otherwise>
-                                </c:choose>
                             </td>
                             <td align="right">
                                 <c:choose>
@@ -423,8 +414,6 @@
                         <tr>
                             <td class="tableHeader">Handle</td>
                             <td class="tableHeader" align="center">Role</td>
-                            <td class="tableHeader" align="center">Reviewer Rating</td>
-                            <td class="tableHeader" align="center">Status</td>
                             <td class="tableHeader" align="center">Application Date</td>
                         </tr>
                         <c:forEach items="${reviewApplications}" var="reviewApplicant">
@@ -437,17 +426,6 @@
                                         <c:out value="${reviewApplicationRoles[reviewApplicant.applicationRoleId].name}"/>
                                     </td>
                                     <td class="projectCells" align="center">
-                                        <c:if test="${empty reviewerRatings[reviewApplicant.userId]}">
-                                            not rated
-                                        </c:if>
-                                        <c:if test="${not empty reviewerRatings[reviewApplicant.userId]}">
-                                            <fmt:formatNumber value="${reviewerRatings[reviewApplicant.userId]}" pattern="0.00"/>
-                                        </c:if>
-                                    </td>
-                                    <td class="projectCells" align="center">
-                                        <c:out value="${reviewApplicant.status.name}"/>
-                                    </td>
-                                    <td class="projectCells" align="center">
                                         <fmt:formatDate value="${reviewApplicant.createDate}" pattern="${DATE_FORMAT}"/>
                                     </td>
                                 </tr>
@@ -455,6 +433,14 @@
                         </c:forEach>
                         </tbody>
                     </table>
+                    <table cellspacing="0" cellpadding="0" width="540" class="bodyText">
+                        <tr>
+                            <td class="bodyText">
+                                <p align="left">** Reviewers will be assigned up to 24 hours in advance of the start of the review process.
+                                </p>
+                            </td>
+                        </tr>
+                    </table>                    
                     <br/>
                 </td>
                 <!-- Center Column Ends -->
