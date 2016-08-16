@@ -316,7 +316,7 @@
                             <td class="bodyText">
                                 <p align="left">
                                     Select the review roles you would like to apply for and click the button.
-                                    The system will assign members that best meet the review requirements for this challenge.
+                                    Reviewers will be assigned up to 24 hours in advance of the start of the review process.
                                     <c:if test="${auctionCategoryId == CONTEST_REVIEW_AUCTION_CATEGORY_ID}">
                                         Although you will be assigned to at most one review position, applying for multiple
                                         roles increases your chances of being selected.
@@ -414,7 +414,7 @@
                         <tr>
                             <td class="tableHeader">Handle</td>
                             <td class="tableHeader" align="center">Role</td>
-                            <td class="tableHeader" align="center">Application Date **</td>
+                            <td class="tableHeader" align="center">Application Date</td>
                         </tr>
                         <c:forEach items="${reviewApplications}" var="reviewApplicant">
                             <c:if test="${reviewApplicant.status.id ne 2}"> <%-- Do not show Cancelled applications --%>
@@ -433,14 +433,7 @@
                         </c:forEach>
                         </tbody>
                     </table>
-                    <table cellspacing="0" cellpadding="0" width="540" class="bodyText">
-                        <tr>
-                            <td class="bodyText">
-                                <p align="left">** Reviewers will be assigned up to 24 hours in advance of the start of the review process.
-                                </p>
-                            </td>
-                        </tr>
-                    </table>                    
+                  
                     <br/>
                 </td>
                 <!-- Center Column Ends -->
