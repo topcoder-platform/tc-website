@@ -414,7 +414,7 @@
                         <tr>
                             <td class="tableHeader">Handle</td>
                             <td class="tableHeader" align="center">Role</td>
-                            <td class="tableHeader" align="center">Application Date</td>
+                            <td class="tableHeader" align="center">Application Date **</td>
                         </tr>
                         <c:forEach items="${reviewApplications}" var="reviewApplicant">
                             <c:if test="${reviewApplicant.status.id ne 2}"> <%-- Do not show Cancelled applications --%>
