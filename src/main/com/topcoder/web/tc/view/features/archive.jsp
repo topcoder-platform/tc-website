@@ -418,11 +418,13 @@
                <td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&amp;d1=features&amp;d2=020807"><strong>Beginning TopCoder Competition with C++</strong></a></td>
                <td class="bodyText" nowrap=nowrap>Feb 8, 2007</td> 
             </tr>
+<!--
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="21464956" /></td>
                <td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&amp;d1=features&amp;d2=020607"><strong>Marathon Man: An interview with battyone</strong></a></td>
                <td class="bodyText" nowrap=nowrap>Feb 6, 2007</td> 
             </tr>
+-->
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>
                <td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&amp;d1=features&amp;d2=020207"><strong>TopCoder @ Work: Not Another Vista Article</strong></a></td>
