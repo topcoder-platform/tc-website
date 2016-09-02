@@ -175,7 +175,7 @@
                         <ul class="submenu">
                             <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/members/" class="menu-link menu-link-community-members">OVERVIEW</a>
                             </li>
-                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/member-programs/topcoder-open/" class="menu-link menu-link-community-tco17">TCO</a>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/tco" class="menu-link menu-link-community-tco17">TCO</a>
                             </li>
                             <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/member-programs/" class="menu-link menu-link-community-programs">PROGRAMS</a>
                             </li>
