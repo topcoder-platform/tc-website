@@ -29,16 +29,18 @@
 
 <table width=100% border=0 cellpadding=0 cellspacing=0 align=center>
    <TR valign="top">
-      <td width="50%"><jsp:include page="left.jsp" /></td>
+      <td width="30%"><jsp:include page="left.jsp" /></td>
 <!-- Center Column Begins -->
         <td class=recruitingBody>
          <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class=bodyText>
+<%--
                      <div style="float:right;">
                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=ViewSearchTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="PositionInterestTask" property="campaignID" />">Search candidates</A>
                      </div>
+--%>                     
                         <tces:trailIterator id="trailItem" trailList="<%=PositionInterestTask.getTrail()%>">
                             <a href="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></a> &gt;
                         </tces:trailIterator>
@@ -66,7 +68,7 @@
                   <td class="screeningHeader"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>&<%=TCESConstants.SORT_PARAM%>=coder_type_desc&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>&<%=TCESConstants.BACK_SORT_PARAM%>=gpa_sort&<%=TCESConstants.BACK_SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>" class="screeningHeader">GPA</a></td>
                   <td class="screeningHeader" align=center><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>&<%=TCESConstants.SORT_PARAM%>=coder_type_desc&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>&<%=TCESConstants.BACK_SORT_PARAM%>=grad_year_sort&<%=TCESConstants.BACK_SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="screeningHeader">Grad.<br/>Year</a></td>
                   <td class="screeningHeader" align=center><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>&<%=TCESConstants.SORT_PARAM%>=hit_date_sort&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>" class="screeningHeader">Hit Date</a></td>
-                  <td class="screeningHeader" align=center><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>&<%=TCESConstants.SORT_PARAM%>=has_resume&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>" class="screeningHeader">Resume</a> </td>
+                  <td class="screeningHeader" align=center><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>&<%=TCESConstants.SORT_PARAM%>=email_address&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>" class="screeningHeader">Email</a> </td>
                   <td class="screeningHeader"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>&<%=TCESConstants.SORT_PARAM%>=language_name&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="screeningHeader">Lang.</a></td>
                 </tr>
 
@@ -76,7 +78,13 @@
                 --%>
                 <tces:rowIterator id="hit" rowList="<%=PositionInterestTask.getHitList()%>"><% i++; %><tr>
  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
-  <tces:handle campaignId="<%=PositionInterestTask.getCampaignID()%>" db="<%=PositionInterestTask.getOltp()%>"jobId='<%=hit.getLongItem("job_id")%>' coderId='<%=hit.getLongItem("coder_id")%>'/></td>
+
+<%
+  //Build the link to the member profile
+  String handleLink = "https://topcoder.com/members/" +  hit.getItem("handle").toString();
+%>
+  <tces:handle link="<%=handleLink%>" campaignId="<%=PositionInterestTask.getCampaignID()%>" db="<%=PositionInterestTask.getOltp()%>"jobId='<%=hit.getLongItem("job_id")%>' coderId='<%=hit.getLongItem("coder_id")%>'/></td>
+
  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align="right"><%= hit.getItem("rating").toString() %>&#160;</td>
  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align="right"><rsc:item name="design_rating" format="#" row="<%=hit%>" ifNull="Not Rated"/>&#160;</td>
  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align="right"><rsc:item name="dev_rating" format="#" row="<%=hit%>" ifNull="Not Rated"/>&#160;</td>
@@ -87,7 +95,7 @@
  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%= hit.getItem("gpa").toString() %></td>
  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align="center"><%= hit.getItem("grad_year").toString() %></td>
  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=center><%= hit.getItem("hit_date").toString() %></td>
- <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align="center"><%=hit.getItem("has_resume").toString().equals("1")?"Yes":"No"%></td>
+  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align="center">--</td>
  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%=hit.getItem("language_name").toString()%></td>
 </tr></tces:rowIterator>
 
