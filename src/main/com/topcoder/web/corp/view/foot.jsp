@@ -6,15 +6,16 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr><td width="100%" class="footer">
         <a href="/" class="footerLinks">Home</a>&#160;&#160;|&#160;&#160;
-        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=index" class="footerLinks">About TopCoder</a>&#160;&#160;|&#160;&#160;
-        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=pressroom&d2=index" class="footerLinks">Press Room</a>&#160;&#160;|&#160;&#160;
-        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=contactus" class="footerLinks">Contact Us</a>&#160;&#160;|&#160;&#160;
-        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=privacy" class="footerLinks">Privacy</a>&#160;&#160;|&#160;&#160;
-        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</a></td></tr>
+        <a href="http://<%=ApplicationServer.SERVER_NAME%>/about-topcoder/" class="footerLinks">About TopCoder</a>&#160;&#160;|&#160;&#160;
+        <a href="http://<%=ApplicationServer.SERVER_NAME%>/about-topcoder/contact/" class="footerLinks">Contact Us</a>&#160;&#160;|&#160;&#160;
+        <a href="http://<%=ApplicationServer.SERVER_NAME%>/community/how-it-works/privacy-policy/" class="footerLinks">Privacy</a>&#160;&#160;|&#160;&#160;
+        <a href="http://<%=ApplicationServer.SERVER_NAME%>/community/how-it-works/terms/" class="footerLinks">Terms</a></td></tr>
 
 <!-- Member sites -->
+<!--
     <tr><td width="100%" class="footer"><a href="/tc" class="footerLinks">Competitions</a>&#160;&#160;|&#160;&#160;
     <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/" class="footerLinks">Corporate Services</a>
+-->
 <!-- Main Navigation bar ends -->
 
     <tr><td height="4" class="footerStripe"><img src="/i/corp/clear.gif" width="10" height="4" border="0"/></td></tr>

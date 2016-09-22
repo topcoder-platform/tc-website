@@ -30,16 +30,18 @@
 
 <table width=100% border=0 cellpadding=0 cellspacing=0 align=center>
    <TR valign="top">
-      <td width="50%"><jsp:include page="left.jsp" /></td>
+      <td width="30%"><jsp:include page="left.jsp" /></td>
 <!-- Center Column Begins -->
         <td class=recruitingBody>
          <img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class=bodyText>
+<%--
                      <div style="float:right;">
                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=ViewSearchTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="campaignID" />">Search candidates</A>
                      </div>
+--%>                     
                         <tces:trailIterator id="trailItem" trailList="<%=CampaignInterestTask.getTrail()%>">
                             <a href="<jsp:getProperty name="trailItem" property="href" />" class="bodyText"><jsp:getProperty name="trailItem" property="name" /></a> &gt;
                         </tces:trailIterator>
