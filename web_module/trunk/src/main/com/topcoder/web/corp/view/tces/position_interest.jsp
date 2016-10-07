@@ -94,8 +94,8 @@
  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%= hit.getItem("school_name").toString() %></td>
  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%= hit.getItem("gpa").toString() %></td>
  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align="center"><%= hit.getItem("grad_year").toString() %></td>
- <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=center><%= hit.getItem("hit_date").toString() %></td>
-  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align="center">--</td>
+ <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align="center"><%= hit.getItem("hit_date").toString() %></td>
+ <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%= hit.getItem("email").toString() %></td>
  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%=hit.getItem("language_name").toString()%></td>
 </tr></tces:rowIterator>
 
