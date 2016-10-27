@@ -44,12 +44,13 @@
             </a>
         </div>
         <div class="nav">
-            <span class="copyright">Copyright TopCoder, Inc. 2001-2016</span>
-            <span class="line"></span><a href="https://www.topcoder.com/contact-us">Contact Us</a> 
-            <span class="line"></span><a href="https://www.topcoder.com/about">About Us</a>
+            <span class="copyright">Copyright TopCoder, Inc. 2001-<script type="text/javascript">d=new Date();document.write(d.getFullYear());</script></span>
+            <span class="line"></span><a href="https://www.topcoder.com/contact-us">Contact Us</a>
+            <span class="line"></span><a href="http://www.topcoder.com/home/studio/what-is-studio/">About TopCoder Studio</a>
+            <span class="line"></span><a href="http://www.topcoder.com/about/">About TopCoder</a>
             <span class="line"></span><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=index">News</a>
             <span class="line"></span><a href="https://www.topcoder.com/community/how-it-works/privacy-policy/">Privacy Policy</a>
-            <span class="line"></span><a href="https://www.topcoder.com/community/how-it-works/terms/">Terms</a>
+            <span class="line"></span><a href="https://www.topcoder.com/community/how-it-works/terms/">Terms &amp; Conditions</a>
         </div>
 
     </div>
@@ -72,6 +73,3 @@
 
 </script>
 
-<script type="text/javascript">
-		(function () { var done = false; var script = document.createElement("script"); script.async = true; script.type = "text/javascript"; script.src = "https://purechat.com/VisitorWidget/WidgetScript"; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == "loaded" || this.readyState == "complete")) { var w = new PCWidget({ c: '32782020-1040-4f6a-a980-bb27ddb5204a', f: true }); done = true; } }; })();
-</script>
