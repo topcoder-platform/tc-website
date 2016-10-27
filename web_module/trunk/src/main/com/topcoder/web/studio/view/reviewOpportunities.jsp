@@ -123,11 +123,6 @@
                                 <span class="tabMask"><span class="text">Past Challenges</span></span>
                             </a>
                         </li>
-                        <li>
-                            <a href="${sessionInfo.servletPath}?module=ViewActiveBugRaces">
-                                <span class="tabMask"><span class="text">Active Race Competitions</span></span>
-                            </a>
-                        </li>
                         <li class="active">
                             <a href="${sessionInfo.servletPath}?module=ViewReviewOpportunities">
                                 <span class="tabMask"><span class="text">Review Opportunities</span></span>
@@ -233,18 +228,27 @@
                                 <td class="purse">
                                     <fmt:formatNumber value="${payments[status.index]}" pattern="$###,###.00"/>
                                 </td>  
+
                                 <td class="last">
                                     <c:choose>
-                                        <c:when test="${resultRow.map['reviewer_id'] eq 0}">
-                                            <a href="${isSpecReview ? SPEC_REVIEW_REGISTRATION_LINK : SCREENING_REVIEW_REGISTRATION_LINK}=${resultRow.map['contest_id']}">
+                                        <c:when test="${isSpecReview && resultRow.map['reviewer_id'] eq 0}">
+                                            <%--<a href="${isSpecReview ? SPEC_REVIEW_REGISTRATION_LINK : SCREENING_REVIEW_REGISTRATION_LINK}=${resultRow.map['contest_id']}">--%>
+                                            <a href="${isSpecReview ? SPEC_REVIEW_REGISTRATION_LINK : '#'}=${resultRow.map['contest_id']}">
                                                 Apply Now
                                             </a>
+                                        </c:when>
+                                        <c:when test="${!isSpecReview && resultRow.map['reviewer_id'] eq 0}">
+                                            Pending
+                                        </c:when>
+                                        <c:when test="${!isSpecReview && resultRow.map['reviewer_id'] ne 0}">
+                                            <studio:handle coderId="${resultRow.map['reviewer_id']}" />
                                         </c:when>
                                         <c:otherwise>
                                             <studio:handle coderId="${resultRow.map['reviewer_id']}" />
                                         </c:otherwise>
                                     </c:choose>
                                 </td>
+
                             </tr>
                                     </c:forEach>
                                 </c:otherwise>

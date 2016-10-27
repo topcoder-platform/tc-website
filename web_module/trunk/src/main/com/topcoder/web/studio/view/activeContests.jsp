@@ -120,11 +120,6 @@
                             </a>
                         </li>
                         <li>
-                            <a href="${sessionInfo.servletPath}?module=ViewActiveBugRaces">
-                                <span class="tabMask"><span class="text">Active Race Competitions</span></span>
-                            </a>
-                        </li>
-                        <li>
                             <a href="${sessionInfo.servletPath}?module=ViewReviewOpportunities">
                                 <span class="tabMask"><span class="text">Review Opportunities</span></span>
                             </a>
