@@ -1,4 +1,5 @@
 <project name="topcoder" default="main" basedir=".">
+    <property environment="env"/>
     <property name="Name" value="TopCoder"/>
     <property name="build" value="build"/>
     <property name="war.dir" value="${build}/wars"/>
@@ -23,11 +24,10 @@
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
     <property name="tccache.jar" value="${jars.dir}/tcs/tc_cache/1.0.0/tc_cache.jar"/>
     <property name="web" value="src/main/com/topcoder/web"/>
-    <property name="jboss_home" value="/home/distui/jboss-4.2.0.GA"/>
-    <property name="jboss_deploy" value="${jboss_home}/server/distui/deploy"/>
-    <property name="jboss_lib" value="${jboss_home}/server/distui/lib"/>
-    <property name="jboss_conf" value="${jboss_home}/server/distui/conf"/>
-    <property environment="env"/>
+    <property name="jboss_home" value="${env.JBOSS_HOME}"/>
+    <property name="jboss_deploy" value="${jboss_home}/server/all/deploy"/>
+    <property name="jboss_lib" value="${jboss_home}/server/all/lib"/>
+    <property name="jboss_conf" value="${jboss_home}/server/all/conf"/>
 
     <property name="deprecation" value="true"/>
     <property name="debug" value="true"/>
