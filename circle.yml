@@ -1,0 +1,14 @@
+machine:
+  services:
+    - docker
+
+checkout:
+  pre:
+    - git clone https://github.com/topcoder-platform/tc-website-glue glue
+    - git clone https://github.com/topcoder-platform/tc-website-shared shared
+    - git clone https://github.com/topcoder-platform/tc-website-external-artifacts external-artifacts
+
+
+test:
+  override:
+    - cp -Rf .deploy/circleci/* . && docker run -v ${HOME}:/root/tc-platform appiriodevops/tc-website:build
