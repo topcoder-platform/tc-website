@@ -77,6 +77,9 @@ public class Home extends ShortHibernateProcessor {
         getRequest().setAttribute("hasSocialAccount",
                 !DAOUtil.getFactory().getUserSocialLoginDAO().findByUserId(getUser().getId()).isEmpty());
 
+        getRequest().setAttribute("hasSSOAccount",
+                !DAOUtil.getFactory().getUserSSOLoginDAO().findByUserId(getUser().getId()).isEmpty());
+
         setNextPage("/my_home/index.jsp");
         setIsNextPageInContext(true);
     }

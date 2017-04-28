@@ -235,6 +235,13 @@ public interface DAOFactory {
     UserSocialLoginDAO getUserSocialLoginDAO();
 
     /**
+     * Gets the instance of {@link UserSSOLoginDAO}.
+     *
+     * @return the dao.
+     */
+    UserSSOLoginDAO getUserSSOLoginDAO();
+
+    /**
      * Gets the instance of {@link UserApiSpinDAO}.
      *
      * @return the dao.

@@ -367,6 +367,15 @@ public class DAOFactoryQueryTool implements DAOFactory {
     }
 
     /**
+     * Gets the instance of {@link UserSSOLoginDAO}.
+     *
+     * @return nothing, will throw exception.
+     */
+    public UserSSOLoginDAO getUserSSOLoginDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    /**
      * Gets the instance of {@link UserApiSpinDAO}.
      *
      * @return nothing, will throw exception.
@@ -405,4 +414,5 @@ public class DAOFactoryQueryTool implements DAOFactory {
     public DocuSignEnvelopeDAO getDocuSignEnvelopeDAO() {
         throw new RuntimeException("Not supported");
     }
+
 }

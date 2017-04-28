@@ -154,6 +154,10 @@
         <mapping class="com.topcoder.web.common.model.educ.ProfessorStatus"/>
         
         <mapping resource="com/topcoder/web/common/model/UserSocialLogin.hbm.xml"/>
+        
+        <!-- 2017.04.24 [SEG-42] Block adding additional social logins to account -->
+        <mapping resource="com/topcoder/web/common/model/UserSSOLogin.hbm.xml"/>
+        
         <mapping resource="com/topcoder/web/common/model/UserApiSpin.hbm.xml"/>
         
 		<mapping resource="com/topcoder/web/common/model/DocuSignEnvelope.hbm.xml"/>
