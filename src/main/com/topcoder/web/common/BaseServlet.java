@@ -232,9 +232,6 @@ public abstract class BaseServlet extends HttpServlet {
                     tcResponse = HttpObjectFactory.createUnCachedResponse(response);
                 }
                 tcRequest.setAttribute(SESSION_INFO_KEY, info);
-                //todo perhaps this should be configurable...so implementing classes
-                //todo don't have to do it if they don't want to
-                RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
                 StringBuffer loginfo = new StringBuffer(100);
                 loginfo.append("[* ");

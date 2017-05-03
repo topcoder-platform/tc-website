@@ -120,10 +120,6 @@ public final class MainServlet extends BaseServlet {
             requestTask = request.getParameter("t");
             requestCommand = request.getParameter("c");
 
-            if (!"sponsor_image".equals(requestCommand)) {
-                RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
-            }
-
             if (requestTask == null)
                 requestTask = Conversion.checkNull((String) request.getAttribute("t"));
             if (requestCommand == null)

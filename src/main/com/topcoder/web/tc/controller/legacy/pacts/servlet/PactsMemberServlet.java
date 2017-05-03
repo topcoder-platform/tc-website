@@ -21,7 +21,6 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.RequestTracker;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
@@ -135,9 +134,6 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
                     TCSubject user = getUser(authentication.getActiveUser().getId());
                     SessionInfo info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
                     tcRequest.setAttribute(SESSION_INFO_KEY, info);
-                    //todo perhaps this should be configuraable...so implementing classes
-                    //todo don't have to do it if they don't want to
-                    RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
                     // check to see if the user has not logged in
                     if (info.isAnonymous()) {
@@ -267,9 +263,6 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
                     TCSubject user = getUser(authentication.getActiveUser().getId());
                     SessionInfo info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
                     tcRequest.setAttribute(SESSION_INFO_KEY, info);
-                    //todo perhaps this should be configuraable...so implementing classes
-                    //todo don't have to do it if they don't want to
-                    RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
                     // check to see if the user has not logged in
                     if (info.isAnonymous()) {
