@@ -8,6 +8,13 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
+      <%
+         // New location to be redirected
+         String site = new String("https://www.topcoder.com/challenges");
+         response.setStatus(response.SC_MOVED_PERMANENTLY);
+         response.setHeader("Location", site); 
+      %>
+   
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
