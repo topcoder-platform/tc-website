@@ -31,9 +31,9 @@
     <property name="long.jar" value="${bin}/long.jar"/>
     <property name="web" value="src/main/com/topcoder/web"/>
     <property name="jboss_home" value="${env.JBOSS_HOME}"/>
-    <property name="jboss_deploy" value="${jboss_home}/server/mm/deploy"/>
-    <property name="jboss_lib" value="${jboss_home}/server/mm/lib"/>
-    <property name="jboss_conf" value="${jboss_home}/server/mm/conf"/>
+    <property name="jboss_deploy" value="${jboss_home}/server/all/deploy"/>
+    <property name="jboss_lib" value="${jboss_home}/server/all/lib"/>
+    <property name="jboss_conf" value="${jboss_home}/server/all/conf"/>
 
     <property name="deprecation" value="true"/>
     <property name="debug" value="true"/>
@@ -256,9 +256,7 @@ copy in the classpath
 
     <target name="expand">
         <!-- copy the libs -->
-        <copy todir="${jboss_lib}" file="${external.jars.dir}/ifxjdbc-3.00.JC3.jar"/>
-        <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jgroups.jar"/>
-        <copy todir="${jboss_lib}" file="${jboss_home}/server/all/lib/jboss-cache-jdk50.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/ifxjdbc.jar"/>
         
 
         <!-- these jars are needed by the ejb's.  really we should build a web app that contains these libs -->
