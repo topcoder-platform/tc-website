@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2017 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.pacts;
 
@@ -126,11 +126,17 @@ import static com.topcoder.web.tc.Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT;
  *     method.</li>
  *   </ol>
  * </p>
+ * <p>
+ * Version 1.8 (Topcoder - Add New Payment Provider) Change notes:
+ *   <ol>
+ *     <li>Added {@link #hasWiproSSOAccount(long)} method.</li>
+ *   </ol>
+ * </p>
  *
  * <p>VERY IMPORTANT: remember to update serialVersionUID if needed.</p>
  *
- * @author Dave Pecora, pulky, isv, Vitta, Blues, FireIce
- * @version 1.7
+ * @author Dave Pecora, pulky, isv, Vitta, Blues, FireIce, TCSCODER
+ * @version 1.8
  * @see PactsConstants
  */
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
@@ -1539,7 +1545,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         if (userId == 0) {
             throw new IllegalArgumentException("Invalid user ID");
         }
-        
+
         if (paymentMethodId <= 0) {
             throw new IllegalArgumentException("Invalid payment method ID.");
         }
@@ -1608,7 +1614,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         if (payPalAccount == null) {
             throw new IllegalArgumentException("Invalid email address of the PayPal account");
         }
-        
+
         PreparedStatement insertPs = null, updatePs = null;
         Connection conn = null;
         try {
@@ -3203,7 +3209,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         StringBuffer whereClauses = new StringBuffer(300);
         whereClauses.append(" WHERE 1=1 ");
-        
+
         ArrayList objects = new ArrayList();
         Iterator i = searchCriteria.keySet().iterator();
         try {
@@ -3759,7 +3765,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         log.debug("In computePaymentNetAmount");
         Connection c = null;
-        
+
         try {
             c = DBMS.getConnection(trxDataSource);
 
@@ -3813,7 +3819,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             } else {
                 return grossAmount;
             }
-            
+
             // Round to lower pennie
             BigDecimal bd = new BigDecimal(netAmount).setScale(2, RoundingMode.HALF_DOWN);
             double roundedNetAmount = bd.doubleValue();
@@ -5334,7 +5340,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-    
+
      * Generates all the payments for the people who won money for the given project (winners and
      * and review board members).
      * It doesn't insert the payments in the DB, just generates and returns them.
@@ -5376,7 +5382,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         getWinners.append("    ELSE ROUND(ri7.value) ");
         getWinners.append(" END::float AS payment ");
 
-        getWinners.append(" FROM tcs_catalog:project p "); 
+        getWinners.append(" FROM tcs_catalog:project p ");
         getWinners.append(" INNER JOIN tcs_catalog:project_category_lu pcl ON pcl.project_category_id = p.project_category_id ");
         getWinners.append(" INNER JOIN tcs_catalog:resource r ON r.project_id = p.project_id AND r.resource_role_id = 1 ");
         getWinners.append(" INNER JOIN tcs_catalog:resource_info ri1 ON r.resource_id = ri1.resource_id AND ri1.resource_info_type_id = 1 ");
@@ -5398,10 +5404,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 long resourceId = rsc.getLongItem(i, "resource_id");
                 long projectCategoryId = rsc.getLongItem(i, "project_category_id");
                 String submissionType = rsc.getStringItem(i, "submission_type");
-                
+
                 double penalty = penalties.get(coderId) == null ? 0.0 : penalties.get(coderId);
                 double amount = rsc.getDoubleItem(i, "payment")*(1.0-penalty);
-                
+
                 log.info("Generating payment. Coder: " + coderId + " placed: " + placed + " amount: " + amount + " penalty: " + penalty + " resourceId: " + resourceId);
                 if (amount < 0.01) {
                     log.info("Ignoring the payment because of zero or negative amount.");
@@ -5413,7 +5419,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     if (projectCategoryId == 37) { // If Marathon Match
                         if (rsc.getItem(i, "mm_round_id").getResultData() == null) {
                             log.info("MM round ID is not set. Ignoring the payment.");
-                            continue;                            
+                            continue;
                         }
 
                         long mmRoundId = rsc.getLongItem(i, "mm_round_id");
@@ -5433,7 +5439,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
                             // Calculate the due date for the 2nd installment.
                             // It should be max(general due date assigned by the system, SECOND_INSTALLMENT_HOLD_PERIOD days from now).
-                            Calendar cal = Calendar.getInstance(); 
+                            Calendar cal = Calendar.getInstance();
                             cal.add(Calendar.DATE, SECOND_INSTALLMENT_HOLD_PERIOD);
 
                             payment2 = fillPaymentData(payment2);
@@ -5448,8 +5454,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else if (submissionType.startsWith("Checkpoint Submission")) {
                     payments.add(new ContestCheckpointPayment(coderId, amount, client, projectId, placed));
                 }
-                
-                resourceIds.add(new Long(resourceId));                
+
+                resourceIds.add(new Long(resourceId));
             } else {
                 log.info("Payments for the coder " + coderId + " are skipped because he/she still has pending late deliverables.");
             }
@@ -5494,7 +5500,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 log.info("Payments for the coder " + coderId + " are skipped because he/she still has pending late deliverables.");
                 continue;
             }
-            
+
             String paymentType = rsc.getStringItem(i, "payment_type");
             double penalty = penalties.get(coderId) == null ? 0.0 : penalties.get(coderId);
             double amount = rsc.getDoubleItem(i, "paid");
@@ -5505,7 +5511,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             ComponentProjectReferencePayment p = null;
             int projectType = getProjectType(projectId);
- 
+
             if (paymentType.startsWith("Copilot Payment")) {
                 // The penalties are not applied to the copilot payments
                 p = new CopilotPayment(coderId, amount, client, projectId);
@@ -5537,8 +5543,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return payments;
     }
 
-    /** 
-     * Returns the maximum of two dates. A null date is considered to be less than any non-null date. 
+    /**
+     * Returns the maximum of two dates. A null date is considered to be less than any non-null date.
      */
     private static Date max(Date d1, Date d2) {
         if (d1 == null && d2 == null) {
@@ -5559,7 +5565,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * is still in the 24 hours window since the moment of creation (which means the late member can still explain it).
      *
      * @param projectId         The ID of the project
-     * @return List of user IDs who have pending late deliverables for this project.     
+     * @return List of user IDs who have pending late deliverables for this project.
      * @throws SQLException     If there was some error retrieving the data.
      */
     private List<Long> getPendingUserIds(long projectId) throws SQLException {
@@ -5569,9 +5575,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" ld.resource_id = r.resource_id and r.project_id = " + projectId + " and ");
         query.append(" r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and ");
         query.append(" ld.forgive_ind=0 and ");
-        query.append(" ((ld.explanation is not null and ld.response is null) "); // if the explained record is waiting for the response        
+        query.append(" ((ld.explanation is not null and ld.response is null) "); // if the explained record is waiting for the response
         query.append(" or (ld.explanation is null and ld.create_date>current-24 units hour)) "); // or if the late member still has time to explain (24 hours)
-        
+
         List<Long> userIds = new ArrayList<Long>();
         ResultSetContainer rsc = runSelectQuery(query.toString());
         for (int i = 0; i < rsc.size(); i++) {
@@ -5598,19 +5604,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" r.project_id=" + projectId + " and r.resource_id=ld.resource_id and r.resource_id=ri.resource_id and ");
         query.append(" ri.resource_info_type_id=1 and ld.forgive_ind=0 ");
         query.append(" group by 1 ");
-        
+
         Map<Long,Double> penalties = new HashMap<Long,Double>();
         ResultSetContainer rsc = runSelectQuery(query.toString());
         for (int i = 0; i < rsc.size(); i++) {
             long userId = rsc.getLongItem(i, "user_id");
             long delay = rsc.getLongItem(i, "total_delay");
             long rejectedFinalFixes = rsc.getLongItem(i, "rejected_final_fixes");
-            
+
             long paymentPenaltyPercentage = (delay>0 ? 5 : 0) + (delay/3600) + rejectedFinalFixes * 5;
             if (paymentPenaltyPercentage > 50) {
                 paymentPenaltyPercentage = 50;
             }
-            
+
             penalties.put(userId, (double)paymentPenaltyPercentage/100.0);
         }
         return penalties;
@@ -6513,7 +6519,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     private boolean isStudioProject(long projectId) throws SQLException {
-        ResultSetContainer rsc = runSelectQuery("SELECT pcl.project_type_id FROM tcs_catalog:project_category_lu pcl, " + 
+        ResultSetContainer rsc = runSelectQuery("SELECT pcl.project_type_id FROM tcs_catalog:project_category_lu pcl, " +
             " tcs_catalog:project p WHERE p.project_category_id=pcl.project_category_id and p.project_id=" + projectId);
 
         if (rsc.size() == 0) {
@@ -6748,12 +6754,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         searchCriteria.put(PAYMENT_REFERENCE_ID, String.valueOf(referenceId));
         return findCoderPayments(searchCriteria);
     }
-    
+
     /**
      * Find a Jira payment by its issue key.
      * @param jiraIssueKey the issue key.
      * @return the Jira payments for the given issue, or empty if not found
-     * @throws RemoteException if there is an error 
+     * @throws RemoteException if there is an error
      * @throws Exception if there is an error
      * @throws InvalidStatusException if there is an error
      */
@@ -7073,6 +7079,32 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         return runSelectQuery(query.toString());
 
+    }
+
+    /**
+     * Returns true if the specified user is a Wipro SSO user.
+     *
+     * @param userId The user ID to check.
+     * @return Whether the user is a Wipro SSO user.
+     * @throws SQLException If there is some problem querying the database
+     */
+    public boolean hasWiproSSOAccount(long userId) throws SQLException {
+        StringBuffer query = new StringBuffer(300);
+        query.append("SELECT COUNT(*) FROM user u ");
+        query.append(" JOIN user_sso_login su ON su.user_id = u.user_id ");
+        query.append(" JOIN sso_login_provider sp ON sp.sso_login_provider_id = su.provider_id AND sp.name = 'wipro-adfs' ");
+        query.append("WHERE u.user_id = " + userId);
+
+        Connection c = null;
+        boolean ret = false;
+        try {
+            c = DBMS.getConnection(DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            ResultSetContainer rsc = runSelectQuery(c, query.toString());
+            ret = Integer.parseInt(rsc.getItem(0, 0).toString()) > 0;
+        } finally {
+            close(c);
+        }
+        return ret;
     }
 
     class AlgorithmContestPaymentDataRetriever extends AlgorithmContestPayment {

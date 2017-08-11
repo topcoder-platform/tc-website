@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2016 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2010-2017 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.myhome;
 
@@ -23,6 +23,7 @@ import static com.topcoder.web.tc.Constants.MODULE_KEY;
 import static com.topcoder.web.tc.Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT;
 import static com.topcoder.web.ejb.pacts.Constants.PAYPAL_PAYMENT_METHOD_ID;
 import static com.topcoder.web.ejb.pacts.Constants.PAYONEER_PAYMENT_METHOD_ID;
+import static com.topcoder.web.ejb.pacts.Constants.WIPRO_PAYROLL_PAYMENT_METHOD_ID;
 
 import java.text.SimpleDateFormat;
 import java.util.regex.Matcher;
@@ -37,7 +38,7 @@ import java.util.*;
  * <p>
  * Version 1.2 Change notes:
  *   <ol>
- *     <li>Updated {@link #savePaymentPreferences()} method to send email to user in case payment method or PayPal 
+ *     <li>Updated {@link #savePaymentPreferences()} method to send email to user in case payment method or PayPal
  *     account has changed.</li>
  *   </ol>
  * </p>
@@ -45,13 +46,22 @@ import java.util.*;
  * <p>
  * Version 1.3 Change notes:
  *   <ol>
- *     <li>Updated {@link #dbProcessing()} method to take measures for preventing possible <code>Cross-Site Request 
+ *     <li>Updated {@link #dbProcessing()} method to take measures for preventing possible <code>Cross-Site Request
  *     Forgery</code> attacks.</li>
  *   </ol>
  * </p>
  *
- * @author isv, VolodymyrK
- * @version 1.3
+ * <p>
+ * Version 1.4 (Topcoder - Add New Payment Provider) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #loadPaymentMethods()} and {@link #savePaymentPreferences()} methods to check
+ *     if signed in user is a Wipro SSO user. If the user is not Wipro SSO User, the Wipro Payroll payment method will be filtered out.
+       The only available payment method option a Wipro SSO User will be Wipro Payroll.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author isv, VolodymyrK, TCSCODER
+ * @version 1.4
  */
 public class EditPaymentPreferences extends ShortHibernateProcessor {
 
@@ -84,7 +94,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
     private static final String EMAIL_PATTERN = "([_A-Za-z0-9-\\+]+)(\\.[_A-Za-z0-9-\\+]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})";
 
     private Pattern pattern;
-    
+
     /**
      * <p>Constructs new <code>EditPaymentPreferences</code> instance.
      * Simply initializes the regex pattern object..</p>
@@ -151,6 +161,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
      */
     private void loadPaymentMethods() throws Exception {
         DataInterfaceBean dataBean = new DataInterfaceBean();
+        boolean wiproUser = dataBean.hasWiproSSOAccount(getUser().getId());
         ResultSetContainer rsc = (ResultSetContainer) dataBean.getPaymentMethods().get(PactsConstants.PAYMENT_METHOD_LIST);
 
         List<PaymentMethod> paymentMethods = new ArrayList<PaymentMethod>();
@@ -160,13 +171,22 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
             String methodDesc = TCData.getTCString(rsr, "payment_method_desc", "method", true);
             boolean active = TCData.getTCBoolean(rsr, "active", true, true);
 
+            // skip wipro payroll payment method if user is not a Wipro SSO user
+            if (methodID == WIPRO_PAYROLL_PAYMENT_METHOD_ID && !wiproUser) {
+                continue;
+            }
             if (active) {
                 PaymentMethod paymentMethod = new PaymentMethod();
                 paymentMethod.setId(methodID);
                 paymentMethod.setName(methodDesc);
+                // mark other payments as ineligible for Wipro SSO user
+                if (methodID != WIPRO_PAYROLL_PAYMENT_METHOD_ID && wiproUser) {
+                    paymentMethod.setEligible(false);
+                }
                 paymentMethods.add(paymentMethod);
             }
         }
+        getRequest().setAttribute("wiproUser", wiproUser);
         getRequest().setAttribute("paymentMethods", paymentMethods);
     }
 
@@ -208,6 +228,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
     private void savePaymentPreferences() throws Exception {
         TCRequest request = getRequest();
         DataInterfaceBean dataBean = new DataInterfaceBean();
+        boolean wiproUser = dataBean.hasWiproSSOAccount(getUser().getId());
 
         // Parse accrual amount from request and validate that it's numeric and is greater than minimum allowed value
         String accrualAmountValue = request.getParameter(ACCRUAL_AMOUNT_PARAM);
@@ -234,7 +255,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
             } catch (NumberFormatException e) {
                 addError(PAYMENT_METHOD_PARAM, "Payment method ID must be an integer number");
             }
-            
+
             if (paymentMethodId == PAYONEER_PAYMENT_METHOD_ID) {
                 PayoneerService.PayeeStatus payeeStatus = PayoneerService.getPayeeStatus(getUser().getId());
                 if (payeeStatus == PayoneerService.PayeeStatus.NOT_REGISTERED) {
@@ -247,6 +268,10 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
 
             if (paymentMethodId == PAYPAL_PAYMENT_METHOD_ID && isEmpty(payPalAccountValue)) {
                 addError(PAYPAL_ACCOUNT_PARAM, "You must specify your PayPal account email address");
+            }
+
+            if (paymentMethodId == WIPRO_PAYROLL_PAYMENT_METHOD_ID && !wiproUser) {
+                addError(PAYMENT_METHOD_PARAM, "You must be signed in with Wipro SSO to use Wipro Payroll");
             }
 
             if (!hasErrors()) {
@@ -320,7 +345,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
     }
 
     /**
-     * <p>Sends an email to email address for current user in case either payment method or PayPal email address have 
+     * <p>Sends an email to email address for current user in case either payment method or PayPal email address have
      * changed when servicing the request for updating user's payment preferences.</p>
      *
      * @param oldPaymentMethodId a <code>long</code> providing the ID of old payment method.
@@ -331,7 +356,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
      * @since 1.2
      */
     private void sendEmailOnPaymentPreferencesUpdated(Long oldPaymentMethodId, long paymentMethodId,
-                                                      String oldPayPalAccount, String payPalAccountValue, 
+                                                      String oldPayPalAccount, String payPalAccountValue,
                                                       String toAddress) {
         try {
             SimpleDateFormat formatter = new SimpleDateFormat(EMAIL_TIMESTAMP_FORMAT);
@@ -341,7 +366,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
                 ", your <a href=\"https://community.topcoder.com/tc?module=EditPaymentPreferences\">Payment Preference</a> " +
                 "information was updated.</p>");
             emailBody.append("<p>The following changes have been made:</p>");
-            
+
             emailBody.append("<ul>");
             if (oldPaymentMethodId == null) {
                 emailBody.append("<li>Payment Method was set to ")
@@ -351,7 +376,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
                     .append(resolvePaymentMethod(oldPaymentMethodId).getName()).append(" to ")
                     .append(resolvePaymentMethod(paymentMethodId).getName()).append(".</li>");
             }
-            
+
             if (isEmpty(oldPayPalAccount)) {
                 emailBody.append("<li>Your PayPal account email address was set to ")
                     .append(isEmpty(payPalAccountValue) ? "" : payPalAccountValue).append(".</li>");
@@ -367,7 +392,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
 
             emailBody.append("<p>If you did not initiate these changes, " +
                 "please <a href=\"www.topcoder.com/aboutus/contact-us\">contact</a> TopCoder immediately.</p>");
-            
+
             TCSEmailMessage message = new TCSEmailMessage();
             message.setFromAddress(Constants.PAYMENT_PREFS_UPDATE_EMAIL_FROM_ADDRESS);
             message.setToAddress(toAddress, TCSEmailMessage.TO);
@@ -383,10 +408,10 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
 
     /**
      * <p>Gets the details for payment method matching the specified ID.</p>
-     * 
+     *
      * @param paymentMethodId a <code>long</code> providing the ID of payment method.
-     * @return a <code>PaymentMethod</code> providing the details for payment method matching the specified ID or 
-     *         <code>null</code> if such a method is not found. 
+     * @return a <code>PaymentMethod</code> providing the details for payment method matching the specified ID or
+     *         <code>null</code> if such a method is not found.
      * @since 1.2
      */
     @SuppressWarnings("unchecked")
@@ -396,14 +421,14 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
             if (paymentMethod.getId() == paymentMethodId) {
                 return paymentMethod;
             }
-            
+
         }
         return null;
     }
 
     /**
      * <p>Checks if PayPal account has changed.</p>
-     * 
+     *
      * @param oldPayPalAccount a <code>String</code> providing old PayPal account.
      * @param newPayPalAccount a <code>String</code> providing new PayPal account.
      * @return <code>true</code> if PayPal account has changed; <code>false</code> otherwise.
