@@ -36,9 +36,15 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
  *     populating the payment statuses for the given resource ids.</li>
  * </ol>
  * </p>
+ * <p>
+ * Version 1.2 (Topcoder - Add New Payment Provider) Change notes:
+ *   <ol>
+ *     <li>Added {@link #hasWiproSSOAccount(long)} method.</li>
+ *   </ol>
+ * </p>
  *
- * @author Dave Pecora, FireIce
- * @version 1.1
+ * @author Dave Pecora, FireIce, TCSCODER
+ * @version 1.2
  * @see PactsServicesBean
  * @see com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean
  */
@@ -265,6 +271,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
     Map findStudioContests(String search) throws SQLException;
 
     ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws SQLException;
+
+    boolean hasWiproSSOAccount(long userId) throws SQLException;
 
     // ================== Methods from the Client Service ==================
 
