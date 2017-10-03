@@ -15,6 +15,7 @@ checkout:
 compile:
   override:
     - ant -version
+    - ant -f move.xml package-topcoder
     
 test:
   override:
