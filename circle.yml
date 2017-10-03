@@ -16,7 +16,8 @@ compile:
   override:
     - ant -version
     - which ant
-
+    - cp buildconfig/ant-contrib-1.0b3.jar ../glue/libs/
+    - ant -f move.xml package-topcoder
     
 test:
   override:
