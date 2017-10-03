@@ -17,7 +17,7 @@
         <delete dir="build"/>
         <delete file="topcoder.jar"/>
 
-        <exec dir="." executable="svn">
+        <!--exec dir="." executable="svn">
             <arg line="update src resources lib build_security.xml build_tc.xml"/>
         </exec>
 
@@ -27,7 +27,7 @@
 
         <exec dir="../external-artifacts" executable="svn">
             <arg line="update"/>
-        </exec>
+        </exec-->
 
 
         <ant antfile="build_tc.xml" target="deploy"/>
