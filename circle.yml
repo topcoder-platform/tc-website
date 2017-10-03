@@ -4,9 +4,11 @@ machine:
 
 checkout:
   pre:
+    - pwd
     - git clone https://github.com/topcoder-platform/tc-website-glue glue
     - git clone https://github.com/topcoder-platform/tc-website-shared shared
     - git clone https://github.com/topcoder-platform/tc-website-external-artifacts external-artifacts
+    - ls -a
 
 
 test:
