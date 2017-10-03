@@ -1,4 +1,6 @@
 machine:
+  java:
+    version: openjdk7
   services:
     - docker
 
@@ -10,7 +12,10 @@ checkout:
     - git clone https://github.com/topcoder-platform/tc-website-external-artifacts external-artifacts
     - ls -a
 
-
+compile:
+  override:
+    - ant -version
+    
 test:
   override:
     - pwd && ls 
