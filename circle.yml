@@ -13,5 +13,5 @@ checkout:
 
 test:
   override:
-    - ls 
+    - pwd && ls 
     - cp -Rf .deploy/circleci/* . && docker run -v ${HOME}:/root/tc-platform appiriodevops/tc-website:build
