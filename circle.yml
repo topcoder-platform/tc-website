@@ -7,7 +7,7 @@ machine:
 checkout:
   pre:
     - pwd
-    - git clone https://github.com/topcoder-platform/tc-website-glue glue
+    - git clone --branch dev-circleci https://github.com/topcoder-platform/tc-website-glue glue
     - git clone https://github.com/topcoder-platform/tc-website-shared shared
     - git clone https://github.com/topcoder-platform/tc-website-external-artifacts external-artifacts
     - ls -a
@@ -16,7 +16,6 @@ compile:
   override:
     - ant -version
     - which ant
-    - cp buildconfig/ant-contrib-1.0b3.jar ../glue/libs/
     - ant -f move.xml package-topcoder
     
 test:
