@@ -21,4 +21,4 @@ compile:
 test:
   override:
     - pwd && ls 
-    - cp -Rf .deploy/circleci/* . && docker run -v ${HOME}:/root/tc-platform appiriodevops/tc-website:build
+    #- cp -Rf .deploy/circleci/* . && docker run -v ${HOME}:/root/tc-platform appiriodevops/tc-website:build
