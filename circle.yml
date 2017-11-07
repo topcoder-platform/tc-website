@@ -22,3 +22,20 @@ test:
   override:
     - pwd && ls 
     #- cp -Rf .deploy/circleci/* . && docker run -v ${HOME}:/root/tc-platform appiriodevops/tc-website:build
+
+deployment:
+  development:
+    branch: [dev, dev-circleci]
+    commands:
+      - ./buildimage.sh DEV
+      - ./deploy.sh DEV
+  qa:
+    branch: qa
+    commands:
+      - ./buildimage.sh QA    
+      - ./deploy.sh QA
+  production:
+    branch: master
+    commands:
+      - ./buildimage.sh PROD    
+      - ./deploy.sh PROD
