@@ -29,7 +29,7 @@ configure_aws_cli() {
 
 
 configure_aws_cli
-eval $(aws ecr get-login  --region $AWS_REGION --no-include-email)
+eval $(aws ecr get-login  --region $AWS_REGION)
 # Builds Docker image of the app.
 TAG=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$AWS_REPOSITORY:$CIRCLE_SHA1
 docker build -t $TAG .
