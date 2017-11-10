@@ -13,16 +13,17 @@ jobs:
       - setup_remote_docker
       # Build of Docker image.
       - run:
-        name: Installation of build dependencies.
-        command: |
-        apk add --no-cache bash
-        apk add --no-cache jq py-pip sudo perl curl
-        sudo pip install awscli --upgrade  
+          name: Installation of build dependencies.
+          command: |
+            apk add --no-cache bash
+            apk add --no-cache jq py-pip sudo perl curl
+            sudo pip install awscli --upgrade  
       - run:
-        name: Building java and image
-        command:
-        - ant -f move.xml package-topcoder
-        - ./buildimage.sh DEV
+          name: Building java 
+          command: ant -f move.xml package-topcoder
+      - run:
+          name: Building docker image
+          command: ./buildimage.sh DEV
 workflows:
   version: 2
   build:
