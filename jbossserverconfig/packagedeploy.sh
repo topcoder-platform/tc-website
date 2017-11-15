@@ -14,6 +14,10 @@ track_error $? "topcoder.jar move"
 cd /data/tc-website/package
 jar xvf topcoder.jar
 track_error $? "Jar Extraction"
+mkdir -p lib/jars/tcs/tc_cache/1.0.0/
+mv ../tc_cache.jar lib/jars/tcs/tc_cache/1.0.0/
+track_error $? "topcoder.jar move"
+#calling ant goal
 ant -f build_tc.xml expand
 track_error $? "Ant deployment"
 cd ..
