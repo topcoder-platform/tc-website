@@ -10,6 +10,7 @@ checkout:
     - git clone --branch dev-circleci https://github.com/topcoder-platform/tc-website-glue glue
     - git clone https://github.com/topcoder-platform/tc-website-shared shared
     - git clone https://github.com/topcoder-platform/tc-website-external-artifacts external-artifacts
+    - git clone https://github.com/appirio-tech/tc-cache tc-cache
     - ls -a
 
 compile:
@@ -17,6 +18,7 @@ compile:
     - ant -version
     - which ant
     - ant -f move.xml package-topcoder
+    - cd ../tc-cache && ant && ls && cd ../tc-website
     
 test:
   override:
