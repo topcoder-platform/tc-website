@@ -18,6 +18,7 @@ compile:
     - ant -version
     - which ant
     - ant -f move.xml package-topcoder
+    - zip -r lib.zip lib
     - cd ../tc-cache && ant && cp build/dist/lib/tcs/tc_cache/1.0.0/tc_cache.jar ../tc-website/ && cd ../tc-website
     
 test:
