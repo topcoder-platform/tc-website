@@ -7,7 +7,7 @@ RUN mkdir -p /nfs_shares && mkdir -p /data/tc-website/package && rm -rf /home/we
 #COPY topcoder.jar /data/tc-website/package/topcoder.jar
 #COPY jbossserverconfig/packagedeploy.sh /data/tc-website/packagedeploy.sh
 
-COPY [ "jbossserverconfig/run.conf" , "jbossserverconfig/start.sh", "tc_cache.jar", "topcoder.jar", "jbossserverconfig/packagedeploy.sh", "/data/tc-website/"]
+COPY [ "jbossserverconfig/run.conf" , "jbossserverconfig/start.sh", "tc_cache.jar", "lib.zip", "topcoder.jar", "jbossserverconfig/packagedeploy.sh", "/data/tc-website/"]
 
 RUN chown -Rf web:apps /data/tc-website && runuser -l web  -c "/data/tc-website/packagedeploy.sh" 
 
