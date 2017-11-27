@@ -11,11 +11,15 @@ mv /data/tc-website/run.conf /home/web/jboss-4.0.4.GA/bin/
 track_error $? "Run.conf move"
 mv /data/tc-website/lib.zip /data/tc-website/package/
 track_error $? "lib.zip move"
+mv /data/tc-website/resources.zip /data/tc-website/package/
+track_error $? "resources.zip move"
 mv /data/tc-website/topcoder.jar /data/tc-website/package/
 track_error $? "topcoder.jar move"
 cd /data/tc-website/package
 unzip lib.zip
 track_error $? "lib.zip Extraction"
+unzip resources.zip
+track_error $? "resources.zip Extraction"
 jar xvf topcoder.jar
 track_error $? "Jar Extraction"
 mkdir -p lib/jars/tcs/tc_cache/1.0.0/
