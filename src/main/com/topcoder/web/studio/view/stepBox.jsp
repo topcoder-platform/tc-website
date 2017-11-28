@@ -83,7 +83,7 @@ request.setAttribute("clientPrize", new Long(Prize.CHECKPOINT_PRIZE_TYPE_ID));
             <c:when test="${registered}">
                 <%-- REGISTERED --%>
                 <a href="javascript:" class="stepFirstDeac">REGISTER FOR<br/>THIS CHALLENGE</a>
-                <a href="https://<%=ApplicationServer.SERVER_NAME%>/challenges/${contest.id}/submit/file" class="stepSecond">
+                <a href="https://<%=ApplicationServer.SERVER_NAME%>/challenges/${contest.id}/submit" class="stepSecond">
                     SUBMIT YOUR<br/> ENTRIES</a>
                 <a href="${servletPath}?module=ViewSubmission&amp;${CONTEST_ID}=${contest.id}" class="stepThree">
                     <span class="right">VIEW YOUR<br/> SUBMISSIONS</span></a>

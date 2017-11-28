@@ -92,6 +92,13 @@
 
 <body>
 
+      <%
+         // New location to be redirected
+         String site = new String("https://www.topcoder.com/challenges");
+         response.setStatus(response.SC_MOVED_PERMANENTLY);
+         response.setHeader("Location", site); 
+      %>
+  
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>

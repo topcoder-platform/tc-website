@@ -50,6 +50,13 @@
 </head>
 
 <body>
+  
+      <%
+         // New location to be redirected
+         String site = new String("https://www.topcoder.com/challenges");
+         response.setStatus(response.SC_MOVED_PERMANENTLY);
+         response.setHeader("Location", site); 
+      %>  
 
 <c:set value="<%=Constants.DESIGN_PROJECT_TYPE%>" var="DESIGN_TYPE_ID"/>
 <c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_TYPE_ID"/>

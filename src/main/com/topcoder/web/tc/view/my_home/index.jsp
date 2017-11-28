@@ -1,7 +1,7 @@
 <%--
   - Author: isv, pvmagacho, TCSASSEMBLER
-  - Version: 1.5
-  - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
+  - Version: 1.6
+  - Copyright (C) 2010 - 2017 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders the Home page displayed to TopCoder member. It renders the details on user
   - account (name, address, phone, etc) as well as navigation links to various areas providing other user account
@@ -25,6 +25,9 @@
   -
   - Changes in 1.5 (Release Assembly - Social Login Linking for Existing User):
   - - Add Add/Remove social login link and auth0 logic.
+  -
+  - Changes in 1.6
+  - - Hide Add/Remove social login link and related script from SSO user.
 --%>
 
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
@@ -59,6 +62,7 @@
     
     
     <script type="text/javascript">
+    	<c:if test="${!hasSSOAccount}">
         var widget = new Auth0Widget({
             domain: '<%=Constants.DOMAIN_AUTH0%>',
             clientID: '<%=Constants.CLIENT_ID_AUTH0%>',
@@ -78,8 +82,8 @@
                     .insertAfter($(this)).prev().remove();
                 });
             });  
-        }    
-            
+        }
+        </c:if>
         $(function() {
             $('#addSocialLink').click(function() {
                 showAuth0Widget();
@@ -289,14 +293,16 @@
 --%>
                             </p>
                             <p>
-                                <c:choose>
-                                    <c:when test="${hasSocialAccount}">
-                                        <a href="/tc?module=RemoveSocialLogin" id="removeSocialLink">Remove Social Login</a>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <a href="javascript:;" id="addSocialLink">Add Social Login</a>
-                                    </c:otherwise>
-                                </c:choose>
+                            	<c:if test="${!hasSSOAccount}">
+	                                <c:choose>
+	                                    <c:when test="${hasSocialAccount}">
+	                                        <a href="/tc?module=RemoveSocialLogin" id="removeSocialLink">Remove Social Login</a>
+	                                    </c:when>
+	                                    <c:otherwise>
+	                                        <a href="javascript:;" id="addSocialLink">Add Social Login</a>
+	                                    </c:otherwise>
+	                                </c:choose>
+	                            </c:if>
                             </p>
                         </td>
                         <td class="value">

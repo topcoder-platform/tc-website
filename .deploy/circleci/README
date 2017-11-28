@@ -1,0 +1,1 @@
+All files and directories under this directory will be copy to tc-website root on circleci env before build

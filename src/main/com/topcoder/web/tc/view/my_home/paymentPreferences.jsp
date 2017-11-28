@@ -1,11 +1,15 @@
 <%--
-  - Author: isv
+  - Author: isv, TCSCODER
   - Version: 1.1 (Member Payment Improvements Release assembly v1.0)
-  - Copyright (C) 2010-2016 TopCoder Inc., All Rights Reserved.
+  - Version: 1.2 (Topcoder - Add New Payment Provider)
+  - Copyright (C) 2010-2017 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page provides a web form for managing user payment preferences. Such a form includes input
   - field for setting the payment accrual amount for now.
   - v1.1 changes: implemented Synchronizer Token Pattern for web form.
+  - v1.2 changes:
+  - - if the user is Wipro SSO User, only the Wipro Payroll option will be enabled, other options will be disabled.
+  - - Add a description for Wipro Payroll in Payment Provider section.
 --%>
 
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -81,7 +85,7 @@
                 <form name="f" action="${sessionInfo.servletPath}" method="post">
                     <tc-webtag:hiddenInput name="${MODULE}" value="EditPaymentPreferences"/>
                     <tc-webtag:synchronizerToken operationType="SavePaymentPreferences"/>
-                    
+
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tbody>
                         <tr>
@@ -109,7 +113,14 @@
                             </td>
                             <td class="value" nowrap="nowrap" style="border: none;">
                                 <c:forEach var="paymentMethod" items="${paymentMethods}">
-                                    <tc-webtag:radioButton name="${PAYMENT_METHOD}" value="${paymentMethod.id}"/>${paymentMethod.name}<br />
+                                    <c:choose>
+                                        <c:when test="${not paymentMethod.eligible}">
+                                            <tc-webtag:radioButton name="${PAYMENT_METHOD}" value="${paymentMethod.id}" disabled="disabled"/>${paymentMethod.name}<br />
+                                        </c:when>
+                                        <c:otherwise>
+                                            <tc-webtag:radioButton name="${PAYMENT_METHOD}" value="${paymentMethod.id}"/>${paymentMethod.name}<br />
+                                        </c:otherwise>
+                                    </c:choose>
                                 </c:forEach>
                             </td>
                         </tr>
@@ -171,6 +182,14 @@
                                 <br /><span class="grayedOut">(Use your TopCoder handle as the Payee ID during registration)</span>
                             </td>
                         </tr>
+                        <c:if test="${wiproUser}">
+                            <tr><td class="header">Wipro Payroll</td></tr>
+                            <tr class="light">
+                                <td class="value" width="100%" style="border: none; vertical-align: middle;" >
+                                    The only available payment method for Wipro SSO users.
+                                </td>
+                            </tr>
+                        </c:if>
 
                         </tbody>
                     </table>

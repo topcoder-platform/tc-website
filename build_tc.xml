@@ -847,7 +847,7 @@
             <fileset dir="${jars.dir}/tcs/json_object/1.0">
                 <include name="json_object.jar"/>
             </fileset>
-            <fileset dir="${jars.dir}/tcs">
+            <fileset dir="${jars.dir}/tcs/ldap_sdk_interface/1.0.2">
                 <include name="ldap_sdk_interface.jar"/>
             </fileset>
             <fileset dir="${jars.dir}">

@@ -380,6 +380,15 @@ public class DAOFactoryHibernate implements DAOFactory {
     }
 
     /**
+     * Gets the instance of {@link UserSSOLoginDAO}.
+     *
+     * @return the dao.
+     */
+    public UserSSOLoginDAO getUserSSOLoginDAO() {
+        return new UserSSOLoginDAOHibernate();
+    }
+
+    /**
      * Gets the instance of {@link UserApiSpinDAO}.
      *
      * @return the dao.

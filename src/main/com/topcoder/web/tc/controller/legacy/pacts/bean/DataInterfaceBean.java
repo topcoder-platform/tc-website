@@ -79,9 +79,15 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UnsupportedSearchExcep
  *     populating the payment statuses for the given resource ids.</li>
  * </ol>
  * </p>
+ * <p>
+ * Version 1.2 (Topcoder - Add New Payment Provider) Change notes:
+ *   <ol>
+ *     <li>Added {@link #hasWiproSSOAccount(long)} method.</li>
+ *   </ol>
+ * </p>
  *
- * @author Dave Pecora, FireIce
- * @version 1.1
+ * @author Dave Pecora, FireIce, TCSCODER
+ * @version 1.2
  * @see ResultSetContainer
  * @see PactsServicesBean
  * @see PactsConstants
@@ -1638,7 +1644,7 @@ public class DataInterfaceBean implements PactsConstants {
     public double computePaymentNetAmount(int paymentTypeId, double grossAmount, long coderId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.computePaymentNetAmount(paymentTypeId, grossAmount, coderId);
-    }   
+    }
 
     public BasePayment addPayment(BasePayment payment) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -1795,6 +1801,11 @@ public class DataInterfaceBean implements PactsConstants {
     public String getInvoiceNumber(long paymentId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getInvoiceNumber(paymentId);
+    }
+
+    public boolean hasWiproSSOAccount(long userId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.hasWiproSSOAccount(userId);
     }
 }
 
