@@ -631,7 +631,7 @@
     
     <br class="clear"/>
     <div class="button-line">
-        <a class="btn-blue btn-next" id="upload-browser-submit" href="https://<%=ApplicationServer.SERVER_NAME%>/challenges/${contest.id}/submit/file">
+        <a class="btn-blue btn-next" id="upload-browser-submit" href="https://<%=ApplicationServer.SERVER_NAME%>/challenges/${contest.id}/submit">
         <span class="right-side"><span class="text">Add Another Design</span></span>
         </a>
     </div>
