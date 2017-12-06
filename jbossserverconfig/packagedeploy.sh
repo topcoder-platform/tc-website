@@ -7,13 +7,13 @@ track_error()
 }
 
 
-cp /data/tc-website/run.conf /home/web/jboss-4.0.4.GA/bin/
+mv /data/tc-website/run.conf /home/web/jboss-4.0.4.GA/bin/
 track_error $? "Run.conf move"
-cp /data/tc-website/lib.zip /data/tc-website/package/
+mv /data/tc-website/lib.zip /data/tc-website/package/
 track_error $? "lib.zip move"
-cp /data/tc-website/resources.zip /data/tc-website/package/
+mv /data/tc-website/resources.zip /data/tc-website/package/
 track_error $? "resources.zip move"
-cp /data/tc-website/topcoder.jar /data/tc-website/package/
+mv /data/tc-website/topcoder.jar /data/tc-website/package/
 track_error $? "topcoder.jar move"
 cd /data/tc-website/package
 unzip lib.zip
