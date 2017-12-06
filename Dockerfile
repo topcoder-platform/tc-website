@@ -1,4 +1,4 @@
-FROM 811668436784.dkr.ecr.us-east-1.amazonaws.com/tc-website:base_v1
+FROM 811668436784.dkr.ecr.us-east-1.amazonaws.com/tc-website:base_v3
 
 RUN mkdir -p /nfs_shares && mkdir -p /data/tc-website/package && rm -rf /home/web/jboss-4.0.4.GA/bin/run.conf
 
