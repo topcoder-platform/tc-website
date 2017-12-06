@@ -26,7 +26,9 @@ mkdir -p lib/jars/tcs/tc_cache/1.0.0/
 cp ../tc_cache.jar lib/jars/tcs/tc_cache/1.0.0/
 track_error $? "topcoder.jar move"
 #calling ant goal
+mv /home/web/jboss-4.0.4.GA/server/all/conf/LDAP.properties /data/tc-website/
 ant -f build_tc.xml expand
 track_error $? "Ant deployment"
+mv /data/tc-website/LDAP.properties /home/web/jboss-4.0.4.GA/server/all/conf/
 cd ..
 rm -rf /data/tc-website/package
