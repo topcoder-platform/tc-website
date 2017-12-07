@@ -23,7 +23,7 @@ track_error $? "resources.zip Extraction"
 jar xvf topcoder.jar
 track_error $? "Jar Extraction"
 mkdir -p lib/jars/tcs/tc_cache/1.0.0/
-cp ../tc_cache.jar lib/jars/tcs/tc_cache/1.0.0/
+mv ../tc_cache.jar lib/jars/tcs/tc_cache/1.0.0/
 track_error $? "topcoder.jar move"
 #calling ant goal
 mv /home/web/jboss-4.0.4.GA/server/all/conf/LDAP.properties /data/tc-website/
