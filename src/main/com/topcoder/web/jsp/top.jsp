@@ -126,7 +126,7 @@
                                 </div>
                                 <a class="btn-link btn-edit-profile show-small" href="https://<%=ApplicationServer.SERVER_NAME%>/settings/profile/">EDIT</a>
                                 <ul class="submenu">
-                                    <li class="submenu-item"><a class="menu-link menu-link-dashboard" href="https://<%=ApplicationServer.SERVER_NAME%>//my-dashboard/">DASHBOARD</a></li>
+                                    <li class="submenu-item"><a class="menu-link menu-link-dashboard" href="https://<%=ApplicationServer.SERVER_NAME%>/my-dashboard/">DASHBOARD</a></li>
                                     <li class="submenu-item"><a class="menu-link menu-link-profile" href="https://<%=ApplicationServer.SERVER_NAME%>/members/<%=sessionInfo.getHandle()%>/">MY PROFILE</a></li>
                                     <li class="submenu-item"><a class="menu-link menu-link-payments" target="_blank" href="https://community.<%=domainName%>/PactsMemberServlet?module=PaymentHistory&full_list=false">PAYMENTS</a></li>
                                     <li class="submenu-item"><a class="menu-link menu-link-settings" href="https://<%=ApplicationServer.SERVER_NAME%>/settings/profile/" target="_blank">SETTINGS</a></li>
