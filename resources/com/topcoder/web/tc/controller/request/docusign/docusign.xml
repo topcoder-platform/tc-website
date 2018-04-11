@@ -242,5 +242,21 @@
                 </Property>
             </Property>
         </Property>
+        </Property>
+        <Property name="handlerForVetsAgreement">
+	<Property name="type">
+		<Value>com.topcoder.web.tc.controller.request.docusign.handlers.TermsOfUseHandler</Value>
+	</Property>
+	<Property name="params">
+		<Property name="param1">
+			<Property name="type">
+				<Value>long</Value>
+			</Property>
+			<Property name="value">
+				<Value>21263</Value>
+			</Property>
+		</Property>
+	</Property>
+        </Property>	    
     </Config>
 </CMConfig>
