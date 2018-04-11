@@ -72,7 +72,10 @@
             <Property name="DOCUSIGN_TEMPLATE_ID_FOR_EY">
                 <Value>handlerForEYAgreement</Value>
             </Property>
-        </Property>
+            <Property name="e7698944-cfdc-4e23-9ab6-2842f27c3601">
+                <Value>handlerForVetsAgreement</Value>
+            </Property>	
+	</Property>
     </Config>
     <Config name="com.topcoder.web.tc.controller.request.docusign.DocuSignCallback.handlers">
         <!-- tax form w9 -->
@@ -242,5 +245,21 @@
                 </Property>
             </Property>
         </Property>
+        </Property>
+        <Property name="handlerForVetsAgreement">
+	<Property name="type">
+		<Value>com.topcoder.web.tc.controller.request.docusign.handlers.TermsOfUseHandler</Value>
+	</Property>
+	<Property name="params">
+		<Property name="param1">
+			<Property name="type">
+				<Value>long</Value>
+			</Property>
+			<Property name="value">
+				<Value>21263</Value>
+			</Property>
+		</Property>
+	</Property>
+        </Property>	    
     </Config>
 </CMConfig>
