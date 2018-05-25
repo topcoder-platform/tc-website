@@ -161,8 +161,9 @@
 </script>
 
 <script>
-analytics.identify('<%=sessionInfo.getUserId()%>', {
-  username: '<% handle %>'
+analytics.identify('', {
+  username: '<%= handle %>',
+  id: '<%=sessionInfo.getUserId()%>'
 });
 </script>
 
