@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2018 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.utilities.pacts;
 
 
@@ -18,10 +21,15 @@ import com.topcoder.web.tc.controller.request.util.ReliabilityBonusCalculator;
 
 /**
  * Checks the component payments that don't have reliability bonus payment and create their payments.
- * 
- * 
- * @author cucu, DixonD
- * @version 1.0
+ *
+ * <p>
+ *   Version 1.1 Change notes(Topcoder - Support Rating and Reliability Generation For Code Challenges in DWLoad):
+ *   <ol>
+ *     <li>Added support for code challenge.</li>
+ *   </ol>
+ * </p>
+ * @author cucu, DixonD,TCCODER
+ * @version 1.1
  */
 public class PayReliabilityBonus extends DBUtility {
 
@@ -30,6 +38,11 @@ public class PayReliabilityBonus extends DBUtility {
      */
     private String onlyAnalyze = null;
 
+    /**
+     * Run utility.
+     * @throws Exception throws if error happens
+     * @ since 1.1
+     */
     protected void runUtility() throws Exception {
         PactsClientServices  ejb = (PactsClientServices) createEJB();
         
@@ -60,7 +73,7 @@ public class PayReliabilityBonus extends DBUtility {
         query.append("AND pr.project_id = pro.project_id ");
         query.append("AND reliability_on_registration >= 0.8 ");
         query.append("AND pd.payment_type_id = " + PactsConstants.CONTEST_PAYMENT + " ");
-        query.append("AND pro.project_category_id in (1, 2, 6, 7, 13, 14, 19, 23, 24, 26, 35, 36) ");
+        query.append("AND pro.project_category_id in (1, 2, 6, 7, 13, 14, 19, 23, 24, 26, 35, 36,39) ");
         query.append("AND pro.project_id not in (select project_id from tcs_catalog:project_info where project_info_type_id=45 and (value='false' or value='False')) ");
 
         // The following line is not to pay the old projects posted before we did the change to the reliability calculation logic on Dec 2010
