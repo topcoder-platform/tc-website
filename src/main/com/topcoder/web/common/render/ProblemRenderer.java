@@ -5,6 +5,7 @@ import com.topcoder.shared.problem.Element;
 import com.topcoder.shared.problem.ElementRenderer;
 import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.problem.ProblemComponent;
+import java.util.Calendar;
 
 import java.awt.*;
 
@@ -18,7 +19,7 @@ public class ProblemRenderer extends BaseRenderer implements ElementRenderer {
     private Color backgroundColor = null;
     private Color foregroundColor = null;
 
-    private static final String LEGAL = "This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2010, TopCoder, Inc.  All rights reserved.  ";
+    private static final String LEGAL = "This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)%d, TopCoder, Inc.  All rights reserved.  ";
 
     public ProblemRenderer() {
         this.problem = null;
@@ -67,7 +68,8 @@ public class ProblemRenderer extends BaseRenderer implements ElementRenderer {
             }
         }
         html.append("<p>");
-        html.append(LEGAL);
+	int year = Calendar.getInstance().get(Calendar.YEAR);
+        html.append(String.format(LEGAL, year));
         html.append("</p>");
 
         return html.toString();
