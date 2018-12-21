@@ -87,7 +87,7 @@
                 <%boolean even = true;%>
                 <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
 
-// EXCLUDE LEGACY CMAP MATCH
+<!-- EXCLUDE LEGACY CMAP MATCH -->
 <logic:notEqual name="contest" property="roundID" value="17391">
 
                     <tr class="<%=even?"light":"dark"%>">
@@ -154,12 +154,12 @@
                     </tr>
                     <%even = !even;%>
     
-// ADDED TO EXCLUDE ROUNDS
+<!-- ADDED TO EXCLUDE ROUNDS -->
 </logic:notEqual>
                     
                 </logic:iterate>
                 
-//  ADDED TO SHOW NEW MATCH ON THE LEGACY PAGE
+<!--  ADDED TO SHOW NEW MATCH ON THE LEGACY PAGE -->
 <tr class="dark">
 <td class="value">
 <div style="float: right; margin-left: 4px;">
