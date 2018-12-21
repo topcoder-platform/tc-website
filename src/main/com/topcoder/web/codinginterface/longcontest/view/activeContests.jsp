@@ -86,6 +86,10 @@
                 <c:set value="<%=RoundType.MARATHON_QA%>" var="mmQARoundType"/>
                 <%boolean even = true;%>
                 <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
+
+// EXCLUDE LEGACY CMAP MATCH
+<logic:notEqual name="contest" property="roundID" value="17391">
+
                     <tr class="<%=even?"light":"dark"%>">
                         <td class="value">
                             <% pageContext.setAttribute("sponsorImage", ((LongContest) contest).getSponsorImage());%>
@@ -149,7 +153,38 @@
 
                     </tr>
                     <%even = !even;%>
+    
+// ADDED TO EXCLUDE ROUNDS
+</logic:notEqual>
+                    
                 </logic:iterate>
+                
+//  ADDED TO SHOW NEW MATCH ON THE LEGACY PAGE
+<tr class="dark">
+<td class="value">
+<div style="float: right; margin-left: 4px;">
+</div>
+<a href="https://www.topcoder.com/challenges/30076905">CMap: DPeak Challenge</a>
+        <div style="margin: 6px 10px;">
+        <a href="https://www.topcoder.com/challenges/30076905?tab=submissions">standings</a>
+        </div>
+     </td>
+     <td class="value">
+     <a href="https://www.topcoder.com/challenges/30076905?tab=registrants">CMap: DPeak Challenge</a>
+ </td>
+     <td class="valueC">
+<a href="https://www.topcoder.com/challenges/30076905">Register</a>
+</td>
+    <td class="valueC" align="center">
+    <a href=""></a>
+    </td>
+    <td class="valueC" align="center"></td>
+<td class="valueC" align="center"></td>
+ <td class="valueC" align="center" nowrap="nowrap"><strong>12.14.2018</strong><br>11:03 EST</td>
+    <td class="valueC" align="center" nowrap="nowrap"><strong>01.04.2019</strong><br>08:58 EST</td>
+</tr>
+                
+                
              <logic:empty name="<%=Constants.CONTEST_LIST_KEY%>">
                 <tr class="light">
                     <td class="valueC" colspan="8">
