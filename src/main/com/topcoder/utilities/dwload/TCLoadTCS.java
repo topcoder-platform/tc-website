@@ -1676,7 +1676,7 @@ public class TCLoadTCS extends TCLoad {
                             "            AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0)) as review_cost" +
                             ", (SELECT value::INTEGER FROM project_info piforum WHERE piforum.project_id = p.project_id and piforum.project_info_type_id = 4) as forum_id" +
                             ", (select CASE when pi53.value == 'true' THEN 1 ELSE 0 END FROM project_info pi53 where pi53.project_info_type_id = 53 and pi53.project_id = p.project_id) as submission_viewable" +
-                            ", NVL((SELECT 1 FROM contest_eligibility WHERE contest_id = p.project_id), 0) AS is_private" +
+                            ", NVL((SELECT MIN(1) FROM contest_eligibility WHERE contest_id = p.project_id), 0) AS is_private" +
 
                             // estimated_reliability_cost
                             ",(CASE WHEN pire.value = 'true' THEN NVL((SELECT value::decimal FROM project_info pi38 WHERE pi38.project_id = p.project_id AND pi38.project_info_type_id = 38), 0) ELSE 0 END) as estimated_reliability_cost" +
@@ -3336,8 +3336,10 @@ public class TCLoadTCS extends TCLoad {
                         delete.executeUpdate();
 
                         // delete dr points for these projects.
-                        deleteDrPoints = prepareStatement(delDrPointsQuery.toString(), SOURCE_DB);
-                        deleteDrPoints.executeUpdate();
+                        // Jan 17, 2018 Remove the Delete DR points query to source database
+                        // Source Db is TCS Mirror which is read only
+                        //deleteDrPoints = prepareStatement(delDrPointsQuery.toString(), SOURCE_DB);
+                        //deleteDrPoints.executeUpdate();
 
 
                         // get max dr points id
