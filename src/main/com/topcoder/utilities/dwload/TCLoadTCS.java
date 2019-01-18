@@ -3456,7 +3456,8 @@ public class TCLoadTCS extends TCLoad {
                                             drInsert.setBoolean(9, false);
                                             log.debug("Inserting DR points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + pointsAwarded + " ("
                                                     + projectResults.getInt("point_adjustment") + ")");
-                                            drInsert.executeUpdate();
+                                            //18th Jan, 2019, remove updates to source database, as its mirror
+                                            //drInsert.executeUpdate();
                                         } else {
                                             log.debug("Awarded 0 points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + pointsAwarded + " ("
                                                     + projectResults.getInt("point_adjustment") + ")");
@@ -3476,7 +3477,8 @@ public class TCLoadTCS extends TCLoad {
                                             drInsert.setBoolean(9, true);
                                             log.debug("Inserting DR points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + potentialPoints + " ("
                                                     + projectResults.getInt("point_adjustment") + ")");
-                                            drInsert.executeUpdate();
+                                            //18th Jan, 2019, remove updates to source database, as its mirror
+                                            //drInsert.executeUpdate();
                                         } else {
                                             log.debug("Potential 0 points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + potentialPoints + " ("
                                                     + projectResults.getInt("point_adjustment") + ")");
