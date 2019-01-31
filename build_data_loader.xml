@@ -82,7 +82,10 @@
                excludes="${packagedir}/**/SiteCrawler.java,${packagedir}/dwload/cloudspokes/**/*.java,${packagedir}/**/ProcessJiraPayments.java"
                debug="true"
                nowarn="true"
-               verbose="${verbose}">
+	       verbose="${verbose}"
+	       source="1.5"
+               target="1.5"
+	       >
             <classpath refid="buildlibs"/>
         </javac>
     </target>
