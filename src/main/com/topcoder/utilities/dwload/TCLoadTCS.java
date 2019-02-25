@@ -1676,7 +1676,7 @@ public class TCLoadTCS extends TCLoad {
                             "            AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0)) as review_cost" +
                             ", (SELECT value::INTEGER FROM project_info piforum WHERE piforum.project_id = p.project_id and piforum.project_info_type_id = 4) as forum_id" +
                             ", (select CASE when pi53.value == 'true' THEN 1 ELSE 0 END FROM project_info pi53 where pi53.project_info_type_id = 53 and pi53.project_id = p.project_id) as submission_viewable" +
-                            ", NVL((SELECT 1 FROM contest_eligibility WHERE contest_id = p.project_id), 0) AS is_private" +
+                            ", NVL((SELECT MIN(1) FROM contest_eligibility WHERE contest_id = p.project_id), 0) AS is_private" +
 
                             // estimated_reliability_cost
                             ",(CASE WHEN pire.value = 'true' THEN NVL((SELECT value::decimal FROM project_info pi38 WHERE pi38.project_id = p.project_id AND pi38.project_info_type_id = 38), 0) ELSE 0 END) as estimated_reliability_cost" +
@@ -3336,8 +3336,10 @@ public class TCLoadTCS extends TCLoad {
                         delete.executeUpdate();
 
                         // delete dr points for these projects.
-                        deleteDrPoints = prepareStatement(delDrPointsQuery.toString(), SOURCE_DB);
-                        deleteDrPoints.executeUpdate();
+                        // Jan 17, 2018 Remove the Delete DR points query to source database
+                        // Source Db is TCS Mirror which is read only
+                        //deleteDrPoints = prepareStatement(delDrPointsQuery.toString(), SOURCE_DB);
+                        //deleteDrPoints.executeUpdate();
 
 
                         // get max dr points id
@@ -3454,7 +3456,8 @@ public class TCLoadTCS extends TCLoad {
                                             drInsert.setBoolean(9, false);
                                             log.debug("Inserting DR points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + pointsAwarded + " ("
                                                     + projectResults.getInt("point_adjustment") + ")");
-                                            drInsert.executeUpdate();
+                                            //18th Jan, 2019, remove updates to source database, as its mirror
+                                            //drInsert.executeUpdate();
                                         } else {
                                             log.debug("Awarded 0 points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + pointsAwarded + " ("
                                                     + projectResults.getInt("point_adjustment") + ")");
@@ -3474,7 +3477,8 @@ public class TCLoadTCS extends TCLoad {
                                             drInsert.setBoolean(9, true);
                                             log.debug("Inserting DR points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + potentialPoints + " ("
                                                     + projectResults.getInt("point_adjustment") + ")");
-                                            drInsert.executeUpdate();
+                                            //18th Jan, 2019, remove updates to source database, as its mirror
+                                            //drInsert.executeUpdate();
                                         } else {
                                             log.debug("Potential 0 points: " + t.getTrackId() + " - " + pr.getUserId() + " - " + potentialPoints + " ("
                                                     + projectResults.getInt("point_adjustment") + ")");
