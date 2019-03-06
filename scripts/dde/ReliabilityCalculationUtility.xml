@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<CMConfig>
+  <Config name="com.topcoder.reliability.ReliabilityCalculationUtility">
+    <Property name="loggerName">
+      <Value>myLogger</Value>
+    </Property>
+    <Property name="objectFactoryConfig">
+          <Property name="ReliabilityCalculatorImpl">
+            <Property name="type">
+              <Value>com.topcoder.reliability.impl.ReliabilityCalculatorImpl</Value>
+              </Property>
+          </Property>
+    </Property>
+    <Property name="reliabilityCalculator1">
+	
+      <Property name="projectCategoryIds">
+        <Value>1</Value>
+        <Value>2</Value>
+        <Value>6</Value>
+        <Value>7</Value>
+        <Value>13</Value>
+        <Value>14</Value>
+        <Value>19</Value>
+        <Value>23</Value>
+        <Value>24</Value>
+        <Value>26</Value>
+        <Value>39</Value>
+      </Property>
+      <Property name="key">
+        <Value>ReliabilityCalculatorImpl</Value>
+      </Property>
+      <Property name="config">
+		<Property name="includedProjectStatuses">
+			<Value>1</Value>
+			<Value>2</Value>
+                         <Value>7</Value>
+		  </Property>
+        <Property name="loggerName">
+          <Value>myLogger</Value>
+        </Property>
+        <Property name="objectFactoryConfig">
+          <Property name="DatabaseReliabilityDataPersistence">
+            <Property name="type">
+              <Value>com.topcoder.reliability.impl.persistence.DatabaseReliabilityDataPersistence</Value>
+              </Property>
+          </Property>
+          <Property name="UserProjectParticipationDataResolutionDateBasedComparator">
+            <Property name="type">
+              <Value>com.topcoder.reliability.impl.comparators.UserProjectParticipationDataResolutionDateBasedComparator</Value>
+              </Property>
+          </Property>
+          <Property name="UniformUserReliabilityCalculator">
+            <Property name="type">
+              <Value>com.topcoder.reliability.impl.calculators.UniformUserReliabilityCalculator</Value>
+              </Property>
+          </Property>
+          <Property name="WeightedUserReliabilityCalculator">
+            <Property name="type">
+              <Value>com.topcoder.reliability.impl.calculators.WeightedUserReliabilityCalculator</Value>
+              </Property>
+          </Property>
+          <Property name="PhaseEndTimeBasedResolutionDateDetector">
+            <Property name="type">
+              <Value>com.topcoder.reliability.impl.detectors.PhaseEndTimeBasedResolutionDateDetector</Value>
+              </Property>
+          </Property>
+        </Property>
+        <Property name="reliabilityDataPersistenceKey">
+          <Value>DatabaseReliabilityDataPersistence</Value>
+        </Property>
+        <Property name="reliabilityDataPersistenceConfig">
+		  
+          <Property name="loggerName">
+            <Value>myLogger</Value>
+          </Property>
+          <Property name="dbConnectionFactoryConfig">
+            <Property name="com.topcoder.db.connectionfactory.DBConnectionFactoryImpl">
+              <Property name="connections">
+                <Property name="default">
+                  <Value>myConnection</Value>
+                </Property>
+                <Property name="myConnection">
+                  <Property name="producer">
+                      <Value>com.topcoder.db.connectionfactory.producers.JDBCConnectionProducer</Value>
+                  </Property>
+                  <Property name="parameters">
+                      <Property name="jdbc_driver">
+                          <Value>com.informix.jdbc.IfxDriver</Value>
+                      </Property>
+                      <Property name="jdbc_url">
+                        <Value>jdbc:informix-sqli://env.topcoder.com:2021/tcs_catalog:INFORMIXSERVER=informixoltp_tcp</Value>
+                      </Property>
+                      <Property name="SelectMethod">
+                          <Value>cursor</Value>
+                      </Property>
+                      <Property name="user">
+                          <Value>informix</Value>
+                      </Property>
+                      <Property name="password">
+                          <Value>1nf0rm1x</Value>
+                      </Property>
+                    </Property>
+                </Property>
+              </Property>
+            </Property>
+          </Property>
+          <Property name="connectionName">
+            <Value>myConnection</Value>
+          </Property>
+        </Property>
+        <Property name="participationDataComparatorKey">
+          <Value>UserProjectParticipationDataResolutionDateBasedComparator</Value>
+        </Property>
+        <Property name="projectCategoryConfig1">
+          <Property name="projectCategoryIds">
+            <Value>1</Value>
+            <Value>2</Value>
+             <Value>3</Value>
+             <Value>39</Value>
+          </Property>
+          <Property name="reliabilityStartDate">
+            <Value>2005-10-05 09:00</Value>
+          </Property>
+          <Property name="userReliabilityCalculatorKey">
+            <Value>UniformUserReliabilityCalculator</Value>
+          </Property>
+          <Property name="userReliabilityCalculatorConfig">
+            <Property name="loggerName">
+              <Value>myLogger</Value>
+            </Property>
+            <Property name="historyLength">
+              <Value>15</Value>
+            </Property>
+          </Property>
+          <Property name="resolutionDateDetectorKey">
+            <Value>PhaseEndTimeBasedResolutionDateDetector</Value>
+          </Property>
+          <Property name="resolutionDateDetectorConfig">
+            <Property name="loggerName">
+              <Value>myLogger</Value>
+            </Property>
+          </Property>
+        </Property>
+        <Property name="projectCategoryConfig2">
+          <Property name="projectCategoryIds">
+            <Value>6</Value>
+            <Value>7</Value>
+            <Value>13</Value>
+            <Value>14</Value>
+            <Value>19</Value>
+            <Value>23</Value>
+            <Value>24</Value>
+            <Value>26</Value>
+            <Value>39</Value>
+          </Property>
+          <Property name="reliabilityStartDate">
+            <Value>2009-03-23 00:00</Value>
+          </Property>
+          <Property name="userReliabilityCalculatorKey">
+            <Value>WeightedUserReliabilityCalculator</Value>
+          </Property>
+          <Property name="userReliabilityCalculatorConfig">
+            <Property name="loggerName">
+              <Value>myLogger</Value>
+            </Property>
+            <Property name="weights">
+              <Value>0.82</Value>
+              <Value>0.84</Value>
+              <Value>0.86</Value>
+              <Value>0.88</Value>
+              <Value>0.9</Value>
+              <Value>0.92</Value>
+              <Value>0.94</Value>
+              <Value>0.96</Value>
+              <Value>0.98</Value>
+              <Value>1.00</Value>
+            </Property>
+          </Property>
+          <Property name="resolutionDateDetectorKey">
+            <Value>PhaseEndTimeBasedResolutionDateDetector</Value>
+          </Property>
+          <Property name="resolutionDateDetectorConfig">
+            <Property name="loggerName">
+              <Value>myLogger</Value>
+            </Property>
+          </Property>
+        </Property>
+      </Property>
+    </Property>
+  </Config>
+</CMConfig>

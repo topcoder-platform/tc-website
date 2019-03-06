@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2015 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2018 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.utilities.dwload;
 
@@ -197,8 +197,12 @@ import java.util.Set;
  * <li>Update {#link #doLoadProjectResults} to load the correct results for First2Finish</li>
  * </p>
  *
- * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv, minhu, Blues, Veve, Veve
- * @version 1.4.3
+ * <p>
+ * Version 1.4.4 (Topcoder - Support Rating and Reliability Generation For Code Challenges in DWLoad)
+ * <li>add support for user rating of code challenge</li>
+ * </p>
+ * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv, minhu, Blues, Veve, Veve,TCCODER
+ * @version 1.4.4
  */
 public class TCLoadTCS extends TCLoad {
 
@@ -211,8 +215,9 @@ public class TCLoadTCS extends TCLoad {
     /**
      * <p>An <code>int</code> array representing all project categories that are currently being rated.
      * IF YOU CHANGE THIS LIST, YOU MUST ALSO UPDATE THE <code>getCurrentRatings</code> METHOD!</p>
+     * @since 1.4.4
      */
-    private static final int[] RATED_CATEGORIES = new int[] {1, 2, 6, 7, 13, 14, 23, 26, 19, 24, 35, 36};
+    private static final int[] RATED_CATEGORIES = new int[] {1, 2, 6, 7, 13, 14, 23, 26, 19, 24, 35, 36, 39};
 
     /**
      * The DR percentage table of the studio contests.
@@ -1838,7 +1843,6 @@ public class TCLoadTCS extends TCLoad {
                     "                          AND MONTH(project.posting_date) = c.month_numeric " +
                     "                          AND DAY(project.posting_date) = c.day_of_month) " +
                     "WHERE complete_date IS NOT NULL AND tc_direct_project_id > 0 AND posting_date IS NOT NULL";
-
             select = prepareStatement(SELECT, SOURCE_DB);
             select.setTimestamp(1, fLastLogTime);
             select.setTimestamp(2, fLastLogTime);
@@ -4831,6 +4835,7 @@ public class TCLoadTCS extends TCLoad {
      *
      * @return List containing CoderRating objects
      * @throws Exception if something goes wrong when querying
+     * @since 1.4.4
      */
     private List<CoderRating> getCurrentRatings() throws Exception {
         StringBuffer query;
@@ -4881,6 +4886,10 @@ public class TCLoadTCS extends TCLoad {
             query.append(" , case");
             query.append(" when ur.phase_id = 147 and exists (select '1' from active_reporting_competitors arep where arep.user_id = ur.user_id)");
             query.append(" then 1 else 0 end as active_rep");
+            query.append(" , case");
+            // use raw sql instead of view here
+            query.append(" when ur.phase_id = 150 and exists (select '1' from user_rating x0,project x1 where x0.last_rated_project_id = x1.project_id and x1.phase_id = x0.phase_id and x0.phase_id = 150 and x1.posting_date > (CURRENT YEAR TO fraction(3) - interval( 180) DAY(9) TO DAY) and x0.user_id = ur.user_id)");
+            query.append(" then 1 else 0 end as active_code");
             query.append(" , cs.school_id");
             query.append(" , c.coder_type_id");
             query.append(" , c.comp_country_code");
@@ -4890,7 +4899,6 @@ public class TCLoadTCS extends TCLoad {
             query.append(" where ur.user_id = cs.coder_id");
             query.append(" and ur.user_id = c.coder_id");
             query.append(" and c.status = 'A'");
-
             psSel = prepareStatement(query.toString(), TARGET_DB);
 
             rs = psSel.executeQuery();
@@ -4934,6 +4942,9 @@ public class TCLoadTCS extends TCLoad {
                     } else if (rs.getInt("phase_id") == 147) {
                         ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
                                 rs.getInt("active_rep") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 150) {
+                    ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
+                            rs.getInt("active_code") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
                     }
                 } else {
                     //students
@@ -4973,6 +4984,9 @@ public class TCLoadTCS extends TCLoad {
                     } else if (rs.getInt("phase_id") == 147) {
                         ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
                                 rs.getInt("active_rep") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 150) {
+                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
+                                rs.getInt("active_code") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
                     }
                 }
             }
