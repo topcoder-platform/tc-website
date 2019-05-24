@@ -1721,6 +1721,7 @@ public class TCLoadTCS extends TCLoad {
                             "            and pm.most_recent_detail_id = pmd.payment_detail_id    " +
                             "            and pm2.most_recent_detail_id = pmd2.payment_detail_id and pmd2.payment_type_id IN (45, 57)  " +
                             "            AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0)) as copilot_cost" +
+                            ",NVL((select group_id FROM group_contest_eligibility where contest_eligibility_id = (select contest_eligibility_id from contest_eligibility where contest_id = p.project_id)), 0) as group_id" +
 
                             "   from project p , " +
                             "   project_info pir, " +
