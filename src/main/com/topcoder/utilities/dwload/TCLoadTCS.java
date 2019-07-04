@@ -364,6 +364,8 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadProjectTechnologies();
 
+            doLoadProjectGroups();
+
             doLoadSpecReviews();
 
             // load scorecard template before submission review because submission_review will use this table
@@ -2143,6 +2145,7 @@ public class TCLoadTCS extends TCLoad {
                         insert.setDouble(62, rs.getDouble("copilot_cost"));
 
                         insert.executeUpdate();
+
                     }
                 } else {
                     // we need to delete this project and all related objects in the database.
@@ -2170,7 +2173,6 @@ public class TCLoadTCS extends TCLoad {
             close(updateAgain);
         }
     }
-
 
     /**
      * <p/>
@@ -2717,7 +2719,7 @@ public class TCLoadTCS extends TCLoad {
                 String name = rs.getString("technology_name");
 
                 if(!firstRun && !deletedProjects.contains(projectID)) {
-                    // the load is not run for the first time && it's not processed in this load, clear the old technologies for the project
+                    // the load is not run for the first time && it's not processed in this load, clear the old groups for the project
                     deleteTechnologies.clearParameters();
                     deleteTechnologies.setLong(1, projectID);
                     deleteTechnologies.executeUpdate();
@@ -2747,6 +2749,93 @@ public class TCLoadTCS extends TCLoad {
             close(insertTechnologies);
             deletedProjects.clear();
             deletedProjects = null;
+        }
+    }
+
+    /**
+     * Loads the project groups.
+     *
+     * @throws Exception if any error.
+     * @since 1.2.3
+     */
+    public void doLoadProjectGroups() throws Exception {
+        log.info("load project groups");
+
+        PreparedStatement firstTimeSelect = null;
+        PreparedStatement deleteGroups = null;
+        PreparedStatement selectGroups = null;
+        PreparedStatement insertGroups = null;
+        ResultSet rs = null;
+        Set<Long> deletedProjects = new HashSet<Long>();
+
+        try {
+            long start = System.currentTimeMillis();
+
+            firstTimeSelect = prepareStatement("SELECT count(*) from project_groups", TARGET_DB);
+            rs = firstTimeSelect.executeQuery();
+            rs.next();
+
+            // no records, it's the first run of loading groups
+            boolean firstRun = rs.getInt(1) == 0;
+
+            if(firstRun) log.info("Loading project group table for the first time. A complete load will be performed");
+
+            final String SELECT = "select p.project_id, group_id from project p INNER JOIN common_oltp:contest_eligibility ce ON ce.contest_id = p.project_id INNER JOIN common_oltp:group_contest_eligibility gce ON gce.contest_eligibility_id=ce.contest_eligibility_id \n" +
+                    (firstRun ? "" : " AND (p.create_date > ? OR p.modify_date > ?)") +
+                    "group by p.project_id, group_id";
+
+            selectGroups = prepareStatement(SELECT, SOURCE_DB);
+
+            if(!firstRun) {
+                // no the first time, set last loading time
+                selectGroups.setTimestamp(1, fLastLogTime);
+                selectGroups.setTimestamp(2, fLastLogTime);
+            }
+
+
+            final String DELETE = "delete from project_groups where project_id = ?";
+            deleteGroups = prepareStatement(DELETE, TARGET_DB);
+
+            final String INSERT = "insert into project_groups (project_id, group_id) VALUES (?,?)";
+            insertGroups = prepareStatement(INSERT, TARGET_DB);
+
+            rs = selectGroups.executeQuery();
+
+            int countRecords = 0;
+
+            while (rs.next()) {
+                long projectID = rs.getLong("project_id");
+                long groupId = rs.getLong("group_id");
+
+                if(!firstRun && !deletedProjects.contains(projectID)) {
+                    // the load is not run for the first time && it's not processed in this load, clear the old technologies for the project
+                    deleteGroups.clearParameters();
+                    deleteGroups.setLong(1, projectID);
+                    deleteGroups.executeUpdate();
+                    deletedProjects.add(projectID);
+                }
+
+                insertGroups.clearParameters();
+                insertGroups.setLong(1, projectID);
+                insertGroups.setLong(2, groupId);
+
+                insertGroups.executeUpdate();
+                countRecords ++;
+            }
+
+            log.info("Loaded " + countRecords + " records in "  + (System.currentTimeMillis() - start) / 1000 + " seconds");
+
+        } catch(SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load Project groups failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rs);
+            close(firstTimeSelect);
+            close(selectGroups);
+            close(deleteGroups);
+            close(insertGroups);
+            deletedProjects.clear();
         }
     }
 
