@@ -2738,7 +2738,7 @@ public class TCLoadTCS extends TCLoad {
                 String name = rs.getString("technology_name");
 
                 if(!firstRun && !deletedProjects.contains(projectID)) {
-                    // the load is not run for the first time && it's not processed in this load, clear the old technologies for the project
+                    // the load is not run for the first time && it's not processed in this load, clear the old groups for the project
                     deleteTechnologies.clearParameters();
                     deleteTechnologies.setLong(1, projectID);
                     deleteTechnologies.executeUpdate();
