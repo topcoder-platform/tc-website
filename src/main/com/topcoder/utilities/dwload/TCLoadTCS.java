@@ -263,6 +263,15 @@ public class TCLoadTCS extends TCLoad {
                     " where ce.is_studio = 0) ";
 
     /**
+     * SQL fragment to be added to a where clause to select projects with eligibility constraints
+     *
+     * @since 1.1.5
+     */
+    private static final String WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT =
+            " and p.project_id not in (select ce.contest_id from contest_eligibility ce " +
+                    " where ce.is_studio = 0) ";
+
+    /**
      * Confirmed status.
      *
      * @since 1.1.0
@@ -356,7 +365,9 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadDirectProjectDim();
 
-            doLoadProjects();
+            doLoadPublicProjects();
+
+            doLoadPrivateProjects();
 
             doLoadMarathonMatches();
 
@@ -1495,6 +1506,14 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
+    public void doLoadPublicProjects() throws Exception {
+        doLoadProjects(ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "project");
+    }
+
+    public void doLoadPrivateProjects() throws Exception {
+        doLoadProjects(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_project");
+    }
+
     /**
      * <p/>
      * Load projects to the DW.
@@ -1502,7 +1521,7 @@ public class TCLoadTCS extends TCLoad {
      *
      * @throws Exception if any error occurs
      */
-    public void doLoadProjects() throws Exception {
+    public void doLoadProjects(String eligibilityConstraint, String targetTable) throws Exception {
         log.info("load projects");
         PreparedStatement select = null;
         PreparedStatement update = null;
@@ -1765,7 +1784,7 @@ public class TCLoadTCS extends TCLoad {
                             "   and piaf.project_info_type_id = 31 " +
                             "   and pib.project_id = p.project_id " +
                             "   and pib.project_info_type_id = 32 and pib.value > 0 " +
-                            ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+                            eligibilityConstraint +
                             "   and cc.component_id = pir.value " +
                             "   and cc.root_category_id = cat.category_id " +
                             "   and psl.project_status_id = p.project_status_id " +
@@ -1798,7 +1817,7 @@ public class TCLoadTCS extends TCLoad {
                             "      WHERE NOT pmd.payment_status_id IN (65, 69) AND (pmd.create_date > ? or pmd.date_modified > ? or pm.create_date > ? or pm.modify_date > ?)) " +
                             (needLoadMovedProject() ? " OR p.modify_user <> 'Converter'  OR pir.modify_user <> 'Converter' )" : ")");
 
-            final String UPDATE = "update project set component_name = ?,  num_registrations = ?, " +
+            final String UPDATE = "update " + targetTable + " set component_name = ?,  num_registrations = ?, " +
                     "num_submissions = ?, num_valid_submissions = ?, avg_raw_score = ?, avg_final_score = ?, " +
                     "phase_id = ?, phase_desc = ?, category_id = ?, category_desc = ?, posting_date = ?, submitby_date " +
                     "= ?, complete_date = ?, component_id = ?, review_phase_id = ?, review_phase_name = ?, " +
@@ -1814,7 +1833,7 @@ public class TCLoadTCS extends TCLoad {
                     "estimated_reliability_cost = ?, estimated_review_cost = ?, estimated_copilot_cost = ?, estimated_admin_fee = ?, actual_total_prize = ?, copilot_cost = ?" +
                     "where project_id = ? ";
 
-            final String INSERT = "insert into project (project_id, component_name, num_registrations, num_submissions, " +
+            final String INSERT = "insert into " + targetTable + " (project_id, component_name, num_registrations, num_submissions, " +
                     "num_valid_submissions, avg_raw_score, avg_final_score, phase_id, phase_desc, " +
                     "category_id, category_desc, posting_date, submitby_date, complete_date, component_id, " +
                     "review_phase_id, review_phase_name, status_id, status_desc, level_id, viewable_category_ind, version_id, " +
@@ -1834,7 +1853,7 @@ public class TCLoadTCS extends TCLoad {
                     "?, ?, current, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
             // Statements for updating the duration, fulfillment, start_date_calendar_id fields
-            final String UPDATE_AGAIN = "UPDATE project SET " +
+            final String UPDATE_AGAIN = "UPDATE " + targetTable + " SET " +
                     "fulfillment = (CASE WHEN status_id = 7 THEN 1 ELSE 0 END), " +
                     "start_date_calendar_id = (SELECT calendar_id FROM calendar c WHERE YEAR(project.posting_date) = c.year " +
                     "                          AND MONTH(project.posting_date) = c.month_numeric " +
@@ -2865,6 +2884,7 @@ public class TCLoadTCS extends TCLoad {
         simpleDelete("project_platform", "project_id", projectId);
         simpleDelete("project_technology", "project_id", projectId);
         simpleDelete("project", "project_id", projectId);
+        simpleDelete("private_project", "project_id", projectId);
     }
 
     /**
