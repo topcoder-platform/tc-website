@@ -268,7 +268,7 @@ public class TCLoadTCS extends TCLoad {
      * @since 1.1.5
      */
     private static final String WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT =
-            " and p.project_id not in (select ce.contest_id from contest_eligibility ce " +
+            " and p.project_id in (select ce.contest_id from contest_eligibility ce " +
                     " where ce.is_studio = 0) ";
 
     /**
