@@ -1855,9 +1855,9 @@ public class TCLoadTCS extends TCLoad {
             // Statements for updating the duration, fulfillment, start_date_calendar_id fields
             final String UPDATE_AGAIN = "UPDATE " + targetTable + " SET " +
                     "fulfillment = (CASE WHEN status_id = 7 THEN 1 ELSE 0 END), " +
-                    "start_date_calendar_id = (SELECT calendar_id FROM calendar c WHERE YEAR(project.posting_date) = c.year " +
-                    "                          AND MONTH(project.posting_date) = c.month_numeric " +
-                    "                          AND DAY(project.posting_date) = c.day_of_month) " +
+                    "start_date_calendar_id = (SELECT calendar_id FROM calendar c WHERE YEAR("+targetTable+".posting_date) = c.year " +
+                    "                          AND MONTH("+targetTable+".posting_date) = c.month_numeric " +
+                    "                          AND DAY("+targetTable+".posting_date) = c.day_of_month) " +
                     "WHERE complete_date IS NOT NULL AND tc_direct_project_id > 0 AND posting_date IS NOT NULL";
 
             select = prepareStatement(SELECT, SOURCE_DB);
