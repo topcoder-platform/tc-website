@@ -206,7 +206,7 @@ public class TCLoadTCS extends TCLoad {
      * <p>A <code>String</code> representing all those project categories than should be loaded to the
      * data warehouse.</p>
      */
-    private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25, 26, 29, 35, 16, 17, 18, 20, 21, 30, 31, 32, 34, 22, 36, 9, 39, 38, 40)";
+    private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25, 26, 29, 35, 16, 17, 18, 20, 21, 30, 31, 32, 34, 22, 36, 9, 39, 38, 40, 37)";
 
     /**
      * <p>An <code>int</code> array representing all project categories that are currently being rated.
@@ -1882,6 +1882,7 @@ public class TCLoadTCS extends TCLoad {
             updateAgain = prepareStatement(UPDATE_AGAIN, TARGET_DB);
             rs = select.executeQuery();
             int count = 0;
+            int insertCount = 0;
             while (rs.next()) {
 
                 if (rs.getLong("project_stat_id") != DELETED_PROJECT_STATUS) {
@@ -2164,6 +2165,7 @@ public class TCLoadTCS extends TCLoad {
                         insert.setDouble(62, rs.getDouble("copilot_cost"));
 
                         insert.executeUpdate();
+                        insertCount++;
 
                     }
                 } else {
@@ -2176,6 +2178,7 @@ public class TCLoadTCS extends TCLoad {
 
             // update the start_date_calendar_id, duration, fulfillment fields
             updateAgain.executeUpdate();
+            log.info("--------------Inserted " + insertCount + " records in " + targetTable + "--------------");
             log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
 
         } catch (SQLException sqle) {
