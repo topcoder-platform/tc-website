@@ -124,7 +124,7 @@
             <div class="social-links"><p>topcoder is also on</p><a class="fb-link" href="https://www.facebook.com/topcoder"></a><a
                     class="twitter-link" href="http://www.twitter.com/topcoder"></a><a class="linkedin-link" href="https://www.linkedin.com/company/topcoder"></a><a
                     class="google-link" href="https://plus.google.com/+topcoder/posts"></a></div>
-            <p class="copyright-notice">&copy; 2015 topcoder. All Rights Reserved</p></footer>
+              <p class="copyright-notice">&copy; <script type="text/javascript">d=new Date();document.write(d.getFullYear());</script> Topcoder. All Rights Reserved</p></footer>
     </c:when>
     <c:otherwise>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
