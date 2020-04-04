@@ -386,9 +386,13 @@ public class TCLoadTCS extends TCLoad {
             doLoadSubmissionReview();
 
 
-            doLoadProjectResults();
+            doLoadPublicProjectResults();
 
-            doLoadDesignProjectResults();
+            doLoadPrivateProjectResults();
+
+            doLoadPublicDesignProjectResults();
+
+            doLoadPrivateDesignProjectResults();
 
 //            doLoadRookies();
 
@@ -396,7 +400,9 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadContestProject();
 
-            doLoadUserRating();
+            doLoadPublicUserRating();
+
+            doLoadPrivateUserRating();
 
             doLoadUserReliability();
 
@@ -808,12 +814,20 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
+    public void doLoadPublicUserRating() throws Exception {
+        doLoadUserRating(ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "user_rating");
+    }
+
+    public void doLoadPrivateUserRating() throws Exception {
+        doLoadUserRating(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_user_rating");
+    }
+
     /**
      * Loads user ratings
      *
      * @throws Exception if any error occurs
      */
-    public void doLoadUserRating() throws Exception {
+    public void doLoadUserRating(String eligibilityConstraint, String targetTable) throws Exception {
         log.info("load user rating");
         PreparedStatement select = null;
         PreparedStatement insert = null;
@@ -835,21 +849,21 @@ public class TCLoadTCS extends TCLoad {
                     " where pr.user_id = ur.user_id " +
                     " and pr.project_id = p.project_id " +
                     " and pr.rating_ind = 1 " +
-                    ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+                    eligibilityConstraint +
                     " and p.project_category_id+111 = ur.phase_id) as highest_rating " +
                     " , (select min(pr.new_rating) " +
                     " from project_result pr, project p " +
                     " where pr.user_id = ur.user_id " +
                     " and pr.project_id = p.project_id " +
                     " and pr.rating_ind = 1 " +
-                    ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+                    eligibilityConstraint +
                     " and p.project_category_id+111 = ur.phase_id) as lowest_rating " +
                     " from user_rating ur " +
                     " where ur.mod_date_time > ?";
 
-            final String UPDATE = "update user_rating set rating = ?,  vol = ?, rating_no_vol = ?, num_ratings = ?, last_rated_project_id = ?, mod_date_time = CURRENT, highest_rating = ?, lowest_rating = ? " +
+            final String UPDATE = "update " + targetTable + " set rating = ?,  vol = ?, rating_no_vol = ?, num_ratings = ?, last_rated_project_id = ?, mod_date_time = CURRENT, highest_rating = ?, lowest_rating = ? " +
                     " where user_id = ? and phase_id = ?";
-            final String INSERT = "insert into user_rating (user_id, rating, phase_id, vol, rating_no_vol, num_ratings, last_rated_project_id, mod_date_time, create_date_time, highest_rating, lowest_rating) " +
+            final String INSERT = "insert into  " + targetTable + "  (user_id, rating, phase_id, vol, rating_no_vol, num_ratings, last_rated_project_id, mod_date_time, create_date_time, highest_rating, lowest_rating) " +
                     "values (?, ?, ?, ?, ?, ?, ?, CURRENT, CURRENT, ?, ?) ";
 
             select = prepareStatement(SELECT, SOURCE_DB);
@@ -3042,6 +3056,14 @@ public class TCLoadTCS extends TCLoad {
         return dRProjects;
     }
 
+    public void doLoadPublicProjectResults() throws Exception {
+        doLoadProjectResults(ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "project_result");
+    }
+
+    public void doLoadPrivateProjectResults() throws Exception {
+        doLoadProjectResults(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_project_result");
+    }
+
     /**
      * <p/>
      * Load projects results to the DW.
@@ -3049,7 +3071,7 @@ public class TCLoadTCS extends TCLoad {
      *
      * @throws Exception if any error occurs
      */
-    public void doLoadProjectResults() throws Exception {
+    public void doLoadProjectResults(String eligibilityConstraint, String targetTable) throws Exception {
         log.info("load project results");
         ResultSet projectResults = null;
         PreparedStatement projectSelect = null;
@@ -3079,7 +3101,7 @@ public class TCLoadTCS extends TCLoad {
                         "and pi.project_info_type_id = 1 " +
                         "and cv.comp_vers_id= pi.value " +
                         "and cc.component_id = cv.component_id " +
-                        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+                        eligibilityConstraint +
                         "and (p.modify_date > ? " +
                         "   OR cv.modify_date > ? " +
                         "   OR pi.modify_date > ? " +
@@ -3350,7 +3372,7 @@ public class TCLoadTCS extends TCLoad {
 //                        "   and pre.user_id = pr.user_id";
 
         final String RESULT_INSERT =
-                "insert into project_result (project_id, user_id, submit_ind, valid_submission_ind, raw_score, final_score, inquire_timestamp," +
+                "insert into " + targetTable + " (project_id, user_id, submit_ind, valid_submission_ind, raw_score, final_score, inquire_timestamp," +
                         " submit_timestamp, review_complete_timestamp, payment, old_rating, new_rating, old_reliability, new_reliability, placed, rating_ind, " +
                         " passed_review_ind, points_awarded, final_points, reliable_submission_ind, old_rating_id, " +
                         "new_rating_id, num_ratings, rating_order, potential_points) " +
@@ -3721,6 +3743,14 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
+    public void doLoadPublicDesignProjectResults() throws Exception {
+        doLoadDesignProjectResults(ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "design_project_result");
+    }
+
+    public void doLoadPrivateDesignProjectResults() throws Exception {
+        doLoadDesignProjectResults(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_design_project_result");
+    }
+
     /**
      * Loads design project result
      *
@@ -3728,7 +3758,7 @@ public class TCLoadTCS extends TCLoad {
      *
      * @since 1.2.4
      */
-    public void doLoadDesignProjectResults() throws Exception {
+    public void doLoadDesignProjectResults(String eligibilityConstraint, String targetTable) throws Exception {
         log.info("load design project results");
 
         PreparedStatement firstTimeSelect = null;
@@ -3766,7 +3796,7 @@ public class TCLoadTCS extends TCLoad {
                             "and pi.project_info_type_id = 1 " +
                             "and cv.comp_vers_id= pi.value " +
                             "and cc.component_id = cv.component_id " +
-                            ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+                            eligibilityConstraint +
                             (!firstRun ?
                                     ("and (p.modify_date > ? " +
                                             "   OR cv.modify_date > ? " +
@@ -3822,7 +3852,7 @@ public class TCLoadTCS extends TCLoad {
                     "LEFT OUTER JOIN prize p ON s.prize_id = p.prize_id ";
 
             final String RESULT_INSERT =
-                    "INSERT INTO design_project_result (project_id, user_id, submission_id, upload_id, prize_id, prize_amount, placement, dr_points, is_checkpoint, client_selection, submit_timestamp, review_complete_timestamp, inquire_timestamp, submit_ind, valid_submission_ind) " +
+                    "INSERT INTO " + targetTable + " (project_id, user_id, submission_id, upload_id, prize_id, prize_amount, placement, dr_points, is_checkpoint, client_selection, submit_timestamp, review_complete_timestamp, inquire_timestamp, submit_ind, valid_submission_ind) " +
                             " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
 
 
