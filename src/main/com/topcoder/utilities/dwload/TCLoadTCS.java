@@ -916,7 +916,7 @@ public class TCLoadTCS extends TCLoad {
 
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'user_rating' table failed. for user " + userId + " \n" +
+            throw new Exception("Load of '" + targetTable + "' table failed. for user " + userId + " \n" +
                     sqle.getMessage());
         } finally {
             close(rs);
@@ -2891,12 +2891,15 @@ public class TCLoadTCS extends TCLoad {
         simpleDelete("streak", "start_project_id", projectId);
         simpleDelete("streak", "end_project_id", projectId);
         simpleDelete("user_rating", "last_rated_project_id", projectId);
+        simpleDelete("private_user_rating", "last_rated_project_id", projectId);
         simpleDelete("contest_project_xref", "project_id", projectId);
         simpleDelete("project_review", "project_id", projectId);
         simpleDelete("submission", "project_id", projectId);
         simpleDelete("appeal", "project_id", projectId);
         simpleDelete("project_result", "project_id", projectId);
+        simpleDelete("private_project_result", "project_id", projectId);
         simpleDelete("design_project_result", "project_id", projectId);
+        simpleDelete("private_design_project_result", "project_id", projectId);
         simpleDelete("project_spec_review_xref", "project_id", projectId);
         simpleDelete("project_platform", "project_id", projectId);
         simpleDelete("project_technology", "project_id", projectId);
@@ -3391,7 +3394,7 @@ public class TCLoadTCS extends TCLoad {
                         " where project_id = ? " +
                         " and user_id = ?";
         final String DW_DATA_UPDATE =
-                "update project_result set num_appeals = ?, num_successful_appeals = ? where project_id = ? and user_id = ?";
+                "update " + targetTable + " set num_appeals = ?, num_successful_appeals = ? where project_id = ? and user_id = ?";
 
         final String NUM_RATINGS =
                 " select count(*) as count " +
@@ -3438,7 +3441,7 @@ public class TCLoadTCS extends TCLoad {
                     buf.append(" and p.project_id in (");
 
                     StringBuffer delQuery = new StringBuffer(300);
-                    delQuery.append("delete from project_result where project_id in (");
+                    delQuery.append("delete from " + targetTable + " where project_id in (");
 
                     StringBuffer delDrPointsQuery = new StringBuffer(300);
                     delDrPointsQuery.append("delete from dr_points where dr_points_reference_type_id = 1 and reference_id in (");
@@ -3730,7 +3733,7 @@ public class TCLoadTCS extends TCLoad {
 
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'project_result / project' table failed.\n" +
+            throw new Exception("Load of '" + targetTable + " / project' table failed.\n" +
                     sqle.getMessage());
         } finally {
             close(projectResults);
@@ -3882,7 +3885,7 @@ public class TCLoadTCS extends TCLoad {
 
 
                     StringBuffer delQuery = new StringBuffer(300);
-                    delQuery.append("delete from design_project_result where project_id in (");
+                    delQuery.append("delete from " + targetTable + " where project_id in (");
 
 
                     boolean projectsFound = false;
@@ -3983,7 +3986,7 @@ public class TCLoadTCS extends TCLoad {
                             } else { // if not submitted
 
                                 if(projectResults.getObject("upload_id") != null || 
-                                    designProjectResultExists(projectResults.getLong("project_id"), projectResults.getLong("user_id"), 0l)) 
+                                    designProjectResultExists(projectResults.getLong("project_id"), projectResults.getLong("user_id"), 0l, targetTable))
                                     continue;
 
                                 resultInsert.setLong(++index, projectResults.getLong("project_id"));
@@ -4022,7 +4025,7 @@ public class TCLoadTCS extends TCLoad {
 
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'design_project_result' table failed.\n" +
+            throw new Exception("Load of '" + targetTable + "' table failed.\n" +
                     sqle.getMessage());
         } finally {
             close(rs);
@@ -4042,13 +4045,13 @@ public class TCLoadTCS extends TCLoad {
     * @param submissionId Id of the submission
     * @return true if a design project result already exists, false otherwise
     */
-    private boolean designProjectResultExists(Long projectId, Long userId, Long submissionId) throws SQLException {
+    private boolean designProjectResultExists(Long projectId, Long userId, Long submissionId, String targetTable) throws SQLException {
         boolean exists = false;
         PreparedStatement resultQuery = null;
         ResultSet result = null;
 
         try {
-            resultQuery = prepareStatement("select count(*) ct from design_project_result where project_id = ? and user_id = ? and submission_id = ?", TARGET_DB);
+            resultQuery = prepareStatement("select count(*) ct from " + targetTable + " where project_id = ? and user_id = ? and submission_id = ?", TARGET_DB);
             resultQuery.setLong(1, projectId);
             resultQuery.setLong(2, userId);
             resultQuery.setLong(3, submissionId);
@@ -7915,7 +7918,6 @@ public class TCLoadTCS extends TCLoad {
      * @param seasonId the season id
      * @param startDate the start date
      * @param endDate the end date
-     * @param phaseId the phase id
      * @param contestId the contest id
      * @param className the class name
      * @param factor the factor
