@@ -6,6 +6,7 @@
         <classname>com.topcoder.utilities.dwload.TCLoadTCS</classname>
         <parameterList>
             <parameter name="submission_dir" value="file:/tcssubmissions/"/>
+            <parameter name="full_load" value="true"/>
         </parameterList>
     </load>
 </loadDefinition>
