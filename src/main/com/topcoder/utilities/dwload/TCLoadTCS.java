@@ -21,17 +21,9 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.sql.Types;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * <p><strong>Purpose</strong>:
@@ -305,6 +297,8 @@ public class TCLoadTCS extends TCLoad {
 
     private Boolean fullLoad = false;
 
+    private List<Timestamp> dateFilterBatches = null;
+
     /**
      * Return if it will load moved project which not be covered by last old_dw load.
      *
@@ -334,6 +328,21 @@ public class TCLoadTCS extends TCLoad {
         String fullLoadStr = (String) params.get("full_load");
         if (fullLoadStr!=null){
             fullLoad = fullLoadStr.equals("true");
+            dateFilterBatches = new ArrayList<>();
+            try {
+                java.util.Date startDate = DATE_FORMATS[0].parse("01/01/2000 00:00");
+                java.util.Date now = new java.util.Date();
+                Calendar cal = Calendar.getInstance();
+                while (startDate.getTime()<now.getTime()){
+                    dateFilterBatches.add(new Timestamp(startDate.getTime()));
+                    cal.setTime(startDate);
+                    cal.add(Calendar.MONTH,1);
+                    startDate = cal.getTime();
+                }
+                dateFilterBatches.add(new Timestamp(startDate.getTime()));
+            } catch (Exception e) {
+                //ignore, won't happen
+            }
         }
 
         return true;
@@ -822,11 +831,13 @@ public class TCLoadTCS extends TCLoad {
     }
 
     public void doLoadPublicUserRating() throws Exception {
-        doLoadUserRating(ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "user_rating", false);
+        doLoadUserRating(ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "user_rating", fLastLogTime, null);
     }
 
     public void doLoadPrivateUserRating() throws Exception {
-        doLoadUserRating(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_user_rating", fullLoad);
+        for (int i=0;i<dateFilterBatches.size()-1;i++) {
+            doLoadUserRating(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_user_rating", dateFilterBatches.get(i), dateFilterBatches.get(i+1));
+        }
     }
 
     /**
@@ -834,7 +845,7 @@ public class TCLoadTCS extends TCLoad {
      *
      * @throws Exception if any error occurs
      */
-    public void doLoadUserRating(String eligibilityConstraint, String targetTable, boolean fullLoad) throws Exception {
+    public void doLoadUserRating(String eligibilityConstraint, String targetTable, Timestamp startTime, Timestamp endTime) throws Exception {
         log.info("load user rating");
         PreparedStatement select = null;
         PreparedStatement insert = null;
@@ -844,7 +855,7 @@ public class TCLoadTCS extends TCLoad {
         try {
 
             long start = System.currentTimeMillis();
-            final String SELECT = "select ur.rating " +
+            String SELECT = "select ur.rating " +
                     "  , ur.vol " +
                     "  , ur.rating_no_vol " +
                     "  , ur.num_ratings " +
@@ -865,8 +876,12 @@ public class TCLoadTCS extends TCLoad {
                     " and pr.rating_ind = 1 " +
                     eligibilityConstraint +
                     " and p.project_category_id+111 = ur.phase_id) as lowest_rating " +
-                    " from user_rating ur " +
-                    (!fullLoad ? " where ur.mod_date_time > ?":"");
+                    " from user_rating ur ";
+            if (endTime==null){
+                SELECT +=" where ur.mod_date_time > ?";
+            } else {
+                SELECT +=" where ur.mod_date_time >= ? and ur.mod_date_time < ?";
+            }
 
             final String UPDATE = "update " + targetTable + " set rating = ?,  vol = ?, rating_no_vol = ?, num_ratings = ?, last_rated_project_id = ?, mod_date_time = CURRENT, highest_rating = ?, lowest_rating = ? " +
                     " where user_id = ? and phase_id = ?";
@@ -874,8 +889,11 @@ public class TCLoadTCS extends TCLoad {
                     "values (?, ?, ?, ?, ?, ?, ?, CURRENT, CURRENT, ?, ?) ";
 
             select = prepareStatement(SELECT, SOURCE_DB);
-            if (!fullLoad) {
-                select.setTimestamp(1, fLastLogTime);
+            if (endTime==null) {
+                select.setTimestamp(1, startTime);
+            } else {
+                select.setTimestamp(1, startTime);
+                select.setTimestamp(1, endTime);
             }
 
             insert = prepareStatement(INSERT, TARGET_DB);
@@ -1530,11 +1548,13 @@ public class TCLoadTCS extends TCLoad {
     }
 
     public void doLoadPublicProjects() throws Exception {
-        doLoadProjects(ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "project", false);
+        doLoadProjects(ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "project", fLastLogTime, null);
     }
 
     public void doLoadPrivateProjects() throws Exception {
-        doLoadProjects(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_project", fullLoad);
+        for (int i=0;i<dateFilterBatches.size()-1;i++) {
+            doLoadProjects(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_project", dateFilterBatches.get(i), dateFilterBatches.get(i+1));
+        }
     }
 
     /**
@@ -1544,7 +1564,7 @@ public class TCLoadTCS extends TCLoad {
      *
      * @throws Exception if any error occurs
      */
-    public void doLoadProjects(String eligibilityConstraint, String targetTable, boolean fullLoad) throws Exception {
+    public void doLoadProjects(String eligibilityConstraint, String targetTable, Timestamp startTime, Timestamp endTime) throws Exception {
         log.info("load projects");
         PreparedStatement select = null;
         PreparedStatement update = null;
@@ -1825,7 +1845,7 @@ public class TCLoadTCS extends TCLoad {
                             //" and p.project_status_id <> 3 " +
                             "   and p.project_category_id in " + LOAD_CATEGORIES;
 
-            if (!fullLoad){
+            if (endTime==null){
                 SELECT += "   and (p.modify_date > ? " +
                         // comp versions with modified date
                         "   or cv.modify_date > ? " +
@@ -1841,6 +1861,8 @@ public class TCLoadTCS extends TCLoad {
                         "      FROM informixoltp:payment pm INNER JOIN informixoltp:payment_detail pmd ON pm.most_recent_detail_id = pmd.payment_detail_id " +
                         "      WHERE NOT pmd.payment_status_id IN (65, 69) AND (pmd.create_date > ? or pmd.date_modified > ? or pm.create_date > ? or pm.modify_date > ?)) " +
                         (needLoadMovedProject() ? " OR p.modify_user <> 'Converter'  OR pir.modify_user <> 'Converter' )" : ")");
+            } else {
+                SELECT += "   and (p.create_date >= ? and p.create_date < ?)";
             }
 
 
@@ -1888,23 +1910,26 @@ public class TCLoadTCS extends TCLoad {
                     "WHERE complete_date IS NOT NULL AND tc_direct_project_id > 0 AND posting_date IS NOT NULL";
 
             select = prepareStatement(SELECT, SOURCE_DB);
-            if (!fullLoad) {
-                select.setTimestamp(1, fLastLogTime);
-                select.setTimestamp(2, fLastLogTime);
-                select.setTimestamp(3, fLastLogTime);
-                select.setTimestamp(4, fLastLogTime);
-                select.setTimestamp(5, fLastLogTime);
-                select.setTimestamp(6, fLastLogTime);
-                select.setTimestamp(7, fLastLogTime);
-                select.setTimestamp(8, fLastLogTime);
-                select.setTimestamp(9, fLastLogTime);
-                select.setTimestamp(10, fLastLogTime);
-                select.setTimestamp(11, fLastLogTime);
-                select.setTimestamp(12, fLastLogTime);
-                select.setTimestamp(13, fLastLogTime);
-                select.setTimestamp(14, fLastLogTime);
-                select.setTimestamp(15, fLastLogTime);
-                select.setTimestamp(16, fLastLogTime);
+            if (endTime==null) {
+                select.setTimestamp(1, startTime);
+                select.setTimestamp(2, startTime);
+                select.setTimestamp(3, startTime);
+                select.setTimestamp(4, startTime);
+                select.setTimestamp(5, startTime);
+                select.setTimestamp(6, startTime);
+                select.setTimestamp(7, startTime);
+                select.setTimestamp(8, startTime);
+                select.setTimestamp(9, startTime);
+                select.setTimestamp(10, startTime);
+                select.setTimestamp(11, startTime);
+                select.setTimestamp(12, startTime);
+                select.setTimestamp(13, startTime);
+                select.setTimestamp(14, startTime);
+                select.setTimestamp(15, startTime);
+                select.setTimestamp(16, startTime);
+            } else {
+                select.setTimestamp(1, startTime);
+                select.setTimestamp(2, endTime);
             }
             update = prepareStatement(UPDATE, TARGET_DB);
             insert = prepareStatement(INSERT, TARGET_DB);
@@ -3075,11 +3100,13 @@ public class TCLoadTCS extends TCLoad {
     }
 
     public void doLoadPublicProjectResults() throws Exception {
-        doLoadProjectResults(ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "project_result", false);
+        doLoadProjectResults(ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "project_result", fLastLogTime, null);
     }
 
     public void doLoadPrivateProjectResults() throws Exception {
-        doLoadProjectResults(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_project_result", fullLoad);
+        for (int i=0;i<dateFilterBatches.size()-1;i++) {
+            doLoadProjectResults(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_project_result", dateFilterBatches.get(i), dateFilterBatches.get(i+1));
+        }
     }
 
     /**
@@ -3089,7 +3116,7 @@ public class TCLoadTCS extends TCLoad {
      *
      * @throws Exception if any error occurs
      */
-    public void doLoadProjectResults(String eligibilityConstraint, String targetTable, boolean fullLoad) throws Exception {
+    public void doLoadProjectResults(String eligibilityConstraint, String targetTable, Timestamp startTime, Timestamp endTime) throws Exception {
         log.info("load project results");
         ResultSet projectResults = null;
         PreparedStatement projectSelect = null;
@@ -3117,11 +3144,11 @@ public class TCLoadTCS extends TCLoad {
                         "and p.project_status_id <> 3 " +
                         "and p.project_category_id in " + LOAD_CATEGORIES +
                         "and pi.project_info_type_id = 1 " +
-                        "and cv.comp_vers_id= pi.value " +
-                        "and cc.component_id = cv.component_id " +
                         eligibilityConstraint;
-        if (fullLoad){
+        if (endTime==null){
             PROJECTS_SELECT+=
+                    "and cv.comp_vers_id= pi.value " +
+                    "and cc.component_id = cv.component_id " +
                     "and (p.modify_date > ? " +
                     "   OR cv.modify_date > ? " +
                     "   OR pi.modify_date > ? " +
@@ -3131,6 +3158,9 @@ public class TCLoadTCS extends TCLoad {
                             " OR pi.modify_user <> 'Converter' " +
                             ")"
                             : ")");
+        } else {
+            PROJECTS_SELECT+=
+                            "and (p.create_date >= ? and p.create_date < ?)";
         }
 
 
@@ -3435,12 +3465,15 @@ public class TCLoadTCS extends TCLoad {
             Map<Long, Integer> dRProjects = getDRProjects();
 
             projectSelect = prepareStatement(PROJECTS_SELECT, SOURCE_DB);
-            if (!fullLoad) {
-                projectSelect.setTimestamp(1, fLastLogTime);
-                projectSelect.setTimestamp(2, fLastLogTime);
-                projectSelect.setTimestamp(3, fLastLogTime);
-                projectSelect.setTimestamp(4, fLastLogTime);
-                projectSelect.setTimestamp(5, fLastLogTime);
+            if (endTime == null) {
+                projectSelect.setTimestamp(1, startTime);
+                projectSelect.setTimestamp(2, startTime);
+                projectSelect.setTimestamp(3, startTime);
+                projectSelect.setTimestamp(4, startTime);
+                projectSelect.setTimestamp(5, startTime);
+            } else {
+                projectSelect.setTimestamp(1, startTime);
+                projectSelect.setTimestamp(2, endTime);
             }
 
             resultInsert = prepareStatement(RESULT_INSERT, TARGET_DB);
@@ -3768,11 +3801,13 @@ public class TCLoadTCS extends TCLoad {
     }
 
     public void doLoadPublicDesignProjectResults() throws Exception {
-        doLoadDesignProjectResults(ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "design_project_result", false);
+        doLoadDesignProjectResults(ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "design_project_result", fLastLogTime, null);
     }
 
     public void doLoadPrivateDesignProjectResults() throws Exception {
-        doLoadDesignProjectResults(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_design_project_result", fullLoad);
+        for (int i=0;i<dateFilterBatches.size()-1;i++) {
+            doLoadDesignProjectResults(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_design_project_result", dateFilterBatches.get(i), dateFilterBatches.get(i+1));
+        }
     }
 
     /**
@@ -3782,7 +3817,7 @@ public class TCLoadTCS extends TCLoad {
      *
      * @since 1.2.4
      */
-    public void doLoadDesignProjectResults(String eligibilityConstraint, String targetTable, boolean fullLoad) throws Exception {
+    public void doLoadDesignProjectResults(String eligibilityConstraint, String targetTable, Timestamp startTime, Timestamp endTime) throws Exception {
         log.info("load design project results");
 
         PreparedStatement firstTimeSelect = null;
@@ -3805,7 +3840,7 @@ public class TCLoadTCS extends TCLoad {
             // no records, it's the first run of loading design project result
             boolean firstRun = rs.getInt(1) == 0;
 
-            final String PROJECTS_SELECT =
+            String PROJECTS_SELECT =
                     "select distinct p.project_id " +
                             "from project p, " +
                             "project_info pi, " +
@@ -3820,16 +3855,19 @@ public class TCLoadTCS extends TCLoad {
                             "and pi.project_info_type_id = 1 " +
                             "and cv.comp_vers_id= pi.value " +
                             "and cc.component_id = cv.component_id " +
-                            eligibilityConstraint +
-                            (!firstRun && !fullLoad ?
-                                    ("and (p.modify_date > ? " +
-                                            "   OR cv.modify_date > ? " +
-                                            "   OR pi.modify_date > ? " +
-                                            "   OR cc.modify_date > ? " +
-                                            (needLoadMovedProject() ? " OR p.modify_user <> 'Converter' " +
-                                                    " OR pi.modify_user <> 'Converter' " +
-                                                    ")"
-                                                    : ")")) : "");
+                            eligibilityConstraint;
+            if (!firstRun && endTime==null) {
+                PROJECTS_SELECT +=  "and (p.modify_date > ? " +
+                                    "   OR cv.modify_date > ? " +
+                                    "   OR pi.modify_date > ? " +
+                                    "   OR cc.modify_date > ? " +
+                                    (needLoadMovedProject() ? " OR p.modify_user <> 'Converter' " +
+                                            " OR pi.modify_user <> 'Converter' " +
+                                            ")"
+                                            : ")");
+            } else {
+                PROJECTS_SELECT += "and (p.create_date >= ? and p.create_date < ?)";
+            }
 
             final String RESULT_SELECT = "SELECT  pj.project_id       , " +
                     "        s.submission_id    , " +
@@ -3885,11 +3923,14 @@ public class TCLoadTCS extends TCLoad {
             resultInsert = prepareStatement(RESULT_INSERT, TARGET_DB);
 
 
-            if (!firstRun && !fullLoad) {
-                projectSelect.setTimestamp(1, fLastLogTime);
-                projectSelect.setTimestamp(2, fLastLogTime);
-                projectSelect.setTimestamp(3, fLastLogTime);
-                projectSelect.setTimestamp(4, fLastLogTime);
+            if (!firstRun && endTime == null) {
+                projectSelect.setTimestamp(1, startTime);
+                projectSelect.setTimestamp(2, startTime);
+                projectSelect.setTimestamp(3, startTime);
+                projectSelect.setTimestamp(4, startTime);
+            } else {
+                projectSelect.setTimestamp(1, startTime);
+                projectSelect.setTimestamp(2, endTime);
             }
 
             projects = projectSelect.executeQuery();
