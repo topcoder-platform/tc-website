@@ -330,13 +330,14 @@ public class TCLoadTCS extends TCLoad {
             fullLoad = fullLoadStr.equals("true");
             dateFilterBatches = new ArrayList<>();
             try {
+                int batchDays = Integer.parseInt((String) params.get("batch_size_days"));
                 java.util.Date startDate = DATE_FORMATS[0].parse("01/01/2000 00:00");
                 java.util.Date now = new java.util.Date();
                 Calendar cal = Calendar.getInstance();
                 while (startDate.getTime()<now.getTime()){
                     dateFilterBatches.add(new Timestamp(startDate.getTime()));
                     cal.setTime(startDate);
-                    cal.add(Calendar.MONTH,1);
+                    cal.add(Calendar.DATE,batchDays);
                     startDate = cal.getTime();
                 }
                 dateFilterBatches.add(new Timestamp(startDate.getTime()));
@@ -835,8 +836,12 @@ public class TCLoadTCS extends TCLoad {
     }
 
     public void doLoadPrivateUserRating() throws Exception {
-        for (int i=0;i<dateFilterBatches.size()-1;i++) {
-            doLoadUserRating(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_user_rating", dateFilterBatches.get(i), dateFilterBatches.get(i+1));
+        if (fullLoad) {
+            for (int i = 0; i < dateFilterBatches.size() - 1; i++) {
+                doLoadUserRating(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_user_rating", dateFilterBatches.get(i), dateFilterBatches.get(i + 1));
+            }
+        } else {
+            doLoadUserRating(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_user_rating", fLastLogTime, null);
         }
     }
 
@@ -1552,8 +1557,12 @@ public class TCLoadTCS extends TCLoad {
     }
 
     public void doLoadPrivateProjects() throws Exception {
-        for (int i=0;i<dateFilterBatches.size()-1;i++) {
-            doLoadProjects(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_project", dateFilterBatches.get(i), dateFilterBatches.get(i+1));
+        if (fullLoad) {
+            for (int i = 0; i < dateFilterBatches.size() - 1; i++) {
+                doLoadProjects(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_project", dateFilterBatches.get(i), dateFilterBatches.get(i + 1));
+            }
+        } else {
+            doLoadProjects(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_project", fLastLogTime, null);
         }
     }
 
@@ -3104,8 +3113,12 @@ public class TCLoadTCS extends TCLoad {
     }
 
     public void doLoadPrivateProjectResults() throws Exception {
-        for (int i=0;i<dateFilterBatches.size()-1;i++) {
-            doLoadProjectResults(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_project_result", dateFilterBatches.get(i), dateFilterBatches.get(i+1));
+        if (fullLoad) {
+            for (int i = 0; i < dateFilterBatches.size() - 1; i++) {
+                doLoadProjectResults(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_project_result", dateFilterBatches.get(i), dateFilterBatches.get(i + 1));
+            }
+        } else{
+            doLoadProjectResults(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_project_result", fLastLogTime, null);
         }
     }
 
@@ -3805,8 +3818,12 @@ public class TCLoadTCS extends TCLoad {
     }
 
     public void doLoadPrivateDesignProjectResults() throws Exception {
-        for (int i=0;i<dateFilterBatches.size()-1;i++) {
-            doLoadDesignProjectResults(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_design_project_result", dateFilterBatches.get(i), dateFilterBatches.get(i+1));
+        if (fullLoad) {
+            for (int i = 0; i < dateFilterBatches.size() - 1; i++) {
+                doLoadDesignProjectResults(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_design_project_result", dateFilterBatches.get(i), dateFilterBatches.get(i + 1));
+            }
+        } else {
+            doLoadDesignProjectResults(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_design_project_result", fLastLogTime, null);
         }
     }
 
