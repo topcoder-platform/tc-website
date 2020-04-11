@@ -3146,20 +3146,25 @@ public class TCLoadTCS extends TCLoad {
         ResultSet dwData = null;
 
         String PROJECTS_SELECT =
-                "select distinct pr.project_id " +
-                        "from project_result pr, " +
-                        "project p, " +
+                "select distinct p.project_id " +
+                        "from project p ";
+                        
+        if(endTime == null) {
+            PROJECTS_SELECT+=
+                        ", project_result pr, " +
                         "project_info pi, " +
                         "comp_versions cv, " +
-                        "comp_catalog cc " +
-                        "where p.project_id = pr.project_id " +
-                        "and p.project_id = pi.project_id " +
-                        "and p.project_status_id <> 3 " +
-                        "and p.project_category_id in " + LOAD_CATEGORIES +
-                        "and pi.project_info_type_id = 1 " +
-                        eligibilityConstraint;
+                        "comp_catalog cc ";
+
+        } 
+        PROJECTS_SELECT+= "where  p.project_status_id <> 3" +
+                          "and p.project_category_id in " + LOAD_CATEGORIES +
+                          eligibilityConstraint;
         if (endTime==null){
             PROJECTS_SELECT+=
+                    "and p.project_id = pi.project_id " +
+                    "and  p.project_id = pr.project_id" +
+                    "and pi.project_info_type_id = 1 " +
                     "and cv.comp_vers_id= pi.value " +
                     "and cc.component_id = cv.component_id " +
                     "and (p.modify_date > ? " +
