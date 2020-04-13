@@ -883,9 +883,9 @@ public class TCLoadTCS extends TCLoad {
                     " and p.project_category_id+111 = ur.phase_id) as lowest_rating " +
                     " from user_rating ur ";
             if (endTime==null){
-                SELECT +=" where ur.mod_date_time > ?";
+                SELECT +=" where ur.create_date_time > ?";
             } else {
-                SELECT +=" where ur.mod_date_time >= ? and ur.mod_date_time < ?";
+                SELECT +=" where ur.create_date_time >= ? and ur.create_date_time < ?";
             }
 
             final String UPDATE = "update " + targetTable + " set rating = ?,  vol = ?, rating_no_vol = ?, num_ratings = ?, last_rated_project_id = ?, mod_date_time = CURRENT, highest_rating = ?, lowest_rating = ? " +
@@ -898,7 +898,7 @@ public class TCLoadTCS extends TCLoad {
                 select.setTimestamp(1, startTime);
             } else {
                 select.setTimestamp(1, startTime);
-                select.setTimestamp(1, endTime);
+                select.setTimestamp(2, endTime);
             }
 
             insert = prepareStatement(INSERT, TARGET_DB);
