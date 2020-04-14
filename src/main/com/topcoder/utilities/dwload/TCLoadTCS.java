@@ -3865,28 +3865,33 @@ public class TCLoadTCS extends TCLoad {
             String PROJECTS_SELECT =
                     "select distinct p.project_id " +
                             "from project p, " +
-                            "project_info pi, " +
+                            "project_info pi, ";
+            if (!firstRun && endTime==null) {
+                PROJECTS_SELECT +=
                             "comp_versions cv, " +
-                            "comp_catalog cc, " +
+                            "comp_catalog cc, ";
+            }
+            PROJECTS_SELECT +=
                             "project_category_lu pcl " +
                             "where " +
                             " p.project_id = pi.project_id " +
                             " and p.project_category_id = pcl.project_category_id " +
                             " and pcl.project_type_id = 3 " +
                             "and p.project_status_id NOT IN (1, 2, 3, 9, 10, 11)" +
-                            "and pi.project_info_type_id = 1 " +
-                            "and cv.comp_vers_id= pi.value " +
-                            "and cc.component_id = cv.component_id " +
+                            "and pi.project_info_type_id = 1 "+
                             eligibilityConstraint;
             if (!firstRun && endTime==null) {
-                PROJECTS_SELECT +=  "and (p.modify_date > ? " +
-                                    "   OR cv.modify_date > ? " +
-                                    "   OR pi.modify_date > ? " +
-                                    "   OR cc.modify_date > ? " +
-                                    (needLoadMovedProject() ? " OR p.modify_user <> 'Converter' " +
-                                            " OR pi.modify_user <> 'Converter' " +
-                                            ")"
-                                            : ")");
+                PROJECTS_SELECT +=
+                            "and cv.comp_vers_id= pi.value " +
+                            "and cc.component_id = cv.component_id " +
+                            "and (p.modify_date > ? " +
+                            "   OR cv.modify_date > ? " +
+                            "   OR pi.modify_date > ? " +
+                            "   OR cc.modify_date > ? " +
+                            (needLoadMovedProject() ? " OR p.modify_user <> 'Converter' " +
+                                    " OR pi.modify_user <> 'Converter' " +
+                                    ")"
+                                    : ")");
             } else {
                 PROJECTS_SELECT += "and (p.create_date >= ? and p.create_date < ?)";
             }
