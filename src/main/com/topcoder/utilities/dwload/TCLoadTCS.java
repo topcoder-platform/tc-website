@@ -838,6 +838,7 @@ public class TCLoadTCS extends TCLoad {
     public void doLoadPrivateUserRating() throws Exception {
         if (fullLoad) {
             for (int i = 0; i < dateFilterBatches.size() - 1; i++) {
+                log.info("loading projects from "+dateFilterBatches.get(i).toString());
                 doLoadUserRating(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_user_rating", dateFilterBatches.get(i), dateFilterBatches.get(i + 1));
             }
         } else {
@@ -881,7 +882,8 @@ public class TCLoadTCS extends TCLoad {
                     " and pr.rating_ind = 1 " +
                     eligibilityConstraint +
                     " and p.project_category_id+111 = ur.phase_id) as lowest_rating " +
-                    " from user_rating ur ";
+                    " from user_rating ur "+
+                    "where "+eligibilityConstraint.replaceFirst("p.project_id","ur.last_rated_project_id");
             if (endTime==null){
                 SELECT +=" where ur.create_date_time > ?";
             } else {
@@ -1377,7 +1379,7 @@ public class TCLoadTCS extends TCLoad {
 
                 // load project_id for the existing project records in tcs_dw
                 query.delete(0, query.length());
-                query.append("SELECT project_id FROM project WHERE project_category_id IN " + LOAD_CATEGORIES);
+                query.append("SELECT project_id FROM " + targetTable +" WHERE project_category_id IN " + LOAD_CATEGORIES);
                 selectExistingProjectToUpdatePS = prepareStatement(query.toString(), TARGET_DB);
                 rs = selectExistingProjectToUpdatePS.executeQuery();
 
@@ -1559,6 +1561,7 @@ public class TCLoadTCS extends TCLoad {
     public void doLoadPrivateProjects() throws Exception {
         if (fullLoad) {
             for (int i = 0; i < dateFilterBatches.size() - 1; i++) {
+                log.info("loading projects from "+dateFilterBatches.get(i).toString());
                 doLoadProjects(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_project", dateFilterBatches.get(i), dateFilterBatches.get(i + 1));
             }
         } else {
@@ -2101,7 +2104,7 @@ public class TCLoadTCS extends TCLoad {
 
 
                     update.setLong(62, rs.getLong("project_id"));
-                    System.out.println("------------project id --------------------------"+rs.getLong("project_id"));
+                    log.info("------------project id --------------------------"+rs.getLong("project_id"));
 
                     int retVal = update.executeUpdate();
 
@@ -2232,9 +2235,11 @@ public class TCLoadTCS extends TCLoad {
 
                     }
                 } else {
-                    // we need to delete this project and all related objects in the database.
-                    log.info("Found project to delete: " + rs.getLong("project_id"));
-                    deleteProject(rs.getLong("project_id"));
+                    if (endTime==null) { // if not a full load
+                        // we need to delete this project and all related objects in the database.
+                        log.info("Found project to delete: " + rs.getLong("project_id"));
+                        deleteProject(rs.getLong("project_id"));
+                    }
                 }
                 count++;
             }
@@ -3825,6 +3830,7 @@ public class TCLoadTCS extends TCLoad {
     public void doLoadPrivateDesignProjectResults() throws Exception {
         if (fullLoad) {
             for (int i = 0; i < dateFilterBatches.size() - 1; i++) {
+                log.info("loading projects from "+dateFilterBatches.get(i).toString());
                 doLoadDesignProjectResults(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_design_project_result", dateFilterBatches.get(i), dateFilterBatches.get(i + 1));
             }
         } else {
