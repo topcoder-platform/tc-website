@@ -173,7 +173,7 @@
                     <li class="menu-item link-group">
                         <div class="menu-item-header">COMMUNITY</div>
                         <ul class="submenu">
-                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/members/" class="menu-link menu-link-community-members">OVERVIEW</a>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/learn" class="menu-link menu-link-community-members">OVERVIEW</a>
                             </li>
                             <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/tco" class="menu-link menu-link-community-tco17">TCO</a>
                             </li>
