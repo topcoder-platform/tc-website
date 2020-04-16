@@ -838,6 +838,7 @@ public class TCLoadTCS extends TCLoad {
     public void doLoadPrivateUserRating() throws Exception {
         if (fullLoad) {
             for (int i = 0; i < dateFilterBatches.size() - 1; i++) {
+                log.info("loading projects from "+dateFilterBatches.get(i).toString());
                 doLoadUserRating(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_user_rating", dateFilterBatches.get(i), dateFilterBatches.get(i + 1));
             }
         } else {
@@ -881,11 +882,12 @@ public class TCLoadTCS extends TCLoad {
                     " and pr.rating_ind = 1 " +
                     eligibilityConstraint +
                     " and p.project_category_id+111 = ur.phase_id) as lowest_rating " +
-                    " from user_rating ur ";
+                    " from user_rating ur "+
+                    "where "+eligibilityConstraint.replaceFirst("p.project_id","ur.last_rated_project_id");
             if (endTime==null){
-                SELECT +=" where ur.mod_date_time > ?";
+                SELECT +=" where ur.create_date_time > ?";
             } else {
-                SELECT +=" where ur.mod_date_time >= ? and ur.mod_date_time < ?";
+                SELECT +=" where ur.create_date_time >= ? and ur.create_date_time < ?";
             }
 
             final String UPDATE = "update " + targetTable + " set rating = ?,  vol = ?, rating_no_vol = ?, num_ratings = ?, last_rated_project_id = ?, mod_date_time = CURRENT, highest_rating = ?, lowest_rating = ? " +
@@ -898,7 +900,7 @@ public class TCLoadTCS extends TCLoad {
                 select.setTimestamp(1, startTime);
             } else {
                 select.setTimestamp(1, startTime);
-                select.setTimestamp(1, endTime);
+                select.setTimestamp(2, endTime);
             }
 
             insert = prepareStatement(INSERT, TARGET_DB);
@@ -1377,7 +1379,7 @@ public class TCLoadTCS extends TCLoad {
 
                 // load project_id for the existing project records in tcs_dw
                 query.delete(0, query.length());
-                query.append("SELECT project_id FROM project WHERE project_category_id IN " + LOAD_CATEGORIES);
+                query.append("SELECT project_id FROM " + targetTable +" WHERE project_category_id IN " + LOAD_CATEGORIES);
                 selectExistingProjectToUpdatePS = prepareStatement(query.toString(), TARGET_DB);
                 rs = selectExistingProjectToUpdatePS.executeQuery();
 
@@ -1559,6 +1561,7 @@ public class TCLoadTCS extends TCLoad {
     public void doLoadPrivateProjects() throws Exception {
         if (fullLoad) {
             for (int i = 0; i < dateFilterBatches.size() - 1; i++) {
+                log.info("loading projects from "+dateFilterBatches.get(i).toString());
                 doLoadProjects(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_project", dateFilterBatches.get(i), dateFilterBatches.get(i + 1));
             }
         } else {
@@ -2101,7 +2104,7 @@ public class TCLoadTCS extends TCLoad {
 
 
                     update.setLong(62, rs.getLong("project_id"));
-                    System.out.println("------------project id --------------------------"+rs.getLong("project_id"));
+                    log.info("------------project id --------------------------"+rs.getLong("project_id"));
 
                     int retVal = update.executeUpdate();
 
@@ -3825,6 +3828,7 @@ public class TCLoadTCS extends TCLoad {
     public void doLoadPrivateDesignProjectResults() throws Exception {
         if (fullLoad) {
             for (int i = 0; i < dateFilterBatches.size() - 1; i++) {
+                log.info("loading projects from "+dateFilterBatches.get(i).toString());
                 doLoadDesignProjectResults(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_design_project_result", dateFilterBatches.get(i), dateFilterBatches.get(i + 1));
             }
         } else {
@@ -3865,28 +3869,33 @@ public class TCLoadTCS extends TCLoad {
             String PROJECTS_SELECT =
                     "select distinct p.project_id " +
                             "from project p, " +
-                            "project_info pi, " +
+                            "project_info pi, ";
+            if (!firstRun && endTime==null) {
+                PROJECTS_SELECT +=
                             "comp_versions cv, " +
-                            "comp_catalog cc, " +
+                            "comp_catalog cc, ";
+            }
+            PROJECTS_SELECT +=
                             "project_category_lu pcl " +
                             "where " +
                             " p.project_id = pi.project_id " +
                             " and p.project_category_id = pcl.project_category_id " +
                             " and pcl.project_type_id = 3 " +
                             "and p.project_status_id NOT IN (1, 2, 3, 9, 10, 11)" +
-                            "and pi.project_info_type_id = 1 " +
-                            "and cv.comp_vers_id= pi.value " +
-                            "and cc.component_id = cv.component_id " +
+                            "and pi.project_info_type_id = 1 "+
                             eligibilityConstraint;
             if (!firstRun && endTime==null) {
-                PROJECTS_SELECT +=  "and (p.modify_date > ? " +
-                                    "   OR cv.modify_date > ? " +
-                                    "   OR pi.modify_date > ? " +
-                                    "   OR cc.modify_date > ? " +
-                                    (needLoadMovedProject() ? " OR p.modify_user <> 'Converter' " +
-                                            " OR pi.modify_user <> 'Converter' " +
-                                            ")"
-                                            : ")");
+                PROJECTS_SELECT +=
+                            "and cv.comp_vers_id= pi.value " +
+                            "and cc.component_id = cv.component_id " +
+                            "and (p.modify_date > ? " +
+                            "   OR cv.modify_date > ? " +
+                            "   OR pi.modify_date > ? " +
+                            "   OR cc.modify_date > ? " +
+                            (needLoadMovedProject() ? " OR p.modify_user <> 'Converter' " +
+                                    " OR pi.modify_user <> 'Converter' " +
+                                    ")"
+                                    : ")");
             } else {
                 PROJECTS_SELECT += "and (p.create_date >= ? and p.create_date < ?)";
             }
