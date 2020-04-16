@@ -2235,11 +2235,9 @@ public class TCLoadTCS extends TCLoad {
 
                     }
                 } else {
-                    if (endTime==null) { // if not a full load
-                        // we need to delete this project and all related objects in the database.
-                        log.info("Found project to delete: " + rs.getLong("project_id"));
-                        deleteProject(rs.getLong("project_id"));
-                    }
+                    // we need to delete this project and all related objects in the database.
+                    log.info("Found project to delete: " + rs.getLong("project_id"));
+                    deleteProject(rs.getLong("project_id"));
                 }
                 count++;
             }
