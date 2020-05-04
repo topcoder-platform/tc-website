@@ -417,9 +417,7 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadContestProject();
 
-            doLoadPublicUserRating();
-
-            doLoadPrivateUserRating();
+            doLoadUserRating();
 
             doLoadUserReliability();
 
@@ -831,27 +829,12 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
-    public void doLoadPublicUserRating() throws Exception {
-        doLoadUserRating(ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "user_rating", fLastLogTime, null);
-    }
-
-    public void doLoadPrivateUserRating() throws Exception {
-        if (fullLoad) {
-            for (int i = 0; i < dateFilterBatches.size() - 1; i++) {
-                log.info("loading projects from "+dateFilterBatches.get(i).toString());
-                doLoadUserRating(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_user_rating", dateFilterBatches.get(i), dateFilterBatches.get(i + 1));
-            }
-        } else {
-            doLoadUserRating(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_user_rating", fLastLogTime, null);
-        }
-    }
-
     /**
      * Loads user ratings
      *
      * @throws Exception if any error occurs
      */
-    public void doLoadUserRating(String eligibilityConstraint, String targetTable, Timestamp startTime, Timestamp endTime) throws Exception {
+    public void doLoadUserRating() throws Exception {
         log.info("load user rating");
         PreparedStatement select = null;
         PreparedStatement insert = null;
@@ -861,7 +844,7 @@ public class TCLoadTCS extends TCLoad {
         try {
 
             long start = System.currentTimeMillis();
-            String SELECT = "select ur.rating " +
+            final String SELECT = "select ur.rating " +
                     "  , ur.vol " +
                     "  , ur.rating_no_vol " +
                     "  , ur.num_ratings " +
@@ -873,35 +856,25 @@ public class TCLoadTCS extends TCLoad {
                     " where pr.user_id = ur.user_id " +
                     " and pr.project_id = p.project_id " +
                     " and pr.rating_ind = 1 " +
-                    eligibilityConstraint +
+                    ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                     " and p.project_category_id+111 = ur.phase_id) as highest_rating " +
                     " , (select min(pr.new_rating) " +
                     " from project_result pr, project p " +
                     " where pr.user_id = ur.user_id " +
                     " and pr.project_id = p.project_id " +
                     " and pr.rating_ind = 1 " +
-                    eligibilityConstraint +
+                    ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                     " and p.project_category_id+111 = ur.phase_id) as lowest_rating " +
-                    " from user_rating ur "+
-                    "where "+eligibilityConstraint.replaceFirst("p.project_id","ur.last_rated_project_id");
-            if (endTime==null){
-                SELECT +=" where ur.create_date_time > ?";
-            } else {
-                SELECT +=" where ur.create_date_time >= ? and ur.create_date_time < ?";
-            }
+                    " from user_rating ur " +
+                    " where ur.mod_date_time > ?";
 
-            final String UPDATE = "update " + targetTable + " set rating = ?,  vol = ?, rating_no_vol = ?, num_ratings = ?, last_rated_project_id = ?, mod_date_time = CURRENT, highest_rating = ?, lowest_rating = ? " +
+            final String UPDATE = "update user_rating set rating = ?,  vol = ?, rating_no_vol = ?, num_ratings = ?, last_rated_project_id = ?, mod_date_time = CURRENT, highest_rating = ?, lowest_rating = ? " +
                     " where user_id = ? and phase_id = ?";
-            final String INSERT = "insert into  " + targetTable + "  (user_id, rating, phase_id, vol, rating_no_vol, num_ratings, last_rated_project_id, mod_date_time, create_date_time, highest_rating, lowest_rating) " +
+            final String INSERT = "insert into user_rating (user_id, rating, phase_id, vol, rating_no_vol, num_ratings, last_rated_project_id, mod_date_time, create_date_time, highest_rating, lowest_rating) " +
                     "values (?, ?, ?, ?, ?, ?, ?, CURRENT, CURRENT, ?, ?) ";
 
             select = prepareStatement(SELECT, SOURCE_DB);
-            if (endTime==null) {
-                select.setTimestamp(1, startTime);
-            } else {
-                select.setTimestamp(1, startTime);
-                select.setTimestamp(2, endTime);
-            }
+            select.setTimestamp(1, fLastLogTime);
 
             insert = prepareStatement(INSERT, TARGET_DB);
             update = prepareStatement(UPDATE, TARGET_DB);
@@ -950,7 +923,7 @@ public class TCLoadTCS extends TCLoad {
 
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of '" + targetTable + "' table failed. for user " + userId + " \n" +
+            throw new Exception("Load of 'user_rating' table failed. for user " + userId + " \n" +
                     sqle.getMessage());
         } finally {
             close(rs);
