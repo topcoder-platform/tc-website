@@ -328,21 +328,24 @@ public class TCLoadTCS extends TCLoad {
         String fullLoadStr = (String) params.get("full_load");
         if (fullLoadStr!=null){
             fullLoad = fullLoadStr.equals("true");
-            dateFilterBatches = new ArrayList<>();
-            try {
-                int batchDays = Integer.parseInt((String) params.get("batch_size_days"));
-                java.util.Date startDate = DATE_FORMATS[0].parse("01/01/2000 00:00");
-                java.util.Date now = new java.util.Date();
-                Calendar cal = Calendar.getInstance();
-                while (startDate.getTime()<now.getTime()){
+            if(fullLoad) {
+                System.out.println("Prepare for Full Load");
+                dateFilterBatches = new ArrayList();
+                try {
+                    int batchDays = Integer.parseInt((String) params.get("batch_size_days"));
+                    java.util.Date startDate = DATE_FORMATS[0].parse("01/01/2000 00:00");
+                    java.util.Date now = new java.util.Date();
+                    Calendar cal = Calendar.getInstance();
+                    while (startDate.getTime()<now.getTime()){
+                        dateFilterBatches.add(new Timestamp(startDate.getTime()));
+                        cal.setTime(startDate);
+                        cal.add(Calendar.DATE,batchDays);
+                        startDate = cal.getTime();
+                    }
                     dateFilterBatches.add(new Timestamp(startDate.getTime()));
-                    cal.setTime(startDate);
-                    cal.add(Calendar.DATE,batchDays);
-                    startDate = cal.getTime();
+                } catch (Exception e) {
+                    //ignore, won't happen
                 }
-                dateFilterBatches.add(new Timestamp(startDate.getTime()));
-            } catch (Exception e) {
-                //ignore, won't happen
             }
         }
 
@@ -2077,7 +2080,7 @@ public class TCLoadTCS extends TCLoad {
 
 
                     update.setLong(62, rs.getLong("project_id"));
-                    log.info("------------project id --------------------------"+rs.getLong("project_id"));
+                    //log.info("------------project id --------------------------"+rs.getLong("project_id"));
 
                     int retVal = update.executeUpdate();
 
@@ -3768,9 +3771,9 @@ public class TCLoadTCS extends TCLoad {
                             }
 
                         }
-                        log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
+                        log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds" + " table: " + targetTable);
                     } else {
-                        log.info("loaded " + 0 + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
+                        log.info("loaded " + 0 + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds" + " table: " + targetTable);
                     }
                 } finally {
                     close(delete);
