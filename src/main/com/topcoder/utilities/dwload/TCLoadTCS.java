@@ -2919,7 +2919,6 @@ public class TCLoadTCS extends TCLoad {
         simpleDelete("streak", "start_project_id", projectId);
         simpleDelete("streak", "end_project_id", projectId);
         simpleDelete("user_rating", "last_rated_project_id", projectId);
-        simpleDelete("private_user_rating", "last_rated_project_id", projectId);
         simpleDelete("contest_project_xref", "project_id", projectId);
         simpleDelete("project_review", "project_id", projectId);
         simpleDelete("submission", "project_id", projectId);
