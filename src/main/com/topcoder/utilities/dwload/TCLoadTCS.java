@@ -3141,7 +3141,7 @@ public class TCLoadTCS extends TCLoad {
         if (endTime==null){
             PROJECTS_SELECT+=
                     "and p.project_id = pi.project_id " +
-                    "and  p.project_id = pr.project_id" +
+                    "and  p.project_id = pr.project_id " +
                     "and pi.project_info_type_id = 1 " +
                     "and cv.comp_vers_id= pi.value " +
                     "and cc.component_id = cv.component_id " +
