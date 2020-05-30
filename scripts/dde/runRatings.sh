@@ -24,4 +24,4 @@ CP=$CP$SEPARATOR$BASE/lib/jars/commons-logging-1.2.jar
 CP=$CP$SEPARATOR$BASE/lib/jars/ifxjdbc.jar
 
 echo $CP
-"/c/Program Files/Java/jdk1.7.0_80/jre/bin/java" -Dhttps.protocols=TLSv1.2 -cp $CP com.topcoder.dde.util.DWLoad.RatingQubits
+java -Dhttps.protocols=TLSv1.2 -cp $CP com.topcoder.dde.util.DWLoad.RatingQubits
