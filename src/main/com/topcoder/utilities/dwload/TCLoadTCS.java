@@ -402,9 +402,8 @@ public class TCLoadTCS extends TCLoad {
             // load scorecard template before submission review because submission_review will use this table
             doLoadScorecardTemplate();
 
-            //load submission review before project result because the project result load will use the submission review table
+            // load submission review before project result because the project result load will use the submission review table
             doLoadSubmissionReview();
-
 
             doLoadPublicProjectResults();
 
@@ -414,7 +413,7 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadPrivateDesignProjectResults();
 
-//            doLoadRookies();
+            // doLoadRookies();
 
             doLoadSubmissionScreening();
 
@@ -424,17 +423,17 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadUserReliability();
 
-            doLoadRoyalty();
+            // doLoadRoyalty();
 
             // the evaluation is removed doLoadEvaluationLU();
 
-            doLoadScorecardQuestion();
+            // doLoadScorecardQuestion();
 
-            doLoadScorecardResponse();
+            // doLoadScorecardResponse();
 
-            doLoadTestcaseResponse();
+            // doLoadTestcaseResponse();
 
-            doLoadSubjectiveResponse();
+            // doLoadSubjectiveResponse();
 
             doLoadAppeal();
             doLoadTestcaseAppeal();
@@ -455,22 +454,23 @@ public class TCLoadTCS extends TCLoad {
                 loadCountryRatingRank(phase, OVERALL_RATING_RANK_TYPE_ID, list);
             }
 
-            doLoadSeason();
+            // doLoadSeason();
 
-            doLoadStage();
+            // doLoadStage();
 
-            doLoadStageResults();
-            doLoadDRTracks();
+            // doLoadStageResults();
 
-            doLoadDRTrackContests();
+            // doLoadDRTracks();
 
-            doLoadDRTrackPoints();
+            // doLoadDRTrackContests();
 
-            doLoadDRTrackResults();
+            // doLoadDRTrackPoints();
 
-            //doLoadDirectProjectStats();
+            // doLoadDRTrackResults();
 
-            doLoadParticipationStats();
+            // doLoadDirectProjectStats();
+
+            // doLoadParticipationStats();
 
             doClearCache();
 
@@ -3087,10 +3087,12 @@ public class TCLoadTCS extends TCLoad {
     }
 
     public void doLoadPublicProjectResults() throws Exception {
+        log.info("load public project results");
         doLoadProjectResults(ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "project_result", fLastLogTime, null);
     }
 
     public void doLoadPrivateProjectResults() throws Exception {
+        log.info("load private project results");
         if (fullLoad) {
             for (int i = 0; i < dateFilterBatches.size() - 1; i++) {
                 doLoadProjectResults(WITH_ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "private_project_result", dateFilterBatches.get(i), dateFilterBatches.get(i + 1));
@@ -3797,10 +3799,12 @@ public class TCLoadTCS extends TCLoad {
     }
 
     public void doLoadPublicDesignProjectResults() throws Exception {
+        log.info("load design public project results");
         doLoadDesignProjectResults(ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT, "design_project_result", fLastLogTime, null);
     }
 
     public void doLoadPrivateDesignProjectResults() throws Exception {
+        log.info("load design private project results");
         if (fullLoad) {
             for (int i = 0; i < dateFilterBatches.size() - 1; i++) {
                 log.info("loading projects from "+dateFilterBatches.get(i).toString());
