@@ -427,9 +427,9 @@ public class TCLoadTCS extends TCLoad {
 
             // the evaluation is removed doLoadEvaluationLU();
 
-            // doLoadScorecardQuestion();
-
-            // doLoadScorecardResponse();
+            doLoadScorecardQuestion();
+            
+            doLoadScorecardResponse();
 
             // doLoadTestcaseResponse();
 
@@ -1483,7 +1483,7 @@ public class TCLoadTCS extends TCLoad {
                 query.delete(0, query.length());
                 query.append("UPDATE " + targetTable + " SET estimated_reliability_cost = ?, estimated_review_cost = ?, estimated_copilot_cost = ?, estimated_admin_fee = ?, actual_total_prize = ?, " +
                         "copilot_cost = ? WHERE project_id = ?");
-                updateProjectPS = prepareStatement(query.toString(), TARGET_DB);
+                updateProjectPS = prepareStatement(query.toString(), c);
 
                 while (rs.next()) {
                     projectId = rs.getLong(1);
@@ -6500,8 +6500,7 @@ public class TCLoadTCS extends TCLoad {
                 "insert into appeal (scorecard_question_id, scorecard_id, user_id, reviewer_id, project_id, " +
                         "raw_evaluation_id, final_evaluation_id, appeal_text, appeal_response, appeal_id, successful_ind) " +
                         "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-
+        
         try {
             long start = System.currentTimeMillis();
 
@@ -6619,7 +6618,7 @@ public class TCLoadTCS extends TCLoad {
                 }
                 count++;
             }
-
+            
             log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
 
 
