@@ -428,7 +428,7 @@ public class TCLoadTCS extends TCLoad {
             // the evaluation is removed doLoadEvaluationLU();
 
             doLoadScorecardQuestion();
-            
+
             doLoadScorecardResponse();
 
             // doLoadTestcaseResponse();
@@ -1483,7 +1483,7 @@ public class TCLoadTCS extends TCLoad {
                 query.delete(0, query.length());
                 query.append("UPDATE " + targetTable + " SET estimated_reliability_cost = ?, estimated_review_cost = ?, estimated_copilot_cost = ?, estimated_admin_fee = ?, actual_total_prize = ?, " +
                         "copilot_cost = ? WHERE project_id = ?");
-                updateProjectPS = prepareStatement(query.toString(), c);
+                updateProjectPS = prepareStatement(query.toString(), TARGET_DB);
 
                 while (rs.next()) {
                     projectId = rs.getLong(1);
