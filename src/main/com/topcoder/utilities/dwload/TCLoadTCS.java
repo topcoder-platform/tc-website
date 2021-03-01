@@ -429,13 +429,14 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadScorecardQuestion();
 
-            doLoadScorecardResponse();
+            // doLoadScorecardResponse();
 
             // doLoadTestcaseResponse();
 
             // doLoadSubjectiveResponse();
 
             doLoadAppeal();
+
             doLoadTestcaseAppeal();
 
             doLoadSubmission();
