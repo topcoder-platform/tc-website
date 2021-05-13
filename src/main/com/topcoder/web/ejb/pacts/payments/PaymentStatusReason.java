@@ -38,6 +38,7 @@ public class PaymentStatusReason implements java.io.Serializable {
         ACCOUNT_STATUS_REASON (new PaymentStatusReason(52l, "Account status")),
         ATTACHED_TO_PARENT_REASON (new PaymentStatusReason(100l, "Attached to parent")),
         UNDER_AGE_REASON (new PaymentStatusReason(101l, "Member under 18"));
+        CREATED_BY_V5 (new PaymentStatusReason(500, "Created by V5"));
 
         /**
          * The PaymentStatusReason attached to the enum element
