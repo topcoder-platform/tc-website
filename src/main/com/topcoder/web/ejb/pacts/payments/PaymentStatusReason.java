@@ -37,7 +37,7 @@ public class PaymentStatusReason implements java.io.Serializable {
         EXPIRED_AD_REASON (new PaymentStatusReason(51l, "Expired assignment document")),
         ACCOUNT_STATUS_REASON (new PaymentStatusReason(52l, "Account status")),
         ATTACHED_TO_PARENT_REASON (new PaymentStatusReason(100l, "Attached to parent")),
-        UNDER_AGE_REASON (new PaymentStatusReason(101l, "Member under 18"));
+        UNDER_AGE_REASON (new PaymentStatusReason(101l, "Member under 18")),
         CREATED_BY_V5 (new PaymentStatusReason(500l, "Created by V5"));
 
         /**
