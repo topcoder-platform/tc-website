@@ -427,6 +427,8 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         case REFERENCE_DIGITAL_RUN_SEASON_ID : return digitalRunSeasonId;
         case REFERENCE_PARENT_PAYMENT_ID : return parentPaymentId;
         case REFERENCE_DIGITAL_RUN_TRACK_ID : return digitalRunTrackId;
+        default:
+            return jiraIssueName;  
         }
         return 0;
     }
