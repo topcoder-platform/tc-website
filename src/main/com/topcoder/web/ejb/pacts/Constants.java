@@ -143,12 +143,6 @@ public interface Constants {
     public static final int SPECIFICATION_CONTEST_PAYMENT = 42;
     public static final int CONCEPTUALIZATION_CONTEST_PAYMENT = 43;
 
-    // Added to support V5 Tasks
-    public static final int TASK_PAYMENT = 72;
-    public static final int TASK_REVIEW_PAYMENT = 73;
-    public static final int TASK_COPILOT_PAYMENT = 74;
-    
-    
     /**
      * <p>A <code>int</code> representing the payment id for test suites.</p>
      *
