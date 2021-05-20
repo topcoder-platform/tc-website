@@ -287,9 +287,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             return REFERENCE_COMPONENT_PROJECT_ID;
         case STUDIO_SPECIFICATION_WRITING_PAYMENT:
             return REFERENCE_STUDIO_CONTEST_ID;
-        case TASK_PAYMENT:
-        case TASK_REVIEW_PAYMENT:
-        case TASK_COPILOT_PAYMENT:
         default:
             return NO_REFERENCE;
         }
