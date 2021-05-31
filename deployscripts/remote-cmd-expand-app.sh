@@ -38,7 +38,7 @@ cp -rf ${BACKUP_DIR}/tc_cache.jar $WORK_DIR/
 pushd $WORK_DIR
 jar xvf topcoder.jar
 mkdir -p lib/jars/tcs/tc_cache/1.0.0/
-mv tc_cache.jar lib/jars/tcs/tc_cache/1.0.0/
+cp -rf tc_cache.jar lib/jars/tcs/tc_cache/1.0.0/
 
 popd
 
