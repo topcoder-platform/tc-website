@@ -54,20 +54,21 @@ build_steps: &build_steps
           zip -r lib.zip lib
           zip -r resources.zip resources
           cd ../tc-cache && ant && cp build/dist/lib/tcs/tc_cache/1.0.0/tc_cache.jar ../project/ && cd ../project
-    - store_artifacts:
-        path: ./topcoder.jar
-        destination: topcoder.jar
-    - store_artifacts:
-        path: ./tc_cache.jar
-        destination: tc_cache.jar
-    # - run:
-    #     name: Build Pacakge
-    #     command: ./build-package.sh $BUILD_ENV       
-    # - run:
-    #     name: "Deployment direct app and direct web"
-    #     command: |
-    #       source awsenvconf
-    #       cp -f buildvar-app.conf buildvar.conf
+    # - store_artifacts:
+    #     path: ./topcoder.jar
+    #     destination: topcoder.jar
+    # - store_artifacts:
+    #     path: ./tc_cache.jar
+    #     destination: tc_cache.jar
+    - run:
+        name: Build Pacakge
+        command: ./build-package.sh $BUILD_ENV       
+    - run:
+        name: "Deployment direct app and direct web"
+        command: |
+          source awsenvconf
+          echo $VER
+          # cp -f buildvar-app.conf buildvar.conf
     #       ./deploy.sh $BUILD_ENV $VER
     #       echo "Deployment direct web"
     #       cp -f buildvar-web.conf buildvar.conf
