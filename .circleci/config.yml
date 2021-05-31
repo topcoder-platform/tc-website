@@ -47,7 +47,7 @@ build_steps: &build_steps
           ./awsconfiguration.sh $BUILD_ENV
           source awsenvconf
     - run:
-        name: Installation of build dependencies.
+        name: Building application
         command: |
           source awsenvconf
           ant -f move.xml package-topcoder
