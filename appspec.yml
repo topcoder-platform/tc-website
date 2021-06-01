@@ -11,7 +11,7 @@ permissions:
     owner: web
     group: apps
   - object: /home/web/web_backup
-    pattern: "topcoder.jar"
+    pattern: "tc_cache.jar"
     owner: web
     group: apps
 hooks:
