@@ -3459,6 +3459,7 @@ public class TCLoadTCS extends TCLoad {
                         " group by pr2.user_id ";
 
         try {
+            log.info("start ===========>>>>>>>>>>  ");
             Map<Integer, ContestResultCalculator> stageCalculators = getStageCalculators();
 
             Map<Long, Integer> dRProjects = getDRProjects();
@@ -3482,6 +3483,9 @@ public class TCLoadTCS extends TCLoad {
             dwDataUpdate = prepareStatement(DW_DATA_UPDATE, TARGET_DB);
 
             psNumRatings = prepareStatement(NUM_RATINGS, TARGET_DB);
+
+            log.info("projectSelect ===========>>>>>>>>>>  ");
+            log.info(projectSelect);
 
             projects = projectSelect.executeQuery();
 
@@ -3522,6 +3526,9 @@ public class TCLoadTCS extends TCLoad {
 
                         resultSelect = prepareStatement(buf.toString(), SOURCE_DB);
 
+                        log.info("delete ===========>>>>>>>>>>  ");
+                        log.info(delete);
+
                         delete = prepareStatement(delQuery.toString(), TARGET_DB);
                         delete.executeUpdate();
 
@@ -3538,6 +3545,9 @@ public class TCLoadTCS extends TCLoad {
                         int count = 0;
                         //log.debug("PROCESSING PROJECT RESULTS " + project_id);
 
+                        log.info("resultSelect ===========>>>>>>>>>>  ");
+                        log.info(resultSelect);
+
                         projectResults = resultSelect.executeQuery();
 
                         HashMap<Long, Integer> ratingsMap;
@@ -3546,6 +3556,10 @@ public class TCLoadTCS extends TCLoad {
 
                             psNumRatings.clearParameters();
                             psNumRatings.setLong(1, project_id);
+
+                            log.info("psNumRatings ===========>>>>>>>>>>  ");
+                            log.info(psNumRatings);
+
                             numRatings = psNumRatings.executeQuery();
 
                             ratingsMap = new HashMap<Long, Integer>();
@@ -3741,10 +3755,14 @@ public class TCLoadTCS extends TCLoad {
 
                             //log.debug("before result insert");
                             try {
+
+                                log.info("resultInsert ===========>>>>>>>>>>  ");
+                                log.info(resultInsert);
+
                                 resultInsert.executeUpdate();
                             } catch(Exception e) {
                                 // Notes: it seems same user will appear in resource table twice
-                                log.debug("project_id: " + project_id + " user_id: " + projectResults.getLong("user_id"));
+                                log.debug("Exception :: project_id: " + project_id + " user_id: " + projectResults.getLong("user_id"));
                                 throw(e);
                             }
                             //log.debug("after result insert");
@@ -3754,6 +3772,10 @@ public class TCLoadTCS extends TCLoad {
                             dwDataSelect.clearParameters();
                             dwDataSelect.setLong(1, project_id);
                             dwDataSelect.setLong(2, projectResults.getLong("user_id"));
+                            
+                            log.info("dwDataSelect ===========>>>>>>>>>>  ");
+                            log.info(dwDataSelect);
+
                             dwData = dwDataSelect.executeQuery();
                             if (dwData.next()) {
                                 dwDataUpdate.clearParameters();
@@ -3769,6 +3791,10 @@ public class TCLoadTCS extends TCLoad {
                                 }
                                 dwDataUpdate.setLong(3, project_id);
                                 dwDataUpdate.setLong(4, projectResults.getLong("user_id"));
+
+                                log.info("dwDataUpdate ===========>>>>>>>>>>  ");
+                                log.info(dwDataUpdate);
+
                                 dwDataUpdate.executeUpdate();
                             }
 
