@@ -3485,7 +3485,7 @@ public class TCLoadTCS extends TCLoad {
             psNumRatings = prepareStatement(NUM_RATINGS, TARGET_DB);
 
             log.info("projectSelect ===========>>>>>>>>>>  ");
-            log.info(projectSelect);
+            log.info(projectSelect.toString());
 
             projects = projectSelect.executeQuery();
 
@@ -3525,11 +3525,11 @@ public class TCLoadTCS extends TCLoad {
                         List<Track> activeTracks = getActiveTracks();
 
                         resultSelect = prepareStatement(buf.toString(), SOURCE_DB);
+                        delete = prepareStatement(delQuery.toString(), TARGET_DB);
 
                         log.info("delete ===========>>>>>>>>>>  ");
-                        log.info(delete);
+                        log.info(delete.toString());
 
-                        delete = prepareStatement(delQuery.toString(), TARGET_DB);
                         delete.executeUpdate();
 
                         // delete dr points for these projects.
@@ -3546,7 +3546,7 @@ public class TCLoadTCS extends TCLoad {
                         //log.debug("PROCESSING PROJECT RESULTS " + project_id);
 
                         log.info("resultSelect ===========>>>>>>>>>>  ");
-                        log.info(resultSelect);
+                        log.info(resultSelect.toString());
 
                         projectResults = resultSelect.executeQuery();
 
@@ -3558,7 +3558,7 @@ public class TCLoadTCS extends TCLoad {
                             psNumRatings.setLong(1, project_id);
 
                             log.info("psNumRatings ===========>>>>>>>>>>  ");
-                            log.info(psNumRatings);
+                            log.info(psNumRatings.toString());
 
                             numRatings = psNumRatings.executeQuery();
 
@@ -3757,7 +3757,7 @@ public class TCLoadTCS extends TCLoad {
                             try {
 
                                 log.info("resultInsert ===========>>>>>>>>>>  ");
-                                log.info(resultInsert);
+                                log.info(resultInsert.toString());
 
                                 resultInsert.executeUpdate();
                             } catch(Exception e) {
@@ -3774,7 +3774,7 @@ public class TCLoadTCS extends TCLoad {
                             dwDataSelect.setLong(2, projectResults.getLong("user_id"));
                             
                             log.info("dwDataSelect ===========>>>>>>>>>>  ");
-                            log.info(dwDataSelect);
+                            log.info(dwDataSelect.toString());
 
                             dwData = dwDataSelect.executeQuery();
                             if (dwData.next()) {
@@ -3793,7 +3793,7 @@ public class TCLoadTCS extends TCLoad {
                                 dwDataUpdate.setLong(4, projectResults.getLong("user_id"));
 
                                 log.info("dwDataUpdate ===========>>>>>>>>>>  ");
-                                log.info(dwDataUpdate);
+                                log.info(dwDataUpdate.toString());
 
                                 dwDataUpdate.executeUpdate();
                             }
