@@ -17,6 +17,8 @@ PACAKAGE_LOCATION="dist-${PACKAGETYPE}"
 rm -rf $PACAKAGE_LOCATION
 mkdir $PACAKAGE_LOCATION
 cp -rvf $SCRIPTDIR/* $PACAKAGE_LOCATION/
+cp lib.zip lib $PACAKAGE_LOCATION/
+cp resources.zip $PACAKAGE_LOCATION/
 cp topcoder.jar $PACAKAGE_LOCATION/
 cp tc_cache.jar $PACAKAGE_LOCATION/
 cp appspec.yml $PACAKAGE_LOCATION/appspec.yml
