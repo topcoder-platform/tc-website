@@ -64,7 +64,7 @@ build_steps: &build_steps
         name: Build Pacakge
         command: ./build-package.sh $BUILD_ENV       
     - run:
-        name: "Deployment direct app and direct web"
+        name: "Deployment tc-website app"
         command: |
           source awsenvconf
           echo $VER

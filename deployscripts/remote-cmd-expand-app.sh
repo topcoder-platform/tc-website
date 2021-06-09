@@ -35,7 +35,7 @@ echo "Copying topcoder.jar"
 cp -rf ${BACKUP_DIR}/topcoder.jar $WORK_DIR/
 cp -rf ${BACKUP_DIR}/tc_cache.jar $WORK_DIR/
 cp -rf ${BACKUP_DIR}/lib.zip $WORK_DIR/
-cp -rf ${BACKUP_DIR}/resources.zip $WORK_DIR/
+#cp -rf ${BACKUP_DIR}/resources.zip $WORK_DIR/
 
 pushd $WORK_DIR
 unzip -o lib.zip
