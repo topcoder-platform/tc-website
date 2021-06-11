@@ -3,29 +3,29 @@ os: linux
 files:
   - source: ./topcoder.jar
     destination: /home/web/web_backup/
-  - source: ./tc_cache.jar
-    destination: /home/web/web_backup/
-  - source: ./lib.zip
-    destination: /home/web/web_backup/
-  - source: ./resources.zip
-    destination: /home/web/web_backup/        
+  # - source: ./tc_cache.jar
+  #   destination: /home/web/web_backup/
+  # - source: ./lib.zip
+  #   destination: /home/web/web_backup/
+  # - source: ./resources.zip
+  #   destination: /home/web/web_backup/        
 permissions:
   - object: /home/web/web_backup
     pattern: "topcoder.jar"
     owner: web
     group: apps
-  - object: /home/web/web_backup
-    pattern: "tc_cache.jar"
-    owner: web
-    group: apps
-  - object: /home/web/web_backup
-    pattern: "lib.zip"
-    owner: web
-    group: apps    
-  - object: /home/web/web_backup
-    pattern: "resources.zip"
-    owner: web
-    group: apps    
+  # - object: /home/web/web_backup
+  #   pattern: "tc_cache.jar"
+  #   owner: web
+  #   group: apps
+  # - object: /home/web/web_backup
+  #   pattern: "lib.zip"
+  #   owner: web
+  #   group: apps    
+  # - object: /home/web/web_backup
+  #   pattern: "resources.zip"
+  #   owner: web
+  #   group: apps    
 hooks:
   BeforeInstall:
     - location: remote-cmd-backup-app.sh
