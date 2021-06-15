@@ -78,7 +78,7 @@ jobs:
     <<: *defaults
     environment:
       BUILD_ENV: "DEV"
-      GLUE_BRANCH: "dev-circleci"
+      GLUE_BRANCH: "dev"
       TCSHARED_BRANCH: "dev"
       TCEA_BRANCH: "dev"
       TCCACHE_BRANCH: "master"
@@ -88,9 +88,9 @@ jobs:
     <<: *defaults
     environment:
       BUILD_ENV: "PROD"
-      GLUE_BRANCH: "dev-circleci"
-      TCSHARED_BRANCH: "dev"
-      TCEA_BRANCH: "dev"
+      GLUE_BRANCH: "dev"
+      TCSHARED_BRANCH: "master"
+      TCEA_BRANCH: "master"
       TCCACHE_BRANCH: "master"
     steps: *build_steps      
 
