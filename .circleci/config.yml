@@ -78,7 +78,7 @@ jobs:
     <<: *defaults
     environment:
       BUILD_ENV: "DEV"
-      GLUE_BRANCH: "master"
+      GLUE_BRANCH: "dev"
       TCSHARED_BRANCH: "dev"
       TCEA_BRANCH: "dev"
       TCCACHE_BRANCH: "master"
