@@ -3945,9 +3945,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 ps.setNull(i, Types.DECIMAL);
             }
             ps.setNull(26, Types.DECIMAL);
-            // Always set the jira id value. This is to support v5 task payments since they don't satisfy any of the reference types below.
-            // ps.setNull(27, Types.VARCHAR);
-            setNullableString(ps, 27, p.getHeader().getJiraIssueName());
+            ps.setNull(27, Types.VARCHAR);
+         
             switch (BasePayment.getReferenceTypeId(p.getHeader().getTypeId())) {
                 case REFERENCE_ALGORITHM_ROUND_ID:
                     setNullableLong(ps, 14, p.getHeader().getAlgorithmRoundId());
@@ -3986,6 +3985,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setBoolean(23, p.isCharity());
             ps.setDouble(24, p.getTotalAmount() == 0 ? p.getGrossAmount() : p.getTotalAmount()); // default to gross amount if not filled.
             ps.setInt(25, p.getInstallmentNumber());
+         
+            // Set the jira ID all the time to support v5
+            log.info("Jira ID: " + p.getHeader().getJiraIssueName());
+            setNullableString(ps, 27, p.getHeader().getJiraIssueName());
 
             if (operatorUserId != 0) {
                 ps.setLong(28, operatorUserId);
