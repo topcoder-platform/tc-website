@@ -6439,8 +6439,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 break;
             default:
                 // Set the jira ID all the time to support v5
-                log.info("*** Jira ID (Create Payment): " + ((CockpitProjectReferencePayment) payment).getJiraIssueName());
-                p.getHeader().setJiraIssueName(((CockpitProjectReferencePayment) payment).getJiraIssueName());
+                log.info("*** Jira ID (Create Payment): " + ((NoReferencePayment) payment).getJiraIssueName());
+                p.getHeader().setJiraIssueName(((NoReferencePayment) payment).getJiraIssueName());
         }
 
 
