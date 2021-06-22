@@ -6437,6 +6437,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             case REFERENCE_DIGITAL_RUN_TRACK_ID:
                 p.getHeader().setDigitalRunTrackId(((DigitalRunTrackReferencePayment) payment).getTrackId());
                 break;
+            default:
+                // Set the jira ID all the time to support v5
+                log.info("*** Jira ID (Create Payment): " + ((CockpitProjectReferencePayment) payment).getJiraIssueName());
+                p.getHeader().setJiraIssueName(((CockpitProjectReferencePayment) payment).getJiraIssueName());
         }
 
 
