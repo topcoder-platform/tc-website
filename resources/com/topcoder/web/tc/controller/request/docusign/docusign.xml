@@ -75,6 +75,12 @@
             <Property name="e7698944-cfdc-4e23-9ab6-2842f27c3601">
                 <Value>handlerForVetsAgreement</Value>
             </Property>	
+            <Property name="4735a856-fba5-42e9-9408-e25b6ae7f60d">
+                <Value>handlerForActianNDAAgreement</Value>
+            </Property>		
+            <Property name="744cbcc8-23c0-44f4-847d-f532bf74dcac">
+                <Value>handlerForEatonNDAAgreement</Value>
+            </Property>		
 	</Property>
     </Config>
     <Config name="com.topcoder.web.tc.controller.request.docusign.DocuSignCallback.handlers">
@@ -247,19 +253,49 @@
         </Property>
         </Property>
         <Property name="handlerForVetsAgreement">
-	<Property name="type">
-		<Value>com.topcoder.web.tc.controller.request.docusign.handlers.TermsOfUseHandler</Value>
-	</Property>
-	<Property name="params">
-		<Property name="param1">
-			<Property name="type">
-				<Value>long</Value>
-			</Property>
-			<Property name="value">
-				<Value>21263</Value>
+		<Property name="type">
+			<Value>com.topcoder.web.tc.controller.request.docusign.handlers.TermsOfUseHandler</Value>
+		</Property>
+		<Property name="params">
+			<Property name="param1">
+				<Property name="type">
+					<Value>long</Value>
+				</Property>
+				<Property name="value">
+					<Value>21263</Value>
+				</Property>
 			</Property>
 		</Property>
-	</Property>
         </Property>	    
+        <Property name="handlerForActianNDAAgreement">
+                <Property name="type">
+                        <Value>com.topcoder.web.tc.controller.request.docusign.handlers.TermsOfUseHandler</Value>
+                </Property>
+                <Property name="params">
+                        <Property name="param1">
+                                <Property name="type">
+                                        <Value>long</Value>
+                                </Property>
+                                <Property name="value">
+                                        <Value>21283</Value>
+                                </Property>
+                        </Property>
+                </Property>
+        </Property>
+        <Property name="handlerForEatonNDAAgreement">
+                <Property name="type">
+                        <Value>com.topcoder.web.tc.controller.request.docusign.handlers.TermsOfUseHandler</Value>
+                </Property>
+                <Property name="params">
+                        <Property name="param1">
+                                <Property name="type">
+                                        <Value>long</Value>
+                                </Property>
+                                <Property name="value">
+                                        <Value>21313</Value>
+                                </Property>
+                        </Property>
+                </Property>
+        </Property>
     </Config>
 </CMConfig>

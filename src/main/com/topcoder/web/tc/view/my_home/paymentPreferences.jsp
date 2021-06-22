@@ -235,8 +235,9 @@
 
                 <% } %>
 
+		</br>
                 <div align="center">Have a question about
-                    <A href="/wiki/display/tc/Payment+Methods">Payment Methods</A>?
+                    <A href="https://help.topcoder.com/hc/en-us/articles/217482058-Payment-Methods">Payment Methods</A>?
                 </div>
 
             </div>

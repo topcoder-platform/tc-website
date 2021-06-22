@@ -11,6 +11,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 
+<%
+        String redirectURL = "https://www.topcoder.com/community/data-science/how-to-compete";
+        response.sendRedirect(redirectURL);
+%>
+    
 <body>
 
 <jsp:include page="top.jsp">

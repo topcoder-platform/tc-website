@@ -9,4 +9,13 @@
     <Property name="HistoryLength">
         <Value>300</Value>
     </Property>
+	<Property name="PhaseIds">
+        <Value>150</Value>
+       <Value>149</Value>
+    </Property>
+    <Property name="CutOffs">
+        <Value>06/01/2010 06:06:06</Value>
+        <Value>NULL</Value>
+    </Property>
+
 </CMConfig>

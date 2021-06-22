@@ -20,6 +20,9 @@ import java.net.URLDecoder;
 import java.util.*;
 import java.io.*;
 
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;;
+
 /**
  * <p>This class provides convenient static methods for calling the PayPal API.</p>
  *
@@ -216,13 +219,19 @@ public class PayPalService {
      * <p>A private helper method that queries the PayPal API with the specified parameters and returns the response.</p>
      */
     private static String getNVResponse(String url, String requestBody) throws Exception {
-        HttpURLConnection connection = null;
+        HttpsURLConnection connection = null;
 
         try {
+            SSLContext sc = SSLContext.getInstance("TLSv1.2");
+            sc.init(null, null, new java.security.SecureRandom());
+
             PayPalConfig payPalConfig = getPayPalConfig();
-            
+
+            log.info("Using TLSv1.2");
+
             //Create connection
-            connection = (HttpURLConnection) (new URL(url)).openConnection();
+            connection = (HttpsURLConnection) (new URL(url)).openConnection();
+            connection.setSSLSocketFactory(sc.getSocketFactory());
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             connection.setRequestProperty("Content-Length", "" + Integer.toString(requestBody.getBytes().length));

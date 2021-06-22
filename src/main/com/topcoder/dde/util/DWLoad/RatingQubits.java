@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2018 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.dde.util.DWLoad;
 
@@ -13,10 +13,7 @@ import java.sql.Types;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.TreeMap;
-import java.util.Vector;
+import java.util.*;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
@@ -42,8 +39,15 @@ import com.topcoder.util.config.UnknownNamespaceException;
  *   </ol>
  * </p>
  *
- * @author pulky, VolodymyrK
- * @version 1.2
+ * <p>
+ *   Version 1.3 Change notes(Topcoder - Support Rating and Reliability Generation For Code Challenges in DWLoad):
+ *   <ol>
+ *     <li>Added support for code challenge and load phase ids, cutoffs configurations from file.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, VolodymyrK,TCCODER
+ * @version 1.3
  */
 public class RatingQubits {
     private static final Logger log = Logger.getLogger(RatingQubits.class);
@@ -51,6 +55,34 @@ public class RatingQubits {
     public static final String DRIVER_KEY = "DriverClass";
     public static final String CONNECTION_URL_KEY = "ConnectionURL";
     public static final String HISTORY_LENGTH_KEY = "HistoryLength";
+
+    /**
+     * Property key name for phase ids
+     *
+     * @since 1.3
+     */
+    private static final String PHASE_IDS_KEY = "PhaseIds";
+
+    /**
+     * Property key name for cutoffs
+     *
+     * @since 1.3
+     */
+    private static final String CUT_OFFS_KEY = "CutOffs";
+
+    /**
+     * Property value for null value of cutoff
+     *
+     * @since 1.3
+     */
+    private static final String NULL_CUT_OFF = "null";
+
+    /**
+     * The simple date format for cut off.
+     *
+     * @since 1.3
+     */
+    private static final SimpleDateFormat SDF = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 
     private static final String NEW_PHASES_CUT_OFF = "03/23/2009 00:00:00";
     private static final String UI_PROTOTYPE_CUT_OFF = "08/01/2009 00:00:00";
@@ -68,26 +100,37 @@ public class RatingQubits {
     private static final int RIA_BUILDS_PHASE_ID = 135;
     private static final int CONTENT_CREATION_PHASE_ID = 146;
     private static final int REPORTING_PHASE_ID = 147;
+    /**
+     * Code challenge phase id.
+     *
+     * @since 1.3
+     */
+    private static final int CODE_PHASE_ID = 150;
     private final static String NEW_RATING_STATUSES = "(4, 7, 8)";
 
     /**
      * SQL fragment to be added to a where clause to not select projects with eligibility constraints
-     * 
+     *
      * @since 1.1
      */
     private static final String ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT =
             " and p.project_id not in (select ce.contest_id from contest_eligibility ce " +
-            " where ce.is_studio = 0) ";
+                    " where ce.is_studio = 0) ";
 
     /**
      * SQL fragment to be added to a where clause to select only rated projects
-     * 
+     *
      * @since 1.2
      */
     private static final String RATED_CONSTRAINTS_SQL_FRAGMENT =
             " and p.project_id in (select pi.project_id from project_info pi where pi.project_info_type_id=13 " +
-             "and (pi.value='Yes' or pi.value='yes')) ";
+                    "and (pi.value='Yes' or pi.value='yes')) ";
 
+    /**
+     * Load phase ids and cutoffs configurations from file
+     * @param args the command arguments
+     * @since 1.3
+     */
     public static void main(String[] args) {
         RatingQubits tmp = new RatingQubits();
 
@@ -113,6 +156,7 @@ public class RatingQubits {
 
         String jdbcDriver;
         String connectionURL;
+        Map<Integer, Date> projects = new HashMap<Integer, Date>();
         try {
             jdbcDriver = config.getString(namespace, DRIVER_KEY);
             connectionURL = config.getString(namespace, CONNECTION_URL_KEY);
@@ -126,6 +170,42 @@ public class RatingQubits {
                 System.err.println("No Connection URL specified.  (Config param '" + CONNECTION_URL_KEY + "')");
                 return;
             }
+            String[] phaseIds = config.getStringArray(namespace, PHASE_IDS_KEY);
+            String[] cutOffs = config.getStringArray(namespace, CUT_OFFS_KEY);
+            if (phaseIds!= null && cutOffs !=null) {
+                if (phaseIds.length != cutOffs.length) {
+                    System.err.println("(Config param '" + PHASE_IDS_KEY + "')(" + phaseIds.length + ") and (Config param '" +
+                            CUT_OFFS_KEY + "')("+ cutOffs.length + ") should have same length of string array");
+                    return;
+                }
+                for (int i = 0; i < phaseIds.length; i++) {
+                    String id = phaseIds[i];
+                    int phaseId = -1;
+                    try {
+                        phaseId = Integer.parseInt(id);
+                    } catch (NumberFormatException e) {
+                        System.err.println("Invalid phase id value for "+ id + ", please check it");
+                        return;
+                    }
+                    if (projects.containsKey(phaseId)) {
+                        System.err.println("(Config param '" + PHASE_IDS_KEY + "') contains  duplicated phase id "+id);
+                        return;
+                    }
+                    String cutoff = cutOffs[i];
+
+                    Date cutoffDate = null;
+                    try {
+                        if (!NULL_CUT_OFF.equalsIgnoreCase(cutoff)){
+                            cutoffDate = new Date(SDF.parse(cutoff).getTime());
+                        }
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                        System.err.println("Invalid cutoff value " + cutoff + "for phase id "+ phaseId + ", please check it");
+                        return;
+                    }
+                    projects.put(phaseId, cutoffDate);
+                }
+            }
         } catch (UnknownNamespaceException e) {
             System.err.println("Initialized ConfigManager and namespace '" + namespace + "' without trouble but could not retrieve resource bundle");
             return;
@@ -137,7 +217,7 @@ public class RatingQubits {
             c = DriverManager.getConnection(connectionURL);
 
             c.setAutoCommit(true);
-            tmp.runAllScores(c, historyLength);
+            tmp.runAllScores(c, historyLength, projects);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -149,13 +229,18 @@ public class RatingQubits {
         }
     }
 
-    public void runAllScores(Connection conn, String historyLength) {
-
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+    /**
+     * Run all score
+     * @param conn the database connection
+     * @param historyLength the length of history
+     * @param projects the projects map with keyis phase id and value is cut off date
+     * @since 1.3
+     */
+    public void runAllScores(Connection conn, String historyLength, Map<Integer, Date> projects) {
 
         Date newPhasesCutoff = null;
         try {
-            newPhasesCutoff = new Date(sdf.parse(NEW_PHASES_CUT_OFF).getTime());
+            newPhasesCutoff = new Date(SDF.parse(NEW_PHASES_CUT_OFF).getTime());
         } catch (ParseException e1) {
             System.err.println("Invalid value for constant NEW_PHASES_CUT_OFF, please check it");
             return;
@@ -163,7 +248,7 @@ public class RatingQubits {
 
         Date uiPrototypeCutoff = null;
         try {
-            uiPrototypeCutoff = new Date(sdf.parse(UI_PROTOTYPE_CUT_OFF).getTime());
+            uiPrototypeCutoff = new Date(SDF.parse(UI_PROTOTYPE_CUT_OFF).getTime());
         } catch (ParseException e1) {
             System.err.println("Invalid value for constant UI_PROTOTYPE_CUT_OFF, please check it");
             return;
@@ -171,24 +256,43 @@ public class RatingQubits {
 
         Date riaBuildCutoff = null;
         try {
-            riaBuildCutoff = new Date(sdf.parse(RIA_BUILD_CUT_OFF).getTime());
+            riaBuildCutoff = new Date(SDF.parse(RIA_BUILD_CUT_OFF).getTime());
         } catch (ParseException e1) {
             System.err.println("Invalid value for constant RIA_BUILD_CUT_OFF, please check it");
             return;
         }
 
-        runScore(conn, historyLength, DESIGN_PHASE_ID);
-        runScore(conn, historyLength, DEV_PHASE_ID);
-        runScore(conn, historyLength, ASSEMBLY_PHASE_ID, newPhasesCutoff);
-        runScore(conn, historyLength, ARCHITECTURE_PHASE_ID, newPhasesCutoff);
-        runScore(conn, historyLength, SPECIFICATION_PHASE_ID, newPhasesCutoff);
-        runScore(conn, historyLength, CONCEPTUALIZATION_PHASE_ID, newPhasesCutoff);
-        runScore(conn, historyLength, TESTING_PHASE_ID, newPhasesCutoff);
-        runScore(conn, historyLength, TEST_SCENARIOS_PHASE_ID, newPhasesCutoff);
-        runScore(conn, historyLength, UI_PROTOTYPES_PHASE_ID, uiPrototypeCutoff);
-        runScore(conn, historyLength, RIA_BUILDS_PHASE_ID, riaBuildCutoff);
-        runScore(conn, historyLength, CONTENT_CREATION_PHASE_ID, riaBuildCutoff);
-        runScore(conn, historyLength, REPORTING_PHASE_ID, riaBuildCutoff);
+        for (Map.Entry<Integer, Date> entry : projects.entrySet()) {
+            runScore(conn, historyLength, entry.getKey(), entry.getValue());
+        }
+        // phase ids without cut off
+        int[] phaseIds1 = new int [] { DESIGN_PHASE_ID, DEV_PHASE_ID } ;
+        for (int i = 0; i < phaseIds1.length; i++) {
+            if(!projects.containsKey(phaseIds1[i])) {
+                runScore(conn, historyLength, phaseIds1[i]);
+            }
+        }
+
+        // phase ids with newPhasesCutoff
+        int[] phaseIds2 = new int [] { ASSEMBLY_PHASE_ID, ARCHITECTURE_PHASE_ID, SPECIFICATION_PHASE_ID,
+                CONCEPTUALIZATION_PHASE_ID, TESTING_PHASE_ID, TEST_SCENARIOS_PHASE_ID } ;
+        for (int i = 0; i < phaseIds2.length; i++) {
+            if(!projects.containsKey(phaseIds2[i])) {
+                runScore(conn, historyLength, phaseIds2[i], newPhasesCutoff);
+            }
+        }
+
+        if (!projects.containsKey(UI_PROTOTYPES_PHASE_ID)) {
+            runScore(conn, historyLength, UI_PROTOTYPES_PHASE_ID, uiPrototypeCutoff);
+        }
+
+        // phase ids with riaBuildCutoff
+        int[] phaseIds3 = new int [] { RIA_BUILDS_PHASE_ID, CONTENT_CREATION_PHASE_ID, REPORTING_PHASE_ID, CODE_PHASE_ID } ;
+        for (int i = 0; i < phaseIds3.length; i++) {
+            if(!projects.containsKey(phaseIds3[i])) {
+                runScore(conn, historyLength, phaseIds3[i], riaBuildCutoff);
+            }
+        }
     }
 
     // Run a score without a specific cut off time
@@ -203,8 +307,11 @@ public class RatingQubits {
      * @param historyLength the history length
      * @param phase the phase
      * @param cutoff the cutoff date
+     * @since 1.3
      */
     private void runScore(Connection conn, String historyLength, int phase, Date cutoff) {
+        System.out.println("Run score for historyLength " + historyLength + " phase " + phase
+                + " cutoff " + ( cutoff == null ? NULL_CUT_OFF : SDF.format(cutoff)));
         PreparedStatement ps = null;
         ResultSet rs = null;
 
@@ -216,7 +323,7 @@ public class RatingQubits {
                     "case when substr(pi_rd.value, 18,2)='PM' then round(substr(pi_rd.value, 12, 2)) +12 else round(substr(pi_rd.value, 12, 2))  end as hour " +
                     "from project_result pr, project p, project_info pi_rd " ;
             if (cutoff != null) {
-            	sqlStr += ", project_phase pp ";
+                sqlStr += ", project_phase pp ";
             }
             sqlStr += "where p.project_id = pr.project_id " +
                     "and p.project_status_id in " + NEW_RATING_STATUSES + " " +
@@ -227,11 +334,10 @@ public class RatingQubits {
                     RATED_CONSTRAINTS_SQL_FRAGMENT +
                     "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 ";
             if (cutoff != null) {
-            	sqlStr += "and pp.project_id = p.project_id and pp.phase_type_id = 1 " +
-                "and pp.actual_start_time > ? ";
+                sqlStr += "and pp.project_id = p.project_id and pp.phase_type_id = 1 " +
+                        "and pp.actual_start_time > ? ";
             }
             sqlStr += "order by year, month, day, hour, 1";
-
             ps = conn.prepareStatement(sqlStr);
             ps.setInt(1, phase - 111); // Project Category
             if (cutoff != null) {
@@ -969,13 +1075,13 @@ public class RatingQubits {
 
     private double normsinvnew(double p) {
         /* ********************************************
-      * Original algorythm and Perl implementation can
-      * be found at:
-      * http://www.math.uio.no/~jacklam/notes/invnorm/index.html
-      * Author:
-      *  Peter J. Acklam
-      *  jacklam@math.uio.no
-      * ****************************************** */
+         * Original algorythm and Perl implementation can
+         * be found at:
+         * http://www.math.uio.no/~jacklam/notes/invnorm/index.html
+         * Author:
+         *  Peter J. Acklam
+         *  jacklam@math.uio.no
+         * ****************************************** */
 
         // Define break-points.
         // variable for result
@@ -1107,4 +1213,3 @@ public class RatingQubits {
 //----------------------END RATING FUNCTIONS0-----------------------------------------------
 
 }
-

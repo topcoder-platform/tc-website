@@ -53,7 +53,7 @@
 
 <div align="left">
     <div style="float:right;">
-       <A href="/wiki/display/tc/How+to+Get+Paid+for+Competing"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
+       <A href="https://help.topcoder.com/hc/en-us/articles/217482038-Payment-Policies-and-Instructions"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
     </div>
     <c:choose>
         <c:when test="${not empty isNewStyle && isNewStyle}">

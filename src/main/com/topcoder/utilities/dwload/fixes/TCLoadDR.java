@@ -27,7 +27,8 @@ public class TCLoadDR extends TCLoadTCS {
             // Reload project results after 4 may
             fLastLogTime = new Timestamp(new GregorianCalendar(2007,4,4).getTime().getTime());
 
-            doLoadProjectResults();
+            doLoadPublicProjectResults();
+            doLoadPrivateProjectResults();
             
             fLastLogTime = new Timestamp(new GregorianCalendar(1980,0,1).getTime().getTime());
             doLoadSeason();
