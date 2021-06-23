@@ -9,7 +9,6 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.HttpObjectFactory;
-import com.topcoder.web.common.RequestTracker;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
@@ -129,9 +128,6 @@ public class StatisticsHttpServlet extends BaseServlet {
                 TCSubject user = getUser(authentication.getActiveUser().getId());
                 info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
                 tcRequest.setAttribute(SESSION_INFO_KEY, info);
-                //todo perhaps this should be configurable...so implementing classes
-                //todo don't have to do it if they don't want to
-                RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
 
                 StringBuffer loginfo = new StringBuffer(100);

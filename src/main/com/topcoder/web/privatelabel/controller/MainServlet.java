@@ -68,9 +68,6 @@ public class MainServlet extends BaseServlet {
                 TCSubject user = getUser(authentication.getActiveUser().getId(), tcRequest);
                 info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
                 tcRequest.setAttribute(SESSION_INFO_KEY, info);
-                //todo perhaps this should be configurable...so implementing classes
-                //todo don't have to do it if they don't want to
-                RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
                 StringBuffer loginfo = new StringBuffer(100);
                 loginfo.append("[* ");

@@ -165,9 +165,6 @@ public class ForumsServlet extends BaseServlet {
                     log.debug("using an uncached response");
                     tcResponse = HttpObjectFactory.createUnCachedResponse(response);
                 }
-                //todo perhaps this should be configurable...so implementing classes
-                //todo don't have to do it if they don't want to
-                RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
                 com.jivesoftware.base.User forumUser = null;
                 ForumFactory forumFactory = ForumFactory.getInstance(authToken);
