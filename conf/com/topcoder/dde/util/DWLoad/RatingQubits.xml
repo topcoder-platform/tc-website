@@ -4,9 +4,18 @@
         <Value>com.informix.jdbc.IfxDriver</Value>
     </Property>
     <Property name="ConnectionURL">
-        <Value>jdbc:informix-sqli://63.118.154.190:1526/tcs_catalog:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec</Value>
+        <Value><![CDATA[jdbc:informix-sqli://127.0.0.1:7000/tcs_catalog:INFORMIXSERVER=commtestoltp_tcp;user=user;password=password]]></Value>
     </Property>
     <Property name="HistoryLength">
-        <Value>50</Value>
+        <Value>300</Value>
     </Property>
+	<Property name="PhaseIds">
+        <Value>150</Value>
+       <Value>149</Value>
+    </Property>
+    <Property name="CutOffs">
+        <Value>06/01/2010 06:06:06</Value>
+        <Value>NULL</Value>
+    </Property>
+
 </CMConfig>

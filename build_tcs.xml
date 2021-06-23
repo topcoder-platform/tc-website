@@ -127,6 +127,16 @@
         <pathelement location="${jars.dir}/tcs/ldap_sdk_interface/1.0.2/ldap_sdk_interface.jar"/>
         <pathelement location="${jars.dir}/netscape_ldap_sdk.jar"/>
         <pathelement location="${jars.dir}/ldap.jar"/>
+
+        <!-- jackson and request dependencies -->
+        <pathelement location="${jars.dir}/jackson-core-2.6.1.jar"/>
+        <pathelement location="${jars.dir}/jackson-databind-2.6.1.jar"/>
+        <pathelement location="${jars.dir}/jackson-annotations-2.6.1.jar"/>
+        <pathelement location="${jars.dir}/fluent-hc-4.5.1.jar"/>
+        <pathelement location="${jars.dir}/httpclient-4.5.1.jar"/>
+        <pathelement location="${jars.dir}/httpcore-4.4.3.jar"/>
+        <pathelement location="${jars.dir}/commons-logging-1.2.jar"/>
+
     </path>
 
     <target name="init">

@@ -127,6 +127,11 @@ public class RatingQubits {
                     "and (pi.value='Yes' or pi.value='yes')) ";
 
     /**
+     * Maximum number of groups to fetch from the api
+     */
+    private static final int MAX_GROUPS = 1000;
+    
+    /**
      * Load phase ids and cutoffs configurations from file
      * @param args the command arguments
      * @since 1.3
@@ -152,6 +157,16 @@ public class RatingQubits {
                 System.err.println("Exception while refreshing namespace: " + namespace);
                 return;
             }
+        }
+
+        Map<String, Set<String>> groups = new HashMap<String, Set<String>>();
+        try{
+            log.info("fetching groups");
+            groups = Util.getGroups(0, MAX_GROUPS);
+            log.info("got groups");
+        } catch (Exception ex){
+            log.error("cant fetch groups", ex);
+            System.exit(1);
         }
 
         String jdbcDriver;
@@ -217,7 +232,7 @@ public class RatingQubits {
             c = DriverManager.getConnection(connectionURL);
 
             c.setAutoCommit(true);
-            tmp.runAllScores(c, historyLength, projects);
+            tmp.runAllScores(c, historyLength, projects, groups);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -236,7 +251,7 @@ public class RatingQubits {
      * @param projects the projects map with keyis phase id and value is cut off date
      * @since 1.3
      */
-    public void runAllScores(Connection conn, String historyLength, Map<Integer, Date> projects) {
+    public void runAllScores(Connection conn, String historyLength, Map<Integer, Date> projects, Map<String, Set<String>> groups) {
 
         Date newPhasesCutoff = null;
         try {
@@ -262,14 +277,32 @@ public class RatingQubits {
             return;
         }
 
+        // run scores for public projects
+        doRunAllScores(conn, historyLength, projects, newPhasesCutoff, uiPrototypeCutoff, riaBuildCutoff, null, null);
+
+        // run scores for each group
+        for (String group: groups.keySet()){
+            String childGroups = group;
+            for (String cgroup:groups.get(group)){
+                childGroups+=","+cgroup;
+            }
+            doRunAllScores(conn, historyLength, projects, newPhasesCutoff, uiPrototypeCutoff, riaBuildCutoff, group, childGroups);
+        }
+
+    }
+
+    private void doRunAllScores(Connection conn, String historyLength, Map<Integer, Date> projects, Date newPhasesCutoff, Date uiPrototypeCutoff, Date riaBuildCutoff, String group, String childGroups){
+
+        log.info("running scores for group: "+group);
+
         for (Map.Entry<Integer, Date> entry : projects.entrySet()) {
-            runScore(conn, historyLength, entry.getKey(), entry.getValue());
+            runScore(conn, historyLength, entry.getKey(), entry.getValue(), group, childGroups);
         }
         // phase ids without cut off
         int[] phaseIds1 = new int [] { DESIGN_PHASE_ID, DEV_PHASE_ID } ;
         for (int i = 0; i < phaseIds1.length; i++) {
             if(!projects.containsKey(phaseIds1[i])) {
-                runScore(conn, historyLength, phaseIds1[i]);
+                runScore(conn, historyLength, phaseIds1[i],  group, childGroups);
             }
         }
 
@@ -278,26 +311,26 @@ public class RatingQubits {
                 CONCEPTUALIZATION_PHASE_ID, TESTING_PHASE_ID, TEST_SCENARIOS_PHASE_ID } ;
         for (int i = 0; i < phaseIds2.length; i++) {
             if(!projects.containsKey(phaseIds2[i])) {
-                runScore(conn, historyLength, phaseIds2[i], newPhasesCutoff);
+                runScore(conn, historyLength, phaseIds2[i], newPhasesCutoff, group, childGroups);
             }
         }
 
         if (!projects.containsKey(UI_PROTOTYPES_PHASE_ID)) {
-            runScore(conn, historyLength, UI_PROTOTYPES_PHASE_ID, uiPrototypeCutoff);
+            runScore(conn, historyLength, UI_PROTOTYPES_PHASE_ID, uiPrototypeCutoff, group, childGroups);
         }
 
         // phase ids with riaBuildCutoff
         int[] phaseIds3 = new int [] { RIA_BUILDS_PHASE_ID, CONTENT_CREATION_PHASE_ID, REPORTING_PHASE_ID, CODE_PHASE_ID } ;
         for (int i = 0; i < phaseIds3.length; i++) {
             if(!projects.containsKey(phaseIds3[i])) {
-                runScore(conn, historyLength, phaseIds3[i], riaBuildCutoff);
+                runScore(conn, historyLength, phaseIds3[i], riaBuildCutoff, group, childGroups);
             }
         }
     }
 
     // Run a score without a specific cut off time
-    private void runScore(Connection conn, String historyLength, int phase) {
-        runScore(conn, historyLength, phase, null);
+    private void runScore(Connection conn, String historyLength, int phase, String group, String childGroups) {
+        runScore(conn, historyLength, phase, null, group, childGroups);
     }
 
     /**
@@ -309,9 +342,9 @@ public class RatingQubits {
      * @param cutoff the cutoff date
      * @since 1.3
      */
-    private void runScore(Connection conn, String historyLength, int phase, Date cutoff) {
+    private void runScore(Connection conn, String historyLength, int phase, Date cutoff, String group, String childGroups) {
         System.out.println("Run score for historyLength " + historyLength + " phase " + phase
-                + " cutoff " + ( cutoff == null ? NULL_CUT_OFF : SDF.format(cutoff)));
+                + " cutoff " + ( cutoff == null ? NULL_CUT_OFF : SDF.format(cutoff))+" group "+group+" childGroups "+childGroups);
         PreparedStatement ps = null;
         ResultSet rs = null;
 
@@ -325,13 +358,23 @@ public class RatingQubits {
             if (cutoff != null) {
                 sqlStr += ", project_phase pp ";
             }
+            if (group!=null){
+                sqlStr+=", common_oltp:contest_eligibility ce, common_oltp:group_contest_eligibility gce ";
+            }
             sqlStr += "where p.project_id = pr.project_id " +
                     "and p.project_status_id in " + NEW_RATING_STATUSES + " " +
                     "and p.project_category_id = ? " +
                     "and pr.rating_ind = 1 " +
-                    "and pr.final_score is not null " +
-                    ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
-                    RATED_CONSTRAINTS_SQL_FRAGMENT +
+                    "and pr.final_score is not null ";
+            if (group==null){
+                sqlStr+=ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT;
+            } else {
+                sqlStr+=
+                "and ce.contest_id = p.project_id "+
+                "and gce.contest_eligibility_id=ce.contest_eligibility_id "+
+                "and gce.group_id in ("+childGroups+") ";
+            }
+            sqlStr+= RATED_CONSTRAINTS_SQL_FRAGMENT +
                     "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 ";
             if (cutoff != null) {
                 sqlStr += "and pp.project_id = p.project_id and pp.phase_type_id = 1 " +
@@ -345,14 +388,14 @@ public class RatingQubits {
             }
             rs = ps.executeQuery();
 
-            this.rateProjects(conn, rs, phase, historyLength);
+            this.rateProjects(conn, rs, phase, historyLength, group);
 
             rs.close();
             rs = null;
             ps.close();
             ps = null;
 
-            updateRatingOrder(conn, phase);
+            updateRatingOrder(conn, phase, group);
         } catch (SQLException sqe) {
             sqe.printStackTrace();
         } catch (Exception sqe) {
@@ -406,7 +449,7 @@ public class RatingQubits {
         }
     }
 
-    private void rateProjects(Connection conn, ResultSet rs, int phaseId, String historyLength) throws Exception {
+    private void rateProjects(Connection conn, ResultSet rs, int phaseId, String historyLength, String groupId) throws Exception {
         PreparedStatement ps = null;
         ResultSet rs2 = null;
         StringBuffer sqlStr = new StringBuffer(400);
@@ -430,8 +473,8 @@ public class RatingQubits {
                 histories.add(null);
             }
 
-            HashMap<String, Integer> oldRatingsMap = getOldRatingsMap(conn, categoryId);
-            HashMap<String, Integer> newRatingsMap = getNewRatingsMap(conn, categoryId);
+            HashMap<String, Integer> oldRatingsMap = getOldRatingsMap(conn, categoryId, groupId);
+            HashMap<String, Integer> newRatingsMap = getNewRatingsMap(conn, categoryId, groupId);
 
 
             while (rs.next()) {
@@ -567,10 +610,6 @@ public class RatingQubits {
 
                     rating r = (rating) ratings.get("" + coder);
 
-                    //update project_result record with new and old rating
-                    sqlStr.replace(0, sqlStr.length(), "UPDATE project_result SET old_rating = ?, new_rating = ? ");
-                    sqlStr.append(" WHERE project_id = ? and user_id = ? ");
-
                     key = rs.getInt("project_id") + "-" + coder;
                     boolean doit = false;
                     if (r.num_ratings == 0) {
@@ -591,19 +630,64 @@ public class RatingQubits {
 
                     //only update the db if something actually changed
                     if (doit) {
-                        ps = conn.prepareStatement(sqlStr.toString());
-                        if (r.num_ratings == 0) {
-                            ps.setNull(1, Types.DOUBLE);
-                        } else {
-                            ps.setDouble(1, r.rating);
-                        }
-                        ps.setInt(2, newrating);
-                        ps.setInt(3, rs.getInt("project_id"));
-                        ps.setInt(4, coder);
+                        if (groupId==null){
+                            //update project_result record with new and old rating
+                            sqlStr.replace(0, sqlStr.length(), "UPDATE project_result SET old_rating = ?, new_rating = ? ");
+                            sqlStr.append(" WHERE project_id = ? and user_id = ? ");
+                            ps = conn.prepareStatement(sqlStr.toString());
+                            if (r.num_ratings == 0) {
+                                ps.setNull(1, Types.DOUBLE);
+                            } else {
+                                ps.setDouble(1, r.rating);
+                            }
+                            ps.setInt(2, newrating);
+                            ps.setInt(3, rs.getInt("project_id"));
+                            ps.setInt(4, coder);
 
-                        ps.execute();
-                        ps.close();
-                        ps = null;
+                            ps.execute();
+                            ps.close();
+                            ps = null;
+                        } else {
+                            //update project_result record with new and old rating
+                            sqlStr.replace(0, sqlStr.length(), "UPDATE group_project_result SET old_rating = ?, new_rating = ? ");
+                            sqlStr.append(" WHERE project_id = ? and user_id = ? and group_id = ?");
+                            ps = conn.prepareStatement(sqlStr.toString());
+                            if (r.num_ratings == 0) {
+                                ps.setNull(1, Types.DOUBLE);
+                            } else {
+                                ps.setDouble(1, r.rating);
+                            }
+                            ps.setInt(2, newrating);
+                            ps.setInt(3, rs.getInt("project_id"));
+                            ps.setInt(4, coder);
+                            ps.setInt(5, new Integer(groupId));
+
+                            int ret = ps.executeUpdate();
+                            ps.close();
+                            ps = null;
+
+                            if (ret==0){
+                                sqlStr.replace(0, sqlStr.length(), "INSERT INTO group_project_result(project_id, user_id, group_id, old_rating, new_rating)");
+                                sqlStr.append(" values (?,?,?,?,?)");
+                                ps = conn.prepareStatement(sqlStr.toString());
+                                if (r.num_ratings == 0) {
+                                    ps.setNull(4, Types.DOUBLE);
+                                } else {
+                                    ps.setDouble(4, r.rating);
+                                }
+                                ps.setInt(5, newrating);
+
+                                ps.setInt(1, rs.getInt("project_id"));
+                                ps.setInt(2, coder);
+                                ps.setInt(3, new Integer(groupId));
+
+                                ps.execute();
+
+                                ps.close();
+                                ps = null;
+                            }
+                            
+                        }
                     }
 
                     //update user_rating
@@ -635,9 +719,15 @@ public class RatingQubits {
                 rating r = (rating) vals[i];
 
                 //System.out.println(r.user_id + "\t" + r.rating);
-
-                sqlStr.replace(0, sqlStr.length(), "UPDATE user_rating set rating = ?, vol = ?, rating_no_vol = ?, last_rated_project_id = ?, num_ratings = ? ");
+                String table = "user_rating";
+                if (groupId!=null){
+                    table = "group_user_rating";
+                }
+                sqlStr.replace(0, sqlStr.length(), "UPDATE "+table+" set rating = ?, vol = ?, rating_no_vol = ?, last_rated_project_id = ?, num_ratings = ? ");
                 sqlStr.append(" where phase_id = ? and user_id = ?");
+                if (groupId!=null){
+                    sqlStr.append(" and group_id = ? ");
+                }
 
                 ps = conn.prepareStatement(sqlStr.toString());
                 ps.setDouble(1, r.rating);
@@ -647,6 +737,9 @@ public class RatingQubits {
                 ps.setInt(5, r.num_ratings);
                 ps.setInt(6, phaseId);
                 ps.setDouble(7, r.user_id);
+                if (groupId!=null){
+                    ps.setInt(8, new Integer(groupId));
+                }
 
                 int retVal = ps.executeUpdate();
 
@@ -655,8 +748,16 @@ public class RatingQubits {
 
                 if (retVal == 0) {
 
-                    sqlStr.replace(0, sqlStr.length(), "INSERT INTO user_rating (user_id, phase_id, rating, vol, rating_no_vol, last_rated_project_id, num_ratings) ");
-                    sqlStr.append(" values (?, ?, ?, ?, ?, ?, ?)");
+                    sqlStr.replace(0, sqlStr.length(), "INSERT INTO "+table+" (user_id, phase_id, rating, vol, rating_no_vol, last_rated_project_id, num_ratings");
+                    if (groupId!=null){
+                        sqlStr.append(", group_id");
+                    }
+                    sqlStr.append(") values (?, ?, ?, ?, ?, ?, ?");
+                    if (groupId!=null){
+                        sqlStr.append(", ?");
+                    }
+                    sqlStr.append(")");
+
                     ps = conn.prepareStatement(sqlStr.toString());
                     ps.setDouble(1, r.user_id);
                     ps.setInt(2, phaseId);
@@ -665,6 +766,9 @@ public class RatingQubits {
                     ps.setDouble(5, r.rating_no_vol);
                     ps.setInt(6, r.last_project_rated);
                     ps.setInt(7, r.num_ratings);
+                    if (groupId!=null){
+                        ps.setInt(8, new Integer(groupId));
+                    }
 
                     ps.execute();
 
@@ -704,19 +808,36 @@ public class RatingQubits {
             "and pr.final_score is not null ";
 
     /**
+     * SQL query to retrieve old ratings for group projects
+     */
+    private final String OLD_RATINGS_GROUP = "select gpr.project_id AS project_id, gpr.user_id AS user_id, pr.old_rating AS old_rating from group_project_result gpr, project_result pr, project p " +
+            "where p.project_id = pr.project_id " +
+            "and p.project_id = gpr.project_id " +
+            "and p.project_status_id in  " + NEW_RATING_STATUSES + " " +
+            "and p.project_category_id = ? " +
+            "and gpr.rating_ind =1 " +
+            "and gpr.group_id = ?" +
+            RATED_CONSTRAINTS_SQL_FRAGMENT +
+            "and pr.final_score is not null ";
+
+    /**
      * return a mapping between project id/user id and what's currently in the database for old rating
      * the key will be <project_id>-<user_id>
      *
      * @return
      */
-    private HashMap<String, Integer> getOldRatingsMap(Connection conn, int categoryId) throws SQLException {
+    private HashMap<String, Integer> getOldRatingsMap(Connection conn, int categoryId, String groupId) throws SQLException {
         HashMap<String, Integer> ret = new HashMap<String, Integer>();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            ps = conn.prepareStatement(OLD_RATINGS);
+            String sql = groupId==null?OLD_RATINGS:OLD_RATINGS_GROUP;
+            ps = conn.prepareStatement(sql);
             ps.setInt(1, categoryId);
+            if (groupId!=null){
+                ps.setInt(2, new Integer(groupId));
+            }
             rs = ps.executeQuery();
             while (rs.next()) {
                 ret.put(rs.getString("project_id") + "-" + rs.getString("user_id"), rs.getString("old_rating") == null ? null : rs.getInt("old_rating"));
@@ -742,19 +863,36 @@ public class RatingQubits {
             "and pr.final_score is not null ";
 
     /**
+     * SQL query to retrieve new ratings
+     */
+    private final String NEW_RATINGS_GROUP = "select gpr.project_id, gpr.user_id, gpr.new_rating from group_project_result gpr, project_result pr , project p " +
+            "where p.project_id = pr.project_id " +
+            "and p.project_id = gpr.project_id " +
+            "and p.project_status_id in  " + NEW_RATING_STATUSES + " " +
+            "and p.project_category_id = ? " +
+            "and pr.rating_ind =1 " +
+            "and gpr.group_id = ? " +
+            RATED_CONSTRAINTS_SQL_FRAGMENT +
+            "and pr.final_score is not null ";
+
+    /**
      * return a mapping between project id/user id and what's currently in the database for new rating
      * the key will be <project_id>-<user_id>
      *
      * @return
      */
-    private HashMap<String, Integer> getNewRatingsMap(Connection conn, int categoryId) throws SQLException {
+    private HashMap<String, Integer> getNewRatingsMap(Connection conn, int categoryId, String groupId) throws SQLException {
         HashMap<String, Integer> ret = new HashMap<String, Integer>();
 
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            ps = conn.prepareStatement(NEW_RATINGS);
+            String sql = groupId == null ? NEW_RATINGS : NEW_RATINGS_GROUP;
+            ps = conn.prepareStatement(sql);
             ps.setInt(1, categoryId);
+            if (groupId!=null){
+                ps.setInt(2, new Integer(groupId));
+            }
             rs = ps.executeQuery();
             while (rs.next()) {
                 ret.put(rs.getString("project_id") + "-" + rs.getString("user_id"), rs.getString("new_rating") == null ? null : rs.getInt("new_rating"));
@@ -767,7 +905,7 @@ public class RatingQubits {
 
     }
 
-    private void updateRatingOrder(Connection conn, int phase) throws Exception {
+    private void updateRatingOrder(Connection conn, int phase, String groupId) throws Exception {
         // update rating_order column
         log.info("UPDATING rating_order COLUMN.... for phase " + phase);
         ResultSet rs2 = null;
@@ -775,22 +913,37 @@ public class RatingQubits {
         PreparedStatement psUpd = null;
         try {
             StringBuffer sqlStr = new StringBuffer(300);
+            String table = "project_result";
+            if (groupId!=null){
+                table = "group_project_result";
+            }
             sqlStr.append("select user_id, project_category_id, p.project_id, rating_order ");
             sqlStr.append("        ,substr(pi.value, 1, 2) as month, substr(pi.value, 4, 2) as day, substr(pi.value, 7, 4) as year").append(
                     ",  case when substr(pi.value, 18,2)='PM' then round(substr(pi.value, 12, 2)) +12 else round(substr(pi.value, 12, 2))  end as hour ");
-            sqlStr.append("from project_result pr, project_info pi, project p ");
+            sqlStr.append("from "+table+" pr, project_info pi, project p ");
             sqlStr.append("where pi.project_info_type_id =22  ");
             sqlStr.append("and pi.project_id = pr.project_id ");
             sqlStr.append("and pi.project_id = p.project_id  ");
             sqlStr.append("and p.project_category_id = ? ");
             sqlStr.append("and p.project_status_id in (4,5,6, 7) ");
+            if (groupId!=null){
+                sqlStr.append("and pr.group_id = ? ");
+            }
             sqlStr.append("order by user_id, year, month, day,hour, p.project_id ");
 
             ps = conn.prepareStatement(sqlStr.toString());
             ps.setInt(1, phase - 111);
+            if (groupId!=null){
+                ps.setInt(2, new Integer(groupId));
+            }
             rs2 = ps.executeQuery();
 
-            psUpd = conn.prepareStatement("UPDATE project_result SET rating_order=? where user_id=? and project_id=?");
+            sqlStr.replace(0,sqlStr.length(),"UPDATE "+table+" SET rating_order=? where user_id=? and project_id=?");
+            if (groupId!=null){
+                sqlStr.append(" and group_id = ?");
+            }
+            psUpd = conn.prepareStatement(sqlStr.toString());
+            
 
             long prevUser = -1;
             int ratingOrder = 1;
@@ -806,6 +959,9 @@ public class RatingQubits {
                     psUpd.setInt(1, ratingOrder);
                     psUpd.setLong(2, rs2.getLong("user_id"));
                     psUpd.setLong(3, rs2.getLong("project_id"));
+                    if (groupId!=null){
+                        psUpd.setInt(4,new Integer(groupId));
+                    }
                     int retVal = psUpd.executeUpdate();
 
                     if (retVal != 1) {
