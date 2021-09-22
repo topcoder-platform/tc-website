@@ -1,7 +1,7 @@
 version: 2
 defaults: &defaults
     docker:
-      - image: openjdk:7 
+      - image: appiriodevops/openjdk7:buildv1
 
 install_dependency: &install_dependency
     name: Installation of build dependencies.
@@ -37,7 +37,7 @@ install_dependentrepo: &install_dependentrepo
       git clone --branch $TCCACHE_BRANCH https://github.com/appirio-tech/tc-cache ../tc-cache    
 build_steps: &build_steps
     # Initialization.
-    - run: *install_dependency
+    # - run: *install_dependency
     - checkout
     - run: *install_deploysuite
     - run: *install_dependentrepo
