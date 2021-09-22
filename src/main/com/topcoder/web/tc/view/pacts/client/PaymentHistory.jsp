@@ -117,11 +117,11 @@
 <div align="left">
     <% if(isNewStyle) { %>
     <div style="float:right; padding-top:12px;">
-        <A class="informationLink" href="https://help.topcoder.com/hc/en-us/articles/217482038-Payment-Policies-and-Instructions">How to get paid</A>
+        <A class="informationLink" href="https://www.topcoder.com/thrive/articles/Payment%20Policies%20and%20Instructions">How to get paid</A>
     </div>
     <% } else { %>
     <div style="float:right;">
-        <A href="https://help.topcoder.com/hc/en-us/articles/217482038-Payment-Policies-and-Instructions"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
+        <A href="https://www.topcoder.com/thrive/articles/Payment%20Policies%20and%20Instructions"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
     </div>
     <% } %>
     <c:choose>
