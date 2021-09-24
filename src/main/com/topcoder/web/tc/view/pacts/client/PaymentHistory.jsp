@@ -99,11 +99,11 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="myHome">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">
+        <!-- <td width="180">
          <jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="my_topcoder"/>
          </jsp:include>
-        </td>
+        </td> -->
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
