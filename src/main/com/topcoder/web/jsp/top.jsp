@@ -130,7 +130,7 @@
                                     <li class="submenu-item"><a class="menu-link menu-link-profile" href="https://<%=ApplicationServer.SERVER_NAME%>/members/<%=sessionInfo.getHandle()%>/">MY PROFILE</a></li>
                                     <li class="submenu-item"><a class="menu-link menu-link-payments" target="_blank" href="https://community.<%=domainName%>/PactsMemberServlet?module=PaymentHistory&full_list=false">PAYMENTS</a></li>
                                     <li class="submenu-item"><a class="menu-link menu-link-settings" href="https://<%=ApplicationServer.SERVER_NAME%>/settings/profile/" target="_blank">SETTINGS</a></li>
-                                    <li class="submenu-item"><a class="menu-link menu-link-logout" href="javascript:doLogOutTC();">LOG OUT</a>
+                                    <li class="submenu-item"><a class="menu-link menu-link-logout" href="https://<%=ApplicationServer.SERVER_NAME%>/logout">LOG OUT</a>
                                     </li>
                                 </ul>
                             </div>
@@ -164,7 +164,7 @@
                             </li>
                             <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/data-science/" class="menu-link menu-link-learn-data">DATA SCIENCE</a>
                             </li>
-                            <li class="submenu-item"><a href="http://<%=ApplicationServer.SERVER_NAME%>/community/competitive%20programming/" class="menu-link menu-link-learn-competition">COMPETITIVE PROGRAMMING</a>
+                            <li class="submenu-item"><a href="http://<%=ApplicationServer.SERVER_NAME%>/community/competitive-programming/" class="menu-link menu-link-learn-competition">COMPETITIVE PROGRAMMING</a>
                             </li>
 
                         </ul>
@@ -186,6 +186,8 @@
                             <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/events/" class="menu-link menu-link-community-events">EVENTS</a>
                             </li>
                             <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/blog/" class="menu-link menu-link-community-blog">BLOG</a>
+                            </li>
+                            <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/thrive/" class="menu-link menu-link-community-blog">THRIVE</a>
                             </li>
                         </ul>
                     </li>

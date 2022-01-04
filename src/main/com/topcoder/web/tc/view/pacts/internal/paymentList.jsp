@@ -209,6 +209,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CREATE_DATE_COL%>" includeParams="true"/>" >Created</a></td>
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.MODIFY_DATE_COL%>" includeParams="true"/>" >Modified</a></td>
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.PAID_DATE_COL%>" includeParams="true"/>" >Paid</a></td>
+        <td class="headerC"><a href="#" >V5 ID</a></td>
     </tr>
     <% boolean even = true;%>
     <c:forEach var="payment" items="${paymentList}" varStatus="index">
@@ -251,6 +252,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="valueC"><c:out value="${payment.createDate}" /> </td>
         <td class="valueC"><c:out value="${payment.modifyDate}" /> </td>
         <td class="valueC"><c:out value="${payment.paidDate}" /></td>
+        <td class="valueC"><c:out value="${payment.jiraIssueName}" /></td>
         </tr>
         <tc-webtag:errorIterator id="err" name="err_${payment.id}">
         <tr>
@@ -269,7 +271,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="header" colspan="7"><b>Total Net Amount:</b>
         </td>
         <td class="headerR" nowrap="nowrap">$<fmt:formatNumber value="${totalNet}" pattern="###,###.00" /></td>
-        <td class="header" colspan="12">&nbsp;</td>
+        <td class="header" colspan="13">&nbsp;</td>
     </tr>
 
     </table>

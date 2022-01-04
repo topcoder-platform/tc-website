@@ -8,10 +8,10 @@
 <%@  page contentType="text/html" %>
 
 <div>
-<span class='st_facebook' displayText='Facebook'></span>
-<span class='st_twitter' displayText='Tweet'></span>
-<span class='st_email' displayText='Email'></span>
-<span class='st_googleplus' displayText='Google +'></span>
-<span class='st_fblike' displayText='Facebook Like'></span>
+<span class='st_facebook'></span>
+<span class='st_twitter'></span>
+<span class='st_email'></span>
+<span class='st_googleplus'></span>
+<span class='st_fblike'></span>
 </div>
 

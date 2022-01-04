@@ -117,11 +117,11 @@
 <div align="left">
     <% if(isNewStyle) { %>
     <div style="float:right; padding-top:12px;">
-        <A class="informationLink" href="/wiki/display/tc/How+to+Get+Paid+for+Competing">How to get paid</A>
+        <A class="informationLink" href="https://www.topcoder.com/thrive/articles/Payment%20Policies%20and%20Instructions">How to get paid</A>
     </div>
     <% } else { %>
     <div style="float:right;">
-        <A href="/wiki/display/tc/How+to+Get+Paid+for+Competing"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
+        <A href="https://www.topcoder.com/thrive/articles/Payment%20Policies%20and%20Instructions"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
     </div>
     <% } %>
     <c:choose>

@@ -18,11 +18,12 @@
 
 <body>
 
-<%  
+<%
    String redirectURL = "https://www.topcoder.com";
    response.sendRedirect(redirectURL);
-%>  
-    
+%>
+
+
 <div id="onTop">
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>

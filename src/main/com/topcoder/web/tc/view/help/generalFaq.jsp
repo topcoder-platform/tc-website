@@ -11,6 +11,11 @@
 
 </head>
 
+<%
+        String redirectURL = "https://www.topcoder.com/community/data-science/how-to-compete";
+        response.sendRedirect(redirectURL);
+%>
+
 <body>
 
 <jsp:include page="../top.jsp" >
