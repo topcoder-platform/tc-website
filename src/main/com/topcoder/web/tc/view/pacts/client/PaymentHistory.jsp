@@ -50,6 +50,7 @@
 <c:set value="<%=Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT%>" var="MINIMUM_PAYMENT_ACCRUAL_AMOUNT"/>
 
 <c:set value="<%=new Date()%>" var="now"/>
+<c:set value="<%=true%>" var="isReskin"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -64,6 +65,7 @@
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
+  <jsp:param name="reskin" value="${isReskin ? 'paymentHistory' : ''}"/>
 </jsp:include>
 
     <script type="text/javascript">
@@ -95,7 +97,13 @@
 
 <jsp:include page="../../top.jsp" >
     <jsp:param name="level1" value=""/>
+    <jsp:param name="isReskin" value="${isReskin}"/>
 </jsp:include>
+
+<c:if test="${isReskin}">
+<div class="page">
+</c:if>
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="myHome">
    <tr valign="top">
 <!-- Left Column Begins-->
@@ -114,29 +122,88 @@
 <jsp:param name="title" value="Payments"/>
 </jsp:include>
 
-<div align="left">
+<div align="left" class="page-header">
     <% if(isNewStyle) { %>
-    <div style="float:right; padding-top:12px;">
-        <A class="informationLink" href="https://www.topcoder.com/thrive/articles/Payment%20Policies%20and%20Instructions">How to get paid</A>
+    <div style="float:right; padding-top:12px;" class="how-to-get-paid">
+        <A class="informationLink" href="https://www.topcoder.com/thrive/articles/Payment%20Policies%20and%20Instructions">How to get paid?</A>
     </div>
     <% } else { %>
-    <div style="float:right;">
+    <div style="float:right;" class="how-to-get-paid">
         <A href="https://www.topcoder.com/thrive/articles/Payment%20Policies%20and%20Instructions"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
     </div>
     <% } %>
+
+    <c:if test="${isReskin}">
+        <a href="javascript:history.back()" class="back-btn">
+            <i class="arrow-prev-icon"></i>
+        </a>
+    </c:if>
+
     <c:choose>
         <c:when test="${not empty isNewStyle && isNewStyle}">
-            <h2>Payments</h2>
+            <h2 class="title">Payments</h2>
         </c:when>
         <c:otherwise>
-            <span class="bodySubtitle">Payments > </span><br>
+            <span class="bodySubtitle title">Payments > </span><br>
         </c:otherwise>
     </c:choose>
-    <c:if test="${fullList}" >
-        View all | <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false" class="bcLink">View pending</a> | <a href="/PactsMemberServlet?module=PaymentHistory&xls=true" class="bcLink">Export to Excel</a> | <a href="/PactsMemberServlet?module=PaymentStatusSummary" class="bcLink">Payments Summary</a>
+
+    <div class="divider"></div>
+
+    <c:if test="${!isReskin}">
+        <c:if test="${fullList}" >
+            View all | <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false" class="bcLink">View pending</a> | <a href="/PactsMemberServlet?module=PaymentHistory&xls=true" class="bcLink">Export to Excel</a> | <a href="/PactsMemberServlet?module=PaymentStatusSummary" class="bcLink">Payments Summary</a>
+        </c:if>
+        <c:if test="${not fullList}" >
+            <a href="/PactsMemberServlet?module=PaymentHistory&full_list=true" class="bcLink">View all</a> | View pending | <a href="/PactsMemberServlet?module=PaymentHistory&xls=true" class="bcLink">Export to Excel</a> | <a href="/PactsMemberServlet?module=PaymentStatusSummary" class="bcLink">Payments Summary</a>
+        </c:if>
     </c:if>
-    <c:if test="${not fullList}" >
-        <a href="/PactsMemberServlet?module=PaymentHistory&full_list=true" class="bcLink">View all</a> | View pending | <a href="/PactsMemberServlet?module=PaymentHistory&xls=true" class="bcLink">Export to Excel</a> | <a href="/PactsMemberServlet?module=PaymentStatusSummary" class="bcLink">Payments Summary</a>
+
+    <c:if test="${isReskin}">
+        <%-- desktop tabs --%>
+        <nav class="tabs paymentHistoryTabs">
+            <c:if test="${fullList}" >
+                <span class="item active">View all</span>
+                <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false" class="bcLink item">View pending</a>
+                <a href="/PactsMemberServlet?module=PaymentStatusSummary" class="bcLink item">Payments Summary</a>
+            </c:if>
+            <c:if test="${not fullList}" >
+                <a href="/PactsMemberServlet?module=PaymentHistory&full_list=true" class="bcLink item">View all</a>
+                <span class="item active">View pending</span>
+                <a href="/PactsMemberServlet?module=PaymentStatusSummary" class="bcLink item">Payments Summary</a>
+            </c:if>
+        </nav>
+
+        <%-- mobile dropdown --%>
+        <div class="dropdown paymentHistoryDropdown">
+            <button class="dropdown-toggle" type="button" onclick="onDropdownToggleClick()" id="paymentHistory-dropdown-toggle">
+                <span class="toggle-value">
+                    ${fullList ? 'View all' : 'View pending'}
+                </span>
+                <i class="icon icon-arrow-down"></i>
+            </button>
+            <div class="dropdown-menu">
+                <a href="/PactsMemberServlet?module=PaymentHistory&full_list=true" class="bcLink item ${fullList ? 'active' : ''}">
+                    View all
+                </a>
+                <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false" class="bcLink item ${fullList ? '' : 'active'}">
+                    View pending
+                </a>
+                <a href="/PactsMemberServlet?module=PaymentStatusSummary" class="bcLink item">
+                    Payments Summary
+                </a>
+            </div>
+            <script>
+                function onDropdownToggleClick () {
+                    var button = document.querySelector('#paymentHistory-dropdown-toggle')
+                    if (button.getAttribute('data-open') === 'true') {
+                        button.removeAttribute('data-open')
+                    } else {
+                       button.setAttribute('data-open', 'true')
+                    }
+                }
+            </script>
+        </div>
     </c:if>
 </div>
 
@@ -350,7 +417,7 @@
     </form>            
     </c:when>
     <c:otherwise>
-        <div align="center">
+        <div align="center" class="no-payments-found">
         <strong>No Payments Found</strong>
         </div>
     </c:otherwise>
@@ -375,7 +442,13 @@
     </tr>
 </table>
 
-<jsp:include page="/foot.jsp" />
+<c:if test="${isReskin}">
+</div>
+</c:if>
+
+<jsp:include page="/foot.jsp" >
+    <jsp:param name="isReskin" value="${isReskin}"/>
+</jsp:include>
 
 </body>
 
