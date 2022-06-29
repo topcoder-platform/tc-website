@@ -123,7 +123,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             
             // Normalizes optional parameters and sets defaults
             if ("".equals(numRecords)) {
-                numRecords = "20";
+                numRecords = "10";
             } else if (Integer.parseInt(numRecords) > 200) {
                 numRecords = "200";
             }
@@ -175,6 +175,17 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {
                 removeDuplicateReasons(payments);
             }
+
+            List<BasePayment> paymentPendings = new ArrayList<BasePayment>();
+            for (BasePayment payment : payments) {
+                if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS))) {
+                    paymentPendings.add(payment);
+                }
+            }
+
+            getRequest().setAttribute("NUM_TOTAL", payments.size());
+            getRequest().setAttribute("NUM_PER_PAGE", numRecords);
+            getRequest().setAttribute("NUM_PENDING", paymentPendings.size());
 
             if (exportToExcel) {
                 produceXLS(payments);
