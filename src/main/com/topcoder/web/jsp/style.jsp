@@ -237,5 +237,10 @@
         <link type="text/css" rel="stylesheet" href="/css/reskin-2/top.css" />
         <link type="text/css" rel="stylesheet" href="/css/reskin-2/paymentHistory.css" />
         <link type="text/css" rel="stylesheet" href="/css/reskin-2/footer.css" />
+    <% } else if (reskin.equals("paymentStatusSummary")) { %>
+        <link type="text/css" rel="stylesheet" href="/css/reskin-2/common.css" />
+        <link type="text/css" rel="stylesheet" href="/css/reskin-2/top.css" />
+        <link type="text/css" rel="stylesheet" href="/css/reskin-2/paymentStatusSummary.css" />
+        <link type="text/css" rel="stylesheet" href="/css/reskin-2/footer.css" />
     <% } %>
 <% } %>
