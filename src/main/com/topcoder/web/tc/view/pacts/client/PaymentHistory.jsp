@@ -226,12 +226,20 @@
         <nav class="tabs paymentHistoryTabs">
             <c:if test="${fullList}" >
                 <span class="item active">View all</span>
-                <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false" class="bcLink item">View pending<span class="view-pending-badge">${numPending}</span></a>
+                <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false" class="bcLink item">View pending
+                    <c:if test="${numPending ne 0}">
+                        <span class="view-pending-badge">${numPending}</span>
+                    </c:if>
+                </a>
                 <a href="/PactsMemberServlet?module=PaymentStatusSummary" class="bcLink item">Payments Summary</a>
             </c:if>
             <c:if test="${not fullList}" >
                 <a href="/PactsMemberServlet?module=PaymentHistory&full_list=true" class="bcLink item">View all</a>
-                <span class="item active">View pending<span class="view-pending-badge">${numPending}</span></span>
+                <span class="item active">View pending
+                    <c:if test="${numPending ne 0}">
+                        <span class="view-pending-badge">${numPending}</span>
+                    </c:if>
+                </span>
                 <a href="/PactsMemberServlet?module=PaymentStatusSummary" class="bcLink item">Payments Summary</a>
             </c:if>
         </nav>
@@ -242,6 +250,11 @@
             <button class="dropdown-toggle" type="button" onclick="onDropdownToggleClick()" id="paymentHistory-dropdown-toggle">
                 <span class="toggle-value">
                     ${fullList ? 'View all' : 'View pending'}
+                    <c:if test="${not fullList}">
+                        <c:if test="${numPending ne 0}">
+                            <span class="view-pending-badge">${numPending}</span>
+                        </c:if>
+                    </c:if>
                 </span>
                 <i class="icon icon-arrow-down"></i>
             </button>
@@ -251,6 +264,9 @@
                 </a>
                 <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false" class="bcLink item ${fullList ? '' : 'active'}">
                     View pending
+                    <c:if test="${numPending ne 0}">
+                        <span class="view-pending-badge">${numPending}</span>
+                    </c:if>
                 </a>
                 <a href="/PactsMemberServlet?module=PaymentStatusSummary" class="bcLink item">
                     Payments Summary

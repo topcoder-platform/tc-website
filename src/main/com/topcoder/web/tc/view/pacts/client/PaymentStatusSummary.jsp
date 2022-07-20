@@ -98,7 +98,11 @@
         <%-- desktop tabs --%>
         <nav class="tabs paymentHistoryTabs">
             <a href="/PactsMemberServlet?module=PaymentHistory&full_list=true" class="bcLink item">View all</a>
-            <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false" class="bcLink item">View pending<span class="view-pending-badge">${numPending}</span></a>
+            <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false" class="bcLink item">View pending
+                <c:if test="${numPending ne 0}">
+                    <span class="view-pending-badge">${numPending}</span>
+                </c:if>
+            </a>
             <a href="/PactsMemberServlet?module=PaymentStatusSummary" class="bcLink item active">Payments Summary</a>
         </nav>
 
@@ -115,7 +119,10 @@
                     View all
                 </a>
                 <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false" class="bcLink item">
-                    View pending<span class="view-pending-badge">${numPending}</span>
+                    View pending
+                    <c:if test="${numPending ne 0}">
+                        <span class="view-pending-badge">${numPending}</span>
+                    </c:if>
                 </a>
                 <a href="/PactsMemberServlet?module=PaymentStatusSummary" class="bcLink item active">
                     Payments Summary
