@@ -60,7 +60,7 @@
     <c:when test="${isReskin}">
         <header>
             <nav class="primaryNav">
-                <a href="https://topcoder.com/home" class="tcLogo">
+                <a href="https://<%=ApplicationServer.SERVER_NAME%>/home" class="tcLogo">
                     <img src="/i/reskin-2/tc-logo-new.svg">
                 </a>
             </nav>
