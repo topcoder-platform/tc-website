@@ -284,12 +284,14 @@
             </script>
         </div>
         <%-- Mobile sort-button --%>
-        <a
-            class="getable mobile-payments-sort-button ${requestScope[defaults][sortColumn] == 3 ? 'active' : ''} ${requestScope[defaults][sortDirection]}"
-            href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" />"
-        >
-            <span hidden>Sort by Create Date</span>
-        </a>
+        <c:if test="${not empty payments}">
+            <a
+                class="getable mobile-payments-sort-button ${requestScope[defaults][sortColumn] == 3 ? 'active' : ''} ${requestScope[defaults][sortDirection]}"
+                href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" />"
+            >
+                <span hidden>Sort by Create Date</span>
+            </a>
+        </c:if>
         </div>
     </c:if>
 </div>
