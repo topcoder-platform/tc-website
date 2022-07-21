@@ -21,6 +21,7 @@
 <%@ page import="com.topcoder.web.ejb.pacts.payments.EnteredIntoPaymentSystemPaymentStatus" %>
 <%@ page import="com.topcoder.web.ejb.pacts.payments.AccruingPaymentStatus" %>
 <%@ page import="com.topcoder.web.ejb.pacts.payments.OwedPaymentStatus" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="java.util.Arrays" %>
 
 <%@ page language="java"  %>
@@ -196,7 +197,7 @@
     <% } %>
 
     <c:if test="${isReskin}">
-        <a href="javascript:history.back()" class="back-btn">
+        <a href="https://<%=ApplicationServer.SERVER_NAME%>/challenges" class="back-btn">
             <i class="arrow-prev-icon"></i>
         </a>
     </c:if>

@@ -2,8 +2,8 @@
 <%@ page language="java"
          import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.dataAccess.DataAccessConstants,
+                 com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.tc.Constants" %>
-
 <%@ page language="java"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -74,7 +74,7 @@
     </div>
 
     <c:if test="${isReskin}">
-        <a href="javascript:history.back()" class="back-btn">
+        <a href="https://<%=ApplicationServer.SERVER_NAME%>/challenges" class="back-btn">
             <i class="arrow-prev-icon"></i>
         </a>
     </c:if>
