@@ -43,10 +43,10 @@ import com.topcoder.excel.output.WorkbookSavingException;
  * <p>
  * Version 1.1 (Member Payments Automation Assembly 1.0) Change notes:
  *   <ol>
- *     <li>Updated {@link #insertSheetData(Sheet, List)} method to include new <code>Release Date</code> column into 
+ *     <li>Updated {@link #insertSheetData(Sheet, List)} method to include new <code>Release Date</code> column into
  *     generated Excel worksheet.</li>
- *     <li>Updated {@link #businessProcessing()} method to parse new {@link DataAccessConstants#NUMBER_RECORDS} 
- *     parameter and fix the bug with parsing {@link DataAccessConstants#START_RANK} and 
+ *     <li>Updated {@link #businessProcessing()} method to parse new {@link DataAccessConstants#NUMBER_RECORDS}
+ *     parameter and fix the bug with parsing {@link DataAccessConstants#START_RANK} and
  *     {@link DataAccessConstants#END_RANK} parameters.</li>
  *     <li>Added {@link #USER_PAYMENT_METHOD} constant.</li>
  *     <li>Added {@link #PAYMENT_CONFIRMATION_TEMPLATE} constant.</li>
@@ -67,7 +67,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
     /**
      * <p>A <code>String</code> providing the name for request attribute holding the ID of a payment method preferred by
      * current user.</p>
-     * 
+     *
      * @since 1.1
      */
     public static final String USER_PAYMENT_METHOD = "userPaymentMethod";
@@ -81,29 +81,29 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
     public static final String PAYMENT_CONFIRMATION_TEMPLATE = "paymentConfirmationTemplate";
 
     /**
-     * 
+     *
      */
     public static final String PAYMENT_ID = "paymentId";
-    
+
     public static final String CODER = "cr";
     private static final int DESCRIPTION_COL = 1;
     private static final int TYPE_COL = 2;
     private static final int CREATE_DATE_COL = 3;
     private static final int NET_PAYMENT_COL = 4;
     private static final int STATUS_COL = 5;
-    
+
     /**
      * <p>An <code>int</code> referencing the column with release dates for payments.</p>
-     * 
+     *
      * @since 1.1
      */
     private static final int RELEASE_DATE_COL = 6;
-    
+
     private static final int PAID_DATE_COL = 7;
 
     /**
      * <p>Processes the incoming request. Retrieves user payments and binds them to request.</p>
-     * 
+     *
      * @throws TCWebException if an unexpected error occurs.
      */
     protected void businessProcessing() throws TCWebException {
@@ -113,14 +113,14 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             String sortColStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
             boolean exportToExcel = "true".equals(getRequest().getParameter(XLS_FORMAT));
             String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
-            
+
             boolean sortAscending= "asc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             int sortCol = 3;
-            
+
             if (sortColStr.trim().length() > 0) {
                 sortCol = Integer.parseInt(sortColStr);
             }
-            
+
             // Normalizes optional parameters and sets defaults
             if ("".equals(numRecords)) {
                 numRecords = "10";
@@ -137,27 +137,27 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             String endRank = String.valueOf(Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1);
             setDefault(DataAccessConstants.END_RANK, endRank);
 
-            
+
             DataInterfaceBean dib = new DataInterfaceBean();
-            
+
             Map criteria = new HashMap();
             long userId = getUser().getId();
             criteria.put(PactsConstants.USER_ID, String.valueOf(userId));
 
             List<BasePayment> payments = dib.findCoderPayments(criteria);
-            
+
             List<BasePayment> removePayments = new ArrayList<BasePayment>();
+
+            List<BasePayment> removeNonPending = new ArrayList<BasePayment>();
 
             for (BasePayment payment : payments) {
                 if (payment.getPaymentType() == 3 || payment.getPaymentType() == 5) {
                     removePayments.add(payment);
                 } else {
-                    if (!fullList && !exportToExcel) {
-                        if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS)) ||
-                            payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.EXPIRED_PAYMENT_STATUS)) ||
-                            payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.PAID_PAYMENT_STATUS))) {
-                            removePayments.add(payment);
-                        }
+                    if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS)) ||
+                        payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.EXPIRED_PAYMENT_STATUS)) ||
+                        payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.PAID_PAYMENT_STATUS))) {
+                        removeNonPending.add(payment);
                     }
 
                     // Deleted payments should not be shown either way.
@@ -166,36 +166,43 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
                     }
                 }
             }
-            
+
             payments.removeAll(removePayments);
-            
+
+            int totalPayment = payments.size();
+
+            if (!fullList && !exportToExcel) {
+                if (removeNonPending.size() > 0) {
+                    payments.removeAll(removeNonPending);
+                }
+            }
+
+            int PaymentsPending = totalPayment - removeNonPending.size();
+
             // sort the result in the first place
             sortResult(payments, sortCol, sortAscending);
-            
+
             if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {
                 removeDuplicateReasons(payments);
             }
 
-            List<BasePayment> paymentPendings = new ArrayList<BasePayment>();
-            for (BasePayment payment : payments) {
-                if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS))) {
-                    paymentPendings.add(payment);
-                }
+            if (!fullList && !exportToExcel) {
+                getRequest().setAttribute("NUM_TOTAL", PaymentsPending);
+            } else {
+                getRequest().setAttribute("NUM_TOTAL", totalPayment);
             }
-
-            getRequest().setAttribute("NUM_TOTAL", payments.size());
             getRequest().setAttribute("NUM_PER_PAGE", numRecords);
-            getRequest().setAttribute("NUM_PENDING", paymentPendings.size());
+            getRequest().setAttribute("NUM_PENDING", PaymentsPending);
 
             if (exportToExcel) {
                 produceXLS(payments);
             } else {
                 // now crop
                 payments = cropResult(payments, Integer.parseInt(startRank), Integer.parseInt(endRank));
-                        
+
                 setDefault(DataAccessConstants.SORT_COLUMN, sortCol + "");
                 setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-            
+
                 getRequest().setAttribute(PAYMENTS, payments);
                 getRequest().setAttribute(CODER, userId + "");
                 getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
@@ -209,22 +216,22 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
                 s.addDefault(RELEASE_DATE_COL, "desc");
                 s.addDefault(PAID_DATE_COL, "desc");
                 getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
-                
+
                 // Get user's payment method preferences
                 Long userPaymentMethod = dib.getUserPaymentMethod(userId);
                 getRequest().setAttribute(USER_PAYMENT_METHOD, userPaymentMethod);
                 if (userPaymentMethod != null) {
                     if (userPaymentMethod == PAYPAL_PAYMENT_METHOD_ID) {
                         getRequest()
-                            .setAttribute(PAYMENT_CONFIRMATION_TEMPLATE, 
+                            .setAttribute(PAYMENT_CONFIRMATION_TEMPLATE,
                                           Constants.PAYME_CONFIRMATION_MESSAGE_TEMPLATE_PAYPAL);
                     } else if (userPaymentMethod == PAYONEER_PAYMENT_METHOD_ID) {
                         getRequest()
-                            .setAttribute(PAYMENT_CONFIRMATION_TEMPLATE, 
+                            .setAttribute(PAYMENT_CONFIRMATION_TEMPLATE,
                                           Constants.PAYME_CONFIRMATION_MESSAGE_TEMPLATE_PAYONEER);
                     } else if (userPaymentMethod == WESTERN_UNION_PAYMENT_METHOD_ID) {
                         getRequest()
-                            .setAttribute(PAYMENT_CONFIRMATION_TEMPLATE, 
+                            .setAttribute(PAYMENT_CONFIRMATION_TEMPLATE,
                                           Constants.PAYME_CONFIRMATION_MESSAGE_TEMPLATE_WESTERN_UNION);
                     }
                 }
@@ -300,12 +307,12 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
     }
 
     /**
-     * <p>Gets the items for the specified range within the specified list.</p> 
-     * 
-     * @param result a <code>List</code> providing the data. 
+     * <p>Gets the items for the specified range within the specified list.</p>
+     *
+     * @param result a <code>List</code> providing the data.
      * @param startRank an <code>int</code> providing the index of starting item.
      * @param endRank an <code>int</code> providing the index of last item.
-     * @return a <code>List</code> listing the items within the specified range. 
+     * @return a <code>List</code> listing the items within the specified range.
      */
     private List cropResult(List result, int startRank, int endRank) {
         Boolean croppedDataAfter = Boolean.TRUE;
@@ -313,9 +320,9 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             endRank = result.size();
             croppedDataAfter = Boolean.FALSE;
         }
-        getRequest().setAttribute("croppedDataAfter", croppedDataAfter);        
+        getRequest().setAttribute("croppedDataAfter", croppedDataAfter);
         getRequest().setAttribute("croppedDataBefore", new Boolean(startRank > 1));
-        
+
 
         if (result.size() > 0) {
             if (startRank <= endRank) {
@@ -337,7 +344,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
         if (result.size() == 0) {
             return;
         }
-        
+
         for (BasePayment bp : result) {
             if (bp.getCurrentStatus().getReasons().contains(AvailableStatusReason.NO_HARD_COPY_AD_REASON.getStatusReason()) &&
                     bp.getCurrentStatus().getReasons().contains(AvailableStatusReason.NO_SIGNED_GLOBAL_AD_REASON.getStatusReason())) {
@@ -348,7 +355,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
 
     /**
      * <p>Sorts the specified payments against specified column in specified order.</p>
-     * 
+     *
      * @param result a list of payments to sort.
      * @param sortCol a number of column to sort against.
      * @param sortAscending true if sorting is to be ascending; false if descending.
@@ -374,10 +381,10 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
                     public int compare(Object arg0, Object arg1) {
                         Date date0 = ((BasePayment) arg0).getCreateDate();
                         Date date1 = ((BasePayment) arg1).getCreateDate();
-                        if (date0 == null && date1 == null) return 0; 
-                        if (date0 == null && date1 != null) return -1; 
-                        if (date0 != null && date1 == null) return 1; 
-                        
+                        if (date0 == null && date1 == null) return 0;
+                        if (date0 == null && date1 != null) return -1;
+                        if (date0 != null && date1 == null) return 1;
+
                         return date0.compareTo(date1);
                     }
                 });
@@ -388,7 +395,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
                         if (((BasePayment) arg0).getNetAmount() == ((BasePayment) arg1).getNetAmount()) {
                             return 0;
                         }
-                        
+
                         return ((BasePayment) arg0).getNetAmount() < ((BasePayment) arg1).getNetAmount() ? -1 : 1;
                     }
                 });
@@ -414,14 +421,14 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
                 });
                 break;
             case PAID_DATE_COL:
-                Collections.sort(result, new Comparator() {                    
+                Collections.sort(result, new Comparator() {
                     public int compare(Object arg0, Object arg1) {
                         Date date0 = ((BasePayment) arg0).getPaidDate();
                         Date date1 = ((BasePayment) arg1).getPaidDate();
-                        if (date0 == null && date1 == null) return 0; 
-                        if (date0 == null && date1 != null) return -1; 
-                        if (date0 != null && date1 == null) return 1; 
-                        
+                        if (date0 == null && date1 == null) return 0;
+                        if (date0 == null && date1 != null) return -1;
+                        if (date0 != null && date1 == null) return 1;
+
                         return date0.compareTo(date1);
                     }
                 });

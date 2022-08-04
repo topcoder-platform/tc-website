@@ -32,7 +32,7 @@ public class PaymentStatusSummary extends BaseProcessor implements PactsConstant
     public static final String CODER = "cr";
     private static final int TYPE_COL = 1;
     private static final int NET_PAYMENT_COL = 2;
-    
+
     protected void businessProcessing() throws TCWebException {
         try {
             // Prepare request for data retrieval
@@ -81,7 +81,10 @@ public class PaymentStatusSummary extends BaseProcessor implements PactsConstant
 
         List<BasePayment> paymentPendings = new ArrayList<BasePayment>();
         for (BasePayment payment : payments) {
-            if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS))) {
+            if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS)) ||
+                payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.ENTERED_INTO_PAYMENT_SYSTEM_PAYMENT_STATUS)) ||
+                payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.ACCRUING_PAYMENT_STATUS)) ||
+                payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.ON_HOLD_PAYMENT_STATUS))) {
                 paymentPendings.add(payment);
             }
         }
