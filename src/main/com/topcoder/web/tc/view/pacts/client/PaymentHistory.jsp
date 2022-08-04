@@ -298,7 +298,7 @@
           id="PaymentHistoryForm">
 
         <c:if test="${!isReskin}">
-        <c:if test="${croppedDataBefore or croppedDataAfter}" >
+        <!-- <c:if test="${croppedDataBefore or croppedDataAfter}" >
             <div class="pagingBox">
                 <c:choose>
                     <c:when test="${croppedDataBefore}">
@@ -318,7 +318,7 @@
                     </c:otherwise>
                 </c:choose>
             </div>
-        </c:if>
+        </c:if> -->
         <div align="right">
             [<a href="javascript:;" class="checkAll">Check All</a> | <a href="javascript:;" class="uncheckAll">Uncheck
             All</a>]
@@ -623,58 +623,56 @@
             <input type="hidden" name="<%= PaymentHistory.FULL_LIST %>" value="<c:out value="${fullList}"/>" />
 
             <div class="pagingBox table-pagination ${croppedDataBefore ? 'croppedDataBefore' : ''} ${croppedDataAfter ? 'croppedDataAfter' : ''} ${numTotal > 10 ? 'more-than-10-items' : ''}">
-                <c:if test="${croppedDataBefore or croppedDataAfter}">
-                    <c:choose>
-                        <c:when test="${croppedDataBefore}">
-                            <a href="Javascript:previous()" class="bcLink getable prev-btn">&lt;&lt; prev</a>
-                        </c:when>
-                        <c:otherwise>
-                            <c:if test="${isReskin}">
-                                <span class="prev-btn disabled"></span>
-                            </c:if>
-                            <c:if test="${!isReskin}">
-                                &lt;&lt; prev
-                            </c:if>
-                        </c:otherwise>
-                    </c:choose>
+                <c:choose>
+                    <c:when test="${croppedDataBefore}">
+                        <a href="Javascript:previous()" class="bcLink getable prev-btn">&lt;&lt; prev</a>
+                    </c:when>
+                    <c:otherwise>
+                        <c:if test="${isReskin}">
+                            <span class="prev-btn disabled"></span>
+                        </c:if>
+                        <c:if test="${!isReskin}">
+                            &lt;&lt; prev
+                        </c:if>
+                    </c:otherwise>
+                </c:choose>
 
-                    <c:if test="${isReskin}">
-                        <div class="pageIndexes-container">
-                            <c:set value="${numTotal / numPerPage + 0.99}" var="maxDisplayPages"/>
-                            <c:set value="${numTotal / numPerPage + 0.99}" var="totalPages"/>
-                            <c:forEach begin="1" end="${totalPages}" step="1" varStatus="i">
-                                <c:set
-                                    value="${requestScope[defaults][startRank] / numPerPage + 0.99}"
-                                    var="activePageIndex"
-                                />
-                                <a href="javascript:onPageChange(${i.index})" class="page-btn ${
-                                    activePageIndex - (activePageIndex % 1) == i.index
-                                        ? 'active'
-                                        : ''
-                                } ${
-                                    totalPages > 10 && (i.index + 4 < activePageIndex) ? 'hidden' : ''
-                                } ${
-                                    totalPages > 10 && (i.index - 4 > activePageIndex) ? 'hidden' : ''
-                                }">${i.index}</a>
-                            </c:forEach>
-                        </div>
-                    </c:if>
-
-                    <c:choose>
-                        <c:when test="${croppedDataAfter}">
-                            <a href="Javascript:next()" class="bcLink getable next-btn">next &gt;&gt;</a>
-                        </c:when>
-                        <c:otherwise>
-                            <c:if test="${isReskin}">
-                                <span class="next-btn disabled"></span>
-                            </c:if>
-                            <c:if test="${!isReskin}">
-                                next &gt;&gt;
-                            </c:if>
-                        </c:otherwise>
-                    </c:choose>
-                    <br/>
+                <c:if test="${isReskin}">
+                    <div class="pageIndexes-container">
+                        <c:set value="${numTotal / numPerPage + 0.99}" var="maxDisplayPages"/>
+                        <c:set value="${numTotal / numPerPage + 0.99}" var="totalPages"/>
+                        <c:forEach begin="1" end="${totalPages}" step="1" varStatus="i">
+                            <c:set
+                                value="${requestScope[defaults][startRank] / numPerPage + 0.99}"
+                                var="activePageIndex"
+                            />
+                            <a href="javascript:onPageChange(${i.index})" class="page-btn ${
+                                activePageIndex - (activePageIndex % 1) == i.index
+                                    ? 'active'
+                                    : ''
+                            } ${
+                                totalPages > 10 && (i.index + 4 < activePageIndex) ? 'hidden' : ''
+                            } ${
+                                totalPages > 10 && (i.index - 4 > activePageIndex) ? 'hidden' : ''
+                            }">${i.index}</a>
+                        </c:forEach>
+                    </div>
                 </c:if>
+
+                <c:choose>
+                    <c:when test="${croppedDataAfter}">
+                        <a href="Javascript:next()" class="bcLink getable next-btn">next &gt;&gt;</a>
+                    </c:when>
+                    <c:otherwise>
+                        <c:if test="${isReskin}">
+                            <span class="next-btn disabled"></span>
+                        </c:if>
+                        <c:if test="${!isReskin}">
+                            next &gt;&gt;
+                        </c:if>
+                    </c:otherwise>
+                </c:choose>
+                <br/>
                 View &#160;
 
                 <c:if test="${isReskin}">
