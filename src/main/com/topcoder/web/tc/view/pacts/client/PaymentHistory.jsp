@@ -5,7 +5,7 @@
   -
   - Description: This page displays the payments for current user.
   -
-  - Version 1.1 (Member Payments Automation assembly) changes: 
+  - Version 1.1 (Member Payments Automation assembly) changes:
   -   added logic for displaying payment's release date.
   -   added controls for data pagination parameters setting.
   -   fixed a bug with passing sr, er parameters when sorting the paginated data.
@@ -80,7 +80,7 @@
         USER_PAYMENT_METHOD = ${userPaymentMethod eq null ? 'null' : userPaymentMethod};
         MINIMUM_PAYMENT_ACCRUAL_AMOUNT = ${MINIMUM_PAYMENT_ACCRUAL_AMOUNT};
         PAY_ME_CONFIRMATION_TEMPLATE = '${paymentConfirmationTemplate}';
-        
+
         function next() {
             var myForm = document.f;
             myForm.<%=DataAccessConstants.START_RANK%>.value = ${requestScope[defaults][startRank]} + parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
@@ -137,19 +137,6 @@
                 $('[data-name="${PAYMENT_ID}"]').click(function () {
                     var paymentId = this.getAttribute('data-value');
                     $('.payable[value="' + paymentId + '"]').click();
-                });
-
-                $('.payable').click(function() {
-                    var hasSelected = false;
-                    $('.payable:checked').each(function () {
-                        hasSelected = true;
-                    });
-
-                    if (hasSelected) {
-                        $('.table-pagination').addClass('hiddenOnSelected');
-                    } else {
-                        $('.table-pagination').removeClass('hiddenOnSelected');
-                    }
                 });
             });
         }
@@ -309,7 +296,7 @@
     <c:when test="${not empty payments}">
     <form name="f" action="${sessionInfo.servletPath}" method="get" onsubmit="return checkPaymentHistoryForm();" class="form-container"
           id="PaymentHistoryForm">
-    
+
         <c:if test="${!isReskin}">
         <c:if test="${croppedDataBefore or croppedDataAfter}" >
             <div class="pagingBox">
@@ -321,7 +308,7 @@
                         &lt;&lt; prev
                     </c:otherwise>
                 </c:choose>
-                
+
                 <c:choose>
                     <c:when test="${croppedDataAfter}">
                         <a href="Javascript:next()" class="bcLink getable">next &gt;&gt;</a>
@@ -378,9 +365,9 @@
             </td>
             <td class="header">&nbsp;</td>
         </tr>
-        
+
         <c:forEach items="${payments}" var="payment">
-        
+
         <c:set var="typeId" value="${payment.paymentType}" />
         <tr class="<%=even?"light":"dark"%> ${(payment.currentStatus.id eq OWED or payment.currentStatus.id eq ACCRUING) ? 'highlight' : '' }">
             <td class="value description">
@@ -397,34 +384,34 @@
                                 <c:when test="${payment.installmentNumber == 3}">(${payment.installmentNumber}rd</c:when>
                                 <c:otherwise>(${payment.installmentNumber}th</c:otherwise>
                             </c:choose>
-                            installment, total amount=${payment.totalAmount})                    
+                            installment, total amount=${payment.totalAmount})
                         </c:if>
-                        </A>                    
+                        </A>
                     </c:when>
                     <c:when test="${(typeId == 17 || typeId == 25) && payment.stageId > 0}">
-                        <A href="/tc?module=LeaderBoard&ph=112&staid=${payment.stageId}" class="bcLink">${payment.description}</A>                    
+                        <A href="/tc?module=LeaderBoard&ph=112&staid=${payment.stageId}" class="bcLink">${payment.description}</A>
                     </c:when>
                     <c:when test="${typeId == 18 && payment.seasonId > 0}">
-                        <A href="/tc?module=RookieBoard&ph=112&seid=${payment.seasonId}" class="bcLink">${payment.description}</A>                    
+                        <A href="/tc?module=RookieBoard&ph=112&seid=${payment.seasonId}" class="bcLink">${payment.description}</A>
                     </c:when>
                     <c:when test="${(typeId == 40 || typeId == 41) && payment.trackId > 0}">
-                        <A href="/dr?module=ViewLeaderBoard&tid=${payment.trackId}" class="bcLink">${payment.description}</A>                    
+                        <A href="/dr?module=ViewLeaderBoard&tid=${payment.trackId}" class="bcLink">${payment.description}</A>
                     </c:when>
                     <c:when test="${typeId == 21 && payment.roundId > 0}">
-                        <A href="/longcontest/?module=ViewOverview&rd=${payment.roundId}>" class="bcLink">${payment.description}</A>                    
-                    </c:when>                
+                        <A href="/longcontest/?module=ViewOverview&rd=${payment.roundId}>" class="bcLink">${payment.description}</A>
+                    </c:when>
                     <c:otherwise>
                         ${payment.description}
                     </c:otherwise>
                 </c:choose>
-            
-            
+
+
             </td>
             <td class="value type">${payment.paymentTypeDesc}</td>
             <td class="valueC create-date"><fmt:formatDate value="${payment.createDate}" pattern="dd/MM/yyyy"/></td>
             <td class="valueR net-payment"><fmt:formatNumber value="${payment.netAmount}" type="currency" currencySymbol="$"/></td>
             <td class="value status"><span class="status ${payment.currentStatus.desc}"><span class="status-label">${payment.currentStatus.desc}</span></span>
-                <c:forEach items="${payment.currentStatus.reasons}" var="reason">    
+                <c:forEach items="${payment.currentStatus.reasons}" var="reason">
                 <br>- ${reason.desc}
                 </c:forEach>
             </td>
@@ -628,13 +615,13 @@
        <div align="right" class="pay-me-btn">
            <input type="button" value="Pay Me" id="payMe" disabled="disabled"/>
            <span class="payMeValue">Total: <span id="payMeValue"></span></span>
-       </div> 
-    
+       </div>
+
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="PaymentHistory"/>
             <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
             <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
             <input type="hidden" name="<%= PaymentHistory.FULL_LIST %>" value="<c:out value="${fullList}"/>" />
-    
+
             <div class="pagingBox table-pagination ${croppedDataBefore ? 'croppedDataBefore' : ''} ${croppedDataAfter ? 'croppedDataAfter' : ''} ${numTotal > 10 ? 'more-than-10-items' : ''}">
                 <c:if test="${croppedDataBefore or croppedDataAfter}">
                     <c:choose>
@@ -719,7 +706,7 @@
     </div><!-- // end .table-footer -->
     </c:if>
 
-    </form>            
+    </form>
     </c:when>
     <c:otherwise>
         <div align="center" class="no-payments-found">
