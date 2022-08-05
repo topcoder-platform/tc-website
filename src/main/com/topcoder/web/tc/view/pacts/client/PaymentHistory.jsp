@@ -138,6 +138,18 @@
                     var paymentId = this.getAttribute('data-value');
                     $('.payable[value="' + paymentId + '"]').click();
                 });
+
+                $('.payable').click(function() {
+                    var hasSelected = false;
+                    $('.payable:checked').each(function () {
+                        hasSelected = true;
+                    });
+                    if (hasSelected) {
+                        $('#payMe').prop("disabled", false);
+                    } else {
+                        $('#payMe').prop("disabled", true);
+                    }
+                });
             });
         }
     </script>
