@@ -489,6 +489,7 @@
     <c:if test="${isReskin}">
     <div class="payment-list">
         <c:forEach items="${payments}" var="paymentItem">
+        <c:set var="typeId" value="${paymentItem.paymentType}" />
             <div class="payment-list-item">
                 <div class="row description">
                     <div class="col col-label">Description</div>
