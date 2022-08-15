@@ -83,8 +83,7 @@ public class PaymentStatusSummary extends BaseProcessor implements PactsConstant
         for (BasePayment payment : payments) {
             if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS)) ||
                 payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.ENTERED_INTO_PAYMENT_SYSTEM_PAYMENT_STATUS)) ||
-                payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.ACCRUING_PAYMENT_STATUS)) ||
-                payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.ON_HOLD_PAYMENT_STATUS))) {
+                payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.ACCRUING_PAYMENT_STATUS))) {
                 paymentPendings.add(payment);
             }
         }

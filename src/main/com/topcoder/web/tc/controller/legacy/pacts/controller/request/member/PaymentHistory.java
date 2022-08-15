@@ -154,20 +154,22 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
                 if (payment.getPaymentType() == 3 || payment.getPaymentType() == 5) {
                     removePayments.add(payment);
                 } else {
-                    if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS)) ||
-                        payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.EXPIRED_PAYMENT_STATUS)) ||
-                        payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.PAID_PAYMENT_STATUS))) {
+                    if (!(payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS))) &&
+                        !(payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.ENTERED_INTO_PAYMENT_SYSTEM_PAYMENT_STATUS))) &&
+                        !(payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.ACCRUING_PAYMENT_STATUS)))) {
                         removeNonPending.add(payment);
-                    }
-
-                    // Deleted payments should not be shown either way.
-                    if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.DELETED_PAYMENT_STATUS))) {
-                        removePayments.add(payment);
                     }
                 }
             }
 
             payments.removeAll(removePayments);
+
+            // sort the result in the first place
+            sortResult(payments, sortCol, sortAscending);
+
+            if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {
+                removeDuplicateReasons(payments);
+            }
 
             int totalPayment = payments.size();
 
@@ -177,22 +179,11 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
                 }
             }
 
-            int PaymentsPending = totalPayment - removeNonPending.size();
+            int pendingPayments = totalPayment - removeNonPending.size();
 
-            // sort the result in the first place
-            sortResult(payments, sortCol, sortAscending);
-
-            if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {
-                removeDuplicateReasons(payments);
-            }
-
-            if (!fullList && !exportToExcel) {
-                getRequest().setAttribute("NUM_TOTAL", PaymentsPending);
-            } else {
-                getRequest().setAttribute("NUM_TOTAL", totalPayment);
-            }
+            getRequest().setAttribute("NUM_TOTAL", payments.size());
             getRequest().setAttribute("NUM_PER_PAGE", numRecords);
-            getRequest().setAttribute("NUM_PENDING", PaymentsPending);
+            getRequest().setAttribute("NUM_PENDING", pendingPayments);
 
             if (exportToExcel) {
                 produceXLS(payments);
