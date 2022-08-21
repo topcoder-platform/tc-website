@@ -144,10 +144,12 @@
                     $('.payable:checked').each(function () {
                         hasSelected = true;
                     });
-                    if (hasSelected) {
-                        $('#payMe').prop("disabled", false);
-                    } else {
-                        $('#payMe').prop("disabled", true);
+                    $('.bigRed').prev().remove();
+                    $('.bigRed').remove();
+                    var total = calcTotalPayment()
+                    if (hasSelected && total < 25) {
+                        error = $('<span />').attr('class', 'bigRed').html('The total net amount for selected payments is less than $25');
+                        $("#PaymentHistoryForm").prev().append('<br>').append(error)
                     }
                 });
             });
