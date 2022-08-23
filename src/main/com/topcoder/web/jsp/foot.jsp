@@ -13,6 +13,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.common.BaseServlet, com.topcoder.web.common.SessionInfo" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
+<c:set value="<%=Boolean.parseBoolean(request.getParameter("isReskin"))%>" var="isReskin"/>
 
 <%
     SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
@@ -24,10 +28,37 @@
     }
 
     String domainName = ApplicationServer.SERVER_NAME.replace("www.", "");
-
+    String year = new SimpleDateFormat("yyyy").format(new Date());
 %>
 
 <c:choose>
+    <c:when test="${isReskin}">
+        <footer class="footer-wrapper">
+            <nav class="footer-inner">
+                <div class="utils">
+                    <span>&copy; <%=year%> Topcoder</span>
+                    <a href="https://www.topcoder.com/policy">Policies</a>
+                </div>
+                <div class="social">
+                    <a href="https://www.facebook.com/topcoder" target="_blank">
+                        <img src="/i/reskin-2/social-fb-icon.svg">
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCFv29ANLT2FQmtvS9DRixNA" target="_blank">
+                        <img src="/i/reskin-2/social-yt-icon.svg">
+                    </a>
+                    <a href="https://www.linkedin.com/company/topcoder" target="_blank">
+                        <img src="/i/reskin-2/social-linkedin-icon.svg">
+                    </a>
+                    <a href="https://twitter.com/topcoder" target="_blank">
+                        <img src="/i/reskin-2/social-tw-icon.svg">
+                    </a>
+                    <a href="https://www.instagram.com/topcoder" target="_blank">
+                        <img src="/i/reskin-2/social-insta-icon.svg">
+                    </a>
+                </div>
+            </nav>
+        </footer>
+    </c:when>
     <c:when test="${not empty isNewStyle && isNewStyle}">
         <%--<footer id="footer">--%>
             <%--<div class="container">--%>
@@ -124,7 +155,7 @@
             <div class="social-links"><p>topcoder is also on</p><a class="fb-link" href="https://www.facebook.com/topcoder"></a><a
                     class="twitter-link" href="http://www.twitter.com/topcoder"></a><a class="linkedin-link" href="https://www.linkedin.com/company/topcoder"></a><a
                     class="google-link" href="https://plus.google.com/+topcoder/posts"></a></div>
-            <p class="copyright-notice">&copy; 2015 topcoder. All Rights Reserved</p></footer>
+              <p class="copyright-notice">&copy; <script type="text/javascript">d=new Date();document.write(d.getFullYear());</script> Topcoder. All Rights Reserved</p></footer>
     </c:when>
     <c:otherwise>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -154,14 +185,22 @@
 <%-- Analytics --%>
 
 <script>
-  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.13.1";
   analytics.load("p4hJvXxilb4KtBW6BMYN4o9FoNtCrp4E");
   analytics.page();
   }}();
 </script>
 
+<script>
+analytics.identify('', {
+  username: '<%= handle %>',
+  id: '<%=sessionInfo.getUserId()%>'
+});
+</script>
+
+<c:if test="${!isReskin}">
 <!-- Start of topcoder Zendesk Widget script -->
 <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("https://assets.zendesk.com/embeddable_framework/main.js","topcoder.zendesk.com");
 /*]]>*/</script>
 <!-- End of topcoder Zendesk Widget script -->
-
+</c:if>

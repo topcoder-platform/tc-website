@@ -6,6 +6,8 @@
         <classname>com.topcoder.utilities.dwload.TCLoadTCS</classname>
         <parameterList>
             <parameter name="submission_dir" value="file:/tcssubmissions/"/>
+            <parameter name="full_load" value="false"/>
+            <parameter name="batch_size_days" value="15"/>
         </parameterList>
     </load>
 </loadDefinition>

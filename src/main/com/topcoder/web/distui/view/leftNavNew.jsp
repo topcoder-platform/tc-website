@@ -239,6 +239,7 @@
 </section>
 <!-- End .navigation -->
 <section class="member-search">
+<%--
     <h3>Member Search</h3>
     <div class="form">
         <form action="http://community.topcoder.com/tc" method="get" name="simpleSearchForm" class="noSpace" id="simpleSearchForm">
@@ -247,6 +248,7 @@
             <a href="javascript:javascript:void document.simpleSearchForm.submit();" class="btn btn-search-member"><i>SEARCH</i></a>
         </form>
     </div>
+--%>    
 </section>
 <c:set var="now" value="<%=new java.util.Date()%>" />
 <!-- End .member-search -->

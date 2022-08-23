@@ -3946,6 +3946,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             ps.setNull(26, Types.DECIMAL);
             ps.setNull(27, Types.VARCHAR);
+         
             switch (BasePayment.getReferenceTypeId(p.getHeader().getTypeId())) {
                 case REFERENCE_ALGORITHM_ROUND_ID:
                     setNullableLong(ps, 14, p.getHeader().getAlgorithmRoundId());
@@ -3984,6 +3985,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setBoolean(23, p.isCharity());
             ps.setDouble(24, p.getTotalAmount() == 0 ? p.getGrossAmount() : p.getTotalAmount()); // default to gross amount if not filled.
             ps.setInt(25, p.getInstallmentNumber());
+         
+            // Set the jira ID all the time to support v5
+            log.info("Jira ID: " + p.getHeader().getJiraIssueName());
+            setNullableString(ps, 27, p.getHeader().getJiraIssueName());
 
             if (operatorUserId != 0) {
                 ps.setLong(28, operatorUserId);
@@ -6432,6 +6437,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             case REFERENCE_DIGITAL_RUN_TRACK_ID:
                 p.getHeader().setDigitalRunTrackId(((DigitalRunTrackReferencePayment) payment).getTrackId());
                 break;
+            default:
+                // Set the jira ID all the time to support v5
+                log.info("*** Jira ID (Create Payment): " + ((NoReferencePayment) payment).getJiraIssueName());
+                p.getHeader().setJiraIssueName(((NoReferencePayment) payment).getJiraIssueName());
         }
 
 

@@ -33,6 +33,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
+<c:set value="<%=Boolean.parseBoolean(request.getParameter("isReskin"))%>" var="isReskin"/>
+
 <%
     SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
     String level1 = request.getParameter("level1")==null?"competition":request.getParameter("level1");
@@ -55,6 +57,15 @@
 </script>
 
 <c:choose>
+    <c:when test="${isReskin}">
+        <header>
+            <nav class="primaryNav">
+                <a href="https://<%=ApplicationServer.SERVER_NAME%>/home" class="tcLogo">
+                    <img src="/i/reskin-2/tc-logo-new.svg">
+                </a>
+            </nav>
+        </header>
+    </c:when>
     <c:when test="${not empty isNewStyle && isNewStyle}">
 
         <!-- new theme -->
@@ -130,7 +141,7 @@
                                     <li class="submenu-item"><a class="menu-link menu-link-profile" href="https://<%=ApplicationServer.SERVER_NAME%>/members/<%=sessionInfo.getHandle()%>/">MY PROFILE</a></li>
                                     <li class="submenu-item"><a class="menu-link menu-link-payments" target="_blank" href="https://community.<%=domainName%>/PactsMemberServlet?module=PaymentHistory&full_list=false">PAYMENTS</a></li>
                                     <li class="submenu-item"><a class="menu-link menu-link-settings" href="https://<%=ApplicationServer.SERVER_NAME%>/settings/profile/" target="_blank">SETTINGS</a></li>
-                                    <li class="submenu-item"><a class="menu-link menu-link-logout" href="javascript:doLogOutTC();">LOG OUT</a>
+                                    <li class="submenu-item"><a class="menu-link menu-link-logout" href="https://<%=ApplicationServer.SERVER_NAME%>/logout">LOG OUT</a>
                                     </li>
                                 </ul>
                             </div>

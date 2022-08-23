@@ -23,6 +23,9 @@ import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+
 /**
  * <p>This class provides convenient static methods for calling the Payoneer API.</p>
  *
@@ -291,9 +294,12 @@ public class PayoneerService {
      * <p>This is a private helper method that queries the Payoneer API with the specified parameters and returns the response.</p>
      */
     private static Document getXMLResponse(String baseApiUrl, Map<String,String> parameters) throws Exception {
-        HttpURLConnection connection = null;
+        HttpsURLConnection connection = null;
 
         try {
+            SSLContext sc = SSLContext.getInstance("TLSv1.2");
+            sc.init(null, null, new java.security.SecureRandom());
+
             StringBuilder builder = new StringBuilder();
             for(String key : parameters.keySet()) {
                 if (builder.length() > 0) {
@@ -305,9 +311,11 @@ public class PayoneerService {
             
             // Log the request string but hide the password (which is the 'p2' parameter value).
             log.info("Payoneer request: " + urlParameters.replaceAll(parameters.get("p2"), "XXXXXXXX"));
+            log.info("Using TLSv1.2");
 
             //Create connection
-            connection = (HttpURLConnection) (new URL(baseApiUrl)).openConnection();
+            connection = (HttpsURLConnection) (new URL(baseApiUrl)).openConnection();
+            connection.setSSLSocketFactory(sc.getSocketFactory());
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             connection.setRequestProperty("Content-Length", "" + Integer.toString(urlParameters.getBytes().length));
