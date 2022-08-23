@@ -81,14 +81,17 @@
     <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&nbsp;"/>
 </div>
 
+<div style="float:right">
 Please select a contest:<br />
 <tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="${rounds}" fieldText="display_name" fieldValue="round_id"  onChange="goTo(this)" useTopValue="false"/>
-<br /><br />
-
-<span class="bigHandle">Contest: ${infoRow.map['display_name'] }</span>
+</div>
 <br />
-<span class="bodySubtitle">Problem: <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" /> </span><br/>
-                
+
+<span class="bodySubtitle">Contest:  ${infoRow.map['display_name'] }</span>
+<br />
+<br />
+<span class="bodySubtitle">Problem:  <mm:problemLink roundId="${infoRow.map['round_id']}" problemId="${infoRow.map['problem_id']}" problemName="${infoRow.map['problem_name']}" /> </span><br/>
+
 <span class="bodySubtitle">Categories:
 <c:choose>
     <c:when test="${empty categories}">None</c:when>
@@ -101,13 +104,22 @@ Please select a contest:<br />
 </c:choose>
 
 <br />
-Competitors: ${infoRow.map['num_competitors']}<br />
-Avg. Submissions: <fmt:formatNumber value="${infoRow.map['avg_submissions']}"  minFractionDigits="2" maxFractionDigits="2"/></span><br />
+<br />
+Competitors:  ${infoRow.map['num_competitors']}<br />
+Avg. Submissions:  <fmt:formatNumber value="${infoRow.map['avg_submissions']}"  minFractionDigits="2" maxFractionDigits="2"/></span><br />
+</br>
 <c:set var="forumId" value="<%= request.getAttribute(Constants.FORUM_ID) %>" />
 <c:if test="${not empty forumId}">
-    <tc-webtag:forumLink forumID="${forumId}" message="Discuss this contest"/>
+    <%--<tc-webtag:forumLink forumID="${forumId}" message="Discuss this contest"/> --%>
 </c:if>
 
+<div style="float:right;font-size: 13px;">                
+    <div id="printableLink"><a href="/tc?module=MatchDetails&amp;rd=${infoRow.map['round_id']}">Register & Rules</a>   &nbsp;|&nbsp; <a href="https://apps.topcoder.com/forums/?module=ThreadList&amp;forumID=${forumId}">Forum</a>   &nbsp;|&nbsp; <a href="/longcontest/?module=ViewQueue">Queue</a></div>
+    <div id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();" mce_href="Javascript:makeNavigable();">Normal view</A></div>
+</div>
+
+    
+    
             <center>
                 <div class="pagingBox" style="width:300px;">
                     <tc-webtag:prevPage servletPath="${sessionInfo.servletPath}" list="${competitors}" styleClass="bcLink" /> |

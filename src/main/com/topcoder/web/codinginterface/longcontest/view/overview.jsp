@@ -102,6 +102,9 @@ Competitors: <rsc:item name="num_competitors" row="<%=infoRow%>"/><br>
 Avg. Submissions: <rsc:item name="avg_submissions" row="<%=infoRow%>" format="#.##" ifNull="N/A"/></span><br>
 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>" class="bcLink">Problem
     Statement</A><br>
+
+<a href="/longcontest/?module=ViewQueue">Queue</a>
+</br>
 <% if (request.getAttribute(Constants.FORUM_ID) != null) { %>
 <tc-webtag:forumLink forumID="<%=((Long)request.getAttribute(Constants.FORUM_ID)).longValue()%>" message="Discuss this contest"/>
 <% } %>
