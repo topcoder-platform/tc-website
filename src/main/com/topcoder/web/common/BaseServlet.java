@@ -5,8 +5,10 @@ package com.topcoder.web.common;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.Set;
+import java.nio.charset.StandardCharsets;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -15,10 +17,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.loader.custom.Return;
+
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.error.RequestRateExceededException;
@@ -63,6 +68,9 @@ public abstract class BaseServlet extends HttpServlet {
     public static final String URL_KEY = "url";
     public static final String NEXT_PAGE_KEY = "nextpage";
     public static final String SESSION_INFO_KEY = "sessionInfo";
+
+    private static TCResourceBundle bundle = null;
+
     /**
      * <p>
      * Represent the qualified name of this class.
@@ -87,7 +95,9 @@ public abstract class BaseServlet extends HttpServlet {
         PATH = config.getInitParameter("processor_path");
         DEFAULT_PROCESSOR = config.getInitParameter("default_processor");
         LOGIN_PROCESSOR = config.getInitParameter("login_processor");
+
         String styleConfig = config.getInitParameter("is_new_style");
+        bundle = new TCResourceBundle("TC");
 
         if(styleConfig != null && styleConfig.equalsIgnoreCase("true")) {
             NEW_STYLE_ENABLED = true;
@@ -220,6 +230,7 @@ public abstract class BaseServlet extends HttpServlet {
                 authentication = createAuthentication(tcRequest, tcResponse);
                 TCSubject user = getUser(authentication.getActiveUser().getId());
                 info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
+
                 //we can let browsers/proxies cache pages if the user is anonymous or it's https (they don't really cache https setuff)
                 if (log.isDebugEnabled()) {
                     log.debug("uri: " + request.getRequestURL().toString());
@@ -272,7 +283,6 @@ public abstract class BaseServlet extends HttpServlet {
 
                     //log.debug("path " + PATH);
                     String processorName = getFullProcessorName(cmd);
-
                     if (log.isDebugEnabled()) {
                         log.debug("creating request processor for " + processorName);
                     }
@@ -483,7 +493,17 @@ public abstract class BaseServlet extends HttpServlet {
             request.setAttribute(NEXT_PAGE_KEY, info.getRequestString());
 
             request.setAttribute(MODULE, LOGIN_PROCESSOR);
-            fetchRegularPage(request, response, LOGIN_SERVLET == null ? info.getServletPath() : LOGIN_SERVLET, true);
+            String loginUrl = bundle.getProperty("login_url", "");
+            StringBuffer returnUrl = new StringBuffer(info.getSecureAbsoluteServletPath());
+            returnUrl.append(info.getQueryString());
+            StringBuffer redirectUrl = new StringBuffer(loginUrl);
+            redirectUrl.append("?retUrl=").append(URLEncoder.encode(returnUrl.toString(), StandardCharsets.UTF_8.toString()));
+
+            // new login. redirect to auth0 
+            fetchRegularPage(request, response, redirectUrl.toString(), false);
+
+            // OLD login
+            //fetchRegularPage(request, response, LOGIN_SERVLET == null ? info.getServletPath() : LOGIN_SERVLET, true);
         }
     }
 

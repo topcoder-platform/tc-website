@@ -13,6 +13,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.common.BaseServlet, com.topcoder.web.common.SessionInfo" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
+<c:set value="<%=Boolean.parseBoolean(request.getParameter("isReskin"))%>" var="isReskin"/>
 
 <%
     SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
@@ -24,10 +28,37 @@
     }
 
     String domainName = ApplicationServer.SERVER_NAME.replace("www.", "");
-
+    String year = new SimpleDateFormat("yyyy").format(new Date());
 %>
 
 <c:choose>
+    <c:when test="${isReskin}">
+        <footer class="footer-wrapper">
+            <nav class="footer-inner">
+                <div class="utils">
+                    <span>&copy; <%=year%> Topcoder</span>
+                    <a href="https://www.topcoder.com/policy">Policies</a>
+                </div>
+                <div class="social">
+                    <a href="https://www.facebook.com/topcoder" target="_blank">
+                        <img src="/i/reskin-2/social-fb-icon.svg">
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCFv29ANLT2FQmtvS9DRixNA" target="_blank">
+                        <img src="/i/reskin-2/social-yt-icon.svg">
+                    </a>
+                    <a href="https://www.linkedin.com/company/topcoder" target="_blank">
+                        <img src="/i/reskin-2/social-linkedin-icon.svg">
+                    </a>
+                    <a href="https://twitter.com/topcoder" target="_blank">
+                        <img src="/i/reskin-2/social-tw-icon.svg">
+                    </a>
+                    <a href="https://www.instagram.com/topcoder" target="_blank">
+                        <img src="/i/reskin-2/social-insta-icon.svg">
+                    </a>
+                </div>
+            </nav>
+        </footer>
+    </c:when>
     <c:when test="${not empty isNewStyle && isNewStyle}">
         <%--<footer id="footer">--%>
             <%--<div class="container">--%>
@@ -167,8 +198,9 @@ analytics.identify('', {
 });
 </script>
 
+<c:if test="${!isReskin}">
 <!-- Start of topcoder Zendesk Widget script -->
 <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("https://assets.zendesk.com/embeddable_framework/main.js","topcoder.zendesk.com");
 /*]]>*/</script>
 <!-- End of topcoder Zendesk Widget script -->
-
+</c:if>
