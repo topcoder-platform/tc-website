@@ -151,6 +151,11 @@
                         error = $('<span />').attr('class', 'bigRed').html('The total net amount for selected payments is less than $25');
                         $("#PaymentHistoryForm").prev().append('<br>').append(error)
                     }
+                    if ($('.checkable:checked').length == $('.checkable').length) {
+                        $('.checkAll').attr('checked', true);
+                    } else if ($('.checkable').not(':checked').length == $('.checkable').length) {
+                        $('.checkAll').attr('checked', false);
+                    }
                 });
             });
         }
@@ -377,7 +382,13 @@
                     <a class="getable" href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" />" >Date Paid</a>
                 <%--</c:if>--%>
             </td>
-            <td class="header">&nbsp;</td>
+            <td class="headerC">
+                <span class="checkbox">
+                    <input type="checkbox" class="checkAll">
+                    <span class="checkbox-label"></span>
+                </span>
+            </td>
+            <%-- <td class="header">&nbsp;</td> --%>
         </tr>
 
         <c:forEach items="${payments}" var="payment">
