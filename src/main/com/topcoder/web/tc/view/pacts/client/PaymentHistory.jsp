@@ -56,6 +56,8 @@
 <c:set value="<%=request.getAttribute("NUM_TOTAL")%>" var="numTotal" />
 <c:set value="<%=request.getAttribute("NUM_PER_PAGE")%>" var="numPerPage" />
 <c:set value="<%=request.getAttribute("NUM_PENDING")%>" var="numPending" />
+<c:set value="<%=request.getAttribute("OWED_PAYMENTS")%>" var="owedPayments" />
+<c:set value="<%=request.getAttribute("TOTAL_OWED_PAYMENTS")%>" var="totalOwedPayments" />
 <c:set value="<%=DataAccessConstants.SORT_COLUMN%>" var="sortColumn"/>
 <c:set value="<%=DataAccessConstants.SORT_DIRECTION%>" var="sortDirection"/>
 
@@ -80,6 +82,9 @@
         USER_PAYMENT_METHOD = ${userPaymentMethod eq null ? 'null' : userPaymentMethod};
         MINIMUM_PAYMENT_ACCRUAL_AMOUNT = ${MINIMUM_PAYMENT_ACCRUAL_AMOUNT};
         PAY_ME_CONFIRMATION_TEMPLATE = '${paymentConfirmationTemplate}';
+
+        var owedPayments = ${owedPayments};
+        var totalOwedPayments = ${totalOwedPayments};
 
         function next() {
             var myForm = document.f;
@@ -229,6 +234,12 @@
     </c:if>
 
     <c:if test="${isReskin}">
+        <div class="above-tabs">
+            <div align="right" class="pay-me-btn">
+               <input type="button" value="Pay Me" id="quickPayMe"/>
+            </div>
+        </div>
+
         <%-- desktop tabs --%>
         <nav class="tabs paymentHistoryTabs">
             <c:if test="${fullList}" >
