@@ -446,7 +446,22 @@
             <td class="value type">${payment.paymentTypeDesc}</td>
             <td class="valueC create-date"><fmt:formatDate value="${payment.createDate}" pattern="dd/MM/yyyy"/></td>
             <td class="valueR net-payment"><fmt:formatNumber value="${payment.netAmount}" type="currency" currencySymbol="$"/></td>
-            <td class="value status"><span class="status ${payment.currentStatus.desc}"><span class="status-label">${payment.currentStatus.desc}</span></span>
+            <td class="value status">
+                <span class="status ${payment.currentStatus.desc}">
+                    <span class="status-label">
+                        <c:choose>
+                            <c:when test="${payment.currentStatus.id eq OWED}">
+                                Available
+                            </c:when>
+                            <c:when test="${payment.currentStatus.id eq ACCRUING}">
+                                Pending
+                            </c:when>
+                            <c:otherwise>
+                                ${payment.currentStatus.desc}
+                            </c:otherwise>
+                        </c:choose>
+                    </span>
+                </span>
                 <c:forEach items="${payment.currentStatus.reasons}" var="reason">
                 <br>- ${reason.desc}
                 </c:forEach>
@@ -572,7 +587,21 @@
                 <div class="row status">
                     <div class="col col-label">Status</div>
                     <div class="col col-value">
-                        <span class="status ${paymentItem.currentStatus.desc}"><span class="status-label">${paymentItem.currentStatus.desc}</span></span>
+                        <span class="status ${paymentItem.currentStatus.desc}">
+                            <span class="status-label">
+                                <c:choose>
+                                    <c:when test="${paymentItem.currentStatus.id eq OWED}">
+                                        Available
+                                    </c:when>
+                                    <c:when test="${paymentItem.currentStatus.id eq ACCRUING}">
+                                        Pending
+                                    </c:when>
+                                    <c:otherwise>
+                                        ${paymentItem.currentStatus.desc}
+                                    </c:otherwise>
+                                </c:choose>
+                            </span>
+                        </span>
                         <c:forEach items="${paymentItem.currentStatus.reasons}" var="reason">
                             <br>- ${reason.desc}
                         </c:forEach>

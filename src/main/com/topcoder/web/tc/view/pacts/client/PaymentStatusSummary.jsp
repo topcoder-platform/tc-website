@@ -175,7 +175,13 @@
         <rsc:iterator list="<%=rsc%>" id="resultRow">
             <tr class="<%=even?"dark":"light"%>">
             <TD class="value payment-status">
+            <% if ("Owed".equals(resultRow.getStringItem("payment_status"))) { %>
+                Available
+            <% } else if ("Accruing".equals(resultRow.getStringItem("payment_status"))) { %>
+                Pending
+            <% } else { %>
                 <rsc:item name="payment_status" row="<%=resultRow%>"/>
+            <% } %>
             </TD>
             <TD class="valueR net-amount">
             <% if (resultRow.getDoubleItem("net_amount") > 0) {
