@@ -485,6 +485,10 @@
                     <c:when test="${payment.currentStatus.id eq OWED or payment.currentStatus.id eq ACCRUING}">
                         <%-- Owed, Accruing --%>
                         <c:choose>
+                            <c:when test="${payment.currentStatus.id eq ACCRUING}">
+                                <%-- Payment is pending yet: un-checked, disabled --%>
+                                <input type="checkbox" disabled="disabled" name="${PAYMENT_ID}" value="${payment.id}"/>
+                            </c:when>
                             <c:when test="${payment.dueDate eq null or (payment.dueDate > now)}">
                                 <%-- Payment release date is not reached yet: un-checked, disabled --%>
                                 <input type="checkbox" disabled="disabled" name="${PAYMENT_ID}" value="${payment.id}"/>
@@ -634,6 +638,10 @@
                             <c:when test="${paymentItem.currentStatus.id eq OWED or paymentItem.currentStatus.id eq ACCRUING}">
                                 <%-- Owed, Accruing --%>
                                 <c:choose>
+                                    <c:when test="${paymentItem.currentStatus.id eq ACCRUING}">
+                                        <%-- Payment is pending yet: un-checked, disabled --%>
+                                        <span role="checkbox" class="checkbox disabled" data-name="${PAYMENT_ID}" data-value="${paymentItem.id}"></span>
+                                    </c:when>
                                     <c:when test="${paymentItem.dueDate eq null or (paymentItem.dueDate > now)}">
                                         <%-- Payment release date is not reached yet: un-checked, disabled --%>
                                         <span role="checkbox" class="checkbox disabled" data-name="${PAYMENT_ID}" data-value="${paymentItem.id}"></span>
