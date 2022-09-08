@@ -144,6 +144,23 @@
                     $('.payable[value="' + paymentId + '"]').click();
                 });
 
+                $('.checkAll').click(function () {
+                    if (this.checked) {
+                        $('.checkAll').attr('checked', true);
+                        $('.payable').each(function () {
+                            var paymentId = this.value;
+                            $('[data-name="${PAYMENT_ID}"][data-value="'+paymentId+'"]').removeClass('checked');
+                            $('[data-name="${PAYMENT_ID}"][data-value="'+paymentId+'"]').addClass('checked');
+                        });
+                    } else {
+                        $('.checkAll').attr('checked', false);
+                        $('.payable').each(function () {
+                            var paymentId = this.value;
+                            $('[data-name="${PAYMENT_ID}"][data-value="'+paymentId+'"]').removeClass('checked');
+                        });
+                    }
+                });
+
                 $('.payable').click(function() {
                     var hasSelected = false;
                     $('.payable:checked').each(function () {
@@ -301,6 +318,15 @@
                 }
             </script>
         </div>
+        <%-- Mobile select all checkbox --%>
+        <c:if test="${not empty payments}">
+            <div class="mobile-select-all-checkbox">
+                <span class="checkbox">
+                    <input type="checkbox" class="checkAll">
+                    <span class="checkbox-label"></span>
+                </span>
+            </div>
+        </c:if>
         <%-- Mobile sort-button --%>
         <c:if test="${not empty payments}">
             <a
