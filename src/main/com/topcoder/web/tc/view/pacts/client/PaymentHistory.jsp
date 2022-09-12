@@ -56,6 +56,8 @@
 <c:set value="<%=request.getAttribute("NUM_TOTAL")%>" var="numTotal" />
 <c:set value="<%=request.getAttribute("NUM_PER_PAGE")%>" var="numPerPage" />
 <c:set value="<%=request.getAttribute("NUM_PENDING")%>" var="numPending" />
+<c:set value="<%=request.getAttribute("OWED_PAYMENTS")%>" var="owedPayments" />
+<c:set value="<%=request.getAttribute("TOTAL_OWED_PAYMENTS")%>" var="totalOwedPayments" />
 <c:set value="<%=DataAccessConstants.SORT_COLUMN%>" var="sortColumn"/>
 <c:set value="<%=DataAccessConstants.SORT_DIRECTION%>" var="sortDirection"/>
 
@@ -80,6 +82,9 @@
         USER_PAYMENT_METHOD = ${userPaymentMethod eq null ? 'null' : userPaymentMethod};
         MINIMUM_PAYMENT_ACCRUAL_AMOUNT = ${MINIMUM_PAYMENT_ACCRUAL_AMOUNT};
         PAY_ME_CONFIRMATION_TEMPLATE = '${paymentConfirmationTemplate}';
+
+        var owedPayments = ${owedPayments};
+        var totalOwedPayments = ${totalOwedPayments};
 
         function next() {
             var myForm = document.f;
@@ -139,6 +144,23 @@
                     $('.payable[value="' + paymentId + '"]').click();
                 });
 
+                $('.checkAll').click(function () {
+                    if (this.checked) {
+                        $('.checkAll').attr('checked', true);
+                        $('.payable').each(function () {
+                            var paymentId = this.value;
+                            $('[data-name="${PAYMENT_ID}"][data-value="'+paymentId+'"]').removeClass('checked');
+                            $('[data-name="${PAYMENT_ID}"][data-value="'+paymentId+'"]').addClass('checked');
+                        });
+                    } else {
+                        $('.checkAll').attr('checked', false);
+                        $('.payable').each(function () {
+                            var paymentId = this.value;
+                            $('[data-name="${PAYMENT_ID}"][data-value="'+paymentId+'"]').removeClass('checked');
+                        });
+                    }
+                });
+
                 $('.payable').click(function() {
                     var hasSelected = false;
                     $('.payable:checked').each(function () {
@@ -150,6 +172,11 @@
                     if (hasSelected && total < 25) {
                         error = $('<span />').attr('class', 'bigRed').html('The total net amount for selected payments is less than $25');
                         $("#PaymentHistoryForm").prev().append('<br>').append(error)
+                    }
+                    if ($('.checkable:checked').length == $('.checkable').length) {
+                        $('.checkAll').attr('checked', true);
+                    } else if ($('.checkable').not(':checked').length == $('.checkable').length) {
+                        $('.checkAll').attr('checked', false);
                     }
                 });
             });
@@ -224,6 +251,12 @@
     </c:if>
 
     <c:if test="${isReskin}">
+        <div class="above-tabs">
+            <div align="right" class="pay-me-btn">
+               <input type="button" value="Pay Me" id="quickPayMe"/>
+            </div>
+        </div>
+
         <%-- desktop tabs --%>
         <nav class="tabs paymentHistoryTabs">
             <c:if test="${fullList}" >
@@ -285,6 +318,15 @@
                 }
             </script>
         </div>
+        <%-- Mobile select all checkbox --%>
+        <c:if test="${not empty payments}">
+            <div class="mobile-select-all-checkbox">
+                <span class="checkbox">
+                    <input type="checkbox" class="checkAll">
+                    <span class="checkbox-label"></span>
+                </span>
+            </div>
+        </c:if>
         <%-- Mobile sort-button --%>
         <c:if test="${not empty payments}">
             <a
@@ -377,7 +419,13 @@
                     <a class="getable" href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" />" >Date Paid</a>
                 <%--</c:if>--%>
             </td>
-            <td class="header">&nbsp;</td>
+            <td class="headerC">
+                <span class="checkbox">
+                    <input type="checkbox" class="checkAll">
+                    <span class="checkbox-label"></span>
+                </span>
+            </td>
+            <%-- <td class="header">&nbsp;</td> --%>
         </tr>
 
         <c:forEach items="${payments}" var="payment">
@@ -424,7 +472,22 @@
             <td class="value type">${payment.paymentTypeDesc}</td>
             <td class="valueC create-date"><fmt:formatDate value="${payment.createDate}" pattern="dd/MM/yyyy"/></td>
             <td class="valueR net-payment"><fmt:formatNumber value="${payment.netAmount}" type="currency" currencySymbol="$"/></td>
-            <td class="value status"><span class="status ${payment.currentStatus.desc}"><span class="status-label">${payment.currentStatus.desc}</span></span>
+            <td class="value status">
+                <span class="status ${payment.currentStatus.desc}">
+                    <span class="status-label">
+                        <c:choose>
+                            <c:when test="${payment.currentStatus.id eq OWED}">
+                                Available
+                            </c:when>
+                            <c:when test="${payment.currentStatus.id eq ACCRUING}">
+                                Pending
+                            </c:when>
+                            <c:otherwise>
+                                ${payment.currentStatus.desc}
+                            </c:otherwise>
+                        </c:choose>
+                    </span>
+                </span>
                 <c:forEach items="${payment.currentStatus.reasons}" var="reason">
                 <br>- ${reason.desc}
                 </c:forEach>
@@ -448,6 +511,10 @@
                     <c:when test="${payment.currentStatus.id eq OWED or payment.currentStatus.id eq ACCRUING}">
                         <%-- Owed, Accruing --%>
                         <c:choose>
+                            <c:when test="${payment.currentStatus.id eq ACCRUING}">
+                                <%-- Payment is pending yet: un-checked, disabled --%>
+                                <input type="checkbox" disabled="disabled" name="${PAYMENT_ID}" value="${payment.id}"/>
+                            </c:when>
                             <c:when test="${payment.dueDate eq null or (payment.dueDate > now)}">
                                 <%-- Payment release date is not reached yet: un-checked, disabled --%>
                                 <input type="checkbox" disabled="disabled" name="${PAYMENT_ID}" value="${payment.id}"/>
@@ -550,7 +617,21 @@
                 <div class="row status">
                     <div class="col col-label">Status</div>
                     <div class="col col-value">
-                        <span class="status ${paymentItem.currentStatus.desc}"><span class="status-label">${paymentItem.currentStatus.desc}</span></span>
+                        <span class="status ${paymentItem.currentStatus.desc}">
+                            <span class="status-label">
+                                <c:choose>
+                                    <c:when test="${paymentItem.currentStatus.id eq OWED}">
+                                        Available
+                                    </c:when>
+                                    <c:when test="${paymentItem.currentStatus.id eq ACCRUING}">
+                                        Pending
+                                    </c:when>
+                                    <c:otherwise>
+                                        ${paymentItem.currentStatus.desc}
+                                    </c:otherwise>
+                                </c:choose>
+                            </span>
+                        </span>
                         <c:forEach items="${paymentItem.currentStatus.reasons}" var="reason">
                             <br>- ${reason.desc}
                         </c:forEach>
@@ -583,6 +664,10 @@
                             <c:when test="${paymentItem.currentStatus.id eq OWED or paymentItem.currentStatus.id eq ACCRUING}">
                                 <%-- Owed, Accruing --%>
                                 <c:choose>
+                                    <c:when test="${paymentItem.currentStatus.id eq ACCRUING}">
+                                        <%-- Payment is pending yet: un-checked, disabled --%>
+                                        <span role="checkbox" class="checkbox disabled" data-name="${PAYMENT_ID}" data-value="${paymentItem.id}"></span>
+                                    </c:when>
                                     <c:when test="${paymentItem.dueDate eq null or (paymentItem.dueDate > now)}">
                                         <%-- Payment release date is not reached yet: un-checked, disabled --%>
                                         <span role="checkbox" class="checkbox disabled" data-name="${PAYMENT_ID}" data-value="${paymentItem.id}"></span>
