@@ -63,6 +63,8 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
     public static final String XLS_FORMAT = "xls";
     public static final String FULL_LIST = "full_list";
     public static final String PAYMENTS = "payments";
+    public static final String OWED_PAYMENTS = "owedPayments";
+    public static final String TOTAL_OWED_PAYMENTS = "totalOwedPayments";
 
     /**
      * <p>A <code>String</code> providing the name for request attribute holding the ID of a payment method preferred by
@@ -150,9 +152,17 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
 
             List<BasePayment> removeNonPending = new ArrayList<BasePayment>();
 
+            List<Long> owedPayments = new ArrayList<Long>();
+            double totalOwedPayments = 0.0;
+            Date currentDate = new Date();
+
             for (BasePayment payment : payments) {
                 if (payment.getPaymentType() == 3 || payment.getPaymentType() == 5) {
                     removePayments.add(payment);
+                } else if ((payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS))) &&
+                    !(payment.getDueDate().after(currentDate))) {
+                    owedPayments.add(payment.getId());
+                    totalOwedPayments += payment.getNetAmount();
                 } else {
                     if (!(payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS))) &&
                         !(payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.ENTERED_INTO_PAYMENT_SYSTEM_PAYMENT_STATUS))) &&
@@ -184,6 +194,8 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             getRequest().setAttribute("NUM_TOTAL", payments.size());
             getRequest().setAttribute("NUM_PER_PAGE", numRecords);
             getRequest().setAttribute("NUM_PENDING", pendingPayments);
+            getRequest().setAttribute("OWED_PAYMENTS", owedPayments);
+            getRequest().setAttribute("TOTAL_OWED_PAYMENTS", totalOwedPayments);
 
             if (exportToExcel) {
                 produceXLS(payments);
