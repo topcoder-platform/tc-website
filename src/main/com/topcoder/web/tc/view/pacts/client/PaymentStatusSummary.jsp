@@ -74,7 +74,7 @@
     </div>
 
     <c:if test="${isReskin}">
-        <a href="https://<%=ApplicationServer.SERVER_NAME%>/challenges" class="back-btn">
+        <a href="https://<%=ApplicationServer.SERVER_NAME%>/settings/payment" class="back-btn">
             <i class="arrow-prev-icon"></i>
         </a>
     </c:if>
