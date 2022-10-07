@@ -215,8 +215,13 @@
 
 <div align="left" class="page-header">
     <% if(isNewStyle) { %>
-    <div style="float:right; padding-top:12px;" class="how-to-get-paid">
-        <A class="informationLink" href="https://www.topcoder.com/thrive/articles/Payment%20Policies%20and%20Instructions">How to get paid?</A>
+    <div class="page-header-right">
+        <div class="how-to-get-paid">
+            <A class="informationLink" href="https://www.topcoder.com/thrive/articles/Payment%20Policies%20and%20Instructions">How to get paid?</A>
+        </div>
+        <div class="payment-settings-btn">
+            <a href="https://<%=ApplicationServer.SERVER_NAME%>/settings/payment">Payment Settings</a>
+        </div>
     </div>
     <% } else { %>
     <div style="float:right;" class="how-to-get-paid">

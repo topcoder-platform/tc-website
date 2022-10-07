@@ -63,15 +63,21 @@
 </jsp:include>
 
 <div align="left" class="page-header">
-    <div style="float:right;" class="how-to-get-paid">
-       <c:if test="${isReskin}">
-       <A href="https://www.topcoder.com/thrive/articles/Payment%20Policies%20and%20Instructions">How to get paid?</A>
-       </c:if>
-
-       <c:if test="${!isReskin}">
-       <A href="https://www.topcoder.com/thrive/articles/Payment%20Policies%20and%20Instructions"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
-       </c:if>
+    <c:if test="${isReskin}">
+    <div class="page-header-right">
+        <div class="how-to-get-paid">
+            <A class="informationLink" href="https://www.topcoder.com/thrive/articles/Payment%20Policies%20and%20Instructions">How to get paid?</A>
+        </div>
+        <div class="payment-settings-btn">
+            <a href="https://<%=ApplicationServer.SERVER_NAME%>/settings/payment">Payment Settings</a>
+        </div>
     </div>
+    </c:if>
+    <c:if test="${!isReskin}">
+    <div style="float:right;" class="how-to-get-paid">
+        <A href="https://www.topcoder.com/thrive/articles/Payment%20Policies%20and%20Instructions"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
+    </div>
+    </c:if>
 
     <c:if test="${isReskin}">
         <a href="https://<%=ApplicationServer.SERVER_NAME%>/settings/payment" class="back-btn">
