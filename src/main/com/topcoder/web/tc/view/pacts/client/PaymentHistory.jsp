@@ -83,21 +83,21 @@
 </jsp:include>
     <div id="headerNav"></div>
     <script>
-        var currEnv = '<%=ApplicationServer.ENVIRONMENT%>';
-        var prodEnv = '<%=ApplicationServer.PROD%>'
+        var serverName = '<%=ApplicationServer.SERVER_NAME%>';
+        var prodUrl = 'topcoder.com';
         var scriptURL = '//uni-nav.topcoder-dev.com/v1/tc-universal-nav.js';
 
-        //TODO - fix this check.  It's not working in dev, as far as I can tell.
-        /*if (currEnv === prodEnv) {
+        if (serverName === prodUrl) {
             scriptURL = '//uni-nav.topcoder.com/v1/tc-universal-nav.js';
-        }*/
+        }
 
         !function(n,t,e,a,c,i,o){n['TcUnivNavConfig']=c,n[c]=n[c]||function(){
         (n[c].q=n[c].q??[]).push(arguments)},n[c].l=1*new Date();i=t.createElement(e),
         o=t.getElementsByTagName(e)[0];i.async=1;i.type="module";i.src=a;o.parentNode.insertBefore(i,o)
         }(window,document,"script",scriptURL,"tcUniNav");
 
-        var photoUrl = 'https://<%=ApplicationServer.SERVER_NAME%>' + '${userImagePath}';
+        var imagePath = '${userImagePath}';
+        var photoUrl = (imagePath && imagePath.length > 0) ? ('https://' + serverName + imagePath) : undefined;
         var userId = ${userId};
         var handle = '${userHandle}';
         var initials = handle ? handle.substr(0, 2).toUpperCase() : '';
@@ -113,8 +113,9 @@
             type: 'tool',
             toolName: 'Topcoder Payments',
             user,
+            toolRoot: '/PactsMemberServlet?module=PaymentHistory&full_list=true',
             signOut() {
-                window.location.replace("http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout")
+                window.location.replace("http://" + serverName + "/tc?module=Logout");
             }
         });
 
