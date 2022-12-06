@@ -40,7 +40,6 @@
 <c:set var="userPaymentMethod" value="<%= request.getAttribute(PaymentHistory.USER_PAYMENT_METHOD) %>"/>
 <c:set var="userHandle" value="<%= sessionInfo.getHandle() %>"/>
 <c:set var="userId" value="<%= sessionInfo.getUserId() %>"/>
-<c:set var="userImagePath" value="<%= sessionInfo.getImagePath() %>"/>
 <c:set var="userInitials" value="<%= sessionInfo.getHandle() %>"/>
 
 <c:set value="<%=PaymentHistory.DEFAULTS_KEY%>" var="defaults"/>
@@ -96,8 +95,10 @@
         o=t.getElementsByTagName(e)[0];i.async=1;i.type="module";i.src=a;o.parentNode.insertBefore(i,o)
         }(window,document,"script",scriptURL,"tcUniNav");
 
-        var imagePath = '${userImagePath}';
-        var photoUrl = (imagePath && imagePath.length > 0) ? ('https://' + serverName + imagePath) : undefined;
+        var imagePath = '<%=sessionInfo.getImagePath()%>';
+
+        var photoUrl = (imagePath && imagePath.length > 0) ? ('https://' + serverName + '/' + imagePath) : undefined;
+
         var userId = ${userId};
         var handle = '${userHandle}';
         var initials = handle ? handle.substr(0, 2).toUpperCase() : '';
