@@ -1,7 +1,7 @@
 version: 2
 defaults: &defaults
     docker:
-      - image: appiriodevops/ubuntu22-openjdk7:v2
+      - image: appiriodevops/ubuntu22-openjdk7:v3
 
 install_dependency: &install_dependency
     name: Installation of build dependencies.
