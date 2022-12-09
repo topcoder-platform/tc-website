@@ -50,7 +50,7 @@ build_steps: &build_steps
         name: Building application
         command: |
           source awsenvconf
-          mv /usr/bin/ant /usr/bin/ant.bac
+          #mv /usr/bin/ant /usr/bin/ant.bac
           ln -s /usr/local/ant/bin/ant /usr/bin/ant
           /usr/local/ant/bin/ant -f move.xml package-topcoder
           zip -r lib.zip lib
