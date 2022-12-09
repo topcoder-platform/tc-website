@@ -46,15 +46,13 @@ build_steps: &build_steps
         command: |
           ./awsconfiguration.sh $BUILD_ENV
           source awsenvconf
-          ant -version
-          echo $PATH
     - run:
         name: Building application
         command: |
           source awsenvconf
-          ant -version
-          echo $PATH
-          ant -f move.xml package-topcoder
+          mv /usr/bin/ant /usr/bin/ant.bac
+          ln -s /usr/local/ant/bin/ant /usr/bin/ant
+          /usr/local/ant/bin/ant -f move.xml package-topcoder
           zip -r lib.zip lib
           zip -r resources.zip resources
           cd ../tc-cache && ant && cp build/dist/lib/tcs/tc_cache/1.0.0/tc_cache.jar ../project/ && cd ../project
