@@ -1,4 +1,10 @@
-version: 2
+version: 2.1
+
+parameters:
+  deploy:
+    type: boolean
+    default: false
+
 defaults: &defaults
     docker:
       - image: appiriodevops/openjdk7:buildv1
@@ -41,15 +47,15 @@ build_steps: &build_steps
     - checkout
     - run: *install_deploysuite
     - run: *install_dependentrepo
-    - run:
-        name: "AWS Configuration"
-        command: |
-          ./awsconfiguration.sh $BUILD_ENV
-          source awsenvconf
+    #- run:
+    #    name: "AWS Configuration"
+    #    command: |
+    #      ./awsconfiguration.sh $BUILD_ENV
+    #      source awsenvconf
     - run:
         name: Building application
         command: |
-          source awsenvconf
+          #source awsenvconf
           ant -f move.xml package-topcoder
           zip -r lib.zip lib
           zip -r resources.zip resources
@@ -66,7 +72,7 @@ build_steps: &build_steps
     - run:
         name: "Deployment tc-website app"
         command: |
-          source awsenvconf
+          #source awsenvconf
           echo $VER
           # cp -f buildvar-app.conf buildvar.conf
           ./deploy.sh $BUILD_ENV $VER
@@ -95,8 +101,9 @@ jobs:
     steps: *build_steps      
 
 workflows:
-  version: 2
+  #version: 2
   build:
+    when: <<pipeline.parameters.deploy>>
     jobs:
       - Hold [TC-Website-Build-Deploy]:
           type: approval
@@ -106,7 +113,7 @@ workflows:
             - Hold [TC-Website-Build-Deploy]       
           filters:
             branches:
-              only: [dev, reskin-payment, universal-nav]
+              only: [dev, reskin-payment, universal-nav, ]
       - build-prod:
           context : org-global   
           requires:
