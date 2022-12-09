@@ -1,14 +1,14 @@
 version: 2
 defaults: &defaults
     docker:
-      - image: appiriodevops/openjdk7:buildv1
+      - image: appiriodevops/ubuntu18-openjdk7:v1
 
 install_dependency: &install_dependency
     name: Installation of build dependencies.
     command: |
       sed -i '/jessie-updates/d' /etc/apt/sources.list
       apt update
-      apt install -y  openssl ant git zip jq 
+      apt install -y  openssl ant git zip jq curl unzip wget python
       mkdir ~/awscli
       cd  ~/awscli
       curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
