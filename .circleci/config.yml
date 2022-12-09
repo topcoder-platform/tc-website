@@ -50,9 +50,12 @@ build_steps: &build_steps
         name: Building application
         command: |
           source awsenvconf
+          export ANT_HOME=/usr/local/ant
+          export JAVA_HOME=/usr/src/java/jdk1.7.0_80
+          export PATH=$PATH:$JAVA_HOME/bin:${ANT_HOME}/bin
           #mv /usr/bin/ant /usr/bin/ant.bac
           #ln -s /usr/local/ant/bin/ant /usr/bin/ant
-          source ~/.bashrc
+          #source ~/.bashrc
           ant -f move.xml package-topcoder
           zip -r lib.zip lib
           zip -r resources.zip resources
