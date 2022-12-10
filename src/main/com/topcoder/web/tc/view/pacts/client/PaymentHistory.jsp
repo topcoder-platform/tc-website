@@ -97,7 +97,7 @@
 
         var imagePath = '<%=sessionInfo.getImagePath()%>';
 
-        var photoUrl = (imagePath && imagePath.length > 0) ? ('https://' + serverName + '/' + imagePath) : undefined;
+        var photoUrl = imagePath;//(imagePath && imagePath.length > 0) ? ('https://' + serverName + '/' + imagePath) : undefined;
 
         var userId = ${userId};
         var handle = '${userHandle}';
