@@ -96,8 +96,12 @@
         }(window,document,"script",scriptURL,"tcUniNav");
 
         var imagePath = '<%=sessionInfo.getImagePath()%>';
+        
+        if(imagePath=='nullnull'){
+            imagePath=undefined;
+        }
 
-        var photoUrl = imagePath;//(imagePath && imagePath.length > 0) ? ('https://' + serverName + '/' + imagePath) : undefined;
+        var photoUrl = imagePath;
 
         var userId = ${userId};
         var handle = '${userHandle}';
