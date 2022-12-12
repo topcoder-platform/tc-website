@@ -82,6 +82,16 @@
 </jsp:include>
     <div id="headerNav"></div>
     <script>
+        function parseJwt (token) {
+            var base64Url = token.split('.')[1];
+            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+
+         return JSON.parse(jsonPayload);
+        }
+
         var serverName = '<%=ApplicationServer.SERVER_NAME%>';
         var prodUrl = 'topcoder.com';
         var scriptURL = '//uni-nav.topcoder-dev.com/v1/tc-universal-nav.js';
@@ -95,13 +105,7 @@
         o=t.getElementsByTagName(e)[0];i.async=1;i.type="module";i.src=a;o.parentNode.insertBefore(i,o)
         }(window,document,"script",scriptURL,"tcUniNav");
 
-        var imagePath = '<%=sessionInfo.getImagePath()%>';
-        
-        if(imagePath=='nullnull'){
-            imagePath=undefined;
-        }
-
-        var photoUrl = imagePath;
+        var photoUrl = parseJwt($.cookie('tcjwt'))["picture"];;
 
         var userId = ${userId};
         var handle = '${userHandle}';
@@ -888,7 +892,7 @@
 </div><!-- // end .page -->
 </c:if>
 
-<div id="footerNav"></div>
+<div id="footerNav" class="footerNav"></div>
 
 <c:if test="${isReskin}">
 <div class="modal payment-confirm-modal" id="payment-confirm-modal-id">
