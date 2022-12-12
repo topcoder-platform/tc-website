@@ -56,7 +56,7 @@
         o=t.getElementsByTagName(e)[0];i.async=1;i.type="module";i.src=a;o.parentNode.insertBefore(i,o)
         }(window,document,"script",scriptURL,"tcUniNav");
 
-        var photoUrl = parseJwt($.cookie('tcjwt'))["picture"];;
+        var photoUrl = parseJwt($.cookie('tcjwt'))["picture"];
 
         var userId = ${userId};
         var handle = '${userHandle}';
