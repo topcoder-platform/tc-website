@@ -297,7 +297,7 @@
 </div><!-- // end .page -->
 </c:if>
 
-<div id="footerNav" class="footerNav"></div>
+<div id="footerNav"></div>
 
 </body>
 

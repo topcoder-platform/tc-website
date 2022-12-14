@@ -94,7 +94,7 @@
 
         var serverName = '<%=ApplicationServer.SERVER_NAME%>';
         var logoutURL = "https://" + serverName + "/logout";
-        
+
         var prodUrl = 'topcoder.com';
         var scriptURL = '//uni-nav.topcoder-dev.com/v1/tc-universal-nav.js';
 
@@ -894,7 +894,7 @@
 </div><!-- // end .page -->
 </c:if>
 
-<div id="footerNav" class="footerNav"></div>
+<div id="footerNav"></div>
 
 <c:if test="${isReskin}">
 <div class="modal payment-confirm-modal" id="payment-confirm-modal-id">
