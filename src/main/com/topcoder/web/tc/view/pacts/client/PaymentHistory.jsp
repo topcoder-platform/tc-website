@@ -93,8 +93,8 @@
         }
 
         var serverName = '<%=ApplicationServer.SERVER_NAME%>';
-        var auth0Server = '<%=bundle.getProperty("login_url", "");%>';
-        var logoutURL = auth0Server + "?logout=true&retUrl=https://" + serverName;
+        var auth0Server = '<%=Constants.DOMAIN_AUTH0%>';
+        var logoutURL = "https://" + auth0Server + "?logout=true&retUrl=https://" + serverName
         var prodUrl = 'topcoder.com';
         var scriptURL = '//uni-nav.topcoder-dev.com/v1/tc-universal-nav.js';
 
