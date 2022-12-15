@@ -175,7 +175,7 @@
                             </li>
                             <li class="submenu-item"><a href="https://<%=ApplicationServer.SERVER_NAME%>/community/data-science/" class="menu-link menu-link-learn-data">DATA SCIENCE</a>
                             </li>
-                            <li class="submenu-item"><a href="http://<%=ApplicationServer.SERVER_NAME%>/community/competitive%20programming/" class="menu-link menu-link-learn-competition">COMPETITIVE PROGRAMMING</a>
+                            <li class="submenu-item"><a href="http://<%=ApplicationServer.SERVER_NAME%>/community/competitive-programming/" class="menu-link menu-link-learn-competition">COMPETITIVE PROGRAMMING</a>
                             </li>
 
                         </ul>
