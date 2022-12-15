@@ -122,7 +122,7 @@
 
         tcUniNav('init', 'headerNav', {
             type: 'tool',
-            toolName: 'Topcoder Payments',
+            toolName: 'Payments',
             user,
             toolRoot: '/PactsMemberServlet?module=PaymentHistory&full_list=true',
             signOut() {
