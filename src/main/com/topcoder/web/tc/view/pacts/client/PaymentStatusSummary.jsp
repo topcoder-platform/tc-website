@@ -44,11 +44,11 @@
         }
 
         var serverName = '<%=ApplicationServer.SERVER_NAME%>';
-        var prodUrl = 'topcoder.com';
-        var scriptURL = '//uni-nav.topcoder-dev.com/v1/tc-universal-nav.js';
+        var devUrl = 'topcoder-dev.com';
+        var scriptURL = '//uni-nav.topcoder.com/v1/tc-universal-nav.js'
 
-        if (serverName === prodUrl) {
-            scriptURL = '//uni-nav.topcoder.com/v1/tc-universal-nav.js';
+        if (serverName === devUrl) {
+            scriptURL = '//uni-nav.topcoder-dev.com/v1/tc-universal-nav.js';
         }
 
         !function(n,t,e,a,c,i,o){n['TcUnivNavConfig']=c,n[c]=n[c]||function(){
