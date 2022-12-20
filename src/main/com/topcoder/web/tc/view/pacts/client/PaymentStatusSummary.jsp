@@ -42,8 +42,9 @@
 
          return JSON.parse(jsonPayload);
         }
-
         var serverName = '<%=ApplicationServer.SERVER_NAME%>';
+        var logoutURL = "https://" + serverName + "/logout";
+
         var devUrl = 'topcoder-dev.com';
         var scriptURL = '//uni-nav.topcoder.com/v1/tc-universal-nav.js'
 
@@ -75,7 +76,7 @@
             user,
             toolRoot: '/PactsMemberServlet?module=PaymentHistory&full_list=true',
             signOut() {
-                window.location.replace("http://" + serverName + "/tc?module=Logout");
+                window.location.replace(logoutURL);
             }
         });
 
