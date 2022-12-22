@@ -122,7 +122,6 @@ public class PayoneerService {
           + "/payees/registration-link";
       String body = "{\"payee_id\":\"" + payeeId + "\"}";
       JSONObject res = httpClient(requestUrl, "GET", parameters, body);
-      System.out.println(res);
       String link = new JSONObject(res.get("result").toString()).get("registration_link").toString();
       return link;
 
