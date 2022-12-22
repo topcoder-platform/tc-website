@@ -43,7 +43,7 @@ public class PayoneerService {
 
   private static PayoneerConfig config = null;
 
-  private static Logger log = Logger.getLogger(PayoneerService.class);
+  private static com.topcoder.server.util.logging.Logger log = Logger.getLogger(PayoneerService.class);
 
   /**
    * <p>
@@ -90,8 +90,7 @@ public class PayoneerService {
 
       if (value != null && value.trim().equalsIgnoreCase("Active")) {
         return PayeeStatus.ACTIVATED;
-      }
-      if (value != null && value.trim().equalsIgnoreCase("Pending")) {
+      } else if (value != null && value.trim().equalsIgnoreCase("Pending")) {
         return PayeeStatus.REGISTERED;
       }
       return PayeeStatus.NOT_REGISTERED;
@@ -234,79 +233,10 @@ public class PayoneerService {
 
   /**
    * <p>
-   * This is a private helper method that queries the Payoneer API with the
-   * specified parameters and returns the response.
+   * This is a private helper method to get the application token from the
+   * configuration.
    * </p>
    */
-  private static Document getXMLResponse(String baseApiUrl, Map<String, String> parameters) throws Exception {
-    HttpsURLConnection connection = null;
-
-    try {
-      SSLContext sc = SSLContext.getInstance("TLSv1.2");
-      sc.init(null, null, new java.security.SecureRandom());
-
-      StringBuilder builder = new StringBuilder();
-      for (String key : parameters.keySet()) {
-        if (builder.length() > 0) {
-          builder.append("&");
-        }
-        builder.append(key + "=" + parameters.get(key));
-      }
-      String urlParameters = builder.toString();
-
-      // Log the request string but hide the password (which is the 'p2' parameter
-      // value).
-      log.info("Payoneer request: " + urlParameters.replaceAll(parameters.get("p2"), "XXXXXXXX"));
-      log.info("Using TLSv1.2");
-
-      // Create connection
-      connection = (HttpsURLConnection) (new URL(baseApiUrl)).openConnection();
-      connection.setSSLSocketFactory(sc.getSocketFactory());
-      connection.setRequestMethod("POST");
-      connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-      connection.setRequestProperty("Content-Length", "" + Integer.toString(urlParameters.getBytes().length));
-      connection.setRequestProperty("Content-Language", "en-US");
-      connection.setUseCaches(false);
-      connection.setDoInput(true);
-      connection.setDoOutput(true);
-
-      // Send request
-      DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-      wr.writeBytes(urlParameters);
-      wr.flush();
-      wr.close();
-
-      // Get Response
-      Document response = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(connection.getInputStream());
-      response.getDocumentElement().normalize();
-      log.info("Payoneer response: " + xmlToString(response));
-      return response;
-    } finally {
-      if (connection != null) {
-        connection.disconnect();
-      }
-    }
-
-  }
-
-  /**
-   * <p>
-   * This is a private helper method that converts XML document to a String.
-   * </p>
-   */
-  public static String xmlToString(Node node) {
-    try {
-      Source source = new DOMSource(node);
-      StringWriter stringWriter = new StringWriter();
-      Result result = new StreamResult(stringWriter);
-      TransformerFactory.newInstance().newTransformer().transform(source, result);
-      return stringWriter.getBuffer().toString();
-    } catch (Throwable e) {
-      log.error("Unable to convert XML Document to String", e);
-    }
-    return null;
-  }
-
   private static JSONObject httpClient(String inputUrl, String method, Map<String, String> parameters, String body)
       throws Exception {
     try {
@@ -321,9 +251,10 @@ public class PayoneerService {
       }
       String token = getApplicationToken();
       conn.setRequestProperty("Authorization", "Bearer " + token);
-
-      if (body != "") {
-
+      log.info("URL: " + inputUrl);
+      log.info("Parameters" + parameters.toString());
+      if (!body.isEmpty()) {
+        log.info("Body: " + body);
         conn.setDoOutput(true);
         OutputStream os = conn.getOutputStream();
         OutputStreamWriter osw = new OutputStreamWriter(os, "UTF-8");
@@ -356,7 +287,12 @@ public class PayoneerService {
 
   private static String getApplicationToken() throws Exception {
     try {
-      PayoneerConfig payoneerConfig = getPayoneerConfig();
+      String token = checkToken();
+      return token;
+    } catch (Exception e) {
+    }
+    PayoneerConfig payoneerConfig = getPayoneerConfig();
+    try {
       URL url = new URL(payoneerConfig.loginUrl + "/api/v2/oauth2/token");
       HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
       String rawAuth = payoneerConfig.username + ":" + payoneerConfig.password;
@@ -382,13 +318,32 @@ public class PayoneerService {
       JSONObject obj = new JSONObject(result);
 
       conn.disconnect();
-
+      Calendar tokenExp = Calendar.getInstance();
+      // Set EXP to 10 minutes before actual expiration
+      tokenExp.add(Calendar.SECOND, (obj.getInt("expires_in") - (10 * 60)));
       String token = obj.get("access_token").toString();
+      payoneerConfig.applicationToken = token;
+      payoneerConfig.tokenExp = tokenExp;
+
       return token;
     } catch (Exception e) {
+      payoneerConfig.applicationToken = "";
       log.error("Bearer token error", e);
       throw e;
     }
+  }
+
+  private static String checkToken() throws Exception {
+    log.info("Checking token");
+    PayoneerConfig payoneerConfig = getPayoneerConfig();
+    Calendar now = Calendar.getInstance();
+    if (payoneerConfig.applicationToken.isEmpty()) {
+      throw new Exception("No token");
+    }
+    if (now.after(payoneerConfig.tokenExp)) {
+      throw new Exception("Expired token");
+    }
+    return payoneerConfig.applicationToken;
   }
 
   private static class PayoneerConfig {
@@ -398,5 +353,7 @@ public class PayoneerService {
     public String username = "";
     public String password = "";
     public String loginUrl = "";
+    public String applicationToken = "";
+    public Calendar tokenExp = Calendar.getInstance();
   }
 }
