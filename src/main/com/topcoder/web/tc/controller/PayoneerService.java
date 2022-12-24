@@ -85,6 +85,11 @@ public class PayoneerService {
 
       JSONObject result = httpClient(requestUrl, "GET", parameters, "");
 
+      if (result.getInt("statusCode") != 200) {
+        throw new PayoneerServiceException("Error occurred while getting the payee status",
+            result.toString());
+      }
+
       String value = new JSONObject(new JSONObject(result.get("result").toString())
           .get("status").toString()).get("description").toString();
 
@@ -121,6 +126,10 @@ public class PayoneerService {
           + "/payees/registration-link";
       String body = "{\"payee_id\":\"" + payeeId + "\"}";
       JSONObject res = httpClient(requestUrl, "GET", parameters, body);
+      if (res.getInt("statusCode") != 200) {
+        throw new PayoneerServiceException("Error occurred while getting the Payoneer registration link",
+            res.toString());
+      }
       String link = new JSONObject(res.get("result").toString()).get("registration_link").toString();
       return link;
 
@@ -163,10 +172,16 @@ public class PayoneerService {
           + df.format(amount) + "\"}]}";
 
       JSONObject res = httpClient(requestUrl, "POST", parameters, body);
+      if (res.getInt("statusCode") != 200) {
+        throw new PayoneerServiceException("Unable to create payment in Payoneer", res.toString());
+      }
       if (res.get("result").toString().trim().equalsIgnoreCase("Payments Created")) {
         String url = payoneerConfig.baseApiUrl + "/programs/" + payoneerConfig.partnerId + "/payouts/"
             + internalPaymentId + "/status";
         JSONObject payStatus = httpClient(url, "GET", parameters, "");
+        if (payStatus.getInt("statusCode") != 200) {
+          throw new PayoneerServiceException("Unable to create payment in Payoneer", payStatus.toString());
+        }
         long id = new JSONObject(payStatus.get("result").toString()).getLong("payout_id");
         return id;
       }
@@ -197,6 +212,10 @@ public class PayoneerService {
       String requestUrl = payoneerConfig.baseApiUrl + "/programs/" + payoneerConfig.partnerId + "/balance";
       Map<String, String> parameters = new HashMap<String, String>();
       JSONObject result = httpClient(requestUrl, "GET", parameters, "");
+      if (result.getInt("statusCode") != 200) {
+        throw new PayoneerServiceException("Unable to get the balance amount from the Payoneer's response",
+            result.toString());
+      }
       double value = new JSONObject(result.get("result").toString()).getDouble("balance");
       return value;
     } catch (PayoneerServiceException e) {
@@ -264,7 +283,10 @@ public class PayoneerService {
         os.close(); // don't forget to close the OutputStream
       }
 
-      BufferedReader buf = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+      final int statusCode = conn.getResponseCode();
+
+      BufferedReader buf = new BufferedReader(
+          new InputStreamReader(statusCode == 200 ? conn.getInputStream() : conn.getErrorStream()));
 
       String output;
       String result = "";
@@ -274,8 +296,9 @@ public class PayoneerService {
       }
 
       JSONObject obj = new JSONObject(result);
-
+      obj.put("responseStatus", Integer.toString(statusCode));
       conn.disconnect();
+
       return obj;
     } catch (Exception e) {
       log.error("Http Client Error error", e);
