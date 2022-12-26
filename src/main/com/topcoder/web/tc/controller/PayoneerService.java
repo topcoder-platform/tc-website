@@ -36,7 +36,6 @@ public class PayoneerService {
 
     private static final String DEFAULT_PAYONEER_NAMESPACE = "com.topcoder.web.tc.controller.PayoneerService";
 
-    private static PayoneerConfig config = null;
     private static Logger log = Logger.getLogger(PayoneerService.class);
 
     /**
@@ -53,7 +52,7 @@ public class PayoneerService {
     private static final String DEFAULT_ENCODING = System.getProperty("file.encoding");
     private static final long EXPIRY_CHECK_DELTA = 3600 * 1000;
 
-
+    private static PayoneerConfig config = null;
     private static String authTokenHeader = null;
     private static Date expiresAt = null;
 
@@ -268,7 +267,7 @@ public class PayoneerService {
         config.programId = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "program_id");
         config.username = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "username");
         config.password = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "password");
-        config.loginUrl = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "loginUrl");
+        config.loginUrl = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "login_url");
         }
     }
     return config;
