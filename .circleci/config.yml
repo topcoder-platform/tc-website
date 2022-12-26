@@ -106,7 +106,7 @@ workflows:
             - Hold [TC-Website-Build-Deploy]       
           filters:
             branches:
-              only: [dev, reskin-payment]
+              only: [dev, reskin-payment, feature/PLAT-1014]
       - build-prod:
           context : org-global   
           requires:
