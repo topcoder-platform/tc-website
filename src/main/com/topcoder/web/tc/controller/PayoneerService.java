@@ -83,7 +83,7 @@ public class PayoneerService {
         try {
             HttpsRequest.RequestResponse httpResponse = HttpsRequest.send(HttpsRequest.RequestType.GET, requestUrl, headers, null, false);
 
-            if (httpResponse.HttpsRequest == HttpsRequest.HTTP_NOT_FOUND) {
+            if (httpResponse.httpStatusCode == HttpsRequest.HTTP_NOT_FOUND) {
                 return PayeeStatus.NOT_REGISTERED;
             }
 
