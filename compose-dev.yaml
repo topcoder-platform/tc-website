@@ -4,6 +4,7 @@ services:
     - sleep
     - infinity
     image: appiriodevops/openjdk7:buildv1
+    platform: linux/amd64
     init: true
     volumes:
     - type: bind
