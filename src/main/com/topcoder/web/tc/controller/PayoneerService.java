@@ -83,6 +83,10 @@ public class PayoneerService {
         try {
             HttpsRequest.RequestResponse httpResponse = HttpsRequest.send(HttpsRequest.RequestType.GET, requestUrl, headers, null, false);
 
+            if (httpResponse.HttpsRequest == HttpsRequest.HTTP_NOT_FOUND) {
+                return PayeeStatus.NOT_REGISTERED;
+            }
+
             if (httpResponse.httpStatusCode != HttpsRequest.HTTP_OK) {
                 throw new PayoneerServiceException(httpResponse.response.toString());
             }
@@ -291,6 +295,7 @@ public class PayoneerService {
         private static final String HEADER_ACCEPT = "Accept";
 
         public static final int HTTP_OK = HttpsURLConnection.HTTP_OK;
+        public static final int HTTP_NOT_FOUND = HttpsURLConnection.HTTP_NOT_FOUND;
 
         public static RequestResponse send(final RequestType reqType, final String urlString, final Map<String, String> headers, final Map<String, String> requestParams, final boolean isBodyTypeJSON) throws Exception {
             log.info(reqType.toString() + ": " + urlString);
