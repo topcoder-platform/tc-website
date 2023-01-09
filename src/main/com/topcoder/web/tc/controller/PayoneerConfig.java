@@ -29,7 +29,7 @@ public enum PayoneerConfig {
     private String password = "";
     private String loginUrl = "";
     private boolean v4Enabled = false;
-    private List v4Users = null;
+    private List<String> v4Users = null;
     private PayoneerConfig(String baseApiUrl, String partnerId, String programId, String username, String password, String loginUrl, boolean v4Enabled, List v4Users){
         this.baseApiUrl=baseApiUrl;
         this.partnerId=partnerId;
@@ -69,7 +69,7 @@ public enum PayoneerConfig {
         return v4Enabled;
     }
 
-    public List getV4Users() {
+    public List<String> getV4Users() {
         return v4Users;
     }
     private static Logger log = Logger.getLogger(PayoneerConfig.class);
