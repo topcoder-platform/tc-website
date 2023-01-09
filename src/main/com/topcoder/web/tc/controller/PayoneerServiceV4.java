@@ -225,7 +225,7 @@ public class PayoneerServiceV4 {
             final String authUrl = config.getLoginUrl() + "/api/v2/oauth2/token";
 
             final HashMap<String, String> headers = new HashMap();
-            headers.put(HttpsRequest.HEADER_AUTHORIZATION, "Basic " + new String(Base64.encodeBase64((config.getUsername() + ":" + config.getPassword()).getBytes())));
+            headers.put(HttpsRequest.HEADER_AUTHORIZATION, "Basic " + new String(Base64.encodeBase64((config.getClientId() + ":" + config.getClientSecret()).getBytes())));
 
             final HashMap<String, String> params = new HashMap();
             params.put("grant_type", "client_credentials");
