@@ -7,7 +7,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 public enum PayoneerConfig {
     INSTANCE(
@@ -18,7 +17,7 @@ public enum PayoneerConfig {
             PayoneerConfig.getString("v4_client_secret"),
             PayoneerConfig.getString("v4_login_url"),
             Boolean.valueOf(PayoneerConfig.getString("enable_v4")),
-            Arrays.asList(Optional.ofNullable(StringUtils.split(PayoneerConfig.getString("v4_users"), ',')).orElse(new String[0]))
+            Arrays.asList(StringUtils.split(PayoneerConfig.getString("v4_users"), ',')!=null? StringUtils.split(PayoneerConfig.getString("v4_users"), ',') :new String[0])
     );
 
 
