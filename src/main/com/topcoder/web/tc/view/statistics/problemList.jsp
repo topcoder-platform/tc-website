@@ -18,6 +18,11 @@
 <% ResultSetContainer levels = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("levels"); %>
 <% ResultSetContainer categories = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("categories"); %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
+<c:set var="userHandle" value="<%= sessionInfo.getHandle() %>"/>
+<c:set var="userId" value="<%= sessionInfo.getUserId() %>"/>
+<c:set var="userImagePath" value="<%= sessionInfo.getImagePath() %>"/>
+<c:set var="userInitials" value="<%= sessionInfo.getHandle() %>"/>
+
 <script language="JavaScript"><!--
 function next() {
     document.problemListForm.<%=DataAccessConstants.START_RANK%>.value =<%=rsc.getStartRow()+Constants.PROBLEM_ARCHIVE_SCROLL_SIZE%>;
@@ -108,11 +113,52 @@ function submitEnter(e) {
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
+    <div id="headerNav"></div>
+    <script>
+        var currEnv = '<%=ApplicationServer.ENVIRONMENT%>';
+        var prodEnv = '<%=ApplicationServer.PROD%>'
+        var scriptURL = '//uni-nav.topcoder-dev.com/v1/tc-universal-nav.js';
+
+        if (currEnv === prodEnv) {
+            scriptURL = '//uni-nav.topcoder.com/v1/tc-universal-nav-1.js';
+        }
+
+        !function(n,t,e,a,c,i,o){n['TcUnivNavConfig']=c,n[c]=n[c]||function(){
+        (n[c].q=n[c].q??[]).push(arguments)},n[c].l=1*new Date();i=t.createElement(e),
+        o=t.getElementsByTagName(e)[0];i.async=1;i.type="module";i.src=a;o.parentNode.insertBefore(i,o)
+        }(window,document,"script",scriptURL,"tcUniNav");
+
+        var photoUrl = 'https://<%=ApplicationServer.SERVER_NAME%>' + '${userImagePath}';
+        var userId = ${userId};
+        var handle = '${userHandle}';
+        var initials = handle ? handle.substr(0, 2).toUpperCase() : '';
+
+        var user = {
+            photoUrl,
+            userId,
+            initials,
+            handle
+        };
+
+        tcUniNav('init', 'headerNav', {
+            type: 'tool',
+            toolName: 'Topcoder Payments',
+            user,
+            signOut() {
+                window.location.replace("http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout")
+            }
+        });
+
+        tcUniNav('init', 'footerNav', {
+            type: 'footer',
+        })
+
+    </script>
 
 </HEAD>
 
 <BODY>
-<jsp:include page="../top.jsp"/>
+
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
 <TR>
 <TD WIDTH="180" VALIGN="top">
@@ -439,7 +485,7 @@ function submitEnter(e) {
 <!-- Gutter Ends -->
 </TR>
 </TABLE>
-<jsp:include page="../foot.jsp"/>
+<div id="footerNav"></div>
 </BODY>
 </HTML>
 
