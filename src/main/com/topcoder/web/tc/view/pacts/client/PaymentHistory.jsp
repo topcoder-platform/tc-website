@@ -95,7 +95,7 @@
         var serverName = '<%=ApplicationServer.SERVER_NAME%>';
         var logoutURL = "https://" + serverName + "/logout";
 
-        var devUrl = 'topcoder-dev.com';
+        var devUrl = 'www.topcoder-dev.com';
         var scriptURL = '//uni-nav.topcoder.com/v1/tc-universal-nav.js'
 
         if (serverName === devUrl) {
