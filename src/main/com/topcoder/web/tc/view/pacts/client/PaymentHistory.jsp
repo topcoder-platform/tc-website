@@ -38,9 +38,6 @@
 <c:set var="cr" value="<%= request.getAttribute(PaymentHistory.CODER) %>"/>
 <c:set var="paymentConfirmationTemplate" value="<%= request.getAttribute(PaymentHistory.PAYMENT_CONFIRMATION_TEMPLATE) %>"/>
 <c:set var="userPaymentMethod" value="<%= request.getAttribute(PaymentHistory.USER_PAYMENT_METHOD) %>"/>
-<c:set var="userHandle" value="<%= sessionInfo.getHandle() %>"/>
-<c:set var="userId" value="<%= sessionInfo.getUserId() %>"/>
-<c:set var="userInitials" value="<%= sessionInfo.getHandle() %>"/>
 
 <c:set value="<%=PaymentHistory.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=PaymentHistory.PAYMENT_ID%>" var="PAYMENT_ID"/>
@@ -107,23 +104,10 @@
         o=t.getElementsByTagName(e)[0];i.async=1;i.type="module";i.src=a;o.parentNode.insertBefore(i,o)
         }(window,document,"script",scriptURL,"tcUniNav");
 
-        var photoUrl = parseJwt($.cookie('tcjwt'))["picture"];
-
-        var userId = ${userId};
-        var handle = '${userHandle}';
-        var initials = handle ? handle.substr(0, 2).toUpperCase() : '';
-
-        var user = {
-            photoUrl,
-            userId,
-            initials,
-            handle
-        };
-
         tcUniNav('init', 'headerNav', {
             type: 'tool',
             toolName: 'Payments',
-            user,
+            user: 'auto',
             toolRoot: '/PactsMemberServlet?module=PaymentHistory&full_list=true',
             signOut() {
                 window.location.replace(logoutURL);
