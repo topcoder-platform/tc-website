@@ -48,7 +48,7 @@ public class PayoneerServiceV4 {
     private static final String DEFAULT_ENCODING = System.getProperty("file.encoding");
     private static final long EXPIRY_CHECK_DELTA = 3600 * 1000;
 
-    private static PayoneerConfig config = PayoneerConfig.INSTANCE;
+    private static PayoneerV4Config config = PayoneerV4Config.INSTANCE;
     private static String authTokenHeader = null;
     private static Date expiresAt = null;
 

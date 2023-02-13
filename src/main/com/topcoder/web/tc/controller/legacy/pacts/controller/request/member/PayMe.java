@@ -213,6 +213,7 @@ public class PayMe extends PaymentHistory {
                     internalPaymentId = payment.getId();
                 }
                 if (isPayoneerVersionV4Enabled(currentUserId)) {
+                    log.info("Payoneer V4 api enabled for user: "+currentUserId);
                     PayoneerServiceV4.createPayment(internalPaymentId, currentUserId, totalNetAmount);
                 } else {
                     PayoneerService.createPayment(internalPaymentId, currentUserId, totalNetAmount);
@@ -279,8 +280,8 @@ public class PayMe extends PaymentHistory {
     }
 
     private static boolean isPayoneerVersionV4Enabled(Long userId) throws UnknownNamespaceException {
-        if (PayoneerConfig.INSTANCE.isV4Enabled()) {
-            return PayoneerConfig.INSTANCE.getV4Users().contains(String.valueOf(userId));
+        if (PayoneerV4Config.INSTANCE.isV4Enabled()) {
+            return PayoneerV4Config.INSTANCE.getV4Users().contains(String.valueOf(userId));
         }
         return false;
     }

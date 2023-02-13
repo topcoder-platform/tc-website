@@ -8,16 +8,16 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Arrays;
 import java.util.List;
 
-public enum PayoneerConfig {
+public enum PayoneerV4Config {
     INSTANCE(
-            PayoneerConfig.getString("v4_base_api_url"),
-            PayoneerConfig.getString("v4_partner_id"),
-            PayoneerConfig.getString("v4_program_id"),
-            PayoneerConfig.getString("v4_client_id"),
-            PayoneerConfig.getString("v4_client_secret"),
-            PayoneerConfig.getString("v4_login_url"),
-            Boolean.valueOf(PayoneerConfig.getString("enable_v4")),
-            Arrays.asList(StringUtils.split(PayoneerConfig.getString("v4_users"), ',')!=null? StringUtils.split(PayoneerConfig.getString("v4_users"), ',') :new String[0])
+            PayoneerV4Config.getString("v4_base_api_url"),
+            PayoneerV4Config.getString("v4_partner_id"),
+            PayoneerV4Config.getString("v4_program_id"),
+            PayoneerV4Config.getString("v4_client_id"),
+            PayoneerV4Config.getString("v4_client_secret"),
+            PayoneerV4Config.getString("v4_login_url"),
+            Boolean.valueOf(PayoneerV4Config.getString("enable_v4")),
+            Arrays.asList(StringUtils.split(PayoneerV4Config.getString("v4_users"), ',')!=null? StringUtils.split(PayoneerV4Config.getString("v4_users"), ',') :new String[0])
     );
 
 
@@ -31,7 +31,7 @@ public enum PayoneerConfig {
     private boolean v4Enabled = false;
     private List<String> v4Users = null;
 
-    private PayoneerConfig(String baseApiUrl, String partnerId, String programId, String clientId, String clientSecret, String loginUrl, boolean v4Enabled, List v4Users) {
+    private PayoneerV4Config(String baseApiUrl, String partnerId, String programId, String clientId, String clientSecret, String loginUrl, boolean v4Enabled, List v4Users) {
         this.baseApiUrl = baseApiUrl;
         this.partnerId = partnerId;
         this.programId = programId;
@@ -75,7 +75,7 @@ public enum PayoneerConfig {
         return v4Users;
     }
 
-    private static Logger log = Logger.getLogger(PayoneerConfig.class);
+    private static Logger log = Logger.getLogger(PayoneerV4Config.class);
 
     private static String getString(String key) {
 

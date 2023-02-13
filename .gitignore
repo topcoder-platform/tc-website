@@ -5,3 +5,6 @@ tc-website.iml
 src/tc-website1.iml
 scripts/scripts.iml
 lib/lib.iml
+*${env.JBOSS_HOME}/*
+build/*
+lib/*
