@@ -5,6 +5,7 @@ import java.io.StringWriter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.*;
 
 import javax.naming.InitialContext;
@@ -237,11 +238,11 @@ public class PayORProjects extends DBUtility {
 
                             // If this is the winner's payment for a SW contest, split the payment in two installments
                             if (payment.place == 1 && projectTypeId != 3) {
-                                pactsPayment.setGrossAmount(amount * FIRST_INSTALLMENT_PERCENT);
+                                pactsPayment.setGrossAmount(Double.parseDouble(new DecimalFormat("0.00").format(amount * FIRST_INSTALLMENT_PERCENT)));
 
                                 // Create the 2nd installment
                                 pactsPayment2 = new ContestPayment(payment.userId, amount, projectId, payment.place);
-                                pactsPayment2.setGrossAmount(amount - (amount * FIRST_INSTALLMENT_PERCENT));
+                                pactsPayment2.setGrossAmount(amount - pactsPayment.getGrossAmount());
                                 pactsPayment2.setInstallmentNumber(2);
 
                                 // Calculate the due date for the 2nd installment.
