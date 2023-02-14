@@ -95,7 +95,7 @@ public class PayORProjects extends DBUtility {
     private static final String SQL_UPDATE_PROJECT_PAYMENT =
             "UPDATE project_payment SET pacts_payment_id = ?, modify_user = ?, modify_date = current WHERE project_payment_id = ?";
 
-    private static final double FIRST_INSTALLMENT_PERCENT = 0.75;
+    private static final int FIRST_INSTALLMENT_PERCENT = 75;
     private static final int SECOND_INSTALLMENT_HOLD_PERIOD = 30;
     private static final int MARATHON_MATCH_PROJECT_CATEGORY_ID = 37;
 
@@ -238,7 +238,10 @@ public class PayORProjects extends DBUtility {
 
                             // If this is the winner's payment for a SW contest, split the payment in two installments
                             if (payment.place == 1 && projectTypeId != 3) {
-                                pactsPayment.setGrossAmount(Double.parseDouble(new DecimalFormat("0.00").format(amount * FIRST_INSTALLMENT_PERCENT)));
+                                long amountInCents = (long) (amount * 100);
+                                long installment_1st_cents = (amountInCents * FIRST_INSTALLMENT_PERCENT)/100;
+                                double installment_1st = (double) (installment_1st_cents/100d);
+                                pactsPayment.setGrossAmount(installment_1st);
 
                                 // Create the 2nd installment
                                 pactsPayment2 = new ContestPayment(payment.userId, amount, projectId, payment.place);
