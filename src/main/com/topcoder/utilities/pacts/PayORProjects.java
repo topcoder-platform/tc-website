@@ -261,7 +261,7 @@ public class PayORProjects extends DBUtility {
 
                                 // Create the 2nd installment
                                 pactsPayment2 = new ContestPayment(payment.userId, amount, projectId, payment.place);
-                                pactsPayment2.setGrossAmount(amount - pactsPayment.getGrossAmount());
+                                pactsPayment2.setGrossAmount(roundOff(amount - pactsPayment.getGrossAmount(), 2));
                                 pactsPayment2.setInstallmentNumber(2);
 
                                 // Calculate the due date for the 2nd installment.
