@@ -6,28 +6,30 @@ package com.topcoder.web.tc.controller;
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
 import com.topcoder.shared.util.logging.Logger;
-import org.apache.commons.codec.binary.Base64;
-import java.nio.charset.StandardCharsets;
-import net.sf.json.JSONObject;
-import net.sf.json.JSONSerializer;
-import org.apache.commons.io.IOUtils;
-import javax.net.ssl.HttpsURLConnection;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.*;
+
+import javax.xml.transform.*;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import java.io.*;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
-
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
 
 /**
- * <p>
- * This class provides convenient static methods for calling the Payoneer API.
- * </p>
+ * <p>This class provides convenient static methods for calling the Payoneer API.</p>
  *
  * @author VolodymyrK
  * @version 1.0
@@ -36,245 +38,331 @@ public class PayoneerService {
 
     private static final String DEFAULT_PAYONEER_NAMESPACE = "com.topcoder.web.tc.controller.PayoneerService";
 
+    private static PayoneerConfig config = null;
+
     private static Logger log = Logger.getLogger(PayoneerService.class);
 
     /**
-    * <p>
-    * Constructs new <code>PayoneerService</code> instance. This implementation
-    * does nothing.
-    * </p>
-    */
+     * <p>Constructs new <code>PayoneerService</code> instance. This implementation does nothing.</p>
+     */
     private PayoneerService() {
     }
 
-    private static final String PAYOUT_DESCRIPTION = "Topcoder Payment";
-    private static final String PAYOUT_CURRENCY = "USD";
-    private static final String DEFAULT_ENCODING = System.getProperty("file.encoding");
-    private static final long EXPIRY_CHECK_DELTA = 3600 * 1000;
-
-    private static PayoneerConfig config = null;
-    private static String authTokenHeader = null;
-    private static Date expiresAt = null;
-
     /**
-     * <p>
-     * Represents all possible statuses a member can have with respect to
-     * registering with Payoneer.
-     * </p>
+     * <p>Represents all possible statuses a member can have with respect to registering with Payoneer.</p>
      */
-    public enum PayeeStatus {ACTIVATED, REGISTERED, NOT_REGISTERED}
+    public static enum PayeeStatus {
+        ACTIVATED, REGISTERED, NOT_REGISTERED
+    }
 
     /**
-     * <p>
-     * Returns status of the specified member in the Payoneer system.
-     * </p>
+     * <p>Returns status of the specified member in the Payoneer system.</p>
      *
      * @param payeeId Payee ID.
-     * @return ACTIVATED for activated status, REGISTERED if the payee has
-     *         registered but hasn't activated yet and NOT_REGISTERED otherwise.
+     * @return ACTIVATED for activated status, REGISTERED if the payee has registered but hasn't activated yet and NOT_REGISTERED otherwise.
      * @throws PayoneerServiceException if any error occurs.
      */
     public static PayeeStatus getPayeeStatus(long payeeId) throws PayoneerServiceException {
-        log.info("Get Payee Status: " + payeeId);
-
-        final Map<String, String> headers = getAuthHeader();
-        final String requestUrl = config.baseApiUrl + "/programs/" + config.partnerId + "/payees/" + payeeId + "/status";
-
+        log.info("Getting payee status for user ID " + payeeId);
         try {
-            HttpsRequest.RequestResponse httpResponse = HttpsRequest.send(HttpsRequest.RequestType.GET, requestUrl, headers, null, false);
+            PayoneerConfig payoneerConfig = getPayoneerConfig();
+            Map<String, String> parameters = new HashMap<String, String>();
+            parameters.put("mname", "GetPayeeDetails");
+            parameters.put("p1", payoneerConfig.username);
+            parameters.put("p2", payoneerConfig.password);
+            parameters.put("p3", payoneerConfig.partnerId);
+            parameters.put("p4", "" + payeeId);
 
-            if (httpResponse.httpStatusCode == HttpsRequest.HTTP_NOT_FOUND) {
+            Document response = getXMLResponse(payoneerConfig.baseApiUrl, parameters);
+
+            // Code "002" means the payee is unknown to Payoneer and thus is not registered.
+            NodeList codeNode = response.getElementsByTagName("Code");
+            String code = codeNode.getLength() > 0 ? codeNode.item(0).getFirstChild().getNodeValue().trim() : null;
+            if ("002".equals(code)) {
                 return PayeeStatus.NOT_REGISTERED;
             }
 
-            if (httpResponse.httpStatusCode != HttpsRequest.HTTP_OK) {
-                throw new PayoneerServiceException(httpResponse.response.toString());
-            }
-
-            if (httpResponse.response.has("result")) {
-                JSONObject result = httpResponse.response.getJSONObject("result");
-
-                if (!result.has("status")) throw new PayoneerServiceException("Unexpected response encountered while parsing response from Payoneer.");
-
-                JSONObject status = result.getJSONObject("status");
-                final int type = status.getInt("type");
-
-                switch (type) {
-                    case 1: return PayeeStatus.ACTIVATED;
-                    case 0: return PayeeStatus.REGISTERED;
-                    default: return PayeeStatus.NOT_REGISTERED;
+            // If there's a PayOutMethod node check its value. If the value is "Direct deposit"
+            // the member is assumed to be approved by Payoneer.
+            NodeList payOutMethod = response.getElementsByTagName("PayOutMethod");
+            if (payOutMethod.getLength() > 0) {
+                String value = payOutMethod.item(0).getFirstChild().getNodeValue();
+                if (value != null && value.trim().equalsIgnoreCase("Direct deposit")) {
+                    return PayeeStatus.ACTIVATED;
                 }
-            } else throw new PayoneerServiceException("Unexpected response encountered while parsing response from Payoneer.");
-        } catch (Exception e) {
-            log.error("Failed to get payee status for payeeId: " + payeeId);
-            e.printStackTrace();
-            throw new PayoneerServiceException("Unable to get Payee Status for payee " + payeeId, e);
-        }
-    }
-
-    /**
-     * <p>
-     * Returns the balance on the TopCoder's Payoneer account.
-     * </p>
-     *
-     * @return The balance amount.
-     * @throws PayoneerServiceException if any error occurs.
-     */
-    public static double getBalanceAmount() throws PayoneerServiceException {
-        log.info("Getting balance amount");
-
-        final Map<String, String> headers = getAuthHeader();
-        final String requestUrl = config.baseApiUrl + "/programs/" + config.partnerId + "/balance";
-
-        try {
-            HttpsRequest.RequestResponse httpResponse = HttpsRequest.send(HttpsRequest.RequestType.GET, requestUrl, headers, null, false);
-
-            if (httpResponse.httpStatusCode != HttpsRequest.HTTP_OK) {
-                throw new PayoneerServiceException(httpResponse.response.toString());
             }
 
-            if (httpResponse.response.has("result")) {
-                JSONObject result = httpResponse.response.getJSONObject("result");
+            // If there's a CardStatus node it means the user applied for the prepaid card option.
+            // In this case check the value.
+            NodeList cardStatus = response.getElementsByTagName("CardStatus");
+            if (cardStatus.getLength() > 0) {
+                String value = cardStatus.item(0).getFirstChild().getNodeValue();
+                if (value != null && value.trim().equalsIgnoreCase("Active")) {
+                    return PayeeStatus.ACTIVATED;
+                }
+            }
 
-                if (!result.has("balance")) throw new PayoneerServiceException("Unexpected response encountered while parsing response from Payoneer.");
-                return result.getDouble("balance");
-            } else throw new PayoneerServiceException("Unexpected response encountered while parsing response from Payoneer.");
+            // If there's a PayeeStatus node it means the user applied for the iACH option.
+            // In this case check the value.
+            NodeList payeeStatus = response.getElementsByTagName("PayeeStatus");
+            if (payeeStatus.getLength() > 0) {
+                String value = payeeStatus.item(0).getFirstChild().getNodeValue();
+                if (value != null && value.trim().equalsIgnoreCase("Active")) {
+                    return PayeeStatus.ACTIVATED;
+                }
+            }
+
+            // If we get to this point and there's still a "Payee" node it means the member is registered but not activated yet.
+            NodeList payee = response.getElementsByTagName("Payee");
+            if (payee.getLength() > 0) {
+                return PayeeStatus.REGISTERED;
+            } else {
+                throw new PayoneerServiceException("Unable to get the payee status from the Payoneer's response");
+            }
+
+        } catch (PayoneerServiceException e) {
+            throw e;
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new PayoneerServiceException("Unable to query balance.", e);
+            throw new PayoneerServiceException("Error occurred while getting the payee status", e);
         }
     }
 
     /**
-     * <p>
-     * Creates payment of the specified amount for the specified payee in Payoneer.
-     * </p>
-     *
-     * @param internalPaymentId The ID that this payment will be associated with in
-     *                          the Payoneer system. Should be unique.
-     * @param payeeId           Payoneer payee ID. Corresponds to the TopCoder user
-     *                          ID.
-     * @param amount            The amount to be paid.
-     * @return Payment ID in the Payoneer system.
-     * @throws PayoneerServiceException if any error occurs.
-     */
-    public static long createPayment(long internalPaymentId, long payeeId, double amount) throws PayoneerServiceException {
-        log.info("Create payment. internalPaymentId = " + internalPaymentId + "; payeeId: " + payeeId + "; amount: " + amount);
-        final Map<String, String> headers = getAuthHeader();
-        final String requestUrl = config.baseApiUrl + "/programs/" + config.partnerId + "/masspayouts";
-
-        final Map<String, String> payment = new HashMap();
-        payment.put("client_reference_id", String.valueOf(internalPaymentId));
-        payment.put("payee_id", String.valueOf(payeeId));
-        payment.put("description", PAYOUT_DESCRIPTION);
-        payment.put("currency", PAYOUT_CURRENCY);
-        payment.put("amount", String.valueOf(new DecimalFormat("0.00", new DecimalFormatSymbols(Locale.US)).format(amount)));
-
-        JSONObject paymentObj = new JSONObject();
-        paymentObj.accumulateAll(payment);
-
-        final Map<String, String> requestParams = new HashMap();
-        requestParams.put("program_id", config.programId);
-        requestParams.put("Payments", "[" + paymentObj + "]");
-
-        try {
-            HttpsRequest.RequestResponse createPaymentResponse = HttpsRequest.send(HttpsRequest.RequestType.POST, requestUrl, headers, requestParams, true);
-            if (createPaymentResponse.httpStatusCode != HttpsRequest.HTTP_OK) {
-                log.info("Unable to create payment for payment id " + internalPaymentId);
-                throw new PayoneerServiceException(createPaymentResponse.response.toString());
-            } else return internalPaymentId; // client_reference_id can be used to query payment status
-        } catch (Exception e) {
-            log.error("Failed to create payment. internalPaymentId = " + internalPaymentId + "; payeeId: " + payeeId);
-            e.printStackTrace();
-            throw new PayoneerServiceException("Failed to create payment.");
-        }
-    }
-
-    /**
-     * <p>
-     * Returns the link for the specified member to register with Payoneer.
-     * </p>
+     * <p>Returns the link for the specified member to register with Payoneer.</p>
      *
      * @param payeeId Payee ID.
      * @return The registration URL.
      * @throws PayoneerServiceException if any error occurs.
      */
     public static String getRegistrationLink(long payeeId) throws PayoneerServiceException {
-        throw new PayoneerServiceException("Self registration is not supported at the moment.");
-    }
-
-    private static Map<String, String> getAuthHeader() throws PayoneerServiceException {
+        log.info("Getting registration link for user ID " + payeeId);
         try {
-            loadConfig();
-            refreshAuthTokenIfRequired();
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new PayoneerServiceException("Unable to refresh authentication token", e);
-        }
+            PayoneerConfig payoneerConfig = getPayoneerConfig();
+            Map<String, String> parameters = new HashMap<String, String>();
+            parameters.put("mname", "GetToken");
+            parameters.put("p1", payoneerConfig.username);
+            parameters.put("p2", payoneerConfig.password);
+            parameters.put("p3", payoneerConfig.partnerId);
+            parameters.put("p4", "" + payeeId);
+            parameters.put("p10", "True"); // Creates a XML response with the token URL.
 
-        final Map<String, String> headers = new HashMap();
-        headers.put(HttpsRequest.HEADER_AUTHORIZATION, authTokenHeader);
+            Document response = getXMLResponse(payoneerConfig.baseApiUrl, parameters);
 
-        return headers;
-    }
-
-    private static void refreshAuthTokenIfRequired() throws Exception {
-        if (authTokenHeader == null || (expiresAt != null && expiresAt.before(new Date(System.currentTimeMillis() - EXPIRY_CHECK_DELTA)))) {
-            final String authUrl = config.loginUrl + "/api/v2/oauth2/token";
-
-            final HashMap<String, String> headers = new HashMap();
-            headers.put(HttpsRequest.HEADER_AUTHORIZATION, "Basic " + new String(Base64.encodeBase64((config.username + ":" + config.password).getBytes())));
-
-            final HashMap<String, String> params = new HashMap();
-            params.put("grant_type", "client_credentials");
-            params.put("scope", "read write");
-
-            HttpsRequest.RequestResponse httpResponse = HttpsRequest.send(HttpsRequest.RequestType.POST, authUrl, headers, params, false);
-
-            if (httpResponse.httpStatusCode != HttpsRequest.HTTP_OK) {
-                throw new Exception("Failed to refresh token.");
+            // Code node means something went wrong.
+            NodeList codeNode = response.getElementsByTagName("Code");
+            if (codeNode.getLength() > 0) {
+                NodeList descriptionNode = response.getElementsByTagName("Description");
+                String description = descriptionNode.getLength() > 0 ?
+                        descriptionNode.item(0).getFirstChild().getNodeValue().trim() : "";
+                throw new PayoneerServiceException("Payoneer service reported an error : " + description);
             }
 
-            final String tokenType = httpResponse.response.getString("token_type");
-            final String accessToken = httpResponse.response.getString("access_token");
+            // The token node contains the registration URL.
+            NodeList token = response.getElementsByTagName("Token");
+            if (token.getLength() > 0) {
+                String value = token.item(0).getFirstChild().getNodeValue();
+                if (value != null) {
+                    return value.trim();
+                }
+            }
 
-            final long expires_in = httpResponse.response.getLong("expires_in");
-            final long constentedOn = httpResponse.response.getLong("consented_on");
-
-            authTokenHeader = tokenType + " " + accessToken;
-            expiresAt = new Date((constentedOn + expires_in) * 1000);
-
-            log.info("Token will expire at: " + expiresAt.toString());
+        } catch (PayoneerServiceException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new PayoneerServiceException("Error occurred while getting the Payoneer registration link", e);
         }
-    }
 
-    private static void loadConfig() throws ConfigManagerException {
-        if (config == null) {
-            config = getPayoneerConfig();
-        }
+        throw new PayoneerServiceException("Unable to get the registration link from the Payoneer's response");
     }
 
     /**
-    * <p>
-    * This is a private helper method to get the Payoneer API credentials from the
-    * configuration.
-    * </p>
-    */
-    private static PayoneerConfig getPayoneerConfig() throws ConfigManagerException {
-    if (config == null) {
-        config = new PayoneerConfig();
+     * <p>Creates payment of the specified amount for the specified payee in Payoneer.</p>
+     *
+     * @param internalPaymentId The ID that this payment will be associated with in the Payoneer system. Should be unique.
+     * @param payeeId           Payoneer payee ID. Corresponds to the TopCoder user ID.
+     * @param amount            The amount to be paid.
+     * @return Payment ID in the Payoneer system.
+     * @throws PayoneerServiceException if any error occurs.
+     */
+    public static long createPayment(long internalPaymentId, long payeeId, double amount) throws PayoneerServiceException {
+        log.info("Creating payment in Payoneer for user ID " + payeeId + " with amount $" + amount);
+        try {
+            DecimalFormat df = new DecimalFormat("0.00", new DecimalFormatSymbols(Locale.US));
+            PayoneerConfig payoneerConfig = getPayoneerConfig();
+            Map<String, String> parameters = new HashMap<String, String>();
+            parameters.put("mname", "PerformPayoutPayment");
+            parameters.put("p1", payoneerConfig.username);
+            parameters.put("p2", payoneerConfig.password);
+            parameters.put("p3", payoneerConfig.partnerId);
+            parameters.put("p4", payoneerConfig.programId);
+            parameters.put("p5", "" + internalPaymentId);
+            parameters.put("p6", "" + payeeId);
+            parameters.put("p7", df.format(amount));
+            parameters.put("p8", "TopCoder payment");
 
-        ConfigManager configManager = ConfigManager.getInstance();
-        if (configManager.existsNamespace(DEFAULT_PAYONEER_NAMESPACE)) {
-        config.baseApiUrl = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "base_api_url");
-        config.partnerId = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "partner_id");
-        config.programId = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "program_id");
-        config.username = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "username");
-        config.password = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "password");
-        config.loginUrl = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "login_url");
+            String currentDate = (new SimpleDateFormat("MM/dd/yyyy HH:mm:ss")).format(new Date());
+            parameters.put("p9", currentDate);
+
+            Document response = getXMLResponse(payoneerConfig.baseApiUrl, parameters);
+
+            // Statuses other than "000" mean error
+            NodeList statusNode = response.getElementsByTagName("Status");
+            String status = statusNode.getLength() > 0 ? statusNode.item(0).getFirstChild().getNodeValue().trim() : null;
+            if (!"000".equals(status)) {
+                NodeList descriptionNode = response.getElementsByTagName("Description");
+                String description = descriptionNode.getLength() > 0 ?
+                        descriptionNode.item(0).getFirstChild().getNodeValue().trim() : "";
+                throw new PayoneerServiceException("Payoneer service reported an error : " + description);
+            }
+
+            // The PaymentID node contains the payment ID assigned by Payoneer.
+            NodeList idNode = response.getElementsByTagName("PaymentID");
+            if (idNode.getLength() > 0) {
+                String value = idNode.item(0).getFirstChild().getNodeValue();
+                if (value != null) {
+                    return Long.parseLong(value);
+                }
+            }
+        } catch (PayoneerServiceException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new PayoneerServiceException("Error occurred while getting the Payoneer balance amount", e);
         }
+
+        throw new PayoneerServiceException("Unable to get the balance amount from the Payoneer's response");
     }
-    return config;
+
+    /**
+     * <p>Returns the balance on the TopCoder's Payoneer account.</p>
+     *
+     * @return The balance amount.
+     * @throws PayoneerServiceException if any error occurs.
+     */
+    public static double getBalanceAmount() throws PayoneerServiceException {
+        log.info("Getting balance amount on the Payoneer account");
+
+        try {
+            PayoneerConfig payoneerConfig = getPayoneerConfig();
+            Map<String, String> parameters = new HashMap<String, String>();
+            parameters.put("mname", "GetAccountDetails");
+            parameters.put("p1", payoneerConfig.username);
+            parameters.put("p2", payoneerConfig.password);
+            parameters.put("p3", payoneerConfig.partnerId);
+
+            Document response = getXMLResponse(payoneerConfig.baseApiUrl, parameters);
+
+            // Code node means something went wrong.
+            NodeList codeNode = response.getElementsByTagName("Code");
+            if (codeNode.getLength() > 0) {
+                NodeList errorNode = response.getElementsByTagName("Error");
+                String error = errorNode.getLength() > 0 ?
+                        errorNode.item(0).getFirstChild().getNodeValue() : null;
+                throw new PayoneerServiceException("Payoneer service reported an error : " + error);
+            }
+
+            // The AccountBalance node contains the balance amount.
+            NodeList balanceNode = response.getElementsByTagName("AccountBalance");
+            if (balanceNode.getLength() > 0) {
+                String value = balanceNode.item(0).getFirstChild().getNodeValue();
+                if (value != null) {
+                    return Double.parseDouble(value);
+                }
+            }
+        } catch (PayoneerServiceException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new PayoneerServiceException("Error occurred while getting the Payoneer balance amount", e);
+        }
+
+        throw new PayoneerServiceException("Unable to get the balance amount from the Payoneer's response");
+    }
+
+    /**
+     * <p>This is a private helper method to get the Payoneer API credentials from the configuration.</p>
+     */
+    private static PayoneerConfig getPayoneerConfig() throws ConfigManagerException {
+        if (config == null) {
+            config = new PayoneerConfig();
+
+            ConfigManager configManager = ConfigManager.getInstance();
+            if (configManager.existsNamespace(DEFAULT_PAYONEER_NAMESPACE)) {
+                config.baseApiUrl = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "base_api_url");
+                config.partnerId = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "partner_id");
+                config.programId = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "program_id");
+                config.username = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "username");
+                config.password = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "password");
+            }
+        }
+        return config;
+    }
+
+    /**
+     * <p>This is a private helper method that queries the Payoneer API with the specified parameters and returns the response.</p>
+     */
+    private static Document getXMLResponse(String baseApiUrl, Map<String, String> parameters) throws Exception {
+        HttpsURLConnection connection = null;
+
+        try {
+            SSLContext sc = SSLContext.getInstance("TLSv1.2");
+            sc.init(null, null, new java.security.SecureRandom());
+
+            StringBuilder builder = new StringBuilder();
+            for (String key : parameters.keySet()) {
+                if (builder.length() > 0) {
+                    builder.append("&");
+                }
+                builder.append(key + "=" + parameters.get(key));
+            }
+            String urlParameters = builder.toString();
+
+            // Log the request string but hide the password (which is the 'p2' parameter value).
+            log.info("Payoneer request: " + urlParameters.replaceAll(parameters.get("p2"), "XXXXXXXX"));
+            log.info("Using TLSv1.2");
+
+            //Create connection
+            connection = (HttpsURLConnection) (new URL(baseApiUrl)).openConnection();
+            connection.setSSLSocketFactory(sc.getSocketFactory());
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            connection.setRequestProperty("Content-Length", "" + Integer.toString(urlParameters.getBytes().length));
+            connection.setRequestProperty("Content-Language", "en-US");
+            connection.setUseCaches(false);
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+
+            //Send request
+            DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
+            wr.writeBytes(urlParameters);
+            wr.flush();
+            wr.close();
+
+            //Get Response
+            Document response = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(connection.getInputStream());
+            response.getDocumentElement().normalize();
+            log.info("Payoneer response: " + xmlToString(response));
+            return response;
+        } finally {
+            if (connection != null) {
+                connection.disconnect();
+            }
+        }
+
+    }
+
+    /**
+     * <p>This is a private helper method that converts XML document to a String.</p>
+     */
+    public static String xmlToString(Node node) {
+        try {
+            Source source = new DOMSource(node);
+            StringWriter stringWriter = new StringWriter();
+            Result result = new StreamResult(stringWriter);
+            TransformerFactory.newInstance().newTransformer().transform(source, result);
+            return stringWriter.getBuffer().toString();
+        } catch (Throwable e) {
+            log.error("Unable to convert XML Document to String", e);
+        }
+        return null;
     }
 
     private static class PayoneerConfig {
@@ -283,134 +371,5 @@ public class PayoneerService {
         public String programId = "";
         public String username = "";
         public String password = "";
-        public String loginUrl = "";
     }
-
-    private static class HttpsRequest {
-        public static final String HEADER_AUTHORIZATION = "Authorization";
-        public static final String CONTENT_TYPE_X_WWW_FORM_URL_ENCODED = "application/x-www-form-urlencoded";
-        public static final String CONTENT_TYPE_JSON = "application/json";
-        private static final String HEADER_CONTENT_TYPE = "Content-Type";
-        private static final String HEADER_CONTENT_LENGTH = "Content-Length";
-        private static final String HEADER_ACCEPT = "Accept";
-
-        public static final int HTTP_OK = HttpsURLConnection.HTTP_OK;
-        public static final int HTTP_NOT_FOUND = HttpsURLConnection.HTTP_NOT_FOUND;
-
-        public static RequestResponse send(final RequestType reqType, final String urlString, final Map<String, String> headers, final Map<String, String> requestParams, final boolean isBodyTypeJSON) throws Exception {
-            log.info(reqType.toString() + ": " + urlString);
-
-            HttpsURLConnection httpsConn = null;
-            try {
-                httpsConn = (HttpsURLConnection) new URL(urlString).openConnection();
-                httpsConn.setRequestMethod(reqType.toString());
-
-                if (headers != null) {
-                    Iterator<Map.Entry<String, String>> iterator = headers.entrySet().iterator();
-                    while (iterator.hasNext()) {
-                        Map.Entry<String, String> header = iterator.next();
-                        httpsConn.setRequestProperty(header.getKey(), header.getValue());
-                    }
-                }
-
-                // all Payoneer API response are of type JSON
-                httpsConn.setRequestProperty(HEADER_ACCEPT, CONTENT_TYPE_JSON);
-
-                if (reqType == RequestType.POST && requestParams != null) {
-                    httpsConn.setDoOutput(true);
-                    String requestData = "";
-
-                    if (isBodyTypeJSON) {
-                        httpsConn.setRequestProperty(HEADER_CONTENT_TYPE, CONTENT_TYPE_JSON);
-
-                        final JSONObject jsonObject = new JSONObject();
-                        jsonObject.accumulateAll(requestParams);
-                        requestData = jsonObject.toString();
-                    } else {
-                        httpsConn.setRequestProperty(HEADER_CONTENT_TYPE, CONTENT_TYPE_X_WWW_FORM_URL_ENCODED);
-
-                        StringBuilder tmpParams = new StringBuilder();
-                        boolean isFirst = true;
-                        Iterator<Map.Entry<String, String>> it = requestParams.entrySet().iterator();
-                        while (it.hasNext()) {
-                            if (isFirst) {
-                                isFirst = false;
-                            } else {
-                                tmpParams.append("&");
-                            }
-                            Map.Entry<String, String> param = it.next();
-
-                            tmpParams.append(URLEncoder.encode(param.getKey(), "UTF-8"));
-                            tmpParams.append("=");
-                            tmpParams.append(URLEncoder.encode(param.getValue(), "UTF-8"));
-                        }
-
-                        requestData = tmpParams.toString();
-                    }
-
-                    log.info((isBodyTypeJSON ? "Body: " : "Form-Data: ") + requestData);
-
-                    httpsConn.setRequestProperty(HEADER_CONTENT_LENGTH, Integer.toString(requestData.length()));
-                    DataOutputStream outputStream = new DataOutputStream(httpsConn.getOutputStream());
-                    outputStream.write(requestData.getBytes(StandardCharsets.UTF_8));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                throw e;
-            } finally {
-                if (httpsConn != null) {
-                    httpsConn.disconnect();
-                }
-            }
-
-            int responseCode = -1;
-            String responseString = null;
-            InputStream responseStream = null;
-
-            try {
-                responseCode = httpsConn.getResponseCode();
-
-                responseStream = (responseCode == HttpsURLConnection.HTTP_OK) ? httpsConn.getInputStream() : httpsConn.getErrorStream();
-                responseString = IOUtils.toString(responseStream, DEFAULT_ENCODING);
-            } catch (IOException e) {
-                e.printStackTrace();
-                throw e;
-            } finally {
-                if (responseStream != null) {
-                    try {
-                        responseStream.close();
-                    } catch (Exception e) {
-                        log.info("Error closing stream.");
-                    }
-                }
-
-                httpsConn.disconnect();
-            }
-
-            try {
-                return new RequestResponse(responseCode, (JSONObject) JSONSerializer.toJSON(responseString));
-            } catch (Exception e) {
-                e.printStackTrace();
-                throw e;
-            }
-        }
-
-        public enum RequestType {GET, POST}
-
-        public static class RequestResponse {
-            private final int httpStatusCode;
-            private final JSONObject response;
-
-            public RequestResponse(final int httpStatusCode, JSONObject response) {
-                this.httpStatusCode = httpStatusCode;
-                this.response = response;
-            }
-
-            @Override
-            public String toString() {
-                return "HTTP Response Code: " + this.httpStatusCode + "\n" + "Response Body: " + this.response.toString(3);
-            }
-        }
-    }
-
 }

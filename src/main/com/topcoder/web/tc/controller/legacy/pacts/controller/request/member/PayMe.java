@@ -5,34 +5,29 @@ package com.topcoder.web.tc.controller.legacy.pacts.controller.request.member;
 
 import com.topcoder.message.email.EmailEngine;
 import com.topcoder.message.email.TCSEmailMessage;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.SimpleDateFormat;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.util.config.UnknownNamespaceException;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
-import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
-import com.topcoder.web.ejb.pacts.payments.AccruingPaymentStatus;
-import com.topcoder.web.ejb.pacts.payments.InvalidPaymentEventException;
-import com.topcoder.web.ejb.pacts.payments.OwedPaymentStatus;
-import com.topcoder.web.ejb.pacts.payments.StateTransitionFailureException;
+import com.topcoder.web.ejb.pacts.payments.*;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.PayPalService;
-import com.topcoder.web.tc.controller.PayPalServiceException;
-import com.topcoder.web.tc.controller.PayoneerService;
-import com.topcoder.web.tc.controller.PayoneerServiceException;
+import com.topcoder.web.tc.controller.*;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 import java.rmi.RemoteException;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * <p>A controller to be used for servicing requests for initiating the paying process for payments selected by the 
+ * <p>A controller to be used for servicing requests for initiating the paying process for payments selected by the
  * current user.</p>
- * 
+ *
  * @author isv
  * @version 1.1
  */
@@ -41,15 +36,17 @@ public class PayMe extends PaymentHistory {
     /**
      * <p>A <code>String</code> providing the generic error message to be displayed to users in some cases.</p>
      */
-    private static final String GENERIC_ERROR_MESSAGE = "Failed to initiate payments. Please try again at a later time."; 
-
+    private static final String GENERIC_ERROR_MESSAGE = "Failed to initiate payments. Please try again at a later time.";
+    private static final String DEFAULT_PAYONEER_NAMESPACE = "com.topcoder.web.tc.controller.PayoneerService";
     /**
      * <p>A <code>String</code> providing the error message to be displayed to users when PayPal payment fails.</p>
      */
     private static final String PAYPAL_ERROR_MESSAGE = "Your payment request could not be processed by PayPal at this time. "
-        + " Please confirm that your PayPal account is established properly and that any credit card on file with PayPal is \"verified\"."; 
+            + " Please confirm that your PayPal account is established properly and that any credit card on file with PayPal is \"verified\".";
 
-    /** Format for the email timestamp. Will format as "Fri, Jul 28, 2006 01:34 PM EST". */
+    /**
+     * Format for the email timestamp. Will format as "Fri, Jul 28, 2006 01:34 PM EST".
+     */
     private static final String EMAIL_TIMESTAMP_FORMAT = "EEE, MMM d, yyyy hh:mm a z";
 
     /**
@@ -60,7 +57,7 @@ public class PayMe extends PaymentHistory {
 
     /**
      * <p>Handles the incoming request.</p>
-     * 
+     *
      * @throws TCWebException if an unexpected error occurs.
      */
     @Override
@@ -78,7 +75,7 @@ public class PayMe extends PaymentHistory {
         if (!hasErrors()) {
             try {
                 DataInterfaceBean dib = new DataInterfaceBean();
-    
+
                 // Get the payments for the user
                 Long userPaymentMethod = dib.getUserPaymentMethod(currentUserId);
                 if (userPaymentMethod == null || userPaymentMethod == NOT_SET_PAYMENT_METHOD_ID) {
@@ -97,11 +94,11 @@ public class PayMe extends PaymentHistory {
                         }
                         if (totalNetAmount < Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT) {
                             addError("PayMe",
-                                     "The total net amount for selected payments is less than $" +
-                                     Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT);
+                                    "The total net amount for selected payments is less than $" +
+                                            Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT);
                         }
                     }
-    
+
                     // Process payments if validation succeeds
                     if (!hasErrors()) {
                         if (userPaymentMethod == PAYPAL_PAYMENT_METHOD_ID) {
@@ -116,26 +113,26 @@ public class PayMe extends PaymentHistory {
 
                         if (!hasErrors()) {
                             paymentProcessingLock.unlockPaymentProcessingOnSuccess(currentUserId, userPaymentMethod,
-                                                                                   totalNetAmount, paymentsToPay);
+                                    totalNetAmount, paymentsToPay);
                             success = true;
                             setIsNextPageInContext(false);
-    
+
                             StringBuilder url = new StringBuilder();
                             url.append("/" + PactsConstants.MEMBER_SERVLET_URL + "?");
                             url.append(Constants.MODULE_KEY);
                             url.append("=PaymentHistory");
                             url.append("&").append(DataAccessConstants.SORT_DIRECTION).append("=").
-                                append(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+                                    append(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
                             url.append("&").append(DataAccessConstants.SORT_COLUMN).append("=").
-                                append(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+                                    append(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
                             url.append("&").append(DataAccessConstants.NUMBER_RECORDS).append("=").
-                                append(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
+                                    append(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
                             url.append("&").append(DataAccessConstants.START_RANK).append("=").
-                                append(getRequest().getParameter(DataAccessConstants.START_RANK));
+                                    append(getRequest().getParameter(DataAccessConstants.START_RANK));
                             url.append("&").append(FULL_LIST).append("=").append(getRequest().getParameter(FULL_LIST));
-    
+
                             setNextPage(url.toString());
-    
+
                             return;
                         }
                     }
@@ -179,13 +176,13 @@ public class PayMe extends PaymentHistory {
     /**
      * <p>Processes the specified payments for specified user via Western Union.</p>
      *
-     * @param dib a <code>DataInterfaceBean</code> providing interface to <code>PACTS Service EJB</code>.  
+     * @param dib           a <code>DataInterfaceBean</code> providing interface to <code>PACTS Service EJB</code>.
      * @param currentUserId a <code>long</code> providing the ID of current user.
      * @param paymentsToPay a <code>List</code> listing the payments to pay.
      * @throws Exception if an unexpected error occurs.
      */
     private void processWesternUnionPayments(DataInterfaceBean dib, long currentUserId,
-                                       List<BasePayment> paymentsToPay) throws Exception {
+                                             List<BasePayment> paymentsToPay) throws Exception {
         for (BasePayment payment : paymentsToPay) {
             payment.setMethodId(WESTERN_UNION_PAYMENT_METHOD_ID);
             payment.getCurrentStatus().enterIntoPaymentSystem(payment);
@@ -196,14 +193,14 @@ public class PayMe extends PaymentHistory {
     /**
      * <p>Processes the specified payments for specified user via Payoneer service.</p>
      *
-     * @param dib a <code>DataInterfaceBean</code> providing interface to <code>PACTS Service EJB</code>.  
-     * @param currentUserId a <code>long</code> providing the ID of current user.
-     * @param paymentsToPay a <code>List</code> listing the payments to pay. 
-     * @param totalNetAmount a <code>double</code> providing the total amount of payments to pay. 
+     * @param dib            a <code>DataInterfaceBean</code> providing interface to <code>PACTS Service EJB</code>.
+     * @param currentUserId  a <code>long</code> providing the ID of current user.
+     * @param paymentsToPay  a <code>List</code> listing the payments to pay.
+     * @param totalNetAmount a <code>double</code> providing the total amount of payments to pay.
      * @throws Exception if an unexpected error occurs.
      */
     private void processPayoneerPayments(DataInterfaceBean dib, long currentUserId,
-                                        List<BasePayment> paymentsToPay, double totalNetAmount) throws Exception {
+                                         List<BasePayment> paymentsToPay, double totalNetAmount) throws Exception {
         double currentBalance = PayoneerService.getBalanceAmount();
         if (currentBalance >= totalNetAmount) {
             PayoneerService.PayeeStatus payeeStatus = PayoneerService.getPayeeStatus(currentUserId);
@@ -216,27 +213,36 @@ public class PayMe extends PaymentHistory {
                     dib.updatePayment(payment, false, currentUserId);
                     internalPaymentId = payment.getId();
                 }
-                PayoneerService.createPayment(internalPaymentId, currentUserId, totalNetAmount);
+                if (isPayoneerVersionV4Enabled(currentUserId)) {
+                    //log.info("Payoneer V4 api enabled for user: "+currentUserId+" for amount"+totalNetAmount+" with paymentID "+internalPaymentId);
+                    log.info(MessageFormat.format("Payoneer V4 api enabled for user: = {0} for amount {1}  with paymentID {2}", currentUserId, totalNetAmount,internalPaymentId));
+                    PayoneerServiceV4.createPayment(internalPaymentId, currentUserId, totalNetAmount);
+                } else {
+                    //log.info("Payoneer old api for user: "+currentUserId+" for amount"+totalNetAmount+" with paymentID "+internalPaymentId);
+                    log.info(MessageFormat.format("Payoneer old api for user: = {0} for amount {1}  with paymentID {2}", currentUserId, totalNetAmount,internalPaymentId));
+                    PayoneerService.createPayment(internalPaymentId, currentUserId, totalNetAmount);
+                }
+
             } else {
                 addError("PayMe", "Payoneer account is not active");
             }
         } else {
             addError("PayMe", GENERIC_ERROR_MESSAGE);
             addError("PayMe_InsufficientBalance",
-                     createInsufficientBalanceErrorDetails("Payoneer", totalNetAmount, currentBalance));
+                    createInsufficientBalanceErrorDetails("Payoneer", totalNetAmount, currentBalance));
         }
     }
 
     /**
      * <p>Processes the specified payments for specified user via PayPal service.</p>
-     * 
-     * @param dib a <code>DataInterfaceBean</code> providing interface to <code>PACTS Service EJB</code>.  
-     * @param currentUserId a <code>long</code> providing the ID of current user.
-     * @param paymentsToPay a <code>List</code> listing the payments to pay. 
-     * @param totalNetAmount a <code>double</code> providing the total amount of payments to pay. 
+     *
+     * @param dib            a <code>DataInterfaceBean</code> providing interface to <code>PACTS Service EJB</code>.
+     * @param currentUserId  a <code>long</code> providing the ID of current user.
+     * @param paymentsToPay  a <code>List</code> listing the payments to pay.
+     * @param totalNetAmount a <code>double</code> providing the total amount of payments to pay.
      * @throws Exception if an unexpected error occurs.
      */
-    private void processPayPalPayments(DataInterfaceBean dib, long currentUserId, List<BasePayment> paymentsToPay, 
+    private void processPayPalPayments(DataInterfaceBean dib, long currentUserId, List<BasePayment> paymentsToPay,
                                        double totalNetAmount) throws Exception {
         double currentBalance = PayPalService.getBalanceAmount();
         if (currentBalance >= totalNetAmount) {
@@ -257,7 +263,7 @@ public class PayMe extends PaymentHistory {
                     PayPalService.executePayment(paymentKey);
                 } catch (PayPalServiceException e) {
                     log.error("PayPal service returned an error in the call to ExecutePayment operation. Reverting payments in PACTS.", e);
-                    
+
                     // Revert payments in PACTS.
                     for (BasePayment payment : paymentsToPay) {
                         payment.setPaidDate(null);
@@ -273,18 +279,25 @@ public class PayMe extends PaymentHistory {
         } else {
             addError("PayMe", GENERIC_ERROR_MESSAGE);
             addError("PayMe_InsufficientBalance",
-                     createInsufficientBalanceErrorDetails("PayPal", totalNetAmount, currentBalance));
+                    createInsufficientBalanceErrorDetails("PayPal", totalNetAmount, currentBalance));
         }
+    }
+
+    private static boolean isPayoneerVersionV4Enabled(Long userId) throws UnknownNamespaceException {
+        if (PayoneerV4Config.INSTANCE.isV4Enabled()) {
+            return PayoneerV4Config.INSTANCE.getV4Users().contains(String.valueOf(userId));
+        }
+        return false;
     }
 
     /**
      * <p>Builds the mapping for the error data for the case when there is an insufficient balance amount encountered
      * while attempting to process user payment.</p>
-     * 
-     * @param paymentMethod a <code>String</code> referencing the payment method.
-     * @param totalNetAmount a <code>double</code> providing the requested total net amount. 
-     * @param currentBalance a <code>double</code> providing the current balance amount. 
-     * @return a <code>Map</code> mapping the logical names to data. 
+     *
+     * @param paymentMethod  a <code>String</code> referencing the payment method.
+     * @param totalNetAmount a <code>double</code> providing the requested total net amount.
+     * @param currentBalance a <code>double</code> providing the current balance amount.
+     * @return a <code>Map</code> mapping the logical names to data.
      */
     private Map<String, Object> createInsufficientBalanceErrorDetails(String paymentMethod, double totalNetAmount,
                                                                       double currentBalance) {
@@ -300,19 +313,19 @@ public class PayMe extends PaymentHistory {
     /**
      * <p>Gets the list of payments which have been requested by the current user for processing. Also validates the
      * requested payments and binds validation errors to request in case such errors are found.</p>
-     * 
-     * @param dib a <code>DataInterfaceBean</code> providing interface to PACTS Services EJB.  
+     *
+     * @param dib           a <code>DataInterfaceBean</code> providing interface to PACTS Services EJB.
      * @param currentUserId a <code>long</code> providing the ID of current user.
      * @return a <code>List</code> listing the payments belonging to current user which have been requested by the user
-     *         for paying.
+     * for paying.
      * @throws RemoteException if an unexpected error occurs.
      */
     @SuppressWarnings("unchecked")
     private List<BasePayment> getAndValidatePayments(DataInterfaceBean dib, long currentUserId)
-        throws RemoteException {
+            throws RemoteException {
 
         TCRequest request = getRequest();
-        
+
         Map criteria = new HashMap();
         criteria.put(PactsConstants.USER_ID, String.valueOf(currentUserId));
         List<BasePayment> payments = dib.findCoderPayments(criteria);
@@ -335,19 +348,19 @@ public class PayMe extends PaymentHistory {
                     if (payment.getId() == paymentId) {
                         found = true;
                         if (payment.getCoderId() != currentUserId) { // This is a safety check just in case
-                                                                     // dib.findCoderPayments(criteria) above
-                                                                     // returns payments which do not 
-                                                                     // belong to current user
+                            // dib.findCoderPayments(criteria) above
+                            // returns payments which do not
+                            // belong to current user
                             addError("PayMe", "The payment \"" + payment.getDescription()
-                                              + "\" does not belong to user");
+                                    + "\" does not belong to user");
                         } else if (!(payment.getCurrentStatus().getId().equals(OwedPaymentStatus.ID) ||
-                                     payment.getCurrentStatus().getId().equals(AccruingPaymentStatus.ID))) {
-                            addError("PayMe", "The payment \"" + payment.getDescription() 
-                                              + "\" is neither of Owed nor Accruing status");
+                                payment.getCurrentStatus().getId().equals(AccruingPaymentStatus.ID))) {
+                            addError("PayMe", "The payment \"" + payment.getDescription()
+                                    + "\" is neither of Owed nor Accruing status");
                         } else if (payment.getDueDate() == null ||
-                                   payment.getDueDate().compareTo(new Date()) > 0) {
+                                payment.getDueDate().compareTo(new Date()) > 0) {
                             addError("PayMe", "The release date for payment \"" + payment.getDescription()
-                                              + "\" is not reached yet");
+                                    + "\" is not reached yet");
                         }
                         paymentsToPay.add(payment);
                     }
@@ -362,12 +375,12 @@ public class PayMe extends PaymentHistory {
         // Validation for negative payments
         for (BasePayment payment : payments) {
             if (payment.getPaymentType() == NEGATIVE_PAYMENT && (
-                payment.getCurrentStatus().getId().equals(OwedPaymentStatus.ID) ||
-                payment.getCurrentStatus().getId().equals(AccruingPaymentStatus.ID))) {
+                    payment.getCurrentStatus().getId().equals(OwedPaymentStatus.ID) ||
+                            payment.getCurrentStatus().getId().equals(AccruingPaymentStatus.ID))) {
                 if (!paymentIdsSet.contains(payment.getId())) {
-                    addError("PayMe", "The negative payment \"" + payment.getDescription() 
-                                      + "\" must be selected. Please expand the view to make sure that all pending " +
-                                      "negative payments are selected.");
+                    addError("PayMe", "The negative payment \"" + payment.getDescription()
+                            + "\" must be selected. Please expand the view to make sure that all pending " +
+                            "negative payments are selected.");
                 }
             }
         }
@@ -376,19 +389,19 @@ public class PayMe extends PaymentHistory {
 
     /**
      * <p>Sends an email to pre-configured email address when there's insufficient account balance.</p>
-     * 
-     * @param errorDetails a <code>Map</code> providing error data. 
+     *
+     * @param errorDetails a <code>Map</code> providing error data.
      */
     private void sendEmailOnInsufficientBalance(Map<String, Object> errorDetails) {
         try {
-            SimpleDateFormat formatter = new SimpleDateFormat(EMAIL_TIMESTAMP_FORMAT);        
+            SimpleDateFormat formatter = new SimpleDateFormat(EMAIL_TIMESTAMP_FORMAT);
             DecimalFormat df = new DecimalFormat("0.00", new DecimalFormatSymbols(Locale.US));
             String emailBody = "A member payment request failed due to the insufficient balance amount.\n\n" +
-                "Time: " + formatter.format(errorDetails.get("timestamp")) + "\n" +
-                "Payment Method: " + errorDetails.get("method") + "\n" +
-                "Member Handle: " + errorDetails.get("handle") + "\n" +
-                "Requested Amount: " + df.format(errorDetails.get("requestedAmount")) + "\n" +
-                "Current Balance: " + df.format(errorDetails.get("currentBalance"));
+                    "Time: " + formatter.format(errorDetails.get("timestamp")) + "\n" +
+                    "Payment Method: " + errorDetails.get("method") + "\n" +
+                    "Member Handle: " + errorDetails.get("handle") + "\n" +
+                    "Requested Amount: " + df.format(errorDetails.get("requestedAmount")) + "\n" +
+                    "Current Balance: " + df.format(errorDetails.get("currentBalance"));
 
             TCSEmailMessage message = new TCSEmailMessage();
             message.setFromAddress(Constants.INSUFFICIENT_BALANCE_EMAIL_FROM_ADDRESS);
@@ -397,7 +410,7 @@ public class PayMe extends PaymentHistory {
             message.setBody(emailBody);
             EmailEngine.send(message);
             log.info("Sent email notifying on insufficient balance on " + errorDetails.get("method") + " system to " +
-                     Constants.INSUFFICIENT_BALANCE_EMAIL_TO_ADDRESS);
+                    Constants.INSUFFICIENT_BALANCE_EMAIL_TO_ADDRESS);
         } catch (Exception e) {
             log.error("Failed to send an email notifying on insufficient balance", e);
         }
