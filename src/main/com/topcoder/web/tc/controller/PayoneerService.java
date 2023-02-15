@@ -8,7 +8,9 @@ import com.topcoder.util.config.ConfigManagerException;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilderFactory;
+
 import org.w3c.dom.*;
+
 import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
@@ -35,7 +37,7 @@ import javax.net.ssl.SSLContext;
 public class PayoneerService {
 
     private static final String DEFAULT_PAYONEER_NAMESPACE = "com.topcoder.web.tc.controller.PayoneerService";
-    
+
     private static PayoneerConfig config = null;
 
     private static Logger log = Logger.getLogger(PayoneerService.class);
@@ -55,6 +57,7 @@ public class PayoneerService {
 
     /**
      * <p>Returns status of the specified member in the Payoneer system.</p>
+     *
      * @param payeeId Payee ID.
      * @return ACTIVATED for activated status, REGISTERED if the payee has registered but hasn't activated yet and NOT_REGISTERED otherwise.
      * @throws PayoneerServiceException if any error occurs.
@@ -63,19 +66,19 @@ public class PayoneerService {
         log.info("Getting payee status for user ID " + payeeId);
         try {
             PayoneerConfig payoneerConfig = getPayoneerConfig();
-            Map<String,String> parameters = new HashMap<String,String>();
+            Map<String, String> parameters = new HashMap<String, String>();
             parameters.put("mname", "GetPayeeDetails");
             parameters.put("p1", payoneerConfig.username);
             parameters.put("p2", payoneerConfig.password);
             parameters.put("p3", payoneerConfig.partnerId);
-            parameters.put("p4", ""+payeeId);
+            parameters.put("p4", "" + payeeId);
 
             Document response = getXMLResponse(payoneerConfig.baseApiUrl, parameters);
 
             // Code "002" means the payee is unknown to Payoneer and thus is not registered.
-            NodeList codeNode = response.getElementsByTagName("Code");            
+            NodeList codeNode = response.getElementsByTagName("Code");
             String code = codeNode.getLength() > 0 ? codeNode.item(0).getFirstChild().getNodeValue().trim() : null;
-            if ("002".equals(code))  {
+            if ("002".equals(code)) {
                 return PayeeStatus.NOT_REGISTERED;
             }
 
@@ -126,6 +129,7 @@ public class PayoneerService {
 
     /**
      * <p>Returns the link for the specified member to register with Payoneer.</p>
+     *
      * @param payeeId Payee ID.
      * @return The registration URL.
      * @throws PayoneerServiceException if any error occurs.
@@ -134,12 +138,12 @@ public class PayoneerService {
         log.info("Getting registration link for user ID " + payeeId);
         try {
             PayoneerConfig payoneerConfig = getPayoneerConfig();
-            Map<String,String> parameters = new HashMap<String,String>();
+            Map<String, String> parameters = new HashMap<String, String>();
             parameters.put("mname", "GetToken");
             parameters.put("p1", payoneerConfig.username);
             parameters.put("p2", payoneerConfig.password);
             parameters.put("p3", payoneerConfig.partnerId);
-            parameters.put("p4", ""+payeeId);
+            parameters.put("p4", "" + payeeId);
             parameters.put("p10", "True"); // Creates a XML response with the token URL.
 
             Document response = getXMLResponse(payoneerConfig.baseApiUrl, parameters);
@@ -149,7 +153,7 @@ public class PayoneerService {
             if (codeNode.getLength() > 0) {
                 NodeList descriptionNode = response.getElementsByTagName("Description");
                 String description = descriptionNode.getLength() > 0 ?
-                    descriptionNode.item(0).getFirstChild().getNodeValue().trim() : "";
+                        descriptionNode.item(0).getFirstChild().getNodeValue().trim() : "";
                 throw new PayoneerServiceException("Payoneer service reported an error : " + description);
             }
 
@@ -170,12 +174,13 @@ public class PayoneerService {
 
         throw new PayoneerServiceException("Unable to get the registration link from the Payoneer's response");
     }
-    
+
     /**
      * <p>Creates payment of the specified amount for the specified payee in Payoneer.</p>
+     *
      * @param internalPaymentId The ID that this payment will be associated with in the Payoneer system. Should be unique.
-     * @param payeeId Payoneer payee ID. Corresponds to the TopCoder user ID.
-     * @param amount The amount to be paid.
+     * @param payeeId           Payoneer payee ID. Corresponds to the TopCoder user ID.
+     * @param amount            The amount to be paid.
      * @return Payment ID in the Payoneer system.
      * @throws PayoneerServiceException if any error occurs.
      */
@@ -184,14 +189,14 @@ public class PayoneerService {
         try {
             DecimalFormat df = new DecimalFormat("0.00", new DecimalFormatSymbols(Locale.US));
             PayoneerConfig payoneerConfig = getPayoneerConfig();
-            Map<String,String> parameters = new HashMap<String,String>();
+            Map<String, String> parameters = new HashMap<String, String>();
             parameters.put("mname", "PerformPayoutPayment");
             parameters.put("p1", payoneerConfig.username);
             parameters.put("p2", payoneerConfig.password);
             parameters.put("p3", payoneerConfig.partnerId);
             parameters.put("p4", payoneerConfig.programId);
-            parameters.put("p5", ""+internalPaymentId);
-            parameters.put("p6", ""+payeeId);
+            parameters.put("p5", "" + internalPaymentId);
+            parameters.put("p6", "" + payeeId);
             parameters.put("p7", df.format(amount));
             parameters.put("p8", "TopCoder payment");
 
@@ -206,7 +211,7 @@ public class PayoneerService {
             if (!"000".equals(status)) {
                 NodeList descriptionNode = response.getElementsByTagName("Description");
                 String description = descriptionNode.getLength() > 0 ?
-                    descriptionNode.item(0).getFirstChild().getNodeValue().trim() : "";
+                        descriptionNode.item(0).getFirstChild().getNodeValue().trim() : "";
                 throw new PayoneerServiceException("Payoneer service reported an error : " + description);
             }
 
@@ -229,15 +234,16 @@ public class PayoneerService {
 
     /**
      * <p>Returns the balance on the TopCoder's Payoneer account.</p>
+     *
      * @return The balance amount.
      * @throws PayoneerServiceException if any error occurs.
      */
     public static double getBalanceAmount() throws PayoneerServiceException {
         log.info("Getting balance amount on the Payoneer account");
-        
+
         try {
             PayoneerConfig payoneerConfig = getPayoneerConfig();
-            Map<String,String> parameters = new HashMap<String,String>();
+            Map<String, String> parameters = new HashMap<String, String>();
             parameters.put("mname", "GetAccountDetails");
             parameters.put("p1", payoneerConfig.username);
             parameters.put("p2", payoneerConfig.password);
@@ -270,7 +276,7 @@ public class PayoneerService {
 
         throw new PayoneerServiceException("Unable to get the balance amount from the Payoneer's response");
     }
-   
+
     /**
      * <p>This is a private helper method to get the Payoneer API credentials from the configuration.</p>
      */
@@ -293,7 +299,7 @@ public class PayoneerService {
     /**
      * <p>This is a private helper method that queries the Payoneer API with the specified parameters and returns the response.</p>
      */
-    private static Document getXMLResponse(String baseApiUrl, Map<String,String> parameters) throws Exception {
+    private static Document getXMLResponse(String baseApiUrl, Map<String, String> parameters) throws Exception {
         HttpsURLConnection connection = null;
 
         try {
@@ -301,14 +307,14 @@ public class PayoneerService {
             sc.init(null, null, new java.security.SecureRandom());
 
             StringBuilder builder = new StringBuilder();
-            for(String key : parameters.keySet()) {
+            for (String key : parameters.keySet()) {
                 if (builder.length() > 0) {
                     builder.append("&");
                 }
-                builder.append(key+"="+parameters.get(key));
+                builder.append(key + "=" + parameters.get(key));
             }
             String urlParameters = builder.toString();
-            
+
             // Log the request string but hide the password (which is the 'p2' parameter value).
             log.info("Payoneer request: " + urlParameters.replaceAll(parameters.get("p2"), "XXXXXXXX"));
             log.info("Using TLSv1.2");
@@ -336,9 +342,9 @@ public class PayoneerService {
             log.info("Payoneer response: " + xmlToString(response));
             return response;
         } finally {
-          if(connection != null) {
-            connection.disconnect(); 
-          }
+            if (connection != null) {
+                connection.disconnect();
+            }
         }
 
     }

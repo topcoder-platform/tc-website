@@ -38,6 +38,9 @@
 <c:set var="cr" value="<%= request.getAttribute(PaymentHistory.CODER) %>"/>
 <c:set var="paymentConfirmationTemplate" value="<%= request.getAttribute(PaymentHistory.PAYMENT_CONFIRMATION_TEMPLATE) %>"/>
 <c:set var="userPaymentMethod" value="<%= request.getAttribute(PaymentHistory.USER_PAYMENT_METHOD) %>"/>
+<c:set var="userHandle" value="<%= sessionInfo.getHandle() %>"/>
+<c:set var="userId" value="<%= sessionInfo.getUserId() %>"/>
+<c:set var="userInitials" value="<%= sessionInfo.getHandle() %>"/>
 
 <c:set value="<%=PaymentHistory.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=PaymentHistory.PAYMENT_ID%>" var="PAYMENT_ID"/>
@@ -77,6 +80,61 @@
   <jsp:param name="key" value="tc_stats"/>
   <jsp:param name="reskin" value="${isReskin ? 'paymentHistory' : ''}"/>
 </jsp:include>
+    <div id="headerNav"></div>
+    <script>
+        function parseJwt (token) {
+            var base64Url = token.split('.')[1];
+            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+
+         return JSON.parse(jsonPayload);
+        }
+
+        var serverName = '<%=ApplicationServer.SERVER_NAME%>';
+        var logoutURL = "https://" + serverName + "/logout";
+
+        var devUrl = 'topcoder-dev.com';
+        var scriptURL = '//uni-nav.topcoder.com/v1/tc-universal-nav.js'
+
+        if (serverName === devUrl) {
+            scriptURL = '//uni-nav.topcoder-dev.com/v1/tc-universal-nav.js';
+        }
+
+        !function(n,t,e,a,c,i,o){n['TcUnivNavConfig']=c,n[c]=n[c]||function(){
+        (n[c].q=n[c].q??[]).push(arguments)},n[c].l=1*new Date();i=t.createElement(e),
+        o=t.getElementsByTagName(e)[0];i.async=1;i.type="module";i.src=a;o.parentNode.insertBefore(i,o)
+        }(window,document,"script",scriptURL,"tcUniNav");
+
+        var photoUrl = parseJwt($.cookie('tcjwt'))["picture"];
+
+        var userId = ${userId};
+        var handle = '${userHandle}';
+        var initials = handle ? handle.substr(0, 2).toUpperCase() : '';
+
+        var user = {
+            photoUrl,
+            userId,
+            initials,
+            handle
+        };
+
+        tcUniNav('init', 'headerNav', {
+            type: 'tool',
+            toolName: 'Payments',
+            user,
+            toolRoot: '/PactsMemberServlet?module=PaymentHistory&full_list=true',
+            signOut() {
+                window.location.replace(logoutURL);
+            }
+        });
+
+        tcUniNav('init', 'footerNav', {
+            type: 'footer',
+        })
+
+    </script>
 
     <script type="text/javascript">
         USER_PAYMENT_METHOD = ${userPaymentMethod eq null ? 'null' : userPaymentMethod};
@@ -185,11 +243,6 @@
 
 </head>
 <body>
-
-<jsp:include page="../../top.jsp" >
-    <jsp:param name="level1" value=""/>
-    <jsp:param name="isReskin" value="${isReskin}"/>
-</jsp:include>
 
 <c:if test="${isReskin}">
 <div class="page">
@@ -841,9 +894,7 @@
 </div><!-- // end .page -->
 </c:if>
 
-<jsp:include page="/foot.jsp" >
-    <jsp:param name="isReskin" value="${isReskin}"/>
-</jsp:include>
+<div id="footerNav"></div>
 
 <c:if test="${isReskin}">
 <div class="modal payment-confirm-modal" id="payment-confirm-modal-id">
