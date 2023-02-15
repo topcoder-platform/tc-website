@@ -20,6 +20,7 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -213,9 +214,12 @@ public class PayMe extends PaymentHistory {
                     internalPaymentId = payment.getId();
                 }
                 if (isPayoneerVersionV4Enabled(currentUserId)) {
-                    log.info("Payoneer V4 api enabled for user: "+currentUserId);
+                    //log.info("Payoneer V4 api enabled for user: "+currentUserId+" for amount"+totalNetAmount+" with paymentID "+internalPaymentId);
+                    log.info(MessageFormat.format("Payoneer V4 api enabled for user: = {0} for amount {1}  with paymentID {2}", currentUserId, totalNetAmount,internalPaymentId));
                     PayoneerServiceV4.createPayment(internalPaymentId, currentUserId, totalNetAmount);
                 } else {
+                    //log.info("Payoneer old api for user: "+currentUserId+" for amount"+totalNetAmount+" with paymentID "+internalPaymentId);
+                    log.info(MessageFormat.format("Payoneer old api for user: = {0} for amount {1}  with paymentID {2}", currentUserId, totalNetAmount,internalPaymentId));
                     PayoneerService.createPayment(internalPaymentId, currentUserId, totalNetAmount);
                 }
 

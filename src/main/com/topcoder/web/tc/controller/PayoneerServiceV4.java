@@ -18,6 +18,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.text.MessageFormat;
 import java.util.*;
 
 
@@ -163,6 +164,7 @@ public class PayoneerServiceV4 {
      */
     public static long createPayment(long internalPaymentId, long payeeId, double amount) throws PayoneerServiceException {
         log.info("Create payment. internalPaymentId = " + internalPaymentId + "; payeeId: " + payeeId + "; amount: " + amount);
+        log.info(MessageFormat.format("Create payment. internalPaymentId = {0}; payeeId: {1}; amount: {2}", internalPaymentId,amount));
         final Map<String, String> headers = getAuthHeader();
         final String requestUrl = config.getBaseApiUrl() + "/programs/" + config.getPartnerId() + "/masspayouts";
 
