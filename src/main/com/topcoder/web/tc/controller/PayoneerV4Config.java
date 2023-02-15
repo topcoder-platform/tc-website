@@ -20,9 +20,9 @@ public enum PayoneerV4Config {
             PayoneerV4Config.getString("v4_login_url"),
             Boolean.valueOf(PayoneerV4Config.getString("enable_v4")),
             Arrays.asList(StringUtils.split(PayoneerV4Config.getString("v4_users"), ',')!=null? StringUtils.split(PayoneerV4Config.getString("v4_users"), ',') :new String[0])
-    );
-    protected final Logger log = Logger.getLogger(PayoneerV4Config.class);
+    );   
 
+    protected final Logger log = Logger.getLogger(PayoneerV4Config.class);
     private String baseApiUrl = "";
     private String partnerId = "";
     private String programId = "";
@@ -78,19 +78,12 @@ public enum PayoneerV4Config {
         return v4Users;
     }
 
-    private static Logger log2 = Logger.getLogger(PayoneerV4Config.class);
-
     private static String getString(String key) {
-
         try {
-            log2.debug(MessageFormat.format("PayoneerV4Config value retrieval for key = {0} ", key));
+            System.out.println(MessageFormat.format("PayoneerV4Config value retrieval for key = {0} ", key));
             return ConfigManager.getInstance().getString("com.topcoder.web.tc.controller.PayoneerService", key);
         } catch (UnknownNamespaceException e) {
-            log2.error("UnknownNamespaceException while trying to initialize PayoneerConfig singleton", e);
-            throw new RuntimeException(e);
+           throw new RuntimeException(e);
         }
-
     }
-
-
 }
