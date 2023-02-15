@@ -104,7 +104,7 @@ public class PayORProjects extends DBUtility {
 
     private static final String SQL_UPDATE_PROJECT_PAYMENT = "UPDATE project_payment SET pacts_payment_id = ?, modify_user = ?, modify_date = current WHERE project_payment_id = ?";
 
-    private static final int FIRST_INSTALLMENT_PERCENT = 75;
+    private static final double FIRST_INSTALLMENT_PERCENT = 0.75;
     private static final int SECOND_INSTALLMENT_HOLD_PERIOD = 30;
     private static final int MARATHON_MATCH_PROJECT_CATEGORY_ID = 37;
 
@@ -257,10 +257,7 @@ public class PayORProjects extends DBUtility {
                             // If this is the winner's payment for a SW contest, split the payment in two
                             // installments
                             if (payment.place == 1 && projectTypeId != 3) {
-                                long amountInCents = (long) (amount * 100);
-                                long installmentOneInCents = (amountInCents * FIRST_INSTALLMENT_PERCENT) / 100;
-                                double installmentOne = (double) (installmentOneInCents / 100d);
-                                pactsPayment.setGrossAmount(installmentOne);
+                                pactsPayment.setGrossAmount(roundOff(amount * FIRST_INSTALLMENT_PERCENT, 2));
 
                                 // Create the 2nd installment
                                 pactsPayment2 = new ContestPayment(payment.userId, amount, projectId, payment.place);
@@ -564,6 +561,12 @@ public class PayORProjects extends DBUtility {
         int pactsPaymentTypeId;
         double amount;
         int place;
+    }
+
+    private double roundOff(double number, int numOfDecimalPlace) {
+        long itermediateNumber = (long) (number * Math.pow(10, numOfDecimalPlace));
+        double roundedOffValue = (double) (itermediateNumber / Math.pow(10, numOfDecimalPlace));
+        return roundedOffValue;
     }
 
 }
