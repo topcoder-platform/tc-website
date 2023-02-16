@@ -355,6 +355,7 @@ public class PayoneerServiceV4 {
             }
 
             try {
+                log.info("Create response string: " + responseString);
                 return new RequestResponse(responseCode, (JSONObject) JSONSerializer.toJSON(responseString));
             } catch (Exception e) {
                 e.printStackTrace();
