@@ -201,6 +201,13 @@ public class PayMe extends PaymentHistory {
      */
     private void processPayoneerPayments(DataInterfaceBean dib, long currentUserId,
                                          List<BasePayment> paymentsToPay, double totalNetAmount) throws Exception {
+        if (isPayoneerVersionV4Enabled(currentUserId)) {
+            log.info("Processing payment using Payonee V4 API");
+            processPayoneerPaymentsV4(dib, currentUserId, paymentsToPay, totalNetAmount);
+            return;
+        }
+
+        log.info("Processing payment using Payoneer old API");
         double currentBalance = PayoneerService.getBalanceAmount();
         if (currentBalance >= totalNetAmount) {
             PayoneerService.PayeeStatus payeeStatus = PayoneerService.getPayeeStatus(currentUserId);
@@ -213,16 +220,44 @@ public class PayMe extends PaymentHistory {
                     dib.updatePayment(payment, false, currentUserId);
                     internalPaymentId = payment.getId();
                 }
-                if (isPayoneerVersionV4Enabled(currentUserId)) {
-                    //log.info("Payoneer V4 api enabled for user: "+currentUserId+" for amount"+totalNetAmount+" with paymentID "+internalPaymentId);
-                    log.info(MessageFormat.format("Payoneer V4 api enabled for user: = {0} for amount {1}  with paymentID {2}", currentUserId, totalNetAmount,internalPaymentId));
-                    PayoneerServiceV4.createPayment(internalPaymentId, currentUserId, totalNetAmount);
-                } else {
-                    //log.info("Payoneer old api for user: "+currentUserId+" for amount"+totalNetAmount+" with paymentID "+internalPaymentId);
-                    log.info(MessageFormat.format("Payoneer old api for user: = {0} for amount {1}  with paymentID {2}", currentUserId, totalNetAmount,internalPaymentId));
-                    PayoneerService.createPayment(internalPaymentId, currentUserId, totalNetAmount);
-                }
+                log.info(MessageFormat.format("Payoneer old api for user: = {0} for amount {1}  with paymentID {2}", currentUserId, totalNetAmount,internalPaymentId));
+                PayoneerService.createPayment(internalPaymentId, currentUserId, totalNetAmount);
+            } else {
+                addError("PayMe", "Payoneer account is not active");
+            }
+        } else {
+            addError("PayMe", GENERIC_ERROR_MESSAGE);
+            addError("PayMe_InsufficientBalance",
+                    createInsufficientBalanceErrorDetails("Payoneer", totalNetAmount, currentBalance));
+        }
+    }
 
+    /**
+     * <p>Processes the specified payments for specified user via Payoneer v4 service.</p>
+     *
+     * @param dib            a <code>DataInterfaceBean</code> providing interface to <code>PACTS Service EJB</code>.
+     * @param currentUserId  a <code>long</code> providing the ID of current user.
+     * @param paymentsToPay  a <code>List</code> listing the payments to pay.
+     * @param totalNetAmount a <code>double</code> providing the total amount of payments to pay.
+     * @throws Exception if an unexpected error occurs.
+     */
+    private void processPayoneerPaymentsV4(DataInterfaceBean dib, long currentUserId,
+                                         List<BasePayment> paymentsToPay, double totalNetAmount) throws Exception {
+        double currentBalance = PayoneerServiceV4.getBalanceAmount();
+        if (currentBalance >= totalNetAmount) {
+            PayoneerServiceV4.PayeeStatus payeeStatus = PayoneerServiceV4.getPayeeStatus(currentUserId);
+            if (payeeStatus == PayoneerServiceV4.PayeeStatus.ACTIVATED) {
+                long internalPaymentId = 0;
+                for (BasePayment payment : paymentsToPay) {
+                    payment.setPaidDate(new Date());
+                    payment.setMethodId(PAYONEER_PAYMENT_METHOD_ID);
+                    payment.getCurrentStatus().pay(payment);
+                    dib.updatePayment(payment, false, currentUserId);
+                    internalPaymentId = payment.getId();
+                }
+                //log.info("Payoneer V4 api enabled for user: "+currentUserId+" for amount"+totalNetAmount+" with paymentID "+internalPaymentId);
+                log.info(MessageFormat.format("Payoneer V4 api enabled for user: = {0} for amount {1}  with paymentID {2}", currentUserId, totalNetAmount,internalPaymentId));
+                PayoneerServiceV4.createPayment(internalPaymentId, currentUserId, totalNetAmount);
             } else {
                 addError("PayMe", "Payoneer account is not active");
             }
