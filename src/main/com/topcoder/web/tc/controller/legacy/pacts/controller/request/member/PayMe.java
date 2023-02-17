@@ -202,12 +202,19 @@ public class PayMe extends PaymentHistory {
     private void processPayoneerPayments(DataInterfaceBean dib, long currentUserId,
                                          List<BasePayment> paymentsToPay, double totalNetAmount) throws Exception {
         if (isPayoneerVersionV4Enabled(currentUserId)) {
-            log.info("Processing payment using Payonee V4 API");
+            log.info("Processing payment using Payoneer V4 API");
             processPayoneerPaymentsV4(dib, currentUserId, paymentsToPay, totalNetAmount);
             return;
+        }else{
+            log.info("Processing payment using Payoneer old API");
+            processPayoneerPaymentsV4(dib, currentUserId, paymentsToPay, totalNetAmount);
         }
+    }
 
-        log.info("Processing payment using Payoneer old API");
+
+    private void processPayoneerV2Payments(DataInterfaceBean dib, long currentUserId,
+                                         List<BasePayment> paymentsToPay, double totalNetAmount) throws Exception {
+        log.info("Processing payment using Payoneer V2 API for user "+ currentUserId);
         double currentBalance = PayoneerService.getBalanceAmount();
         if (currentBalance >= totalNetAmount) {
             PayoneerService.PayeeStatus payeeStatus = PayoneerService.getPayeeStatus(currentUserId);
@@ -243,6 +250,7 @@ public class PayMe extends PaymentHistory {
      */
     private void processPayoneerPaymentsV4(DataInterfaceBean dib, long currentUserId,
                                          List<BasePayment> paymentsToPay, double totalNetAmount) throws Exception {
+        log.info("Processing payment using Payoneer V4 API for user "+ currentUserId);
         double currentBalance = PayoneerServiceV4.getBalanceAmount();
         if (currentBalance >= totalNetAmount) {
             PayoneerServiceV4.PayeeStatus payeeStatus = PayoneerServiceV4.getPayeeStatus(currentUserId);
