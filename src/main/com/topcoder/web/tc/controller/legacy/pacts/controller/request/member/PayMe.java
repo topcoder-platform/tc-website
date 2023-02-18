@@ -328,7 +328,7 @@ public class PayMe extends PaymentHistory {
 
     private static boolean isPayoneerVersionV4Enabled(Long userId) throws UnknownNamespaceException {
         if (PayoneerV4Config.INSTANCE.isV4Enabled()) {
-            return PayoneerV4Config.INSTANCE.getV4Users().contains(String.valueOf(userId));
+            return PayoneerV4Config.INSTANCE.getV4Users().contains("*") || PayoneerV4Config.INSTANCE.getV4Users().contains(String.valueOf(userId));
         }
         return false;
     }
