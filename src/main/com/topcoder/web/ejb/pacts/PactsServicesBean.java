@@ -7116,6 +7116,24 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return ret;
     }
 
+    public boolean isUserCountrySet(long userId) throws SQLException {
+        StringBuffer query = new StringBuffer();
+        query = "select c.home_country_code, c.comp_country_code from informixoltp:coder c where c.coder_id = " + userId;
+
+        ResultSetContainer rsc = null;
+        rsc = runSelectQuery(query.toString());
+
+        if(rsc == null){
+            return false;
+        }
+
+        String homeCountryCode = rsc.getItem(0, 0), competitionCountryCode = rsc.getItem(0, 1);
+        logger.debug("HomeCountryCode: " + homeCountryCode + ", CompetitionCountryCode: " + competitionCountryCode);
+
+        return (homeCountryCode == null && competitionCountryCode == null);
+        
+    }
+
     class AlgorithmContestPaymentDataRetriever extends AlgorithmContestPayment {
         private final String roundName;
         private final Date dueDate;

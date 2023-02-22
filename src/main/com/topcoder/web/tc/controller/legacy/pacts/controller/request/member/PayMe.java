@@ -76,6 +76,12 @@ public class PayMe extends PaymentHistory {
             try {
                 DataInterfaceBean dib = new DataInterfaceBean();
 
+                boolean isCountrySet = dib.isUserCountrySet(currentUserId);
+
+                if(!dib.isUserCountrySet(currentUserId)){
+                    addError("PayMe", "Member country not set. Please update your profile.");
+                }
+
                 // Get the payments for the user
                 Long userPaymentMethod = dib.getUserPaymentMethod(currentUserId);
                 if (userPaymentMethod == null || userPaymentMethod == NOT_SET_PAYMENT_METHOD_ID) {

@@ -359,5 +359,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
     public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, Date payDate, long operatorUserId);
 
     public String getInvoiceNumber(long paymentId) throws SQLException;
+
+    public boolean isUserCountrySet(long userId) throws SQLException;
 }
 
