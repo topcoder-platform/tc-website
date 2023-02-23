@@ -7130,7 +7130,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         String homeCountryCode = rsc.getItem(0, 0), competitionCountryCode = rsc.getItem(0, 1);
         logger.debug("HomeCountryCode: " + homeCountryCode + ", CompetitionCountryCode: " + competitionCountryCode);
 
-        return (homeCountryCode == null && competitionCountryCode == null);
+        return (homeCountryCode != null || competitionCountryCode != null);
         
     }
 
