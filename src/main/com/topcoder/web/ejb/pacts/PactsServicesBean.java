@@ -7394,8 +7394,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public boolean isUserCountrySet(long userId) throws SQLException {
         StringBuffer query = new StringBuffer();
         query.append(
-                "select c.home_country_code as homecountrycode, c.comp_country_code as compcountrycode from informixoltp:coder c where c.coder_id = ",
-                userId);
+                "select c.home_country_code as homecountrycode, c.comp_country_code as compcountrycode from informixoltp:coder c where c.coder_id = "
+                        + userId);
 
         ResultSetContainer rsc = runSelectQuery(query.toString());
 
@@ -7403,7 +7403,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ResultSetRow rsr = (ResultSetRow) (rsc.iterator().next());
             String homeCountryCode = rsr.getStringItem("homecountrycode"),
                     competitionCountryCode = rsr.getStringItem("compcountrycode");
-            logger.debug("HomeCountryCode: " + homeCountryCode + ", CompetitionCountryCode: " + competitionCountryCode);
+            log.debug("Country info for user " + userId + ": HomeCountryCode: " + homeCountryCode
+                    + ", CompetitionCountryCode: " + competitionCountryCode);
 
             return ((homeCountryCode != null && homeCountryCode.trim().length() > 0)
                     || (competitionCountryCode != null && competitionCountryCode.trim().length() > 0));
