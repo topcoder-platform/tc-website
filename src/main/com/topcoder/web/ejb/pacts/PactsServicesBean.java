@@ -5435,11 +5435,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
                         // If this is the winner's payment for a SW contest, split the payment in two installments
                         if (placed == 1 && !isStudioProject(projectId)) {
-                            payment.setGrossAmount(roundOff(amount * FIRST_INSTALLMENT_PERCENT, 2));
+                            payment.setGrossAmount(amount * FIRST_INSTALLMENT_PERCENT);
 
                             // Create the 2nd installment
                             payment2 = new ContestPayment(coderId, amount, client, projectId, placed);
-                            payment2.setGrossAmount(roundOff(amount - payment.getGrossAmount(), 2));
+                            payment2.setGrossAmount(amount - (amount * FIRST_INSTALLMENT_PERCENT));
                             payment2.setInstallmentNumber(2);
 
                             // Calculate the due date for the 2nd installment.
@@ -7116,12 +7116,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return ret;
     }
 
-    private double roundOff(double number, int numOfDecimalPlace) {
-        long itermediateNumber = (long) (number * Math.pow(10, numOfDecimalPlace));
-        double roundedOffValue = (double) (itermediateNumber / Math.pow(10, numOfDecimalPlace));
-        return roundedOffValue;
-    }
-
     class AlgorithmContestPaymentDataRetriever extends AlgorithmContestPayment {
         private final String roundName;
         private final Date dueDate;
@@ -7149,4 +7143,3 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 }
-
