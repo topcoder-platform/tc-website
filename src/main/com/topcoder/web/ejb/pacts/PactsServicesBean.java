@@ -7143,4 +7143,3 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 }
-
