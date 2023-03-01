@@ -70,70 +70,89 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 import static com.topcoder.web.tc.Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT;
 
 /**
- * <p>The EJB class which handles database access for the PACTS system.</p>
- *
  * <p>
- *   Version 1.1 (Testing Competition Split Release Assembly 1.0) Change notes:
- *   <ol>
- *     <li>Updated Application Testing to Test Suites.</li>
- *     <li>Added support for new Test Scenarios competitions.</li>
- *   </ol>
+ * The EJB class which handles database access for the PACTS system.
  * </p>
  *
-  * <p>
-  *   Version 1.2 (Miscellaneous TC Improvements Release Assembly 1.0) Change notes:
-  *   <ol>
-  *     <li>Updated {@link #generateComponentPayments(long, long, String, boolean, long, long, boolean, boolean)} method
- *      to handle the case when there is no design project associated with project to generate payments for.</li>
-  *   </ol>
-  * </p>
- *
  * <p>
- *   Version 1.3 (Member Payment Improvements Release Assembly v1.0) Change notes:
- *   <ol>
- *     <li>Updated {@link #findUsers(java.util.Map)} method to retrieve user profile statuses from data store.</li>
- *     <li>Updated <code>serialVersionUID</code> static field.</p>
- *   </ol>
- * </p>
- * <p>
- *   Version 1.4 (Studio Electronic Assignment Document Assembly version 1.0) Change notes:
- *   <ol>
- *     <li>Change the process of add payment</li>
- *   </ol>
- * </p>
- * <p>
- *   Version 1.5 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
- *   <ol>
- *     <li>Added support for new Copilot Posting competitions.</li>
- *   </ol>
- * </p>
- * <p>
- *   Version 1.6 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
+ * Version 1.1 (Testing Competition Split Release Assembly 1.0) Change notes:
  * <ol>
- * <li>a new parameter is added for the three generateComponentPayments methods to populate the related resource
- *     ids for generated component payments.</li>
- * <li>a new method {@link #addOnlineReviewPayments(List, List)} is added for adding payments in persistence and
- *     populating the payment statuses for the given resource ids.</li>
+ * <li>Updated Application Testing to Test Suites.</li>
+ * <li>Added support for new Test Scenarios competitions.</li>
+ * </ol>
+ * </p>
+ *
+ * <p>
+ * Version 1.2 (Miscellaneous TC Improvements Release Assembly 1.0) Change
+ * notes:
+ * <ol>
+ * <li>Updated
+ * {@link #generateComponentPayments(long, long, String, boolean, long, long, boolean, boolean)}
+ * method
+ * to handle the case when there is no design project associated with project to
+ * generate payments for.</li>
+ * </ol>
+ * </p>
+ *
+ * <p>
+ * Version 1.3 (Member Payment Improvements Release Assembly v1.0) Change notes:
+ * <ol>
+ * <li>Updated {@link #findUsers(java.util.Map)} method to retrieve user profile
+ * statuses from data store.</li>
+ * <li>Updated <code>serialVersionUID</code> static field.
+ * </p>
  * </ol>
  * </p>
  * <p>
- *   Version 1.7 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
- *   <ol>
- *     <li>Added {@link #CONTENT_CREATION_PROJECT_TYPE} constant.</li>
- *     <li>Updated {@link #generateComponentPayments(long, long, String, boolean, long, long, boolean, boolean)} method.
- *     </li>
- *     <li>Updated {@link #generateComponentUserPayments(long, double, String, long, int, long, boolean, long, boolean)}
- *     method.</li>
- *   </ol>
+ * Version 1.4 (Studio Electronic Assignment Document Assembly version 1.0)
+ * Change notes:
+ * <ol>
+ * <li>Change the process of add payment</li>
+ * </ol>
+ * </p>
+ * <p>
+ * Version 1.5 (Copilot Selection Contest Online Review and TC Site Integration
+ * Assembly 1.0) Change notes:
+ * <ol>
+ * <li>Added support for new Copilot Posting competitions.</li>
+ * </ol>
+ * </p>
+ * <p>
+ * Version 1.6 (Online Review Payments and Status Automation Assembly 1.0)
+ * Changes Notes:
+ * <ol>
+ * <li>a new parameter is added for the three generateComponentPayments methods
+ * to populate the related resource
+ * ids for generated component payments.</li>
+ * <li>a new method {@link #addOnlineReviewPayments(List, List)} is added for
+ * adding payments in persistence and
+ * populating the payment statuses for the given resource ids.</li>
+ * </ol>
+ * </p>
+ * <p>
+ * Version 1.7 (Content Creation Contest Online Review and TC Site Integration
+ * Assembly 1.0) Change notes:
+ * <ol>
+ * <li>Added {@link #CONTENT_CREATION_PROJECT_TYPE} constant.</li>
+ * <li>Updated
+ * {@link #generateComponentPayments(long, long, String, boolean, long, long, boolean, boolean)}
+ * method.
+ * </li>
+ * <li>Updated
+ * {@link #generateComponentUserPayments(long, double, String, long, int, long, boolean, long, boolean)}
+ * method.</li>
+ * </ol>
  * </p>
  * <p>
  * Version 1.8 (Topcoder - Add New Payment Provider) Change notes:
- *   <ol>
- *     <li>Added {@link #hasWiproSSOAccount(long)} method.</li>
- *   </ol>
+ * <ol>
+ * <li>Added {@link #hasWiproSSOAccount(long)} method.</li>
+ * </ol>
  * </p>
  *
- * <p>VERY IMPORTANT: remember to update serialVersionUID if needed.</p>
+ * <p>
+ * VERY IMPORTANT: remember to update serialVersionUID if needed.
+ * </p>
  *
  * @author Dave Pecora, pulky, isv, Vitta, Blues, FireIce, TCSCODER
  * @version 1.8
@@ -142,13 +161,13 @@ import static com.topcoder.web.tc.Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT;
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
-     * Please change that number if you affect the fields in a way that will affect the
+     * Please change that number if you affect the fields in a way that will affect
+     * the
      * serialization for this object, i.e. when data members are changed.
      *
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 8L;
-
 
     private static final Logger log = Logger.getLogger(PactsServicesBean.class);
     private static final double FIRST_INSTALLMENT_PERCENT = 0.75;
@@ -204,7 +223,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return rsc;
         } catch (Exception e) {
             try {
-                if (c != null) c.close();
+                if (c != null)
+                    c.close();
             } catch (Exception e1) {
                 printException(e1);
             }
@@ -246,12 +266,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             printException(e);
             try {
-                if (rs != null) rs.close();
+                if (rs != null)
+                    rs.close();
             } catch (Exception e1) {
                 printException(e1);
             }
             try {
-                if (ps != null) ps.close();
+                if (ps != null)
+                    ps.close();
             } catch (Exception e1) {
                 printException(e1);
             }
@@ -271,7 +293,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return rowsModified;
         } catch (Exception e) {
             try {
-                if (c != null) c.close();
+                if (c != null)
+                    c.close();
             } catch (Exception e1) {
                 printException(e1);
             }
@@ -297,7 +320,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             log.error(sb.toString());
             printException(e);
             try {
-                if (ps != null) ps.close();
+                if (ps != null)
+                    ps.close();
             } catch (Exception e1) {
                 printException(e1);
             }
@@ -345,19 +369,22 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             log.error(sb.toString());
 
             try {
-                if (rs != null) rs.close();
+                if (rs != null)
+                    rs.close();
             } catch (Exception e1) {
                 printException(e1);
             }
             rs = null;
             try {
-                if (ps != null) ps.close();
+                if (ps != null)
+                    ps.close();
             } catch (Exception e1) {
                 printException(e1);
             }
             ps = null;
             try {
-                if (c != null) c.close();
+                if (c != null)
+                    c.close();
             } catch (Exception e1) {
                 printException(e1);
             }
@@ -399,13 +426,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             log.error(sb.toString());
 
             try {
-                if (rs != null) rs.close();
+                if (rs != null)
+                    rs.close();
             } catch (Exception e1) {
                 printException(e1);
             }
             rs = null;
             try {
-                if (ps != null) ps.close();
+                if (ps != null)
+                    ps.close();
             } catch (Exception e1) {
                 printException(e1);
             }
@@ -475,8 +504,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         if (dt == null)
             throw new Exception("Date string input " + dateString + " could not be parsed");
 
-        // Make sure the time is set to midnight on that day - javadocs for the SimpleDateFormat
-        // parser are unclear on this point and the parser code is horrifically complicated...
+        // Make sure the time is set to midnight on that day - javadocs for the
+        // SimpleDateFormat
+        // parser are unclear on this point and the parser code is horrifically
+        // complicated...
         GregorianCalendar g = new GregorianCalendar();
         g.setTime(dt);
         g.set(Calendar.HOUR_OF_DAY, 0);
@@ -486,8 +517,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         dt = g.getTime();
 
         long ms = dt.getTime();
-        // In some cases it can be useful to set the time to 11:59:59 PM, for example if we're
-        // trying to find payments that were printed sometime that day and this is the end
+        // In some cases it can be useful to set the time to 11:59:59 PM, for example if
+        // we're
+        // trying to find payments that were printed sometime that day and this is the
+        // end
         // timestamp value.
         if (endOfDay) {
             ms += (60 * 60 * 24 * 1000 - 1);
@@ -509,7 +542,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *****************************************************/
 
     /**
-     * Returns the affidavit specified by the given affidavit ID.  <p>
+     * Returns the affidavit specified by the given affidavit ID.
+     * <p>
      *
      * @param affidavitId The ID of the affidavit to retrieve.
      * @return The affidavit data.
@@ -558,14 +592,20 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 long paymentId = Long.parseLong(rsc.getItem(0, "payment_id").toString());
                 // Get payment header for affidavit
                 StringBuffer selectPaymentHeader = new StringBuffer(300);
-                selectPaymentHeader.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id,  p.create_date, pd.create_date as modify_date, ");
+                selectPaymentHeader.append(
+                        "SELECT p.payment_id, pd.payment_desc, pd.payment_type_id,  p.create_date, pd.create_date as modify_date, ");
                 selectPaymentHeader.append("pt.payment_type_desc, pd.payment_method_id, pm.payment_method_desc, ");
                 selectPaymentHeader.append("pd.net_amount, pd.payment_status_id, s.payment_status_desc, ");
-                selectPaymentHeader.append("p.user_id, u.handle, pd.date_modified, pd.date_paid, pd.gross_amount, pd.client, ");
-                selectPaymentHeader.append("pd.algorithm_round_id, pd.component_project_id, pd.cockpit_project_id, pd.algorithm_problem_id, ");
-                selectPaymentHeader.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, 0 as payment_status_reason_id, ");
-                selectPaymentHeader.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id ");
-                selectPaymentHeader.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
+                selectPaymentHeader
+                        .append("p.user_id, u.handle, pd.date_modified, pd.date_paid, pd.gross_amount, pd.client, ");
+                selectPaymentHeader.append(
+                        "pd.algorithm_round_id, pd.component_project_id, pd.cockpit_project_id, pd.algorithm_problem_id, ");
+                selectPaymentHeader.append(
+                        "pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, 0 as payment_status_reason_id, ");
+                selectPaymentHeader.append(
+                        "pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id ");
+                selectPaymentHeader
+                        .append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
                 selectPaymentHeader.append("payment_status_lu s, user u ");
                 selectPaymentHeader.append("WHERE p.payment_id = " + paymentId + " ");
                 selectPaymentHeader.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
@@ -590,7 +630,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Returns the contract specified by the given contract ID.  <p>
+     * Returns the contract specified by the given contract ID.
+     * <p>
      *
      * @param contractId The ID of the contract to retrieve.
      * @return The contract data.
@@ -612,13 +653,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectContractDetails.append("WHERE contract_id = " + contractId);
 
         StringBuffer selectPaymentHeaders = new StringBuffer(300);
-        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, p.create_date, pd.create_date as modify_date,  ");
-        selectPaymentHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.payment_status_id, s.payment_status_desc, ");
-        selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.date_paid, pd.gross_amount, pd.client, ");
-        selectPaymentHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.cockpit_project_id, pd.algorithm_problem_id, ");
+        selectPaymentHeaders.append(
+                "SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, p.create_date, pd.create_date as modify_date,  ");
+        selectPaymentHeaders.append(
+                "pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.payment_status_id, s.payment_status_desc, ");
+        selectPaymentHeaders
+                .append("p.user_id, u.handle, pd.date_modified, pd.date_paid, pd.gross_amount, pd.client, ");
+        selectPaymentHeaders.append(
+                "pd.algorithm_round_id, pd.component_project_id, pd.cockpit_project_id, pd.algorithm_problem_id, ");
         selectPaymentHeaders.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-        selectPaymentHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id ");
-        selectPaymentHeaders.append("FROM contract_payment_xref cpx, payment p, payment_type_lu pt, payment_method_lu pm, ");
+        selectPaymentHeaders.append(
+                "pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id ");
+        selectPaymentHeaders
+                .append("FROM contract_payment_xref cpx, payment p, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentHeaders.append("payment_detail pd, payment_status_lu s, user u ");
         selectPaymentHeaders.append("WHERE cpx.contract_id = " + contractId + " ");
         selectPaymentHeaders.append("AND cpx.payment_id = p.payment_id ");
@@ -643,7 +690,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Returns the note specified by the given note ID.  <p>
+     * Returns the note specified by the given note ID.
+     * <p>
      *
      * @param noteId The ID of the note to retrieve.
      * @return The note data.
@@ -673,9 +721,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Returns the payment specified by the given payment ID.  The data returned will consist
-     * of the payment header, the most recent payment detail record (with print address, if
-     * applicable), and the current coder address information. <p>
+     * Returns the payment specified by the given payment ID. The data returned will
+     * consist
+     * of the payment header, the most recent payment detail record (with print
+     * address, if
+     * applicable), and the current coder address information.
+     * <p>
      *
      * @param paymentId The ID of the payment to retrieve.
      * @return The payment data.
@@ -692,7 +743,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
         selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
         selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due, ");
-        selectPaymentDetails.append("pd.charity_ind, pa.address3, pa.province, pd.total_amount, pd.installment_number, ");
+        selectPaymentDetails
+                .append("pd.charity_ind, pa.address3, pa.province, pd.total_amount, pd.installment_number, ");
         selectPaymentDetails.append("pd.jira_issue_id, pdsrx.payment_status_reason_id ");
         selectPaymentDetails.append("FROM payment p, payment_detail pd, payment_status_lu s, ");
         selectPaymentDetails.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
@@ -712,11 +764,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return doPayment(paymentId, selectPaymentDetails.toString());
     }
 
-
     /**
-     * Returns the complete audit trail for the payment specified by the given payment ID.
-     * Data returned will include the payment header, all payment detail records (with print
-     * addresses, if applicable), and the current coder address. <p>
+     * Returns the complete audit trail for the payment specified by the given
+     * payment ID.
+     * Data returned will include the payment header, all payment detail records
+     * (with print
+     * addresses, if applicable), and the current coder address.
+     * <p>
      *
      * @param paymentId The ID of the payment to retrieve.
      * @return The payment audit trail data.
@@ -731,11 +785,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentDetails.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
         selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
-        selectPaymentDetails.append("state.state_name, country.country_name, pd.create_date as modify_date, pd.date_due, ");
-        selectPaymentDetails.append("pd.charity_ind, pa.address3, pa.province, pd.total_amount, pd.installment_number, ");
+        selectPaymentDetails
+                .append("state.state_name, country.country_name, pd.create_date as modify_date, pd.date_due, ");
+        selectPaymentDetails
+                .append("pd.charity_ind, pa.address3, pa.province, pd.total_amount, pd.installment_number, ");
         selectPaymentDetails.append("pd.jira_issue_id, cu.handle as create_user_handle ");
         selectPaymentDetails.append("FROM payment p, payment_detail_xref pdx, payment_detail pd, ");
-        selectPaymentDetails.append("payment_status_lu s, modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
+        selectPaymentDetails.append(
+                "payment_status_lu s, modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country), outer user cu ");
         selectPaymentDetails.append("WHERE p.payment_id = " + paymentId + " ");
         selectPaymentDetails.append("AND pdx.payment_id = p.payment_id ");
@@ -757,13 +814,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private Map doPayment(long paymentId, String detailsQuery) throws SQLException {
         log.debug("dopayment(long, String) called...");
         StringBuffer selectPaymentHeader = new StringBuffer(300);
-        selectPaymentHeader.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, p.create_date, pd.create_date as modify_date, ");
+        selectPaymentHeader.append(
+                "SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, p.create_date, pd.create_date as modify_date, ");
         selectPaymentHeader.append("pt.payment_type_desc, pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentHeader.append("pd.net_amount, pd.payment_status_id, s.payment_status_desc, ");
         selectPaymentHeader.append("p.user_id, u.handle, pd.date_modified, pd.date_paid, pd.gross_amount, pd.client, ");
-        selectPaymentHeader.append("pd.algorithm_round_id, pd.component_project_id, pd.cockpit_project_id, pd.algorithm_problem_id, ");
-        selectPaymentHeader.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, 0 as payment_status_reason_id, ");
-        selectPaymentHeader.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id, ");
+        selectPaymentHeader.append(
+                "pd.algorithm_round_id, pd.component_project_id, pd.cockpit_project_id, pd.algorithm_problem_id, ");
+        selectPaymentHeader.append(
+                "pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, 0 as payment_status_reason_id, ");
+        selectPaymentHeader.append(
+                "pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id, ");
         selectPaymentHeader.append("pd.jira_issue_id ");
         selectPaymentHeader.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
         selectPaymentHeader.append("payment_status_lu s, user u ");
@@ -793,7 +854,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             selectCoderAddress.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
             selectCoderAddress.append("a.address1, a.address2, u.first_name, u.middle_name, ");
             selectCoderAddress.append("u.last_name, state.state_name, country.country_name, a.address3, a.province ");
-            selectCoderAddress.append("FROM coder c, address a, user_address_xref x, OUTER state, OUTER country, user u ");
+            selectCoderAddress
+                    .append("FROM coder c, address a, user_address_xref x, OUTER state, OUTER country, user u ");
             selectCoderAddress.append("WHERE c.coder_id = " + userId + " ");
             selectCoderAddress.append("AND state.state_code = a.state_code ");
             selectCoderAddress.append("and x.user_id = c.coder_id and x.address_id = a.address_id ");
@@ -810,7 +872,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } catch (Exception e) {
             printException(e);
             try {
-                if (c != null) c.close();
+                if (c != null)
+                    c.close();
             } catch (Exception e1) {
                 printException(e1);
             }
@@ -820,7 +883,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Returns the user profile corresponding to the given user ID.  <p>
+     * Returns the user profile corresponding to the given user ID.
+     * <p>
      *
      * @param userId The user ID for which to retrieve the user profile.
      * @return The user profile data.
@@ -828,7 +892,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map getUserProfile(long userId) throws SQLException {
         StringBuffer selectDetails = new StringBuffer(300);
-        selectDetails.append("SELECT e.address as email, p.phone_number as work_phone, p.phone_number as home_phone, a.country_code, a.zip, ");
+        selectDetails.append(
+                "SELECT e.address as email, p.phone_number as work_phone, p.phone_number as home_phone, a.country_code, a.zip, ");
         selectDetails.append("a.state_code, a.city, a.address1, a.address2, u.first_name, u.middle_name, ");
         selectDetails.append("u.last_name, state.state_name, country.country_name, ");
         selectDetails.append("c.coder_type_id, ct.coder_type_desc, s.user_status_desc, a.address3, a.province ");
@@ -839,7 +904,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectDetails.append(" LEFT OUTER JOIN phone p ON p.user_id = u.user_id AND p.primary_ind = 1 ");
         selectDetails.append(" LEFT OUTER JOIN user_address_xref x ON x.user_id = u.user_id ");
         selectDetails.append(" LEFT OUTER JOIN address a ON x.address_id = a.address_id AND a.address_type_id = 2 ");
-        selectDetails.append(" LEFT OUTER JOIN country ON country.country_code = a.country_code AND country.country_code = a.country_code ");
+        selectDetails.append(
+                " LEFT OUTER JOIN country ON country.country_code = a.country_code AND country.country_code = a.country_code ");
         selectDetails.append(" LEFT OUTER JOIN state ON state.state_code = a.state_code ");
         selectDetails.append(" INNER JOIN user_status_lu s ON u.status = s.user_status_id ");
         selectDetails.append("WHERE u.user_id = " + userId);
@@ -858,7 +924,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } catch (Exception e) {
             printException(e);
             try {
-                if (c != null) c.close();
+                if (c != null)
+                    c.close();
             } catch (Exception e1) {
                 printException(e1);
             }
@@ -868,7 +935,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Returns the user profile header corresponding to the given user ID.  <p>
+     * Returns the user profile header corresponding to the given user ID.
+     * <p>
      *
      * @param userId The user ID for which to retrieve the user profile header.
      * @return The user profile header data.
@@ -885,7 +953,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } catch (Exception e) {
             printException(e);
             try {
-                if (c != null) c.close();
+                if (c != null)
+                    c.close();
             } catch (Exception e1) {
                 printException(e1);
             }
@@ -894,16 +963,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    // Helper function to get the user profile header given a connection and user Id.
+    // Helper function to get the user profile header given a connection and user
+    // Id.
     private Map getUserProfileHeader(Connection c, long userId) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
         selectHeader.append("SELECT u.user_id, u.handle, u.first_name, u.middle_name, u.last_name, ");
-        selectHeader.append("nvl(ua.accrual_amount,"+MINIMUM_PAYMENT_ACCRUAL_AMOUNT+") as accrual_amount, ");
+        selectHeader.append("nvl(ua.accrual_amount," + MINIMUM_PAYMENT_ACCRUAL_AMOUNT + ") as accrual_amount, ");
         selectHeader.append("pml.payment_method_desc as payment_method ");
         selectHeader.append("FROM user u ");
         selectHeader.append("LEFT OUTER JOIN user_accrual ua ON u.user_id = ua.user_id ");
         selectHeader.append("LEFT OUTER JOIN user_payment_method upm ON u.user_id = upm.user_id ");
-        selectHeader.append("INNER JOIN payment_method_lu pml ON pml.payment_method_id = nvl(upm.payment_method_id, "+NOT_SET_PAYMENT_METHOD_ID+") ");
+        selectHeader.append("INNER JOIN payment_method_lu pml ON pml.payment_method_id = nvl(upm.payment_method_id, "
+                + NOT_SET_PAYMENT_METHOD_ID + ") ");
         selectHeader.append("WHERE u.user_id = " + userId + " ");
 
         StringBuffer selectGroups = new StringBuffer(300);
@@ -923,7 +994,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Returns the generic tax form specified by the given tax form ID.  <p>
+     * Returns the generic tax form specified by the given tax form ID.
+     * <p>
      *
      * @param taxFormId The ID of the generic tax form to retrieve.
      * @return The tax form data.
@@ -945,7 +1017,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Returns the user-specific tax form specified by the given tax form ID.  <p>
+     * Returns the user-specific tax form specified by the given tax form ID.
+     * <p>
      *
      * @param userId    The user ID of the tax form to retrieve.
      * @param taxFormId The tax form ID of the tax form to retrieve.
@@ -966,7 +1039,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         StringBuffer selectDetails = new StringBuffer(300);
         selectDetails.append("SELECT utf.withholding_amount, utf.withholding_percentage, tf.status_id, ");
         selectDetails.append("tf.default_withholding_amount, tf.default_withholding_percentage, ");
-        selectDetails.append("tf.tax_form_desc, s.status_desc, utf.use_percentage, tf.use_percentage AS default_use_percentage ");
+        selectDetails.append(
+                "tf.tax_form_desc, s.status_desc, utf.use_percentage, tf.use_percentage AS default_use_percentage ");
         selectDetails.append("FROM user_tax_form_xref utf, tax_form tf, status_lu s ");
         selectDetails.append("WHERE utf.tax_form_id = " + taxFormId + " ");
         selectDetails.append("AND utf.user_id = " + userId + " ");
@@ -999,8 +1073,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public Map getUserAffidavitList(long userId) throws SQLException {
         StringBuffer selectAffidavitHeaders = new StringBuffer(300);
         // New version which sorts by a combination time field which is round start time
-        // if the affidavit is associated with a contest, and the affidavit creation date
-        // otherwise.  Also gets affidavit description.
+        // if the affidavit is associated with a contest, and the affidavit creation
+        // date
+        // otherwise. Also gets affidavit description.
         selectAffidavitHeaders.append("SELECT a.affidavit_id, a.status_id, s.status_desc, a.user_id, ");
         selectAffidavitHeaders.append("a.notarized, a.affirmed, a.date_created, u.handle, ");
         selectAffidavitHeaders.append("a.affidavit_type_id, atl.affidavit_type_desc, a.affidavit_desc, ");
@@ -1013,7 +1088,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectAffidavitHeaders.append("AND a.status_id = s.status_id ");
         selectAffidavitHeaders.append("AND a.status_id in (57,58,59) ");
         selectAffidavitHeaders.append("AND a.round_id = rs.round_id ");
-        selectAffidavitHeaders.append("AND a.date_created > mdy(1,1,2005) "); //don't bother with old stuff, people just get confused.
+        selectAffidavitHeaders.append("AND a.date_created > mdy(1,1,2005) "); // don't bother with old stuff, people
+                                                                              // just get confused.
         selectAffidavitHeaders.append("AND rs.segment_id = ");
         selectAffidavitHeaders.append("  (SELECT MIN(segment_id) FROM round_segment ");
         selectAffidavitHeaders.append("   WHERE round_id=a.round_id)");
@@ -1059,12 +1135,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map getUserPaymentList(long userId) throws SQLException {
         StringBuffer selectPaymentHeaders = new StringBuffer(300);
-        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id,  p.create_date, pd.create_date as modify_date, ");
-        selectPaymentHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.payment_status_id, s.payment_status_desc, ");
-        selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.date_paid, pd.gross_amount, pd.client, ");
-        selectPaymentHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.cockpit_project_id, pd.algorithm_problem_id, ");
+        selectPaymentHeaders.append(
+                "SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id,  p.create_date, pd.create_date as modify_date, ");
+        selectPaymentHeaders.append(
+                "pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.payment_status_id, s.payment_status_desc, ");
+        selectPaymentHeaders
+                .append("p.user_id, u.handle, pd.date_modified, pd.date_paid, pd.gross_amount, pd.client, ");
+        selectPaymentHeaders.append(
+                "pd.algorithm_round_id, pd.component_project_id, pd.cockpit_project_id, pd.algorithm_problem_id, ");
         selectPaymentHeaders.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-        selectPaymentHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id ");
+        selectPaymentHeaders.append(
+                "pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id ");
         selectPaymentHeaders.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
         selectPaymentHeaders.append("payment_status_lu s, user u ");
         selectPaymentHeaders.append("WHERE p.user_id = " + userId + " ");
@@ -1086,7 +1167,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param userId       The coder ID of the payments.
      * @param paymentTypes The payment type(s) to filter on.
-     * @param pendingOnly  True if only details which are pending, owed, or on hold should be returned.
+     * @param pendingOnly  True if only details which are pending, owed, or on hold
+     *                     should be returned.
      * @return The payment header list.
      * @throws SQLException If there is some problem retrieving the data
      */
@@ -1100,8 +1182,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentDetails.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
         selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
-        selectPaymentDetails.append("state.state_name, country.country_name, pd.create_date as modify_date, pd.date_due, ");
-        selectPaymentDetails.append("pd.charity_ind, pa.address3, pa.province, pd.total_amount, pd.installment_number ");
+        selectPaymentDetails
+                .append("state.state_name, country.country_name, pd.create_date as modify_date, pd.date_due, ");
+        selectPaymentDetails
+                .append("pd.charity_ind, pa.address3, pa.province, pd.total_amount, pd.installment_number ");
         selectPaymentDetails.append("FROM payment p, payment_detail pd, payment_status_lu s, ");
         selectPaymentDetails.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
@@ -1133,17 +1217,22 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return doUserPayments(userId, selectPaymentDetails.toString(), paymentTypes, pendingOnly);
     }
 
-    //  Helper function to retrieve payment information for a given user.
-    private Map doUserPayments(long userId, String detailsQuery, int[] paymentTypes, boolean pendingOnly) throws SQLException {
+    // Helper function to retrieve payment information for a given user.
+    private Map doUserPayments(long userId, String detailsQuery, int[] paymentTypes, boolean pendingOnly)
+            throws SQLException {
         String paymentTypeList = makeList(paymentTypes);
         StringBuffer selectPaymentHeaders = new StringBuffer(300);
-        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, p.create_date, pd.create_date as modify_date,  ");
+        selectPaymentHeaders.append(
+                "SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, p.create_date, pd.create_date as modify_date,  ");
         selectPaymentHeaders.append("pt.payment_type_desc, pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentHeaders.append("pd.net_amount, pd.payment_status_id, s.payment_status_desc, ");
-        selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.date_paid, pd.gross_amount, pd.client, ");
-        selectPaymentHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.cockpit_project_id, pd.algorithm_problem_id, ");
+        selectPaymentHeaders
+                .append("p.user_id, u.handle, pd.date_modified, pd.date_paid, pd.gross_amount, pd.client, ");
+        selectPaymentHeaders.append(
+                "pd.algorithm_round_id, pd.component_project_id, pd.cockpit_project_id, pd.algorithm_problem_id, ");
         selectPaymentHeaders.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-        selectPaymentHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, digital_run_track_id ");
+        selectPaymentHeaders.append(
+                "pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, digital_run_track_id ");
         selectPaymentHeaders.append("FROM payment p, payment_detail pd, payment_status_lu s, user u, ");
         selectPaymentHeaders.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentHeaders.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
@@ -1188,7 +1277,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             selectCoderAddress.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
             selectCoderAddress.append("a.address1, a.address2, u.first_name, u.middle_name, ");
             selectCoderAddress.append("u.last_name, state.state_name, country.country_name, a.address3, a.province ");
-            selectCoderAddress.append("FROM coder c, address a, user_address_xref x, OUTER state, OUTER country, user u ");
+            selectCoderAddress
+                    .append("FROM coder c, address a, user_address_xref x, OUTER state, OUTER country, user u ");
             selectCoderAddress.append("WHERE c.coder_id = " + userId + " ");
             selectCoderAddress.append("AND state.state_code = a.state_code ");
             selectCoderAddress.append("and x.user_id = c.coder_id and x.address_id = a.address_id ");
@@ -1205,7 +1295,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } catch (Exception e) {
             printException(e);
             try {
-                if (c != null) c.close();
+                if (c != null)
+                    c.close();
             } catch (Exception e1) {
                 printException(e1);
             }
@@ -1247,7 +1338,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param objectType    The type of the object, as defined in
      *                      <tt>PactsConstants.java</tt>
      * @param taxFormUserId If the object is a tax form, the user ID of
-     *                      the tax form.  This parameter is otherwise disregarded.
+     *                      the tax form. This parameter is otherwise disregarded.
      * @return The note header list.
      * @throws SQLException If there is some problem retrieving the data
      */
@@ -1296,13 +1387,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map getContractPaymentList(long contractId) throws SQLException {
         StringBuffer selectPaymentHeaders = new StringBuffer(300);
-        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id,  p.create_date, pd.create_date as modify_date, ");
-        selectPaymentHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.payment_status_id, s.payment_status_desc, ");
-        selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.date_paid, pd.gross_amount, pd.client, ");
-        selectPaymentHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.cockpit_project_id, pd.algorithm_problem_id, ");
+        selectPaymentHeaders.append(
+                "SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id,  p.create_date, pd.create_date as modify_date, ");
+        selectPaymentHeaders.append(
+                "pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.payment_status_id, s.payment_status_desc, ");
+        selectPaymentHeaders
+                .append("p.user_id, u.handle, pd.date_modified, pd.date_paid, pd.gross_amount, pd.client, ");
+        selectPaymentHeaders.append(
+                "pd.algorithm_round_id, pd.component_project_id, pd.cockpit_project_id, pd.algorithm_problem_id, ");
         selectPaymentHeaders.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-        selectPaymentHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id ");
-        selectPaymentHeaders.append("FROM contract_payment_xref cpx, payment p, payment_type_lu pt, payment_method_lu pm, ");
+        selectPaymentHeaders.append(
+                "pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id ");
+        selectPaymentHeaders
+                .append("FROM contract_payment_xref cpx, payment p, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentHeaders.append("payment_detail pd, payment_status_lu s, user u ");
         selectPaymentHeaders.append("WHERE cpx.contract_id = " + contractId + " ");
         selectPaymentHeaders.append("AND cpx.payment_id = p.payment_id ");
@@ -1388,7 +1485,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public List<AssignmentDocumentType> getAssignmentDocumentTypes() throws SQLException {
         List<AssignmentDocumentType> assignmentDocumentTypes = new ArrayList<AssignmentDocumentType>();
         StringBuffer sb = new StringBuffer(300);
-        sb.append("SELECT assignment_document_type_id, assignment_document_type_desc FROM assignment_document_type_lu ORDER BY 2");
+        sb.append(
+                "SELECT assignment_document_type_id, assignment_document_type_desc FROM assignment_document_type_lu ORDER BY 2");
 
         ResultSetContainer rsc = runSelectQuery(sb.toString());
 
@@ -1405,7 +1503,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return assignmentDocumentTypes;
     }
 
-
     /**
      * Returns the accrual threshold of a user
      *
@@ -1417,7 +1514,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Connection conn = null;
         try {
             conn = DBMS.getConnection(trxDataSource);
-            ResultSetContainer rsc = runSelectQuery(conn, "SELECT accrual_amount FROM user_accrual where user_id = " + userId);
+            ResultSetContainer rsc = runSelectQuery(conn,
+                    "SELECT accrual_amount FROM user_accrual where user_id = " + userId);
 
             if (rsc.iterator().hasNext()) {
                 return ((ResultSetRow) rsc.iterator().next()).getDoubleItem("accrual_amount");
@@ -1441,7 +1539,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         if (newAccrualAmount < MINIMUM_PAYMENT_ACCRUAL_AMOUNT) {
-            throw new IllegalArgumentException("Invalid accrual amount, should be greater or equal than "+MINIMUM_PAYMENT_ACCRUAL_AMOUNT);
+            throw new IllegalArgumentException(
+                    "Invalid accrual amount, should be greater or equal than " + MINIMUM_PAYMENT_ACCRUAL_AMOUNT);
         }
 
         // store
@@ -1449,12 +1548,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection(trxDataSource);
 
-            ResultSetContainer rsc = runSelectQuery(c, "SELECT accrual_amount FROM user_accrual where user_id = " + userId);
+            ResultSetContainer rsc = runSelectQuery(c,
+                    "SELECT accrual_amount FROM user_accrual where user_id = " + userId);
 
             if (rsc.iterator().hasNext()) {
                 addOperation = false;
             }
-
 
             StringBuffer query = new StringBuffer(1024);
             if (addOperation) {
@@ -1488,7 +1587,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 log.debug("need to notify all accruing payments");
                 Map criteria = new HashMap();
                 criteria.put(PactsConstants.USER_ID, String.valueOf(userId));
-                criteria.put(PactsConstants.PAYMENT_STATUS_ID, String.valueOf(PaymentStatus.ACCRUING_PAYMENT_STATUS.getId()));
+                criteria.put(PactsConstants.PAYMENT_STATUS_ID,
+                        String.valueOf(PaymentStatus.ACCRUING_PAYMENT_STATUS.getId()));
 
                 List<BasePayment> payments = findCoderPayments(criteria);
                 log.debug("need to notify " + payments.size() + " payments");
@@ -1522,7 +1622,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Connection conn = null;
         try {
             conn = DBMS.getConnection(trxDataSource);
-            ResultSetContainer rsc = runSelectQuery(conn, "SELECT payment_method_id FROM user_payment_method where user_id = " + userId);
+            ResultSetContainer rsc = runSelectQuery(conn,
+                    "SELECT payment_method_id FROM user_payment_method where user_id = " + userId);
 
             if (rsc.iterator().hasNext()) {
                 return ((ResultSetRow) rsc.iterator().next()).getLongItem("payment_method_id");
@@ -1537,7 +1638,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Saves the preferred payment method for a user.
      *
-     * @param userId User ID
+     * @param userId        User ID
      * @param paymentMethod ID of the preferred payment method.
      * @throws SQLException If there is some problem updating the data
      */
@@ -1555,13 +1656,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             conn = DBMS.getConnection(trxDataSource);
 
-            updatePs = conn.prepareStatement("update 'informix'.user_payment_method set payment_method_id = "+paymentMethodId+" where user_id = "+userId);
+            updatePs = conn.prepareStatement("update 'informix'.user_payment_method set payment_method_id = "
+                    + paymentMethodId + " where user_id = " + userId);
             int updated = updatePs.executeUpdate();
             if (updated == 0) {
-                insertPs = conn.prepareStatement("insert into 'informix'.user_payment_method(user_id, payment_method_id) values ("+userId+","+paymentMethodId+")");
+                insertPs = conn.prepareStatement(
+                        "insert into 'informix'.user_payment_method(user_id, payment_method_id) values (" + userId + ","
+                                + paymentMethodId + ")");
                 insertPs.executeUpdate();
             } else if (updated > 1) {
-                throw (new EJBException("Wrong number of rows updated in 'saveUserPaymentMethod'. " + "Updated " + updated + ", should have updated 1."));
+                throw (new EJBException("Wrong number of rows updated in 'saveUserPaymentMethod'. " + "Updated "
+                        + updated + ", should have updated 1."));
             }
 
         } catch (SQLException e) {
@@ -1587,7 +1692,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Connection conn = null;
         try {
             conn = DBMS.getConnection(trxDataSource);
-            ResultSetContainer rsc = runSelectQuery(conn, "SELECT email_address FROM user_paypal_account where user_id = " + userId);
+            ResultSetContainer rsc = runSelectQuery(conn,
+                    "SELECT email_address FROM user_paypal_account where user_id = " + userId);
 
             if (rsc.iterator().hasNext()) {
                 return ((ResultSetRow) rsc.iterator().next()).getStringItem("email_address");
@@ -1602,7 +1708,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Saves the email address of the user's PayPal account.
      *
-     * @param userId User ID
+     * @param userId        User ID
      * @param payPalAccount PayPal account's email address
      * @throws SQLException If there is some problem updating the data
      */
@@ -1620,13 +1726,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             conn = DBMS.getConnection(trxDataSource);
 
-            updatePs = conn.prepareStatement("update 'informix'.user_paypal_account set email_address = '"+payPalAccount+"' where user_id = "+userId);
+            updatePs = conn.prepareStatement("update 'informix'.user_paypal_account set email_address = '"
+                    + payPalAccount + "' where user_id = " + userId);
             int updated = updatePs.executeUpdate();
             if (updated == 0) {
-                insertPs = conn.prepareStatement("insert into 'informix'.user_paypal_account(user_id, email_address) values ("+userId+",'"+payPalAccount+"')");
+                insertPs = conn
+                        .prepareStatement("insert into 'informix'.user_paypal_account(user_id, email_address) values ("
+                                + userId + ",'" + payPalAccount + "')");
                 insertPs.executeUpdate();
             } else if (updated > 1) {
-                throw (new EJBException("Wrong number of rows updated in 'saveUserPayPalAccount'. " + "Updated " + updated + ", should have updated 1."));
+                throw (new EJBException("Wrong number of rows updated in 'saveUserPayPalAccount'. " + "Updated "
+                        + updated + ", should have updated 1."));
             }
 
         } catch (SQLException e) {
@@ -1646,7 +1756,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             StringBuffer sb = new StringBuffer(300);
-            sb.append("SELECT payment_status_id, payment_status_desc, payment_status_active_ind FROM payment_status_lu");
+            sb.append(
+                    "SELECT payment_status_id, payment_status_desc, payment_status_active_ind FROM payment_status_lu");
 
             ResultSetContainer rsc = runSelectQuery(sb.toString());
 
@@ -1672,7 +1783,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         rsr.getStringItem("payment_status_desc") + " active: " +
                         rsr.getIntItem("payment_status_active_ind"));
 
-
                 statusMap.put(id, bps);
             }
         } catch (Exception e) {
@@ -1682,7 +1792,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         return statusMap;
     }
-
 
     /**
      * Returns the accruing payments total of a user
@@ -1724,7 +1833,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public List getAssignmentDocumentStatus() throws SQLException {
         List assignmentDocumentStatus = new ArrayList();
         StringBuffer sb = new StringBuffer(300);
-        sb.append("SELECT assignment_document_status_id, assignment_document_status_desc FROM assignment_document_status_lu ORDER BY 2");
+        sb.append(
+                "SELECT assignment_document_status_id, assignment_document_status_desc FROM assignment_document_status_lu ORDER BY 2");
 
         ResultSetContainer rsc = runSelectQuery(sb.toString());
 
@@ -1818,7 +1928,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("ad.expire_date, ");
         sb.append("ad.create_date , ");
         sb.append("ad.modify_date ");
-        sb.append("from 'informix'.assignment_document ad, 'informix'.assignment_document_type_lu adt, 'informix'.assignment_document_status_lu ads ");
+        sb.append(
+                "from 'informix'.assignment_document ad, 'informix'.assignment_document_type_lu adt, 'informix'.assignment_document_status_lu ads ");
         sb.append("where ad.assignment_document_type_id = adt.assignment_document_type_id ");
         sb.append("and ad.assignment_document_status_id = ads.assignment_document_status_id ");
         sb.append("and ad.assignment_document_status_id <> " + AssignmentDocumentStatus.DELETED_STATUS_ID + " ");
@@ -1848,7 +1959,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 String key = (String) i.next();
                 String value = ((String) searchCriteria.get(key)).toUpperCase();
                 if (key.equals(HANDLE)) {
-                    getAssignmentDocument.append("and ad.user_id in (select user_id from user where UPPER(handle_lower) like ?) ");
+                    getAssignmentDocument
+                            .append("and ad.user_id in (select user_id from user where UPPER(handle_lower) like ?) ");
                     objects.add(value);
                 } else if (key.equals(ASSIGNMENT_DOCUMENT_ID)) {
                     getAssignmentDocument.append("and ad.assignment_document_id = ? ");
@@ -1998,7 +2110,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending) {
-        log.debug("get the assignment document from the db (user_id : " + userId + " / typeId : " + assignmentDocumentTypeId + ")");
+        log.debug("get the assignment document from the db (user_id : " + userId + " / typeId : "
+                + assignmentDocumentTypeId + ")");
 
         try {
             Map searchCriteria = new HashMap();
@@ -2038,7 +2151,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-
     /**
      * Gets a list of Assignment Documents using its user id and studio contest id
      *
@@ -2048,7 +2160,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public List getAssignmentDocumentByUserIdStudioContestId(long userId, long studioContestId) {
-        log.debug("get the assignment document from the db (user_id = " + userId + ", studio_contest_id = " + studioContestId + ")");
+        log.debug("get the assignment document from the db (user_id = " + userId + ", studio_contest_id = "
+                + studioContestId + ")");
 
         try {
             Map searchCriteria = new HashMap();
@@ -2074,10 +2187,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public String getAssignmentDocumentTransformedText(long assignmentDocumentTypeId, AssignmentDocument ad) {
         AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(null, assignmentDocumentTypeId, true).get(0);
 
-        return adt.transformTemplate(ad, prepareUserAssignmentDocumentInfo(ad.getUser().getId(), ad.getSubmissionTitle()));
+        return adt.transformTemplate(ad,
+                prepareUserAssignmentDocumentInfo(ad.getUser().getId(), ad.getSubmissionTitle()));
     }
 
-    public List<AssignmentDocumentTemplate> getAssignmentDocumentTemplate(long assignmentDocumentTypeId, boolean onlyCurrent) {
+    public List<AssignmentDocumentTemplate> getAssignmentDocumentTemplate(long assignmentDocumentTypeId,
+            boolean onlyCurrent) {
         return getAssignmentDocumentTemplate(null, assignmentDocumentTypeId, onlyCurrent);
     }
 
@@ -2089,7 +2204,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return The required assignment document template
      * @throws SQLException If there is some problem retrieving the data
      */
-    public List<AssignmentDocumentTemplate> getAssignmentDocumentTemplate(Connection conn, long assignmentDocumentTypeId, boolean onlyCurrent) {
+    public List<AssignmentDocumentTemplate> getAssignmentDocumentTemplate(Connection conn,
+            long assignmentDocumentTypeId, boolean onlyCurrent) {
         boolean closeConnection = false;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -2138,7 +2254,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
             if (adtl.size() == 0) {
-                throw new IllegalUpdateException("Couldn't find an assigment document type for id: " + assignmentDocumentTypeId);
+                throw new IllegalUpdateException(
+                        "Couldn't find an assigment document type for id: " + assignmentDocumentTypeId);
             }
 
             return adtl;
@@ -2168,7 +2285,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return The required assignment document template
      * @throws SQLException If there is some problem retrieving the data
      */
-    public AssignmentDocumentTemplate getAssignmentDocumentTemplate(Connection conn, long assignmentDocumentTemplateId) {
+    public AssignmentDocumentTemplate getAssignmentDocumentTemplate(Connection conn,
+            long assignmentDocumentTemplateId) {
         boolean closeConnection = false;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -2197,7 +2315,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             rs = ps.executeQuery();
 
             if (!rs.next()) {
-                throw new IllegalUpdateException("Couldn't find an assigment document template for id: " + assignmentDocumentTemplateId);
+                throw new IllegalUpdateException(
+                        "Couldn't find an assigment document template for id: " + assignmentDocumentTemplateId);
             }
 
             AssignmentDocumentTemplate adt = new AssignmentDocumentTemplate();
@@ -2227,8 +2346,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
-            return addAssignmentDocument(ad, null);
+    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad)
+            throws DeleteAffirmedAssignmentDocumentException {
+        return addAssignmentDocument(ad, null);
     }
 
     /**
@@ -2237,9 +2357,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param ad the Assignment Document to store
      * @return The stored assignment document template
      * @throws DeleteAffirmedAssignmentDocumentException
-     *          If there's an attempt to delete an affirmed assignment document
+     *                                                   If there's an attempt to
+     *                                                   delete an affirmed
+     *                                                   assignment document
      */
-    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad, Long assignmentDocumentTemplateId) throws DeleteAffirmedAssignmentDocumentException {
+    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad, Long assignmentDocumentTemplateId)
+            throws DeleteAffirmedAssignmentDocumentException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection c = null;
@@ -2274,12 +2397,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         if (!ad.getType().getId().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
             if (ad.getExpireDate() == null) {
                 Calendar dueDateCal = Calendar.getInstance();
-                dueDateCal.add(Calendar.DAY_OF_YEAR, hasHardCopy.booleanValue() ? ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD : ASSIGNMENT_DOCUMENT_LONG_EXPIRATION_PERIOD);
+                dueDateCal.add(Calendar.DAY_OF_YEAR,
+                        hasHardCopy.booleanValue() ? ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD
+                                : ASSIGNMENT_DOCUMENT_LONG_EXPIRATION_PERIOD);
                 ad.setExpireDate(new Timestamp(dueDateCal.getTimeInMillis()));
             }
         }
 
-        if (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) && ad.getAffirmedDate() == null) {
+        if (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID)
+                && ad.getAffirmedDate() == null) {
             Calendar dueDateCal = Calendar.getInstance();
             ad.setAffirmedDate(new Timestamp(dueDateCal.getTimeInMillis()));
         }
@@ -2295,7 +2421,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 try {
                     findComponentProjectById(ad.getComponentProject().getId().longValue());
                 } catch (Exception e) {
-                    throw new IllegalArgumentException("Assignment Document's component project doesn't exists " + ad.getComponentProject());
+                    throw new IllegalArgumentException(
+                            "Assignment Document's component project doesn't exists " + ad.getComponentProject());
                 }
             }
         }
@@ -2324,12 +2451,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 // update
                 oldAssignmentDocumentInstance = getAssignmentDocument(ad.getId().longValue());
 
-                if (oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
+                if (oldAssignmentDocumentInstance.getStatus().getId()
+                        .equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
                         (ad.getStatus().getId().equals(AssignmentDocumentStatus.DELETED_STATUS_ID))) {
-                    throw new DeleteAffirmedAssignmentDocumentException("Assignment Document cannot be deleted or rejected since it was affirmed");
+                    throw new DeleteAffirmedAssignmentDocumentException(
+                            "Assignment Document cannot be deleted or rejected since it was affirmed");
                 }
 
-                if (!oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
+                if (!oldAssignmentDocumentInstance.getStatus().getId()
+                        .equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
                         (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID))) {
                     // notify the payment status manager the new affirmed assignment document
                     if (!ad.getType().getId().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
@@ -2351,7 +2481,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 // or the status is updated to affirmed. (and the text is empty)
                 if ((ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
                         (oldAssignmentDocumentInstance == null ||
-                                !oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID)))) {
+                                !oldAssignmentDocumentInstance.getStatus().getId()
+                                        .equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID)))) {
 
                     AssignmentDocumentTemplate adt;
                     if (assignmentDocumentTemplateId != null) {
@@ -2359,7 +2490,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     } else {
                         adt = getAssignmentDocumentTemplate(c, ad.getType().getId().longValue(), true).get(0);
                     }
-                    ad.setText(adt.transformTemplate(ad, prepareUserAssignmentDocumentInfo(ad.getUser().getId(), ad.getSubmissionTitle())));
+                    ad.setText(adt.transformTemplate(ad,
+                            prepareUserAssignmentDocumentInfo(ad.getUser().getId(), ad.getSubmissionTitle())));
                     updateText = true;
 
                     // for GADs, set the template name (GAD version) as the submission title
@@ -2437,7 +2569,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
             if (!hasHardCopy && ad.isHardCopy()) {
-                (new PaymentStatusManager()).hardCopyIPTransfer(ad.getUser().getId(), ad.getComponentProject() == null ? TC_STUDIO_PAYMENT : COMPONENT_PAYMENT);
+                (new PaymentStatusManager()).hardCopyIPTransfer(ad.getUser().getId(),
+                        ad.getComponentProject() == null ? TC_STUDIO_PAYMENT : COMPONENT_PAYMENT);
             }
 
             if (ad.getType().getId().equals(AssignmentDocumentType.GLOBAL_TYPE_ID)) {
@@ -2467,7 +2600,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param ad the Assignment Document to store
      * @throws DeleteAffirmedAssignmentDocumentException
-     *          If there's an attempt to delete an affirmed assignment document
+     *                                                   If there's an attempt to
+     *                                                   delete an affirmed
+     *                                                   assignment document
      */
     public void deleteAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
         Connection conn = null;
@@ -2522,12 +2657,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Returns whether the user has already affirmed the corresponding Assignment Document
+     * Returns whether the user has already affirmed the corresponding Assignment
+     * Document
      *
      * @param paymentTypeId payment type to check for Assignment Document
      * @param coderId       coder to check for Assignment Document
      * @param referenceId   reference id to check for Assignment Document
-     * @return whether the user has already affirmed the corresponding Assignment Document
+     * @return whether the user has already affirmed the corresponding Assignment
+     *         Document
      */
     public boolean hasAffirmedAssignmentDocument(long paymentTypeId, long coderId, long referenceId) {
         try {
@@ -2551,13 +2688,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-
     /**
      * Marks an assignment document as affirmed
      *
      * @param ad the Assignment Document to store
      * @throws DeleteAffirmedAssignmentDocumentException
-     *          If there's an attempt to delete an affirmed assignment document
+     *                                                   If there's an attempt to
+     *                                                   delete an affirmed
+     *                                                   assignment document
      */
     public void affirmAssignmentDocument(AssignmentDocument ad) {
         // validate
@@ -2643,13 +2781,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map getPaymentMethods() throws SQLException {
         StringBuffer sb = new StringBuffer(300);
-        sb.append("SELECT payment_method_id, payment_method_desc, active FROM payment_method_lu ORDER BY payment_method_list_order, 2");
+        sb.append(
+                "SELECT payment_method_id, payment_method_desc, active FROM payment_method_lu ORDER BY payment_method_list_order, 2");
         ResultSetContainer rsc = runSelectQuery(sb.toString());
         HashMap hm = new HashMap();
         hm.put(PAYMENT_METHOD_LIST, rsc);
         return hm;
     }
-
 
     /**
      * Returns the list of all payment modification rationales.
@@ -2690,7 +2828,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return hm;
         } catch (Exception e) {
             try {
-                if (c != null) c.close();
+                if (c != null)
+                    c.close();
             } catch (Exception e1) {
                 printException(e1);
             }
@@ -2732,7 +2871,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         hm.put(STATUS_CODE_LIST, rsc);
         return hm;
     }
-
 
     /**
      * Returns the list of all payment statuses
@@ -2818,7 +2956,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Returns project and component IDs from the component and review board payments in the given list.
+     * Returns project and component IDs from the component and review board
+     * payments in the given list.
      *
      * @param paymentIds The list of payment IDs.
      * @return the map of (projectID, componentID) pairs
@@ -2874,15 +3013,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Finds affidavits that match the specified search criteria.
      *
      * @param searchCriteria The crtieria to search by.
-     * @return A list of affidavit headers for the affidavits that satisfy the criteria.
+     * @return A list of affidavit headers for the affidavits that satisfy the
+     *         criteria.
      * @throws SQLException If there is some problem retrieving the data
      */
     public Map findAffidavits(Map searchCriteria) throws SQLException {
         StringBuffer selectHeaders = new StringBuffer(300);
 
         // New version which sorts by a combination time field which is round start time
-        // if the affidavit is associated with a contest, and the affidavit creation date
-        // otherwise.  Also gets affidavit description.
+        // if the affidavit is associated with a contest, and the affidavit creation
+        // date
+        // otherwise. Also gets affidavit description.
         selectHeaders.append("SELECT a.affidavit_id, a.status_id, s.status_desc, a.user_id, ");
         selectHeaders.append("a.notarized, a.affirmed, a.date_created, u.handle, ");
         selectHeaders.append("a.affidavit_type_id, atl.affidavit_type_desc, a.affidavit_desc, ");
@@ -2914,7 +3055,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else if (key.equals(AFFIDAVIT_ID)) {
                     selectHeaders.append(" AND a.affidavit_id = " + value);
                 } else if (key.equals(HANDLE)) {
-                    selectHeaders.append(" AND UPPER(u.handle) LIKE ?");  //todo user handle_lower
+                    selectHeaders.append(" AND UPPER(u.handle) LIKE ?"); // todo user handle_lower
                     objects.add(value);
                 } else if (key.equals(STATUS_CODE)) {
                     selectHeaders.append(" AND a.status_id in (" + value + ")");
@@ -2950,7 +3091,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Finds contracts that match the specified search criteria.
      *
      * @param searchCriteria The crtieria to search by.
-     * @return A list of contract headers for the contracts that satisfy the criteria.
+     * @return A list of contract headers for the contracts that satisfy the
+     *         criteria.
      * @throws SQLException If there is some problem retrieving the data
      */
     public Map findContracts(Map searchCriteria) throws SQLException {
@@ -2996,7 +3138,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else if (key.equals(CONTRACT_ID)) {
                     whereClauses.append(" AND c.contract_id = " + value);
                 } else if (key.equals(HANDLE)) {
-                    whereClauses.append(" AND UPPER(u.handle) LIKE ?");  //todo user handle_lower
+                    whereClauses.append(" AND UPPER(u.handle) LIKE ?"); // todo user handle_lower
                     objects.add(value);
                 } else if (key.equals(CONTRACT_NAME)) {
                     whereClauses.append(" AND UPPER(c.name) LIKE ?");
@@ -3029,7 +3171,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Finds objects that a given note is associated with.
      *
      * @param noteId The note ID for which to find associated objects.
-     * @return A list of headers for the objects that are associated with the given note.
+     * @return A list of headers for the objects that are associated with the given
+     *         note.
      * @throws SQLException If there is some problem retrieving the data
      */
     public Map findNoteObjects(long noteId) throws SQLException {
@@ -3136,7 +3279,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     whereClauses.append(" AND UPPER(u2.handle) LIKE ?");
                     objects.add(value);
                 } else if (key.equals(SUBMITTING_HANDLE)) {
-                    whereClauses.append(" AND UPPER(u.handle) LIKE ?"); //todo user handle_lower
+                    whereClauses.append(" AND UPPER(u.handle) LIKE ?"); // todo user handle_lower
                     objects.add(value);
                 } else if (key.equals(IN_DEPTH_HANDLE)) {
                     from.append(", user u3, user_note_xref x");
@@ -3177,20 +3320,28 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map findPayments(Map searchCriteria) throws SQLException {
         StringBuffer selectHeaders = new StringBuffer(3000);
-        selectHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, p.create_date, pd.create_date as modify_date, ");
-        selectHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.payment_status_id, s.payment_status_desc, ");
+        selectHeaders.append(
+                "SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, p.create_date, pd.create_date as modify_date, ");
+        selectHeaders.append(
+                "pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.payment_status_id, s.payment_status_desc, ");
         selectHeaders.append("p.user_id, u.handle, u.first_name, u.middle_name, u.last_name, ");
-        selectHeaders.append("pd.date_modified, pd.date_paid, pd.gross_amount, nvl(pdsrx.payment_status_reason_id, 0) as payment_status_reason_id, ");
-        selectHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.cockpit_project_id, pd.algorithm_problem_id, ");
+        selectHeaders.append(
+                "pd.date_modified, pd.date_paid, pd.gross_amount, nvl(pdsrx.payment_status_reason_id, 0) as payment_status_reason_id, ");
+        selectHeaders.append(
+                "pd.algorithm_round_id, pd.component_project_id, pd.cockpit_project_id, pd.algorithm_problem_id, ");
         selectHeaders.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-        selectHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id, pd.jira_issue_id, ");
-        selectHeaders.append("ttp.name as billing_account_name, ttp.po_box_number as po_number, nvl(tdp1.project_id,tdp2.project_id) as cockpit_project_id, nvl(tdp1.name,tdp2.name) as cockpit_project_name, ");
+        selectHeaders.append(
+                "pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id, pd.jira_issue_id, ");
+        selectHeaders.append(
+                "ttp.name as billing_account_name, ttp.po_box_number as po_number, nvl(tdp1.project_id,tdp2.project_id) as cockpit_project_id, nvl(tdp1.name,tdp2.name) as cockpit_project_name, ");
         selectHeaders.append("pcl.name as project_category_name, ");
         // client_name
-        selectHeaders.append(" nvl((select ttc.name from time_oltp:client_project ttcp, time_oltp:client ttc where ttp.project_id = ttcp.project_id and ttcp.client_id = ttc.client_id), pd.client) as client_name, ");
+        selectHeaders.append(
+                " nvl((select ttc.name from time_oltp:client_project ttcp, time_oltp:client ttc where ttp.project_id = ttcp.project_id and ttcp.client_id = ttc.client_id), pd.client) as client_name, ");
 
         // invoice number
-        selectHeaders.append(" (select min(i.invoice_number) from invoice i, invoice_record ir where i.invoice_id=ir.invoice_id and ir.payment_id = p.payment_id) as invoice_number ");
+        selectHeaders.append(
+                " (select min(i.invoice_number) from invoice i, invoice_record ir where i.invoice_id=ir.invoice_id and ir.payment_id = p.payment_id) as invoice_number ");
 
         StringBuffer from = new StringBuffer(1500);
         from.append(" FROM payment p ");
@@ -3199,12 +3350,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         from.append(" INNER JOIN payment_method_lu pm ON pm.payment_method_id = pd.payment_method_id ");
         from.append(" INNER JOIN payment_status_lu s ON s.payment_status_id = pd.payment_status_id ");
         from.append(" INNER JOIN user u ON u.user_id = p.user_id ");
-        from.append(" LEFT OUTER JOIN payment_detail_status_reason_xref pdsrx ON pdsrx.payment_detail_id = pd.payment_detail_id ");
+        from.append(
+                " LEFT OUTER JOIN payment_detail_status_reason_xref pdsrx ON pdsrx.payment_detail_id = pd.payment_detail_id ");
         from.append(" LEFT OUTER JOIN tcs_catalog:project proj ON proj.project_id = pd.component_project_id ");
-        from.append(" LEFT OUTER JOIN tcs_catalog:project_category_lu pcl ON pcl.project_category_id = proj.project_category_id ");
-        from.append(" LEFT OUTER JOIN tcs_catalog:project_info pi ON pi.project_id = pd.component_project_id and pi.project_info_type_id = 32 ");
+        from.append(
+                " LEFT OUTER JOIN tcs_catalog:project_category_lu pcl ON pcl.project_category_id = proj.project_category_id ");
+        from.append(
+                " LEFT OUTER JOIN tcs_catalog:project_info pi ON pi.project_id = pd.component_project_id and pi.project_info_type_id = 32 ");
         from.append(" LEFT OUTER JOIN tcs_catalog:tc_direct_project tdp1 ON tdp1.project_id = pd.cockpit_project_id ");
-        from.append(" LEFT OUTER JOIN tcs_catalog:tc_direct_project tdp2 ON tdp2.project_id = proj.tc_direct_project_id ");
+        from.append(
+                " LEFT OUTER JOIN tcs_catalog:tc_direct_project tdp2 ON tdp2.project_id = proj.tc_direct_project_id ");
         from.append(" LEFT OUTER JOIN time_oltp:project ttp ON ttp.project_id = pi.value ");
 
         StringBuffer whereClauses = new StringBuffer(300);
@@ -3241,7 +3396,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     whereClauses.append(" AND pd.date_due <= ?");
                     objects.add(makeTimestamp(value, false, true));
                 } else if (key.equals(CONTRACT_ID)) {
-                    from.append(" INNER JOIN contract_payment_xref cpx ON cpx.payment_id = p.payment_id and cpx.contract_id = " + value);
+                    from.append(
+                            " INNER JOIN contract_payment_xref cpx ON cpx.payment_id = p.payment_id and cpx.contract_id = "
+                                    + value);
                 } else if (key.equals(AFFIDAVIT_ID)) {
                     from.append(" INNER JOIN affidavit a ON a.payment_id = p.payment_id and a.affidavit_id = " + value);
                 } else if (key.equals(USER_ID)) {
@@ -3249,7 +3406,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else if (key.equals(PAYMENT_ID)) {
                     whereClauses.append(" AND p.payment_id in (" + value + ")");
                 } else if (key.equals(HANDLE)) {
-                    whereClauses.append(" AND UPPER(u.handle) LIKE ?");  //todo user handle_lower
+                    whereClauses.append(" AND UPPER(u.handle) LIKE ?"); // todo user handle_lower
                     objects.add(value);
                 } else if (key.equals(COCKPIT_PROJECT)) {
                     whereClauses.append(" AND UPPER(tdp.name) LIKE ?");
@@ -3262,9 +3419,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else if (key.equals(IS_TAXED) && !makeBoolean(value)) {
                     whereClauses.append(" AND pd.net_amount = pd.gross_amount");
                 } else if (key.equals(IS_INVOICED) && makeBoolean(value)) {
-                    whereClauses.append(" AND exists (select 1 from invoice_record ir where ir.payment_id = p.payment_id)  ");
+                    whereClauses.append(
+                            " AND exists (select 1 from invoice_record ir where ir.payment_id = p.payment_id)  ");
                 } else if (key.equals(IS_INVOICED) && !makeBoolean(value)) {
-                    whereClauses.append(" AND not exists (select 1 from invoice_record ir where ir.payment_id = p.payment_id)  ");
+                    whereClauses.append(
+                            " AND not exists (select 1 from invoice_record ir where ir.payment_id = p.payment_id)  ");
                 } else if (key.equals(STATUS_CODE)) {
                     whereClauses.append(" AND pd.payment_status_id IN (" + value + ")");
                 } else if (key.equals(TYPE_CODE)) {
@@ -3408,7 +3567,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public Map findUsers(Map searchCriteria) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
         selectHeader.append("SELECT u.user_id, u.handle, UPPER(u.handle) AS uchandle, u.first_name, u.middle_name, ");
-        selectHeader.append("u.last_name, nvl(ua.accrual_amount, "+MINIMUM_PAYMENT_ACCRUAL_AMOUNT+") as accrual_amount, s.user_status_desc, ");
+        selectHeader.append("u.last_name, nvl(ua.accrual_amount, " + MINIMUM_PAYMENT_ACCRUAL_AMOUNT
+                + ") as accrual_amount, s.user_status_desc, ");
         selectHeader.append("pml.payment_method_desc as payment_method ");
         StringBuffer from = new StringBuffer(300);
         from.append("FROM user u ");
@@ -3421,7 +3581,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         joinClauses.add("INNER JOIN user_status_lu s ON u.status = s.user_status_id ");
         joinClauses.add("LEFT OUTER JOIN user_accrual ua ON u.user_id = ua.user_id ");
         joinClauses.add("LEFT OUTER JOIN user_payment_method upm ON u.user_id = upm.user_id ");
-        joinClauses.add("INNER JOIN payment_method_lu pml ON pml.payment_method_id = nvl(upm.payment_method_id, "+NOT_SET_PAYMENT_METHOD_ID+") ");
+        joinClauses.add("INNER JOIN payment_method_lu pml ON pml.payment_method_id = nvl(upm.payment_method_id, "
+                + NOT_SET_PAYMENT_METHOD_ID + ") ");
 
         Iterator i = searchCriteria.keySet().iterator();
         try {
@@ -3457,7 +3618,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     whereClauses.add("UPPER(u.handle) LIKE ?");
                     objects.add(value);
                 } else if (key.equals(METHOD_CODE)) {
-                    whereClauses.add("nvl(upm.payment_method_id, "+NOT_SET_PAYMENT_METHOD_ID+") IN (" + value + ")");
+                    whereClauses
+                            .add("nvl(upm.payment_method_id, " + NOT_SET_PAYMENT_METHOD_ID + ") IN (" + value + ")");
                 } else if (key.equals(HAS_ACTIVE_CONTRACTS)) {
                     boolean wantExists = makeBoolean(value);
                     StringBuffer clause = new StringBuffer(300);
@@ -3508,8 +3670,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     }
                     clause.append("EXISTS (SELECT 1 FROM assignment_document ad ");
                     clause.append("        WHERE ad.user_id = u.user_id");
-                    clause.append("        AND ad.assignment_document_type_id = " + AssignmentDocumentType.GLOBAL_TYPE_ID);
-                    clause.append("        AND ad.assignment_document_status_id = " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID + ")");
+                    clause.append(
+                            "        AND ad.assignment_document_type_id = " + AssignmentDocumentType.GLOBAL_TYPE_ID);
+                    clause.append("        AND ad.assignment_document_status_id = "
+                            + AssignmentDocumentStatus.AFFIRMED_STATUS_ID + ")");
                     orClauses.add(clause.toString());
                 }
             }
@@ -3554,18 +3718,23 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Adds the specified affidavit and payment to the database, and associates the two.
-     * Also adds a corresponding referral payment if the affidavit is a contest winnings
-     * affidavit and someone referred the winning coder. <p>
+     * Adds the specified affidavit and payment to the database, and associates the
+     * two.
+     * Also adds a corresponding referral payment if the affidavit is a contest
+     * winnings
+     * affidavit and someone referred the winning coder.
+     * <p>
      * <p/>
-     * If the payment input parameter is null, the affidavit will still be created, but
+     * If the payment input parameter is null, the affidavit will still be created,
+     * but
      * without being associated with a payment.
      *
      * @param a             Data for the new affidavit.
      * @param affidavitText The new affidavit's text
      * @param p             Data for the new payment
      * @return The new affidavit's ID.
-     * @throws IllegalUpdateException If the user is trying to make an illegal update.
+     * @throws IllegalUpdateException If the user is trying to make an illegal
+     *                                update.
      * @throws SQLException           If there is some problem updating the data
      */
     public long addAffidavit(Affidavit a, String affidavitText, Payment p)
@@ -3588,13 +3757,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-
     // Helper function, assumes autocommit is false
     private long[] makeAffidavitPayment(Connection c, Affidavit a, String text, Payment p) throws Exception {
         log.debug("makeAffidavitPayment called...");
         PreparedStatement ps = null;
         try {
-            // Get ID numbers.  As affidavit references payment, we must add the
+            // Get ID numbers. As affidavit references payment, we must add the
             // payment first (if applicable).
             long affidavitId = IdGeneratorClient.getSeqId("AFFIDAVIT_SEQ");
             long paymentId = -1;
@@ -3622,7 +3790,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 log.debug("get the affidavit text from the db");
                 StringBuffer getAffidavitTexts = new StringBuffer(300);
                 getAffidavitTexts.append("SELECT att.text ");
-                getAffidavitTexts.append("FROM affidavit_template att, country_affidavit_template_xref x, user_address_xref uax, address ad ");
+                getAffidavitTexts.append(
+                        "FROM affidavit_template att, country_affidavit_template_xref x, user_address_xref uax, address ad ");
                 getAffidavitTexts.append("WHERE att.affidavit_type_id = " + a.getHeader().getTypeId());
                 getAffidavitTexts.append(" and att.affidavit_template_id =x.affidavit_template_id ");
                 getAffidavitTexts.append(" and ad.country_code = x.country_code ");
@@ -3631,14 +3800,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 getAffidavitTexts.append(" and uax.user_id = " + a.getHeader().getUser().getId());
                 ResultSetContainer rsc = runSelectQuery(c, getAffidavitTexts.toString());
                 if (rsc.isEmpty()) {
-                    throw new Exception("Couldn't find an affidavit template for user " + a.getHeader().getUser().getId());
+                    throw new Exception(
+                            "Couldn't find an affidavit template for user " + a.getHeader().getUser().getId());
                 }
                 localText = rsc.getStringItem(0, "text");
             }
 
             insertAffidavit.append("INSERT INTO affidavit ");
             insertAffidavit.append(" (round_id, affidavit_id, user_id, status_id, notarized, affirmed, ");
-            insertAffidavit.append("  payment_id, affidavit_desc, affidavit_type_id, text, date_created, date_affirmed) ");
+            insertAffidavit
+                    .append("  payment_id, affidavit_desc, affidavit_type_id, text, date_created, date_affirmed) ");
             insertAffidavit.append(" VALUES(" + roundStr + ",?,?,?,?,?," + paymentStr + ",?,?,?,?,null)");
             ps = c.prepareStatement(insertAffidavit.toString());
             ps.setLong(1, affidavitId);
@@ -3649,16 +3820,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setString(6, a.getHeader().getDescription());
             ps.setInt(7, a.getHeader().getTypeId());
             ps.setBytes(8, DBMS.serializeTextString(localText));
-            //todo STUPID!!!! make this a default in the database
+            // todo STUPID!!!! make this a default in the database
             ps.setTimestamp(9, new Timestamp(System.currentTimeMillis())); // date_created
             ps.executeUpdate();
             ps.close();
             ps = null;
 
-            return new long[]{paymentId, affidavitId};
+            return new long[] { paymentId, affidavitId };
         } catch (Exception e) {
             try {
-                if (ps != null) ps.close();
+                if (ps != null)
+                    ps.close();
             } catch (Exception e1) {
                 printException(e1);
             }
@@ -3711,13 +3883,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } catch (Exception e) {
             printException(e);
             try {
-                if (ps != null) ps.close();
+                if (ps != null)
+                    ps.close();
             } catch (Exception e1) {
                 printException(e1);
             }
             ps = null;
             try {
-                if (con != null) con.close();
+                if (con != null)
+                    con.close();
             } catch (Exception e1) {
                 printException(e1);
             }
@@ -3735,7 +3909,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new IllegalUpdateException("Net amount cannot exceed gross amount");
         }
 
-        if (p.getGrossAmount() < 0 && p.getTypeId() != NEGATIVE_PAYMENT && p.getHeader().getTypeId() != NEGATIVE_PAYMENT) {
+        if (p.getGrossAmount() < 0 && p.getTypeId() != NEGATIVE_PAYMENT
+                && p.getHeader().getTypeId() != NEGATIVE_PAYMENT) {
             throw new IllegalUpdateException("Gross amount must be non negative");
         }
 
@@ -3788,7 +3963,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     || paymentTypeId == DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT) {
 
                 StringBuffer getUserWithholding = new StringBuffer(300);
-                getUserWithholding.append("SELECT withholding_amount, withholding_percentage, use_percentage,date_filed ");
+                getUserWithholding
+                        .append("SELECT withholding_amount, withholding_percentage, use_percentage,date_filed ");
                 getUserWithholding.append(" FROM user_tax_form_xref ");
                 getUserWithholding.append(" WHERE user_id = " + coderId);
                 getUserWithholding.append(" AND status_id = 60");
@@ -3831,12 +4007,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-
     // Helper function that calculates the payment net amount if necessary
     private void fillPaymentNetAmount(Payment p) throws SQLException {
         // If the net amount is zero, fill in the appropriate net amount based on the
-        // withholdings specified in the user_tax_form_xref for the payee.  If that isn't available,
-        // we use the withholdings specified in the default tax form for the payee's country.
+        // withholdings specified in the user_tax_form_xref for the payee. If that isn't
+        // available,
+        // we use the withholdings specified in the default tax form for the payee's
+        // country.
         // If that isn't available, we just set net amount = gross amount.
 
         if (p.getNetAmount() != 0)
@@ -3844,7 +4021,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         log.debug("In fillPaymentNetAmount");
 
-        double netAmount = computePaymentNetAmount(p.getHeader().getTypeId(), p.getGrossAmount(), p.getHeader().getUser().getId());
+        double netAmount = computePaymentNetAmount(p.getHeader().getTypeId(), p.getGrossAmount(),
+                p.getHeader().getUser().getId());
         p.setNetAmount(netAmount);
     }
 
@@ -3902,8 +4080,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Inserts a new row into payment_detail table.
      *
-     * @param c Connection to use
-     * @param p payment to insert
+     * @param c              Connection to use
+     * @param p              payment to insert
      * @param operatorUserId User ID of the operator or 0 if not set
      * @return the payment_detail_id of the inserted record
      * @throws Exception
@@ -3915,11 +4093,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             StringBuffer insertPaymentDetail = new StringBuffer(300);
             insertPaymentDetail.append("INSERT INTO payment_detail ");
             insertPaymentDetail.append(" (payment_detail_id, net_amount, date_paid, ");
-            insertPaymentDetail.append("  gross_amount, payment_status_id, payment_address_id, modification_rationale_id, ");
-            insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due, client, ");
-            insertPaymentDetail.append("  algorithm_round_id, component_project_id, cockpit_project_id, algorithm_problem_id, studio_contest_id, ");
-            insertPaymentDetail.append("  component_contest_id, digital_run_stage_id, digital_run_season_id, parent_payment_id, ");
-            insertPaymentDetail.append("  charity_ind, total_amount, installment_number, digital_run_track_id, jira_issue_id, create_user ) ");
+            insertPaymentDetail
+                    .append("  gross_amount, payment_status_id, payment_address_id, modification_rationale_id, ");
+            insertPaymentDetail
+                    .append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due, client, ");
+            insertPaymentDetail.append(
+                    "  algorithm_round_id, component_project_id, cockpit_project_id, algorithm_problem_id, studio_contest_id, ");
+            insertPaymentDetail
+                    .append("  component_contest_id, digital_run_stage_id, digital_run_season_id, parent_payment_id, ");
+            insertPaymentDetail.append(
+                    "  charity_ind, total_amount, installment_number, digital_run_track_id, jira_issue_id, create_user ) ");
             insertPaymentDetail.append(" VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
             ps = c.prepareStatement(insertPaymentDetail.toString());
@@ -3946,7 +4129,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             ps.setNull(26, Types.DECIMAL);
             ps.setNull(27, Types.VARCHAR);
-         
+
             switch (BasePayment.getReferenceTypeId(p.getHeader().getTypeId())) {
                 case REFERENCE_ALGORITHM_ROUND_ID:
                     setNullableLong(ps, 14, p.getHeader().getAlgorithmRoundId());
@@ -3983,9 +4166,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     break;
             }
             ps.setBoolean(23, p.isCharity());
-            ps.setDouble(24, p.getTotalAmount() == 0 ? p.getGrossAmount() : p.getTotalAmount()); // default to gross amount if not filled.
+            ps.setDouble(24, p.getTotalAmount() == 0 ? p.getGrossAmount() : p.getTotalAmount()); // default to gross
+                                                                                                 // amount if not
+                                                                                                 // filled.
             ps.setInt(25, p.getInstallmentNumber());
-         
+
             // Set the jira ID all the time to support v5
             log.info("Jira ID: " + p.getHeader().getJiraIssueName());
             setNullableString(ps, 27, p.getHeader().getJiraIssueName());
@@ -4025,7 +4210,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     // Helper function that adds the specified payment to the database
     // Assumes autocommit is false
-    private long makeNewPayment(Connection c, Payment p, boolean createReferralPayment, long operatorUserId) throws Exception {
+    private long makeNewPayment(Connection c, Payment p, boolean createReferralPayment, long operatorUserId)
+            throws Exception {
         log.debug("makeNewPayment called...");
         long paymentId = IdGeneratorClient.getSeqId("PAYMENT_SEQ");
         long paymentDetailId = 0;
@@ -4091,7 +4277,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     referPay.setCurrentStatus(crp.getCurrentStatus());
 
                     String handle = rsc.getItem(0, "coder_handle").toString();
-                    referPay.getHeader().setDescription("Referral bonus for " + handle + " " + p.getHeader().getDescription());
+                    referPay.getHeader()
+                            .setDescription("Referral bonus for " + handle + " " + p.getHeader().getDescription());
                     referPay.getHeader().setTypeId(CODER_REFERRAL_PAYMENT);
                     referPay.getHeader().getUser().setId(referId);
                     referPay.setDueDate(p.getDueDate());
@@ -4123,7 +4310,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return paymentId;
         } catch (Exception e) {
             try {
-                if (ps != null) ps.close();
+                if (ps != null)
+                    ps.close();
             } catch (Exception e1) {
                 printException(e1);
             }
@@ -4132,7 +4320,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    private long makeNewContractPayment(Connection c, long contractId, Payment p, long operatorUserId) throws Exception {
+    private long makeNewContractPayment(Connection c, long contractId, Payment p, long operatorUserId)
+            throws Exception {
         long paymentId = makeNewPayment(c, p, false, operatorUserId);
 
         // Now add the contract_payment_xref entry
@@ -4162,7 +4351,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param t           The tax form to add.
      * @param taxFormText The tax form text.
      * @return The new tax form's ID.
-     * @throws IllegalUpdateException If the user is trying to make an update that is not allowed.
+     * @throws IllegalUpdateException If the user is trying to make an update that
+     *                                is not allowed.
      * @throws SQLException           If there is some problem updating the data
      */
     public long addTaxForm(TaxForm t, String taxFormText) throws IllegalUpdateException, SQLException {
@@ -4200,13 +4390,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } catch (Exception e) {
             printException(e);
             try {
-                if (ps != null) ps.close();
+                if (ps != null)
+                    ps.close();
             } catch (Exception e1) {
                 printException(e1);
             }
             ps = null;
             try {
-                if (c != null) c.close();
+                if (c != null)
+                    c.close();
             } catch (Exception e1) {
                 printException(e1);
             }
@@ -4280,15 +4472,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Adds the specified note to the database, and also adds a cross-reference
      * attaching the note to the specified object.
      *
-     * @param objectId      The ID of the object with which to associate the new note.
-     * @param objectType    The type of the object with which to associate the new note.
-     *                      Must be a type defined in <tt>PactsConstants.java</tt> and must be an object that
+     * @param objectId      The ID of the object with which to associate the new
+     *                      note.
+     * @param objectType    The type of the object with which to associate the new
+     *                      note.
+     *                      Must be a type defined in <tt>PactsConstants.java</tt>
+     *                      and must be an object that
      *                      can have associated notes.
      * @param taxFormUserId If the object is a tax form, the user ID of
-     *                      the tax form.  This parameter is otherwise disregarded.
+     *                      the tax form. This parameter is otherwise disregarded.
      * @param n             Data for the new note.
      * @return The new note's ID.
-     * @throws SQLException If the object does not exist, or if there is some other problem
+     * @throws SQLException If the object does not exist, or if there is some other
+     *                      problem
      *                      updating the data
      */
     public long addObjectNote(long objectId, int objectType, long taxFormUserId, Note n)
@@ -4359,9 +4555,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param objectId      The ID of the object with which to associate the note.
      * @param objectType    The type of the object with which to associate the note.
-     *                      Must be a type defined in <tt>PactsConstants.java</tt> and must allow notes.
+     *                      Must be a type defined in <tt>PactsConstants.java</tt>
+     *                      and must allow notes.
      * @param taxFormUserId If the object is a tax form, the user ID of
-     *                      the tax form.  This parameter is otherwise disregarded.
+     *                      the tax form. This parameter is otherwise disregarded.
      * @param noteId        The ID of the note to attach.
      * @throws SQLException If there is some problem updating the data
      */
@@ -4405,7 +4602,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws IllegalUpdateException If the affidavit has expired or has already
      *                                been affirmed.
      * @throws NoObjectFoundException If the specified affidavit does not exist.
-     * @throws SQLException           If there is some other problem updating the data
+     * @throws SQLException           If there is some other problem updating the
+     *                                data
      */
     public void affirmAffidavit(long affidavitId, String finalText, String coderBirthDate)
             throws NoObjectFoundException, IllegalUpdateException, SQLException {
@@ -4536,14 +4734,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new NoObjectFoundException("Affidavit " + a.getHeader().getId() + " not found in database");
     }
 
-
     public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, Date payDate, long operatorUserId) {
         Map<Long, String> errors = new HashMap<Long, String>();
         List<BasePayment> updatePayments = new ArrayList<BasePayment>();
 
         boolean rollback = true;
 
-        if (event==2 && payDate==null) {
+        if (event == 2 && payDate == null) {
             errors.put(0l, "Incorrect payment date.");
         }
 
@@ -4589,7 +4786,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
                                 if (payment.getCurrentStatus().getId() != OwedPaymentStatus.ID) {
                                     errors.put(payment.getId(), "Can't assign payment method for payment in " +
-                                               payment.getCurrentStatus().getDesc() + " status");
+                                            payment.getCurrentStatus().getDesc() + " status");
                                 } else {
                                     payment.setMethodId(paymentMethodId);
                                 }
@@ -4601,7 +4798,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     }
                     updatePayments.add(payment);
                 } else {
-                    errors.put(0l, "Inactive users detected, payments were canceled. Please check your selection and try again.");
+                    errors.put(0l,
+                            "Inactive users detected, payments were canceled. Please check your selection and try again.");
                     rollback = false;
                 }
             } catch (SQLException sqle) {
@@ -4670,13 +4868,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } catch (Exception e) {
             printException(e);
             try {
-                if (ps != null) ps.close();
+                if (ps != null)
+                    ps.close();
             } catch (Exception e1) {
                 printException(e1);
             }
             ps = null;
             try {
-                if (con != null) con.close();
+                if (con != null)
+                    con.close();
             } catch (Exception e1) {
                 printException(e1);
             }
@@ -4705,8 +4905,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * <p/>
      * Note: this methods assumes autocommit is false and uses a trxDataSource.
      *
-     * @param p          the payment to update
-     * @param supervisor true if the update requester is a supervisor
+     * @param p              the payment to update
+     * @param supervisor     true if the update requester is a supervisor
      * @param operatorUserId User ID of the operator or 0 if not set
      * @throws Exception if the update fails
      */
@@ -4765,7 +4965,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param t The updated tax form information
      * @throws NoObjectFoundException If the specified tax form was not found
-     * @throws IllegalUpdateException If the user is trying to make an update that is not allowed
+     * @throws IllegalUpdateException If the user is trying to make an update that
+     *                                is not allowed
      * @throws SQLException           If there is some problem updating the data
      */
     public void updateTaxForm(TaxForm t) throws NoObjectFoundException, SQLException, IllegalUpdateException {
@@ -4806,13 +5007,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } catch (Exception e) {
             printException(e);
             try {
-                if (ps != null) ps.close();
+                if (ps != null)
+                    ps.close();
             } catch (Exception e1) {
                 printException(e1);
             }
             ps = null;
             try {
-                if (c != null) c.close();
+                if (c != null)
+                    c.close();
             } catch (Exception e1) {
                 printException(e1);
             }
@@ -4831,7 +5034,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param t The updated tax form information
      * @throws NoObjectFoundException If the specified user tax form was not found
-     * @throws IllegalUpdateException If the user is trying to make an update that is not allowed.
+     * @throws IllegalUpdateException If the user is trying to make an update that
+     *                                is not allowed.
      * @throws SQLException           If there is some problem updating the data
      */
     public void updateUserTaxForm(TaxForm t) throws NoObjectFoundException, IllegalUpdateException, SQLException {
@@ -4899,7 +5103,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param objectType The object type to update
      * @param newText    The updated text
      * @throws NoObjectFoundException If the specified object does not exist.
-     * @throws SQLException           If there is some other problem updating the data
+     * @throws SQLException           If there is some other problem updating the
+     *                                data
      */
     public void updateText(long objectId, int objectType, String newText)
             throws NoObjectFoundException, SQLException {
@@ -4961,27 +5166,27 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Returns true iff the specified user is allowed to affirm an affidavit
-     * of the specified type.  This will be the case if the user has at least
+     * of the specified type. This will be the case if the user has at least
      * one notarized affidavit of that type on file, and has fully filled out
-     * the member profile demographic information.  If the user does not exist
+     * the member profile demographic information. If the user does not exist
      * in the database, the method returns false.
      *
      * @param userId          The user ID to check.
      * @param affidavitTypeId The type of the affidavit.
-     * @return Whether or not the user can affirm an affidavit of the specified type.
+     * @return Whether or not the user can affirm an affidavit of the specified
+     *         type.
      * @throws SQLException If there is some problem querying the database
      */
     public boolean canAffirmAffidavit(long userId, int affidavitTypeId) throws SQLException {
         return hasNotarizedAffidavit(userId, affidavitTypeId) && hasAllDemographicAnswers(userId) && hasTaxForm(userId);
     }
 
-
     public boolean hasNotarizedAffidavit(long userId, int affidavitTypeId) throws SQLException {
 
         StringBuffer query = new StringBuffer(300);
         query.append("SELECT COUNT(*) FROM affidavit WHERE user_id = " + userId);
-        //does it matter what type of affidavit was notarized?  i don't think so
-        //query.append(" AND affidavit_type_id = " + affidavitTypeId);
+        // does it matter what type of affidavit was notarized? i don't think so
+        // query.append(" AND affidavit_type_id = " + affidavitTypeId);
         query.append(" AND notarized = 1");
         Connection c = null;
         boolean ret = false;
@@ -5029,7 +5234,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             ResultSetContainer rsc = runSelectQuery(c, query.toString());
-
 
             if (rsc.size() == 0) {
                 log.debug("User " + userId + " has all demographic answers (no questions without reply)");
@@ -5117,6 +5321,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         return false;
     }
+
     public boolean hasTaxForm(long userId) throws SQLException {
 
         // Change to also check for tax forms on file
@@ -5136,7 +5341,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         return ret;
     }
-
 
     public boolean hasGlobalAD(long userId) throws SQLException {
 
@@ -5191,12 +5395,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Generates all the affidavits and payments for the people who won
-     * money in the given contest round.  Returns the number of
+     * money in the given contest round. Returns the number of
      * affidavit/payment pairs generated.
      *
      * @param roundId     The ID of the round
      * @param makeChanges If true, updates the database; if false, logs
-     *                    the changes that would have been made had this parameter been true.
+     *                    the changes that would have been made had this parameter
+     *                    been true.
      * @return The number of affidavit/payment pairs generated.
      * @throws IllegalUpdateException If the affidavit/payment information
      *                                has already been generated for this round.
@@ -5227,7 +5432,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             Date eventDate = retriever.getEventDate();
 
             StringBuffer getWinners = new StringBuffer(300);
-            getWinners.append("SELECT rr.room_id, rr.coder_id, rr.room_placed, rp.paid, a.country_code, rp.payment_type_id ");
+            getWinners.append(
+                    "SELECT rr.room_id, rr.coder_id, rr.room_placed, rp.paid, a.country_code, rp.payment_type_id ");
             getWinners.append("FROM room_result rr, user u, user_address_xref x, address a, round_payment rp ");
             getWinners.append("WHERE rr.round_id = " + roundId + " ");
             getWinners.append("AND rp.paid > 0 ");
@@ -5308,7 +5514,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         pairAdd.append(text.substring(0, 50));
                     }
                     pairAdd.append("\nPayment gross amount: " + p.getGrossAmount() + "\n");
-                    //pairAdd.append("Payment status ID: " + p.getCurrentStatus() + "\n");
+                    // pairAdd.append("Payment status ID: " + p.getCurrentStatus() + "\n");
                     pairAdd.append("Payment description: " + p.getHeader().getDescription() + "\n");
                     pairAdd.append("Payment type ID: " + p.getHeader().getTypeId() + "\n");
                     pairAdd.append("Payment due date: " + p.getDueDate() + "\n");
@@ -5345,23 +5551,28 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-
-     * Generates all the payments for the people who won money for the given project (winners and
+     * 
+     * Generates all the payments for the people who won money for the given project
+     * (winners and
      * and review board members).
      * It doesn't insert the payments in the DB, just generates and returns them.
      * <p>
-     * Version 1.6 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
+     * Version 1.6 (Online Review Payments and Status Automation Assembly 1.0)
+     * Changes Notes:
      * <ul>
      * <li>Component Payments can only be paid once check is removed.</li>
-     * <li>a new parameter is added to populate the related resource ids for generated component payments.</li>
+     * <li>a new parameter is added to populate the related resource ids for
+     * generated component payments.</li>
      * </ul>
      * </p>
      *
-     * @param projectId         The ID of the project
-     * @param status            The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
-     * @param client            The project's client (optional)
+     * @param projectId The ID of the project
+     * @param status    The project's status (see
+     *                  /topcoder/apps/review/projecttracker/ProjectStatus.java)
+     * @param client    The project's client (optional)
      * @return The generated payments in a List of BasePayment
-     * @throws IllegalUpdateException If the affidavit/payment information has already been generated for this round.
+     * @throws IllegalUpdateException If the affidavit/payment information has
+     *                                already been generated for this round.
      * @throws SQLException           If there was some error updating the data.
      */
     public List generateComponentPayments(long projectId, long status, String client, List resourceIds)
@@ -5371,35 +5582,46 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         List payments = new ArrayList();
         ResultSetContainer rsc = null;
         List<Long> pendingUserIds = getPendingUserIds(projectId);
-        Map<Long,Double> penalties = getPaymentPenalties(projectId);
+        Map<Long, Double> penalties = getPaymentPenalties(projectId);
 
         // Get winning designers/developers to be paid
         log.info("Generating payments for winners");
 
         StringBuffer getWinners = new StringBuffer(300);
-        getWinners.append(" SELECT s.placement as placed, ri1.value::int as user_id, r.resource_id, stl.name as submission_type, ");
+        getWinners.append(
+                " SELECT s.placement as placed, ri1.value::int as user_id, r.resource_id, stl.name as submission_type, ");
         getWinners.append(" pcl.project_category_id, pi56.value::int as mm_round_id, ");
 
         getWinners.append(" CASE ");
         getWinners.append("    WHEN pcl.project_type_id = 3 OR ");
         getWinners.append("         exists (select 1 from tcs_catalog:submission s2, tcs_catalog:upload u2 where ");
-        getWinners.append("             s2.upload_id=u2.upload_id and u.project_id=u2.project_id and s2.prize_id is not null) THEN NVL(pr.prize_amount,0) ");
+        getWinners.append(
+                "             s2.upload_id=u2.upload_id and u.project_id=u2.project_id and s2.prize_id is not null) THEN NVL(pr.prize_amount,0) ");
         getWinners.append("    ELSE ROUND(ri7.value) ");
         getWinners.append(" END::float AS payment ");
 
         getWinners.append(" FROM tcs_catalog:project p ");
-        getWinners.append(" INNER JOIN tcs_catalog:project_category_lu pcl ON pcl.project_category_id = p.project_category_id ");
-        getWinners.append(" INNER JOIN tcs_catalog:resource r ON r.project_id = p.project_id AND r.resource_role_id = 1 ");
-        getWinners.append(" INNER JOIN tcs_catalog:resource_info ri1 ON r.resource_id = ri1.resource_id AND ri1.resource_info_type_id = 1 ");
-        getWinners.append(" INNER JOIN tcs_catalog:resource_info ri7 ON r.resource_id = ri7.resource_id AND ri7.resource_info_type_id = 7 ");
-        getWinners.append(" INNER JOIN tcs_catalog:upload u ON u.resource_id = r.resource_id AND u.upload_type_id = 1 AND u.upload_status_id = 1 ");
-        getWinners.append(" INNER JOIN tcs_catalog:submission s ON s.upload_id = u.upload_id AND s.submission_type_id in (1,3) and s.placement IS NOT NULL ");
-        getWinners.append(" INNER JOIN tcs_catalog:submission_type_lu stl ON stl.submission_type_id=s.submission_type_id ");
+        getWinners.append(
+                " INNER JOIN tcs_catalog:project_category_lu pcl ON pcl.project_category_id = p.project_category_id ");
+        getWinners.append(
+                " INNER JOIN tcs_catalog:resource r ON r.project_id = p.project_id AND r.resource_role_id = 1 ");
+        getWinners.append(
+                " INNER JOIN tcs_catalog:resource_info ri1 ON r.resource_id = ri1.resource_id AND ri1.resource_info_type_id = 1 ");
+        getWinners.append(
+                " INNER JOIN tcs_catalog:resource_info ri7 ON r.resource_id = ri7.resource_id AND ri7.resource_info_type_id = 7 ");
+        getWinners.append(
+                " INNER JOIN tcs_catalog:upload u ON u.resource_id = r.resource_id AND u.upload_type_id = 1 AND u.upload_status_id = 1 ");
+        getWinners.append(
+                " INNER JOIN tcs_catalog:submission s ON s.upload_id = u.upload_id AND s.submission_type_id in (1,3) and s.placement IS NOT NULL ");
+        getWinners.append(
+                " INNER JOIN tcs_catalog:submission_type_lu stl ON stl.submission_type_id=s.submission_type_id ");
         getWinners.append(" LEFT OUTER JOIN tcs_catalog:prize pr ON pr.prize_id = s.prize_id ");
-        getWinners.append(" LEFT OUTER JOIN tcs_catalog:project_info pi56 ON pi56.project_id=p.project_id and pi56.project_info_type_id=56 ");
+        getWinners.append(
+                " LEFT OUTER JOIN tcs_catalog:project_info pi56 ON pi56.project_id=p.project_id and pi56.project_info_type_id=56 ");
 
         getWinners.append(" WHERE p.project_id = " + projectId + " ");
-        getWinners.append(" AND r.resource_id not in (SELECT ri8.resource_id FROM tcs_catalog:resource_info ri8 WHERE ri8.resource_info_type_id=8 AND ri8.value='Yes') ");
+        getWinners.append(
+                " AND r.resource_id not in (SELECT ri8.resource_id FROM tcs_catalog:resource_info ri8 WHERE ri8.resource_info_type_id=8 AND ri8.value='Yes') ");
 
         rsc = runSelectQuery(getWinners.toString());
         for (int i = 0; i < rsc.size(); i++) {
@@ -5411,9 +5633,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 String submissionType = rsc.getStringItem(i, "submission_type");
 
                 double penalty = penalties.get(coderId) == null ? 0.0 : penalties.get(coderId);
-                double amount = rsc.getDoubleItem(i, "payment")*(1.0-penalty);
+                double amount = rsc.getDoubleItem(i, "payment") * (1.0 - penalty);
 
-                log.info("Generating payment. Coder: " + coderId + " placed: " + placed + " amount: " + amount + " penalty: " + penalty + " resourceId: " + resourceId);
+                log.info("Generating payment. Coder: " + coderId + " placed: " + placed + " amount: " + amount
+                        + " penalty: " + penalty + " resourceId: " + resourceId);
                 if (amount < 0.01) {
                     log.info("Ignoring the payment because of zero or negative amount.");
                     continue;
@@ -5433,7 +5656,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     } else {
                         payment = new ContestPayment(coderId, amount, client, projectId, placed);
 
-                        // If this is the winner's payment for a SW contest, split the payment in two installments
+                        // If this is the winner's payment for a SW contest, split the payment in two
+                        // installments
                         if (placed == 1 && !isStudioProject(projectId)) {
                             payment.setGrossAmount(amount * FIRST_INSTALLMENT_PERCENT);
 
@@ -5443,7 +5667,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                             payment2.setInstallmentNumber(2);
 
                             // Calculate the due date for the 2nd installment.
-                            // It should be max(general due date assigned by the system, SECOND_INSTALLMENT_HOLD_PERIOD days from now).
+                            // It should be max(general due date assigned by the system,
+                            // SECOND_INSTALLMENT_HOLD_PERIOD days from now).
                             Calendar cal = Calendar.getInstance();
                             cal.add(Calendar.DATE, SECOND_INSTALLMENT_HOLD_PERIOD);
 
@@ -5462,7 +5687,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
                 resourceIds.add(new Long(resourceId));
             } else {
-                log.info("Payments for the coder " + coderId + " are skipped because he/she still has pending late deliverables.");
+                log.info("Payments for the coder " + coderId
+                        + " are skipped because he/she still has pending late deliverables.");
             }
         }
 
@@ -5479,7 +5705,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         commonQuery.append("on r.resource_id = ri_p.resource_id ");
         commonQuery.append("and ri_p.resource_info_type_id = 7 ");
         commonQuery.append("and round(ri_p.value) > 0 ");
-        commonQuery.append("and r.resource_id not in (select ri8.resource_id from tcs_catalog:resource_info ri8 where ri8.resource_info_type_id=8 and ri8.value='Yes') "); //make sure this resource has not been paid yet
+        commonQuery.append(
+                "and r.resource_id not in (select ri8.resource_id from tcs_catalog:resource_info ri8 where ri8.resource_info_type_id=8 and ri8.value='Yes') "); // make
+                                                                                                                                                                // sure
+                                                                                                                                                                // this
+                                                                                                                                                                // resource
+                                                                                                                                                                // has
+                                                                                                                                                                // not
+                                                                                                                                                                // been
+                                                                                                                                                                // paid
+                                                                                                                                                                // yet
         commonQuery.append("where p.project_id = " + projectId);
 
         // Get review board members to be paid
@@ -5502,17 +5737,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         for (int i = 0; i < rsc.size(); i++) {
             long coderId = Long.parseLong(rsc.getStringItem(i, "user_id"));
             if (pendingUserIds.contains(coderId)) {
-                log.info("Payments for the coder " + coderId + " are skipped because he/she still has pending late deliverables.");
+                log.info("Payments for the coder " + coderId
+                        + " are skipped because he/she still has pending late deliverables.");
                 continue;
             }
 
             String paymentType = rsc.getStringItem(i, "payment_type");
             double penalty = penalties.get(coderId) == null ? 0.0 : penalties.get(coderId);
             double amount = rsc.getDoubleItem(i, "paid");
-            double penalizedAmount = amount*(1.0-penalty);
+            double penalizedAmount = amount * (1.0 - penalty);
 
             log.info("Generating payment. Coder: " + coderId + " amount: " + amount +
-                     " penalized amount: " + penalizedAmount + " penalty: " + penalty);
+                    " penalized amount: " + penalizedAmount + " penalty: " + penalty);
 
             ComponentProjectReferencePayment p = null;
             int projectType = getProjectType(projectId);
@@ -5549,7 +5785,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Returns the maximum of two dates. A null date is considered to be less than any non-null date.
+     * Returns the maximum of two dates. A null date is considered to be less than
+     * any non-null date.
      */
     private static Date max(Date d1, Date d2) {
         if (d1 == null && d2 == null) {
@@ -5565,13 +5802,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Returns list of user IDs who have pending late deliverables for the specific project in the Online Review.
-     * A late deliverable is pending if it has been explained by the late member but is not yet responded or if it
-     * is still in the 24 hours window since the moment of creation (which means the late member can still explain it).
+     * Returns list of user IDs who have pending late deliverables for the specific
+     * project in the Online Review.
+     * A late deliverable is pending if it has been explained by the late member but
+     * is not yet responded or if it
+     * is still in the 24 hours window since the moment of creation (which means the
+     * late member can still explain it).
      *
-     * @param projectId         The ID of the project
+     * @param projectId The ID of the project
      * @return List of user IDs who have pending late deliverables for this project.
-     * @throws SQLException     If there was some error retrieving the data.
+     * @throws SQLException If there was some error retrieving the data.
      */
     private List<Long> getPendingUserIds(long projectId) throws SQLException {
         StringBuffer query = new StringBuffer(300);
@@ -5580,8 +5820,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" ld.resource_id = r.resource_id and r.project_id = " + projectId + " and ");
         query.append(" r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and ");
         query.append(" ld.forgive_ind=0 and ");
-        query.append(" ((ld.explanation is not null and ld.response is null) "); // if the explained record is waiting for the response
-        query.append(" or (ld.explanation is null and ld.create_date>current-24 units hour)) "); // or if the late member still has time to explain (24 hours)
+        query.append(" ((ld.explanation is not null and ld.response is null) "); // if the explained record is waiting
+                                                                                 // for the response
+        query.append(" or (ld.explanation is null and ld.create_date>current-24 units hour)) "); // or if the late
+                                                                                                 // member still has
+                                                                                                 // time to explain (24
+                                                                                                 // hours)
 
         List<Long> userIds = new ArrayList<Long>();
         ResultSetContainer rsc = runSelectQuery(query.toString());
@@ -5593,59 +5837,64 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Returns mapping from user ID to payment penalties due to the late deliverables for the specific project.
-     * The values of the map are real values in [0;0.5] interval, 0 means no penalty, 0.5 means the
+     * Returns mapping from user ID to payment penalties due to the late
+     * deliverables for the specific project.
+     * The values of the map are real values in [0;0.5] interval, 0 means no
+     * penalty, 0.5 means the
      * member payment is reduced by 50%.
      *
-     * @param projectId         The ID of the project
+     * @param projectId The ID of the project
      * @return Map from user IDs to payment penalties.
-     * @throws SQLException     If there was some error retrieving the data.
+     * @throws SQLException If there was some error retrieving the data.
      */
-    private Map<Long,Double> getPaymentPenalties(long projectId) throws SQLException {
+    private Map<Long, Double> getPaymentPenalties(long projectId) throws SQLException {
         StringBuffer query = new StringBuffer(300);
         query.append(" select ri.value::int as user_id, nvl(sum(ld.delay),0) as total_delay, ");
         query.append(" sum(case when ld.late_deliverable_type_id=2 then 1 else 0 end)::int as rejected_final_fixes ");
-        query.append(" from tcs_catalog:resource r, tcs_catalog:resource_info ri, tcs_catalog:late_deliverable ld where ");
-        query.append(" r.project_id=" + projectId + " and r.resource_id=ld.resource_id and r.resource_id=ri.resource_id and ");
+        query.append(
+                " from tcs_catalog:resource r, tcs_catalog:resource_info ri, tcs_catalog:late_deliverable ld where ");
+        query.append(" r.project_id=" + projectId
+                + " and r.resource_id=ld.resource_id and r.resource_id=ri.resource_id and ");
         query.append(" ri.resource_info_type_id=1 and ld.forgive_ind=0 ");
         query.append(" group by 1 ");
 
-        Map<Long,Double> penalties = new HashMap<Long,Double>();
+        Map<Long, Double> penalties = new HashMap<Long, Double>();
         ResultSetContainer rsc = runSelectQuery(query.toString());
         for (int i = 0; i < rsc.size(); i++) {
             long userId = rsc.getLongItem(i, "user_id");
             long delay = rsc.getLongItem(i, "total_delay");
             long rejectedFinalFixes = rsc.getLongItem(i, "rejected_final_fixes");
 
-            long paymentPenaltyPercentage = (delay>0 ? 5 : 0) + (delay/3600) + rejectedFinalFixes * 5;
+            long paymentPenaltyPercentage = (delay > 0 ? 5 : 0) + (delay / 3600) + rejectedFinalFixes * 5;
             if (paymentPenaltyPercentage > 50) {
                 paymentPenaltyPercentage = 50;
             }
 
-            penalties.put(userId, (double)paymentPenaltyPercentage/100.0);
+            penalties.put(userId, (double) paymentPenaltyPercentage / 100.0);
         }
         return penalties;
     }
 
     /**
-     * Adds online review payments in persistence and updates payment status to "Paid"
+     * Adds online review payments in persistence and updates payment status to
+     * "Paid"
      * for the corresponding resources in the Online Review.
      *
-     * @param payments the review payments
-     * @param resourceIds the resource ids to update the payment status.
+     * @param payments       the review payments
+     * @param resourceIds    the resource ids to update the payment status.
      * @param operatorUserId User ID of the operator or 0 if not set
      * @return the online review payments.
      * @throws RemoteException if any error occurs.
-     * @throws SQLException if any sql error occurs.
+     * @throws SQLException    if any sql error occurs.
      * @since Online Review Payments and Status Automation Assembly 1.0
      */
     public List addOnlineReviewPayments(List payments, List resourceIds, long operatorUserId) throws SQLException {
         log.info("addOnlineReviewPayments ..");
 
         if (!resourceIds.isEmpty()) {
-            //we will first do update, if no record to update, then do insertion
+            // we will first do update, if no record to update, then do insertion
             for (Iterator iter = resourceIds.iterator(); iter.hasNext();) {
-                String resourceId = (String)iter.next().toString();
+                String resourceId = (String) iter.next().toString();
 
                 StringBuffer updatePaymentStatus = new StringBuffer(300);
                 updatePaymentStatus.append("UPDATE tcs_catalog:resource_info SET value='Yes' ");
@@ -5681,7 +5930,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Sets the status on all contest payments with Pending or On Hld status older than a specified time
+     * Sets the status on all contest payments with Pending or On Hld status older
+     * than a specified time
      * to Expired. The time limit is specified in <tt>PactsConstants.java</tt>
      * and is currently set to 60 days.
      *
@@ -5734,12 +5984,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-
     /**
      * Sets the status on all affidavits older than a specified time
      * to Expired, and set the status on their associated payment (if any)
-     * to Canceled.  The time limit is specified in <tt>PactsConstants.java</tt>
-     * and is currently set to 60 days.  Any payments that were already paid
+     * to Canceled. The time limit is specified in <tt>PactsConstants.java</tt>
+     * and is currently set to 60 days. Any payments that were already paid
      * that would here have been canceled are logged.
      *
      * @return The number of affidavit/payment pairs thus affected.
@@ -5775,7 +6024,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     paymentId = payments.getLongItem(i, 0);
                     psm.expiredAffidavit(paymentId);
                 } catch (EventFailureException e) {
-                    log.warn("Payment ID " + paymentId + " cancellation (expired Affidavit) could not be completed due to\n" +
+                    log.warn("Payment ID " + paymentId
+                            + " cancellation (expired Affidavit) could not be completed due to\n" +
                             e.getMessage());
                 }
             }
@@ -5789,7 +6039,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             close(c);
         }
     }
-
 
     /**
      */
@@ -5831,7 +6080,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-
     /**
      * Sets the status on all assignment documents older than a specified time
      * to Expired, and set the status on their associated payment (if any)
@@ -5851,16 +6099,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getPayments.append("where p.most_recent_detail_id = pd.payment_detail_id ");
             getPayments.append("and date(ad.expire_date) <= date(current) ");
             getPayments.append("and ad.assignment_document_status_id = " + AssignmentDocumentStatus.PENDING_STATUS_ID);
-            getPayments.append("and (pd.studio_contest_id = ad.studio_contest_id or pd.component_project_id = ad.component_project_id) ");
+            getPayments.append(
+                    "and (pd.studio_contest_id = ad.studio_contest_id or pd.component_project_id = ad.component_project_id) ");
             getPayments.append("and pd.payment_status_id = " + PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId());
             ResultSetContainer payments = runSelectQuery(c, getPayments.toString());
 
             StringBuffer updateAssignmentDocuments = new StringBuffer(300);
             updateAssignmentDocuments.append(" update assignment_document ");
-            updateAssignmentDocuments.append(" set assignment_document_status_id = " + AssignmentDocumentStatus.EXPIRED_STATUS_ID + ", ");
+            updateAssignmentDocuments.append(
+                    " set assignment_document_status_id = " + AssignmentDocumentStatus.EXPIRED_STATUS_ID + ", ");
             updateAssignmentDocuments.append(" modify_date = current ");
             updateAssignmentDocuments.append(" WHERE date(expire_date) <= date(current) ");
-            updateAssignmentDocuments.append(" and assignment_document_status_id = " + AssignmentDocumentStatus.PENDING_STATUS_ID);
+            updateAssignmentDocuments
+                    .append(" and assignment_document_status_id = " + AssignmentDocumentStatus.PENDING_STATUS_ID);
 
             int rowsUpdated = runUpdateQuery(c, updateAssignmentDocuments.toString());
 
@@ -5872,7 +6123,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     paymentId = payments.getLongItem(i, 0);
                     psm.expiredIPTransfer(paymentId);
                 } catch (EventFailureException e) {
-                    log.warn("Payment ID " + paymentId + " cancellation (expired IPTransfer) could not be completed due to\n" +
+                    log.warn("Payment ID " + paymentId
+                            + " cancellation (expired IPTransfer) could not be completed due to\n" +
                             e.getMessage());
                 }
             }
@@ -5887,7 +6139,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-
     public void createAffidavitTemplate(int affidavitTypeId, String text) throws SQLException {
 
         Connection conn = null;
@@ -5900,7 +6151,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             StringBuffer query = new StringBuffer(1024);
             query.append("insert into affidavit_template (affidavit_template_id, affidavit_type_id, text)");
             query.append("values (?, ?, ?)");
-
 
             long affidavitTemplateId = IdGeneratorClient.getSeqId("AFFIDAVIT_TEMPLATE_SEQ");
 
@@ -5944,7 +6194,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.close();
 
             StringBuffer query = new StringBuffer(1024);
-            query.append("insert into assignment_document_template (assignment_document_template_id, assignment_document_type_id, assignment_document_template_text, assignment_document_template_name, cur_version)");
+            query.append(
+                    "insert into assignment_document_template (assignment_document_template_id, assignment_document_type_id, assignment_document_template_text, assignment_document_template_name, cur_version)");
             query.append("values (?, ?, ?, ?, 1)");
 
             long assignmentDocumentTemplateId = IdGeneratorClient.getSeqId("ASSIGNMENT_DOCUMENT_TEMPLATE_SEQ");
@@ -5972,7 +6223,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             close(conn);
         }
     }
-
 
     public Payment getEmptyPayment(long userId) throws SQLException {
         log.debug("getemptypayment called...");
@@ -6084,7 +6334,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
         query.append(" order by pi_rated.value ");
 
-
         ArrayList param = new ArrayList();
         param.add(search);
         ResultSetContainer rsc = runSearchQuery(DBMS.TCS_OLTP_DATASOURCE_NAME, query.toString(), param);
@@ -6116,7 +6365,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" FROM payment_detail pd, payment p, user u ");
         query.append(" WHERE pd.payment_detail_id = p.most_recent_detail_id ");
         query.append(" AND p.user_id = u.user_id ");
-        query.append(" AND " + filterCondition("'[' || u.handle::lvarchar || '] ' || pd.payment_desc::lvarchar", search));
+        query.append(
+                " AND " + filterCondition("'[' || u.handle::lvarchar || '] ' || pd.payment_desc::lvarchar", search));
         query.append(" ORDER BY 2");
 
         ArrayList param = new ArrayList();
@@ -6330,7 +6580,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return hm;
     }
 
-
     /**
      * Look up and fill data in the payment object.
      * It fills:
@@ -6343,8 +6592,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException is a problem occurs accessing db.
      */
     public BasePayment fillPaymentData(BasePayment payment) throws SQLException {
-            payment.getProcessor().fillData(payment);
-            return payment;
+        payment.getProcessor().fillData(payment);
+        return payment;
     }
 
     /**
@@ -6356,7 +6605,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return the id of the inserted payment.
      * @throws Exception
      */
-    private long makeNewAlgorithmPayment(Connection c, Payment p, AlgorithmRoundReferencePayment payment) throws Exception {
+    private long makeNewAlgorithmPayment(Connection c, Payment p, AlgorithmRoundReferencePayment payment)
+            throws Exception {
         log.debug("makeNewAlgorithmPayment called...");
         Affidavit a = new Affidavit();
         a.setRoundId(new Long(payment.getRoundId()));
@@ -6364,7 +6614,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         a.getHeader().setStatusId(AFFIDAVIT_PENDING_STATUS);
         a.getHeader().setDescription(payment.getDescription() + " affidavit");
         a.getHeader().setTypeId(ALGORITHM_AFFIDAVIT_TYPE);
-
 
         long paymentId = makeAffidavitPayment(c, a, null, p)[0];
 
@@ -6443,14 +6692,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 p.getHeader().setJiraIssueName(((NoReferencePayment) payment).getJiraIssueName());
         }
 
-
         return p;
 
     }
 
     /**
      * Update a payment for regular users.
-     * The payment must be already saved in the database, or an exception will be thrown.
+     * The payment must be already saved in the database, or an exception will be
+     * thrown.
      * <p/>
      * This method assumes autocommit is set to false
      *
@@ -6464,7 +6713,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Update a payment for regular users.
-     * The payment must be already saved in the database, or an exception will be thrown.
+     * The payment must be already saved in the database, or an exception will be
+     * thrown.
      * <p/>
      * This method assumes autocommit is set to false
      *
@@ -6479,12 +6729,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Update a payment for regular users.
-     * The payment must be already saved in the database, or an exception will be thrown.
+     * The payment must be already saved in the database, or an exception will be
+     * thrown.
      * <p/>
      * This method assumes autocommit is set to false
      *
-     * @param payment    payment to update.
-     * @param supervisor true if the requester is a supervisor
+     * @param payment        payment to update.
+     * @param supervisor     true if the requester is a supervisor
      * @param operatorUserId User ID of the operator or 0 if not set
      * @return the updated payment.
      * @throws Exception if the update fails
@@ -6498,7 +6749,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             int rationale = payment.getModificationRationale();
 
             // if nothing seems to be changed, set the rationale to multiple fields
-            // to be in the safe side.  It won't hurt.
+            // to be in the safe side. It won't hurt.
             if (rationale == 0) {
                 rationale = MODIFICATION_MULTIPLE_FIELDS;
             }
@@ -6519,7 +6770,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     private int getProjectType(long projectId) throws SQLException {
-        ResultSetContainer rsc = runSelectQuery("SELECT project_category_id FROM tcs_catalog:project WHERE project_id=" + projectId);
+        ResultSetContainer rsc = runSelectQuery(
+                "SELECT project_category_id FROM tcs_catalog:project WHERE project_id=" + projectId);
 
         if (rsc.size() == 0) {
             return 0;
@@ -6528,18 +6780,21 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     private boolean isStudioProject(long projectId) throws SQLException {
-        ResultSetContainer rsc = runSelectQuery("SELECT pcl.project_type_id FROM tcs_catalog:project_category_lu pcl, " +
-            " tcs_catalog:project p WHERE p.project_category_id=pcl.project_category_id and p.project_id=" + projectId);
+        ResultSetContainer rsc = runSelectQuery(
+                "SELECT pcl.project_type_id FROM tcs_catalog:project_category_lu pcl, " +
+                        " tcs_catalog:project p WHERE p.project_category_id=pcl.project_category_id and p.project_id="
+                        + projectId);
 
         if (rsc.size() == 0) {
             throw new IllegalArgumentException("No project type found for project " + projectId);
         }
 
-        return rsc.getIntItem(0, 0)==3;
+        return rsc.getIntItem(0, 0) == 3;
     }
 
     /**
-     * Returns invoice number associated with the payment or null if the payment was not invoiced yet.
+     * Returns invoice number associated with the payment or null if the payment was
+     * not invoiced yet.
      *
      * @param paymentId ID of the payment to check.
      * @return Invoice number or null.
@@ -6547,7 +6802,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public String getInvoiceNumber(long paymentId) throws SQLException {
         ResultSetContainer rsc = runSelectQuery("SELECT i.invoice_number from invoice_record ir, invoice i " +
-            " where i.invoice_id=ir.invoice_id and ir.payment_id = " + paymentId);
+                " where i.invoice_id=ir.invoice_id and ir.payment_id = " + paymentId);
 
         return rsc.size() > 0 ? rsc.getStringItem(0, "invoice_number") : null;
     }
@@ -6586,7 +6841,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             processor.fillData(payment);
 
-            // this need to be done in order to calculate the net amount before calling the status manager
+            // this need to be done in order to calculate the net amount before calling the
+            // status manager
             Payment tmp = createPayment(payment);
             fillPaymentNetAmount(tmp);
             payment.setNetAmount(tmp.getNetAmount());
@@ -6628,10 +6884,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Adds many payments at once in one transaction, so if one fails, it rolls back.
+     * Adds many payments at once in one transaction, so if one fails, it rolls
+     * back.
      *
      * @param payments payments to add to DB.
-     * @return a list of the payments added, with the information completed (payment_id, net amount calculated)
+     * @return a list of the payments added, with the information completed
+     *         (payment_id, net amount calculated)
      * @throws SQLException
      */
     public List addPayments(List payments) throws SQLException {
@@ -6639,10 +6897,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Adds many payments at once in one transaction, so if one fails, it rolls back.
+     * Adds many payments at once in one transaction, so if one fails, it rolls
+     * back.
      *
      * @param payments payments to add to DB.
-     * @return a list of the payments added, with the information completed (payment_id, net amount calculated)
+     * @return a list of the payments added, with the information completed
+     *         (payment_id, net amount calculated)
      * @param operatorUserId User ID of the operator or 0 if not set
      * @throws SQLException
      */
@@ -6688,7 +6948,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Find all the payments of a certain type.
      *
      * @param paymentTypeId type of payment to look for.
-     * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
+     * @return a List with instances of the specific class for the payment type
+     *         (always a BasePayment subclass)
      * @throws SQLException
      */
     public List findPayments(int paymentTypeId) throws SQLException {
@@ -6700,12 +6961,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Find all the payments of a certain type, referencing to a particular id.
-     * For example, if the payment is for algorithm contest, in the referenceId you must pass the round_id to look for.
+     * For example, if the payment is for algorithm contest, in the referenceId you
+     * must pass the round_id to look for.
      * If the payment is for review board, you must pass the project_id and so on.
      *
      * @param paymentTypeId type of payment to look for.
      * @param referenceId   reference to look for
-     * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
+     * @return a List with instances of the specific class for the payment type
+     *         (always a BasePayment subclass)
      * @throws SQLException
      */
     public List findPayments(int paymentTypeId, long referenceId) throws SQLException {
@@ -6735,7 +6998,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param coderId       the coder to find payments for.
      * @param paymentTypeId type of payment to look for.
-     * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
+     * @return a List with instances of the specific class for the payment type
+     *         (always a BasePayment subclass)
      * @throws SQLException
      */
     public List findCoderPayments(long coderId, int paymentTypeId) throws SQLException, InvalidStatusException {
@@ -6752,10 +7016,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param coderId       the coder to find payments for.
      * @param paymentTypeId type of payment to look for.
      * @param referenceId   the reference id.
-     * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
+     * @return a List with instances of the specific class for the payment type
+     *         (always a BasePayment subclass)
      * @throws SQLException
      */
-    public List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws SQLException, InvalidStatusException {
+    public List findCoderPayments(long coderId, int paymentTypeId, long referenceId)
+            throws SQLException, InvalidStatusException {
         Map searchCriteria = new HashMap();
 
         searchCriteria.put(PAYMENT_TYPE_ID, String.valueOf(paymentTypeId));
@@ -6766,10 +7032,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Find a Jira payment by its issue key.
+     * 
      * @param jiraIssueKey the issue key.
      * @return the Jira payments for the given issue, or empty if not found
-     * @throws RemoteException if there is an error
-     * @throws Exception if there is an error
+     * @throws RemoteException        if there is an error
+     * @throws Exception              if there is an error
      * @throws InvalidStatusException if there is an error
      */
     public List findJiraPayment(String jiraIssueKey) throws SQLException, InvalidStatusException {
@@ -6778,7 +7045,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         searchCriteria.put(PAYMENT_JIRA_ISSUE_ID, jiraIssueKey);
         return findCoderPayments(searchCriteria);
     }
-
 
     /**
      * Helper method to create the SQL select to find assignment document
@@ -6790,9 +7056,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append(" SELECT p.payment_id, p.user_id, pd.payment_desc, pd.payment_type_id, ");
         sb.append("    pd.gross_amount, pd.net_amount, pd.payment_status_id, s.payment_status_desc, ");
         sb.append("    p.create_date, pd.date_due, pd.date_paid, ");
-        sb.append("    pd.algorithm_round_id, pd.component_project_id, pd.cockpit_project_id, pd.algorithm_problem_id, ");
-        sb.append("    pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, pd.digital_run_track_id, ");
-        sb.append("    pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.client, ");
+        sb.append(
+                "    pd.algorithm_round_id, pd.component_project_id, pd.cockpit_project_id, pd.algorithm_problem_id, ");
+        sb.append(
+                "    pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, pd.digital_run_track_id, ");
+        sb.append(
+                "    pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.client, ");
         sb.append("    pd.jira_issue_id, pd.payment_method_id, ");
         sb.append("    pd.charity_ind, pdsrx.payment_status_reason_id, ");
         sb.append("    (SELECT reference_field_name   ");
@@ -6807,14 +7076,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return sb;
     }
 
-
     /**
-     * Find the payments of the specified type for a coder, referencing to a particular id.
-     * For example, if the payment is for algorithm contest, in the referenceId you must pass the round_id to look for.
+     * Find the payments of the specified type for a coder, referencing to a
+     * particular id.
+     * For example, if the payment is for algorithm contest, in the referenceId you
+     * must pass the round_id to look for.
      * If the payment is for review board, you must pass the project_id and so on.
      *
      * @param searchCriteria map for the search filter
-     * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
+     * @return a List with instances of the specific class for the payment type
+     *         (always a BasePayment subclass)
      * @throws SQLException
      */
     public List<BasePayment> findCoderPayments(Map searchCriteria) {
@@ -6860,8 +7131,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else if (key.equals(PAYMENT_STATUS_ID)) {
                     query.append("AND pd.payment_status_id in (" + value + ") ");
                 } else if (key.equals(PAYMENT_JIRA_ISSUE_ID)) {
-                	query.append("AND pd.jira_issue_id = ? ");
-                	objects.add(value);
+                    query.append("AND pd.jira_issue_id = ? ");
+                    objects.add(value);
                 }
             }
             query.append(" ORDER BY p.payment_id asc ");
@@ -6916,7 +7187,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return l;
     }
 
-    private BasePayment getBasePaymentBean(ResultSetRow rsr) throws InvalidStatusException, InvalidStatusReasonException {
+    private BasePayment getBasePaymentBean(ResultSetRow rsr)
+            throws InvalidStatusException, InvalidStatusReasonException {
         long paymentId = rsr.getLongItem("payment_id");
         long coder = rsr.getLongItem("user_id");
         double grossAmount = rsr.getDoubleItem("gross_amount");
@@ -6962,10 +7234,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         payment.setCurrentStatus(currentStatus);
 
-//        if (payment instanceof ComponentProjectReferencePayment) {
-//        ((ComponentProjectReferencePayment) payment).setClient(client);
+        // if (payment instanceof ComponentProjectReferencePayment) {
+        // ((ComponentProjectReferencePayment) payment).setClient(client);
         payment.setClient(client);
-//        }
+        // }
 
         return payment;
     }
@@ -6974,11 +7246,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         UserProfileBean upb = new UserProfileBean();
         UserProfile profile = upb.getUserProfile(userId);
 
-        //first we must form the xml from the info
+        // first we must form the xml from the info
         XMLDocument tc = new XMLDocument("TC");
 
         RecordTag a = new RecordTag("AssignmentDocument");
-
 
         a.addTag(new ValueTag("first_name", profile.getFirstName()));
         a.addTag(new ValueTag("last_name", profile.getLastName()));
@@ -7032,19 +7303,22 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return a ResultSetContainer with the affidavits
      * @throws SQLException
      */
-    public ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws SQLException {
+    public ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn,
+            boolean sortAscending) throws SQLException {
         StringBuffer query = new StringBuffer(300);
 
         query.append("SELECT a.affidavit_desc, ");
         query.append("CASE WHEN a.status_id = 57 THEN 'Affirm now' ");
         query.append("WHEN a.status_id = 58 THEN 'Affirmed on ' || a.date_affirmed ");
         query.append("ELSE 'Expired' END as affirmation_order, ");
-        query.append("CASE WHEN a.status_id = 57 THEN " + PactsConstants.AFFIDAVIT_EXPIRE_TIME + " units day - (today - a.date_created) || ' days' ");
+        query.append("CASE WHEN a.status_id = 57 THEN " + PactsConstants.AFFIDAVIT_EXPIRE_TIME
+                + " units day - (today - a.date_created) || ' days' ");
         query.append("WHEN a.status_id = 58 THEN '' ");
         query.append("ELSE 'Expired' END as time_left_order, ");
         query.append("pd.net_amount, a.notarized, s.status_desc, pd.date_paid, a.date_affirmed, ");
         query.append("a.affidavit_id, a.affirmed, a.date_created, p.payment_id, a.status_id, ");
-        query.append(PactsConstants.AFFIDAVIT_EXPIRE_TIME + " units day -(today - a.date_created) as time_left, a.date_created, a.date_affirmed, a.affidavit_type_id ");
+        query.append(PactsConstants.AFFIDAVIT_EXPIRE_TIME
+                + " units day -(today - a.date_created) as time_left, a.date_created, a.date_affirmed, a.affidavit_type_id ");
         query.append("FROM affidavit a, status_lu s, ");
         query.append("OUTER (payment p, payment_detail pd) ");
         query.append("WHERE p.payment_id = a.payment_id ");
@@ -7101,7 +7375,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         StringBuffer query = new StringBuffer(300);
         query.append("SELECT COUNT(*) FROM user u ");
         query.append(" JOIN user_sso_login su ON su.user_id = u.user_id ");
-        query.append(" JOIN sso_login_provider sp ON sp.sso_login_provider_id = su.provider_id AND sp.name = 'wipro-adfs' ");
+        query.append(
+                " JOIN sso_login_provider sp ON sp.sso_login_provider_id = su.provider_id AND sp.name = 'wipro-adfs' ");
         query.append("WHERE u.user_id = " + userId);
 
         Connection c = null;
@@ -7114,6 +7389,29 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             close(c);
         }
         return ret;
+    }
+
+    public boolean isUserCountrySet(long userId) throws SQLException {
+        StringBuffer query = new StringBuffer();
+        query.append(
+                "select c.home_country_code as homecountrycode, c.comp_country_code as compcountrycode from informixoltp:coder c where c.coder_id = "
+                        + userId);
+
+        ResultSetContainer rsc = runSelectQuery(query.toString());
+
+        if (rsc.iterator().hasNext()) {
+            ResultSetRow rsr = (ResultSetRow) (rsc.iterator().next());
+            String homeCountryCode = rsr.getStringItem("homecountrycode"),
+                    competitionCountryCode = rsr.getStringItem("compcountrycode");
+            log.debug("Country info for user " + userId + ": HomeCountryCode: " + homeCountryCode
+                    + ", CompetitionCountryCode: " + competitionCountryCode);
+
+            return ((homeCountryCode != null && homeCountryCode.trim().length() > 0)
+                    || (competitionCountryCode != null && competitionCountryCode.trim().length() > 0));
+        }
+
+        return false;
+
     }
 
     class AlgorithmContestPaymentDataRetriever extends AlgorithmContestPayment {
