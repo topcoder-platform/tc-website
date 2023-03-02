@@ -1807,6 +1807,11 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServicesLocal ps = getEjbHandle();
         return ps.hasWiproSSOAccount(userId);
     }
+
+    public boolean isUserCountrySet(long userId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.isUserCountrySet(userId);
+    }
 }
 
 
