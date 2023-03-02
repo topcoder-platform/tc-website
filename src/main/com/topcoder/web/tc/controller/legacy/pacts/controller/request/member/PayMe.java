@@ -234,7 +234,7 @@ public class PayMe extends PaymentHistory {
             return;
         } else {
             log.info("Processing payment using Payoneer old API");
-            processPayoneerPaymentsV4(dib, currentUserId, paymentsToPay, totalNetAmount);
+            processPayoneerV2Payments(dib, currentUserId, paymentsToPay, totalNetAmount);
         }
     }
 
