@@ -257,7 +257,7 @@ public class PayORProjects extends DBUtility {
                             // If this is the winner's payment for a SW contest, split the payment in two
                             // installments
                             if (payment.place == 1 && projectTypeId != 3) {
-                                long amountInCents = (long) (amount * 100);
+                                long amountInCents = Long.parseLong(String.valueOf(amount).replace(".", ""));
                                 long firstInstallmentInCents = (amountInCents * FIRST_INSTALLMENT_PERCENT) / 100;
                                 pactsPayment.setGrossAmount((double) firstInstallmentInCents / 100);
 
