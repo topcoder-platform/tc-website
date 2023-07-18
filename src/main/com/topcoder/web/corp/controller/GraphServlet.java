@@ -11,7 +11,6 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.RequestTracker;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.cache.CacheClient;
@@ -98,7 +97,6 @@ public final class GraphServlet extends HttpServlet {
             TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
             WebAuthentication authentication = new BasicAuthentication(
                     new SessionPersistor(tcRequest.getSession()), tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
-            RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
             log.info("[*** graph *** " + dataRequest.getContentHandle() + " *** " + authentication.getActiveUser().getUserName() + " ***]");
 
