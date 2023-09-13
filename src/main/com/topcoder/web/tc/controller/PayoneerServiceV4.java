@@ -20,6 +20,8 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.MessageFormat;
 import java.util.*;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
 
 
 /**
@@ -263,6 +265,17 @@ public class PayoneerServiceV4 {
 
         public static final int HTTP_OK = HttpsURLConnection.HTTP_OK;
         public static final int HTTP_NOT_FOUND = HttpsURLConnection.HTTP_NOT_FOUND;
+
+        // set the default SSLContext for the whole JVM to use TLSv1.2
+        static {
+            try {
+                SSLContext context = SSLContext.getInstance("TLSv1.2");
+                context.init(null, null, null);
+                SSLContext.setDefault(context);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
         public static RequestResponse send(final RequestType reqType, final String urlString, final Map<String, String> headers, final Map<String, String> requestParams, final boolean isBodyTypeJSON) throws Exception {
             log.info(reqType.toString() + ": " + urlString);
